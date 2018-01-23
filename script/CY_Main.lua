@@ -8171,7 +8171,7 @@ function DrawStrBox(x,y,str,color,size)         --显示带框的字符串
 	maxlen=0
 	num,strarray=Split(str,'*')
 	for i=1,num do
-		local len=string.len(strarray[i])
+		local len=get_show_width(strarray[i])
 		if len>maxlen then
 			maxlen=len
 		end
@@ -8445,6 +8445,7 @@ end
 function DrawString(x,y,str,color,size)         --显示阴影字符串
 --    local r,g,b=GetRGB(color);
 --    lib.DrawStr(x+1,y+1,str,RGB(math.modf(r/2),math.modf(g/2),math.modf(b/2)),size,CC.FontName,CC.SrcCharSet,CC.OSCharSet);
+    --print(str);
     lib.DrawStr(x,y,str,color,size,CC.FontName);
 end
 
@@ -10575,6 +10576,7 @@ function say(s,pid,flag,name)          --个人新对话
 --控制字体ＡＳＤＦ
 --控制换行Ｈ分页Ｐ
 --Ｎ代表自己ｎ代表主角
+print(s);
     local picw=130;       --最大头像图片宽高
 	local pich=130;
 	local talkxnum=18;         --对话一行字数
