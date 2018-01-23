@@ -1,6 +1,1 @@
-15:51:14 JY_Main start.
-15:51:26 Start game cycle
-15:51:59 Event:739
-15:52:05 Event:736
-15:52:07 Event:736
-15:52:11 Event:737
+16:09:19 JY_Main start.

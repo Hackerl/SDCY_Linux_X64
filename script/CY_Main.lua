@@ -1,4 +1,3 @@
-
 function IncludeFile()              --导入其他模块
     dofile(CONFIG.ScriptPath .. "CY_CCTable.lua")
 	dofile(CONFIG.ScriptPath .. "CY_Fight.lua")	
