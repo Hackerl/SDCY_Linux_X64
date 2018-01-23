@@ -1,32 +1,31 @@
 
-function IncludeFile()              --å¯¼å…¥å…¶ä»–æ¨¡å—
+function IncludeFile()              --µ¼ÈëÆäËûÄ£¿é
     dofile(CONFIG.ScriptPath .. "CY_CCTable.lua")
 	dofile(CONFIG.ScriptPath .. "CY_Fight.lua")	
-    dofile(CONFIG.ScriptPath .. "CY_Charset.lua")
-    dofile(CONFIG.ScriptPath .. "readkdef.hsk")
+    dofile(CONFIG.ScriptPath .. "readkdef.hsk")			
 	dofile(CONFIG.ScriptPath .. "SAI.lua")
 	
 end
 
-function SetGlobal()   --è®¾ç½®æ¸¸æˆå†…éƒ¨ä½¿ç”¨çš„å…¨ç¨‹å˜é‡   
+function SetGlobal()   --ÉèÖÃÓÎÏ·ÄÚ²¿Ê¹ÓÃµÄÈ«³Ì±äÁ¿   
    JY={};
 
-   JY.Status=0--GAME_INIT;  --æ¸¸æˆå½“å‰çŠ¶æ€
+   JY.Status=0--GAME_INIT;  --ÓÎÏ·µ±Ç°×´Ì¬
    --JY.IN=GAME_INIT
-   --ä¿å­˜RÃ—æ•°æ®
-   JY.Base={};           --åŸºæœ¬æ•°æ®
-   JY.PersonNum=0;      --äººç‰©ä¸ªæ•°
-   JY.Person={};        --äººç‰©æ•°æ®
-   JY.ThingNum=0        --ç‰©å“æ•°é‡
-   JY.Thing={};         --ç‰©å“æ•°æ®
-   JY.SceneNum=0        --ç‰©å“æ•°é‡
-   JY.Scene={};         --ç‰©å“æ•°æ®
-   JY.WugongNum=0        --ç‰©å“æ•°é‡
-   JY.Wugong={};         --ç‰©å“æ•°æ®
-   JY.ShopNum=0        --å•†åº—æ•°é‡
-   JY.Shop={};         --å•†åº—æ•°æ®
+   --±£´æR¡ÁÊı¾İ
+   JY.Base={};           --»ù±¾Êı¾İ
+   JY.PersonNum=0;      --ÈËÎï¸öÊı
+   JY.Person={};        --ÈËÎïÊı¾İ
+   JY.ThingNum=0        --ÎïÆ·ÊıÁ¿
+   JY.Thing={};         --ÎïÆ·Êı¾İ
+   JY.SceneNum=0        --ÎïÆ·ÊıÁ¿
+   JY.Scene={};         --ÎïÆ·Êı¾İ
+   JY.WugongNum=0        --ÎïÆ·ÊıÁ¿
+   JY.Wugong={};         --ÎïÆ·Êı¾İ
+   JY.ShopNum=0        --ÉÌµêÊıÁ¿
+   JY.Shop={};         --ÉÌµêÊı¾İ
          
-   JY.Data_Base=nil;     --å®é™…ä¿å­˜R*æ•°æ®
+   JY.Data_Base=nil;     --Êµ¼Ê±£´æR*Êı¾İ
    JY.Data_Person=nil;
    JY.Data_Thing=nil;
    JY.Data_Scene=nil;
@@ -40,10 +39,10 @@ function SetGlobal()   --è®¾ç½®æ¸¸æˆå†…éƒ¨ä½¿ç”¨çš„å…¨ç¨‹å˜é‡
    CC.SBL_Wugong={};
    CC.SBL_Shop={};
 
-   JY.MyCurrentPic=0;       --ä¸»è§’å½“å‰èµ°è·¯è´´å›¾åœ¨è´´å›¾æ–‡ä»¶ä¸­åç§»
-   JY.MyPic=0;              --ä¸»è§’å½“å‰è´´å›¾
-   JY.MyTick=0;             --ä¸»è§’æ²¡æœ‰èµ°è·¯çš„æŒç»­å¸§æ•°
-   JY.MyTick2=0;            --æ˜¾ç¤ºäº‹ä»¶åŠ¨ç”»çš„èŠ‚æ‹
+   JY.MyCurrentPic=0;       --Ö÷½Çµ±Ç°×ßÂ·ÌùÍ¼ÔÚÌùÍ¼ÎÄ¼şÖĞÆ«ÒÆ
+   JY.MyPic=0;              --Ö÷½Çµ±Ç°ÌùÍ¼
+   JY.MyTick=0;             --Ö÷½ÇÃ»ÓĞ×ßÂ·µÄ³ÖĞøÖ¡Êı
+   JY.MyTick2=0;            --ÏÔÊ¾ÊÂ¼ş¶¯»­µÄ½ÚÅÄ
    JY.CDD=0;
    JY.LOADTIME=0;
    JY.SAVETIME=0;
@@ -63,48 +62,48 @@ function SetGlobal()   --è®¾ç½®æ¸¸æˆå†…éƒ¨ä½¿ç”¨çš„å…¨ç¨‹å˜é‡
    JY.SQ=CC.T1[7]..CC.T1[2]..CC.T1[5]..CC.T1[3]  
    JY.XYK=CC.T1[10]..CC.T1[8]..CC.T1[9]   
   
-   JY.EnterSceneXY=nil;     --ä¿å­˜è¿›å…¥åœºæ™¯çš„åæ ‡ï¼Œæœ‰å€¼å¯ä»¥è¿›å…¥ï¼Œä¸ºnilåˆ™é‡æ–°è®¡ç®—ã€‚
+   JY.EnterSceneXY=nil;     --±£´æ½øÈë³¡¾°µÄ×ø±ê£¬ÓĞÖµ¿ÉÒÔ½øÈë£¬ÎªnilÔòÖØĞÂ¼ÆËã¡£
 
-   JY.oldMMapX=-1;          --ä¸Šæ¬¡æ˜¾ç¤ºä¸»åœ°å›¾çš„åæ ‡ã€‚ç”¨æ¥åˆ¤æ–­æ˜¯å¦éœ€è¦å…¨éƒ¨é‡ç»˜å±å¹•
+   JY.oldMMapX=-1;          --ÉÏ´ÎÏÔÊ¾Ö÷µØÍ¼µÄ×ø±ê¡£ÓÃÀ´ÅĞ¶ÏÊÇ·ñĞèÒªÈ«²¿ÖØ»æÆÁÄ»
    JY.oldMMapY=-1;
-   JY.oldMMapPic=-1;        --ä¸Šæ¬¡æ˜¾ç¤ºä¸»åœ°å›¾ä¸»è§’è´´å›¾
+   JY.oldMMapPic=-1;        --ÉÏ´ÎÏÔÊ¾Ö÷µØÍ¼Ö÷½ÇÌùÍ¼
 
-   JY.SubScene=-1;          --å½“å‰å­åœºæ™¯ç¼–å·
-   JY.SubSceneX=0;          --å­åœºæ™¯æ˜¾ç¤ºä½ç½®åç§»ï¼Œåœºæ™¯ç§»åŠ¨æŒ‡ä»¤ä½¿ç”¨
+   JY.SubScene=-1;          --µ±Ç°×Ó³¡¾°±àºÅ
+   JY.SubSceneX=0;          --×Ó³¡¾°ÏÔÊ¾Î»ÖÃÆ«ÒÆ£¬³¡¾°ÒÆ¶¯Ö¸ÁîÊ¹ÓÃ
    JY.SubSceneY=0;
 
-   JY.Darkness=0;             --=0 å±å¹•æ­£å¸¸æ˜¾ç¤ºï¼Œ=1 ä¸æ˜¾ç¤ºï¼Œå±å¹•å…¨é»‘
+   JY.Darkness=0;             --=0 ÆÁÄ»Õı³£ÏÔÊ¾£¬=1 ²»ÏÔÊ¾£¬ÆÁÄ»È«ºÚ
 
-   JY.CurrentD=-1;          --å½“å‰è°ƒç”¨D*çš„ç¼–å·
-   JY.OldDPass=-1;          --ä¸Šæ¬¡è§¦å‘è·¯è¿‡äº‹ä»¶çš„D*ç¼–å·, é¿å…å¤šæ¬¡è§¦å‘
-   JY.CurrentEventType=-1   --å½“å‰è§¦å‘äº‹ä»¶çš„æ–¹å¼ 1 ç©ºæ ¼ 2 ç‰©å“ 3 è·¯è¿‡
+   JY.CurrentD=-1;          --µ±Ç°µ÷ÓÃD*µÄ±àºÅ
+   JY.OldDPass=-1;          --ÉÏ´Î´¥·¢Â·¹ıÊÂ¼şµÄD*±àºÅ, ±ÜÃâ¶à´Î´¥·¢
+   JY.CurrentEventType=-1   --µ±Ç°´¥·¢ÊÂ¼şµÄ·½Ê½ 1 ¿Õ¸ñ 2 ÎïÆ· 3 Â·¹ı
 
-   JY.oldSMapX=-1;          --ä¸Šæ¬¡æ˜¾ç¤ºåœºæ™¯åœ°å›¾çš„åæ ‡ã€‚ç”¨æ¥åˆ¤æ–­æ˜¯å¦éœ€è¦å…¨éƒ¨é‡ç»˜å±å¹•
+   JY.oldSMapX=-1;          --ÉÏ´ÎÏÔÊ¾³¡¾°µØÍ¼µÄ×ø±ê¡£ÓÃÀ´ÅĞ¶ÏÊÇ·ñĞèÒªÈ«²¿ÖØ»æÆÁÄ»
    JY.oldSMapY=-1;
-   JY.oldSMapXoff=-1;       --ä¸Šæ¬¡åœºæ™¯åç§»
+   JY.oldSMapXoff=-1;       --ÉÏ´Î³¡¾°Æ«ÒÆ
    JY.oldSMapYoff=-1;
-   JY.oldSMapPic=-1;        --ä¸Šæ¬¡æ˜¾ç¤ºåœºæ™¯åœ°å›¾ä¸»è§’è´´å›¾
+   JY.oldSMapPic=-1;        --ÉÏ´ÎÏÔÊ¾³¡¾°µØÍ¼Ö÷½ÇÌùÍ¼
 
-   JY.D_Valid=nil           --è®°å½•å½“å‰åœºæ™¯æœ‰æ•ˆçš„Dçš„ç¼–å·ï¼Œæé«˜é€Ÿåº¦ï¼Œä¸ç”¨æ¯æ¬¡æ˜¾ç¤ºéƒ½è®¡ç®—äº†ã€‚è‹¥ä¸ºnilåˆ™é‡æ–°è®¡ç®—
-   JY_D_Valld_Num=0;        --å½“å‰åœºæ™¯æœ‰æ•ˆçš„Dä¸ªæ•°
+   JY.D_Valid=nil           --¼ÇÂ¼µ±Ç°³¡¾°ÓĞĞ§µÄDµÄ±àºÅ£¬Ìá¸ßËÙ¶È£¬²»ÓÃÃ¿´ÎÏÔÊ¾¶¼¼ÆËãÁË¡£ÈôÎªnilÔòÖØĞÂ¼ÆËã
+   JY_D_Valld_Num=0;        --µ±Ç°³¡¾°ÓĞĞ§µÄD¸öÊı
 
-   JY.D_PicChange={}        --è®°å½•äº‹ä»¶åŠ¨ç”»æ”¹å˜ï¼Œä»¥è®¡ç®—Clip
-   JY.NumD_PicChange=0;     --äº‹ä»¶åŠ¨ç”»æ”¹å˜çš„ä¸ªæ•°
+   JY.D_PicChange={}        --¼ÇÂ¼ÊÂ¼ş¶¯»­¸Ä±ä£¬ÒÔ¼ÆËãClip
+   JY.NumD_PicChange=0;     --ÊÂ¼ş¶¯»­¸Ä±äµÄ¸öÊı
 
-   JY.CurrentThing=-1;      --å½“å‰é€‰æ‹©ç‰©å“ï¼Œè§¦å‘äº‹ä»¶ä½¿ç”¨
+   JY.CurrentThing=-1;      --µ±Ç°Ñ¡ÔñÎïÆ·£¬´¥·¢ÊÂ¼şÊ¹ÓÃ
 
-   JY.MmapMusic=-1;         --åˆ‡æ¢å¤§åœ°å›¾éŸ³ä¹ï¼Œè¿”å›ä¸»åœ°å›¾æ—¶ï¼Œå¦‚æœè®¾ç½®ï¼Œåˆ™æ’­æ”¾æ­¤éŸ³ä¹
+   JY.MmapMusic=-1;         --ÇĞ»»´óµØÍ¼ÒôÀÖ£¬·µ»ØÖ÷µØÍ¼Ê±£¬Èç¹ûÉèÖÃ£¬Ôò²¥·Å´ËÒôÀÖ
 
-   JY.CurrentMIDI=-1;       --å½“å‰æ’­æ”¾çš„éŸ³ä¹idï¼Œç”¨æ¥åœ¨å…³é—­éŸ³ä¹æ—¶ä¿å­˜éŸ³ä¹idã€‚
-   JY.EnableMusic=1;        --æ˜¯å¦æ’­æ”¾éŸ³ä¹ 1 æ’­æ”¾ï¼Œ0 ä¸æ’­æ”¾
-   JY.EnableSound=1;        --æ˜¯å¦æ’­æ”¾éŸ³æ•ˆ 1 æ’­æ”¾ï¼Œ0 ä¸æ’­æ”¾
+   JY.CurrentMIDI=-1;       --µ±Ç°²¥·ÅµÄÒôÀÖid£¬ÓÃÀ´ÔÚ¹Ø±ÕÒôÀÖÊ±±£´æÒôÀÖid¡£
+   JY.EnableMusic=1;        --ÊÇ·ñ²¥·ÅÒôÀÖ 1 ²¥·Å£¬0 ²»²¥·Å
+   JY.EnableSound=1;        --ÊÇ·ñ²¥·ÅÒôĞ§ 1 ²¥·Å£¬0 ²»²¥·Å
    JY.TF=0;
 
-   JY.ThingUseFunction={};          --ç‰©å“ä½¿ç”¨æ—¶è°ƒç”¨å‡½æ•°ï¼ŒSetModifyå‡½æ•°ä½¿ç”¨ï¼Œå¢åŠ æ–°ç±»å‹çš„ç‰©å“
-   JY.SceneNewEventFunction={};     --è°ƒç”¨åœºæ™¯äº‹ä»¶å‡½æ•°ï¼ŒSetModifyå‡½æ•°ä½¿ç”¨ï¼Œå®šä¹‰ä½¿ç”¨æ–°åœºæ™¯äº‹ä»¶è§¦å‘çš„å‡½æ•°
+   JY.ThingUseFunction={};          --ÎïÆ·Ê¹ÓÃÊ±µ÷ÓÃº¯Êı£¬SetModifyº¯ÊıÊ¹ÓÃ£¬Ôö¼ÓĞÂÀàĞÍµÄÎïÆ·
+   JY.SceneNewEventFunction={};     --µ÷ÓÃ³¡¾°ÊÂ¼şº¯Êı£¬SetModifyº¯ÊıÊ¹ÓÃ£¬¶¨ÒåÊ¹ÓÃĞÂ³¡¾°ÊÂ¼ş´¥·¢µÄº¯Êı
    
    
-   WAR={};     --æˆ˜æ–—ä½¿ç”¨çš„å…¨ç¨‹å˜é‡ã€‚ã€‚è¿™é‡Œå ä¸ªä½ç½®ï¼Œå› ä¸ºç¨‹åºåé¢ä¸å…è®¸å®šä¹‰å…¨å±€å˜é‡äº†ã€‚å…·ä½“å†…å®¹åœ¨WarSetGlobalå‡½æ•°ä¸­
+   WAR={};     --Õ½¶·Ê¹ÓÃµÄÈ«³Ì±äÁ¿¡£¡£ÕâÀïÕ¼¸öÎ»ÖÃ£¬ÒòÎª³ÌĞòºóÃæ²»ÔÊĞí¶¨ÒåÈ«¾Ö±äÁ¿ÁË¡£¾ßÌåÄÚÈİÔÚWarSetGlobalº¯ÊıÖĞ
    AutoMoveTab={[0]=0}
    Bright={}
    CC.Light=200
@@ -115,26 +114,26 @@ function SetGlobal()   --è®¾ç½®æ¸¸æˆå†…éƒ¨ä½¿ç”¨çš„å…¨ç¨‹å˜é‡
    
 end
 
-function JY_Main()        --ä¸»ç¨‹åºå…¥å£
-	os.remove("debug.txt");        --æ¸…é™¤ä»¥å‰çš„debugè¾“å‡º
-    xpcall(JY_Main_sub,myErrFun);     --æ•è·è°ƒç”¨é”™è¯¯
+function JY_Main()        --Ö÷³ÌĞòÈë¿Ú
+	os.remove("debug.txt");        --Çå³ıÒÔÇ°µÄdebugÊä³ö
+    xpcall(JY_Main_sub,myErrFun);     --²¶»ñµ÷ÓÃ´íÎó
 end
 
-function myErrFun(err)      --é”™è¯¯å¤„ç†ï¼Œæ‰“å°é”™è¯¯ä¿¡æ¯
-    lib.Debug(err);                 --è¾“å‡ºé”™è¯¯ä¿¡æ¯
-    lib.Debug(debug.traceback());   --è¾“å‡ºè°ƒç”¨å †æ ˆä¿¡æ¯
+function myErrFun(err)      --´íÎó´¦Àí£¬´òÓ¡´íÎóĞÅÏ¢
+    lib.Debug(err);                 --Êä³ö´íÎóĞÅÏ¢
+    lib.Debug(debug.traceback());   --Êä³öµ÷ÓÃ¶ÑÕ»ĞÅÏ¢
 end
 
-function JY_Main_sub()        --çœŸæ­£çš„æ¸¸æˆä¸»ç¨‹åºå…¥å£   
-    IncludeFile();         --å¯¼å…¥å…¶ä»–æ¨¡å—
-    SetGlobalConst();    --è®¾ç½®å…¨ç¨‹å˜é‡CC, ç¨‹åºä½¿ç”¨çš„å¸¸é‡
-    SetGlobal();         --è®¾ç½®å…¨ç¨‹å˜é‡JY
+function JY_Main_sub()        --ÕæÕıµÄÓÎÏ·Ö÷³ÌĞòÈë¿Ú   
+    IncludeFile();         --µ¼ÈëÆäËûÄ£¿é
+    SetGlobalConst();    --ÉèÖÃÈ«³Ì±äÁ¿CC, ³ÌĞòÊ¹ÓÃµÄ³£Á¿
+    SetGlobal();         --ÉèÖÃÈ«³Ì±äÁ¿JY
     
-    GenTalkIdx();        --ç”Ÿæˆå¯¹è¯idx
+    GenTalkIdx();        --Éú³É¶Ô»°idx
 
-    SetModify();         --è®¾ç½®å¯¹å‡½æ•°çš„ä¿®æ”¹ï¼Œå®šä¹‰æ–°çš„ç‰©å“ï¼Œäº‹ä»¶ç­‰ç­‰
+    SetModify();         --ÉèÖÃ¶Ôº¯ÊıµÄĞŞ¸Ä£¬¶¨ÒåĞÂµÄÎïÆ·£¬ÊÂ¼şµÈµÈ
 
-    --ç¦æ­¢è®¿é—®å…¨ç¨‹å˜é‡
+    --½ûÖ¹·ÃÎÊÈ«³Ì±äÁ¿
     setmetatable(_G,{ __newindex =function (_,n)
                        error("attempt read write to undeclared variable " .. n,2);
                        end,
@@ -144,13 +143,13 @@ function JY_Main_sub()        --çœŸæ­£çš„æ¸¸æˆä¸»ç¨‹åºå…¥å£
                      }  );
     lib.Debug("JY_Main start.");
 
-	math.randomseed(os.time());          --åˆå§‹åŒ–éšæœºæ•°å‘ç”Ÿå™¨
+	math.randomseed(os.time());          --³õÊ¼»¯Ëæ»úÊı·¢ÉúÆ÷
 
-	lib.EnableKeyRepeat(CONFIG.KeyRepeatDelay,CONFIG.KeyRePeatInterval);   --è®¾ç½®é”®ç›˜é‡å¤ç‡
+	lib.EnableKeyRepeat(CONFIG.KeyRepeatDelay,CONFIG.KeyRePeatInterval);   --ÉèÖÃ¼üÅÌÖØ¸´ÂÊ
 
     JY.Status=GAME_START;
 
-    lib.PicInit(CC.PaletteFile);       --åŠ è½½åŸæ¥çš„256è‰²è°ƒè‰²æ¿
+    lib.PicInit(CC.PaletteFile);       --¼ÓÔØÔ­À´µÄ256É«µ÷É«°å
 
     --lib.PlayMPEG(CONFIG.DataPath .. "start.mpg",VK_ESCAPE);
  
@@ -161,9 +160,9 @@ function JY_Main_sub()        --çœŸæ­£çš„æ¸¸æˆä¸»ç¨‹åºå…¥å£
 	lib.PicLoadFile(CC.HeadPicFile[1],CC.HeadPicFile[2],1);	
 	
 
-	local menu={  {"é‡æ–°å¼€å§‹",nil,1},
-	              {"è½½å…¥è¿›åº¦",nil,1},
-	              {"ç¦»å¼€æ¸¸æˆ",nil,1}  };
+	local menu={  {"ÖØĞÂ¿ªÊ¼",nil,1},
+	              {"ÔØÈë½ø¶È",nil,1},
+	              {"Àë¿ªÓÎÏ·",nil,1}  };
 	local menux=(CC.ScreenW-4*CC.StartMenuFontSize-2*CC.MenuBorderPixel)/2
     
 	DrawString(650,580,CC.EVB107,C_WHITE,20)
@@ -171,7 +170,7 @@ function JY_Main_sub()        --çœŸæ­£çš„æ¸¸æˆä¸»ç¨‹åºå…¥å£
     	
 	local menuReturn=ShowMenu(menu,3,0,menux,CC.StartMenuY+30,0,0,0,0,35,C_STARTMENU, C_GOLD)
 
-    if menuReturn == 1 then        --é‡æ–°å¼€å§‹æ¸¸æˆ
+    if menuReturn == 1 then        --ÖØĞÂ¿ªÊ¼ÓÎÏ·
 		ClsN();	
 		PlayMIDI(31);
 		
@@ -179,12 +178,12 @@ function JY_Main_sub()        --çœŸæ­£çš„æ¸¸æˆä¸»ç¨‹åºå…¥å£
 		STARTDH()
 		JY.Status=GAME_START2
         --lib.FillColor(0,0,CC.ScreenW,CC.ScreenH,C_BLACK)
-		SBLNewGame(); 		--è®¾ç½®æ–°æ¸¸æˆæ•°æ®		
+		SBLNewGame(); 		--ÉèÖÃĞÂÓÎÏ·Êı¾İ		
 
-        JY.SubScene=CC.NewGameSceneID;         --æ–°æ¸¸æˆç›´æ¥è¿›å…¥åœºæ™¯
-        --JY.Scene[JY.SubScene]["åç§°"]=JY.Person[0]["å§“å"] .. "å±…";
-        JY.Base["äººX1"]=CC.NewGameSceneX;
-        JY.Base["äººY1"]=CC.NewGameSceneY;
+        JY.SubScene=CC.NewGameSceneID;         --ĞÂÓÎÏ·Ö±½Ó½øÈë³¡¾°
+        --JY.Scene[JY.SubScene]["Ãû³Æ"]=JY.Person[0]["ĞÕÃû"] .. "¾Ó";
+        JY.Base["ÈËX1"]=CC.NewGameSceneX;
+        JY.Base["ÈËY1"]=CC.NewGameSceneY;
         JY.MyPic=CC.NewPersonPic;
 
         lib.ShowSlow(50,1)
@@ -211,23 +210,23 @@ function JY_Main_sub()        --çœŸæ­£çš„æ¸¸æˆä¸»ç¨‹åºå…¥å£
 	    end
 		
 
-	elseif menuReturn == 2 then         --è½½å…¥æ—§çš„è¿›åº¦
+	elseif menuReturn == 2 then         --ÔØÈë¾ÉµÄ½ø¶È
 		Cls();
-    	local loadMenu={ {"è¿›åº¦ä¸€",nil,1},
-	                     {"è¿›åº¦äºŒ",nil,1},
-	                     {"è¿›åº¦ä¸‰",nil,1} };
+    	local loadMenu={ {"½ø¶ÈÒ»",nil,1},
+	                     {"½ø¶È¶ş",nil,1},
+	                     {"½ø¶ÈÈı",nil,1} };
 
 	    local menux=(CC.ScreenW-3*CC.StartMenuFontSize-2*CC.MenuBorderPixel)/2
 
     	local r=ShowMenu(loadMenu,3,0,menux,CC.StartMenuY+30,0,0,0,0,35,C_STARTMENU, C_GOLD)
 		Cls();
-		DrawString(menux,CC.StartMenuY+60,"è¯·ç¨å€™...",C_GOLD,35)--CC.StartMenuFontSize);
+		DrawString(menux,CC.StartMenuY+60,"ÇëÉÔºò...",C_GOLD,35)--CC.StartMenuFontSize);
 		ShowScreen();
         SBLDATAL(r);
 		Cls();
-		if JY.Base["æ— ç”¨"]~=-1 then
+		if JY.Base["ÎŞÓÃ"]~=-1 then
 			JY.Status=GAME_SMAP
-			JY.SubScene=JY.Base["æ— ç”¨"]
+			JY.SubScene=JY.Base["ÎŞÓÃ"]
 			
 			JY.MmapMusic=-1;
 			JY.MyPic=GetMyPic();
@@ -246,22 +245,22 @@ function JY_Main_sub()        --çœŸæ­£çš„æ¸¸æˆä¸»ç¨‹åºå…¥å£
     Game_Cycle();
 end
 
-function CleanMemory()            --æ¸…ç†luaå†…å­˜
+function CleanMemory()            --ÇåÀíluaÄÚ´æ
     if CONFIG.CleanMemory==1 then
 		 collectgarbage("collect");
 		 --lib.Debug(string.format("Lua memory=%d",collectgarbage("count")));
     end
 end
 
-function SBLNewGame()     --é€‰æ‹©æ–°æ¸¸æˆï¼Œè®¾ç½®ä¸»è§’åˆå§‹å±æ€§
-    SBLDATAL(0); --  è½½å…¥æ–°æ¸¸æˆæ•°æ®
+function SBLNewGame()     --Ñ¡ÔñĞÂÓÎÏ·£¬ÉèÖÃÖ÷½Ç³õÊ¼ÊôĞÔ
+    SBLDATAL(0); --  ÔØÈëĞÂÓÎÏ·Êı¾İ
    
 	CXDYWPSX()
 	
     ClsN();
 	
 	lib.FillColor(0,0,CC.ScreenW,CC.ScreenH,C_BLACK);
-	DrawStrBox(-1,-1,"ç‚ä¹‹è¿æ‰‹åˆ¶ä½œç»„",C_GOLD,50)
+	DrawStrBox(-1,-1,"Ñ×Ö®ÔËÊÖÖÆ×÷×é",C_GOLD,50)
 					ShowScreen();
 					lib.Delay(1000);
 	
@@ -307,28 +306,28 @@ function SBLNewGame()     --é€‰æ‹©æ–°æ¸¸æˆï¼Œè®¾ç½®ä¸»è§’åˆå§‹å±æ€§
 	while Tp==0 do
 	    DrawStrBoxWaitKey(CC.EVB156,C_WHITE,30)
         JY.Person[0][CC.s23]=Shurufa(32,CC.ScreenH-6*CC.Fontbig);
-	    JY.Person[0]["ç”Ÿå‘½æœ€å¤§å€¼"]=50
-		JY.Person[0]["å†…åŠ›æœ€å¤§å€¼"]=100;
-        JY.Person[0]["æ”»å‡»åŠ›"]=30
-        JY.Person[0]["é˜²å¾¡åŠ›"]=30
-        JY.Person[0]["è½»åŠŸ"]=30
-        JY.Person[0]["åŒ»ç–—èƒ½åŠ›"]=30
-        JY.Person[0]["ç”¨æ¯’èƒ½åŠ›"]=30
-        JY.Person[0]["è§£æ¯’èƒ½åŠ›"]=30
-        JY.Person[0]["æŠ—æ¯’èƒ½åŠ›"]=30
-        JY.Person[0]["æ‹³æŒåŠŸå¤«"]=30
-        JY.Person[0]["å¾¡å‰‘èƒ½åŠ›"]=30
-        JY.Person[0]["è€åˆ€æŠ€å·§"]=30
-        JY.Person[0]["ç‰¹æ®Šå…µå™¨"]=30
-        JY.Person[0]["æš—å™¨æŠ€å·§"]=30
+	    JY.Person[0]["ÉúÃü×î´óÖµ"]=50
+		JY.Person[0]["ÄÚÁ¦×î´óÖµ"]=100;
+        JY.Person[0]["¹¥»÷Á¦"]=30
+        JY.Person[0]["·ÀÓùÁ¦"]=30
+        JY.Person[0]["Çá¹¦"]=30
+        JY.Person[0]["Ò½ÁÆÄÜÁ¦"]=30
+        JY.Person[0]["ÓÃ¶¾ÄÜÁ¦"]=30
+        JY.Person[0]["½â¶¾ÄÜÁ¦"]=30
+        JY.Person[0]["¿¹¶¾ÄÜÁ¦"]=30
+        JY.Person[0]["È­ÕÆ¹¦·ò"]=30
+        JY.Person[0]["Óù½£ÄÜÁ¦"]=30
+        JY.Person[0]["Ë£µ¶¼¼ÇÉ"]=30
+        JY.Person[0]["ÌØÊâ±øÆ÷"]=30
+        JY.Person[0]["°µÆ÷¼¼ÇÉ"]=30
 		ClsN();
 		local nl=JYMsgBox(CC.EVB122,CC.EVB123,CC.EVB126,3,280);
         if nl==1 then
-		   JY.Person[0]["å†…åŠ›æ€§è´¨"]=0
+		   JY.Person[0]["ÄÚÁ¦ĞÔÖÊ"]=0
 		elseif nl==2 then
-		   JY.Person[0]["å†…åŠ›æ€§è´¨"]=1
+		   JY.Person[0]["ÄÚÁ¦ĞÔÖÊ"]=1
 		else
-		   JY.Person[0]["å†…åŠ›æ€§è´¨"]=2
+		   JY.Person[0]["ÄÚÁ¦ĞÔÖÊ"]=2
 		end
 		local T={};
 				for a=1,1000 do
@@ -336,11 +335,11 @@ function SBLNewGame()     --é€‰æ‹©æ–°æ¸¸æˆï¼Œè®¾ç½®ä¸»è§’åˆå§‹å±æ€§
 					 T[b]=a
 				end
 	    DrawStrBoxWaitKey(CC.EVB124,C_WHITE,30)
-		JY.Person[0]["èµ„è´¨"]=-1;
-		while JY.Person[0]["èµ„è´¨"]==-1 do
+		JY.Person[0]["×ÊÖÊ"]=-1;
+		while JY.Person[0]["×ÊÖÊ"]==-1 do
 			local r=GetPinyin1(32,CC.ScreenH-CC.Fontbig*6)
 			if T[r]~=nil and T[r]>-1 and T[r]<101 then
-				JY.Person[0]["èµ„è´¨"]=T[r]
+				JY.Person[0]["×ÊÖÊ"]=T[r]
 		    else
 			    DrawStrBoxWaitKey(CC.EVB125,C_WHITE,30)		
 			end	
@@ -349,69 +348,69 @@ function SBLNewGame()     --é€‰æ‹©æ–°æ¸¸æˆï¼Œè®¾ç½®ä¸»è§’åˆå§‹å±æ€§
 	end
    
     if JY.Person[0][CC.s23]==JY.LEQ and Tp==1 then 
-        JY.Person[0]["ç”Ÿå‘½å¢é•¿"]=8;
-	    JY.Person[0]["å†…åŠ›æ€§è´¨"]=2
-        JY.Person[0]["å†…åŠ›æœ€å¤§å€¼"]=300;
-        JY.Person[0]["æ”»å‡»åŠ›"]=40;
-        JY.Person[0]["é˜²å¾¡åŠ›"]=40;
-        JY.Person[0]["è½»åŠŸ"]=40;
-        JY.Person[0]["åŒ»ç–—èƒ½åŠ›"]=40;
-        JY.Person[0]["ç”¨æ¯’èƒ½åŠ›"]=40;
-        JY.Person[0]["è§£æ¯’èƒ½åŠ›"]=40;
-        JY.Person[0]["æŠ—æ¯’èƒ½åŠ›"]=40;
-        JY.Person[0]["æ‹³æŒåŠŸå¤«"]=40;
-        JY.Person[0]["å¾¡å‰‘èƒ½åŠ›"]=40;
-        JY.Person[0]["è€åˆ€æŠ€å·§"]=40;
-        JY.Person[0]["ç‰¹æ®Šå…µå™¨"]=40;
-        JY.Person[0]["æš—å™¨æŠ€å·§"]=40;        
-        JY.Person[0]["ç”Ÿå‘½æœ€å¤§å€¼"]=100;
-	    JY.Person[0]["èµ„è´¨"]=100;
+        JY.Person[0]["ÉúÃüÔö³¤"]=8;
+	    JY.Person[0]["ÄÚÁ¦ĞÔÖÊ"]=2
+        JY.Person[0]["ÄÚÁ¦×î´óÖµ"]=300;
+        JY.Person[0]["¹¥»÷Á¦"]=40;
+        JY.Person[0]["·ÀÓùÁ¦"]=40;
+        JY.Person[0]["Çá¹¦"]=40;
+        JY.Person[0]["Ò½ÁÆÄÜÁ¦"]=40;
+        JY.Person[0]["ÓÃ¶¾ÄÜÁ¦"]=40;
+        JY.Person[0]["½â¶¾ÄÜÁ¦"]=40;
+        JY.Person[0]["¿¹¶¾ÄÜÁ¦"]=40;
+        JY.Person[0]["È­ÕÆ¹¦·ò"]=40;
+        JY.Person[0]["Óù½£ÄÜÁ¦"]=40;
+        JY.Person[0]["Ë£µ¶¼¼ÇÉ"]=40;
+        JY.Person[0]["ÌØÊâ±øÆ÷"]=40;
+        JY.Person[0]["°µÆ÷¼¼ÇÉ"]=40;        
+        JY.Person[0]["ÉúÃü×î´óÖµ"]=100;
+	    JY.Person[0]["×ÊÖÊ"]=100;
     end
 
     if JY.Person[0][CC.s23]==JY.SQ and Tp==1 then 
-        JY.Person[0]["ç”Ÿå‘½å¢é•¿"]=4;
-	    JY.Person[0]["å†…åŠ›æ€§è´¨"]=2
-        JY.Person[0]["å†…åŠ›æœ€å¤§å€¼"]=100;
-        JY.Person[0]["æ”»å‡»åŠ›"]=40;
-        JY.Person[0]["é˜²å¾¡åŠ›"]=40;
-        JY.Person[0]["è½»åŠŸ"]=40;
-        JY.Person[0]["åŒ»ç–—èƒ½åŠ›"]=40;
-        JY.Person[0]["ç”¨æ¯’èƒ½åŠ›"]=40;
-        JY.Person[0]["è§£æ¯’èƒ½åŠ›"]=40;
-        JY.Person[0]["æŠ—æ¯’èƒ½åŠ›"]=40;
-        JY.Person[0]["æ‹³æŒåŠŸå¤«"]=40;
-        JY.Person[0]["å¾¡å‰‘èƒ½åŠ›"]=40;
-        JY.Person[0]["è€åˆ€æŠ€å·§"]=40;
-        JY.Person[0]["ç‰¹æ®Šå…µå™¨"]=40;
-        JY.Person[0]["æš—å™¨æŠ€å·§"]=40;
-        JY.Person[0]["å·¦å³äº’æ"]=1;
-        JY.Person[0]["ç”Ÿå‘½æœ€å¤§å€¼"]=50;
-	    JY.Person[0]["èµ„è´¨"]=50;
+        JY.Person[0]["ÉúÃüÔö³¤"]=4;
+	    JY.Person[0]["ÄÚÁ¦ĞÔÖÊ"]=2
+        JY.Person[0]["ÄÚÁ¦×î´óÖµ"]=100;
+        JY.Person[0]["¹¥»÷Á¦"]=40;
+        JY.Person[0]["·ÀÓùÁ¦"]=40;
+        JY.Person[0]["Çá¹¦"]=40;
+        JY.Person[0]["Ò½ÁÆÄÜÁ¦"]=40;
+        JY.Person[0]["ÓÃ¶¾ÄÜÁ¦"]=40;
+        JY.Person[0]["½â¶¾ÄÜÁ¦"]=40;
+        JY.Person[0]["¿¹¶¾ÄÜÁ¦"]=40;
+        JY.Person[0]["È­ÕÆ¹¦·ò"]=40;
+        JY.Person[0]["Óù½£ÄÜÁ¦"]=40;
+        JY.Person[0]["Ë£µ¶¼¼ÇÉ"]=40;
+        JY.Person[0]["ÌØÊâ±øÆ÷"]=40;
+        JY.Person[0]["°µÆ÷¼¼ÇÉ"]=40;
+        JY.Person[0]["×óÓÒ»¥²«"]=1;
+        JY.Person[0]["ÉúÃü×î´óÖµ"]=50;
+	    JY.Person[0]["×ÊÖÊ"]=50;
     end
 	  
 	if JY.Person[0][CC.s23]==JY.XYK and Tp==1 then 
-        JY.Person[0]["ç”Ÿå‘½å¢é•¿"]=6;
-	    JY.Person[0]["å†…åŠ›æ€§è´¨"]=2
-        JY.Person[0]["å†…åŠ›æœ€å¤§å€¼"]=200;
-        JY.Person[0]["æ”»å‡»åŠ›"]=40;
-        JY.Person[0]["é˜²å¾¡åŠ›"]=40;
-        JY.Person[0]["è½»åŠŸ"]=40;
-        JY.Person[0]["åŒ»ç–—èƒ½åŠ›"]=40;
-        JY.Person[0]["ç”¨æ¯’èƒ½åŠ›"]=40;
-        JY.Person[0]["è§£æ¯’èƒ½åŠ›"]=40;
-        JY.Person[0]["æŠ—æ¯’èƒ½åŠ›"]=40;
-        JY.Person[0]["æ‹³æŒåŠŸå¤«"]=40;
-        JY.Person[0]["å¾¡å‰‘èƒ½åŠ›"]=40;
-        JY.Person[0]["è€åˆ€æŠ€å·§"]=40;
-        JY.Person[0]["ç‰¹æ®Šå…µå™¨"]=40;
-        JY.Person[0]["æš—å™¨æŠ€å·§"]=40;        
-        JY.Person[0]["ç”Ÿå‘½æœ€å¤§å€¼"]=75;
-	    JY.Person[0]["èµ„è´¨"]=80;
-		JY.Person[0]["å·¦å³äº’æ"]=1;
+        JY.Person[0]["ÉúÃüÔö³¤"]=6;
+	    JY.Person[0]["ÄÚÁ¦ĞÔÖÊ"]=2
+        JY.Person[0]["ÄÚÁ¦×î´óÖµ"]=200;
+        JY.Person[0]["¹¥»÷Á¦"]=40;
+        JY.Person[0]["·ÀÓùÁ¦"]=40;
+        JY.Person[0]["Çá¹¦"]=40;
+        JY.Person[0]["Ò½ÁÆÄÜÁ¦"]=40;
+        JY.Person[0]["ÓÃ¶¾ÄÜÁ¦"]=40;
+        JY.Person[0]["½â¶¾ÄÜÁ¦"]=40;
+        JY.Person[0]["¿¹¶¾ÄÜÁ¦"]=40;
+        JY.Person[0]["È­ÕÆ¹¦·ò"]=40;
+        JY.Person[0]["Óù½£ÄÜÁ¦"]=40;
+        JY.Person[0]["Ë£µ¶¼¼ÇÉ"]=40;
+        JY.Person[0]["ÌØÊâ±øÆ÷"]=40;
+        JY.Person[0]["°µÆ÷¼¼ÇÉ"]=40;        
+        JY.Person[0]["ÉúÃü×î´óÖµ"]=75;
+	    JY.Person[0]["×ÊÖÊ"]=80;
+		JY.Person[0]["×óÓÒ»¥²«"]=1;
     end
 
-        JY.Person[0]["ç”Ÿå‘½"]=JY.Person[0]["ç”Ÿå‘½æœ€å¤§å€¼"];
-        JY.Person[0]["å†…åŠ›"]=JY.Person[0]["å†…åŠ›æœ€å¤§å€¼"];
+        JY.Person[0]["ÉúÃü"]=JY.Person[0]["ÉúÃü×î´óÖµ"];
+        JY.Person[0]["ÄÚÁ¦"]=JY.Person[0]["ÄÚÁ¦×î´óÖµ"];
         ClsN();
         ShowScreen();
         ClsN();
@@ -435,12 +434,12 @@ function SBLNewGame()     --é€‰æ‹©æ–°æ¸¸æˆï¼Œè®¾ç½®ä¸»è§’åˆå§‹å±æ€§
 	SetD(70,111,2,2003);
 	SetD(70,112,2,2004);
 	
-	SetS(13,18,28,3,101) --æˆæ˜†äº‹ä»¶
+	SetS(13,18,28,3,101) --³ÉÀ¥ÊÂ¼ş
     SetS(13,18,29,3,102)
     instruct_3(13,101,0,0,0,0,2001,0,0,0,0,-2,-2)
     instruct_3(13,102,0,0,0,0,2001,0,0,0,0,-2,-2)
 	
-	SetS(102,20,25,2,0) --è€ç¥–å›¾
+	SetS(102,20,25,2,0) --ÀÏ×æÍ¼
     SetD(102,13,2,0)
     SetS(102,17,22,3,101)
     instruct_3(102,101,1,0,1014,0,0,3631*2,3631*2,3631*2,0,-2,-2)
@@ -540,9 +539,9 @@ function SBLNewGame()     --é€‰æ‹©æ–°æ¸¸æˆï¼Œè®¾ç½®ä¸»è§’åˆå§‹å±æ€§
 			   JY.Thing[201][WZ7]=6
 			   SetS(4,5,5,5,6)
 			elseif JY.TF==7 then 
-			   JY.Person[0]["åŒ»ç–—èƒ½åŠ›"]=200
-			   JY.Person[0]["ç”¨æ¯’èƒ½åŠ›"]=200
-			   JY.Person[0]["è§£æ¯’èƒ½åŠ›"]=200
+			   JY.Person[0]["Ò½ÁÆÄÜÁ¦"]=200
+			   JY.Person[0]["ÓÃ¶¾ÄÜÁ¦"]=200
+			   JY.Person[0]["½â¶¾ÄÜÁ¦"]=200
 			   JY.Thing[201][WZ7]=7
 			   SetS(4,5,5,5,7)  
 			end
@@ -588,15 +587,15 @@ function SBLNewGame()     --é€‰æ‹©æ–°æ¸¸æˆï¼Œè®¾ç½®ä¸»è§’åˆå§‹å±æ€§
     FINALWORK2()
 end
 
-function Game_Cycle()       --æ¸¸æˆä¸»å¾ªç¯
+function Game_Cycle()       --ÓÎÏ·Ö÷Ñ­»·
     lib.Debug("Start game cycle");
 local function getmaindelay()
-	local speed=JY.Person[0]['è½»åŠŸ'];
-	if JY.Person[0]['æ­¦å™¨']>0 then
-		speed=speed+JY.Thing[JY.Person[0]['æ­¦å™¨']]['åŠ è½»åŠŸ']
+	local speed=JY.Person[0]['Çá¹¦'];
+	if JY.Person[0]['ÎäÆ÷']>0 then
+		speed=speed+JY.Thing[JY.Person[0]['ÎäÆ÷']]['¼ÓÇá¹¦']
 	end
-	if JY.Person[0]['é˜²å…·']>0 then
-		speed=speed+JY.Thing[JY.Person[0]['é˜²å…·']]['åŠ è½»åŠŸ']
+	if JY.Person[0]['·À¾ß']>0 then
+		speed=speed+JY.Thing[JY.Person[0]['·À¾ß']]['¼ÓÇá¹¦']
 	end
 	if speed>300 then
 		return 1--40-(speed-300)/10
@@ -609,8 +608,8 @@ end
     while JY.Status ~=GAME_END do
         local tstart=lib.GetTime();
 
-	    JY.MyTick=JY.MyTick+1;    --20ä¸ªèŠ‚æ‹æ— å‡»é”®ï¼Œåˆ™ä¸»è§’å˜ä¸ºç«™ç«‹çŠ¶æ€
-	    JY.MyTick2=JY.MyTick2+1;    --20ä¸ªèŠ‚æ‹æ— å‡»é”®ï¼Œåˆ™ä¸»è§’å˜ä¸ºç«™ç«‹çŠ¶æ€
+	    JY.MyTick=JY.MyTick+1;    --20¸ö½ÚÅÄÎŞ»÷¼ü£¬ÔòÖ÷½Ç±äÎªÕ¾Á¢×´Ì¬
+	    JY.MyTick2=JY.MyTick2+1;    --20¸ö½ÚÅÄÎŞ»÷¼ü£¬ÔòÖ÷½Ç±äÎªÕ¾Á¢×´Ì¬
 
 		if JY.MyTick==20 then
             JY.MyCurrentPic=0;
@@ -621,7 +620,7 @@ end
             JY.MYtick2=0;
         end
 
-        if JY.Status==GAME_FIRSTMMAP then  --é¦–æ¬¡æ˜¾ç¤ºä¸»åœºæ™¯ï¼Œé‡æ–°è°ƒç”¨ä¸»åœºæ™¯è´´å›¾ï¼Œæ¸å˜æ˜¾ç¤ºã€‚ç„¶åè½¬åˆ°æ­£å¸¸æ˜¾ç¤º
+        if JY.Status==GAME_FIRSTMMAP then  --Ê×´ÎÏÔÊ¾Ö÷³¡¾°£¬ÖØĞÂµ÷ÓÃÖ÷³¡¾°ÌùÍ¼£¬½¥±äÏÔÊ¾¡£È»ºó×ªµ½Õı³£ÏÔÊ¾
 			CleanMemory();
             lib.ShowSlow(50,1)
             JY.MmapMusic=16;
@@ -629,7 +628,7 @@ end
 
             Init_MMap();
 
-            lib.DrawMMap(JY.Base["äººX"],JY.Base["äººY"],GetMyPic());
+            lib.DrawMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],GetMyPic());
 			lib.ShowSlow(50,0);
         elseif JY.Status==GAME_MMAP then
             Game_MMap();
@@ -640,7 +639,7 @@ end
 		collectgarbage("step",0);
 
 		local tend=lib.GetTime();
-		local FrameTime=getmaindelay()--CC.Frame+15-math.modf(JY.Person[0]['è½»åŠŸ']/12)
+		local FrameTime=getmaindelay()--CC.Frame+15-math.modf(JY.Person[0]['Çá¹¦']/12)
 		--if tend-tstart<FrameTime then
             --lib.Delay(FrameTime-(tend-tstart));
 	    --end
@@ -648,10 +647,10 @@ end
 	end
 end
 
-function Init_MMap()   --åˆå§‹åŒ–ä¸»åœ°å›¾æ•°æ®
+function Init_MMap()   --³õÊ¼»¯Ö÷µØÍ¼Êı¾İ
 	lib.PicInit();
 	lib.LoadMMap(CC.MMapFile[1],CC.MMapFile[2],CC.MMapFile[3],
-			CC.MMapFile[4],CC.MMapFile[5],CC.MWidth,CC.MHeight,JY.Base["äººX"],JY.Base["äººY"]);
+			CC.MMapFile[4],CC.MMapFile[5],CC.MWidth,CC.MHeight,JY.Base["ÈËX"],JY.Base["ÈËY"]);
 
 	lib.PicLoadFile(CC.MMAPPicFile[1],CC.MMAPPicFile[2],0);
 	lib.PicLoadFile(CC.HeadPicFile[1],CC.HeadPicFile[2],1);
@@ -660,7 +659,7 @@ function Init_MMap()   --åˆå§‹åŒ–ä¸»åœ°å›¾æ•°æ®
 	    lib.PicLoadFile(CC.ThingPicFile[1],CC.ThingPicFile[2],2);
 	end
 
-	JY.EnterSceneXY=nil;         --è®¾ä¸ºç©ºï¼Œå¼ºåˆ¶é‡æ–°ç”Ÿæˆåœºæ™¯å…¥å£æ•°æ®ã€‚é˜²æ­¢æœ‰äº‹ä»¶æ›´æ”¹äº†åœºæ™¯å…¥å£ã€‚
+	JY.EnterSceneXY=nil;         --ÉèÎª¿Õ£¬Ç¿ÖÆÖØĞÂÉú³É³¡¾°Èë¿ÚÊı¾İ¡£·ÀÖ¹ÓĞÊÂ¼ş¸ü¸ÄÁË³¡¾°Èë¿Ú¡£
 	JY.oldMMapX=-1;
 	JY.oldMMapY=-1;
 	JY.MAPKJ=0
@@ -670,7 +669,7 @@ function Init_MMap()   --åˆå§‹åŒ–ä¸»åœ°å›¾æ•°æ®
 end
 
 
-function Game_MMap()      --ä¸»åœ°å›¾
+function Game_MMap()      --Ö÷µØÍ¼
     if JY.MAPKJ==0 then
 		DrawString(60,575,CC.EVB119,C_GOLD,25)
 		JY.MAPKJ=1
@@ -689,7 +688,7 @@ function Game_MMap()      --ä¸»åœ°å›¾
 			if JY.Status==GAME_FIRSTMMAP then
 				return ;
 			end
-			JY.oldMMapX=-1;         --å¼ºåˆ¶é‡ç»˜
+			JY.oldMMapX=-1;         --Ç¿ÖÆÖØ»æ
 			JY.oldMMapY=-1;
 		elseif keypress==VK_UP then
 			direct=0;
@@ -739,9 +738,9 @@ function Game_MMap()      --ä¸»åœ°å›¾
 			AutoMoveTab={[0]=0}
 		end
 	end
-    local x,y;              --æŒ‰ç…§æ–¹å‘é”®è¦åˆ°è¾¾çš„åæ ‡
+    local x,y;              --°´ÕÕ·½Ïò¼üÒªµ½´ïµÄ×ø±ê
 	local function CanMove(nd,nnd)
-		local nx,ny=JY.Base["äººX"]+CC.DirectX[nd+1],JY.Base["äººY"]+CC.DirectY[nd+1]
+		local nx,ny=JY.Base["ÈËX"]+CC.DirectX[nd+1],JY.Base["ÈËY"]+CC.DirectY[nd+1]
 		if nnd~=nil then
 			nx,ny=nx+CC.DirectX[nnd+1],ny+CC.DirectY[nnd+1]
 		end
@@ -768,28 +767,28 @@ function Game_MMap()      --ä¸»åœ°å›¾
 	end
 	direct3=direct
 	local change=false
-    if direct ~= -1 then   --æŒ‰ä¸‹äº†å…‰æ ‡é”®
-		if not CanMove(direct) then     --æ²¡æœ‰å»ºç­‘ï¼Œå¯ä»¥åˆ°è¾¾
-			if JY.Person[500]['å£°æœ›']==0 then
+    if direct ~= -1 then   --°´ÏÂÁË¹â±ê¼ü
+		if not CanMove(direct) then     --Ã»ÓĞ½¨Öş£¬¿ÉÒÔµ½´ï
+			if JY.Person[500]['ÉùÍû']==0 then
 				--direct=direct1
-			elseif JY.Person[500]['å£°æœ›']==1 then
+			elseif JY.Person[500]['ÉùÍû']==1 then
 				direct1,direct2=direct2,direct1
 				change=true
 			end
 			direct=direct1
 			if CanMove(direct) and CanMove(direct,direct3) then
 				if change then
-					JY.Person[500]['å£°æœ›']=1
+					JY.Person[500]['ÉùÍû']=1
 				else
-					JY.Person[500]['å£°æœ›']=0
+					JY.Person[500]['ÉùÍû']=0
 				end
 			else
 				direct=direct2
 				if CanMove(direct) and CanMove(direct,direct3) then
 				if change then
-					JY.Person[500]['å£°æœ›']=0
+					JY.Person[500]['ÉùÍû']=0
 				else
-					JY.Person[500]['å£°æœ›']=1
+					JY.Person[500]['ÉùÍû']=1
 				end
 				else
 					direct=direct3
@@ -799,52 +798,52 @@ function Game_MMap()      --ä¸»åœ°å›¾
 	end
 	]]--
 	if direct ~= -1 then
-        AddMyCurrentPic();         --å¢åŠ ä¸»è§’è´´å›¾ç¼–å·ï¼Œäº§ç”Ÿèµ°è·¯æ•ˆæœ
-		x=JY.Base["äººX"]+CC.DirectX[direct+1];
-		y=JY.Base["äººY"]+CC.DirectY[direct+1];
-		JY.Base["äººæ–¹å‘"]=direct;
+        AddMyCurrentPic();         --Ôö¼ÓÖ÷½ÇÌùÍ¼±àºÅ£¬²úÉú×ßÂ·Ğ§¹û
+		x=JY.Base["ÈËX"]+CC.DirectX[direct+1];
+		y=JY.Base["ÈËY"]+CC.DirectY[direct+1];
+		JY.Base["ÈË·½Ïò"]=direct;
     else
-        x=JY.Base["äººX"];
-        y=JY.Base["äººY"];
+        x=JY.Base["ÈËX"];
+        y=JY.Base["ÈËY"];
     end
 	if direct~=-1 then
-		JY.SubScene=CanEnterScene(x,y);   --åˆ¤æ–­æ˜¯å¦è¿›å…¥å­åœºæ™¯
+		JY.SubScene=CanEnterScene(x,y);   --ÅĞ¶ÏÊÇ·ñ½øÈë×Ó³¡¾°
 	end
 	if CC.hx~=nil or (lib.GetMMap(x,y,3)==0 and lib.GetMMap(x,y,4)==0) then
-		JY.Base["äººX"]=x;
-		JY.Base["äººY"]=y;
+		JY.Base["ÈËX"]=x;
+		JY.Base["ÈËY"]=y;
 	end
 		
-    JY.Base["äººX"]=limitX(JY.Base["äººX"],10,CC.MWidth-10);           --é™åˆ¶åæ ‡ä¸èƒ½è¶…å‡ºèŒƒå›´
-    JY.Base["äººY"]=limitX(JY.Base["äººY"],10,CC.MHeight-10);
+    JY.Base["ÈËX"]=limitX(JY.Base["ÈËX"],10,CC.MWidth-10);           --ÏŞÖÆ×ø±ê²»ÄÜ³¬³ö·¶Î§
+    JY.Base["ÈËY"]=limitX(JY.Base["ÈËY"],10,CC.MHeight-10);
 
-    if CC.MMapBoat[lib.GetMMap(JY.Base["äººX"],JY.Base["äººY"],0)]==1 then
-	    JY.Base["ä¹˜èˆ¹"]=1;
+    if CC.MMapBoat[lib.GetMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],0)]==1 then
+	    JY.Base["³Ë´¬"]=1;
 	else
-	    JY.Base["ä¹˜èˆ¹"]=0;
+	    JY.Base["³Ë´¬"]=0;
 	end
 
 	local pic=GetMyPic();
 
-    if CONFIG.FastShowScreen==1 then  --è®¾ç½®å¿«é€Ÿæ˜¾ç¤ºï¼Œå¹¶ä¸”ä¸»è§’ä½ç½®ä¸å˜ï¼Œåˆ™æ˜¾ç¤ºè£å‰ªçª—å£
-        if JY.oldMMapX==JY.Base["äººX"] and JY.oldMMapY==JY.Base["äººY"] then
-			if JY.oldMMapPic>=0 and JY.oldMMapPic ~= pic then        --ä¸»è§’è´´å›¾æœ‰å˜åŒ–ï¼Œåˆ™åˆ·æ–°æ˜¾ç¤ºã€‚
+    if CONFIG.FastShowScreen==1 then  --ÉèÖÃ¿ìËÙÏÔÊ¾£¬²¢ÇÒÖ÷½ÇÎ»ÖÃ²»±ä£¬ÔòÏÔÊ¾²Ã¼ô´°¿Ú
+        if JY.oldMMapX==JY.Base["ÈËX"] and JY.oldMMapY==JY.Base["ÈËY"] then
+			if JY.oldMMapPic>=0 and JY.oldMMapPic ~= pic then        --Ö÷½ÇÌùÍ¼ÓĞ±ä»¯£¬ÔòË¢ĞÂÏÔÊ¾¡£
 				local rr=ClipRect(Cal_PicClip(0,0,JY.oldMMapPic,0,0,0,pic,0));
 				if rr~=nil then
 					lib.SetClip(rr.x1,rr.y1,rr.x2,rr.y2);
-					lib.DrawMMap(JY.Base["äººX"],JY.Base["äººY"],pic);             --æ˜¾ç¤ºä¸»åœ°å›¾
+					lib.DrawMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],pic);             --ÏÔÊ¾Ö÷µØÍ¼
 				end
 			end
 		else
 			lib.SetClip(0,0,CC.ScreenW,CC.ScreenH);
-			lib.DrawMMap(JY.Base["äººX"],JY.Base["äººY"],pic);             --æ˜¾ç¤ºä¸»åœ°å›¾
+			lib.DrawMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],pic);             --ÏÔÊ¾Ö÷µØÍ¼
 		end
-	else  --å…¨éƒ¨æ˜¾ç¤º
-		lib.DrawMMap(JY.Base["äººX"],JY.Base["äººY"],pic);             --æ˜¾ç¤ºä¸»åœ°å›¾
+	else  --È«²¿ÏÔÊ¾
+		lib.DrawMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],pic);             --ÏÔÊ¾Ö÷µØÍ¼
 	end
 
 	if CC.ShowXY==1 then
-		DrawString(10,CC.ScreenH-20,string.format("å¤§åœ°å›¾ %d %d",JY.Base["äººX"],JY.Base["äººY"]) ,C_GOLD,16);
+		DrawString(10,CC.ScreenH-20,string.format("´óµØÍ¼ %d %d",JY.Base["ÈËX"],JY.Base["ÈËY"]) ,C_GOLD,16);
 		DrawString(CC.ScreenW-150,8,os.date("%c"),C_GOLD,16);
 	end
 	if JY.JB==1 then JYZTB() end
@@ -853,11 +852,11 @@ function Game_MMap()      --ä¸»åœ°å›¾
 	ShowScreen(CONFIG.FastShowScreen);
 	lib.SetClip(0,0,0,0);
 
-	JY.oldMMapX=JY.Base["äººX"];
-	JY.oldMMapY=JY.Base["äººY"];
+	JY.oldMMapX=JY.Base["ÈËX"];
+	JY.oldMMapY=JY.Base["ÈËY"];
 	JY.oldMMapPic=pic;
 
-    if JY.SubScene >= 0 then          --è¿›å…¥å­åœºæ™¯
+    if JY.SubScene >= 0 then          --½øÈë×Ó³¡¾°
         CleanMemory();
 		lib.UnloadMMap();
         lib.PicInit();
@@ -867,16 +866,16 @@ function Game_MMap()      --ä¸»åœ°å›¾
         JY.MmapMusic=-1;
 
         JY.MyPic=GetMyPic();
-        JY.Base["äººX1"]=JY.Scene[JY.SubScene]["å…¥å£X"]
-        JY.Base["äººY1"]=JY.Scene[JY.SubScene]["å…¥å£Y"]
+        JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Èë¿ÚX"]
+        JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Èë¿ÚY"]
 
         Init_SMap(1);
     end
 
 end
 
---showname  =1 æ˜¾ç¤ºåœºæ™¯å 0 ä¸æ˜¾ç¤º
-function Init_SMap(showname)   --åˆå§‹åŒ–åœºæ™¯æ•°æ®
+--showname  =1 ÏÔÊ¾³¡¾°Ãû 0 ²»ÏÔÊ¾
+function Init_SMap(showname)   --³õÊ¼»¯³¡¾°Êı¾İ
 	lib.PicInit();
 	lib.PicLoadFile(CC.SMAPPicFile[1],CC.SMAPPicFile[2],0);
 	--lib.PicLoadFile(CC.SMAPPicFile[1],CC.SMAPPicFile[2],90,100);
@@ -890,11 +889,11 @@ function Init_SMap(showname)   --åˆå§‹åŒ–åœºæ™¯æ•°æ®
 						3);
     
 	if math.random(2)==1 then 
-	   JY.Scene[70]["è¿›é—¨éŸ³ä¹"]=33 
+	   JY.Scene[70]["½øÃÅÒôÀÖ"]=33 
     else
-       JY.Scene[70]["è¿›é—¨éŸ³ä¹"]=28
+       JY.Scene[70]["½øÃÅÒôÀÖ"]=28
 	end	
-	PlayMIDI(JY.Scene[JY.SubScene]["è¿›é—¨éŸ³ä¹"]);
+	PlayMIDI(JY.Scene[JY.SubScene]["½øÃÅÒôÀÖ"]);
 
 	JY.oldSMapX=-1;
 	JY.oldSMapY=-1;
@@ -910,7 +909,7 @@ function Init_SMap(showname)   --åˆå§‹åŒ–åœºæ™¯æ•°æ®
 	lib.GetKey();
 
 	if showname==1 then
-		DrawStrBox(-1,10,JY.Scene[JY.SubScene]["åç§°"],C_WHITE,CC.DefaultFont);
+		DrawStrBox(-1,10,JY.Scene[JY.SubScene]["Ãû³Æ"],C_WHITE,CC.DefaultFont);
 		DrawString(100,575,CC.EVB118,C_GOLD,25)
 		ShowScreen();
 		WaitKey();
@@ -921,15 +920,15 @@ function Init_SMap(showname)   --åˆå§‹åŒ–åœºæ™¯æ•°æ®
 	AutoMoveTab={[0]=0}
 end
 
---è®¡ç®—è´´å›¾æ”¹å˜å½¢æˆçš„Clipè£å‰ª
---(dx1,dy1) æ–°è´´å›¾å’Œç»˜å›¾ä¸­å¿ƒç‚¹çš„åæ ‡åç§»ã€‚åœ¨åœºæ™¯ä¸­ï¼Œè§†è§’ä¸åŒè€Œä¸»è§’åŠ¨æ—¶ç”¨åˆ°
---pic1 æ—§çš„è´´å›¾ç¼–å·
---id1 è´´å›¾æ–‡ä»¶åŠ è½½ç¼–å·
---(dx2,dy2) æ–°è´´å›¾å’Œç»˜å›¾ä¸­å¿ƒç‚¹çš„åç§»
---pic2 æ—§çš„è´´å›¾ç¼–å·
---id2 è´´å›¾æ–‡ä»¶åŠ è½½ç¼–å·
---è¿”å›ï¼Œè£å‰ªçŸ©å½¢ {x1,y1,x2,y2}
-function Cal_PicClip(dx1,dy1,pic1,id1,dx2,dy2,pic2,id2)   --è®¡ç®—è´´å›¾æ”¹å˜å½¢æˆçš„Clipè£å‰ª
+--¼ÆËãÌùÍ¼¸Ä±äĞÎ³ÉµÄClip²Ã¼ô
+--(dx1,dy1) ĞÂÌùÍ¼ºÍ»æÍ¼ÖĞĞÄµãµÄ×ø±êÆ«ÒÆ¡£ÔÚ³¡¾°ÖĞ£¬ÊÓ½Ç²»Í¬¶øÖ÷½Ç¶¯Ê±ÓÃµ½
+--pic1 ¾ÉµÄÌùÍ¼±àºÅ
+--id1 ÌùÍ¼ÎÄ¼ş¼ÓÔØ±àºÅ
+--(dx2,dy2) ĞÂÌùÍ¼ºÍ»æÍ¼ÖĞĞÄµãµÄÆ«ÒÆ
+--pic2 ¾ÉµÄÌùÍ¼±àºÅ
+--id2 ÌùÍ¼ÎÄ¼ş¼ÓÔØ±àºÅ
+--·µ»Ø£¬²Ã¼ô¾ØĞÎ {x1,y1,x2,y2}
+function Cal_PicClip(dx1,dy1,pic1,id1,dx2,dy2,pic2,id2)   --¼ÆËãÌùÍ¼¸Ä±äĞÎ³ÉµÄClip²Ã¼ô
 
 	local w1,h1,x1_off,y1_off=lib.PicGetXY(id1,pic1*2);
 	local old_r={};
@@ -948,7 +947,7 @@ function Cal_PicClip(dx1,dy1,pic1,id1,dx2,dy2,pic2,id2)   --è®¡ç®—è´´å›¾æ”¹å˜å½
 	return MergeRect(old_r,new_r);
 end
 
-function MergeRect(r1,r2)     --åˆå¹¶çŸ©å½¢
+function MergeRect(r1,r2)     --ºÏ²¢¾ØĞÎ
 	local res={};
 	res.x1=math.min(r1.x1, r2.x1);
 	res.y1=math.min(r1.y1, r2.y1);
@@ -957,9 +956,9 @@ function MergeRect(r1,r2)     --åˆå¹¶çŸ©å½¢
 	return res;
 end
 
-----å¯¹çŸ©å½¢è¿›è¡Œå±å¹•å‰ªè£
---è¿”å›å‰ªè£åçš„çŸ©å½¢ï¼Œå¦‚æœè¶…å‡ºå±å¹•ï¼Œè¿”å›ç©º
-function ClipRect(r)    --å¯¹çŸ©å½¢è¿›è¡Œå±å¹•å‰ªè£
+----¶Ô¾ØĞÎ½øĞĞÆÁÄ»¼ô²Ã
+--·µ»Ø¼ô²ÃºóµÄ¾ØĞÎ£¬Èç¹û³¬³öÆÁÄ»£¬·µ»Ø¿Õ
+function ClipRect(r)    --¶Ô¾ØĞÎ½øĞĞÆÁÄ»¼ô²Ã
 	if r.x1>=CC.ScreenW or r.x2<= 0 or r.y1>=CC.ScreenH or r.y2 <=0 then
 	    return nil
 	else
@@ -972,9 +971,9 @@ function ClipRect(r)    --å¯¹çŸ©å½¢è¿›è¡Œå±å¹•å‰ªè£
 	end
 end
 
-function GetMyPic()      --è®¡ç®—ä¸»è§’å½“å‰è´´å›¾
+function GetMyPic()      --¼ÆËãÖ÷½Çµ±Ç°ÌùÍ¼
     local n;
-	if JY.Status==GAME_MMAP and JY.Base["ä¹˜èˆ¹"]==1 then
+	if JY.Status==GAME_MMAP and JY.Base["³Ë´¬"]==1 then
 		if JY.MyCurrentPic >=4 then
 			JY.MyCurrentPic=0
 		end
@@ -984,40 +983,40 @@ function GetMyPic()      --è®¡ç®—ä¸»è§’å½“å‰è´´å›¾
 		end
 	end
 
-	if JY.Base["ä¹˜èˆ¹"]==0 then
-        n=CC.MyStartPic+JY.Base["äººæ–¹å‘"]*7+JY.MyCurrentPic;
+	if JY.Base["³Ë´¬"]==0 then
+        n=CC.MyStartPic+JY.Base["ÈË·½Ïò"]*7+JY.MyCurrentPic;
 	else
-	    n=CC.BoatStartPic+JY.Base["äººæ–¹å‘"]*4+JY.MyCurrentPic;
+	    n=CC.BoatStartPic+JY.Base["ÈË·½Ïò"]*4+JY.MyCurrentPic;
 	end
 	return n;
 end
 
---å¢åŠ å½“å‰ä¸»è§’èµ°è·¯åŠ¨ç”»å¸§, ä¸»åœ°å›¾å’Œåœºæ™¯åœ°å›¾éƒ½ä½¿ç”¨
-function AddMyCurrentPic()        ---å¢åŠ å½“å‰ä¸»è§’èµ°è·¯åŠ¨ç”»å¸§,
+--Ôö¼Óµ±Ç°Ö÷½Ç×ßÂ·¶¯»­Ö¡, Ö÷µØÍ¼ºÍ³¡¾°µØÍ¼¶¼Ê¹ÓÃ
+function AddMyCurrentPic()        ---Ôö¼Óµ±Ç°Ö÷½Ç×ßÂ·¶¯»­Ö¡,
     JY.MyCurrentPic=JY.MyCurrentPic+1;
 end
 
---åœºæ™¯æ˜¯å¦å¯è¿›
---id åœºæ™¯ä»£å·
---x,y å½“å‰ä¸»åœ°å›¾åæ ‡
---è¿”å›ï¼šåœºæ™¯idï¼Œ-1è¡¨ç¤ºæ²¡æœ‰åœºæ™¯å¯è¿›
-function CanEnterScene(x,y)         --åœºæ™¯æ˜¯å¦å¯è¿›
-    if JY.EnterSceneXY==nil then    --å¦‚æœä¸ºç©ºï¼Œåˆ™é‡æ–°äº§ç”Ÿæ•°æ®ã€‚
+--³¡¾°ÊÇ·ñ¿É½ø
+--id ³¡¾°´úºÅ
+--x,y µ±Ç°Ö÷µØÍ¼×ø±ê
+--·µ»Ø£º³¡¾°id£¬-1±íÊ¾Ã»ÓĞ³¡¾°¿É½ø
+function CanEnterScene(x,y)         --³¡¾°ÊÇ·ñ¿É½ø
+    if JY.EnterSceneXY==nil then    --Èç¹ûÎª¿Õ£¬ÔòÖØĞÂ²úÉúÊı¾İ¡£
 	    Cal_EnterSceneXY();
 	end
 
     local id=JY.EnterSceneXY[y*CC.MWidth+x];
     if id~=nil then
-        local e=JY.Scene[id]["è¿›å…¥æ¡ä»¶"];
-		if e==0 then        --å¯è¿›
+        local e=JY.Scene[id]["½øÈëÌõ¼ş"];
+		if e==0 then        --¿É½ø
 			return id;
-		elseif e==1 then    --ä¸å¯è¿›
+		elseif e==1 then    --²»¿É½ø
 			return -1
-		elseif e==2 then    --æœ‰è½»åŠŸé«˜è€…è¿›
+		elseif e==2 then    --ÓĞÇá¹¦¸ßÕß½ø
 			for i=1,CC.TeamNum do
-				local pid=JY.Base["é˜Ÿä¼" .. i];
+				local pid=JY.Base["¶ÓÎé" .. i];
 				if pid>=0 then
-					if JY.Person[pid]["è½»åŠŸ"]>=70 then
+					if JY.Person[pid]["Çá¹¦"]>=70 then
 						return id;
 					end
 				end
@@ -1027,48 +1026,48 @@ function CanEnterScene(x,y)         --åœºæ™¯æ˜¯å¦å¯è¿›
     return -1;
 end
 
-function Cal_EnterSceneXY()   --è®¡ç®—å“ªäº›åæ ‡å¯ä»¥è¿›å…¥åœºæ™¯
+function Cal_EnterSceneXY()   --¼ÆËãÄÄĞ©×ø±ê¿ÉÒÔ½øÈë³¡¾°
     JY.EnterSceneXY={};
     for id = 0,JY.SceneNum-1 do
 		local scene=JY.Scene[id];
-        if scene["å¤–æ™¯å…¥å£X1"]>0 and scene["å¤–æ™¯å…¥å£Y1"] then
-            JY.EnterSceneXY[scene["å¤–æ™¯å…¥å£Y1"]*CC.MWidth+scene["å¤–æ™¯å…¥å£X1"]]=id;
+        if scene["Íâ¾°Èë¿ÚX1"]>0 and scene["Íâ¾°Èë¿ÚY1"] then
+            JY.EnterSceneXY[scene["Íâ¾°Èë¿ÚY1"]*CC.MWidth+scene["Íâ¾°Èë¿ÚX1"]]=id;
 		end
-        if scene["å¤–æ™¯å…¥å£X2"]>0 and scene["å¤–æ™¯å…¥å£Y2"] then
-            JY.EnterSceneXY[scene["å¤–æ™¯å…¥å£Y2"]*CC.MWidth+scene["å¤–æ™¯å…¥å£X2"]]=id;
+        if scene["Íâ¾°Èë¿ÚX2"]>0 and scene["Íâ¾°Èë¿ÚY2"] then
+            JY.EnterSceneXY[scene["Íâ¾°Èë¿ÚY2"]*CC.MWidth+scene["Íâ¾°Èë¿ÚX2"]]=id;
 		end
     end
 end
 
---ä¸»èœå•
-function MMenu()      --ä¸»èœå•
+--Ö÷²Ëµ¥
+function MMenu()      --Ö÷²Ëµ¥
     Cls();   
-    local menu={      {"åŒ»ç–—",Menu_Doctor,1},
-	                  {"è§£æ¯’",Menu_DecPoison,1},
-	                  {"ç‰©å“",Menu_Thing,1},
-	                  {"çŠ¶æ€",Menu_Status,1},
-	                  {"ç¦»é˜Ÿ",Menu_PersonExit,1},
-	                  {"ç³»ç»Ÿ",Menu_System,1},      };
-    if JY.Status==GAME_SMAP then  --å­åœºæ™¯ï¼Œåä¸¤ä¸ªèœå•ä¸å¯è§
+    local menu={      {"Ò½ÁÆ",Menu_Doctor,1},
+	                  {"½â¶¾",Menu_DecPoison,1},
+	                  {"ÎïÆ·",Menu_Thing,1},
+	                  {"×´Ì¬",Menu_Status,1},
+	                  {"Àë¶Ó",Menu_PersonExit,1},
+	                  {"ÏµÍ³",Menu_System,1},      };
+    if JY.Status==GAME_SMAP then  --×Ó³¡¾°£¬ºóÁ½¸ö²Ëµ¥²»¿É¼û
         --menu[5][3]=0;
         --menu[6][3]=0;
     end
     ShowMenu(menu,6,0,CC.MainMenuX,CC.MainMenuY,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE)
 end
 
-function SelectThing(thing,thingnum)    --æ˜¾ç¤ºç‰©å“èœå•
+function SelectThing(thing,thingnum)    --ÏÔÊ¾ÎïÆ·²Ëµ¥
 
     local xnum=CC.MenuThingXnum;
     local ynum=CC.MenuThingYnum;
 
-	local w=CC.ThingPicWidth*xnum+(xnum-1)*CC.ThingGapIn+2*CC.ThingGapOut;  --æ€»ä½“å®½åº¦
-	local h=CC.ThingPicHeight*ynum+(ynum-1)*CC.ThingGapIn+2*CC.ThingGapOut; --ç‰©å“æ é«˜åº¦
+	local w=CC.ThingPicWidth*xnum+(xnum-1)*CC.ThingGapIn+2*CC.ThingGapOut;  --×ÜÌå¿í¶È
+	local h=CC.ThingPicHeight*ynum+(ynum-1)*CC.ThingGapIn+2*CC.ThingGapOut; --ÎïÆ·À¸¸ß¶È
 
 	local dx=(CC.ScreenW-w)/2;
 	local dy=(CC.ScreenH-h-2*(CC.ThingFontSize+2*CC.MenuBorderPixel+5))/2-50;
 
 
-    local y1_1,y1_2,y2_1,y2_2,y3_1,y3_2;                  --åç§°ï¼Œè¯´æ˜å’Œå›¾ç‰‡çš„Yåæ ‡
+    local y1_1,y1_2,y2_1,y2_2,y3_1,y3_2;                  --Ãû³Æ£¬ËµÃ÷ºÍÍ¼Æ¬µÄY×ø±ê
 
     local cur_line=0;
     local cur_x=0;
@@ -1089,22 +1088,22 @@ function SelectThing(thing,thingnum)    --æ˜¾ç¤ºç‰©å“èœå•
 
         for y=0,ynum-1 do
             for x=0,xnum-1 do
-                local id=y*xnum+x+xnum*cur_line         --å½“å‰å¾…é€‰æ‹©ç‰©å“
+                local id=y*xnum+x+xnum*cur_line         --µ±Ç°´ıÑ¡ÔñÎïÆ·
 				local boxcolor;
                 if x==cur_x and y==cur_y then
 				    boxcolor=C_WHITE;
                     if thing[id]>=0 then
                         cur_thing=thing[id];
-                        local str=JY.Thing[thing[id]]["åç§°"];
-                        if JY.Thing[thing[id]]["ç±»å‹"]==1 or JY.Thing[thing[id]]["ç±»å‹"]==2 then
-                            if JY.Thing[thing[id]]["ä½¿ç”¨äºº"] >=0 then
-                                str=str .. "(" .. JY.Person[JY.Thing[thing[id]]["ä½¿ç”¨äºº"]]["å§“å"] .. ")";
+                        local str=JY.Thing[thing[id]]["Ãû³Æ"];
+                        if JY.Thing[thing[id]]["ÀàĞÍ"]==1 or JY.Thing[thing[id]]["ÀàĞÍ"]==2 then
+                            if JY.Thing[thing[id]]["Ê¹ÓÃÈË"] >=0 then
+                                str=str .. "(" .. JY.Person[JY.Thing[thing[id]]["Ê¹ÓÃÈË"]]["ĞÕÃû"] .. ")";
                             end
                         end
                         str=string.format("%s X %d",str,thingnum[id]);
-						local str2=JY.Thing[thing[id]]["ç‰©å“è¯´æ˜"];
+						local str2=JY.Thing[thing[id]]["ÎïÆ·ËµÃ÷"];
 						if thing[id]==182 then
-							str2=str2..string.format('(äºº%3d,%3d)',JY.Base['äººX'],JY.Base['äººY'])
+							str2=str2..string.format('(ÈË%3d,%3d)',JY.Base['ÈËX'],JY.Base['ÈËY'])
 						end
 
      			        DrawString(dx+CC.ThingGapOut,y1_1+CC.MenuBorderPixel,str,C_GOLD,CC.ThingFontSize);
@@ -1141,68 +1140,68 @@ function SelectThing(thing,thingnum)    --æ˜¾ç¤ºç‰©å“èœå•
 							DrawStrBox(mx,my,mys,C_GOLD,myfont)
 							mx=mx+mylen
 						end
-						if myThing['ç»ƒå‡ºæ­¦åŠŸ']>0 then
-							local kfname='ä¹ å¾—:'..JY.Wugong[myThing['ç»ƒå‡ºæ­¦åŠŸ']]['åç§°']
+						if myThing['Á·³öÎä¹¦']>0 then
+							local kfname='Ï°µÃ:'..JY.Wugong[myThing['Á·³öÎä¹¦']]['Ãû³Æ']
 							DrawStrBox(mx,my,kfname,C_GOLD,myfont)
 							mx=mx+myfont*string.len(kfname)/2+12
 						end
-						if myThing['ç±»å‹']>0 then
-						drawitem('åŠ ç”Ÿå‘½','ç”Ÿå‘½')
-						drawitem('åŠ ç”Ÿå‘½æœ€å¤§å€¼','ç”Ÿå‘½æœ€å€¼')
-						drawitem('åŠ ä¸­æ¯’è§£æ¯’','ä¸­æ¯’')
-						drawitem('åŠ ä½“åŠ›','ä½“åŠ›')
-						if myThing['æ”¹å˜å†…åŠ›æ€§è´¨']==2 then
-							drawitem('å†…åŠ›é—¨è·¯é˜´é˜³åˆä¸€')
+						if myThing['ÀàĞÍ']>0 then
+						drawitem('¼ÓÉúÃü','ÉúÃü')
+						drawitem('¼ÓÉúÃü×î´óÖµ','ÉúÃü×îÖµ')
+						drawitem('¼ÓÖĞ¶¾½â¶¾','ÖĞ¶¾')
+						drawitem('¼ÓÌåÁ¦','ÌåÁ¦')
+						if myThing['¸Ä±äÄÚÁ¦ĞÔÖÊ']==2 then
+							drawitem('ÄÚÁ¦ÃÅÂ·ÒõÑôºÏÒ»')
 						end
-						drawitem('åŠ å†…åŠ›','å†…åŠ›')
-						drawitem('åŠ å†…åŠ›æœ€å¤§å€¼','å†…åŠ›æœ€å€¼')
-						drawitem('åŠ æ”»å‡»åŠ›','æ”»å‡»')
-						drawitem('åŠ è½»åŠŸ','è½»åŠŸ')
-						drawitem('åŠ é˜²å¾¡åŠ›','é˜²å¾¡')
-						drawitem('åŠ åŒ»ç–—èƒ½åŠ›','åŒ»ç–—')
-						drawitem('åŠ ç”¨æ¯’èƒ½åŠ›','ç”¨æ¯’')
-						drawitem('åŠ è§£æ¯’èƒ½åŠ›','è§£æ¯’')
-						drawitem('åŠ æŠ—æ¯’èƒ½åŠ›','æŠ—æ¯’')
-						drawitem('åŠ æ‹³æŒåŠŸå¤«','æ‹³æŒ')
-						drawitem('åŠ å¾¡å‰‘èƒ½åŠ›','å¾¡å‰‘')
-						drawitem('åŠ è€åˆ€æŠ€å·§','è€åˆ€')
-						drawitem('åŠ ç‰¹æ®Šå…µå™¨','ç‰¹æ®Š')
-						drawitem('åŠ æš—å™¨æŠ€å·§','æš—å™¨')
-						drawitem('åŠ æ­¦å­¦å¸¸è¯†','æ­¦å¸¸')
-						drawitem('åŠ å“å¾·','å“å¾·')
-						drawitem('åŠ æ”»å‡»æ¬¡æ•°','å·¦å³',{[0]='å¦','æ˜¯'})
-						drawitem('åŠ æ”»å‡»å¸¦æ¯’','å¸¦æ¯’')
+						drawitem('¼ÓÄÚÁ¦','ÄÚÁ¦')
+						drawitem('¼ÓÄÚÁ¦×î´óÖµ','ÄÚÁ¦×îÖµ')
+						drawitem('¼Ó¹¥»÷Á¦','¹¥»÷')
+						drawitem('¼ÓÇá¹¦','Çá¹¦')
+						drawitem('¼Ó·ÀÓùÁ¦','·ÀÓù')
+						drawitem('¼ÓÒ½ÁÆÄÜÁ¦','Ò½ÁÆ')
+						drawitem('¼ÓÓÃ¶¾ÄÜÁ¦','ÓÃ¶¾')
+						drawitem('¼Ó½â¶¾ÄÜÁ¦','½â¶¾')
+						drawitem('¼Ó¿¹¶¾ÄÜÁ¦','¿¹¶¾')
+						drawitem('¼ÓÈ­ÕÆ¹¦·ò','È­ÕÆ')
+						drawitem('¼ÓÓù½£ÄÜÁ¦','Óù½£')
+						drawitem('¼ÓË£µ¶¼¼ÇÉ','Ë£µ¶')
+						drawitem('¼ÓÌØÊâ±øÆ÷','ÌØÊâ')
+						drawitem('¼Ó°µÆ÷¼¼ÇÉ','°µÆ÷')
+						drawitem('¼ÓÎäÑ§³£Ê¶','Îä³£')
+						drawitem('¼ÓÆ·µÂ','Æ·µÂ')
+						drawitem('¼Ó¹¥»÷´ÎÊı','×óÓÒ',{[0]='·ñ','ÊÇ'})
+						drawitem('¼Ó¹¥»÷´ø¶¾','´ø¶¾')
 						if mx~=dx or my~=y3_2+2 then
-							DrawStrBox(dx,y3_2+2,' æ•ˆæœ:',C_RED,myfont)
+							DrawStrBox(dx,y3_2+2,' Ğ§¹û:',C_RED,myfont)
 						end
 						end
-						if myThing['ç±»å‹']==1 or myThing['ç±»å‹']==2 then
+						if myThing['ÀàĞÍ']==1 or myThing['ÀàĞÍ']==2 then
 						if mx~=dx then
 							mx=dx+4*myfont
 							my=my+myfont+10
 						end
 						myflag=1
 						local my2=my
-						if myThing['ä»…ä¿®ç‚¼äººç‰©']>-1 then
-							--drawitem('ä»…ä¿®ç‚¼äººç‰©','ä»…é™',{[myThing['ä»…ä¿®ç‚¼äººç‰©']]=JY.Person[myThing['ä»…ä¿®ç‚¼äººç‰©']]['å§“å']})
-							drawitem('ä»…é™:'..JY.Person[myThing['ä»…ä¿®ç‚¼äººç‰©']]['å§“å'])
+						if myThing['½öĞŞÁ¶ÈËÎï']>-1 then
+							--drawitem('½öĞŞÁ¶ÈËÎï','½öÏŞ',{[myThing['½öĞŞÁ¶ÈËÎï']]=JY.Person[myThing['½öĞŞÁ¶ÈËÎï']]['ĞÕÃû']})
+							drawitem('½öÏŞ:'..JY.Person[myThing['½öĞŞÁ¶ÈËÎï']]['ĞÕÃû'])
 						end
-						drawitem('éœ€å†…åŠ›æ€§è´¨','é˜´é˜³',{[0]='é˜´','é˜³','ä¸é™'})
-						drawitem('éœ€å†…åŠ›','å†…åŠ›')
-						drawitem('éœ€æ”»å‡»åŠ›','æ”»å‡»')
-						drawitem('éœ€è½»åŠŸ','è½»åŠŸ')
-						drawitem('éœ€ç”¨æ¯’èƒ½åŠ›','ç”¨æ¯’')
-						drawitem('éœ€åŒ»ç–—èƒ½åŠ›','åŒ»ç–—')
-						drawitem('éœ€è§£æ¯’èƒ½åŠ›','è§£æ¯’')
-						drawitem('éœ€æ‹³æŒåŠŸå¤«','æ‹³æŒ')
-						drawitem('éœ€å¾¡å‰‘èƒ½åŠ›','å¾¡å‰‘')
-						drawitem('éœ€è€åˆ€æŠ€å·§','è€åˆ€')
-						drawitem('éœ€ç‰¹æ®Šå…µå™¨','ç‰¹æ®Š')
-						drawitem('éœ€æš—å™¨æŠ€å·§','æš—å™¨')
-						drawitem('éœ€èµ„è´¨','èµ„è´¨')
-						drawitem('éœ€ç»éªŒ','ä¿®ç‚¼ç»éªŒ')
+						drawitem('ĞèÄÚÁ¦ĞÔÖÊ','ÒõÑô',{[0]='Òõ','Ñô','²»ÏŞ'})
+						drawitem('ĞèÄÚÁ¦','ÄÚÁ¦')
+						drawitem('Ğè¹¥»÷Á¦','¹¥»÷')
+						drawitem('ĞèÇá¹¦','Çá¹¦')
+						drawitem('ĞèÓÃ¶¾ÄÜÁ¦','ÓÃ¶¾')
+						drawitem('ĞèÒ½ÁÆÄÜÁ¦','Ò½ÁÆ')
+						drawitem('Ğè½â¶¾ÄÜÁ¦','½â¶¾')
+						drawitem('ĞèÈ­ÕÆ¹¦·ò','È­ÕÆ')
+						drawitem('ĞèÓù½£ÄÜÁ¦','Óù½£')
+						drawitem('ĞèË£µ¶¼¼ÇÉ','Ë£µ¶')
+						drawitem('ĞèÌØÊâ±øÆ÷','ÌØÊâ')
+						drawitem('Ğè°µÆ÷¼¼ÇÉ','°µÆ÷')
+						drawitem('Ğè×ÊÖÊ','×ÊÖÊ')
+						drawitem('Ğè¾­Ñé','ĞŞÁ¶¾­Ñé')
 						if mx~=dx or my~=my2 then
-							DrawStrBox(dx,my2,' éœ€æ±‚:',C_RED,myfont)
+							DrawStrBox(dx,my2,' ĞèÇó:',C_RED,myfont)
 						end
 						end
                     else
@@ -1285,31 +1284,31 @@ function SelectThing(thing,thingnum)    --æ˜¾ç¤ºç‰©å“èœå•
     return cur_thing;
 end
 
---æ–°çš„ç³»ç»Ÿå­èœå•ï¼Œå¢åŠ æ§åˆ¶éŸ³ä¹å’ŒéŸ³æ•ˆ
+--ĞÂµÄÏµÍ³×Ó²Ëµ¥£¬Ôö¼Ó¿ØÖÆÒôÀÖºÍÒôĞ§
 function Menu_System()
 
 	local menu={
-	             {"è¯»å–è¿›åº¦",Menu_ReadRecord,1},
-                 {"ä¿å­˜è¿›åº¦",Menu_SaveRecord,1},--2
-				 {"å…³é—­éŸ³ä¹",Menu_SetMusic,1},
-				 {"å…³é—­éŸ³æ•ˆ",Menu_SetSound,1},--4
-				 {"å…¨å±åˆ‡æ¢",Menu_FullScreen,1},                    
-				 {"é˜Ÿä¼æ’åº",Menu_DDTH,1},--6
-				 {"ç‰©å“æ•´ç†",Menu_WPZL,1},
-				 {"å›è¥æ•´å¤‡",nil,1},--8
-				 {"é©¬è½¦ä¼ é€",nil,1},
-				 {"ç®€æ˜“ä¿¡æ¯",Menu_JYZTB,1},--10
-				 {"å¤´åƒé€‰æ‹©",Menu_HEADXZ,1},
-				 {"æˆ‘çš„ä»£ç ",Menu_MYDIY,1},
-				 {"ç¦»å¼€æ¸¸æˆ",Menu_Exit,1},};--13
+	             {"¶ÁÈ¡½ø¶È",Menu_ReadRecord,1},
+                 {"±£´æ½ø¶È",Menu_SaveRecord,1},--2
+				 {"¹Ø±ÕÒôÀÖ",Menu_SetMusic,1},
+				 {"¹Ø±ÕÒôĞ§",Menu_SetSound,1},--4
+				 {"È«ÆÁÇĞ»»",Menu_FullScreen,1},                    
+				 {"¶ÓÎéÅÅĞò",Menu_DDTH,1},--6
+				 {"ÎïÆ·ÕûÀí",Menu_WPZL,1},
+				 {"»ØÓªÕû±¸",nil,1},--8
+				 {"Âí³µ´«ËÍ",nil,1},
+				 {"¼òÒ×ĞÅÏ¢",Menu_JYZTB,1},--10
+				 {"Í·ÏñÑ¡Ôñ",Menu_HEADXZ,1},
+				 {"ÎÒµÄ´úÂë",Menu_MYDIY,1},
+				 {"Àë¿ªÓÎÏ·",Menu_Exit,1},};--13
 
 				 
     if JY.EnableMusic==0 then
-	    menu[3][1]="æ‰“å¼€éŸ³ä¹";
+	    menu[3][1]="´ò¿ªÒôÀÖ";
 	end
 
 	if JY.EnableSound==0 then
-	    menu[4][1]="æ‰“å¼€éŸ³æ•ˆ";
+	    menu[4][1]="´ò¿ªÒôĞ§";
     end
 
 	if JY.Status==GAME_SMAP then
@@ -1334,14 +1333,14 @@ function Menu_System()
 	end	
 	if r == 0 then
         return 0;
-    elseif r<0 then   --è¦é€€å‡ºå…¨éƒ¨èœå•ï¼Œ
+    elseif r<0 then   --ÒªÍË³öÈ«²¿²Ëµ¥£¬
         return 1;
  	end
 end
 
 function Menu_MYDIY()
     Cls();
-    local MS=JYMsgBox("RUNDIY","ç¡®å®šè¦è¿è¡ŒDIYæ–‡ä»¶å—ï¼Ÿ",{"ç¡®å®š","æ”¾å¼ƒ"},2,280);
+    local MS=JYMsgBox("RUNDIY","È·¶¨ÒªÔËĞĞDIYÎÄ¼şÂğ£¿",{"È·¶¨","·ÅÆú"},2,280);
     if MS==1 then
       dofile(CONFIG.ScriptPath .. "DIY.lua");
 	end
@@ -1367,13 +1366,13 @@ function Menu_JYZTB()
     if JY.JB==1 then 
        JY.JB=0 
 	   Cls();
-	   DrawStrBox(-1,-1,"å…³é—­ç®€æ˜“ä¿¡æ¯æ˜¾ç¤º",C_GOLD,30);
+	   DrawStrBox(-1,-1,"¹Ø±Õ¼òÒ×ĞÅÏ¢ÏÔÊ¾",C_GOLD,30);
 	   ShowScreen()
 	   WaitKey();
 	else
 	   JY.JB=1
 	   Cls();
-	   DrawStrBox(-1,-1,"æ‰“å¼€ç®€æ˜“ä¿¡æ¯æ˜¾ç¤º",C_GOLD,30);
+	   DrawStrBox(-1,-1,"´ò¿ª¼òÒ×ĞÅÏ¢ÏÔÊ¾",C_GOLD,30);
 	   ShowScreen()
 	   WaitKey();
 	end
@@ -1434,12 +1433,12 @@ end
 
 function Menu_WPZL()  
 		   for i=1,200 do
-               if JY.Base["ç‰©å“"..i]>-1 then 
+               if JY.Base["ÎïÆ·"..i]>-1 then 
                   for ii=i+1,200 do
-                      if JY.Base["ç‰©å“"..ii]>-1 then 
-                         if JY.Base["ç‰©å“"..i]>JY.Base["ç‰©å“"..ii] then
-                            JY.Base["ç‰©å“"..i],JY.Base["ç‰©å“"..ii]=JY.Base["ç‰©å“"..ii],JY.Base["ç‰©å“"..i]
-                            JY.Base["ç‰©å“æ•°é‡"..i],JY.Base["ç‰©å“æ•°é‡"..ii]=JY.Base["ç‰©å“æ•°é‡"..ii],JY.Base["ç‰©å“æ•°é‡"..i]
+                      if JY.Base["ÎïÆ·"..ii]>-1 then 
+                         if JY.Base["ÎïÆ·"..i]>JY.Base["ÎïÆ·"..ii] then
+                            JY.Base["ÎïÆ·"..i],JY.Base["ÎïÆ·"..ii]=JY.Base["ÎïÆ·"..ii],JY.Base["ÎïÆ·"..i]
+                            JY.Base["ÎïÆ·ÊıÁ¿"..i],JY.Base["ÎïÆ·ÊıÁ¿"..ii]=JY.Base["ÎïÆ·ÊıÁ¿"..ii],JY.Base["ÎïÆ·ÊıÁ¿"..i]
                          end        
                       end 
                   end
@@ -1452,10 +1451,10 @@ end
 function Menu_HYZB()      
 		if JY.SubScene~=25 then
 		   JY.SubScene=70
-		   JY.Base["äººX1"]=8
-		   JY.Base["äººY1"]=28
-		   JY.Base["äººX"]=358
-		   JY.Base["äººY"]=235
+		   JY.Base["ÈËX1"]=8
+		   JY.Base["ÈËY1"]=28
+		   JY.Base["ÈËX"]=358
+		   JY.Base["ÈËY"]=235
 		end
 end
 
@@ -1464,22 +1463,22 @@ function Menu_MCCS()
 		local md=JYMsgBox(CC.s59,CC.s60,{CC.s61,CC.s62},2,119);
 		if md==1 then			
 			local r=SelectSceneMenu(24,24)
-			if r>0 and JY.Scene[r-1]["è¿›å…¥æ¡ä»¶"]==0 and JY.SubScene~=25 and r~=84 and r~=83 and r~=81 and r~=82 then
+			if r>0 and JY.Scene[r-1]["½øÈëÌõ¼ş"]==0 and JY.SubScene~=25 and r~=84 and r~=83 and r~=81 and r~=82 then
 				JY.SubScene=r-1;
 				--lib.ShowSlow(0,1);
 				local ss=JY.SubScene
                            
-				while JY.Scene[ss]["å¤–æ™¯å…¥å£X1"]==0 and JY.Scene[ss]["å¤–æ™¯å…¥å£Y1"]==0 do
-					ss=JY.Scene[ss]["è·³è½¬åœºæ™¯"]
+				while JY.Scene[ss]["Íâ¾°Èë¿ÚX1"]==0 and JY.Scene[ss]["Íâ¾°Èë¿ÚY1"]==0 do
+					ss=JY.Scene[ss]["Ìø×ª³¡¾°"]
 				end
-				JY.Base["äººX"]=JY.Scene[ss]["å¤–æ™¯å…¥å£X1"]
-				JY.Base["äººY"]=JY.Scene[ss]["å¤–æ™¯å…¥å£Y1"]
-				if JY.Scene[JY.SubScene]["å¤–æ™¯å…¥å£X1"]==0 and JY.Scene[JY.SubScene]["å¤–æ™¯å…¥å£Y1"]==0 then
-					JY.Base["äººX1"]=JY.Scene[JY.SubScene]["è·³è½¬å£X2"];         --å¤–éƒ¨åœºæ™¯ï¼Œå³ä»å…¶ä»–å†…éƒ¨åœºæ™¯è·³å›ã€‚
-					JY.Base["äººY1"]=JY.Scene[JY.SubScene]["è·³è½¬å£Y2"];
+				JY.Base["ÈËX"]=JY.Scene[ss]["Íâ¾°Èë¿ÚX1"]
+				JY.Base["ÈËY"]=JY.Scene[ss]["Íâ¾°Èë¿ÚY1"]
+				if JY.Scene[JY.SubScene]["Íâ¾°Èë¿ÚX1"]==0 and JY.Scene[JY.SubScene]["Íâ¾°Èë¿ÚY1"]==0 then
+					JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚX2"];         --Íâ²¿³¡¾°£¬¼´´ÓÆäËûÄÚ²¿³¡¾°Ìø»Ø¡£
+					JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚY2"];
 				else
-					JY.Base["äººX1"]=JY.Scene[JY.SubScene]["å…¥å£X"];            --æ–°åœºæ™¯çš„å¤–æ™¯å…¥å£ä¸º0ï¼Œè¡¨ç¤ºè¿™æ˜¯ä¸€ä¸ªå†…éƒ¨åœºæ™¯
-					JY.Base["äººY1"]=JY.Scene[JY.SubScene]["å…¥å£Y"];
+					JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Èë¿ÚX"];            --ĞÂ³¡¾°µÄÍâ¾°Èë¿ÚÎª0£¬±íÊ¾ÕâÊÇÒ»¸öÄÚ²¿³¡¾°
+					JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Èë¿ÚY"];
 				end
 			Init_SMap(1);
                         else
@@ -1489,22 +1488,22 @@ function Menu_MCCS()
             local r=GetPinyin1(32,CC.ScreenH-CC.Fontbig*6)		  
 			  for i=0,105 do
 				   if r==""..i then
-				      if JY.Scene[i]["è¿›å…¥æ¡ä»¶"]==0 and JY.SubScene~=25 and i~=82 and i~=83 and i~=81 and i~=84 then
+				      if JY.Scene[i]["½øÈëÌõ¼ş"]==0 and JY.SubScene~=25 and i~=82 and i~=83 and i~=81 and i~=84 then
 					     JY.SubScene=i
 						 --lib.ShowSlow(50,1);
 							local ss=JY.SubScene
 									   
-							while JY.Scene[ss]["å¤–æ™¯å…¥å£X1"]==0 and JY.Scene[ss]["å¤–æ™¯å…¥å£Y1"]==0 do
-								ss=JY.Scene[ss]["è·³è½¬åœºæ™¯"]
+							while JY.Scene[ss]["Íâ¾°Èë¿ÚX1"]==0 and JY.Scene[ss]["Íâ¾°Èë¿ÚY1"]==0 do
+								ss=JY.Scene[ss]["Ìø×ª³¡¾°"]
 							end
-							JY.Base["äººX"]=JY.Scene[ss]["å¤–æ™¯å…¥å£X1"]
-							JY.Base["äººY"]=JY.Scene[ss]["å¤–æ™¯å…¥å£Y1"]
-							if JY.Scene[JY.SubScene]["å¤–æ™¯å…¥å£X1"]==0 and JY.Scene[JY.SubScene]["å¤–æ™¯å…¥å£Y1"]==0 then
-								JY.Base["äººX1"]=JY.Scene[JY.SubScene]["è·³è½¬å£X2"];         --å¤–éƒ¨åœºæ™¯ï¼Œå³ä»å…¶ä»–å†…éƒ¨åœºæ™¯è·³å›ã€‚
-								JY.Base["äººY1"]=JY.Scene[JY.SubScene]["è·³è½¬å£Y2"];
+							JY.Base["ÈËX"]=JY.Scene[ss]["Íâ¾°Èë¿ÚX1"]
+							JY.Base["ÈËY"]=JY.Scene[ss]["Íâ¾°Èë¿ÚY1"]
+							if JY.Scene[JY.SubScene]["Íâ¾°Èë¿ÚX1"]==0 and JY.Scene[JY.SubScene]["Íâ¾°Èë¿ÚY1"]==0 then
+								JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚX2"];         --Íâ²¿³¡¾°£¬¼´´ÓÆäËûÄÚ²¿³¡¾°Ìø»Ø¡£
+								JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚY2"];
 							else
-								JY.Base["äººX1"]=JY.Scene[JY.SubScene]["å…¥å£X"];            --æ–°åœºæ™¯çš„å¤–æ™¯å…¥å£ä¸º0ï¼Œè¡¨ç¤ºè¿™æ˜¯ä¸€ä¸ªå†…éƒ¨åœºæ™¯
-								JY.Base["äººY1"]=JY.Scene[JY.SubScene]["å…¥å£Y"];
+								JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Èë¿ÚX"];            --ĞÂ³¡¾°µÄÍâ¾°Èë¿ÚÎª0£¬±íÊ¾ÕâÊÇÒ»¸öÄÚ²¿³¡¾°
+								JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Èë¿ÚY"];
 							end
 						 Init_SMap(1);
                       else
@@ -1516,29 +1515,29 @@ function Menu_MCCS()
         end			  
 end
 
---ç¦»å¼€èœå•
-function Menu_Exit()      --ç¦»å¼€èœå•
+--Àë¿ª²Ëµ¥
+function Menu_Exit()      --Àë¿ª²Ëµ¥
     Cls();
-    if DrawStrBoxYesNo(-1,-1,"æ˜¯å¦çœŸçš„è¦ç¦»å¼€æ¸¸æˆï¼Ÿ",C_WHITE,CC.DefaultFont) == true then
+    if DrawStrBoxYesNo(-1,-1,"ÊÇ·ñÕæµÄÒªÀë¿ªÓÎÏ·£¿",C_WHITE,CC.DefaultFont) == true then
         JY.Status =GAME_END;
     end
     return 1;
 end
 
-function Menu_SaveRecord()         --ä¿å­˜è¿›åº¦èœå•
-	local menu={ {"è¿›åº¦ä¸€",nil,1},
-                 {"è¿›åº¦äºŒ",nil,1},
-                 {"è¿›åº¦ä¸‰",nil,1},  };
+function Menu_SaveRecord()         --±£´æ½ø¶È²Ëµ¥
+	local menu={ {"½ø¶ÈÒ»",nil,1},
+                 {"½ø¶È¶ş",nil,1},
+                 {"½ø¶ÈÈı",nil,1},  };
     local r=ShowMenu(menu,3,0,CC.MainSubMenuX2,CC.MainSubMenuY,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE);
     if r>0 then
-		if JY.Status==GAME_SMAP then 			--ä¿å­˜éƒ¨åˆ†å’Œåœºæ™¯åœ°å›¾å­˜æ¡£ç›¸å…³ä¿¡æ¯
-			JY.Base["æ— ç”¨"]=JY.SubScene
+		if JY.Status==GAME_SMAP then 			--±£´æ²¿·ÖºÍ³¡¾°µØÍ¼´æµµÏà¹ØĞÅÏ¢
+			JY.Base["ÎŞÓÃ"]=JY.SubScene
 			
 		else
-			JY.Base["æ— ç”¨"]=-1
+			JY.Base["ÎŞÓÃ"]=-1
 			
 		end
-        DrawStrBox(CC.MainSubMenuX2,CC.MainSubMenuY,"è¯·ç¨å€™......",C_WHITE,CC.DefaultFont);
+        DrawStrBox(CC.MainSubMenuX2,CC.MainSubMenuY,"ÇëÉÔºò......",C_WHITE,CC.DefaultFont);
         ShowScreen();
         SBLDATAS(r);
         Cls(CC.MainSubMenuX2,CC.MainSubMenuY,CC.ScreenW,CC.ScreenH);
@@ -1546,27 +1545,27 @@ function Menu_SaveRecord()         --ä¿å­˜è¿›åº¦èœå•
     return 0;
 end
 
-function Menu_ReadRecord()        --è¯»å–è¿›åº¦èœå•
-	local menu={ {"è¿›åº¦ä¸€",nil,1},
-                 {"è¿›åº¦äºŒ",nil,1},
-                 {"è¿›åº¦ä¸‰",nil,1},  };
+function Menu_ReadRecord()        --¶ÁÈ¡½ø¶È²Ëµ¥
+	local menu={ {"½ø¶ÈÒ»",nil,1},
+                 {"½ø¶È¶ş",nil,1},
+                 {"½ø¶ÈÈı",nil,1},  };
     local r=ShowMenu(menu,3,0,CC.MainSubMenuX2,CC.MainSubMenuY,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE);
 
     if r == 0 then
         return 0;
     elseif r>0 then
-        DrawStrBox(CC.MainSubMenuX2,CC.MainSubMenuY,"è¯·ç¨å€™......",C_WHITE,CC.DefaultFont);
+        DrawStrBox(CC.MainSubMenuX2,CC.MainSubMenuY,"ÇëÉÔºò......",C_WHITE,CC.DefaultFont);
         ShowScreen();
         SBLDATAL(r);
-		if JY.Base["æ— ç”¨"]~=-1 then 
-			if JY.SubScene < 0 then          --å¤„äºå¤§åœ°å›¾
+		if JY.Base["ÎŞÓÃ"]~=-1 then 
+			if JY.SubScene < 0 then          --´¦ÓÚ´óµØÍ¼
 				CleanMemory();
 				lib.UnloadMMap();
 			end
 			lib.PicInit();
 			lib.ShowSlow(50,1)
 			JY.Status=GAME_SMAP
-			JY.SubScene=JY.Base["æ— ç”¨"]
+			JY.SubScene=JY.Base["ÎŞÓÃ"]
 			
 			JY.MmapMusic=-1;
 			JY.MyPic=GetMyPic();
@@ -1579,9 +1578,9 @@ function Menu_ReadRecord()        --è¯»å–è¿›åº¦èœå•
 	end
 end
 
---çŠ¶æ€å­èœå•
-function Menu_Status()           --çŠ¶æ€å­èœå•
-    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"è¦æŸ¥é˜…è°çš„çŠ¶æ€",C_WHITE,CC.DefaultFont);
+--×´Ì¬×Ó²Ëµ¥
+function Menu_Status()           --×´Ì¬×Ó²Ëµ¥
+    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"Òª²éÔÄË­µÄ×´Ì¬",C_WHITE,CC.DefaultFont);
 	local nexty=CC.MainSubMenuY+CC.SingleLineHeight;
 
     local r=SelectTeamMenu(CC.MainSubMenuX,nexty);
@@ -1594,21 +1593,21 @@ function Menu_Status()           --çŠ¶æ€å­èœå•
 	end
 end
 
---ç¦»é˜ŸExit
-function Menu_PersonExit()        --ç¦»é˜ŸExit
-    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"è¦æ±‚è°ç¦»é˜Ÿ",C_WHITE,CC.DefaultFont);
+--Àë¶ÓExit
+function Menu_PersonExit()        --Àë¶ÓExit
+    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"ÒªÇóË­Àë¶Ó",C_WHITE,CC.DefaultFont);
 	local nexty=CC.MainSubMenuY+CC.SingleLineHeight;
 
 	local r=SelectTeamMenu(CC.MainSubMenuX,nexty);
     if r==1 then
-        DrawStrBoxWaitKey("æŠ±æ­‰ï¼æ²¡æœ‰ä½ æ¸¸æˆè¿›è¡Œä¸ä¸‹å»",C_WHITE,CC.DefaultFont,1);
+        DrawStrBoxWaitKey("±§Ç¸£¡Ã»ÓĞÄãÓÎÏ·½øĞĞ²»ÏÂÈ¥",C_WHITE,CC.DefaultFont,1);
     elseif JY.SubScene==82 then
 	    --
-	elseif r>0 and JY.SubScene==55 and JY.Base["é˜Ÿä¼" .. r]==35 then
+	elseif r>0 and JY.SubScene==55 and JY.Base["¶ÓÎé" .. r]==35 then
 	    --
 	elseif r>1 then
-        local personid=JY.Base["é˜Ÿä¼" .. r];
-        for i,v in ipairs(CC.PersonExit) do         --åœ¨ç¦»é˜Ÿåˆ—è¡¨ä¸­è°ƒç”¨ç¦»é˜Ÿå‡½æ•°
+        local personid=JY.Base["¶ÓÎé" .. r];
+        for i,v in ipairs(CC.PersonExit) do         --ÔÚÀë¶ÓÁĞ±íÖĞµ÷ÓÃÀë¶Óº¯Êı
              if personid==v[1] then
 			    if OEVENTLUA[v[2]]~=nil then
 				   OEVENTLUA[v[2]]()
@@ -1622,16 +1621,16 @@ function Menu_PersonExit()        --ç¦»é˜ŸExit
     return 0;
 end
 
---é˜Ÿä¼é€‰æ‹©äººç‰©èœå•
-function SelectTeamMenu(x,y)          --é˜Ÿä¼é€‰æ‹©äººç‰©èœå•
+--¶ÓÎéÑ¡ÔñÈËÎï²Ëµ¥
+function SelectTeamMenu(x,y)          --¶ÓÎéÑ¡ÔñÈËÎï²Ëµ¥
    
 	local menu={};
 	for i=1,CC.TeamNum do
 		menu[i]={"",nil,0};
-		local id=JY.Base["é˜Ÿä¼" .. i]
+		local id=JY.Base["¶ÓÎé" .. i]
 		if id>=0 then
-			if JY.Person[id]["ç”Ÿå‘½"]>0 then
-				menu[i][1]=JY.Person[id]["å§“å"];
+			if JY.Person[id]["ÉúÃü"]>0 then
+				menu[i][1]=JY.Person[id]["ĞÕÃû"];
 				menu[i][3]=1;
 			end
 		end
@@ -1639,10 +1638,10 @@ function SelectTeamMenu(x,y)          --é˜Ÿä¼é€‰æ‹©äººç‰©èœå•
     return ShowMenu(menu,CC.TeamNum,0,x,y,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE);
 end
 
-function GetTeamNum()            --å¾—åˆ°é˜Ÿå‹ä¸ªæ•°
+function GetTeamNum()            --µÃµ½¶ÓÓÑ¸öÊı
     local r=CC.TeamNum;
 	for i=1,CC.TeamNum do
-	    if JY.Base["é˜Ÿä¼" .. i]<0 then
+	    if JY.Base["¶ÓÎé" .. i]<0 then
 		    r=i-1;
 		    break;
 		end
@@ -1650,16 +1649,16 @@ function GetTeamNum()            --å¾—åˆ°é˜Ÿå‹ä¸ªæ•°
 	return r;
 end
 
----æ˜¾ç¤ºé˜Ÿå‹çŠ¶æ€
--- å·¦å³é”®ç¿»é¡µï¼Œä¸Šä¸‹é”®æ¢é˜Ÿå‹
-function ShowPersonStatus(teamid)---æ˜¾ç¤ºé˜Ÿå‹çŠ¶æ€	
+---ÏÔÊ¾¶ÓÓÑ×´Ì¬
+-- ×óÓÒ¼ü·­Ò³£¬ÉÏÏÂ¼ü»»¶ÓÓÑ
+function ShowPersonStatus(teamid)---ÏÔÊ¾¶ÓÓÑ×´Ì¬	
 	local page=1;
 	local pagenum=2;
 	local teamnum=GetTeamNum();
 
 	while true do
 	    Cls();
-        local id=JY.Base["é˜Ÿä¼" .. teamid];
+        local id=JY.Base["¶ÓÎé" .. teamid];
         ShowPersonStatus_sub(id,page);
 
         ShowScreen();
@@ -1677,37 +1676,37 @@ function ShowPersonStatus(teamid)---æ˜¾ç¤ºé˜Ÿå‹çŠ¶æ€
 		    page=page+1;
 		elseif keypress==VK_SPACE or keypress>1999999 then
 		    Cls();
-			if TFNLJS[JY.Person[id]["å§“å"]]~=nil then
-			    say(TFNLJS[JY.Person[id]["å§“å"]],id,5)	 
+			if TFNLJS[JY.Person[id]["ĞÕÃû"]]~=nil then
+			    say(TFNLJS[JY.Person[id]["ĞÕÃû"]],id,5)	 
 		    end
 		elseif CC.Debug==nil then
 			
 		--[[elseif keypress==108 then	--L LVUPFY
-			local lv=JY.Person[id]["ç­‰çº§"];
+			local lv=JY.Person[id]["µÈ¼¶"];
 		  while lv<30 do
-			AddPersonAttrib(id,"ç»éªŒ",CC.Exp[lv]-JY.Person[id]["ç»éªŒ"]);
+			AddPersonAttrib(id,"¾­Ñé",CC.Exp[lv]-JY.Person[id]["¾­Ñé"]);
 			if War_AddPersonLVUP(id) then
 			   
 			end
-		    lv=JY.Person[id]["ç­‰çº§"];
+		    lv=JY.Person[id]["µÈ¼¶"];
 			if lv==30 then
-				DrawStrBox(-1,-1,string.format("%s å‡çº§äº†",JY.Person[id]["å§“å"]),C_WHITE,CC.DefaultFont);
+				DrawStrBox(-1,-1,string.format("%s Éı¼¶ÁË",JY.Person[id]["ĞÕÃû"]),C_WHITE,CC.DefaultFont);
 				ShowScreen();
 				WaitKey();
 			end
 		  end		  
-		  JY.Person[id]["ä¿®ç‚¼ç‚¹æ•°"]=30000
+		  JY.Person[id]["ĞŞÁ¶µãÊı"]=30000
 		  War_PersonTrainBook(id) 		  
 		   
 		elseif keypress==99 then	--C
-			--AddPersonAttrib(id,'èµ„è´¨',1)
-			local lv=JY.Person[id]["ç­‰çº§"];
-			AddPersonAttrib(id,"ç»éªŒ",CC.Exp[lv]-JY.Person[id]["ç»éªŒ"]);
+			--AddPersonAttrib(id,'×ÊÖÊ',1)
+			local lv=JY.Person[id]["µÈ¼¶"];
+			AddPersonAttrib(id,"¾­Ñé",CC.Exp[lv]-JY.Person[id]["¾­Ñé"]);
 			if War_AddPersonLVUP(id) then
 			   
 			end
 		elseif keypress==102 then	--F
-			--AddPersonAttrib(id,'èµ„è´¨',-1)
+			--AddPersonAttrib(id,'×ÊÖÊ',-1)
 		]]	
         end
 		teamid=limitX(teamid,1,teamnum);
@@ -1715,16 +1714,16 @@ function ShowPersonStatus(teamid)---æ˜¾ç¤ºé˜Ÿå‹çŠ¶æ€
 	end
 end
 
---id äººç‰©ç¼–å·
---page æ˜¾ç¤ºé¡µæ•°ï¼Œç›®å‰å…±ä¸¤é¡µ
-function ShowPersonStatus_sub(id,page)    --æ˜¾ç¤ºäººç‰©çŠ¶æ€é¡µé¢
+--id ÈËÎï±àºÅ
+--page ÏÔÊ¾Ò³Êı£¬Ä¿Ç°¹²Á½Ò³
+function ShowPersonStatus_sub(id,page)    --ÏÔÊ¾ÈËÎï×´Ì¬Ò³Ãæ
    
-    local size=CC.DefaultFont;    --å­—ä½“å¤§å°
+    local size=CC.DefaultFont;    --×ÖÌå´óĞ¡
     local p=JY.Person[id];
     local p0=JY.Person[0];
-    local width=18*size+15;             --18ä¸ªæ±‰å­—å­—ç¬¦å®½
+    local width=18*size+15;             --18¸öºº×Ö×Ö·û¿í
 	local h=size+CC.PersonStateRowPixel;
-	local height=13*h+10;                --12ä¸ªæ±‰å­—å­—ç¬¦é«˜
+	local height=13*h+10;                --12¸öºº×Ö×Ö·û¸ß
 	local dx=(CC.ScreenW-width)/2;
 	local dy=(CC.ScreenH-height)/2;
 
@@ -1736,7 +1735,7 @@ function ShowPersonStatus_sub(id,page)    --æ˜¾ç¤ºäººç‰©çŠ¶æ€é¡µé¢
     x1=dx+5;
 	y1=dy+5;
 	x2=4*size;
-	local headw,headh=lib.PicGetXY(1,p["å¤´åƒä»£å·"]*2);		
+	local headw,headh=lib.PicGetXY(1,p["Í·Ïñ´úºÅ"]*2);		
     local headx=(width/2-headw)/3;
 	local heady=(h*6-headh)/6;
 	local hid;
@@ -1750,18 +1749,18 @@ function ShowPersonStatus_sub(id,page)    --æ˜¾ç¤ºäººç‰©çŠ¶æ€é¡µé¢
 		  --lib.PicLoadCache(1,(287+GetS(4,5,5,4))*2,x1+headx,y1+heady,1);
 	    end
 	else
-	    hid=p["å¤´åƒä»£å·"]
-        --lib.PicLoadCache(1,p["å¤´åƒä»£å·"]*2,x1+headx,y1+heady,1);
+	    hid=p["Í·Ïñ´úºÅ"]
+        --lib.PicLoadCache(1,p["Í·Ïñ´úºÅ"]*2,x1+headx,y1+heady,1);
 	end
 	lib.PicLoadCache(1,hid*2,x1+headx,y1+heady,1);
 	
 	
 	i=4;
     DrawString(x1,y1+h*i,p[CC.s23],C_WHITE,size);
-    DrawString(x1+10*size/2,y1+h*i,string.format("%3d",p["ç­‰çº§"]),C_GOLD,size);
-    DrawString(x1+13*size/2,y1+h*i,"çº§",C_ORANGE,size);
+    DrawString(x1+10*size/2,y1+h*i,string.format("%3d",p["µÈ¼¶"]),C_GOLD,size);
+    DrawString(x1+13*size/2,y1+h*i,"¼¶",C_ORANGE,size);
     i=i+1
-         DrawString(x1,y1+h*i,CC.s24,C_GOLD,size);  --å¤©èµ‹
+         DrawString(x1,y1+h*i,CC.s24,C_GOLD,size);  --Ìì¸³
 		 if id==0 and p[CC.s23]~=JY.LEQ and p[CC.s23]~=JY.SQ and p[CC.s23]~=JY.XYK then
 		     DrawString(x1+size*3,y1+h*i,ZJTF[JY.Thing[201][WZ7]],C_GOLD,size);
          end		 
@@ -1806,19 +1805,19 @@ function ShowPersonStatus_sub(id,page)    --æ˜¾ç¤ºäººç‰©çŠ¶æ€é¡µé¢
 		 if id==0 and GetS(10,0,7,0)==1 and JY.Thing[201][WZ7]~=8 then
 		    DrawString(x1+size*3,y1+h*i,RWWH['04'],C_GOLD,size);
 		 end
-         if JY.Person[49]["æ­¦åŠŸ1"]==8 and id==49 then 
+         if JY.Person[49]["Îä¹¦1"]==8 and id==49 then 
 		    DrawString(x1+size*3,y1+h*i,RWWH['49'],C_GOLD,size);
 		 end		 
 		 for w=1,10 do
-		     if JY.Person[38]["æ­¦åŠŸ"..w]<=0 then break end
-		     if JY.Person[38]["æ­¦åŠŸ"..w]==102 and id==38 then
+		     if JY.Person[38]["Îä¹¦"..w]<=0 then break end
+		     if JY.Person[38]["Îä¹¦"..w]==102 and id==38 then
 			    DrawString(x1+size*3,y1+h*i,RWWH['38'],C_GOLD,size);
                 break;				
 			 end
 	     end
 		 --end
         
-	local function DrawAttrib(str,color1,color2,v)    --å®šä¹‰å†…éƒ¨å‡½æ•°
+	local function DrawAttrib(str,color1,color2,v)    --¶¨ÒåÄÚ²¿º¯Êı
         v=v or 0;
         DrawString(x1,y1+h*i,str,color1,size);
         DrawString(x1+x2,y1+h*i,string.format("%5d",p[str]+v),color2,size);
@@ -1826,32 +1825,32 @@ function ShowPersonStatus_sub(id,page)    --æ˜¾ç¤ºäººç‰©çŠ¶æ€é¡µé¢
     end
 
 if page==1 then
-    local color;              --æ˜¾ç¤ºç”Ÿå‘½å’Œæœ€å¤§å€¼ï¼Œæ ¹æ®å—ä¼¤å’Œä¸­æ¯’æ˜¾ç¤ºä¸åŒé¢œè‰²
-    if p["å—ä¼¤ç¨‹åº¦"]<33 then
+    local color;              --ÏÔÊ¾ÉúÃüºÍ×î´óÖµ£¬¸ù¾İÊÜÉËºÍÖĞ¶¾ÏÔÊ¾²»Í¬ÑÕÉ«
+    if p["ÊÜÉË³Ì¶È"]<33 then
         color =RGB(236,200,40);
-    elseif p["å—ä¼¤ç¨‹åº¦"]<66 then
+    elseif p["ÊÜÉË³Ì¶È"]<66 then
         color=RGB(244,128,32);
     else
         color=RGB(232,32,44);
     end
 	i=i+1;
-    DrawString(x1,y1+h*i,"ç”Ÿå‘½",C_ORANGE,size);
-    DrawString(x1+2*size,y1+h*i,string.format("%5d",p["ç”Ÿå‘½"]),color,size);
+    DrawString(x1,y1+h*i,"ÉúÃü",C_ORANGE,size);
+    DrawString(x1+2*size,y1+h*i,string.format("%5d",p["ÉúÃü"]),color,size);
     DrawString(x1+9*size/2,y1+h*i,"/",C_GOLD,size);
 
-    if p["ä¸­æ¯’ç¨‹åº¦"]==0 then
+    if p["ÖĞ¶¾³Ì¶È"]==0 then
         color =RGB(252,148,16);
-    elseif p["ä¸­æ¯’ç¨‹åº¦"]<50 then
+    elseif p["ÖĞ¶¾³Ì¶È"]<50 then
         color=RGB(120,208,88);
     else
         color=RGB(56,136,36);
     end
-    DrawString(x1+5*size,y1+h*i,string.format("%5s",p["ç”Ÿå‘½æœ€å¤§å€¼"]),color,size);
+    DrawString(x1+5*size,y1+h*i,string.format("%5s",p["ÉúÃü×î´óÖµ"]),color,size);
 
-    i=i+1;              --æ˜¾ç¤ºå†…åŠ›å’Œæœ€å¤§å€¼ï¼Œæ ¹æ®å†…åŠ›æ€§è´¨æ˜¾ç¤ºä¸åŒé¢œè‰²
-    if p["å†…åŠ›æ€§è´¨"]==0 then
+    i=i+1;              --ÏÔÊ¾ÄÚÁ¦ºÍ×î´óÖµ£¬¸ù¾İÄÚÁ¦ĞÔÖÊÏÔÊ¾²»Í¬ÑÕÉ«
+    if p["ÄÚÁ¦ĞÔÖÊ"]==0 then
         color=RGB(208,152,208);
-    elseif p["å†…åŠ›æ€§è´¨"]==1 then
+    elseif p["ÄÚÁ¦ĞÔÖÊ"]==1 then
         color=RGB(236,200,40);
     else
         color=RGB(236,236,236);
@@ -1859,44 +1858,44 @@ if page==1 then
 	if GetS(4,5,5,5)==5 and id==0 then
 	   color=RGB(216, 20, 24) 
 	end
-    DrawString(x1,y1+h*i,"å†…åŠ›",C_ORANGE,size);
-    DrawString(x1+2*size,y1+h*i,string.format("%5d/%5d",p["å†…åŠ›"],p["å†…åŠ›æœ€å¤§å€¼"]),color,size);
+    DrawString(x1,y1+h*i,"ÄÚÁ¦",C_ORANGE,size);
+    DrawString(x1+2*size,y1+h*i,string.format("%5d/%5d",p["ÄÚÁ¦"],p["ÄÚÁ¦×î´óÖµ"]),color,size);
 
     i=i+1;
-    --DrawAttrib("ä½“åŠ›",C_ORANGE,C_GOLD)
-    --DrawAttrib("ç»éªŒ",C_ORANGE,C_GOLD)
-	DrawString(x1,y1+h*i,"ä½“åŠ›",C_ORANGE,size)
-	DrawString(x1+size*2+8,y1+h*i,p["ä½“åŠ›"],C_GOLD,size)
-	DrawString(x1+size*4+16,y1+h*i,"ä½“è´¨",C_ORANGE,size)
-	DrawString(x1+size*6+32,y1+h*i,p["ç”Ÿå‘½å¢é•¿"],C_GOLD,size)
+    --DrawAttrib("ÌåÁ¦",C_ORANGE,C_GOLD)
+    --DrawAttrib("¾­Ñé",C_ORANGE,C_GOLD)
+	DrawString(x1,y1+h*i,"ÌåÁ¦",C_ORANGE,size)
+	DrawString(x1+size*2+8,y1+h*i,p["ÌåÁ¦"],C_GOLD,size)
+	DrawString(x1+size*4+16,y1+h*i,"ÌåÖÊ",C_ORANGE,size)
+	DrawString(x1+size*6+32,y1+h*i,p["ÉúÃüÔö³¤"],C_GOLD,size)
 	i=i+1;
-	DrawString(x1,y1+h*i,"å®æˆ˜",C_ORANGE,size)  --JPS
+	DrawString(x1,y1+h*i,"ÊµÕ½",C_ORANGE,size)  --JPS
 	for j=1,51 do
 	      if id==TeamP[j] then
 		     local num,cl=GetS(5,j,6,5)-2,C_GOLD;
 			 if num>499 then 
-			    num="æ" 
+			    num="¼«" 
 				cl=C_RED
 			 end
 	         DrawString(x1+size*2+8,y1+h*i,num,cl,size)
 		     break
 		  end
 	end
-	DrawString(x1+size*4+16,y1+h*i,"äº’æ",C_ORANGE,size)
+	DrawString(x1+size*4+16,y1+h*i,"»¥²«",C_ORANGE,size)
 	local hb;
-	if p["å·¦å³äº’æ"]==1 then
-	   hb="â—"
+	if p["×óÓÒ»¥²«"]==1 then
+	   hb="¡ò"
 	else
-	   hb="â€»"
+	   hb="¡ù"
 	end
 	DrawString(x1+size*6+24,y1+h*i,hb,C_GOLD,size)	
 	i=i+1
-    DrawString(x1,y1+h*i,"å‡çº§",C_ORANGE,size);
+    DrawString(x1,y1+h*i,"Éı¼¶",C_ORANGE,size);
 	local kk;
-	if p["ç­‰çº§"] >=30 then
+	if p["µÈ¼¶"] >=30 then
 	   kk='   =';
 	else
-	   kk=2*(p["ç»éªŒ"]-CC.Exp[p["ç­‰çº§"]-1])
+	   kk=2*(p["¾­Ñé"]-CC.Exp[p["µÈ¼¶"]-1])
 	   if kk<0 then 
 	      kk='  0' 
 	   elseif kk<10 then
@@ -1910,40 +1909,40 @@ if page==1 then
 	
     DrawString(x1+size*2+16,y1+h*i,kk,C_GOLD,size);	
     local tmp;
-	if p["ç­‰çº§"] >=CC.Level then
+	if p["µÈ¼¶"] >=CC.Level then
 	    tmp="=";
 	else
-        tmp=2*(CC.Exp[p["ç­‰çº§"]]-CC.Exp[p["ç­‰çº§"]-1]);
+        tmp=2*(CC.Exp[p["µÈ¼¶"]]-CC.Exp[p["µÈ¼¶"]-1]);
 	end
-    --DrawString(x1,y1+h*i,"å‡çº§",C_ORANGE,size);
+    --DrawString(x1,y1+h*i,"Éı¼¶",C_ORANGE,size);
     DrawString(x1+size*4+16,y1+h*i,'/'..tmp,C_GOLD,size);
 
     local tmp1,tmp2,tmp3=0,0,0;
-    if p["æ­¦å™¨"]>-1 then
-        tmp1=tmp1+JY.Thing[p["æ­¦å™¨"]]["åŠ æ”»å‡»åŠ›"];
-        tmp2=tmp2+JY.Thing[p["æ­¦å™¨"]]["åŠ é˜²å¾¡åŠ›"];
-        tmp3=tmp3+JY.Thing[p["æ­¦å™¨"]]["åŠ è½»åŠŸ"];
+    if p["ÎäÆ÷"]>-1 then
+        tmp1=tmp1+JY.Thing[p["ÎäÆ÷"]]["¼Ó¹¥»÷Á¦"];
+        tmp2=tmp2+JY.Thing[p["ÎäÆ÷"]]["¼Ó·ÀÓùÁ¦"];
+        tmp3=tmp3+JY.Thing[p["ÎäÆ÷"]]["¼ÓÇá¹¦"];
 	end
-    if p["é˜²å…·"]>-1 then
-        tmp1=tmp1+JY.Thing[p["é˜²å…·"]]["åŠ æ”»å‡»åŠ›"];
-        tmp2=tmp2+JY.Thing[p["é˜²å…·"]]["åŠ é˜²å¾¡åŠ›"];
-        tmp3=tmp3+JY.Thing[p["é˜²å…·"]]["åŠ è½»åŠŸ"];
+    if p["·À¾ß"]>-1 then
+        tmp1=tmp1+JY.Thing[p["·À¾ß"]]["¼Ó¹¥»÷Á¦"];
+        tmp2=tmp2+JY.Thing[p["·À¾ß"]]["¼Ó·ÀÓùÁ¦"];
+        tmp3=tmp3+JY.Thing[p["·À¾ß"]]["¼ÓÇá¹¦"];
 	end
 
     i=i+1; --NZT
-    --DrawString(x1,y1+h*i,"å·¦å³é”®ç¿»é¡µï¼Œä¸Šä¸‹é”®æŸ¥çœ‹å…¶å®ƒé˜Ÿå‹",C_RED,size);
+    --DrawString(x1,y1+h*i,"×óÓÒ¼ü·­Ò³£¬ÉÏÏÂ¼ü²é¿´ÆäËü¶ÓÓÑ",C_RED,size);
     
-    DrawString(x1,y1+h*i,"ä¸­æ¯’",C_ORANGE,size);
-	DrawString(x1+size*2+10,y1+h*i,p["ä¸­æ¯’ç¨‹åº¦"],C_BLACK,size);
-	DrawString(x1+size*4+25,y1+h*i,"å†…ä¼¤",C_ORANGE,size);
-	DrawString(x1+size*6+35,y1+h*i,p["å—ä¼¤ç¨‹åº¦"],C_RED,size);
-	DrawString(x1+size*8+50,y1+h*i,"å°ç©´",C_ORANGE,size);
+    DrawString(x1,y1+h*i,"ÖĞ¶¾",C_ORANGE,size);
+	DrawString(x1+size*2+10,y1+h*i,p["ÖĞ¶¾³Ì¶È"],C_BLACK,size);
+	DrawString(x1+size*4+25,y1+h*i,"ÄÚÉË",C_ORANGE,size);
+	DrawString(x1+size*6+35,y1+h*i,p["ÊÜÉË³Ì¶È"],C_RED,size);
+	DrawString(x1+size*8+50,y1+h*i,"·âÑ¨",C_ORANGE,size);
       if JY.Status==GAME_WMAP and WAR.FXDS[id]~=nil then     	  
 	DrawString(x1+size*10+60,y1+h*i,WAR.FXDS[id],C_GOLD,size);
 	  else	
 	DrawString(x1+size*10+60,y1+h*i,0,C_GOLD,size);
 	  end
-	DrawString(x1+size*12+75,y1+h*i,"æµè¡€",C_ORANGE,size);
+	DrawString(x1+size*12+75,y1+h*i,"Á÷Ñª",C_ORANGE,size);
 	  if JY.Status==GAME_WMAP and WAR.LXZT[id]~=nil then  
 	DrawString(x1+size*14+85,y1+h*i,WAR.LXZT[id],C_RED,size);
 	  else
@@ -1952,88 +1951,88 @@ if page==1 then
 		
     i=0;
 	x1=dx+width/2-24;
-    DrawAttrib("æ”»å‡»åŠ›",C_WHITE,C_GOLD);
-    DrawString(x1+210,y1,"â†‘ "..tmp1,C_GOLD,size);    
-    DrawAttrib("é˜²å¾¡åŠ›",C_WHITE,C_GOLD);
-    DrawString(x1+210,y1+h,"â†‘ "..tmp2,C_GOLD,size);  
-    DrawAttrib("è½»åŠŸ",C_WHITE,C_GOLD);
+    DrawAttrib("¹¥»÷Á¦",C_WHITE,C_GOLD);
+    DrawString(x1+210,y1,"¡ü "..tmp1,C_GOLD,size);    
+    DrawAttrib("·ÀÓùÁ¦",C_WHITE,C_GOLD);
+    DrawString(x1+210,y1+h,"¡ü "..tmp2,C_GOLD,size);  
+    DrawAttrib("Çá¹¦",C_WHITE,C_GOLD);
 	if tmp3>-1 then
-    DrawString(x1+210,y1+h*2,"â†‘ "..tmp3,C_GOLD,size); 
+    DrawString(x1+210,y1+h*2,"¡ü "..tmp3,C_GOLD,size); 
     else
     tmp3=-tmp3
-    DrawString(x1+210,y1+h*2,"â†“ "..tmp3,C_GOLD,size);
+    DrawString(x1+210,y1+h*2,"¡ı "..tmp3,C_GOLD,size);
 	end
-    DrawAttrib("åŒ»ç–—èƒ½åŠ›",C_WHITE,C_GOLD);
-    DrawAttrib("ç”¨æ¯’èƒ½åŠ›",C_WHITE,C_GOLD);
-    DrawAttrib("è§£æ¯’èƒ½åŠ›",C_WHITE,C_GOLD);
+    DrawAttrib("Ò½ÁÆÄÜÁ¦",C_WHITE,C_GOLD);
+    DrawAttrib("ÓÃ¶¾ÄÜÁ¦",C_WHITE,C_GOLD);
+    DrawAttrib("½â¶¾ÄÜÁ¦",C_WHITE,C_GOLD);
 
 
-    DrawAttrib("æ‹³æŒåŠŸå¤«",C_WHITE,C_GOLD);
-    DrawAttrib("å¾¡å‰‘èƒ½åŠ›",C_WHITE,C_GOLD);
-    DrawAttrib("è€åˆ€æŠ€å·§",C_WHITE,C_GOLD);
-    DrawAttrib("ç‰¹æ®Šå…µå™¨",C_WHITE,C_GOLD);
-    DrawAttrib("æš—å™¨æŠ€å·§",C_WHITE,C_GOLD);
-    DrawAttrib("èµ„è´¨",C_WHITE,C_GOLD);
+    DrawAttrib("È­ÕÆ¹¦·ò",C_WHITE,C_GOLD);
+    DrawAttrib("Óù½£ÄÜÁ¦",C_WHITE,C_GOLD);
+    DrawAttrib("Ë£µ¶¼¼ÇÉ",C_WHITE,C_GOLD);
+    DrawAttrib("ÌØÊâ±øÆ÷",C_WHITE,C_GOLD);
+    DrawAttrib("°µÆ÷¼¼ÇÉ",C_WHITE,C_GOLD);
+    DrawAttrib("×ÊÖÊ",C_WHITE,C_GOLD);
 
 elseif page==2 then
 	i=i+1;
-    DrawString(x1,y1+h*i,"æ­¦å™¨:",C_ORANGE,size);
-	if p["æ­¦å™¨"]>-1 then
-        DrawString(x1+size*3,y1+h*i,JY.Thing[p["æ­¦å™¨"]]["åç§°"],C_GOLD,size);
+    DrawString(x1,y1+h*i,"ÎäÆ÷:",C_ORANGE,size);
+	if p["ÎäÆ÷"]>-1 then
+        DrawString(x1+size*3,y1+h*i,JY.Thing[p["ÎäÆ÷"]]["Ãû³Æ"],C_GOLD,size);
     end
 	i=i+1;
-    DrawString(x1,y1+h*i,"é˜²å…·:",C_ORANGE,size);
-	if p["é˜²å…·"]>-1 then
-        DrawString(x1+size*3,y1+h*i,JY.Thing[p["é˜²å…·"]]["åç§°"],C_GOLD,size);
+    DrawString(x1,y1+h*i,"·À¾ß:",C_ORANGE,size);
+	if p["·À¾ß"]>-1 then
+        DrawString(x1+size*3,y1+h*i,JY.Thing[p["·À¾ß"]]["Ãû³Æ"],C_GOLD,size);
     end
     i=i+1;
-    DrawString(x1,y1+h*i,"ä¿®ç‚¼ç‰©å“",C_ORANGE,size);
-	local thingid=p["ä¿®ç‚¼ç‰©å“"];
+    DrawString(x1,y1+h*i,"ĞŞÁ¶ÎïÆ·",C_ORANGE,size);
+	local thingid=p["ĞŞÁ¶ÎïÆ·"];
 	if thingid>0 then
 	    i=i+1;
-        DrawString(x1+size,y1+h*i,JY.Thing[thingid]["åç§°"],C_GOLD,size);
+        DrawString(x1+size,y1+h*i,JY.Thing[thingid]["Ãû³Æ"],C_GOLD,size);
 		i=i+1;
         local n=TrainNeedExp(id);
 		if n <math.huge then
-            DrawString(x1+size,y1+h*i,string.format("%5d/%5d",p["ä¿®ç‚¼ç‚¹æ•°"],n),C_GOLD,size);
+            DrawString(x1+size,y1+h*i,string.format("%5d/%5d",p["ĞŞÁ¶µãÊı"],n),C_GOLD,size);
 		else
-            DrawString(x1+size,y1+h*i,string.format("%5d/===",p["ä¿®ç‚¼ç‚¹æ•°"]),C_GOLD,size);
+            DrawString(x1+size,y1+h*i,string.format("%5d/===",p["ĞŞÁ¶µãÊı"]),C_GOLD,size);
 		end
 	else
 	    i=i+2;
 	end
 
     i=i+1;
-    DrawString(x1,y1+h*i,"å·¦å³é”®ç¿»é¡µ ä¸Šä¸‹é”®æ¢äºº ç©ºæ ¼é”®èƒ½åŠ›è§£è¯´",C_RED,size);
+    DrawString(x1,y1+h*i,"×óÓÒ¼ü·­Ò³ ÉÏÏÂ¼ü»»ÈË ¿Õ¸ñ¼üÄÜÁ¦½âËµ",C_RED,size);
 
     i=0;
 	x1=dx+width/2;
-    DrawString(x1,y1+h*i,"æ‰€ä¼šåŠŸå¤«",C_ORANGE,size);
-	local T={"ä¸€","äºŒ","ä¸‰","å››","äº”","å…­","ä¸ƒ","å…«","ä¹","å","æ"}
-	if JY.Person[0]["æ­¦åŠŸ1"]>108 and JY.Person[0]["æ­¦åŠŸç­‰çº§1"]<900 then JY.Person[0]["æ­¦åŠŸç­‰çº§1"]=900 end
+    DrawString(x1,y1+h*i,"Ëù»á¹¦·ò",C_ORANGE,size);
+	local T={"Ò»","¶ş","Èı","ËÄ","Îå","Áù","Æß","°Ë","¾Å","Ê®","¼«"}
+	if JY.Person[0]["Îä¹¦1"]>108 and JY.Person[0]["Îä¹¦µÈ¼¶1"]<900 then JY.Person[0]["Îä¹¦µÈ¼¶1"]=900 end
 	for j=1,10 do
         i=i+1
-		local wugong=p["æ­¦åŠŸ" .. j];
+		local wugong=p["Îä¹¦" .. j];
 		if wugong > 0 then
-    		local level=math.modf(p["æ­¦åŠŸç­‰çº§" .. j] / 100)+1;
-			if p["æ­¦åŠŸç­‰çº§" .. j]==999 then level=11 end
-            DrawString(x1+size,y1+h*i,string.format("%s",JY.Wugong[wugong]["åç§°"]),C_GOLD,size);
-			if p["æ­¦åŠŸç­‰çº§" .. j]>900 then
-				lib.SetClip(x1+size,y1+h*1,x1+size+string.len(JY.Wugong[wugong]["åç§°"])*size*(p["æ­¦åŠŸç­‰çº§" .. j]-900)/200,y1+h*i+h)
-				DrawString(x1+size,y1+h*i,string.format("%s",JY.Wugong[wugong]["åç§°"]),C_ORANGE,size);
+    		local level=math.modf(p["Îä¹¦µÈ¼¶" .. j] / 100)+1;
+			if p["Îä¹¦µÈ¼¶" .. j]==999 then level=11 end
+            DrawString(x1+size,y1+h*i,string.format("%s",JY.Wugong[wugong]["Ãû³Æ"]),C_GOLD,size);
+			if p["Îä¹¦µÈ¼¶" .. j]>900 then
+				lib.SetClip(x1+size,y1+h*1,x1+size+string.len(JY.Wugong[wugong]["Ãû³Æ"])*size*(p["Îä¹¦µÈ¼¶" .. j]-900)/200,y1+h*i+h)
+				DrawString(x1+size,y1+h*i,string.format("%s",JY.Wugong[wugong]["Ãû³Æ"]),C_ORANGE,size);
 				lib.SetClip(0,0,0,0)
 			end
             DrawString(x1+size*7,y1+h*i,T[level],C_WHITE,size);
 		end
 	end
 	i=11
-	DrawString(x1+size,y1+h*i,"æ€’æ°”",C_ORANGE,size);
+	DrawString(x1+size,y1+h*i,"Å­Æø",C_ORANGE,size);
 	if JY.Status==GAME_WMAP and WAR.LQZ[id]~=nil then
 	   DrawString(x1+size*3+10,y1+h*i,WAR.LQZ[id],C_GOLD,size);
 	else
 	   DrawString(x1+size*3+10,y1+h*i,0,C_GOLD,size);
 	end
-	DrawString(x1+size*5+10,y1+h*i,"â€»â€»",C_ORANGE,size);
+	DrawString(x1+size*5+10,y1+h*i,"¡ù¡ù",C_ORANGE,size);
 	DrawString(x1+size*7+20,y1+h*i,0,C_GOLD,size);
 
 end
@@ -2041,46 +2040,46 @@ end
 end
 
 
---è®¡ç®—äººç‰©ä¿®ç‚¼æˆåŠŸéœ€è¦çš„ç‚¹æ•°
---id äººç‰©id
-function TrainNeedExp(id)         --è®¡ç®—äººç‰©ä¿®ç‚¼ç‰©å“æˆåŠŸéœ€è¦çš„ç‚¹æ•°
-    local thingid=JY.Person[id]["ä¿®ç‚¼ç‰©å“"];
+--¼ÆËãÈËÎïĞŞÁ¶³É¹¦ĞèÒªµÄµãÊı
+--id ÈËÎïid
+function TrainNeedExp(id)         --¼ÆËãÈËÎïĞŞÁ¶ÎïÆ·³É¹¦ĞèÒªµÄµãÊı
+    local thingid=JY.Person[id]["ĞŞÁ¶ÎïÆ·"];
 	local r =0;
 	if thingid >= 0 then
-        if JY.Thing[thingid]["ç»ƒå‡ºæ­¦åŠŸ"] >=0 then
-            local level=0;          --æ­¤å¤„çš„levelæ˜¯å®é™…level-1ã€‚è¿™æ ·æ²¡æœ‰æ­¦åŠŸæ™‚å’Œç‚¼æˆä¸€çº§æ˜¯ä¸€æ ·çš„ã€‚
-			for i =1,10 do               -- æŸ¥æ‰¾å½“å‰å·²ç»ç‚¼æˆæ­¦åŠŸç­‰çº§
-			    if JY.Person[id]["æ­¦åŠŸ" .. i]==JY.Thing[thingid]["ç»ƒå‡ºæ­¦åŠŸ"] then
-                    level=math.modf(JY.Person[id]["æ­¦åŠŸç­‰çº§" .. i] /100);
+        if JY.Thing[thingid]["Á·³öÎä¹¦"] >=0 then
+            local level=0;          --´Ë´¦µÄlevelÊÇÊµ¼Êlevel-1¡£ÕâÑùÃ»ÓĞÎä¹¦•rºÍÁ¶³ÉÒ»¼¶ÊÇÒ»ÑùµÄ¡£
+			for i =1,10 do               -- ²éÕÒµ±Ç°ÒÑ¾­Á¶³ÉÎä¹¦µÈ¼¶
+			    if JY.Person[id]["Îä¹¦" .. i]==JY.Thing[thingid]["Á·³öÎä¹¦"] then
+                    level=math.modf(JY.Person[id]["Îä¹¦µÈ¼¶" .. i] /100);
 					break;
                 end
             end
 			if level <9 then
-                r=(150-JY.Person[id]["èµ„è´¨"])*JY.Thing[thingid]["éœ€ç»éªŒ"]*(level+1)/50;
+                r=(150-JY.Person[id]["×ÊÖÊ"])*JY.Thing[thingid]["Ğè¾­Ñé"]*(level+1)/50;
 			else
                 r=math.huge;
 				return r
 			end
 		else
-            r=(150-JY.Person[id]["èµ„è´¨"])*JY.Thing[thingid]["éœ€ç»éªŒ"]*2/50;
+            r=(150-JY.Person[id]["×ÊÖÊ"])*JY.Thing[thingid]["Ğè¾­Ñé"]*2/50;
 		end
 	end
     return math.modf(r);
 end
 
---åŒ»ç–—èœå•
-function Menu_Doctor()       --åŒ»ç–—èœå•
-    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"è°è¦ä½¿ç”¨åŒ»æœ¯",C_WHITE,CC.DefaultFont);
+--Ò½ÁÆ²Ëµ¥
+function Menu_Doctor()       --Ò½ÁÆ²Ëµ¥
+    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"Ë­ÒªÊ¹ÓÃÒ½Êõ",C_WHITE,CC.DefaultFont);
 	local nexty=CC.MainSubMenuY+CC.SingleLineHeight;
-    DrawStrBox(CC.MainSubMenuX,nexty,"åŒ»ç–—èƒ½åŠ›",C_ORANGE,CC.DefaultFont);
+    DrawStrBox(CC.MainSubMenuX,nexty,"Ò½ÁÆÄÜÁ¦",C_ORANGE,CC.DefaultFont);
 
 	local menu1={};
 	for i=1,CC.TeamNum do
         menu1[i]={"",nil,0};
-		local id=JY.Base["é˜Ÿä¼" .. i]
+		local id=JY.Base["¶ÓÎé" .. i]
         if id >=0 then
-            if JY.Person[id]["åŒ»ç–—èƒ½åŠ›"]>=20 then
-                 menu1[i][1]=string.format("%-10s%4d",JY.Person[id]["å§“å"],JY.Person[id]["åŒ»ç–—èƒ½åŠ›"]);
+            if JY.Person[id]["Ò½ÁÆÄÜÁ¦"]>=20 then
+                 menu1[i][1]=string.format("%-10s%4d",JY.Person[id]["ĞÕÃû"],JY.Person[id]["Ò½ÁÆÄÜÁ¦"]);
                  menu1[i][3]=1;
             end
         end
@@ -2091,17 +2090,17 @@ function Menu_Doctor()       --åŒ»ç–—èœå•
     local r=ShowMenu(menu1,CC.TeamNum,0,CC.MainSubMenuX,nexty,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE);
 
     if r >0 then
-	    id1=JY.Base["é˜Ÿä¼" .. r];
+	    id1=JY.Base["¶ÓÎé" .. r];
         Cls(CC.MainSubMenuX,CC.MainSubMenuY,CC.ScreenW,CC.ScreenH);
-        DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"è¦åŒ»æ²»è°",C_WHITE,CC.DefaultFont);
+        DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"ÒªÒ½ÖÎË­",C_WHITE,CC.DefaultFont);
         nexty=CC.MainSubMenuY+CC.SingleLineHeight;
 
 		local menu2={};
 		for i=1,CC.TeamNum do
 			menu2[i]={"",nil,0};
-			local id=JY.Base["é˜Ÿä¼" .. i]
+			local id=JY.Base["¶ÓÎé" .. i]
 			if id>=0 then
-				 menu2[i][1]=string.format("%-10s%4d/%4d",JY.Person[id]["å§“å"],JY.Person[id]["ç”Ÿå‘½"],JY.Person[id]["ç”Ÿå‘½æœ€å¤§å€¼"]);
+				 menu2[i][1]=string.format("%-10s%4d/%4d",JY.Person[id]["ĞÕÃû"],JY.Person[id]["ÉúÃü"],JY.Person[id]["ÉúÃü×î´óÖµ"]);
 				 menu2[i][3]=1;
 			end
 		end
@@ -2109,12 +2108,12 @@ function Menu_Doctor()       --åŒ»ç–—èœå•
 		local r2=ShowMenu(menu2,CC.TeamNum,0,CC.MainSubMenuX,nexty,0,0,1,1,CC.DefaultFont,C_ORANGE,C_WHITE);
 
 		if r2 >0 then
-	        id2=JY.Base["é˜Ÿä¼" .. r2];
+	        id2=JY.Base["¶ÓÎé" .. r2];
             local num=ExecDoctor(id1,id2);
 			if num>0 then
-                AddPersonAttrib(id1,"ä½“åŠ›",-2);
+                AddPersonAttrib(id1,"ÌåÁ¦",-2);
 			end
-            DrawStrBoxWaitKey(string.format("%s ç”Ÿå‘½å¢åŠ  %d",JY.Person[id2]["å§“å"],num),C_ORANGE,CC.DefaultFont);
+            DrawStrBoxWaitKey(string.format("%s ÉúÃüÔö¼Ó %d",JY.Person[id2]["ĞÕÃû"],num),C_ORANGE,CC.DefaultFont);
 		end
 	end
 
@@ -2123,28 +2122,28 @@ function Menu_Doctor()       --åŒ»ç–—èœå•
     return 0;
 end
 
---æ‰§è¡ŒåŒ»ç–—
---id1 åŒ»ç–—id2, è¿”å›id2ç”Ÿå‘½å¢åŠ ç‚¹æ•°
-function ExecDoctor(id1,id2)      --æ‰§è¡ŒåŒ»ç–—
-	if JY.Person[id1]["ä½“åŠ›"]<50 then
+--Ö´ĞĞÒ½ÁÆ
+--id1 Ò½ÁÆid2, ·µ»Øid2ÉúÃüÔö¼ÓµãÊı
+function ExecDoctor(id1,id2)      --Ö´ĞĞÒ½ÁÆ
+	if JY.Person[id1]["ÌåÁ¦"]<50 then
         return 0;
 	end
 
-	local add=JY.Person[id1]["åŒ»ç–—èƒ½åŠ›"];
-    local value=JY.Person[id2]["å—ä¼¤ç¨‹åº¦"];
+	local add=JY.Person[id1]["Ò½ÁÆÄÜÁ¦"];
+    local value=JY.Person[id2]["ÊÜÉË³Ì¶È"];
     if value > add+20 then
         return 0;
 	end
 	
 	if id1==28 and JY.Status==GAME_WMAP then
-	   add=math.modf(JY.Person[id1]["åŒ»ç–—èƒ½åŠ›"]*(1+WAR.PYZ/10));
+	   add=math.modf(JY.Person[id1]["Ò½ÁÆÄÜÁ¦"]*(1+WAR.PYZ/10));
     end
 		
 	if JY.Status==GAME_WMAP then
 		for i,v in pairs(CC.AddDoc) do
 			if v[1]==id1 then
 				for wid=0,WAR.PersonNum-1 do
-					if WAR.Person[wid]["äººç‰©ç¼–å·"]==v[2] and  WAR.Person[wid]["æ­»äº¡"]==false then
+					if WAR.Person[wid]["ÈËÎï±àºÅ"]==v[2] and  WAR.Person[wid]["ËÀÍö"]==false then
 						add=add+v[3];
 					end
 				end
@@ -2155,24 +2154,24 @@ function ExecDoctor(id1,id2)      --æ‰§è¡ŒåŒ»ç–—
 	add=add-add*value/200;
  	add=math.modf(add)+Rnd(5);
 
-    AddPersonAttrib(id2,"å—ä¼¤ç¨‹åº¦",-math.modf(add/10));
-    return AddPersonAttrib(id2,"ç”Ÿå‘½",add)
+    AddPersonAttrib(id2,"ÊÜÉË³Ì¶È",-math.modf(add/10));
+    return AddPersonAttrib(id2,"ÉúÃü",add)
 end
 
 
---è§£æ¯’
-function Menu_DecPoison()         --è§£æ¯’
-    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"è°è¦å¸®äººè§£æ¯’",C_WHITE,CC.DefaultFont);
+--½â¶¾
+function Menu_DecPoison()         --½â¶¾
+    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"Ë­Òª°ïÈË½â¶¾",C_WHITE,CC.DefaultFont);
 	local nexty=CC.MainSubMenuY+CC.SingleLineHeight;
-    DrawStrBox(CC.MainSubMenuX,nexty,"è§£æ¯’èƒ½åŠ›",C_ORANGE,CC.DefaultFont);
+    DrawStrBox(CC.MainSubMenuX,nexty,"½â¶¾ÄÜÁ¦",C_ORANGE,CC.DefaultFont);
 
 	local menu1={};
 	for i=1,CC.TeamNum do
         menu1[i]={"",nil,0};
-		local id=JY.Base["é˜Ÿä¼" .. i]
+		local id=JY.Base["¶ÓÎé" .. i]
         if id>=0 then
-            if JY.Person[id]["è§£æ¯’èƒ½åŠ›"]>=20 then
-                 menu1[i][1]=string.format("%-10s%4d",JY.Person[id]["å§“å"],JY.Person[id]["è§£æ¯’èƒ½åŠ›"]);
+            if JY.Person[id]["½â¶¾ÄÜÁ¦"]>=20 then
+                 menu1[i][1]=string.format("%-10s%4d",JY.Person[id]["ĞÕÃû"],JY.Person[id]["½â¶¾ÄÜÁ¦"]);
                  menu1[i][3]=1;
             end
         end
@@ -2183,61 +2182,61 @@ function Menu_DecPoison()         --è§£æ¯’
     local r=ShowMenu(menu1,CC.TeamNum,0,CC.MainSubMenuX,nexty,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE);
 
     if r >0 then
-	    id1=JY.Base["é˜Ÿä¼" .. r];
+	    id1=JY.Base["¶ÓÎé" .. r];
          Cls(CC.MainSubMenuX,CC.MainSubMenuY,CC.ScreenW,CC.ScreenH);
-        DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"æ›¿è°è§£æ¯’",C_WHITE,CC.DefaultFont);
+        DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,"ÌæË­½â¶¾",C_WHITE,CC.DefaultFont);
 		nexty=CC.MainSubMenuY+CC.SingleLineHeight;
 
-        DrawStrBox(CC.MainSubMenuX,nexty,"ä¸­æ¯’ç¨‹åº¦",C_WHITE,CC.DefaultFont);
+        DrawStrBox(CC.MainSubMenuX,nexty,"ÖĞ¶¾³Ì¶È",C_WHITE,CC.DefaultFont);
 	    nexty=nexty+CC.SingleLineHeight;
 
 		local menu2={};
 		for i=1,CC.TeamNum do
 			menu2[i]={"",nil,0};
-			local id=JY.Base["é˜Ÿä¼" .. i]
+			local id=JY.Base["¶ÓÎé" .. i]
 			if id>=0 then
-				 menu2[i][1]=string.format("%-10s%5d",JY.Person[id]["å§“å"],JY.Person[id]["ä¸­æ¯’ç¨‹åº¦"]);
+				 menu2[i][1]=string.format("%-10s%5d",JY.Person[id]["ĞÕÃû"],JY.Person[id]["ÖĞ¶¾³Ì¶È"]);
 				 menu2[i][3]=1;
 			end
 		end
 
 		local r2=ShowMenu(menu2,CC.TeamNum,0,CC.MainSubMenuX,nexty,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE);
 		if r2 >0 then
-	        id2=JY.Base["é˜Ÿä¼" .. r2];
+	        id2=JY.Base["¶ÓÎé" .. r2];
             local num=ExecDecPoison(id1,id2);
-            DrawStrBoxWaitKey(string.format("%s ä¸­æ¯’ç¨‹åº¦å‡å°‘ %d",JY.Person[id2]["å§“å"],num),C_ORANGE,CC.DefaultFont);
+            DrawStrBoxWaitKey(string.format("%s ÖĞ¶¾³Ì¶È¼õÉÙ %d",JY.Person[id2]["ĞÕÃû"],num),C_ORANGE,CC.DefaultFont);
 		end
 	end
     Cls();
     return 0;
 end
 
---è§£æ¯’
---id1 è§£æ¯’id2, è¿”å›id2ä¸­æ¯’å‡å°‘ç‚¹æ•°
-function ExecDecPoison(id1,id2)     --æ‰§è¡Œè§£æ¯’
-    local add=JY.Person[id1]["è§£æ¯’èƒ½åŠ›"];
-    local value=JY.Person[id2]["ä¸­æ¯’ç¨‹åº¦"];
+--½â¶¾
+--id1 ½â¶¾id2, ·µ»Øid2ÖĞ¶¾¼õÉÙµãÊı
+function ExecDecPoison(id1,id2)     --Ö´ĞĞ½â¶¾
+    local add=JY.Person[id1]["½â¶¾ÄÜÁ¦"];
+    local value=JY.Person[id2]["ÖĞ¶¾³Ì¶È"];
 
     if value > add+20 then
         return 0;
 	end
 
  	add=limitX(math.modf(add/3)+Rnd(10)-Rnd(10),0,value);
-    return -AddPersonAttrib(id2,"ä¸­æ¯’ç¨‹åº¦",-add);
+    return -AddPersonAttrib(id2,"ÖĞ¶¾³Ì¶È",-add);
 end
 
---ç‰©å“èœå•
-function Menu_Thing()       --ç‰©å“èœå•
-                            --æ–°æ­¦åŠŸæ¡ä»¶
+--ÎïÆ·²Ëµ¥
+function Menu_Thing()       --ÎïÆ·²Ëµ¥
+                            --ĞÂÎä¹¦Ìõ¼ş
 
 	 
 
-    local menu={ {"å…¨éƒ¨ç‰©å“",nil,1},
-                 {"å‰§æƒ…ç‰©å“",nil,1},
-                 {"ç¥å…µå®ç”²",nil,1},
-                 {"æ­¦åŠŸç§˜ç¬ˆ",nil,1},
-                 {"çµä¸¹å¦™è¯",nil,1},
-                 {"ä¼¤äººæš—å™¨",nil,1}, };
+    local menu={ {"È«²¿ÎïÆ·",nil,1},
+                 {"¾çÇéÎïÆ·",nil,1},
+                 {"Éñ±ø±¦¼×",nil,1},
+                 {"Îä¹¦ÃØóÅ",nil,1},
+                 {"Áéµ¤ÃîÒ©",nil,1},
+                 {"ÉËÈË°µÆ÷",nil,1}, };
 
     local r=ShowMenu(menu,CC.TeamNum,0,CC.MainSubMenuX,CC.MainSubMenuY,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE);
 
@@ -2252,16 +2251,16 @@ function Menu_Thing()       --ç‰©å“èœå•
 
         local num=0
 		for i = 0,CC.MyThingNum-1 do
-		    local id=JY.Base["ç‰©å“" .. i+1];
+		    local id=JY.Base["ÎïÆ·" .. i+1];
 			
 			if id>=0 then
 				if r==1 then
 					thing[i]=id
-					thingnum[i]=JY.Base["ç‰©å“æ•°é‡" ..i+1];
+					thingnum[i]=JY.Base["ÎïÆ·ÊıÁ¿" ..i+1];
 				else
-					if JY.Thing[id]["ç±»å‹"]==r-2 then             --å¯¹åº”äºç±»å‹0-4
+					if JY.Thing[id]["ÀàĞÍ"]==r-2 then             --¶ÔÓ¦ÓÚÀàĞÍ0-4
  					    thing[num]=id;
-					    thingnum[num]=JY.Base["ç‰©å“æ•°é‡" ..i+1];
+					    thingnum[num]=JY.Base["ÎïÆ·ÊıÁ¿" ..i+1];
 						num=num+1;
 					end
 				end
@@ -2271,37 +2270,37 @@ function Menu_Thing()       --ç‰©å“èœå•
         local r=SelectThing(thing,thingnum);
 		if r>236 then OVERZB() end
         if r>=0 then
-            UseThing(r);           --ä½¿ç”¨ç‰©å“
-			return 1;             --é€€å‡ºä¸»èœå•
+            UseThing(r);           --Ê¹ÓÃÎïÆ·
+			return 1;             --ÍË³öÖ÷²Ëµ¥
 		end
 	end
 	return 0;
 end
 
---åœºæ™¯å¤„ç†ä¸»å‡½æ•°
-function Game_SMap()         --åœºæ™¯å¤„ç†ä¸»å‡½æ•°
+--³¡¾°´¦ÀíÖ÷º¯Êı
+function Game_SMap()         --³¡¾°´¦ÀíÖ÷º¯Êı
 	
 	DrawSMap(CONFIG.FastShowScreen);
 	--DrawSMapMini()
 	if CC.ShowXY==1 then
-		DrawString(10,CC.ScreenH-20,string.format("%s %d %d",JY.Scene[JY.SubScene]["åç§°"],JY.Base["äººX1"],JY.Base["äººY1"]) ,C_GOLD,16);
-		--DrawString(CC.ScreenW-9*CC.DefaultFont,10,os.date("%Yå¹´%mæœˆ%dæ—¥ %H:%M:%S"),RGB(216, 20, 24) ,16);
+		DrawString(10,CC.ScreenH-20,string.format("%s %d %d",JY.Scene[JY.SubScene]["Ãû³Æ"],JY.Base["ÈËX1"],JY.Base["ÈËY1"]) ,C_GOLD,16);
+		--DrawString(CC.ScreenW-9*CC.DefaultFont,10,os.date("%YÄê%mÔÂ%dÈÕ %H:%M:%S"),RGB(216, 20, 24) ,16);
 		DrawString(CC.ScreenW-150,8,os.date("%c"),C_GOLD,16);
 	end
 	
 	if JY.JB==1 then JYZTB() end
 	if JY.WGLVXS==1 then
-	   --DrawString(10,CC.ScreenH-25,JY.SubScene.." "..JY.Scene[JY.SubScene]["åç§°"] ,C_GOLD,20);
+	   --DrawString(10,CC.ScreenH-25,JY.SubScene.." "..JY.Scene[JY.SubScene]["Ãû³Æ"] ,C_GOLD,20);
 	end
 	
 	ShowScreen(CONFIG.FastShowScreen);
 
 	lib.SetClip(0,0,0,0);
 
-    local d_pass=GetS(JY.SubScene,JY.Base["äººX1"],JY.Base["äººY1"],3);   --å½“å‰è·¯è¿‡äº‹ä»¶
+    local d_pass=GetS(JY.SubScene,JY.Base["ÈËX1"],JY.Base["ÈËY1"],3);   --µ±Ç°Â·¹ıÊÂ¼ş
     if d_pass>=0 then
-        if d_pass ~=JY.OldDPass then     --é¿å…é‡å¤è§¦å‘
-            EventExecute(d_pass,3);       --è·¯è¿‡è§¦å‘äº‹ä»¶
+        if d_pass ~=JY.OldDPass then     --±ÜÃâÖØ¸´´¥·¢
+            EventExecute(d_pass,3);       --Â·¹ı´¥·¢ÊÂ¼ş
             JY.OldDPass=d_pass;
 		    JY.oldSMapX=-1;
 	        JY.oldSMapY=-1;
@@ -2314,14 +2313,14 @@ function Game_SMap()         --åœºæ™¯å¤„ç†ä¸»å‡½æ•°
         JY.OldDPass=-1;
     end
 
-    local isout=0;                --æ˜¯å¦ç¢°åˆ°å‡ºå£
-    if (JY.Scene[JY.SubScene]["å‡ºå£X1"] ==JY.Base["äººX1"] and JY.Scene[JY.SubScene]["å‡ºå£Y1"] ==JY.Base["äººY1"]) or
-       (JY.Scene[JY.SubScene]["å‡ºå£X2"] ==JY.Base["äººX1"] and JY.Scene[JY.SubScene]["å‡ºå£Y2"] ==JY.Base["äººY1"]) or
-       (JY.Scene[JY.SubScene]["å‡ºå£X3"] ==JY.Base["äººX1"] and JY.Scene[JY.SubScene]["å‡ºå£Y3"] ==JY.Base["äººY1"]) then
+    local isout=0;                --ÊÇ·ñÅöµ½³ö¿Ú
+    if (JY.Scene[JY.SubScene]["³ö¿ÚX1"] ==JY.Base["ÈËX1"] and JY.Scene[JY.SubScene]["³ö¿ÚY1"] ==JY.Base["ÈËY1"]) or
+       (JY.Scene[JY.SubScene]["³ö¿ÚX2"] ==JY.Base["ÈËX1"] and JY.Scene[JY.SubScene]["³ö¿ÚY2"] ==JY.Base["ÈËY1"]) or
+       (JY.Scene[JY.SubScene]["³ö¿ÚX3"] ==JY.Base["ÈËX1"] and JY.Scene[JY.SubScene]["³ö¿ÚY3"] ==JY.Base["ÈËY1"]) then
        isout=1;
     end
 
-    if isout==1 then    --å‡ºå»ï¼Œè¿”å›ä¸»åœ°å›¾
+    if isout==1 then    --³öÈ¥£¬·µ»ØÖ÷µØÍ¼
         JY.Status=GAME_MMAP;
 
 		lib.PicInit();
@@ -2330,7 +2329,7 @@ function Game_SMap()         --åœºæ™¯å¤„ç†ä¸»å‡½æ•°
 
         if JY.MmapMusic<0 then
 		   if CONFIG.MP3==1 then
-		      JY.MmapMusic=39+math.random(5)--JY.Scene[JY.SubScene]["å‡ºé—¨éŸ³ä¹"];
+		      JY.MmapMusic=39+math.random(5)--JY.Scene[JY.SubScene]["³öÃÅÒôÀÖ"];
 		   else
               JY.MmapMusic=25
 		   end
@@ -2344,33 +2343,33 @@ function Game_SMap()         --åœºæ™¯å¤„ç†ä¸»å‡½æ•°
 		JY.oldSMapX=-1;
 		JY.oldSMapY=-1;
 
-        lib.DrawMMap(JY.Base["äººX"],JY.Base["äººY"],GetMyPic());
+        lib.DrawMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],GetMyPic());
         --lib.ShowSlow(50,0)
         lib.GetKey();
         return;
     end
 
-    --æ˜¯å¦è·³è½¬åˆ°å…¶ä»–åœºæ™¯
-    if JY.Scene[JY.SubScene]["è·³è½¬åœºæ™¯"] >=0 then
-        if JY.Base["äººX1"]==JY.Scene[JY.SubScene]["è·³è½¬å£X1"] and JY.Base["äººY1"]==JY.Scene[JY.SubScene]["è·³è½¬å£Y1"] then
+    --ÊÇ·ñÌø×ªµ½ÆäËû³¡¾°
+    if JY.Scene[JY.SubScene]["Ìø×ª³¡¾°"] >=0 then
+        if JY.Base["ÈËX1"]==JY.Scene[JY.SubScene]["Ìø×ª¿ÚX1"] and JY.Base["ÈËY1"]==JY.Scene[JY.SubScene]["Ìø×ª¿ÚY1"] then
 			local OldScene=JY.SubScene;
-            JY.SubScene=JY.Scene[JY.SubScene]["è·³è½¬åœºæ™¯"];
+            JY.SubScene=JY.Scene[JY.SubScene]["Ìø×ª³¡¾°"];
             lib.ShowSlow(50,1);
 --[[
-            if JY.Scene[JY.SubScene]["å¤–æ™¯å…¥å£X1"]==0 and JY.Scene[JY.SubScene]["å¤–æ™¯å…¥å£Y1"]==0 then
-                JY.Base["äººX1"]=JY.Scene[JY.SubScene]["å…¥å£X"];            --æ–°åœºæ™¯çš„å¤–æ™¯å…¥å£ä¸º0ï¼Œè¡¨ç¤ºè¿™æ˜¯ä¸€ä¸ªå†…éƒ¨åœºæ™¯
-                JY.Base["äººY1"]=JY.Scene[JY.SubScene]["å…¥å£Y"];
+            if JY.Scene[JY.SubScene]["Íâ¾°Èë¿ÚX1"]==0 and JY.Scene[JY.SubScene]["Íâ¾°Èë¿ÚY1"]==0 then
+                JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Èë¿ÚX"];            --ĞÂ³¡¾°µÄÍâ¾°Èë¿ÚÎª0£¬±íÊ¾ÕâÊÇÒ»¸öÄÚ²¿³¡¾°
+                JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Èë¿ÚY"];
             else
-                JY.Base["äººX1"]=JY.Scene[JY.SubScene]["è·³è½¬å£X2"];         --å¤–éƒ¨åœºæ™¯ï¼Œå³ä»å…¶ä»–å†…éƒ¨åœºæ™¯è·³å›ã€‚
-                JY.Base["äººY1"]=JY.Scene[JY.SubScene]["è·³è½¬å£Y2"];
+                JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚX2"];         --Íâ²¿³¡¾°£¬¼´´ÓÆäËûÄÚ²¿³¡¾°Ìø»Ø¡£
+                JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚY2"];
             end
 ]]--
-            if JY.Scene[OldScene]["å¤–æ™¯å…¥å£X1"]~=0 then
-				JY.Base["äººX1"]=JY.Scene[JY.SubScene]["å…¥å£X"];            --æ–°åœºæ™¯çš„å¤–æ™¯å…¥å£ä¸º0ï¼Œè¡¨ç¤ºè¿™æ˜¯ä¸€ä¸ªå†…éƒ¨åœºæ™¯
-                JY.Base["äººY1"]=JY.Scene[JY.SubScene]["å…¥å£Y"];
+            if JY.Scene[OldScene]["Íâ¾°Èë¿ÚX1"]~=0 then
+				JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Èë¿ÚX"];            --ĞÂ³¡¾°µÄÍâ¾°Èë¿ÚÎª0£¬±íÊ¾ÕâÊÇÒ»¸öÄÚ²¿³¡¾°
+                JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Èë¿ÚY"];
             else
-                JY.Base["äººX1"]=JY.Scene[JY.SubScene]["è·³è½¬å£X2"];         --å¤–éƒ¨åœºæ™¯ï¼Œå³ä»å…¶ä»–å†…éƒ¨åœºæ™¯è·³å›ã€‚
-                JY.Base["äººY1"]=JY.Scene[JY.SubScene]["è·³è½¬å£Y2"];
+                JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚX2"];         --Íâ²¿³¡¾°£¬¼´´ÓÆäËûÄÚ²¿³¡¾°Ìø»Ø¡£
+                JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚY2"];
 			end
 			Init_SMap(1);
 
@@ -2419,19 +2418,19 @@ function Game_SMap()         --åœºæ™¯å¤„ç†ä¸»å‡½æ•°
 			mx=math.modf(mx)
 			my=math.modf(my)
 			for i=1,20 do
-				if JY.Base["äººX1"]+mx+i >63 or JY.Base["äººY1"]+my+i>63 then
+				if JY.Base["ÈËX1"]+mx+i >63 or JY.Base["ÈËY1"]+my+i>63 then
 					break
 				end
-				if math.abs(GetS(JY.SubScene,JY.Base["äººX1"]+mx+i,JY.Base["äººY1"]+my+i,4)-CC.YScale*i*2)<8 then
+				if math.abs(GetS(JY.SubScene,JY.Base["ÈËX1"]+mx+i,JY.Base["ÈËY1"]+my+i,4)-CC.YScale*i*2)<8 then
 					mx=mx+i
 					my=my+i
 					break
 				end
 			end
 			if math.abs(mx)+math.abs(my)==1 then
-                local d_num=GetS(JY.SubScene,JY.Base["äººX1"]+mx,JY.Base["äººY1"]+my,3);
+                local d_num=GetS(JY.SubScene,JY.Base["ÈËX1"]+mx,JY.Base["ÈËY1"]+my,3);
                 if d_num>=0 then
-                    EventExecute(d_num,1);       --ç©ºæ ¼è§¦å‘äº‹ä»¶
+                    EventExecute(d_num,1);       --¿Õ¸ñ´¥·¢ÊÂ¼ş
 					JY.oldSMapX=-1;
 					JY.oldSMapY=-1;
 					JY.D_Valid=nil;
@@ -2439,10 +2438,10 @@ function Game_SMap()         --åœºæ™¯å¤„ç†ä¸»å‡½æ•°
 			end
 			walkto(mx,my)
 		elseif keypress==VK_SPACE or keypress==VK_RETURN  then
-            if JY.Base["äººæ–¹å‘"]>=0 then        --å½“å‰æ–¹å‘ä¸‹ä¸€ä¸ªä½ç½®				
-                local d_num=GetS(JY.SubScene,JY.Base["äººX1"]+CC.DirectX[JY.Base["äººæ–¹å‘"]+1],JY.Base["äººY1"]+CC.DirectY[JY.Base["äººæ–¹å‘"]+1],3);
+            if JY.Base["ÈË·½Ïò"]>=0 then        --µ±Ç°·½ÏòÏÂÒ»¸öÎ»ÖÃ				
+                local d_num=GetS(JY.SubScene,JY.Base["ÈËX1"]+CC.DirectX[JY.Base["ÈË·½Ïò"]+1],JY.Base["ÈËY1"]+CC.DirectY[JY.Base["ÈË·½Ïò"]+1],3);
                 if d_num>=0 then
-                    EventExecute(d_num,1);       --ç©ºæ ¼è§¦å‘äº‹ä»¶
+                    EventExecute(d_num,1);       --¿Õ¸ñ´¥·¢ÊÂ¼ş
 					JY.oldSMapX=-1;
 					JY.oldSMapY=-1;
 					JY.D_Valid=nil;
@@ -2471,50 +2470,50 @@ function Game_SMap()         --åœºæ™¯å¤„ç†ä¸»å‡½æ•°
 
     if direct ~= -1 then
         AddMyCurrentPic();
-        x=JY.Base["äººX1"]+CC.DirectX[direct+1];
-        y=JY.Base["äººY1"]+CC.DirectY[direct+1];
-        JY.Base["äººæ–¹å‘"]=direct;
+        x=JY.Base["ÈËX1"]+CC.DirectX[direct+1];
+        y=JY.Base["ÈËY1"]+CC.DirectY[direct+1];
+        JY.Base["ÈË·½Ïò"]=direct;
     else
-        x=JY.Base["äººX1"];
-        y=JY.Base["äººY1"];
+        x=JY.Base["ÈËX1"];
+        y=JY.Base["ÈËY1"];
     end
 
     JY.MyPic=GetMyPic();
 
     DtoSMap();
 
-    if direct~=-1 and (CC.cq~=nil or SceneCanPass(x,y)==true) then          --æ–°çš„åæ ‡å¯ä»¥èµ°è¿‡å»
-        JY.Base["äººX1"]=x;
-        JY.Base["äººY1"]=y;
+    if direct~=-1 and (CC.cq~=nil or SceneCanPass(x,y)==true) then          --ĞÂµÄ×ø±ê¿ÉÒÔ×ß¹ıÈ¥
+        JY.Base["ÈËX1"]=x;
+        JY.Base["ÈËY1"]=y;
     end
 
-    JY.Base["äººX1"]=limitX(JY.Base["äººX1"],1,CC.SWidth-2);
-    JY.Base["äººY1"]=limitX(JY.Base["äººY1"],1,CC.SHeight-2);
+    JY.Base["ÈËX1"]=limitX(JY.Base["ÈËX1"],1,CC.SWidth-2);
+    JY.Base["ÈËY1"]=limitX(JY.Base["ÈËY1"],1,CC.SHeight-2);
 
 end
 
---åœºæ™¯åæ ‡(x,y)æ˜¯å¦å¯ä»¥é€šè¿‡
---è¿”å›true,å¯ä»¥ï¼Œfalseä¸èƒ½
-function SceneCanPass(x,y)  --åœºæ™¯åæ ‡(x,y)æ˜¯å¦å¯ä»¥é€šè¿‡
-    local ispass=true;        --æ˜¯å¦å¯ä»¥é€šè¿‡
+--³¡¾°×ø±ê(x,y)ÊÇ·ñ¿ÉÒÔÍ¨¹ı
+--·µ»Øtrue,¿ÉÒÔ£¬false²»ÄÜ
+function SceneCanPass(x,y)  --³¡¾°×ø±ê(x,y)ÊÇ·ñ¿ÉÒÔÍ¨¹ı
+    local ispass=true;        --ÊÇ·ñ¿ÉÒÔÍ¨¹ı
 	if x>63 or x<0 or y>63 or x<0 then ispass=false end
-    if GetS(JY.SubScene,x,y,1)>0 then     --åœºæ™¯å±‚1æœ‰ç‰©å“ï¼Œä¸å¯é€šè¿‡
+    if GetS(JY.SubScene,x,y,1)>0 then     --³¡¾°²ã1ÓĞÎïÆ·£¬²»¿ÉÍ¨¹ı
         ispass=false;
     end
 
-    local d_data=GetS(JY.SubScene,x,y,3);     --äº‹ä»¶å±‚4
+    local d_data=GetS(JY.SubScene,x,y,3);     --ÊÂ¼ş²ã4
     if d_data>=0 then
-        if GetD(JY.SubScene,d_data,0)~=0 then  --d*æ•°æ®ä¸ºä¸èƒ½é€šè¿‡
+        if GetD(JY.SubScene,d_data,0)~=0 then  --d*Êı¾İÎª²»ÄÜÍ¨¹ı
             ispass=false;
         end
     end
 
-    if CC.SceneWater[GetS(JY.SubScene,x,y,0)] ~= nil then   --æ°´é¢ï¼Œä¸å¯è¿›å…¥
+    if CC.SceneWater[GetS(JY.SubScene,x,y,0)] ~= nil then   --Ë®Ãæ£¬²»¿É½øÈë
         ispass=false;
     end
 	
 	local hb1,hb2
-	hb1=GetS(JY.SubScene,JY.Base['äººX1'],JY.Base['äººY1'],4)
+	hb1=GetS(JY.SubScene,JY.Base['ÈËX1'],JY.Base['ÈËY1'],4)
 	hb2=GetS(JY.SubScene,x,y,4)
 	if math.abs(hb1-hb2)>14 then
 		ispass=false
@@ -2522,7 +2521,7 @@ function SceneCanPass(x,y)  --åœºæ™¯åæ ‡(x,y)æ˜¯å¦å¯ä»¥é€šè¿‡
     return ispass;
 end
 
-function Cal_D_Valid()     --è®¡ç®—200ä¸ªDä¸­æœ‰æ•ˆçš„D
+function Cal_D_Valid()     --¼ÆËã200¸öDÖĞÓĞĞ§µÄD
     if JY.D_Valid~=nil then
 	    return ;
 	end
@@ -2541,7 +2540,7 @@ function Cal_D_Valid()     --è®¡ç®—200ä¸ªDä¸­æœ‰æ•ˆçš„D
 	end
 end
 
-function DtoSMap()          ---D*ä¸­çš„äº‹ä»¶å¤„ç†åŠ¨ç”»æ•ˆæœã€‚
+function DtoSMap()          ---D*ÖĞµÄÊÂ¼ş´¦Àí¶¯»­Ğ§¹û¡£
     local sceneid=JY.SubScene;
     JY.NumD_PicChange=0;
     JY.D_PicChange={};
@@ -2560,13 +2559,13 @@ function DtoSMap()          ---D*ä¸­çš„äº‹ä»¶å¤„ç†åŠ¨ç”»æ•ˆæœã€‚
 			if p1 ~= p2 then
 				local old_p3=p3;
 				local delay=GetD(sceneid,i,8);
-				if not (p3>=CC.SceneFlagPic[1]*2 and p3<=CC.SceneFlagPic[2]*2 and CC.ShowFlag==0) then --æ˜¯å¦æ˜¾ç¤ºæ——å¸œ
-					if p3<=p1 then     --åŠ¨ç”»å·²åœæ­¢
+				if not (p3>=CC.SceneFlagPic[1]*2 and p3<=CC.SceneFlagPic[2]*2 and CC.ShowFlag==0) then --ÊÇ·ñÏÔÊ¾ÆìÖÄ
+					if p3<=p1 then     --¶¯»­ÒÑÍ£Ö¹
 						if JY.MyTick2 %100 > delay then
 							p3=p3+2;
 						end
 					else
-						if JY.MyTick2 % 4 ==0 then      --4ä¸ªèŠ‚æ‹åŠ¨ç”»å¢åŠ ä¸€æ¬¡
+						if JY.MyTick2 % 4 ==0 then      --4¸ö½ÚÅÄ¶¯»­Ôö¼ÓÒ»´Î
 							p3=p3+2;
 						end
 					end
@@ -2574,10 +2573,10 @@ function DtoSMap()          ---D*ä¸­çš„äº‹ä»¶å¤„ç†åŠ¨ç”»æ•ˆæœã€‚
 						 p3=p1;
 					end
 				end
-				if old_p3 ~=p3 then    --åŠ¨ç”»æ”¹å˜äº†ï¼Œå¢åŠ ä¸€ä¸ª
+				if old_p3 ~=p3 then    --¶¯»­¸Ä±äÁË£¬Ôö¼ÓÒ»¸ö
                     local x=GetD(sceneid,i,9);
                     local y=GetD(sceneid,i,10);
-					local dy=GetS(sceneid,x,y,4);       --æµ·æ‹”
+					local dy=GetS(sceneid,x,y,4);       --º£°Î
 					JY.D_PicChange[JY.NumD_PicChange]={x=x, y=y, dy=dy, p1=old_p3/2, p2=p3/2}
 					JY.NumD_PicChange=JY.NumD_PicChange+1;
 					SetD(sceneid,i,7,p3);
@@ -2587,31 +2586,31 @@ function DtoSMap()          ---D*ä¸­çš„äº‹ä»¶å¤„ç†åŠ¨ç”»æ•ˆæœã€‚
     end
 end
 
---fastdraw = 0 or nil å…¨éƒ¨é‡ç»˜ã€‚ç”¨äºäº‹ä»¶ä¸­
---           1 è€ƒè™‘è„çŸ©å½¢ ç”¨äºæ˜¾ç¤ºåœºæ™¯å¾ªç¯
-function DrawSMap(fastdraw)         --ç»˜åœºæ™¯åœ°å›¾
+--fastdraw = 0 or nil È«²¿ÖØ»æ¡£ÓÃÓÚÊÂ¼şÖĞ
+--           1 ¿¼ÂÇÔà¾ØĞÎ ÓÃÓÚÏÔÊ¾³¡¾°Ñ­»·
+function DrawSMap(fastdraw)         --»æ³¡¾°µØÍ¼
     if fastdraw==nil then
 	    fastdraw=0;
 	end
-	local x0=JY.SubSceneX+JY.Base["äººX1"]---1;    --ç»˜å›¾ä¸­å¿ƒç‚¹
-	local y0=JY.SubSceneY+JY.Base["äººY1"]---1;
-	local x=x0-JY.Base["äººX1"]--limitX(x0,CC.SceneXMin,CC.SceneXMax)-JY.Base["äººX1"];
-	local y=y0-JY.Base["äººY1"]--limitX(y0,CC.SceneYMin,CC.SceneYMax)-JY.Base["äººY1"];
+	local x0=JY.SubSceneX+JY.Base["ÈËX1"]---1;    --»æÍ¼ÖĞĞÄµã
+	local y0=JY.SubSceneY+JY.Base["ÈËY1"]---1;
+	local x=x0-JY.Base["ÈËX1"]--limitX(x0,CC.SceneXMin,CC.SceneXMax)-JY.Base["ÈËX1"];
+	local y=y0-JY.Base["ÈËY1"]--limitX(y0,CC.SceneYMin,CC.SceneYMax)-JY.Base["ÈËY1"];
 --x,y=0,0
---y=GetS(JY.SubScene,JY.Base["äººX1"],JY.Base["äººY1"],4)
+--y=GetS(JY.SubScene,JY.Base["ÈËX1"],JY.Base["ÈËY1"],4)
     if fastdraw==0 then
-		lib.DrawSMap(JY.SubScene,JY.Base["äººX1"],JY.Base["äººY1"],x,y,JY.MyPic);
+		lib.DrawSMap(JY.SubScene,JY.Base["ÈËX1"],JY.Base["ÈËY1"],x,y,JY.MyPic);
     else
 		if JY.oldSMapX>=0 and JY.oldSMapY>=0 and
-		   JY.oldSMapX+JY.oldSMapXoff==JY.Base["äººX1"]+x and         --ç»˜å›¾ä¸­å¿ƒç‚¹ä¸å˜ï¼Œäººèµ°è·¯ä¹Ÿå¯ä»¥ç”¨è£å‰ªæ–¹å¼ç»˜å›¾
-		   JY.oldSMapY+JY.oldSMapYoff==JY.Base["äººY1"]+y then
+		   JY.oldSMapX+JY.oldSMapXoff==JY.Base["ÈËX1"]+x and         --»æÍ¼ÖĞĞÄµã²»±ä£¬ÈË×ßÂ·Ò²¿ÉÒÔÓÃ²Ã¼ô·½Ê½»æÍ¼
+		   JY.oldSMapY+JY.oldSMapYoff==JY.Base["ÈËY1"]+y then
 
 			local num_clip=0;
 			local clip={};
 
-			for i=0,JY.NumD_PicChange-1 do   --è®¡ç®—D*ä¸­è´´å›¾æ”¹å˜çš„çŸ©å½¢
-			    local dx=JY.D_PicChange[i].x-JY.Base["äººX1"]-x;
-				local dy=JY.D_PicChange[i].y-JY.Base["äººY1"]-y;
+			for i=0,JY.NumD_PicChange-1 do   --¼ÆËãD*ÖĞÌùÍ¼¸Ä±äµÄ¾ØĞÎ
+			    local dx=JY.D_PicChange[i].x-JY.Base["ÈËX1"]-x;
+				local dy=JY.D_PicChange[i].y-JY.Base["ÈËY1"]-y;
 				clip[num_clip]=Cal_PicClip(dx,dy,JY.D_PicChange[i].p1,0,
 										   dx,dy,JY.D_PicChange[i].p2,0 );
 				clip[num_clip].y1=clip[num_clip].y1-JY.D_PicChange[i].dy
@@ -2619,11 +2618,11 @@ function DrawSMap(fastdraw)         --ç»˜åœºæ™¯åœ°å›¾
 				num_clip=num_clip+1;
 			end
 
-			if JY.oldSMapPic>=0 then  --è®¡ç®—ä¸»è§’çŸ©å½¢
-			    if not ( JY.oldSMapX==JY.Base["äººX1"] and    --ä¸»è§’æœ‰å˜åŒ–
-				         JY.oldSMapY==JY.Base["äººY1"] and
+			if JY.oldSMapPic>=0 then  --¼ÆËãÖ÷½Ç¾ØĞÎ
+			    if not ( JY.oldSMapX==JY.Base["ÈËX1"] and    --Ö÷½ÇÓĞ±ä»¯
+				         JY.oldSMapY==JY.Base["ÈËY1"] and
 						 JY.oldSMapPic==JY.MyPic ) then
-					local dy1=GetS(JY.SubScene,JY.Base["äººX1"],JY.Base["äººY1"],4);   --æµ·æ‹”
+					local dy1=GetS(JY.SubScene,JY.Base["ÈËX1"],JY.Base["ÈËY1"],4);   --º£°Î
 					local dy2=GetS(JY.SubScene,JY.oldSMapX,JY.oldSMapY,4);
 					local dy=math.max(dy1,dy2);
 					clip[num_clip]=Cal_PicClip(-JY.oldSMapXoff,-JY.oldSMapYoff,JY.oldSMapPic,0,
@@ -2634,39 +2633,39 @@ function DrawSMap(fastdraw)         --ç»˜åœºæ™¯åœ°å›¾
 				end
 			end
 
-			local area=0;          --è®¡ç®—æ‰€æœ‰è„çŸ©å½¢é¢ç§¯
+			local area=0;          --¼ÆËãËùÓĞÔà¾ØĞÎÃæ»ı
 			for i=0,num_clip-1 do
-				clip[i]=ClipRect(clip[i]);    --çŸ©å½¢å±å¹•å‰ªè£
+				clip[i]=ClipRect(clip[i]);    --¾ØĞÎÆÁÄ»¼ô²Ã
 				if clip[i]~=nil then
 					area=area+(clip[i].x2-clip[i].x1)*(clip[i].y2-clip[i].y1)
 				end
 			end
 
-			if area <CC.ScreenW*CC.ScreenH/2 and num_clip<15 then        --é¢ç§¯è¶³å¤Ÿå°ï¼ŒçŸ©å½¢æ•°ç›®å°‘ï¼Œåˆ™æ›´æ–°è„çŸ©å½¢ã€‚
+			if area <CC.ScreenW*CC.ScreenH/2 and num_clip<15 then        --Ãæ»ı×ã¹»Ğ¡£¬¾ØĞÎÊıÄ¿ÉÙ£¬Ôò¸üĞÂÔà¾ØĞÎ¡£
 				for i=0,num_clip-1 do
 					if clip[i]~=nil then
 						lib.SetClip(clip[i].x1,clip[i].y1,clip[i].x2,clip[i].y2);
-						lib.DrawSMap(JY.SubScene,JY.Base["äººX1"],JY.Base["äººY1"],x,y,JY.MyPic);
+						lib.DrawSMap(JY.SubScene,JY.Base["ÈËX1"],JY.Base["ÈËY1"],x,y,JY.MyPic);
 					end
 				end
-			else    --é¢ç§¯å¤ªå¤§ï¼Œç›´æ¥é‡ç»˜
-				lib.SetClip(0,0,CC.ScreenW,CC.ScreenH);   --ç”±äºredraw=0ï¼Œå¿…é¡»ç»™å‡ºè£å‰ªçŸ©å½¢ä»¥åæ‰èƒ½ShowSurface
-				lib.DrawSMap(JY.SubScene,JY.Base["äººX1"],JY.Base["äººY1"],x,y,JY.MyPic);
+			else    --Ãæ»ıÌ«´ó£¬Ö±½ÓÖØ»æ
+				lib.SetClip(0,0,CC.ScreenW,CC.ScreenH);   --ÓÉÓÚredraw=0£¬±ØĞë¸ø³ö²Ã¼ô¾ØĞÎÒÔºó²ÅÄÜShowSurface
+				lib.DrawSMap(JY.SubScene,JY.Base["ÈËX1"],JY.Base["ÈËY1"],x,y,JY.MyPic);
 			end
 		else
 			lib.SetClip(0,0,CC.ScreenW,CC.ScreenH);
-			lib.DrawSMap(JY.SubScene,JY.Base["äººX1"],JY.Base["äººY1"],x,y,JY.MyPic);
+			lib.DrawSMap(JY.SubScene,JY.Base["ÈËX1"],JY.Base["ÈËY1"],x,y,JY.MyPic);
 		end
     end
-	--lib.PicLoadCache(0,CC.ScreenW/2,CC.ScreenH/2-GetS(JY.SubScene,JY.Base["äººX1"],JY.Base["äººY1"],4),JY.MyPic)
+	--lib.PicLoadCache(0,CC.ScreenW/2,CC.ScreenH/2-GetS(JY.SubScene,JY.Base["ÈËX1"],JY.Base["ÈËY1"],4),JY.MyPic)
 	--[[if CC.forg==true then
 		local dx,dy=x-y,x+y
 		dx=-dx*18-320
 		dy=-dy*9-240
 		lib.LoadPicture(".\\pic\\forg.png",dx,dy)
 	end]]--
-	JY.oldSMapX=JY.Base["äººX1"];
-	JY.oldSMapY=JY.Base["äººY1"];
+	JY.oldSMapX=JY.Base["ÈËX1"];
+	JY.oldSMapY=JY.Base["ÈËY1"];
 	JY.oldSMapPic=JY.MyPic;
     JY.oldSMapXoff=x;
     JY.oldSMapYoff=y;
@@ -2688,12 +2687,12 @@ function DrawSMap(fastdraw)         --ç»˜åœºæ™¯åœ°å›¾
 end
 
 
--- è¯»å–æ¸¸æˆè¿›åº¦
--- id=0 æ–°è¿›åº¦ï¼Œ=1/2/3 è¿›åº¦
+-- ¶ÁÈ¡ÓÎÏ·½ø¶È
+-- id=0 ĞÂ½ø¶È£¬=1/2/3 ½ø¶È
 --
---è¿™é‡Œæ˜¯å…ˆæŠŠæ•°æ®è¯»å…¥Byteæ•°ç»„ä¸­ã€‚ç„¶åå®šä¹‰è®¿é—®ç›¸åº”è¡¨çš„æ–¹æ³•ï¼Œåœ¨è®¿é—®è¡¨æ—¶ç›´æ¥ä»æ•°ç»„è®¿é—®ã€‚
---ä¸ä»¥å‰çš„å®ç°ç›¸æ¯”ï¼Œä»æ–‡ä»¶ä¸­è¯»å–å’Œä¿å­˜åˆ°æ–‡ä»¶çš„æ—¶é—´æ˜¾è‘—åŠ å¿«ã€‚è€Œä¸”å†…å­˜å ç”¨å°‘äº†
-function SBLDATAL(id)       -- è¯»å–æ¸¸æˆè¿›åº¦
+--ÕâÀïÊÇÏÈ°ÑÊı¾İ¶ÁÈëByteÊı×éÖĞ¡£È»ºó¶¨Òå·ÃÎÊÏàÓ¦±íµÄ·½·¨£¬ÔÚ·ÃÎÊ±íÊ±Ö±½Ó´ÓÊı×é·ÃÎÊ¡£
+--ÓëÒÔÇ°µÄÊµÏÖÏà±È£¬´ÓÎÄ¼şÖĞ¶ÁÈ¡ºÍ±£´æµ½ÎÄ¼şµÄÊ±¼äÏÔÖø¼Ó¿ì¡£¶øÇÒÄÚ´æÕ¼ÓÃÉÙÁË
+function SBLDATAL(id)       -- ¶ÁÈ¡ÓÎÏ·½ø¶È
     local sid=id;
 	JY.LID=id
 	local v=0;
@@ -2727,7 +2726,7 @@ function SBLDATAL(id)       -- è¯»å–æ¸¸æˆè¿›åº¦
    CC.SBL_Wugong={};
    CC.SBL_Shop={};
 	
-    --è¯»å–R*.idxæ–‡ä»¶
+    --¶ÁÈ¡R*.idxÎÄ¼ş
     local data=Byte.create(6*4);
     Byte.loadfile(data,CC.R_IDXFilename[id],0,6*4);
 
@@ -2737,11 +2736,11 @@ function SBLDATAL(id)       -- è¯»å–æ¸¸æˆè¿›åº¦
 	    idx[i]=Byte.get32(data,4*(i-1));
 	end
 
-    --è¯»å–R*.grpæ–‡ä»¶
-    JY.Data_Base=Byte.create(idx[1]-idx[0]);              --åŸºæœ¬æ•°æ®
+    --¶ÁÈ¡R*.grpÎÄ¼ş
+    JY.Data_Base=Byte.create(idx[1]-idx[0]);              --»ù±¾Êı¾İ
     Byte.loadfile(JY.Data_Base,CC.R_GRPFilename[id],idx[0],idx[1]-idx[0]);
 
-    --è®¾ç½®è®¿é—®åŸºæœ¬æ•°æ®çš„æ–¹æ³•ï¼Œè¿™æ ·å°±å¯ä»¥ç”¨è®¿é—®è¡¨çš„æ–¹å¼è®¿é—®äº†ã€‚è€Œä¸ç”¨æŠŠäºŒè¿›åˆ¶æ•°æ®è½¬åŒ–ä¸ºè¡¨ã€‚èŠ‚çº¦åŠ è½½æ—¶é—´å’Œç©ºé—´
+    --ÉèÖÃ·ÃÎÊ»ù±¾Êı¾İµÄ·½·¨£¬ÕâÑù¾Í¿ÉÒÔÓÃ·ÃÎÊ±íµÄ·½Ê½·ÃÎÊÁË¡£¶ø²»ÓÃ°Ñ¶ş½øÖÆÊı¾İ×ª»¯Îª±í¡£½ÚÔ¼¼ÓÔØÊ±¼äºÍ¿Õ¼ä
 	local meta_t={
 	    __index=function(t,k)
 	        return GetDataFromStruct(JY.Data_Base,0,CC.Base_S,k);
@@ -2754,7 +2753,7 @@ function SBLDATAL(id)       -- è¯»å–æ¸¸æˆè¿›åº¦
     setmetatable(JY.Base,meta_t);
 
 
-    JY.PersonNum=math.floor((idx[2]-idx[1])/CC.PersonSize);   --äººç‰©
+    JY.PersonNum=math.floor((idx[2]-idx[1])/CC.PersonSize);   --ÈËÎï
 
 	JY.Data_Person=Byte.create(CC.PersonSize*JY.PersonNum);
 	Byte.loadfile(JY.Data_Person,CC.R_GRPFilename[id],idx[1],CC.PersonSize*JY.PersonNum);
@@ -2773,7 +2772,7 @@ function SBLDATAL(id)       -- è¯»å–æ¸¸æˆè¿›åº¦
         setmetatable(JY.Person[i],meta_t);
 	end
 
-    JY.ThingNum=math.floor((idx[3]-idx[2])/CC.ThingSize);     --ç‰©å“
+    JY.ThingNum=math.floor((idx[3]-idx[2])/CC.ThingSize);     --ÎïÆ·
 	JY.Data_Thing=Byte.create(CC.ThingSize*JY.ThingNum);
 	Byte.loadfile(JY.Data_Thing,CC.R_GRPFilename[id],idx[2],CC.ThingSize*JY.ThingNum);
 	for i=0,JY.ThingNum-1 do
@@ -2790,7 +2789,7 @@ function SBLDATAL(id)       -- è¯»å–æ¸¸æˆè¿›åº¦
         setmetatable(JY.Thing[i],meta_t);
 	end
 
-    JY.SceneNum=math.floor((idx[4]-idx[3])/CC.SceneSize);     --åœºæ™¯
+    JY.SceneNum=math.floor((idx[4]-idx[3])/CC.SceneSize);     --³¡¾°
 	JY.Data_Scene=Byte.create(CC.SceneSize*JY.SceneNum);
 	Byte.loadfile(JY.Data_Scene,CC.R_GRPFilename[id],idx[3],CC.SceneSize*JY.SceneNum);
 	for i=0,JY.SceneNum-1 do
@@ -2807,7 +2806,7 @@ function SBLDATAL(id)       -- è¯»å–æ¸¸æˆè¿›åº¦
         setmetatable(JY.Scene[i],meta_t);
 	end
 
-    JY.WugongNum=math.floor((idx[5]-idx[4])/CC.WugongSize);     --æ­¦åŠŸ
+    JY.WugongNum=math.floor((idx[5]-idx[4])/CC.WugongSize);     --Îä¹¦
 	JY.Data_Wugong=Byte.create(CC.WugongSize*JY.WugongNum);
 	Byte.loadfile(JY.Data_Wugong,CC.R_GRPFilename[id],idx[4],CC.WugongSize*JY.WugongNum);
 	for i=0,JY.WugongNum-1 do
@@ -2824,7 +2823,7 @@ function SBLDATAL(id)       -- è¯»å–æ¸¸æˆè¿›åº¦
         setmetatable(JY.Wugong[i],meta_t);
 	end
 
-    JY.ShopNum=math.floor((idx[6]-idx[5])/CC.ShopSize);     --å°å®å•†åº—
+    JY.ShopNum=math.floor((idx[6]-idx[5])/CC.ShopSize);     --Ğ¡±¦ÉÌµê
 	JY.Data_Shop=Byte.create(CC.ShopSize*JY.ShopNum);
 	Byte.loadfile(JY.Data_Shop,CC.R_GRPFilename[id],idx[5],CC.ShopSize*JY.ShopNum);
 	for i=0,JY.ShopNum-1 do
@@ -2850,14 +2849,14 @@ function SBLDATAL(id)       -- è¯»å–æ¸¸æˆè¿›åº¦
     if id>0 then 	FINALWORK2() end
 end
 
--- å†™æ¸¸æˆè¿›åº¦
--- id=0 æ–°è¿›åº¦ï¼Œ=1/2/3 è¿›åº¦
-function SBLDATAS(id)         -- å†™æ¸¸æˆè¿›åº¦
-    --è¯»å–R*.idxæ–‡ä»¶
+-- Ğ´ÓÎÏ·½ø¶È
+-- id=0 ĞÂ½ø¶È£¬=1/2/3 ½ø¶È
+function SBLDATAS(id)         -- Ğ´ÓÎÏ·½ø¶È
+    --¶ÁÈ¡R*.idxÎÄ¼ş
     local t1=lib.GetTime();
 	JY.SAVETIME=lib.GetTime();
 	JY.GTIME=math.modf((JY.SAVETIME-JY.LOADTIME)/60000)
-	--JY.Person[10]["æ— ç”¨"]=JY.Person[10]["æ— ç”¨"]+JY.GTIME
+	--JY.Person[10]["ÎŞÓÃ"]=JY.Person[10]["ÎŞÓÃ"]+JY.GTIME
 	SetS(14,2,1,4,GetS(14,2,1,4)+JY.GTIME)
 	JY.LOADTIME=lib.GetTime()
 	local sid=id	
@@ -2873,7 +2872,7 @@ function SBLDATAS(id)         -- å†™æ¸¸æˆè¿›åº¦
 	    idx[i]=Byte.get32(data,4*(i-1));
 	end
 
-    --å†™R*.grpæ–‡ä»¶
+    --Ğ´R*.grpÎÄ¼ş
     Byte.savefile(JY.Data_Base,CC.R_GRPFilename[id],idx[0],idx[1]-idx[0]);
 
 	Byte.savefile(JY.Data_Person,CC.R_GRPFilename[id],idx[1],CC.PersonSize*JY.PersonNum);
@@ -2893,45 +2892,45 @@ function SBLDATAS(id)         -- å†™æ¸¸æˆè¿›åº¦
 
 end
 -------------------------------------------------------------------------------------
------------------------------------é€šç”¨å‡½æ•°-------------------------------------------
+-----------------------------------Í¨ÓÃº¯Êı-------------------------------------------
 
-function filelength(filename)         --å¾—åˆ°æ–‡ä»¶é•¿åº¦
+function filelength(filename)         --µÃµ½ÎÄ¼ş³¤¶È
     local inp=io.open(filename,"rb");
     local l= inp:seek("end");
 	inp:close();
     return l;
 end
 
---è¯»SÃ—æ•°æ®, (x,y) åæ ‡ï¼Œlevel å±‚ 0-5
-function GetS(id,x,y,level)       --è¯»SÃ—æ•°æ®
+--¶ÁS¡ÁÊı¾İ, (x,y) ×ø±ê£¬level ²ã 0-5
+function GetS(id,x,y,level)       --¶ÁS¡ÁÊı¾İ
 	if x>63 or y>63 then lib.Debug(string.format('error:%d,%d',x,y)) end
     return lib.GetS(id,x,y,level);
 end
 
---å†™SÃ—
-function SetS(id,x,y,level,v)       --å†™SÃ—
+--Ğ´S¡Á
+function SetS(id,x,y,level,v)       --Ğ´S¡Á
     lib.SetS(id,x,y,level,v);
 end
 
---è¯»D*
---sceneid åœºæ™¯ç¼–å·ï¼Œ
---id D*ç¼–å·
---è¦è¯»ç¬¬å‡ ä¸ªæ•°æ®, 0-10
-function GetD(Sceneid,id,i)          --è¯»D*
+--¶ÁD*
+--sceneid ³¡¾°±àºÅ£¬
+--id D*±àºÅ
+--Òª¶ÁµÚ¼¸¸öÊı¾İ, 0-10
+function GetD(Sceneid,id,i)          --¶ÁD*
     return lib.GetD(Sceneid,id,i);
 end
 
---å†™DÃ—
-function SetD(Sceneid,id,i,v)         --å†™DÃ—
+--Ğ´D¡Á
+function SetD(Sceneid,id,i,v)         --Ğ´D¡Á
     lib.SetD(Sceneid,id,i,v);
 end
 
---ä»æ•°æ®çš„ç»“æ„ä¸­ç¿»è¯‘æ•°æ®
---data äºŒè¿›åˆ¶æ•°ç»„
---offset dataä¸­çš„åç§»
---t_struct æ•°æ®çš„ç»“æ„ï¼Œåœ¨jyconstä¸­æœ‰å¾ˆå¤šå®šä¹‰
---key  è®¿é—®çš„key
-function GetDataFromStruct(data,offset,t_struct,key)  --ä»æ•°æ®çš„ç»“æ„ä¸­ç¿»è¯‘æ•°æ®ï¼Œç”¨æ¥å–æ•°æ®
+--´ÓÊı¾İµÄ½á¹¹ÖĞ·­ÒëÊı¾İ
+--data ¶ş½øÖÆÊı×é
+--offset dataÖĞµÄÆ«ÒÆ
+--t_struct Êı¾İµÄ½á¹¹£¬ÔÚjyconstÖĞÓĞºÜ¶à¶¨Òå
+--key  ·ÃÎÊµÄkey
+function GetDataFromStruct(data,offset,t_struct,key)  --´ÓÊı¾İµÄ½á¹¹ÖĞ·­ÒëÊı¾İ£¬ÓÃÀ´È¡Êı¾İ
     local t=t_struct[key];
 	local r;
 	if t[2]==0 then
@@ -2940,7 +2939,7 @@ function GetDataFromStruct(data,offset,t_struct,key)  --ä»æ•°æ®çš„ç»“æ„ä¸­ç¿»
 		r=Byte.getu16(data,t[1]+offset);
 	elseif t[2]==2 then
 		if CC.SrcCharSet==0 then
-			r=change_charsert(Byte.getstr(data,t[1]+offset,t[3]),0);
+			r=lib.CharSet(Byte.getstr(data,t[1]+offset,t[3]),0);
 		else
 			r=Byte.getstr(data,t[1]+offset,t[3]);
 		end
@@ -2948,7 +2947,7 @@ function GetDataFromStruct(data,offset,t_struct,key)  --ä»æ•°æ®çš„ç»“æ„ä¸­ç¿»
 	return r;
 end
 
-function SetDataFromStruct(data,offset,t_struct,key,v)  --ä»æ•°æ®çš„ç»“æ„ä¸­ç¿»è¯‘æ•°æ®ï¼Œä¿å­˜æ•°æ®
+function SetDataFromStruct(data,offset,t_struct,key,v)  --´ÓÊı¾İµÄ½á¹¹ÖĞ·­ÒëÊı¾İ£¬±£´æÊı¾İ
     local t=t_struct[key];
 	if t[2]==0 then
 		Byte.set16(data,t[1]+offset,v);
@@ -2957,7 +2956,7 @@ function SetDataFromStruct(data,offset,t_struct,key,v)  --ä»æ•°æ®çš„ç»“æ„ä¸­ç
 	elseif t[2]==2 then
 		local s;
 		if CC.SrcCharSet==0 then
-			s=change_charsert(v,1);
+			s=lib.CharSet(v,1);
 		else
 			s=v;
 		end
@@ -2965,8 +2964,8 @@ function SetDataFromStruct(data,offset,t_struct,key,v)  --ä»æ•°æ®çš„ç»“æ„ä¸­ç
 	end
 end
 
---æŒ‰ç…§t_struct å®šä¹‰çš„ç»“æ„æŠŠæ•°æ®ä»dataäºŒè¿›åˆ¶ä¸²ä¸­è¯»åˆ°è¡¨tä¸­
-function LoadData(t,t_struct,data)        --dataäºŒè¿›åˆ¶ä¸²ä¸­è¯»åˆ°è¡¨tä¸­
+--°´ÕÕt_struct ¶¨ÒåµÄ½á¹¹°ÑÊı¾İ´Ódata¶ş½øÖÆ´®ÖĞ¶Áµ½±ítÖĞ
+function LoadData(t,t_struct,data)        --data¶ş½øÖÆ´®ÖĞ¶Áµ½±ítÖĞ
     for k,v in pairs(t_struct) do
         if v[2]==0 then
             t[k]=Byte.get16(data,v[1]);
@@ -2974,7 +2973,7 @@ function LoadData(t,t_struct,data)        --dataäºŒè¿›åˆ¶ä¸²ä¸­è¯»åˆ°è¡¨tä¸­
             t[k]=Byte.getu16(data,v[1]);
 		elseif v[2]==2 then
             if CC.SrcCharSet==0 then
-                t[k]=change_charsert(Byte.getstr(data,v[1],v[3]),0);
+                t[k]=lib.CharSet(Byte.getstr(data,v[1],v[3]),0);
 		    else
 		        t[k]=Byte.getstr(data,v[1],v[3]);
 		    end
@@ -2982,8 +2981,8 @@ function LoadData(t,t_struct,data)        --dataäºŒè¿›åˆ¶ä¸²ä¸­è¯»åˆ°è¡¨tä¸­
 	end
 end
 
---æŒ‰ç…§t_struct å®šä¹‰çš„ç»“æ„æŠŠæ•°æ®å†™å…¥data Byteæ•°ç»„ä¸­ã€‚
-function SaveData(t,t_struct,data)      --æ•°æ®å†™å…¥data Byteæ•°ç»„ä¸­ã€‚
+--°´ÕÕt_struct ¶¨ÒåµÄ½á¹¹°ÑÊı¾İĞ´Èëdata ByteÊı×éÖĞ¡£
+function SaveData(t,t_struct,data)      --Êı¾İĞ´Èëdata ByteÊı×éÖĞ¡£
     for k,v in pairs(t_struct) do
         if v[2]==0 then
             Byte.set16(data,v[1],t[k]);
@@ -2992,7 +2991,7 @@ function SaveData(t,t_struct,data)      --æ•°æ®å†™å…¥data Byteæ•°ç»„ä¸­ã€‚
 		elseif v[2]==2 then
 		    local s;
 			if CC.SrcCharSet==0 then
-			    s=change_charsert(t[k],1);
+			    s=lib.CharSet(t[k],1);
             else
 			    s=t[k];
 		    end
@@ -3001,7 +3000,7 @@ function SaveData(t,t_struct,data)      --æ•°æ®å†™å…¥data Byteæ•°ç»„ä¸­ã€‚
 	end
 end
 
-function limitX(x,minv,maxv)       --é™åˆ¶xçš„èŒƒå›´
+function limitX(x,minv,maxv)       --ÏŞÖÆxµÄ·¶Î§
     if x<minv then
 	    x=minv;
 	elseif x>maxv then
@@ -3010,11 +3009,11 @@ function limitX(x,minv,maxv)       --é™åˆ¶xçš„èŒƒå›´
 	return x
 end
 
-function RGB(r,g,b)          --è®¾ç½®é¢œè‰²RGB
+function RGB(r,g,b)          --ÉèÖÃÑÕÉ«RGB
    return r*65536+g*256+b;
 end
 
-function GetRGB(color)      --åˆ†ç¦»é¢œè‰²çš„RGBåˆ†é‡
+function GetRGB(color)      --·ÖÀëÑÕÉ«µÄRGB·ÖÁ¿
     color=color%(65536*256);
     local r=math.floor(color/65536);
     color=color%65536;
@@ -3023,8 +3022,8 @@ function GetRGB(color)      --åˆ†ç¦»é¢œè‰²çš„RGBåˆ†é‡
     return r,g,b
 end
 
---ç­‰å¾…é”®ç›˜è¾“å…¥
-function WaitKey(flag)       --ç­‰å¾…é”®ç›˜è¾“å…¥
+--µÈ´ı¼üÅÌÊäÈë
+function WaitKey(flag)       --µÈ´ı¼üÅÌÊäÈë
     local keyPress=-1;
     while true do
 		keyPress=lib.GetKey();
@@ -3038,60 +3037,60 @@ function WaitKey(flag)       --ç­‰å¾…é”®ç›˜è¾“å…¥
 	return keyPress;
 end
 
---è¿”å› [0 , i-1] çš„æ•´å½¢éšæœºæ•°
-function Rnd(i)           --éšæœºæ•°
+--·µ»Ø [0 , i-1] µÄÕûĞÎËæ»úÊı
+function Rnd(i)           --Ëæ»úÊı
 	if i==nil or i==0 then return 0 end
     local r=math.random(i);
     return r-1;
 end
 
---å¢åŠ äººç‰©å±æ€§ï¼Œå¦‚æœæœ‰æœ€å¤§å€¼é™åˆ¶ï¼Œåˆ™åº”ç”¨æœ€å¤§å€¼é™åˆ¶ã€‚æœ€å°å€¼åˆ™é™åˆ¶ä¸º0
---id äººç‰©id
---strå±æ€§å­—ç¬¦ä¸²
---value è¦å¢åŠ çš„å€¼ï¼Œè´Ÿæ•°è¡¨ç¤ºå‡å°‘
---è¿”å›1,å®é™…å¢åŠ çš„å€¼
---è¿”å›2ï¼Œå­—ç¬¦ä¸²ï¼šxxx å¢åŠ /å‡å°‘ xxxxï¼Œç”¨äºæ˜¾ç¤ºè¯å“æ•ˆæœ
-function AddPersonAttrib(id,str,value)            --å¢åŠ äººç‰©å±æ€§
+--Ôö¼ÓÈËÎïÊôĞÔ£¬Èç¹ûÓĞ×î´óÖµÏŞÖÆ£¬ÔòÓ¦ÓÃ×î´óÖµÏŞÖÆ¡£×îĞ¡ÖµÔòÏŞÖÆÎª0
+--id ÈËÎïid
+--strÊôĞÔ×Ö·û´®
+--value ÒªÔö¼ÓµÄÖµ£¬¸ºÊı±íÊ¾¼õÉÙ
+--·µ»Ø1,Êµ¼ÊÔö¼ÓµÄÖµ
+--·µ»Ø2£¬×Ö·û´®£ºxxx Ôö¼Ó/¼õÉÙ xxxx£¬ÓÃÓÚÏÔÊ¾Ò©Æ·Ğ§¹û
+function AddPersonAttrib(id,str,value)            --Ôö¼ÓÈËÎïÊôĞÔ
     local oldvalue=JY.Person[id][str];
     local attribmax=math.huge;
-    if str=="ç”Ÿå‘½" then
-        attribmax=JY.Person[id]["ç”Ÿå‘½æœ€å¤§å€¼"] ;
-    elseif str=="å†…åŠ›" then
-        attribmax=JY.Person[id]["å†…åŠ›æœ€å¤§å€¼"] ;
+    if str=="ÉúÃü" then
+        attribmax=JY.Person[id]["ÉúÃü×î´óÖµ"] ;
+    elseif str=="ÄÚÁ¦" then
+        attribmax=JY.Person[id]["ÄÚÁ¦×î´óÖµ"] ;
     else
         if CC.PersonAttribMax[str] ~= nil then
             attribmax=CC.PersonAttribMax[str];			
         end
 			   
-		if str=='å†…åŠ›æœ€å¤§å€¼' then
-		    local nlmax=math.modf((JY.Person[id]['èµ„è´¨']-1)/15)
+		if str=='ÄÚÁ¦×î´óÖµ' then
+		    local nlmax=math.modf((JY.Person[id]['×ÊÖÊ']-1)/15)
 			attribmax=9500-nlmax*750;
-			--attribmax=attribmax+100*math.modf(50-JY.Person[id]['èµ„è´¨']*0.5)
+			--attribmax=attribmax+100*math.modf(50-JY.Person[id]['×ÊÖÊ']*0.5)
                        if T1LEQ(id) or id==53 then
                           attribmax=10000
                        end 
 					   for i=1,10 do
-					       if JY.Person[id]["æ­¦åŠŸ"..i]==85 or JY.Person[id]["æ­¦åŠŸ"..i]==88 then
+					       if JY.Person[id]["Îä¹¦"..i]==85 or JY.Person[id]["Îä¹¦"..i]==88 then
 						      attribmax=attribmax+750
 						   end
 					   end
 					   if id==58 then
-					      attribmax=attribmax-JY.Person[300]["å£°æœ›"]*100
+					      attribmax=attribmax-JY.Person[300]["ÉùÍû"]*100
 						  if attribmax<500 then attribmax=500 end
 					   end
 					   if attribmax>10000 then attribmax=10000 end
 		end
-		if str=="ç”¨æ¯’èƒ½åŠ›" and id==2 then
+		if str=="ÓÃ¶¾ÄÜÁ¦" and id==2 then
 		   attribmax=500
 		end
-		if str=="ç”¨æ¯’èƒ½åŠ›" and (id==25 or id==83 or id==17) then
+		if str=="ÓÃ¶¾ÄÜÁ¦" and (id==25 or id==83 or id==17) then
 		    attribmax=400
 		end		
-		if str=="åŒ»ç–—èƒ½åŠ›" and (id==16 or id==28 or id==45) then
+		if str=="Ò½ÁÆÄÜÁ¦" and (id==16 or id==28 or id==45) then
 		   attribmax=500
 		end
-		if str=="åŒ»ç–—èƒ½åŠ›" and id==85 then  attribmax=400 end
-        if (str=="åŒ»ç–—èƒ½åŠ›" or str=="ç”¨æ¯’èƒ½åŠ›" or str=="è§£æ¯’èƒ½åŠ›") and (id==0 and GetS(4,5,5,5)==7) then attribmax=400 end
+		if str=="Ò½ÁÆÄÜÁ¦" and id==85 then  attribmax=400 end
+        if (str=="Ò½ÁÆÄÜÁ¦" or str=="ÓÃ¶¾ÄÜÁ¦" or str=="½â¶¾ÄÜÁ¦") and (id==0 and GetS(4,5,5,5)==7) then attribmax=400 end
    end
     local newvalue=limitX(oldvalue+value,0,attribmax);
     JY.Person[id][str]=newvalue;
@@ -3099,15 +3098,15 @@ function AddPersonAttrib(id,str,value)            --å¢åŠ äººç‰©å±æ€§
 
     local showstr="";
     if add>0 then
-        showstr=string.format("%s å¢åŠ  %d",str,add);
+        showstr=string.format("%s Ôö¼Ó %d",str,add);
     elseif add<0 then
-        showstr=string.format("%s å‡å°‘ %d",str,-add);
+        showstr=string.format("%s ¼õÉÙ %d",str,-add);
     end
     return add,showstr;
 end
 
---æ’­æ”¾midi
-function PlayMIDI(id)             --æ’­æ”¾midiMV
+--²¥·Åmidi
+function PlayMIDI(id)             --²¥·ÅmidiMV
     JY.CurrentMIDI=id;
     if JY.EnableMusic==0 then
         return ;
@@ -3121,8 +3120,8 @@ function PlayMIDI(id)             --æ’­æ”¾midiMV
     end
 end
 
---æ’­æ”¾éŸ³æ•ˆatk***
-function PlayWavAtk(id)             --æ’­æ”¾éŸ³æ•ˆatk***
+--²¥·ÅÒôĞ§atk***
+function PlayWavAtk(id)             --²¥·ÅÒôĞ§atk***
     if JY.EnableSound==0 then
         return ;
     end
@@ -3135,8 +3134,8 @@ function PlayWavAtk(id)             --æ’­æ”¾éŸ³æ•ˆatk***
     end
 end
 
---æ’­æ”¾éŸ³æ•ˆe**
-function PlayWavE(id)              --æ’­æ”¾éŸ³æ•ˆe**
+--²¥·ÅÒôĞ§e**
+function PlayWavE(id)              --²¥·ÅÒôĞ§e**
     if JY.EnableSound==0 then
         return ;
     end
@@ -3145,9 +3144,9 @@ function PlayWavE(id)              --æ’­æ”¾éŸ³æ•ˆe**
     end
 end
 
-function ShowScreen(flag)              --åˆ·æ–°å±å¹•æ˜¾ç¤º
---flag =0 or nil å…¨éƒ¨åˆ·æ–°å±å¹•
---      1 è€ƒè™‘è„çŸ©å½¢çš„å¿«é€Ÿåˆ·æ–°
+function ShowScreen(flag)              --Ë¢ĞÂÆÁÄ»ÏÔÊ¾
+--flag =0 or nil È«²¿Ë¢ĞÂÆÁÄ»
+--      1 ¿¼ÂÇÔà¾ØĞÎµÄ¿ìËÙË¢ĞÂ
     if JY.Darkness==0 then
 	    if flag==nil then
 		    flag=0;
@@ -3156,82 +3155,82 @@ function ShowScreen(flag)              --åˆ·æ–°å±å¹•æ˜¾ç¤º
     end
 end
 
---é€šç”¨èœå•å‡½æ•°
--- menuItem è¡¨ï¼Œæ¯é¡¹ä¿å­˜ä¸€ä¸ªå­è¡¨ï¼Œå†…å®¹ä¸ºä¸€ä¸ªèœå•é¡¹çš„å®šä¹‰
---          èœå•é¡¹å®šä¹‰ä¸º  {   ItemName,     èœå•é¡¹åç§°å­—ç¬¦ä¸²
---                          ItemFunction, èœå•è°ƒç”¨å‡½æ•°ï¼Œå¦‚æœæ²¡æœ‰åˆ™ä¸ºnil
---                          Visible       æ˜¯å¦å¯è§  0 ä¸å¯è§ 1 å¯è§, 2 å¯è§ï¼Œä½œä¸ºå½“å‰é€‰æ‹©é¡¹ã€‚åªèƒ½æœ‰ä¸€ä¸ªä¸º2ï¼Œ
---                                        å¤šäº†åˆ™åªå–ç¬¬ä¸€ä¸ªä¸º2çš„ï¼Œæ²¡æœ‰åˆ™ç¬¬ä¸€ä¸ªèœå•é¡¹ä¸ºå½“å‰é€‰æ‹©é¡¹ã€‚
---                                        åœ¨åªæ˜¾ç¤ºéƒ¨åˆ†èœå•çš„æƒ…å†µä¸‹æ­¤å€¼æ— æ•ˆã€‚
---                                        æ­¤å€¼ç›®å‰åªç”¨äºæ˜¯å¦èœå•ç¼ºçœæ˜¾ç¤ºå¦çš„æƒ…å†µ
+--Í¨ÓÃ²Ëµ¥º¯Êı
+-- menuItem ±í£¬Ã¿Ïî±£´æÒ»¸ö×Ó±í£¬ÄÚÈİÎªÒ»¸ö²Ëµ¥ÏîµÄ¶¨Òå
+--          ²Ëµ¥Ïî¶¨ÒåÎª  {   ItemName,     ²Ëµ¥ÏîÃû³Æ×Ö·û´®
+--                          ItemFunction, ²Ëµ¥µ÷ÓÃº¯Êı£¬Èç¹ûÃ»ÓĞÔòÎªnil
+--                          Visible       ÊÇ·ñ¿É¼û  0 ²»¿É¼û 1 ¿É¼û, 2 ¿É¼û£¬×÷Îªµ±Ç°Ñ¡ÔñÏî¡£Ö»ÄÜÓĞÒ»¸öÎª2£¬
+--                                        ¶àÁËÔòÖ»È¡µÚÒ»¸öÎª2µÄ£¬Ã»ÓĞÔòµÚÒ»¸ö²Ëµ¥ÏîÎªµ±Ç°Ñ¡ÔñÏî¡£
+--                                        ÔÚÖ»ÏÔÊ¾²¿·Ö²Ëµ¥µÄÇé¿öÏÂ´ËÖµÎŞĞ§¡£
+--                                        ´ËÖµÄ¿Ç°Ö»ÓÃÓÚÊÇ·ñ²Ëµ¥È±Ê¡ÏÔÊ¾·ñµÄÇé¿ö
 --                       }
---          èœå•è°ƒç”¨å‡½æ•°è¯´æ˜ï¼š         itemfunction(newmenu,id)
+--          ²Ëµ¥µ÷ÓÃº¯ÊıËµÃ÷£º         itemfunction(newmenu,id)
 --
---       è¿”å›å€¼
---              0 æ­£å¸¸è¿”å›ï¼Œç»§ç»­èœå•å¾ªç¯ 1 è°ƒç”¨å‡½æ•°è¦æ±‚é€€å‡ºèœå•ï¼Œä¸è¿›è¡Œèœå•å¾ªç¯
+--       ·µ»ØÖµ
+--              0 Õı³£·µ»Ø£¬¼ÌĞø²Ëµ¥Ñ­»· 1 µ÷ÓÃº¯ÊıÒªÇóÍË³ö²Ëµ¥£¬²»½øĞĞ²Ëµ¥Ñ­»·
 --
--- numItem      æ€»èœå•é¡¹ä¸ªæ•°
--- numShow      æ˜¾ç¤ºèœå•é¡¹ç›®ï¼Œå¦‚æœæ€»èœå•é¡¹å¾ˆå¤šï¼Œä¸€å±æ˜¾ç¤ºä¸ä¸‹ï¼Œåˆ™å¯ä»¥å®šä¹‰æ­¤å€¼
---                =0è¡¨ç¤ºæ˜¾ç¤ºå…¨éƒ¨èœå•é¡¹
+-- numItem      ×Ü²Ëµ¥Ïî¸öÊı
+-- numShow      ÏÔÊ¾²Ëµ¥ÏîÄ¿£¬Èç¹û×Ü²Ëµ¥ÏîºÜ¶à£¬Ò»ÆÁÏÔÊ¾²»ÏÂ£¬Ôò¿ÉÒÔ¶¨Òå´ËÖµ
+--                =0±íÊ¾ÏÔÊ¾È«²¿²Ëµ¥Ïî
 
--- (x1,y1),(x2,y2)  èœå•åŒºåŸŸçš„å·¦ä¸Šè§’å’Œå³ä¸‹è§’åæ ‡ï¼Œå¦‚æœx2,y2=0,åˆ™æ ¹æ®å­—ç¬¦ä¸²é•¿åº¦å’Œæ˜¾ç¤ºèœå•é¡¹è‡ªåŠ¨è®¡ç®—x2,y2
--- isBox        æ˜¯å¦ç»˜åˆ¶è¾¹æ¡†ï¼Œ0 ä¸ç»˜åˆ¶ï¼Œ1 ç»˜åˆ¶ã€‚è‹¥ç»˜åˆ¶ï¼Œåˆ™æŒ‰ç…§(x1,y1,x2,y2)çš„çŸ©å½¢ç»˜åˆ¶ç™½è‰²æ–¹æ¡†ï¼Œå¹¶ä½¿æ–¹æ¡†å†…èƒŒæ™¯å˜æš—
--- isEsc        Escé”®æ˜¯å¦èµ·ä½œç”¨ 0 ä¸èµ·ä½œç”¨ï¼Œ1èµ·ä½œç”¨
--- Size         èœå•é¡¹å­—ä½“å¤§å°
--- color        æ­£å¸¸èœå•é¡¹é¢œè‰²ï¼Œå‡ä¸ºRGB
--- selectColor  é€‰ä¸­èœå•é¡¹é¢œè‰²,
+-- (x1,y1),(x2,y2)  ²Ëµ¥ÇøÓòµÄ×óÉÏ½ÇºÍÓÒÏÂ½Ç×ø±ê£¬Èç¹ûx2,y2=0,Ôò¸ù¾İ×Ö·û´®³¤¶ÈºÍÏÔÊ¾²Ëµ¥Ïî×Ô¶¯¼ÆËãx2,y2
+-- isBox        ÊÇ·ñ»æÖÆ±ß¿ò£¬0 ²»»æÖÆ£¬1 »æÖÆ¡£Èô»æÖÆ£¬Ôò°´ÕÕ(x1,y1,x2,y2)µÄ¾ØĞÎ»æÖÆ°×É«·½¿ò£¬²¢Ê¹·½¿òÄÚ±³¾°±ä°µ
+-- isEsc        Esc¼üÊÇ·ñÆğ×÷ÓÃ 0 ²»Æğ×÷ÓÃ£¬1Æğ×÷ÓÃ
+-- Size         ²Ëµ¥Ïî×ÖÌå´óĞ¡
+-- color        Õı³£²Ëµ¥ÏîÑÕÉ«£¬¾ùÎªRGB
+-- selectColor  Ñ¡ÖĞ²Ëµ¥ÏîÑÕÉ«,
 --;
--- è¿”å›å€¼  0 Escè¿”å›
---         >0 é€‰ä¸­çš„èœå•é¡¹(1è¡¨ç¤ºç¬¬ä¸€é¡¹)
---         <0 é€‰ä¸­çš„èœå•é¡¹ï¼Œè°ƒç”¨å‡½æ•°è¦æ±‚é€€å‡ºçˆ¶èœå•ï¼Œè¿™ä¸ªç”¨äºé€€å‡ºå¤šå±‚èœå•
+-- ·µ»ØÖµ  0 Esc·µ»Ø
+--         >0 Ñ¡ÖĞµÄ²Ëµ¥Ïî(1±íÊ¾µÚÒ»Ïî)
+--         <0 Ñ¡ÖĞµÄ²Ëµ¥Ïî£¬µ÷ÓÃº¯ÊıÒªÇóÍË³ö¸¸²Ëµ¥£¬Õâ¸öÓÃÓÚÍË³ö¶à²ã²Ëµ¥
 
-function ShowMenu(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,selectColor)     --é€šç”¨èœå•å‡½æ•°
+function ShowMenu(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,selectColor)     --Í¨ÓÃ²Ëµ¥º¯Êı
     local w=0;
-    local h=0;   --è¾¹æ¡†çš„å®½é«˜
+    local h=0;   --±ß¿òµÄ¿í¸ß
     local i=0;
-    local num=0;     --å®é™…çš„æ˜¾ç¤ºèœå•é¡¹
-    local newNumItem=0;  --èƒ½å¤Ÿæ˜¾ç¤ºçš„æ€»èœå•é¡¹æ•°
+    local num=0;     --Êµ¼ÊµÄÏÔÊ¾²Ëµ¥Ïî
+    local newNumItem=0;  --ÄÜ¹»ÏÔÊ¾µÄ×Ü²Ëµ¥ÏîÊı
 
     lib.GetKey();
 
-    local newMenu={};   -- å®šä¹‰æ–°çš„æ•°ç»„ï¼Œä»¥ä¿å­˜æ‰€æœ‰èƒ½æ˜¾ç¤ºçš„èœå•é¡¹
+    local newMenu={};   -- ¶¨ÒåĞÂµÄÊı×é£¬ÒÔ±£´æËùÓĞÄÜÏÔÊ¾µÄ²Ëµ¥Ïî
 
-    --è®¡ç®—èƒ½å¤Ÿæ˜¾ç¤ºçš„æ€»èœå•é¡¹æ•°
+    --¼ÆËãÄÜ¹»ÏÔÊ¾µÄ×Ü²Ëµ¥ÏîÊı
     for i=1,numItem do
         if menuItem[i][3]>0 then
             newNumItem=newNumItem+1;
-            newMenu[newNumItem]={menuItem[i][1],menuItem[i][2],menuItem[i][3],i};   --æ–°æ•°ç»„å¤šäº†[4],ä¿å­˜å’ŒåŸæ•°ç»„çš„å¯¹åº”
+            newMenu[newNumItem]={menuItem[i][1],menuItem[i][2],menuItem[i][3],i};   --ĞÂÊı×é¶àÁË[4],±£´æºÍÔ­Êı×éµÄ¶ÔÓ¦
         end
     end
 if newNumItem==0 then
 	return 0
 end
 
-    --è®¡ç®—å®é™…æ˜¾ç¤ºçš„èœå•é¡¹æ•°
+    --¼ÆËãÊµ¼ÊÏÔÊ¾µÄ²Ëµ¥ÏîÊı
     if numShow==0 or numShow > newNumItem then
         num=newNumItem;
     else
         num=numShow;
     end
 
-    --è®¡ç®—è¾¹æ¡†å®é™…å®½é«˜
+    --¼ÆËã±ß¿òÊµ¼Ê¿í¸ß
     local maxlength=0;
     if x2==0 and y2==0 then
         for i=1,newNumItem do
-            if get_show_width(newMenu[i][1])>maxlength then
-                maxlength=get_show_width(newMenu[i][1]);
+            if string.len(newMenu[i][1])>maxlength then
+                maxlength=string.len(newMenu[i][1]);
             end
         end
-        w=size*maxlength/2+2*CC.MenuBorderPixel;        --æŒ‰ç…§åŠä¸ªæ±‰å­—è®¡ç®—å®½åº¦ï¼Œä¸€è¾¹ç•™4ä¸ªè±¡ç´ 
-        h=(size+CC.RowPixel)*num+CC.MenuBorderPixel;            --å­—ä¹‹é—´ç•™4ä¸ªè±¡ç´ ï¼Œä¸Šé¢å†ç•™4ä¸ªè±¡ç´ 
+        w=size*maxlength/2+2*CC.MenuBorderPixel;        --°´ÕÕ°ë¸öºº×Ö¼ÆËã¿í¶È£¬Ò»±ßÁô4¸öÏóËØ
+        h=(size+CC.RowPixel)*num+CC.MenuBorderPixel;            --×ÖÖ®¼äÁô4¸öÏóËØ£¬ÉÏÃæÔÙÁô4¸öÏóËØ
     else
         w=x2-x1;
         h=y2-y1;
     end
 
-    local start=1;             --æ˜¾ç¤ºçš„ç¬¬ä¸€é¡¹
+    local start=1;             --ÏÔÊ¾µÄµÚÒ»Ïî
 
-	local current =1;          --å½“å‰é€‰æ‹©é¡¹
+	local current =1;          --µ±Ç°Ñ¡ÔñÏî
 	for i=1,newNumItem do
 	    if newMenu[i][3]==2 then
 		    current=i;
@@ -3241,7 +3240,7 @@ end
 	if numShow~=0 then
 	    current=1;
 	end
-	--local surid=lib.SaveSur(0,0,CC.ScreenW,CC.ScreenH);
+	local surid=lib.SaveSur(0,0,CC.ScreenW,CC.ScreenH);
 
     local keyPress =-1;
     local returnValue =0;
@@ -3251,15 +3250,15 @@ end
 
     while true do
 	    if num ~=0 then
-	        Cls(x1,y1,x1+w,y1+h);
-			--lib.LoadSur(surid,0,0);
+	        --Cls(x1,y1,x1+w,y1+h);
+			lib.LoadSur(surid,0,0);
 			if isBox==1 then
 				DrawBox(x1,y1,x1+w,y1+h,C_WHITE);
 			end
 		end
 
 	    for i=start,start+num-1 do
-  	        local drawColor=color;           --è®¾ç½®ä¸åŒçš„ç»˜åˆ¶é¢œè‰²
+  	        local drawColor=color;           --ÉèÖÃ²»Í¬µÄ»æÖÆÑÕÉ«
 	        if i==current then
 	            drawColor=selectColor;
 				lib.Background(x1+CC.MenuBorderPixel,y1+CC.MenuBorderPixel+(i-start)*(size+CC.RowPixel),
@@ -3269,13 +3268,13 @@ end
 			           newMenu[i][1],drawColor,size);
 
 	    end
-		if numItem==12 and menuItem[12][1]=="è‡ªåŠ¨" then
+		if numItem==12 and menuItem[12][1]=="×Ô¶¯" then
 		   DrawString(100,575,CC.EVB117,C_GOLD,25) 
 	    end
 		ShowScreen();
 		keyPress=WaitKey(1);
 		lib.Delay(100);
-		if keyPress==VK_ESCAPE then                  --Esc é€€å‡º
+		if keyPress==VK_ESCAPE then                  --Esc ÍË³ö
 		    if isEsc==1 then
 		        break;
 		    end
@@ -3321,13 +3320,13 @@ end
 		        returnValue=newMenu[current][4];
 		        break;
 		    else
-		        local r=newMenu[current][2](newMenu,current);               --è°ƒç”¨èœå•å‡½æ•°
+		        local r=newMenu[current][2](newMenu,current);               --µ÷ÓÃ²Ëµ¥º¯Êı
 		        if r==1 then
 		            returnValue= -newMenu[current][4];
 		            break;
 				else
-			        Cls(x1,y1,x1+w,y1+h);
-			        --lib.LoadSur(surid,0,0);
+			        --Cls(x1,y1,x1+w,y1+h);
+			lib.LoadSur(surid,0,0);
 					if isBox==1 then
 						DrawBox(x1,y1,x1+w,y1+h,C_WHITE);
 					end
@@ -3356,13 +3355,13 @@ end
 		        returnValue=newMenu[current][4];
 		        break;
 		    else
-		        local r=newMenu[current][2](newMenu,current);               --è°ƒç”¨èœå•å‡½æ•°
+		        local r=newMenu[current][2](newMenu,current);               --µ÷ÓÃ²Ëµ¥º¯Êı
 		        if r==1 then
 		            returnValue= -newMenu[current][4];
 		            break;
 				else
-			        Cls(x1,y1,x1+w,y1+h);
-			--lib.LoadSur(surid,0,0);
+			        --Cls(x1,y1,x1+w,y1+h);
+			lib.LoadSur(surid,0,0);
 					if isBox==1 then
 						DrawBox(x1,y1,x1+w,y1+h,C_WHITE);
 					end
@@ -3370,8 +3369,8 @@ end
 		    end
 				end
 			end
-	    elseif numItem==12 and menuItem[12][1]=="è‡ªåŠ¨" then
-		    if keyPress==97 then --æ”»å‡»
+	    elseif numItem==12 and menuItem[12][1]=="×Ô¶¯" then
+		    if keyPress==97 then --¹¥»÷
 			    if menuItem[2][3]==1 then
 				   local r=War_FightMenu();
 				    if r==1 then
@@ -3380,7 +3379,7 @@ end
 					end
 				end				
 			end
-			if keyPress==100 then --é˜²å¾¡
+			if keyPress==100 then --·ÀÓù
 			   if menuItem[8][3]==1 then
 			      local r=War_DefupMenu();
 				  if r==1 then
@@ -3389,7 +3388,7 @@ end
 					end
 				end
 			end
-			if keyPress==112 then  --è“„åŠ›
+			if keyPress==112 then  --ĞîÁ¦
 			   if menuItem[7][3]==1 then
 			      local r=War_ActupMenu();
 				  if r==1 then
@@ -3398,7 +3397,7 @@ end
 					end
 				end
 			end
-			if keyPress==105 then  --ç‰©å“
+			if keyPress==105 then  --ÎïÆ·
 			   if menuItem[6][3]==1 then
 			      local r=War_ThingMenu();
 				  if r==1 then
@@ -3407,7 +3406,7 @@ end
 					end
 				end
 			end
-			if keyPress==114 then  --ä¼‘æ¯
+			if keyPress==114 then  --ĞİÏ¢
 			   if menuItem[10][3]==1 then
 			      local r=War_RestMenu();
 				  if r==1 then
@@ -3419,46 +3418,46 @@ end
 		end
     end
 
-    Cls(x1,y1,x1+w+1,y1+h+1,0,1);
-	--lib.LoadSur(surid,0,0);
-	--lib.FreeSur(surid);
+    --Cls(x1,y1,x1+w+1,y1+h+1,0,1);
+	lib.LoadSur(surid,0,0);
+	lib.FreeSur(surid);
 
     return returnValue;
 end
 
---æ¨ªå‘æ˜¾ç¤ºèœå•ï¼Œå‚æ•°å’ŒShowMenuä¸€æ ·
-function ShowMenu2(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,selectColor)     --é€šç”¨èœå•å‡½æ•°
+--ºáÏòÏÔÊ¾²Ëµ¥£¬²ÎÊıºÍShowMenuÒ»Ñù
+function ShowMenu2(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,selectColor)     --Í¨ÓÃ²Ëµ¥º¯Êı
     local w=0;
-    local h=0;   --è¾¹æ¡†çš„å®½é«˜
+    local h=0;   --±ß¿òµÄ¿í¸ß
     local i=0;
-    local num=0;     --å®é™…çš„æ˜¾ç¤ºèœå•é¡¹
-    local newNumItem=0;  --èƒ½å¤Ÿæ˜¾ç¤ºçš„æ€»èœå•é¡¹æ•°
+    local num=0;     --Êµ¼ÊµÄÏÔÊ¾²Ëµ¥Ïî
+    local newNumItem=0;  --ÄÜ¹»ÏÔÊ¾µÄ×Ü²Ëµ¥ÏîÊı
 
     lib.GetKey();
 
-    local newMenu={};   -- å®šä¹‰æ–°çš„æ•°ç»„ï¼Œä»¥ä¿å­˜æ‰€æœ‰èƒ½æ˜¾ç¤ºçš„èœå•é¡¹
+    local newMenu={};   -- ¶¨ÒåĞÂµÄÊı×é£¬ÒÔ±£´æËùÓĞÄÜÏÔÊ¾µÄ²Ëµ¥Ïî
 
-    --è®¡ç®—èƒ½å¤Ÿæ˜¾ç¤ºçš„æ€»èœå•é¡¹æ•°
+    --¼ÆËãÄÜ¹»ÏÔÊ¾µÄ×Ü²Ëµ¥ÏîÊı
     for i=1,numItem do
         if menuItem[i][3]>0 then
             newNumItem=newNumItem+1;
-            newMenu[newNumItem]={menuItem[i][1],menuItem[i][2],menuItem[i][3],i};   --æ–°æ•°ç»„å¤šäº†[4],ä¿å­˜å’ŒåŸæ•°ç»„çš„å¯¹åº”
+            newMenu[newNumItem]={menuItem[i][1],menuItem[i][2],menuItem[i][3],i};   --ĞÂÊı×é¶àÁË[4],±£´æºÍÔ­Êı×éµÄ¶ÔÓ¦
         end
     end
 
-    --è®¡ç®—å®é™…æ˜¾ç¤ºçš„èœå•é¡¹æ•°
+    --¼ÆËãÊµ¼ÊÏÔÊ¾µÄ²Ëµ¥ÏîÊı
     if numShow==0 or numShow > newNumItem then
         num=newNumItem;
     else
         num=numShow;
     end
 
-    --è®¡ç®—è¾¹æ¡†å®é™…å®½é«˜
+    --¼ÆËã±ß¿òÊµ¼Ê¿í¸ß
     local maxlength=0;
     if x2==0 and y2==0 then
         for i=1,newNumItem do
-            if get_show_width(newMenu[i][1])>maxlength then
-                maxlength=get_show_width(newMenu[i][1]);
+            if string.len(newMenu[i][1])>maxlength then
+                maxlength=string.len(newMenu[i][1]);
             end
         end
 		w=(size*maxlength/2+CC.RowPixel)*num+CC.MenuBorderPixel;
@@ -3468,9 +3467,9 @@ function ShowMenu2(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,s
         h=y2-y1;
     end
 
-    local start=1;             --æ˜¾ç¤ºçš„ç¬¬ä¸€é¡¹
+    local start=1;             --ÏÔÊ¾µÄµÚÒ»Ïî
 
-    local current =1;          --å½“å‰é€‰æ‹©é¡¹
+    local current =1;          --µ±Ç°Ñ¡ÔñÏî
 	for i=1,newNumItem do
 	    if newMenu[i][3]==2 then
 		    current=i;
@@ -3495,7 +3494,7 @@ function ShowMenu2(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,s
 		end
 
 	    for i=start,start+num-1 do
-  	        local drawColor=color;           --è®¾ç½®ä¸åŒçš„ç»˜åˆ¶é¢œè‰²
+  	        local drawColor=color;           --ÉèÖÃ²»Í¬µÄ»æÖÆÑÕÉ«
 	        if i==current then
 	            drawColor=selectColor;
 	        end
@@ -3506,7 +3505,7 @@ function ShowMenu2(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,s
 		keyPress=WaitKey(1);
 		lib.Delay(100);
 
-		if keyPress==VK_ESCAPE then                  --Esc é€€å‡º
+		if keyPress==VK_ESCAPE then                  --Esc ÍË³ö
 		    if isEsc==1 then
 		        break;
 		    end
@@ -3533,7 +3532,7 @@ function ShowMenu2(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,s
 		        returnValue=newMenu[current][4];
 		        break;
 		    else
-		        local r=newMenu[current][2](newMenu,current);               --è°ƒç”¨èœå•å‡½æ•°
+		        local r=newMenu[current][2](newMenu,current);               --µ÷ÓÃ²Ëµ¥º¯Êı
 		        if r==1 then
 		            returnValue= -newMenu[current][4];
 		            break;
@@ -3562,7 +3561,7 @@ function ShowMenu2(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,s
 		        returnValue=newMenu[current][4];
 		        break;
 		    else
-		        local r=newMenu[current][2](newMenu,current);               --è°ƒç”¨èœå•å‡½æ•°
+		        local r=newMenu[current][2](newMenu,current);               --µ÷ÓÃ²Ëµ¥º¯Êı
 		        if r==1 then
 		            returnValue= -newMenu[current][4];
 		            break;
@@ -3587,13 +3586,13 @@ function ShowMenu2(menuItem,numItem,numShow,x1,y1,x2,y2,isBox,isEsc,size,color,s
 end
 
 ------------------------------------------------------------------------------------
---------------------------------------ç‰©å“ä½¿ç”¨---------------------------------------
---ç‰©å“ä½¿ç”¨æ¨¡å—
---å½“å‰ç‰©å“id
---è¿”å›1 ä½¿ç”¨äº†ç‰©å“ï¼Œ 0 æ²¡æœ‰ä½¿ç”¨ç‰©å“ã€‚å¯èƒ½æ˜¯æŸäº›åŸå› ä¸èƒ½ä½¿ç”¨
+--------------------------------------ÎïÆ·Ê¹ÓÃ---------------------------------------
+--ÎïÆ·Ê¹ÓÃÄ£¿é
+--µ±Ç°ÎïÆ·id
+--·µ»Ø1 Ê¹ÓÃÁËÎïÆ·£¬ 0 Ã»ÓĞÊ¹ÓÃÎïÆ·¡£¿ÉÄÜÊÇÄ³Ğ©Ô­Òò²»ÄÜÊ¹ÓÃ
 
-function UseThing(id)             --ç‰©å“ä½¿ç”¨
-    --è°ƒç”¨å‡½æ•°
+function UseThing(id)             --ÎïÆ·Ê¹ÓÃ
+    --µ÷ÓÃº¯Êı
 	if JY.ThingUseFunction[id]==nil then
 	    return DefaultUseThing(id);
 	else
@@ -3601,31 +3600,31 @@ function UseThing(id)             --ç‰©å“ä½¿ç”¨
     end
 end
 
---ç¼ºçœç‰©å“ä½¿ç”¨å‡½æ•°ï¼Œå®ç°åŸå§‹æ¸¸æˆæ•ˆæœ
---id ç‰©å“id
-function DefaultUseThing(id)                --ç¼ºçœç‰©å“ä½¿ç”¨å‡½æ•°
-    if JY.Thing[id]["ç±»å‹"]==0 then
+--È±Ê¡ÎïÆ·Ê¹ÓÃº¯Êı£¬ÊµÏÖÔ­Ê¼ÓÎÏ·Ğ§¹û
+--id ÎïÆ·id
+function DefaultUseThing(id)                --È±Ê¡ÎïÆ·Ê¹ÓÃº¯Êı
+    if JY.Thing[id]["ÀàĞÍ"]==0 then
         return UseThing_Type0(id);
-    elseif JY.Thing[id]["ç±»å‹"]==1 then
+    elseif JY.Thing[id]["ÀàĞÍ"]==1 then
         return UseThing_Type1(id);
-    elseif JY.Thing[id]["ç±»å‹"]==2 then
+    elseif JY.Thing[id]["ÀàĞÍ"]==2 then
         return UseThing_Type2(id);
-    elseif JY.Thing[id]["ç±»å‹"]==3 then
+    elseif JY.Thing[id]["ÀàĞÍ"]==3 then
         return UseThing_Type3(id);
-    elseif JY.Thing[id]["ç±»å‹"]==4 then
+    elseif JY.Thing[id]["ÀàĞÍ"]==4 then
         return UseThing_Type4(id);
     end
 end
 
---å‰§æƒ…ç‰©å“ï¼Œè§¦å‘äº‹ä»¶
-function UseThing_Type0(id)              --å‰§æƒ…ç‰©å“ä½¿ç”¨
+--¾çÇéÎïÆ·£¬´¥·¢ÊÂ¼ş
+function UseThing_Type0(id)              --¾çÇéÎïÆ·Ê¹ÓÃ
     if JY.SubScene>=0 then
-		local x=JY.Base["äººX1"]+CC.DirectX[JY.Base["äººæ–¹å‘"]+1];
-		local y=JY.Base["äººY1"]+CC.DirectY[JY.Base["äººæ–¹å‘"]+1];
+		local x=JY.Base["ÈËX1"]+CC.DirectX[JY.Base["ÈË·½Ïò"]+1];
+		local y=JY.Base["ÈËY1"]+CC.DirectY[JY.Base["ÈË·½Ïò"]+1];
         local d_num=GetS(JY.SubScene,x,y,3)
         if d_num>=0 then
             JY.CurrentThing=id;
-            EventExecute(d_num,2);       --ç‰©å“è§¦å‘äº‹ä»¶
+            EventExecute(d_num,2);       --ÎïÆ·´¥·¢ÊÂ¼ş
             JY.CurrentThing=-1;
 			return 1;
 		else
@@ -3634,66 +3633,66 @@ function UseThing_Type0(id)              --å‰§æƒ…ç‰©å“ä½¿ç”¨
     end
 end
 
---è£…å¤‡ç‰©å“
-function UseThing_Type1(id)            --è£…å¤‡ç‰©å“ä½¿ç”¨
-    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,string.format("è°è¦é…å¤‡%s?",JY.Thing[id]["åç§°"]),C_WHITE,CC.DefaultFont);
+--×°±¸ÎïÆ·
+function UseThing_Type1(id)            --×°±¸ÎïÆ·Ê¹ÓÃ
+    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,string.format("Ë­ÒªÅä±¸%s?",JY.Thing[id]["Ãû³Æ"]),C_WHITE,CC.DefaultFont);
 	local nexty=CC.MainSubMenuY+CC.SingleLineHeight;
     local r=SelectTeamMenu(CC.MainSubMenuX,nexty);
     local pp1,pp2=0,0;
 
     if r>0 then
-        local personid=JY.Base["é˜Ÿä¼" ..r]
+        local personid=JY.Base["¶ÓÎé" ..r]
         if CanUseThing(id,personid) or T2SQ(personid) then
-            if JY.Thing[id]["è£…å¤‡ç±»å‹"]==0 then
-                if JY.Thing[id]["ä½¿ç”¨äºº"]>=0 then
-                   if JY.Person[JY.Thing[id]["ä½¿ç”¨äºº"]]["å§“å"]==JY.SQ then
-                      JY.Thing[id]["åŠ æ”»å‡»åŠ›"]=JY.Thing[id]["åŠ æ”»å‡»åŠ›"]/2
-                      JY.Thing[id]["åŠ é˜²å¾¡åŠ›"]=JY.Thing[id]["åŠ é˜²å¾¡åŠ›"]/2
-                      JY.Thing[id]["åŠ è½»åŠŸ"]=JY.Thing[id]["åŠ è½»åŠŸ"]/2
+            if JY.Thing[id]["×°±¸ÀàĞÍ"]==0 then
+                if JY.Thing[id]["Ê¹ÓÃÈË"]>=0 then
+                   if JY.Person[JY.Thing[id]["Ê¹ÓÃÈË"]]["ĞÕÃû"]==JY.SQ then
+                      JY.Thing[id]["¼Ó¹¥»÷Á¦"]=JY.Thing[id]["¼Ó¹¥»÷Á¦"]/2
+                      JY.Thing[id]["¼Ó·ÀÓùÁ¦"]=JY.Thing[id]["¼Ó·ÀÓùÁ¦"]/2
+                      JY.Thing[id]["¼ÓÇá¹¦"]=JY.Thing[id]["¼ÓÇá¹¦"]/2
                    end
-                   JY.Person[JY.Thing[id]["ä½¿ç”¨äºº"]]["æ­¦å™¨"]=-1;                
+                   JY.Person[JY.Thing[id]["Ê¹ÓÃÈË"]]["ÎäÆ÷"]=-1;                
                 end
-                if JY.Person[personid]["æ­¦å™¨"]>=0 then
+                if JY.Person[personid]["ÎäÆ÷"]>=0 then
                    if T2SQ(personid) then
-           JY.Thing[JY.Person[personid]["æ­¦å™¨"]]["åŠ æ”»å‡»åŠ›"]=JY.Thing[JY.Person[personid]["æ­¦å™¨"]]["åŠ æ”»å‡»åŠ›"]/2
-           JY.Thing[JY.Person[personid]["æ­¦å™¨"]]["åŠ é˜²å¾¡åŠ›"]=JY.Thing[JY.Person[personid]["æ­¦å™¨"]]["åŠ é˜²å¾¡åŠ›"]/2
-           JY.Thing[JY.Person[personid]["æ­¦å™¨"]]["åŠ è½»åŠŸ"]=JY.Thing[JY.Person[personid]["æ­¦å™¨"]]["åŠ è½»åŠŸ"]/2
+           JY.Thing[JY.Person[personid]["ÎäÆ÷"]]["¼Ó¹¥»÷Á¦"]=JY.Thing[JY.Person[personid]["ÎäÆ÷"]]["¼Ó¹¥»÷Á¦"]/2
+           JY.Thing[JY.Person[personid]["ÎäÆ÷"]]["¼Ó·ÀÓùÁ¦"]=JY.Thing[JY.Person[personid]["ÎäÆ÷"]]["¼Ó·ÀÓùÁ¦"]/2
+           JY.Thing[JY.Person[personid]["ÎäÆ÷"]]["¼ÓÇá¹¦"]=JY.Thing[JY.Person[personid]["ÎäÆ÷"]]["¼ÓÇá¹¦"]/2
                    end
-                   JY.Thing[JY.Person[personid]["æ­¦å™¨"]]["ä½¿ç”¨äºº"]=-1    
+                   JY.Thing[JY.Person[personid]["ÎäÆ÷"]]["Ê¹ÓÃÈË"]=-1    
                 end
-                JY.Person[personid]["æ­¦å™¨"]=id;
+                JY.Person[personid]["ÎäÆ÷"]=id;
                 if T2SQ(personid) then
-                   JY.Thing[id]["åŠ æ”»å‡»åŠ›"]=JY.Thing[id]["åŠ æ”»å‡»åŠ›"]*2
-                   JY.Thing[id]["åŠ é˜²å¾¡åŠ›"]=JY.Thing[id]["åŠ é˜²å¾¡åŠ›"]*2
-                   JY.Thing[id]["åŠ è½»åŠŸ"]=JY.Thing[id]["åŠ è½»åŠŸ"]*2
+                   JY.Thing[id]["¼Ó¹¥»÷Á¦"]=JY.Thing[id]["¼Ó¹¥»÷Á¦"]*2
+                   JY.Thing[id]["¼Ó·ÀÓùÁ¦"]=JY.Thing[id]["¼Ó·ÀÓùÁ¦"]*2
+                   JY.Thing[id]["¼ÓÇá¹¦"]=JY.Thing[id]["¼ÓÇá¹¦"]*2
                    end        
-            elseif JY.Thing[id]["è£…å¤‡ç±»å‹"]==1 then
-                if JY.Thing[id]["ä½¿ç”¨äºº"]>=0 then
-                    if JY.Person[JY.Thing[id]["ä½¿ç”¨äºº"]]["å§“å"]==JY.SQ then
-                      JY.Thing[id]["åŠ æ”»å‡»åŠ›"]=JY.Thing[id]["åŠ æ”»å‡»åŠ›"]/2
-                      JY.Thing[id]["åŠ é˜²å¾¡åŠ›"]=JY.Thing[id]["åŠ é˜²å¾¡åŠ›"]/2
-                      JY.Thing[id]["åŠ è½»åŠŸ"]=JY.Thing[id]["åŠ è½»åŠŸ"]/2
+            elseif JY.Thing[id]["×°±¸ÀàĞÍ"]==1 then
+                if JY.Thing[id]["Ê¹ÓÃÈË"]>=0 then
+                    if JY.Person[JY.Thing[id]["Ê¹ÓÃÈË"]]["ĞÕÃû"]==JY.SQ then
+                      JY.Thing[id]["¼Ó¹¥»÷Á¦"]=JY.Thing[id]["¼Ó¹¥»÷Á¦"]/2
+                      JY.Thing[id]["¼Ó·ÀÓùÁ¦"]=JY.Thing[id]["¼Ó·ÀÓùÁ¦"]/2
+                      JY.Thing[id]["¼ÓÇá¹¦"]=JY.Thing[id]["¼ÓÇá¹¦"]/2
                    end
-                    JY.Person[JY.Thing[id]["ä½¿ç”¨äºº"]]["é˜²å…·"]=-1;                   
+                    JY.Person[JY.Thing[id]["Ê¹ÓÃÈË"]]["·À¾ß"]=-1;                   
                 end
-                if JY.Person[personid]["é˜²å…·"]>=0 then
+                if JY.Person[personid]["·À¾ß"]>=0 then
                    if T2SQ(personid) then
-           JY.Thing[JY.Person[personid]["é˜²å…·"]]["åŠ æ”»å‡»åŠ›"]=JY.Thing[JY.Person[personid]["é˜²å…·"]]["åŠ æ”»å‡»åŠ›"]/2
-           JY.Thing[JY.Person[personid]["é˜²å…·"]]["åŠ é˜²å¾¡åŠ›"]=JY.Thing[JY.Person[personid]["é˜²å…·"]]["åŠ é˜²å¾¡åŠ›"]/2
-           JY.Thing[JY.Person[personid]["é˜²å…·"]]["åŠ è½»åŠŸ"]=JY.Thing[JY.Person[personid]["é˜²å…·"]]["åŠ è½»åŠŸ"]/2
+           JY.Thing[JY.Person[personid]["·À¾ß"]]["¼Ó¹¥»÷Á¦"]=JY.Thing[JY.Person[personid]["·À¾ß"]]["¼Ó¹¥»÷Á¦"]/2
+           JY.Thing[JY.Person[personid]["·À¾ß"]]["¼Ó·ÀÓùÁ¦"]=JY.Thing[JY.Person[personid]["·À¾ß"]]["¼Ó·ÀÓùÁ¦"]/2
+           JY.Thing[JY.Person[personid]["·À¾ß"]]["¼ÓÇá¹¦"]=JY.Thing[JY.Person[personid]["·À¾ß"]]["¼ÓÇá¹¦"]/2
                    end
-                    JY.Thing[JY.Person[personid]["é˜²å…·"]]["ä½¿ç”¨äºº"]=-1
+                    JY.Thing[JY.Person[personid]["·À¾ß"]]["Ê¹ÓÃÈË"]=-1
                 end
-                JY.Person[personid]["é˜²å…·"]=id;
+                JY.Person[personid]["·À¾ß"]=id;
                  if T2SQ(personid) then
-                   JY.Thing[id]["åŠ æ”»å‡»åŠ›"]=JY.Thing[id]["åŠ æ”»å‡»åŠ›"]*2
-                   JY.Thing[id]["åŠ é˜²å¾¡åŠ›"]=JY.Thing[id]["åŠ é˜²å¾¡åŠ›"]*2
-                   JY.Thing[id]["åŠ è½»åŠŸ"]=JY.Thing[id]["åŠ è½»åŠŸ"]*2
+                   JY.Thing[id]["¼Ó¹¥»÷Á¦"]=JY.Thing[id]["¼Ó¹¥»÷Á¦"]*2
+                   JY.Thing[id]["¼Ó·ÀÓùÁ¦"]=JY.Thing[id]["¼Ó·ÀÓùÁ¦"]*2
+                   JY.Thing[id]["¼ÓÇá¹¦"]=JY.Thing[id]["¼ÓÇá¹¦"]*2
                  end        
             end
-            JY.Thing[id]["ä½¿ç”¨äºº"]=personid    
+            JY.Thing[id]["Ê¹ÓÃÈË"]=personid    
         else
-            DrawStrBoxWaitKey("æ­¤äººä¸é€‚åˆé…å¤‡æ­¤ç‰©å“",C_WHITE,CC.DefaultFont);
+            DrawStrBoxWaitKey("´ËÈË²»ÊÊºÏÅä±¸´ËÎïÆ·",C_WHITE,CC.DefaultFont);
 			return 0;
         end
     end
@@ -3703,9 +3702,9 @@ function UseThing_Type1(id)            --è£…å¤‡ç‰©å“ä½¿ç”¨
 	return 1;
 end
 
---åˆ¤æ–­ä¸€ä¸ªäººæ˜¯å¦å¯ä»¥è£…å¤‡æˆ–ä¿®ç‚¼ä¸€ä¸ªç‰©å“
---è¿”å› trueå¯ä»¥ä¿®ç‚¼ï¼Œfalseä¸å¯
-function CanUseThing(id,personid)           --åˆ¤æ–­ä¸€ä¸ªäººæ˜¯å¦å¯ä»¥è£…å¤‡æˆ–ä¿®ç‚¼ä¸€ä¸ªç‰©å“
+--ÅĞ¶ÏÒ»¸öÈËÊÇ·ñ¿ÉÒÔ×°±¸»òĞŞÁ¶Ò»¸öÎïÆ·
+--·µ»Ø true¿ÉÒÔĞŞÁ¶£¬false²»¿É
+function CanUseThing(id,personid)           --ÅĞ¶ÏÒ»¸öÈËÊÇ·ñ¿ÉÒÔ×°±¸»òĞŞÁ¶Ò»¸öÎïÆ·
     local str="";
   if personid==76 and id>63 then
         return true;
@@ -3715,72 +3714,72 @@ function CanUseThing(id,personid)           --åˆ¤æ–­ä¸€ä¸ªäººæ˜¯å¦å¯ä»¥è£…å¤‡æ
 	     --return true;	
     elseif (id>186 and id<194) and personid==44 then
          return true
-    elseif id==114 and personid==0 and GetS(4,5,5,5)==2 and JY.Person[0]["å¾¡å‰‘èƒ½åŠ›"]>99 then
+    elseif id==114 and personid==0 and GetS(4,5,5,5)==2 and JY.Person[0]["Óù½£ÄÜÁ¦"]>99 then
          return true
-    elseif id==86 and personid==0 and GetS(4,5,5,5)==1 and JY.Person[0]["æ‹³æŒåŠŸå¤«"]>119 then
+    elseif id==86 and personid==0 and GetS(4,5,5,5)==1 and JY.Person[0]["È­ÕÆ¹¦·ò"]>119 then
 	     return true
 	else
     
-    if JY.Thing[id]["ä»…ä¿®ç‚¼äººç‰©"] >=0 then
-        if JY.Thing[id]["ä»…ä¿®ç‚¼äººç‰©"] ~= personid  then
+    if JY.Thing[id]["½öĞŞÁ¶ÈËÎï"] >=0 then
+        if JY.Thing[id]["½öĞŞÁ¶ÈËÎï"] ~= personid  then
             return false;
         end
     end
 
-    if JY.Thing[id]["éœ€å†…åŠ›æ€§è´¨"] ~=2 and JY.Person[personid]["å†…åŠ›æ€§è´¨"] ~=2 then
-        if JY.Thing[id]["éœ€å†…åŠ›æ€§è´¨"] ~= JY.Person[personid]["å†…åŠ›æ€§è´¨"] then
+    if JY.Thing[id]["ĞèÄÚÁ¦ĞÔÖÊ"] ~=2 and JY.Person[personid]["ÄÚÁ¦ĞÔÖÊ"] ~=2 then
+        if JY.Thing[id]["ĞèÄÚÁ¦ĞÔÖÊ"] ~= JY.Person[personid]["ÄÚÁ¦ĞÔÖÊ"] then
             return false;
         end
     end
    
-    if JY.Thing[id]["éœ€å†…åŠ›"] > JY.Person[personid]["å†…åŠ›æœ€å¤§å€¼"] then
+    if JY.Thing[id]["ĞèÄÚÁ¦"] > JY.Person[personid]["ÄÚÁ¦×î´óÖµ"] then
         return false;
     end
-    if JY.Thing[id]["éœ€æ”»å‡»åŠ›"] > JY.Person[personid]["æ”»å‡»åŠ›"] then
+    if JY.Thing[id]["Ğè¹¥»÷Á¦"] > JY.Person[personid]["¹¥»÷Á¦"] then
         return false;
     end
-    if JY.Thing[id]["éœ€è½»åŠŸ"] > JY.Person[personid]["è½»åŠŸ"] then
+    if JY.Thing[id]["ĞèÇá¹¦"] > JY.Person[personid]["Çá¹¦"] then
         return false;
     end
-    if JY.Thing[id]["éœ€ç”¨æ¯’èƒ½åŠ›"] > JY.Person[personid]["ç”¨æ¯’èƒ½åŠ›"] then
+    if JY.Thing[id]["ĞèÓÃ¶¾ÄÜÁ¦"] > JY.Person[personid]["ÓÃ¶¾ÄÜÁ¦"] then
         return false;
     end
-    if JY.Thing[id]["éœ€åŒ»ç–—èƒ½åŠ›"] > JY.Person[personid]["åŒ»ç–—èƒ½åŠ›"] then
+    if JY.Thing[id]["ĞèÒ½ÁÆÄÜÁ¦"] > JY.Person[personid]["Ò½ÁÆÄÜÁ¦"] then
         return false;
     end
-    if JY.Thing[id]["éœ€è§£æ¯’èƒ½åŠ›"] > JY.Person[personid]["è§£æ¯’èƒ½åŠ›"] then
+    if JY.Thing[id]["Ğè½â¶¾ÄÜÁ¦"] > JY.Person[personid]["½â¶¾ÄÜÁ¦"] then
         return false;
     end
-    if JY.Thing[id]["éœ€æ‹³æŒåŠŸå¤«"] > JY.Person[personid]["æ‹³æŒåŠŸå¤«"] then
+    if JY.Thing[id]["ĞèÈ­ÕÆ¹¦·ò"] > JY.Person[personid]["È­ÕÆ¹¦·ò"] then
         return false;
     end
-    if JY.Thing[id]["éœ€å¾¡å‰‘èƒ½åŠ›"] > JY.Person[personid]["å¾¡å‰‘èƒ½åŠ›"] then
+    if JY.Thing[id]["ĞèÓù½£ÄÜÁ¦"] > JY.Person[personid]["Óù½£ÄÜÁ¦"] then
         return false;
     end
-    if JY.Thing[id]["éœ€è€åˆ€æŠ€å·§"] > JY.Person[personid]["è€åˆ€æŠ€å·§"] then
+    if JY.Thing[id]["ĞèË£µ¶¼¼ÇÉ"] > JY.Person[personid]["Ë£µ¶¼¼ÇÉ"] then
         return false;
     end
-    if JY.Thing[id]["éœ€ç‰¹æ®Šå…µå™¨"] > JY.Person[personid]["ç‰¹æ®Šå…µå™¨"] then
+    if JY.Thing[id]["ĞèÌØÊâ±øÆ÷"] > JY.Person[personid]["ÌØÊâ±øÆ÷"] then
         return false;
     end
-    if JY.Thing[id]["éœ€æš—å™¨æŠ€å·§"] > JY.Person[personid]["æš—å™¨æŠ€å·§"] then
+    if JY.Thing[id]["Ğè°µÆ÷¼¼ÇÉ"] > JY.Person[personid]["°µÆ÷¼¼ÇÉ"] then
         return false;
     end
-    if JY.Thing[id]["éœ€èµ„è´¨"] >= 0 then
-        if JY.Thing[id]["éœ€èµ„è´¨"] > JY.Person[personid]["èµ„è´¨"] then
+    if JY.Thing[id]["Ğè×ÊÖÊ"] >= 0 then
+        if JY.Thing[id]["Ğè×ÊÖÊ"] > JY.Person[personid]["×ÊÖÊ"] then
             return false;
         end
     else
-        if -JY.Thing[id]["éœ€èµ„è´¨"] < JY.Person[personid]["èµ„è´¨"] then
+        if -JY.Thing[id]["Ğè×ÊÖÊ"] < JY.Person[personid]["×ÊÖÊ"] then
             return false;
         end
     end   
-    if JY.Person[personid]["å§“å"]==CC.s10 then
+    if JY.Person[personid]["ĞÕÃû"]==CC.s10 then
         return false;
     end
 	if id==118 then
 	   local R=JY.Person[personid];
-	   local wp=R["æ‹³æŒåŠŸå¤«"]+R["å¾¡å‰‘èƒ½åŠ›"]+R["è€åˆ€æŠ€å·§"]+R["ç‰¹æ®Šå…µå™¨"];
+	   local wp=R["È­ÕÆ¹¦·ò"]+R["Óù½£ÄÜÁ¦"]+R["Ë£µ¶¼¼ÇÉ"]+R["ÌØÊâ±øÆ÷"];
 	    if wp<120 then 
 	      return false;
 		end
@@ -3791,10 +3790,10 @@ function CanUseThing(id,personid)           --åˆ¤æ–­ä¸€ä¸ªäººæ˜¯å¦å¯ä»¥è£…å¤‡æ
   
 end
 
---ç§˜ç±ç‰©å“
-function UseThing_Type2(id) --ç§˜ç±ç‰©å“ä½¿ç”¨
+--ÃØ¼®ÎïÆ·
+function UseThing_Type2(id) --ÃØ¼®ÎïÆ·Ê¹ÓÃ
     
-    if JY.Thing[id]["ä½¿ç”¨äºº"]>=0 then
+    if JY.Thing[id]["Ê¹ÓÃÈË"]>=0 then
         if DrawStrBoxYesNo(-1,-1,CC.EVB140,C_WHITE,CC.DefaultFont)==false then
             Cls(CC.MainSubMenuX,CC.MainSubMenuY,CC.ScreenW,CC.ScreenH);
             ShowScreen();
@@ -3803,22 +3802,22 @@ function UseThing_Type2(id) --ç§˜ç±ç‰©å“ä½¿ç”¨
     end
 
     Cls();
-    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,string.format(CC.EVB141,JY.Thing[id]["åç§°"]),C_WHITE,CC.DefaultFont);
+    DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,string.format(CC.EVB141,JY.Thing[id]["Ãû³Æ"]),C_WHITE,CC.DefaultFont);
 	local nexty=CC.MainSubMenuY+CC.SingleLineHeight;
     local r=SelectTeamMenu(CC.MainSubMenuX,nexty);
 
     if r>0 then
-        local personid=JY.Base["é˜Ÿä¼" ..r]
+        local personid=JY.Base["¶ÓÎé" ..r]
 		local yes,full;
-        if JY.Thing[id]["ç»ƒå‡ºæ­¦åŠŸ"]>=0 then
+        if JY.Thing[id]["Á·³öÎä¹¦"]>=0 then
             yes=0;
 			full=1;
             for i = 1,10 do
-                if JY.Person[personid]["æ­¦åŠŸ"..i]==JY.Thing[id]["ç»ƒå‡ºæ­¦åŠŸ"] then
-                    yes=1;             --æ­¦åŠŸå·²ç»æœ‰äº†
+                if JY.Person[personid]["Îä¹¦"..i]==JY.Thing[id]["Á·³öÎä¹¦"] then
+                    yes=1;             --Îä¹¦ÒÑ¾­ÓĞÁË
                     break;
                 end
-				if JY.Person[personid]["æ­¦åŠŸ"..i]==0 then
+				if JY.Person[personid]["Îä¹¦"..i]==0 then
 					full=0;
 				end
                          --if id>186 and id<194 or id==235 or id==220 or id==221 then
@@ -3832,14 +3831,14 @@ function UseThing_Type2(id) --ç§˜ç±ç‰©å“ä½¿ç”¨
             end
         end
 
-       if CC.Shemale[id]==1 then                --è¾Ÿé‚ªå’Œè‘µèŠ±
+       if CC.Shemale[id]==1 then                --±ÙĞ°ºÍ¿û»¨
             if T1LEQ(personid) or T2SQ(personid) or T3XYK(personid) then
                say(CC.EVB143)
                say(CC.EVB144)
                say(CC.EVB145)
                say(CC.EVB146)
             else
-		    if JY.Person[personid]["æ€§åˆ«"]==0 and CanUseThing(id,personid) then
+		    if JY.Person[personid]["ĞÔ±ğ"]==0 and CanUseThing(id,personid) then
 				Cls(CC.MainSubMenuX,CC.MainSubMenuY,CC.ScreenW,CC.ScreenH);
 				if DrawStrBoxYesNo(-1,-1,CC.EVB147,C_WHITE,CC.DefaultFont)==false then
 					return 0;
@@ -3850,19 +3849,19 @@ function UseThing_Type2(id) --ç§˜ç±ç‰©å“ä½¿ç”¨
 					lib.ShowSlow(15,1);
 					--[[for offset=CC.ScreenW,-CC.Fontsmall*10,-1 do
 						lib.FillColor(0,0,CC.ScreenW,CC.ScreenH,C_BLACK);
-						DrawString(offset,0,JY.Person[personid]["å§“å"]..'æ˜è¿·ä¸­...æ±Ÿæ¹–è¡€æ³ª  å¤ªç›‘æ— ç½ª',C_WHITE,CC.Fontsmall);
+						DrawString(offset,0,JY.Person[personid]["ĞÕÃû"]..'»èÃÔÖĞ...½­ºşÑªÀá  Ì«¼àÎŞ×ï',C_WHITE,CC.Fontsmall);
 						ShowScreen();
 						lib.Delay(15);
 					end]]
 					Cls();
 					lib.ShowSlow(100,0);
-					JY.Person[personid]["æ€§åˆ«"]=2;
-					local add,str=AddPersonAttrib(personid,"æ”»å‡»åŠ›",-15);           --å¢åŠ æ”»å‡»åŠ›
-					DrawStrBoxWaitKey(JY.Person[personid]["å§“å"] .. str,C_ORANGE,CC.DefaultFont);
-					add,str=AddPersonAttrib(personid,"é˜²å¾¡åŠ›",-25);           --å¢åŠ æ”»å‡»åŠ›
-					DrawStrBoxWaitKey(JY.Person[personid]["å§“å"] .. str,C_ORANGE,CC.DefaultFont);
+					JY.Person[personid]["ĞÔ±ğ"]=2;
+					local add,str=AddPersonAttrib(personid,"¹¥»÷Á¦",-15);           --Ôö¼Ó¹¥»÷Á¦
+					DrawStrBoxWaitKey(JY.Person[personid]["ĞÕÃû"] .. str,C_ORANGE,CC.DefaultFont);
+					add,str=AddPersonAttrib(personid,"·ÀÓùÁ¦",-25);           --Ôö¼Ó¹¥»÷Á¦
+					DrawStrBoxWaitKey(JY.Person[personid]["ĞÕÃû"] .. str,C_ORANGE,CC.DefaultFont);
 				end
-			elseif JY.Person[personid]["æ€§åˆ«"]==1 then
+			elseif JY.Person[personid]["ĞÔ±ğ"]==1 then
 				DrawStrBoxWaitKey(CC.EVB148,C_WHITE,CC.DefaultFont);
 				return 0;
 			end
@@ -3871,26 +3870,26 @@ function UseThing_Type2(id) --ç§˜ç±ç‰©å“ä½¿ç”¨
 
 
         if yes==1 or CanUseThing(id,personid) or (CanUseThing(id,personid) and yes==2)  then
-            if JY.Thing[id]["ä½¿ç”¨äºº"]==personid then
+            if JY.Thing[id]["Ê¹ÓÃÈË"]==personid then
                 return 0;
             end
 
-            if JY.Person[personid]["ä¿®ç‚¼ç‰©å“"]>=0 then
-                JY.Thing[JY.Person[personid]["ä¿®ç‚¼ç‰©å“"]]["ä½¿ç”¨äºº"]=-1;
+            if JY.Person[personid]["ĞŞÁ¶ÎïÆ·"]>=0 then
+                JY.Thing[JY.Person[personid]["ĞŞÁ¶ÎïÆ·"]]["Ê¹ÓÃÈË"]=-1;
             end
 
-            if JY.Thing[id]["ä½¿ç”¨äºº"]>=0 then
-                JY.Person[JY.Thing[id]["ä½¿ç”¨äºº"]]["ä¿®ç‚¼ç‰©å“"]=-1;
-                --JY.Person[JY.Thing[id]["ä½¿ç”¨äºº"]]["ä¿®ç‚¼ç‚¹æ•°"]=0;
-                JY.Person[JY.Thing[id]["ä½¿ç”¨äºº"]]["ç‰©å“ä¿®ç‚¼ç‚¹æ•°"]=0;
+            if JY.Thing[id]["Ê¹ÓÃÈË"]>=0 then
+                JY.Person[JY.Thing[id]["Ê¹ÓÃÈË"]]["ĞŞÁ¶ÎïÆ·"]=-1;
+                --JY.Person[JY.Thing[id]["Ê¹ÓÃÈË"]]["ĞŞÁ¶µãÊı"]=0;
+                JY.Person[JY.Thing[id]["Ê¹ÓÃÈË"]]["ÎïÆ·ĞŞÁ¶µãÊı"]=0;
             end
 
-            JY.Thing[id]["ä½¿ç”¨äºº"]=personid
-            JY.Person[personid]["ä¿®ç‚¼ç‰©å“"]=id;
-            --JY.Person[personid]["ä¿®ç‚¼ç‚¹æ•°"]=0;
-            JY.Person[personid]["ç‰©å“ä¿®ç‚¼ç‚¹æ•°"]=0;
+            JY.Thing[id]["Ê¹ÓÃÈË"]=personid
+            JY.Person[personid]["ĞŞÁ¶ÎïÆ·"]=id;
+            --JY.Person[personid]["ĞŞÁ¶µãÊı"]=0;
+            JY.Person[personid]["ÎïÆ·ĞŞÁ¶µãÊı"]=0;
         else
-            DrawStrBoxWaitKey("æ­¤äººä¸é€‚åˆä¿®ç‚¼æ­¤ç‰©å“",C_WHITE,CC.DefaultFont);
+            DrawStrBoxWaitKey("´ËÈË²»ÊÊºÏĞŞÁ¶´ËÎïÆ·",C_WHITE,CC.DefaultFont);
 			return 0;
         end
     end
@@ -3898,38 +3897,38 @@ function UseThing_Type2(id) --ç§˜ç±ç‰©å“ä½¿ç”¨
 	return 1;
 end
 
---è¯å“ç‰©å“
-function UseThing_Type3(id)        --è¯å“ç‰©å“ä½¿ç”¨
+--Ò©Æ·ÎïÆ·
+function UseThing_Type3(id)        --Ò©Æ·ÎïÆ·Ê¹ÓÃ
     local usepersonid=-1;
     if JY.Status==GAME_MMAP or JY.Status==GAME_SMAP then
         Cls(CC.MainSubMenuX,CC.MainSubMenuY,CC.ScreenW,CC.ScreenH);
-        DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,string.format("è°è¦ä½¿ç”¨%s?",JY.Thing[id]["åç§°"]),C_WHITE,CC.DefaultFont);
+        DrawStrBox(CC.MainSubMenuX,CC.MainSubMenuY,string.format("Ë­ÒªÊ¹ÓÃ%s?",JY.Thing[id]["Ãû³Æ"]),C_WHITE,CC.DefaultFont);
 	    local nexty=CC.MainSubMenuY+CC.SingleLineHeight;
         local r=SelectTeamMenu(CC.MainSubMenuX,nexty);
         if r>0 then
-            usepersonid=JY.Base["é˜Ÿä¼" ..r]
+            usepersonid=JY.Base["¶ÓÎé" ..r]
         end
-    elseif JY.Status==GAME_WMAP then           ---æˆ˜æ–—åœºæ™¯ä½¿ç”¨è¯å“
-        if WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]==16 then
+    elseif JY.Status==GAME_WMAP then           ---Õ½¶·³¡¾°Ê¹ÓÃÒ©Æ·
+        if WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]==16 then
 		    War_CalMoveStep(WAR.CurID,8,1);
 			local x,y=War_SelectMove()
 			if x~=nil then
 				local emeny=GetWarMap(x,y,2);
 				if emeny>=0 then
-					if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] == WAR.Person[emeny]["æˆ‘æ–¹"] then       --ä¸æ˜¯æ•Œäºº
-						usepersonid=WAR.Person[emeny]["äººç‰©ç¼–å·"] 
+					if WAR.Person[WAR.CurID]["ÎÒ·½"] == WAR.Person[emeny]["ÎÒ·½"] then       --²»ÊÇµĞÈË
+						usepersonid=WAR.Person[emeny]["ÈËÎï±àºÅ"] 
 					end
 				end
 			end
 			if usepersonid==-1 then return 0 end--usepersonid=16 end
 		else		
-		    usepersonid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+		    usepersonid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 	    end
     end
 
     if usepersonid>=0 then
-        if UseThingEffect(id,usepersonid)==1 then       --ä½¿ç”¨æœ‰æ•ˆæœ
-            instruct_32(id,-1);            --ç‰©å“æ•°é‡å‡å°‘
+        if UseThingEffect(id,usepersonid)==1 then       --Ê¹ÓÃÓĞĞ§¹û
+            instruct_32(id,-1);            --ÎïÆ·ÊıÁ¿¼õÉÙ
             WaitKey();
         else
             return 0;
@@ -3941,23 +3940,23 @@ function UseThing_Type3(id)        --è¯å“ç‰©å“ä½¿ç”¨
 	return 1;
 end
 
---è¯å“ä½¿ç”¨å®é™…æ•ˆæœXWXG
---id ç‰©å“idï¼Œ
---personid ä½¿ç”¨äººid
---è¿”å›å€¼ï¼š0 ä½¿ç”¨æ²¡æœ‰æ•ˆæœï¼Œç‰©å“æ•°é‡åº”è¯¥ä¸å˜ã€‚1 ä½¿ç”¨æœ‰æ•ˆæœï¼Œåˆ™ä½¿ç”¨åç‰©å“æ•°é‡åº”è¯¥-1
-function UseThingEffect(id,personid)          --è¯å“ä½¿ç”¨å®é™…æ•ˆæœ
+--Ò©Æ·Ê¹ÓÃÊµ¼ÊĞ§¹ûXWXG
+--id ÎïÆ·id£¬
+--personid Ê¹ÓÃÈËid
+--·µ»ØÖµ£º0 Ê¹ÓÃÃ»ÓĞĞ§¹û£¬ÎïÆ·ÊıÁ¿Ó¦¸Ã²»±ä¡£1 Ê¹ÓÃÓĞĞ§¹û£¬ÔòÊ¹ÓÃºóÎïÆ·ÊıÁ¿Ó¦¸Ã-1
+function UseThingEffect(id,personid)          --Ò©Æ·Ê¹ÓÃÊµ¼ÊĞ§¹û
     local str={};
-    str[0]=string.format("ä½¿ç”¨ %s",JY.Thing[id]["åç§°"]);
+    str[0]=string.format("Ê¹ÓÃ %s",JY.Thing[id]["Ãû³Æ"]);
     local strnum=1;
     local addvalue;
 
-    if JY.Thing[id]["åŠ ç”Ÿå‘½"] >0 then
-        local add=JY.Thing[id]["åŠ ç”Ÿå‘½"]-math.modf(JY.Thing[id]["åŠ ç”Ÿå‘½"]*JY.Person[personid]["å—ä¼¤ç¨‹åº¦"]/200)+Rnd(5);
+    if JY.Thing[id]["¼ÓÉúÃü"] >0 then
+        local add=JY.Thing[id]["¼ÓÉúÃü"]-math.modf(JY.Thing[id]["¼ÓÉúÃü"]*JY.Person[personid]["ÊÜÉË³Ì¶È"]/200)+Rnd(5);
         if JY.Status==GAME_WMAP then
 		   if inteam(personid) and inteam(16) then
 		      for w=0,WAR.PersonNum-1 do
-			        if WAR.Person[w]["äººç‰©ç¼–å·"]==16 then
-					   if WAR.Person[w]["æ­»äº¡"]==false and WAR.Person[w]["æˆ‘æ–¹"] then
+			        if WAR.Person[w]["ÈËÎï±àºÅ"]==16 then
+					   if WAR.Person[w]["ËÀÍö"]==false and WAR.Person[w]["ÎÒ·½"] then
 					       add=math.modf(add*1.3)
 						   break;
 						end
@@ -3971,13 +3970,13 @@ function UseThingEffect(id,personid)          --è¯å“ä½¿ç”¨å®é™…æ•ˆæœ
         end
 		add=math.modf(add);
 		if inteam(personid) then
-           AddPersonAttrib(personid,"å—ä¼¤ç¨‹åº¦",-math.modf(add/10));
+           AddPersonAttrib(personid,"ÊÜÉË³Ì¶È",-math.modf(add/10));
 		else
-           AddPersonAttrib(personid,"å—ä¼¤ç¨‹åº¦",-math.modf(add/4));
+           AddPersonAttrib(personid,"ÊÜÉË³Ì¶È",-math.modf(add/4));
 		end	
-           addvalue,str[strnum]=AddPersonAttrib(personid,"ç”Ÿå‘½",add);	
+           addvalue,str[strnum]=AddPersonAttrib(personid,"ÉúÃü",add);	
 		   if not inteam(personid) then
-		      str[strnum]=string.format("ç”Ÿå‘½ å¢åŠ  %s",add*2)
+		      str[strnum]=string.format("ÉúÃü Ôö¼Ó %s",add*2)
 		   end
 			  
         if addvalue ~=0 then
@@ -3985,53 +3984,53 @@ function UseThingEffect(id,personid)          --è¯å“ä½¿ç”¨å®é™…æ•ˆæœ
         end
     end
 
-    local function ThingAddAttrib(s)     ---å®šä¹‰å±€éƒ¨å‡½æ•°ï¼Œå¤„ç†åƒè¯åå¢åŠ å±æ€§
-        if JY.Thing[id]["åŠ " .. s] ~=0 then
-            addvalue,str[strnum]=AddPersonAttrib(personid,s,JY.Thing[id]["åŠ " .. s]);
+    local function ThingAddAttrib(s)     ---¶¨Òå¾Ö²¿º¯Êı£¬´¦Àí³ÔÒ©ºóÔö¼ÓÊôĞÔ
+        if JY.Thing[id]["¼Ó" .. s] ~=0 then
+            addvalue,str[strnum]=AddPersonAttrib(personid,s,JY.Thing[id]["¼Ó" .. s]);
             if addvalue ~=0 then
                 strnum=strnum+1
             end
         end
     end
 
-    ThingAddAttrib("ç”Ÿå‘½æœ€å¤§å€¼");
+    ThingAddAttrib("ÉúÃü×î´óÖµ");
 
-    if JY.Thing[id]["åŠ ä¸­æ¯’è§£æ¯’"] <0 then
-        addvalue,str[strnum]=AddPersonAttrib(personid,"ä¸­æ¯’ç¨‹åº¦",math.modf(JY.Thing[id]["åŠ ä¸­æ¯’è§£æ¯’"]/2));
+    if JY.Thing[id]["¼ÓÖĞ¶¾½â¶¾"] <0 then
+        addvalue,str[strnum]=AddPersonAttrib(personid,"ÖĞ¶¾³Ì¶È",math.modf(JY.Thing[id]["¼ÓÖĞ¶¾½â¶¾"]/2));
         if addvalue ~=0 then
             strnum=strnum+1
         end
     end
 
-    ThingAddAttrib("ä½“åŠ›");
+    ThingAddAttrib("ÌåÁ¦");
 
-    if JY.Thing[id]["æ”¹å˜å†…åŠ›æ€§è´¨"] ==2 then
-        str[strnum]="å†…åŠ›é—¨è·¯æ”¹ä¸ºé˜´é˜³åˆä¸€"
+    if JY.Thing[id]["¸Ä±äÄÚÁ¦ĞÔÖÊ"] ==2 then
+        str[strnum]="ÄÚÁ¦ÃÅÂ·¸ÄÎªÒõÑôºÏÒ»"
         strnum=strnum+1
     end
 
-    ThingAddAttrib("å†…åŠ›");
-    ThingAddAttrib("å†…åŠ›æœ€å¤§å€¼");
-    ThingAddAttrib("æ”»å‡»åŠ›");
-    ThingAddAttrib("é˜²å¾¡åŠ›");
-    ThingAddAttrib("è½»åŠŸ");
-    ThingAddAttrib("åŒ»ç–—èƒ½åŠ›");
-    ThingAddAttrib("ç”¨æ¯’èƒ½åŠ›");
-    ThingAddAttrib("è§£æ¯’èƒ½åŠ›");
-    ThingAddAttrib("æŠ—æ¯’èƒ½åŠ›");
-    ThingAddAttrib("æ‹³æŒåŠŸå¤«");
-    ThingAddAttrib("å¾¡å‰‘èƒ½åŠ›");
-    ThingAddAttrib("è€åˆ€æŠ€å·§");
-    ThingAddAttrib("ç‰¹æ®Šå…µå™¨");
-    ThingAddAttrib("æš—å™¨æŠ€å·§");
-    ThingAddAttrib("æ­¦å­¦å¸¸è¯†");
-    ThingAddAttrib("æ”»å‡»å¸¦æ¯’");
+    ThingAddAttrib("ÄÚÁ¦");
+    ThingAddAttrib("ÄÚÁ¦×î´óÖµ");
+    ThingAddAttrib("¹¥»÷Á¦");
+    ThingAddAttrib("·ÀÓùÁ¦");
+    ThingAddAttrib("Çá¹¦");
+    ThingAddAttrib("Ò½ÁÆÄÜÁ¦");
+    ThingAddAttrib("ÓÃ¶¾ÄÜÁ¦");
+    ThingAddAttrib("½â¶¾ÄÜÁ¦");
+    ThingAddAttrib("¿¹¶¾ÄÜÁ¦");
+    ThingAddAttrib("È­ÕÆ¹¦·ò");
+    ThingAddAttrib("Óù½£ÄÜÁ¦");
+    ThingAddAttrib("Ë£µ¶¼¼ÇÉ");
+    ThingAddAttrib("ÌØÊâ±øÆ÷");
+    ThingAddAttrib("°µÆ÷¼¼ÇÉ");
+    ThingAddAttrib("ÎäÑ§³£Ê¶");
+    ThingAddAttrib("¹¥»÷´ø¶¾");
 
     if strnum>1 then
-        local maxlength=0      --è®¡ç®—å­—ç¬¦ä¸²æœ€å¤§é•¿åº¦
+        local maxlength=0      --¼ÆËã×Ö·û´®×î´ó³¤¶È
         for i = 0,strnum-1 do
-            if get_show_width(str[i]) > maxlength then
-                maxlength=get_show_width(str[i]);
+            if #str[i] > maxlength then
+                maxlength=#str[i];
             end
         end
         Cls();
@@ -4055,8 +4054,8 @@ function UseThingEffect(id,personid)          --è¯å“ä½¿ç”¨å®é™…æ•ˆæœ
 
 end
 
---æš—å™¨ç‰©å“
-function UseThing_Type4(id)             --æš—å™¨ç‰©å“ä½¿ç”¨
+--°µÆ÷ÎïÆ·
+function UseThing_Type4(id)             --°µÆ÷ÎïÆ·Ê¹ÓÃ
     if JY.Status==GAME_WMAP then
          return War_UseAnqi(id);
     end
@@ -4064,25 +4063,25 @@ function UseThing_Type4(id)             --æš—å™¨ç‰©å“ä½¿ç”¨
 end
 
 --------------------------------------------------------------------------------
---------------------------------------äº‹ä»¶è°ƒç”¨-----------------------------------
+--------------------------------------ÊÂ¼şµ÷ÓÃ-----------------------------------
 
---äº‹ä»¶è°ƒç”¨ä¸»å…¥å£
---idï¼Œd*ä¸­çš„ç¼–å·
---flag 1 ç©ºæ ¼è§¦å‘ï¼Œ2ï¼Œç‰©å“è§¦å‘ï¼Œ3ï¼Œè·¯è¿‡è§¦å‘
-function EventExecute(id,flag)               --äº‹ä»¶è°ƒç”¨ä¸»å…¥å£
+--ÊÂ¼şµ÷ÓÃÖ÷Èë¿Ú
+--id£¬d*ÖĞµÄ±àºÅ
+--flag 1 ¿Õ¸ñ´¥·¢£¬2£¬ÎïÆ·´¥·¢£¬3£¬Â·¹ı´¥·¢
+function EventExecute(id,flag)               --ÊÂ¼şµ÷ÓÃÖ÷Èë¿Ú
     JY.CurrentD=id;
-    if JY.SceneNewEventFunction[JY.SubScene]==nil then         --æ²¡æœ‰å®šä¹‰æ–°çš„äº‹ä»¶å¤„ç†å‡½æ•°ï¼Œè°ƒç”¨æ—§çš„
+    if JY.SceneNewEventFunction[JY.SubScene]==nil then         --Ã»ÓĞ¶¨ÒåĞÂµÄÊÂ¼ş´¦Àíº¯Êı£¬µ÷ÓÃ¾ÉµÄ
         oldEventExecute(flag)
 	else
-        JY.SceneNewEventFunction[JY.SubScene](flag)         --è°ƒç”¨æ–°çš„äº‹ä»¶å¤„ç†å‡½æ•°
+        JY.SceneNewEventFunction[JY.SubScene](flag)         --µ÷ÓÃĞÂµÄÊÂ¼ş´¦Àíº¯Êı
     end
     JY.CurrentD=-1;
 	JY.Darkness=0;
 end
 
---è°ƒç”¨åŸæœ‰çš„æŒ‡å®šä½ç½®çš„å‡½æ•°
---æ—§çš„å‡½æ•°åå­—æ ¼å¼ä¸º  oldevent_xxx();  xxxä¸ºäº‹ä»¶ç¼–å·
-function oldEventExecute(flag)            --è°ƒç”¨åŸæœ‰çš„æŒ‡å®šä½ç½®çš„å‡½æ•°
+--µ÷ÓÃÔ­ÓĞµÄÖ¸¶¨Î»ÖÃµÄº¯Êı
+--¾ÉµÄº¯ÊıÃû×Ö¸ñÊ½Îª  oldevent_xxx();  xxxÎªÊÂ¼ş±àºÅ
+function oldEventExecute(flag)            --µ÷ÓÃÔ­ÓĞµÄÖ¸¶¨Î»ÖÃµÄº¯Êı
 
 	local eventnum;
 	if flag==1 then
@@ -4104,32 +4103,32 @@ function oldEventExecute(flag)            --è°ƒç”¨åŸæœ‰çš„æŒ‡å®šä½ç½®çš„å‡½æ•°
 
 end
 
-function oldCallEvent(eventnum)     --æ‰§è¡Œæ—§çš„äº‹ä»¶å‡½æ•°
+function oldCallEvent(eventnum)     --Ö´ĞĞ¾ÉµÄÊÂ¼şº¯Êı
 	local eventfilename=string.format("oldevent_%d.lua",eventnum);
 	lib.Debug(eventfilename);
 	dofile(CONFIG.OldEventPath .. eventfilename);
 end
 
---æ”¹å˜å¤§åœ°å›¾åæ ‡ï¼Œä»åœºæ™¯å‡ºå»åç§»åŠ¨åˆ°ç›¸åº”åæ ‡
-function ChangeMMap(x,y,direct)          --æ”¹å˜å¤§åœ°å›¾åæ ‡
-	JY.Base["äººX"]=x;
-	JY.Base["äººY"]=y;
-	JY.Base["äººæ–¹å‘"]=direct;
+--¸Ä±ä´óµØÍ¼×ø±ê£¬´Ó³¡¾°³öÈ¥ºóÒÆ¶¯µ½ÏàÓ¦×ø±ê
+function ChangeMMap(x,y,direct)          --¸Ä±ä´óµØÍ¼×ø±ê
+	JY.Base["ÈËX"]=x;
+	JY.Base["ÈËY"]=y;
+	JY.Base["ÈË·½Ïò"]=direct;
 end
 
---æ”¹å˜å½“å‰åœºæ™¯
-function ChangeSMap(sceneid,x,y,direct)       --æ”¹å˜å½“å‰åœºæ™¯
+--¸Ä±äµ±Ç°³¡¾°
+function ChangeSMap(sceneid,x,y,direct)       --¸Ä±äµ±Ç°³¡¾°
     JY.SubScene=sceneid;
-	JY.Base["äººX1"]=x;
-	JY.Base["äººY1"]=y;
-	JY.Base["äººæ–¹å‘"]=direct;
+	JY.Base["ÈËX1"]=x;
+	JY.Base["ÈËY1"]=y;
+	JY.Base["ÈË·½Ïò"]=direct;
 end
 
---æ¸…é™¤(x1,y1)-(x2,y2)çŸ©å½¢å†…çš„æ–‡å­—ç­‰ã€‚
---å¦‚æœæ²¡æœ‰å‚æ•°ï¼Œåˆ™æ¸…é™¤æ•´ä¸ªå±å¹•è¡¨é¢
---æ³¨æ„è¯¥å‡½æ•°å¹¶ä¸ç›´æ¥åˆ·æ–°æ˜¾ç¤ºå±å¹•
-function Cls(x1,y1,x2,y2)                    --æ¸…é™¤å±å¹•
-    if x1==nil then        --ç¬¬ä¸€ä¸ªå‚æ•°ä¸ºnil,è¡¨ç¤ºæ²¡æœ‰å‚æ•°ï¼Œç”¨ç¼ºçœ
+--Çå³ı(x1,y1)-(x2,y2)¾ØĞÎÄÚµÄÎÄ×ÖµÈ¡£
+--Èç¹ûÃ»ÓĞ²ÎÊı£¬ÔòÇå³ıÕû¸öÆÁÄ»±íÃæ
+--×¢Òâ¸Ãº¯Êı²¢²»Ö±½ÓË¢ĞÂÏÔÊ¾ÆÁÄ»
+function Cls(x1,y1,x2,y2)                    --Çå³ıÆÁÄ»
+    if x1==nil then        --µÚÒ»¸ö²ÎÊıÎªnil,±íÊ¾Ã»ÓĞ²ÎÊı£¬ÓÃÈ±Ê¡
 	    x1=0;
 		y1=0;
 		x2=0;
@@ -4144,7 +4143,7 @@ function Cls(x1,y1,x2,y2)                    --æ¸…é™¤å±å¹•
 	elseif JY.Status==GAME_START2 then
 	    lib.FillColor(0,0,0,0,0);
 	elseif JY.Status==GAME_MMAP then
-        lib.DrawMMap(JY.Base["äººX"],JY.Base["äººY"],GetMyPic());             --æ˜¾ç¤ºä¸»åœ°å›¾
+        lib.DrawMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],GetMyPic());             --ÏÔÊ¾Ö÷µØÍ¼
 	elseif JY.Status==GAME_SMAP then
         DrawSMap();
 	elseif JY.Status==GAME_WMAP then
@@ -4156,8 +4155,8 @@ function Cls(x1,y1,x2,y2)                    --æ¸…é™¤å±å¹•
 	lib.SetClip(0,0,0,0);
 end
 
-function ClsN(x1,y1,x2,y2)                    --æ¸…é™¤å±å¹•
-    if x1==nil then        --ç¬¬ä¸€ä¸ªå‚æ•°ä¸ºnil,è¡¨ç¤ºæ²¡æœ‰å‚æ•°ï¼Œç”¨ç¼ºçœ
+function ClsN(x1,y1,x2,y2)                    --Çå³ıÆÁÄ»
+    if x1==nil then        --µÚÒ»¸ö²ÎÊıÎªnil,±íÊ¾Ã»ÓĞ²ÎÊı£¬ÓÃÈ±Ê¡
 	    x1=0;
 		y1=0;
 		x2=0;
@@ -4169,41 +4168,41 @@ function ClsN(x1,y1,x2,y2)                    --æ¸…é™¤å±å¹•
 	lib.SetClip(0,0,0,0);
 end
 
---æµ‹è¯•æŒ‡ä»¤ï¼Œå ä½ç½®ç”¨
+--²âÊÔÖ¸Áî£¬Õ¼Î»ÖÃÓÃ
 function instruct_test(s)
     DrawStrBoxWaitKey(s,C_ORANGE,24);
 end
 
---æ¸…å±
-function instruct_0()         --æ¸…å±
+--ÇåÆÁ
+function instruct_0()         --ÇåÆÁ
     Cls();
 end
 
---å¯¹è¯
---talkid: ä¸ºæ•°å­—ï¼Œåˆ™ä¸ºå¯¹è¯ç¼–å·ï¼›ä¸ºå­—ç¬¦ä¸²ï¼Œåˆ™ä¸ºå¯¹è¯æœ¬èº«ã€‚
---headid: å¤´åƒid
---flag :å¯¹è¯æ¡†ä½ç½®ï¼š0 å±å¹•ä¸Šæ–¹æ˜¾ç¤º, å·¦è¾¹å¤´åƒï¼Œå³è¾¹å¯¹è¯
---            1 å±å¹•ä¸‹æ–¹æ˜¾ç¤º, å·¦è¾¹å¯¹è¯ï¼Œå³è¾¹å¤´åƒ
---            2 å±å¹•ä¸Šæ–¹æ˜¾ç¤º, å·¦è¾¹ç©ºï¼Œå³è¾¹å¯¹è¯
---            3 å±å¹•ä¸‹æ–¹æ˜¾ç¤º, å·¦è¾¹å¯¹è¯ï¼Œå³è¾¹ç©º
---            4 å±å¹•ä¸Šæ–¹æ˜¾ç¤º, å·¦è¾¹å¯¹è¯ï¼Œå³è¾¹å¤´åƒ
---            5 å±å¹•ä¸‹æ–¹æ˜¾ç¤º, å·¦è¾¹å¤´åƒï¼Œå³è¾¹å¯¹è¯
+--¶Ô»°
+--talkid: ÎªÊı×Ö£¬ÔòÎª¶Ô»°±àºÅ£»Îª×Ö·û´®£¬ÔòÎª¶Ô»°±¾Éí¡£
+--headid: Í·Ïñid
+--flag :¶Ô»°¿òÎ»ÖÃ£º0 ÆÁÄ»ÉÏ·½ÏÔÊ¾, ×ó±ßÍ·Ïñ£¬ÓÒ±ß¶Ô»°
+--            1 ÆÁÄ»ÏÂ·½ÏÔÊ¾, ×ó±ß¶Ô»°£¬ÓÒ±ßÍ·Ïñ
+--            2 ÆÁÄ»ÉÏ·½ÏÔÊ¾, ×ó±ß¿Õ£¬ÓÒ±ß¶Ô»°
+--            3 ÆÁÄ»ÏÂ·½ÏÔÊ¾, ×ó±ß¶Ô»°£¬ÓÒ±ß¿Õ
+--            4 ÆÁÄ»ÉÏ·½ÏÔÊ¾, ×ó±ß¶Ô»°£¬ÓÒ±ßÍ·Ïñ
+--            5 ÆÁÄ»ÏÂ·½ÏÔÊ¾, ×ó±ßÍ·Ïñ£¬ÓÒ±ß¶Ô»°
 
-function instruct_1(talkid,headid,flag)        --å¯¹è¯
+function instruct_1(talkid,headid,flag)        --¶Ô»°
     local s=ReadTalk(talkid);
-	if s==nil then        --å¯¹è¯idä¸å­˜åœ¨
+	if s==nil then        --¶Ô»°id²»´æÔÚ
 	    return ;
 	end
     TalkEx(s,headid,flag);
 end
 
---æ ¹æ®oldtalk.grpæ–‡ä»¶æ¥idxç´¢å¼•æ–‡ä»¶ã€‚ä¾›åé¢è¯»å¯¹è¯ä½¿ç”¨     --syp
-function GenTalkIdx()         --ç”Ÿæˆå¯¹è¯ç´¢å¼•æ–‡ä»¶
+--¸ù¾İoldtalk.grpÎÄ¼şÀ´idxË÷ÒıÎÄ¼ş¡£¹©ºóÃæ¶Á¶Ô»°Ê¹ÓÃ     --syp
+function GenTalkIdx()         --Éú³É¶Ô»°Ë÷ÒıÎÄ¼ş
 end
 
---ä»old_talk.luaä¸­è¯»å–ç¼–å·ä¸ºtalkidçš„å­—ç¬¦ä¸²ã€‚
---éœ€è¦çš„æ—¶å€™è¯»å–ï¼Œå¯ä»¥èŠ‚çº¦å†…å­˜å ç”¨ï¼Œä¸ç”¨å†æŠŠæ•´ä¸ªæ–‡ä»¶è¯»å…¥å†…å­˜æ•°æ®äº†ã€‚
-function ReadTalk(talkid)            --ä»æ–‡ä»¶è¯»å–ä¸€æ¡å¯¹è¯
+--´Óold_talk.luaÖĞ¶ÁÈ¡±àºÅÎªtalkidµÄ×Ö·û´®¡£
+--ĞèÒªµÄÊ±ºò¶ÁÈ¡£¬¿ÉÒÔ½ÚÔ¼ÄÚ´æÕ¼ÓÃ£¬²»ÓÃÔÙ°ÑÕû¸öÎÄ¼ş¶ÁÈëÄÚ´æÊı¾İÁË¡£
+function ReadTalk(talkid)            --´ÓÎÄ¼ş¶ÁÈ¡Ò»Ìõ¶Ô»°
 	local idxfile=CC.TalkIdxFile
     local grpfile=CC.TalkGrpFile
 
@@ -4234,55 +4233,55 @@ function ReadTalk(talkid)            --ä»æ–‡ä»¶è¯»å–ä¸€æ¡å¯¹è¯
 
 end
 
-function instruct_11_new()              --æ˜¯å¦ä½å®¿
+function instruct_11_new()              --ÊÇ·ñ×¡ËŞ
     Cls();
-    return DrawStrBoxYesNo(-1,-1,"æ˜¯å¦(Y/N)?",C_ORANGE,CC.DefaultFont);
+    return DrawStrBoxYesNo(-1,-1,"ÊÇ·ñ(Y/N)?",C_ORANGE,CC.DefaultFont);
 end
 
-function instruct_45_new(id,value)        --å¢åŠ è½»åŠŸ
-    local add,str=AddPersonAttrib(id,"è½»åŠŸ",value);
+function instruct_45_new(id,value)        --Ôö¼ÓÇá¹¦
+    local add,str=AddPersonAttrib(id,"Çá¹¦",value);
 end
 
 
-function instruct_46_new(id,value)            --å¢åŠ å†…åŠ›
-    local add,str=AddPersonAttrib(id,"å†…åŠ›æœ€å¤§å€¼",value);
-    AddPersonAttrib(id,"å†…åŠ›",0);
+function instruct_46_new(id,value)            --Ôö¼ÓÄÚÁ¦
+    local add,str=AddPersonAttrib(id,"ÄÚÁ¦×î´óÖµ",value);
+    AddPersonAttrib(id,"ÄÚÁ¦",0);
 end
 
 
 function instruct_47_new(id,value)
-    local add,str=AddPersonAttrib(id,"æ”»å‡»åŠ›",value);           --å¢åŠ æ”»å‡»åŠ›
+    local add,str=AddPersonAttrib(id,"¹¥»÷Á¦",value);           --Ôö¼Ó¹¥»÷Á¦
 end
 
 
-function instruct_48_new(id,value)         --å¢åŠ ç”Ÿå‘½
-    local add,str=AddPersonAttrib(id,"ç”Ÿå‘½æœ€å¤§å€¼",value);
-    AddPersonAttrib(id,"ç”Ÿå‘½",0);
+function instruct_48_new(id,value)         --Ôö¼ÓÉúÃü
+    local add,str=AddPersonAttrib(id,"ÉúÃü×î´óÖµ",value);
+    AddPersonAttrib(id,"ÉúÃü",0);
 end
 
---å¾—åˆ°ç‰©å“
-function instruct_2(thingid,num)            --å¾—åˆ°ç‰©å“
-    if JY.Thing[thingid]==nil then   --æ— æ­¤ç‰©å“id
+--µÃµ½ÎïÆ·
+function instruct_2(thingid,num)            --µÃµ½ÎïÆ·
+    if JY.Thing[thingid]==nil then   --ÎŞ´ËÎïÆ·id
         return ;
 	end
 
-    instruct_32(thingid,num);    --å¢åŠ ç‰©å“
+    instruct_32(thingid,num);    --Ôö¼ÓÎïÆ·
 	if num>0 then
-       DrawStrBoxWaitKey(string.format("å¾—åˆ°ç‰©å“:%s %d",JY.Thing[thingid]["åç§°"],num),C_ORANGE,CC.DefaultFont);
+       DrawStrBoxWaitKey(string.format("µÃµ½ÎïÆ·:%s %d",JY.Thing[thingid]["Ãû³Æ"],num),C_ORANGE,CC.DefaultFont);
     else
-	   DrawStrBoxWaitKey(string.format("å¤±å»ç‰©å“:%s %d",JY.Thing[thingid]["åç§°"],-num),C_ORANGE,CC.DefaultFont);
+	   DrawStrBoxWaitKey(string.format("Ê§È¥ÎïÆ·:%s %d",JY.Thing[thingid]["Ãû³Æ"],-num),C_ORANGE,CC.DefaultFont);
 	end
-	instruct_2_sub();         --æ˜¯å¦å¯å¾—æ­¦æ—å¸–
+	instruct_2_sub();         --ÊÇ·ñ¿ÉµÃÎäÁÖÌû
 end
 
---å£°æœ›>200ä»¥åŠ14å¤©ä¹¦åå¾—åˆ°æ­¦æ—å¸–
-function instruct_2_sub()               --å£°æœ›>200ä»¥åŠ14å¤©ä¹¦åå¾—åˆ°æ­¦æ—å¸–
+--ÉùÍû>200ÒÔ¼°14ÌìÊéºóµÃµ½ÎäÁÖÌû
+function instruct_2_sub()               --ÉùÍû>200ÒÔ¼°14ÌìÊéºóµÃµ½ÎäÁÖÌû
 
-    if JY.Person[0]["å£°æœ›"] < 200 then
+    if JY.Person[0]["ÉùÍû"] < 200 then
         return ;
     end
 
-    if instruct_18(189) ==true then            --æœ‰æ­¦æ—å¸–ï¼Œ 189 æ­¦æ—å¸–id
+    if instruct_18(189) ==true then            --ÓĞÎäÁÖÌû£¬ 189 ÎäÁÖÌûid
         return;
     end
 
@@ -4293,16 +4292,16 @@ function instruct_2_sub()               --å£°æœ›>200ä»¥åŠ14å¤©ä¹¦åå¾—åˆ°æ­¦æ
         end
     end
 
-    if booknum==CC.BookNum then        --è®¾ç½®ä¸»è§’å±…æ¡Œå­ä¸Šçš„æ­¦æ—å¸–äº‹ä»¶
+    if booknum==CC.BookNum then        --ÉèÖÃÖ÷½Ç¾Ó×À×ÓÉÏµÄÎäÁÖÌûÊÂ¼ş
         instruct_3(70,11,-1,1,932,-1,-1,7968,7968,7968,-2,-2,-2);
     end
 end
 
---ä¿®æ”¹D*
--- sceneid åœºæ™¯id, -2è¡¨ç¤ºå½“å‰åœºæ™¯
--- id  D*çš„idï¼Œ -2è¡¨ç¤ºå½“å‰id
--- v0 - v10 D*å‚æ•°ï¼Œ -2è¡¨ç¤ºæ­¤å‚æ•°ä¸å˜
-function instruct_3(sceneid,id,v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10)     --ä¿®æ”¹D*
+--ĞŞ¸ÄD*
+-- sceneid ³¡¾°id, -2±íÊ¾µ±Ç°³¡¾°
+-- id  D*µÄid£¬ -2±íÊ¾µ±Ç°id
+-- v0 - v10 D*²ÎÊı£¬ -2±íÊ¾´Ë²ÎÊı²»±ä
+function instruct_3(sceneid,id,v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10)     --ĞŞ¸ÄD*
     if sceneid==-2 then
         sceneid=JY.SubScene;
     end
@@ -4339,8 +4338,8 @@ function instruct_3(sceneid,id,v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10)     --ä¿®æ”¹D*
     end
 
     if v9~=-2 and v10 ~=-2 then
-	    if v9>0 and v10 >0 then   --ä¸ºäº†å’Œè‹é¾™å…¼å®¹ï¼Œä¿®æ”¹çš„åæ ‡ä¸èƒ½ä¸º0
-            SetS(sceneid,GetD(sceneid,id,9),GetD(sceneid,id,10),3,-1);   --å¦‚æœxyåæ ‡ç§»åŠ¨äº†ï¼Œé‚£ä¹ˆSä¸­ç›¸åº”æ•°æ®è¦ä¿®æ”¹ã€‚
+	    if v9>0 and v10 >0 then   --ÎªÁËºÍ²ÔÁú¼æÈİ£¬ĞŞ¸ÄµÄ×ø±ê²»ÄÜÎª0
+            SetS(sceneid,GetD(sceneid,id,9),GetD(sceneid,id,10),3,-1);   --Èç¹ûxy×ø±êÒÆ¶¯ÁË£¬ÄÇÃ´SÖĞÏàÓ¦Êı¾İÒªĞŞ¸Ä¡£
             SetD(sceneid,id,9,v9)
             SetD(sceneid,id,10,v10)
             SetS(sceneid,GetD(sceneid,id,9),GetD(sceneid,id,10),3,id);
@@ -4348,8 +4347,8 @@ function instruct_3(sceneid,id,v0,v1,v2,v3,v4,v5,v6,v7,v8,v9,v10)     --ä¿®æ”¹D*
 	end
 end
 
---æ˜¯å¦ä½¿ç”¨ç‰©å“è§¦å‘
-function instruct_4(thingid)         --æ˜¯å¦ä½¿ç”¨ç‰©å“è§¦å‘
+--ÊÇ·ñÊ¹ÓÃÎïÆ·´¥·¢
+function instruct_4(thingid)         --ÊÇ·ñÊ¹ÓÃÎïÆ·´¥·¢
     if JY.CurrentThing==thingid then
         return true;
     else
@@ -4358,67 +4357,67 @@ function instruct_4(thingid)         --æ˜¯å¦ä½¿ç”¨ç‰©å“è§¦å‘
 end
 
 
-function instruct_5()         --é€‰æ‹©æˆ˜æ–—
-    return DrawStrBoxYesNo(-1,-1,"æ˜¯å¦ä¸ä¹‹è¿‡æ‹›(Y/N)?",C_ORANGE,CC.DefaultFont);
+function instruct_5()         --Ñ¡ÔñÕ½¶·
+    return DrawStrBoxYesNo(-1,-1,"ÊÇ·ñÓëÖ®¹ıÕĞ(Y/N)?",C_ORANGE,CC.DefaultFont);
 end
 
 
-function instruct_6(warid,tmp,tmp,flag)      --æˆ˜æ–—
+function instruct_6(warid,tmp,tmp,flag)      --Õ½¶·
     return WarMain(warid,flag);
 end
 
 
-function instruct_7()                 --å·²ç»ç¿»è¯‘ä¸ºreturnäº†
-    instruct_test("æŒ‡ä»¤7æµ‹è¯•")
+function instruct_7()                 --ÒÑ¾­·­ÒëÎªreturnÁË
+    instruct_test("Ö¸Áî7²âÊÔ")
 end
 
 
-function instruct_8(musicid)            --æ”¹å˜ä¸»åœ°å›¾éŸ³ä¹
+function instruct_8(musicid)            --¸Ä±äÖ÷µØÍ¼ÒôÀÖ
     JY.MmapMusic=musicid;
 end
 
 
-function instruct_9()                --æ˜¯å¦è¦æ±‚åŠ å…¥é˜Ÿä¼
+function instruct_9()                --ÊÇ·ñÒªÇó¼ÓÈë¶ÓÎé
     Cls();
-    return DrawStrBoxYesNo(-1,-1,"æ˜¯å¦è¦æ±‚åŠ å…¥(Y/N)?",C_ORANGE,CC.DefaultFont);
+    return DrawStrBoxYesNo(-1,-1,"ÊÇ·ñÒªÇó¼ÓÈë(Y/N)?",C_ORANGE,CC.DefaultFont);
 end
 
 
-function instruct_10(personid)            --åŠ å…¥é˜Ÿå‘˜
+function instruct_10(personid)            --¼ÓÈë¶ÓÔ±
     if JY.Person[personid]==nil then
         lib.Debug("instruct_10 error: person id not exist");
 		return ;
     end
     local add=0;
-    for i =2, CC.TeamNum do             --ç¬¬ä¸€ä¸ªä½ç½®æ˜¯ä¸»è§’ï¼Œä»ç¬¬äºŒä¸ªå¼€å§‹
-        if JY.Base["é˜Ÿä¼"..i]<0 then
-            JY.Base["é˜Ÿä¼"..i]=personid;
+    for i =2, CC.TeamNum do             --µÚÒ»¸öÎ»ÖÃÊÇÖ÷½Ç£¬´ÓµÚ¶ş¸ö¿ªÊ¼
+        if JY.Base["¶ÓÎé"..i]<0 then
+            JY.Base["¶ÓÎé"..i]=personid;
             add=1;
             break;
         end
     end
     if add==0 then
-        lib.Debug("instruct_10 error: åŠ å…¥é˜Ÿä¼å·²æ»¡");
+        lib.Debug("instruct_10 error: ¼ÓÈë¶ÓÎéÒÑÂú");
         return ;
     end
 
-    for i =1,4 do                --ä¸ªäººç‰©å“å½’å…¬
-        local id =JY.Person[personid]["æºå¸¦ç‰©å“" .. i];
-        local n=JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. i];
+    for i =1,4 do                --¸öÈËÎïÆ·¹é¹«
+        local id =JY.Person[personid]["Ğ¯´øÎïÆ·" .. i];
+        local n=JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. i];
 		if n==0 then n=0 end
         if id>=0 and n>0 then
             instruct_2(id,n);
-            JY.Person[personid]["æºå¸¦ç‰©å“" .. i]=-1;
-            JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. i]=0;
+            JY.Person[personid]["Ğ¯´øÎïÆ·" .. i]=-1;
+            JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. i]=0;
         end
     end
 	--[[
 	local pid=personid
-	local leveladd=JY.Person[pid]["ç­‰çº§"]-1
+	local leveladd=JY.Person[pid]["µÈ¼¶"]-1
 	local function cleveradd()
 		local ca
-		if JY.Person[pid]["èµ„è´¨"]>100 then JY.Person[pid]["èµ„è´¨"]=100 end
-		ca=JY.Person[pid]["èµ„è´¨"]+(110-JY.Person[pid]["èµ„è´¨"])/2
+		if JY.Person[pid]["×ÊÖÊ"]>100 then JY.Person[pid]["×ÊÖÊ"]=100 end
+		ca=JY.Person[pid]["×ÊÖÊ"]+(110-JY.Person[pid]["×ÊÖÊ"])/2
 		ca=ca/15
 		return ca
 	end
@@ -4430,59 +4429,59 @@ function instruct_10(personid)            --åŠ å…¥é˜Ÿå‘˜
 		else return x1 end
 	end
 	local tmp
-	tmp=(JY.Person[pid]["ç”Ÿå‘½å¢é•¿"]+1)*leveladd*3+50
-    if JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]<tmp and JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]>tmp/4 then
-		JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]=tmp
-		JY.Person[pid]["ç”Ÿå‘½"]=JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"];
+	tmp=(JY.Person[pid]["ÉúÃüÔö³¤"]+1)*leveladd*3+50
+    if JY.Person[pid]["ÉúÃü×î´óÖµ"]<tmp and JY.Person[pid]["ÉúÃü×î´óÖµ"]>tmp/4 then
+		JY.Person[pid]["ÉúÃü×î´óÖµ"]=tmp
+		JY.Person[pid]["ÉúÃü"]=JY.Person[pid]["ÉúÃü×î´óÖµ"];
 	end
-	tmp=math.modf(leveladd*((10-JY.Person[pid]["ç”Ÿå‘½å¢é•¿"])*5+150/cleveradd()))+50
-    if JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]<tmp and JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]>tmp/4 then
-		JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]=tmp
-		JY.Person[pid]["å†…åŠ›"]=JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"];
-	end
-	tmp=mymodf(cleveradd()*leveladd)+30
-    if JY.Person[pid]["æ”»å‡»åŠ›"]<tmp and JY.Person[pid]["æ”»å‡»åŠ›"]>tmp/4 then
-		JY.Person[pid]["æ”»å‡»åŠ›"]=tmp
+	tmp=math.modf(leveladd*((10-JY.Person[pid]["ÉúÃüÔö³¤"])*5+150/cleveradd()))+50
+    if JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]<tmp and JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]>tmp/4 then
+		JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]=tmp
+		JY.Person[pid]["ÄÚÁ¦"]=JY.Person[pid]["ÄÚÁ¦×î´óÖµ"];
 	end
 	tmp=mymodf(cleveradd()*leveladd)+30
-    if JY.Person[pid]["é˜²å¾¡åŠ›"]<tmp and JY.Person[pid]["é˜²å¾¡åŠ›"]>tmp/4 then
-		JY.Person[pid]["é˜²å¾¡åŠ›"]=tmp
+    if JY.Person[pid]["¹¥»÷Á¦"]<tmp and JY.Person[pid]["¹¥»÷Á¦"]>tmp/4 then
+		JY.Person[pid]["¹¥»÷Á¦"]=tmp
+	end
+	tmp=mymodf(cleveradd()*leveladd)+30
+    if JY.Person[pid]["·ÀÓùÁ¦"]<tmp and JY.Person[pid]["·ÀÓùÁ¦"]>tmp/4 then
+		JY.Person[pid]["·ÀÓùÁ¦"]=tmp
 	end
 	tmp=mymodf(cleveradd()*leveladd/2)+30
-    if JY.Person[pid]["è½»åŠŸ"]<tmp and JY.Person[pid]["è½»åŠŸ"]>tmp/4 then
-		JY.Person[pid]["è½»åŠŸ"]=tmp
+    if JY.Person[pid]["Çá¹¦"]<tmp and JY.Person[pid]["Çá¹¦"]>tmp/4 then
+		JY.Person[pid]["Çá¹¦"]=tmp
 	end
 	
 	]]--
 end
 
 
-function instruct_11()              --æ˜¯å¦ä½å®¿
+function instruct_11()              --ÊÇ·ñ×¡ËŞ
     Cls();
-    return DrawStrBoxYesNo(-1,-1,"æ˜¯å¦ä½å®¿(Y/N)?",C_ORANGE,CC.DefaultFont);
+    return DrawStrBoxYesNo(-1,-1,"ÊÇ·ñ×¡ËŞ(Y/N)?",C_ORANGE,CC.DefaultFont);
 end
 
 
-function instruct_12(flag)             --ä½å®¿ï¼Œå›å¤ä½“åŠ›
+function instruct_12(flag)             --×¡ËŞ£¬»Ø¸´ÌåÁ¦
     for i=1,CC.TeamNum do
-        local id=JY.Base["é˜Ÿä¼" .. i];
+        local id=JY.Base["¶ÓÎé" .. i];
         if id>=0 then
 			--if flag~=nil then
-				JY.Person[id]["å—ä¼¤ç¨‹åº¦"]=0;
-				JY.Person[id]["ä¸­æ¯’ç¨‹åº¦"]=0;
+				JY.Person[id]["ÊÜÉË³Ì¶È"]=0;
+				JY.Person[id]["ÖĞ¶¾³Ì¶È"]=0;
 			--end
-            if JY.Person[id]["å—ä¼¤ç¨‹åº¦"]<33 and JY.Person[id]["ä¸­æ¯’ç¨‹åº¦"]<=0 then
-                JY.Person[id]["å—ä¼¤ç¨‹åº¦"]=0;
-                AddPersonAttrib(id,"ä½“åŠ›",math.huge);     --ç»™ä¸€ä¸ªå¾ˆå¤§çš„å€¼ï¼Œè‡ªåŠ¨é™åˆ¶ä¸ºæœ€å¤§å€¼
-                AddPersonAttrib(id,"ç”Ÿå‘½",math.huge);
-                AddPersonAttrib(id,"å†…åŠ›",math.huge);
+            if JY.Person[id]["ÊÜÉË³Ì¶È"]<33 and JY.Person[id]["ÖĞ¶¾³Ì¶È"]<=0 then
+                JY.Person[id]["ÊÜÉË³Ì¶È"]=0;
+                AddPersonAttrib(id,"ÌåÁ¦",math.huge);     --¸øÒ»¸öºÜ´óµÄÖµ£¬×Ô¶¯ÏŞÖÆÎª×î´óÖµ
+                AddPersonAttrib(id,"ÉúÃü",math.huge);
+                AddPersonAttrib(id,"ÄÚÁ¦",math.huge);
             end
         end
     end
 end
 
 
-function instruct_13()            --åœºæ™¯å˜äº®
+function instruct_13()            --³¡¾°±äÁÁ
     Cls();
     JY.Darkness=0;
     lib.ShowSlow(50,0)
@@ -4490,7 +4489,7 @@ function instruct_13()            --åœºæ™¯å˜äº®
 end
 
 
-function instruct_14()             --åœºæ™¯å˜é»‘
+function instruct_14()             --³¡¾°±äºÚ
     lib.ShowSlow(50,1);
     JY.Darkness=1;
 end
@@ -4498,18 +4497,18 @@ end
 function instruct_15()          --game over
     JY.Status=GAME_DEAD;
     Cls();
-    DrawString(CC.GameOverX,CC.GameOverY,JY.Person[0]["å§“å"],RGB(0,0,0),CC.DefaultFont);
+    DrawString(CC.GameOverX,CC.GameOverY,JY.Person[0]["ĞÕÃû"],RGB(0,0,0),CC.DefaultFont);
 
 	local x=CC.ScreenW-9*CC.DefaultFont;
     DrawString(x,10,os.date("%Y-%m-%d %H:%M"),RGB(216, 20, 24) ,CC.DefaultFont);
-    DrawString(x,10+CC.DefaultFont+CC.RowPixel,"åœ¨åœ°çƒçš„æŸå¤„",RGB(216, 20, 24) ,CC.DefaultFont);
-    DrawString(x,10+(CC.DefaultFont+CC.RowPixel)*2,"å½“åœ°äººå£çš„å¤±è¸ªæ•°",RGB(216, 20, 24) ,CC.DefaultFont);
-    DrawString(x,10+(CC.DefaultFont+CC.RowPixel)*3,"åˆå¤šäº†ä¸€ç¬”ã€‚ã€‚ã€‚",RGB(216, 20, 24) ,CC.DefaultFont);
+    DrawString(x,10+CC.DefaultFont+CC.RowPixel,"ÔÚµØÇòµÄÄ³´¦",RGB(216, 20, 24) ,CC.DefaultFont);
+    DrawString(x,10+(CC.DefaultFont+CC.RowPixel)*2,"µ±µØÈË¿ÚµÄÊ§×ÙÊı",RGB(216, 20, 24) ,CC.DefaultFont);
+    DrawString(x,10+(CC.DefaultFont+CC.RowPixel)*3,"ÓÖ¶àÁËÒ»±Ê¡£¡£¡£",RGB(216, 20, 24) ,CC.DefaultFont);
 
-    local loadMenu={ {"è½½å…¥è¿›åº¦ä¸€",nil,1},
-                     {"è½½å…¥è¿›åº¦äºŒ",nil,1},
-                     {"è½½å…¥è¿›åº¦ä¸‰",nil,1},
-                     {"å›å®¶ç¡è§‰å»",nil,1} };
+    local loadMenu={ {"ÔØÈë½ø¶ÈÒ»",nil,1},
+                     {"ÔØÈë½ø¶È¶ş",nil,1},
+                     {"ÔØÈë½ø¶ÈÈı",nil,1},
+                     {"»Ø¼ÒË¯¾õÈ¥",nil,1} };
     local y=CC.ScreenH-4*(CC.DefaultFont+CC.RowPixel)-10;
     local r=ShowMenu(loadMenu,4,0,x,y,0,0,0,0,CC.DefaultFont,C_ORANGE, C_WHITE)
 
@@ -4517,9 +4516,9 @@ function instruct_15()          --game over
         SBLDATAL(r);
 		--JY.OldDPass=-1;
         --JY.Status=GAME_FIRSTMMAP;
-		if JY.Base["æ— ç”¨"]~=-1 then
+		if JY.Base["ÎŞÓÃ"]~=-1 then
 			JY.Status=GAME_SMAP
-			JY.SubScene=JY.Base["æ— ç”¨"]
+			JY.SubScene=JY.Base["ÎŞÓÃ"]
 			
 			JY.MmapMusic=-1;
 			JY.MyPic=GetMyPic();
@@ -4542,7 +4541,7 @@ function inteam(pid)
 	return instruct_16(pid)
 end
 
-function instruct_16(personid)      --é˜Ÿä¼ä¸­æ˜¯å¦æœ‰æŸäºº
+function instruct_16(personid)      --¶ÓÎéÖĞÊÇ·ñÓĞÄ³ÈË
     local r=false;
 	--[[if JY.Status==GAME_WMAP then
 		if WAR.tmp[1000+personid]~=nil then
@@ -4550,7 +4549,7 @@ function instruct_16(personid)      --é˜Ÿä¼ä¸­æ˜¯å¦æœ‰æŸäºº
 		end
 	end]]
     for i = 1, CC.TeamNum do
-        if personid==JY.Base["é˜Ÿä¼" .. i] then
+        if personid==JY.Base["¶ÓÎé" .. i] then
             r=true;
             break;
         end
@@ -4559,7 +4558,7 @@ function instruct_16(personid)      --é˜Ÿä¼ä¸­æ˜¯å¦æœ‰æŸäºº
 end
 
 
-function instruct_17(sceneid,level,x,y,v)     --ä¿®æ”¹åœºæ™¯å›¾å½¢
+function instruct_17(sceneid,level,x,y,v)     --ĞŞ¸Ä³¡¾°Í¼ĞÎ
     if sceneid==-2 then
         sceneid=JY.SubScene;
     end
@@ -4567,9 +4566,9 @@ function instruct_17(sceneid,level,x,y,v)     --ä¿®æ”¹åœºæ™¯å›¾å½¢
 end
 
 
-function instruct_18(thingid)           --æ˜¯å¦æœ‰æŸç§ç‰©å“
+function instruct_18(thingid)           --ÊÇ·ñÓĞÄ³ÖÖÎïÆ·
     for i = 1,CC.MyThingNum do
-        if JY.Base["ç‰©å“" .. i]==thingid then
+        if JY.Base["ÎïÆ·" .. i]==thingid then
             return true;
         end
     end
@@ -4577,30 +4576,30 @@ function instruct_18(thingid)           --æ˜¯å¦æœ‰æŸç§ç‰©å“
 end
 
 
-function instruct_19(x,y)             --æ”¹å˜ä¸»è§’ä½ç½®
-    JY.Base["äººX1"]=x;
-    JY.Base["äººY1"]=y;
+function instruct_19(x,y)             --¸Ä±äÖ÷½ÇÎ»ÖÃ
+    JY.Base["ÈËX1"]=x;
+    JY.Base["ÈËY1"]=y;
 	JY.SubSceneX=0;
 	JY.SubSceneY=0;
 end
 
 
-function instruct_20()                 --åˆ¤æ–­é˜Ÿä¼æ˜¯å¦æ»¡
-    if JY.Base["é˜Ÿä¼" .. CC.TeamNum ] >=0 then
+function instruct_20()                 --ÅĞ¶Ï¶ÓÎéÊÇ·ñÂú
+    if JY.Base["¶ÓÎé" .. CC.TeamNum ] >=0 then
         return true;
     end
     return false;
 end
 
 
-function instruct_21(personid)               --ç¦»é˜Ÿ
+function instruct_21(personid)               --Àë¶Ó
     if JY.Person[personid]==nil then
         lib.Debug("instruct_21 error: personid not exist");
         return ;
     end
     local j=0;
     for i = 1, CC.TeamNum do
-        if personid==JY.Base["é˜Ÿä¼" .. i] then
+        if personid==JY.Base["¶ÓÎé" .. i] then
             j=i;
             break;
         end
@@ -4610,51 +4609,51 @@ function instruct_21(personid)               --ç¦»é˜Ÿ
     end
 
     for  i=j+1,CC.TeamNum do
-        JY.Base["é˜Ÿä¼" .. i-1]=JY.Base["é˜Ÿä¼" .. i];
+        JY.Base["¶ÓÎé" .. i-1]=JY.Base["¶ÓÎé" .. i];
     end
-    JY.Base["é˜Ÿä¼" .. CC.TeamNum]=-1;
+    JY.Base["¶ÓÎé" .. CC.TeamNum]=-1;
 
-    if JY.Person[personid]["æ­¦å™¨"]>=0 then
-        JY.Thing[JY.Person[personid]["æ­¦å™¨"]]["ä½¿ç”¨äºº"]=-1;
-        JY.Person[personid]["æ­¦å™¨"]=-1
+    if JY.Person[personid]["ÎäÆ÷"]>=0 then
+        JY.Thing[JY.Person[personid]["ÎäÆ÷"]]["Ê¹ÓÃÈË"]=-1;
+        JY.Person[personid]["ÎäÆ÷"]=-1
     end
-    if JY.Person[personid]["é˜²å…·"]>=0 then
-        JY.Thing[JY.Person[personid]["é˜²å…·"]]["ä½¿ç”¨äºº"]=-1;
-        JY.Person[personid]["é˜²å…·"]=-1;
-    end
-
-    if JY.Person[personid]["ä¿®ç‚¼ç‰©å“"]>=0 then
-        JY.Thing[JY.Person[personid]["ä¿®ç‚¼ç‰©å“"]]["ä½¿ç”¨äºº"]=-1;
-        JY.Person[personid]["ä¿®ç‚¼ç‰©å“"]=-1;
+    if JY.Person[personid]["·À¾ß"]>=0 then
+        JY.Thing[JY.Person[personid]["·À¾ß"]]["Ê¹ÓÃÈË"]=-1;
+        JY.Person[personid]["·À¾ß"]=-1;
     end
 
-    --JY.Person[personid]["ä¿®ç‚¼ç‚¹æ•°"]=0;
-    JY.Person[personid]["ç‰©å“ä¿®ç‚¼ç‚¹æ•°"]=0;
+    if JY.Person[personid]["ĞŞÁ¶ÎïÆ·"]>=0 then
+        JY.Thing[JY.Person[personid]["ĞŞÁ¶ÎïÆ·"]]["Ê¹ÓÃÈË"]=-1;
+        JY.Person[personid]["ĞŞÁ¶ÎïÆ·"]=-1;
+    end
+
+    --JY.Person[personid]["ĞŞÁ¶µãÊı"]=0;
+    JY.Person[personid]["ÎïÆ·ĞŞÁ¶µãÊı"]=0;
 end
 
 
-function instruct_22()            --å†…åŠ›é™ä¸º0
+function instruct_22()            --ÄÚÁ¦½µÎª0
     for i = 1, CC.TeamNum do
-        if JY.Base["é˜Ÿä¼" .. i] >=0 then
-            JY.Person[JY.Base["é˜Ÿä¼" .. i]]["å†…åŠ›"]=0;
+        if JY.Base["¶ÓÎé" .. i] >=0 then
+            JY.Person[JY.Base["¶ÓÎé" .. i]]["ÄÚÁ¦"]=0;
         end
     end
 end
 
 
-function instruct_23(personid,value)           --è®¾ç½®ç”¨æ¯’
-    JY.Person[personid]["ç”¨æ¯’èƒ½åŠ›"]=value;
-    AddPersonAttrib(personid,"ç”¨æ¯’èƒ½åŠ›",0)
+function instruct_23(personid,value)           --ÉèÖÃÓÃ¶¾
+    JY.Person[personid]["ÓÃ¶¾ÄÜÁ¦"]=value;
+    AddPersonAttrib(personid,"ÓÃ¶¾ÄÜÁ¦",0)
 end
 
---ç©ºæŒ‡ä»¤
+--¿ÕÖ¸Áî
 function instruct_24()
-    instruct_test("æŒ‡ä»¤24æµ‹è¯•")
+    instruct_test("Ö¸Áî24²âÊÔ")
 end
 
---åœºæ™¯ç§»åŠ¨
---ä¸ºç®€åŒ–ï¼Œå®é™…ä¸Šæ˜¯åœºæ™¯ç§»åŠ¨(x2-x1)ï¼Œ(y2-y1)ã€‚å…ˆyåxã€‚å› æ­¤ï¼Œx1,y1å¯è®¾ä¸º0
-function instruct_25(x1,y1,x2,y2)             --åœºæ™¯ç§»åŠ¨
+--³¡¾°ÒÆ¶¯
+--Îª¼ò»¯£¬Êµ¼ÊÉÏÊÇ³¡¾°ÒÆ¶¯(x2-x1)£¬(y2-y1)¡£ÏÈyºóx¡£Òò´Ë£¬x1,y1¿ÉÉèÎª0
+function instruct_25(x1,y1,x2,y2)             --³¡¾°ÒÆ¶¯
     local sign;
     if y1 ~= y2 then
         if y2<y1 then
@@ -4699,7 +4698,7 @@ function instruct_25(x1,y1,x2,y2)             --åœºæ™¯ç§»åŠ¨
 end
 
 
-function instruct_26(sceneid,id,v1,v2,v3)           --å¢åŠ D*ç¼–å·
+function instruct_26(sceneid,id,v1,v2,v3)           --Ôö¼ÓD*±àºÅ
     if sceneid==-2 then
         sceneid=JY.SubScene;
     end
@@ -4712,8 +4711,8 @@ function instruct_26(sceneid,id,v1,v2,v3)           --å¢åŠ D*ç¼–å·
     SetD(sceneid,id,4,v+v3);
 end
 
---æ˜¾ç¤ºåŠ¨ç”» id=-1 ä¸»è§’ä½ç½®åŠ¨ç”»
-function instruct_27(id,startpic,endpic)           --æ˜¾ç¤ºåŠ¨ç”»
+--ÏÔÊ¾¶¯»­ id=-1 Ö÷½ÇÎ»ÖÃ¶¯»­
+function instruct_27(id,startpic,endpic)           --ÏÔÊ¾¶¯»­
     local old1,old2,old3;
 	if id ~=-1 then
         old1=GetD(JY.SubScene,id,5);
@@ -4747,9 +4746,9 @@ function instruct_27(id,startpic,endpic)           --æ˜¾ç¤ºåŠ¨ç”»
     end
 end
 
---åˆ¤æ–­å“å¾·
-function instruct_28(personid,vmin,vmax)          --åˆ¤æ–­å“å¾·
-    local v=JY.Person[personid]["å“å¾·"];
+--ÅĞ¶ÏÆ·µÂ
+function instruct_28(personid,vmin,vmax)          --ÅĞ¶ÏÆ·µÂ
+    local v=JY.Person[personid]["Æ·µÂ"];
     if v >=vmin and v<=vmax then
         return true;
     else
@@ -4757,9 +4756,9 @@ function instruct_28(personid,vmin,vmax)          --åˆ¤æ–­å“å¾·
     end
 end
 
---åˆ¤æ–­æ”»å‡»åŠ›
-function instruct_29(personid,vmin,vmax)           --åˆ¤æ–­æ”»å‡»åŠ›
-    local v=JY.Person[personid]["æ”»å‡»åŠ›"];
+--ÅĞ¶Ï¹¥»÷Á¦
+function instruct_29(personid,vmin,vmax)           --ÅĞ¶Ï¹¥»÷Á¦
+    local v=JY.Person[personid]["¹¥»÷Á¦"];
     if v >=vmin and v<=vmax then
         return true;
     else
@@ -4767,9 +4766,9 @@ function instruct_29(personid,vmin,vmax)           --åˆ¤æ–­æ”»å‡»åŠ›
     end
 end
 
---ä¸»è§’èµ°åŠ¨
---ä¸ºç®€åŒ–ï¼Œèµ°åŠ¨ä½¿ç”¨ç›¸å¯¹å€¼(x2-x1)(y2-y1),å› æ­¤x1,y1å¯ä»¥ä¸º0ï¼Œä¸å¿…ä¸€å®šè¦ä¸ºå½“å‰åæ ‡ã€‚
-function instruct_30(x1,y1,x2,y2)                --ä¸»è§’èµ°åŠ¨
+--Ö÷½Ç×ß¶¯
+--Îª¼ò»¯£¬×ß¶¯Ê¹ÓÃÏà¶ÔÖµ(x2-x1)(y2-y1),Òò´Ëx1,y1¿ÉÒÔÎª0£¬²»±ØÒ»¶¨ÒªÎªµ±Ç°×ø±ê¡£
+function instruct_30(x1,y1,x2,y2)                --Ö÷½Ç×ß¶¯
     --Cls();
     --ShowScreen();
 
@@ -4816,31 +4815,31 @@ end
 function instruct_30_sub1(direct)
 	local x,y
     AddMyCurrentPic();
-    x=JY.Base["äººX1"]+CC.DirectX[direct+1];
-    y=JY.Base["äººY1"]+CC.DirectY[direct+1];
-    JY.Base["äººæ–¹å‘"]=direct;
+    x=JY.Base["ÈËX1"]+CC.DirectX[direct+1];
+    y=JY.Base["ÈËY1"]+CC.DirectY[direct+1];
+    JY.Base["ÈË·½Ïò"]=direct;
     JY.MyPic=GetMyPic();
     DtoSMap();
 
     if  SceneCanPass(x,y)==true then
-        JY.Base["äººX1"]=x;
-        JY.Base["äººY1"]=y;
+        JY.Base["ÈËX1"]=x;
+        JY.Base["ÈËY1"]=y;
     end
-    JY.Base["äººX1"]=limitX(JY.Base["äººX1"],1,CC.SWidth-2);
-    JY.Base["äººY1"]=limitX(JY.Base["äººY1"],1,CC.SHeight-2);
+    JY.Base["ÈËX1"]=limitX(JY.Base["ÈËX1"],1,CC.SWidth-2);
+    JY.Base["ÈËY1"]=limitX(JY.Base["ÈËY1"],1,CC.SHeight-2);
 
     DrawSMap();
 --    Cls();
     ShowScreen();
 	return 1
 end
---ä¸»è§’èµ°åŠ¨sub
-function instruct_30_sub(direct)            --ä¸»è§’èµ°åŠ¨sub
+--Ö÷½Ç×ß¶¯sub
+function instruct_30_sub(direct)            --Ö÷½Ç×ß¶¯sub
     local x,y;
-    local d_pass=GetS(JY.SubScene,JY.Base["äººX1"],JY.Base["äººY1"],3);   --å½“å‰è·¯è¿‡äº‹ä»¶
+    local d_pass=GetS(JY.SubScene,JY.Base["ÈËX1"],JY.Base["ÈËY1"],3);   --µ±Ç°Â·¹ıÊÂ¼ş
     if d_pass>=0 then
-        if d_pass ~=JY.OldDPass then     --é¿å…é‡å¤è§¦å‘
-            EventExecute(d_pass,3);       --è·¯è¿‡è§¦å‘äº‹ä»¶
+        if d_pass ~=JY.OldDPass then     --±ÜÃâÖØ¸´´¥·¢
+            EventExecute(d_pass,3);       --Â·¹ı´¥·¢ÊÂ¼ş
             JY.OldDPass=d_pass;
 		    JY.oldSMapX=-1;
 	        JY.oldSMapY=-1;
@@ -4850,14 +4849,14 @@ function instruct_30_sub(direct)            --ä¸»è§’èµ°åŠ¨sub
         JY.OldDPass=-1;
     end
 
-    local isout=0;                --æ˜¯å¦ç¢°åˆ°å‡ºå£
-    if (JY.Scene[JY.SubScene]["å‡ºå£X1"] ==JY.Base["äººX1"] and JY.Scene[JY.SubScene]["å‡ºå£Y1"] ==JY.Base["äººY1"]) or
-       (JY.Scene[JY.SubScene]["å‡ºå£X2"] ==JY.Base["äººX1"] and JY.Scene[JY.SubScene]["å‡ºå£Y2"] ==JY.Base["äººY1"]) or
-       (JY.Scene[JY.SubScene]["å‡ºå£X3"] ==JY.Base["äººX1"] and JY.Scene[JY.SubScene]["å‡ºå£Y3"] ==JY.Base["äººY1"]) then
+    local isout=0;                --ÊÇ·ñÅöµ½³ö¿Ú
+    if (JY.Scene[JY.SubScene]["³ö¿ÚX1"] ==JY.Base["ÈËX1"] and JY.Scene[JY.SubScene]["³ö¿ÚY1"] ==JY.Base["ÈËY1"]) or
+       (JY.Scene[JY.SubScene]["³ö¿ÚX2"] ==JY.Base["ÈËX1"] and JY.Scene[JY.SubScene]["³ö¿ÚY2"] ==JY.Base["ÈËY1"]) or
+       (JY.Scene[JY.SubScene]["³ö¿ÚX3"] ==JY.Base["ÈËX1"] and JY.Scene[JY.SubScene]["³ö¿ÚY3"] ==JY.Base["ÈËY1"]) then
        isout=1;
     end
 
-    if isout==1 then    --å‡ºå»ï¼Œè¿”å›ä¸»åœ°å›¾
+    if isout==1 then    --³öÈ¥£¬·µ»ØÖ÷µØÍ¼
         JY.Status=GAME_MMAP;
 
 		lib.PicInit();
@@ -4865,7 +4864,7 @@ function instruct_30_sub(direct)            --ä¸»è§’èµ°åŠ¨sub
         lib.ShowSlow(50,1)
 
         if JY.MmapMusic<0 then
-            JY.MmapMusic=JY.Scene[JY.SubScene]["å‡ºé—¨éŸ³ä¹"];
+            JY.MmapMusic=JY.Scene[JY.SubScene]["³öÃÅÒôÀÖ"];
         end
 
 		Init_MMap();
@@ -4876,24 +4875,24 @@ function instruct_30_sub(direct)            --ä¸»è§’èµ°åŠ¨sub
 		JY.oldSMapX=-1;
 		JY.oldSMapY=-1;
 
-        lib.DrawMMap(JY.Base["äººX"],JY.Base["äººY"],GetMyPic());
+        lib.DrawMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],GetMyPic());
         lib.ShowSlow(50,0)
         lib.GetKey();
         return;
     end
 
-    --æ˜¯å¦è·³è½¬åˆ°å…¶ä»–åœºæ™¯
-    if JY.Scene[JY.SubScene]["è·³è½¬åœºæ™¯"] >=0 then
-        if JY.Base["äººX1"]==JY.Scene[JY.SubScene]["è·³è½¬å£X1"] and JY.Base["äººY1"]==JY.Scene[JY.SubScene]["è·³è½¬å£Y1"] then
-            JY.SubScene=JY.Scene[JY.SubScene]["è·³è½¬åœºæ™¯"];
+    --ÊÇ·ñÌø×ªµ½ÆäËû³¡¾°
+    if JY.Scene[JY.SubScene]["Ìø×ª³¡¾°"] >=0 then
+        if JY.Base["ÈËX1"]==JY.Scene[JY.SubScene]["Ìø×ª¿ÚX1"] and JY.Base["ÈËY1"]==JY.Scene[JY.SubScene]["Ìø×ª¿ÚY1"] then
+            JY.SubScene=JY.Scene[JY.SubScene]["Ìø×ª³¡¾°"];
             lib.ShowSlow(50,1);
 
-            if JY.Scene[JY.SubScene]["å¤–æ™¯å…¥å£X1"]==0 and JY.Scene[JY.SubScene]["å¤–æ™¯å…¥å£Y1"]==0 then
-                JY.Base["äººX1"]=JY.Scene[JY.SubScene]["å…¥å£X"];            --æ–°åœºæ™¯çš„å¤–æ™¯å…¥å£ä¸º0ï¼Œè¡¨ç¤ºè¿™æ˜¯ä¸€ä¸ªå†…éƒ¨åœºæ™¯
-                JY.Base["äººY1"]=JY.Scene[JY.SubScene]["å…¥å£Y"];
+            if JY.Scene[JY.SubScene]["Íâ¾°Èë¿ÚX1"]==0 and JY.Scene[JY.SubScene]["Íâ¾°Èë¿ÚY1"]==0 then
+                JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Èë¿ÚX"];            --ĞÂ³¡¾°µÄÍâ¾°Èë¿ÚÎª0£¬±íÊ¾ÕâÊÇÒ»¸öÄÚ²¿³¡¾°
+                JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Èë¿ÚY"];
             else
-                JY.Base["äººX1"]=JY.Scene[JY.SubScene]["è·³è½¬å£X2"];         --å¤–éƒ¨åœºæ™¯ï¼Œå³ä»å…¶ä»–å†…éƒ¨åœºæ™¯è·³å›ã€‚
-                JY.Base["äººY1"]=JY.Scene[JY.SubScene]["è·³è½¬å£Y2"];
+                JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚX2"];         --Íâ²¿³¡¾°£¬¼´´ÓÆäËûÄÚ²¿³¡¾°Ìø»Ø¡£
+                JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Ìø×ª¿ÚY2"];
             end
 
 			Init_SMap(1);
@@ -4902,18 +4901,18 @@ function instruct_30_sub(direct)            --ä¸»è§’èµ°åŠ¨sub
         end
     end
     AddMyCurrentPic();
-    x=JY.Base["äººX1"]+CC.DirectX[direct+1];
-    y=JY.Base["äººY1"]+CC.DirectY[direct+1];
-    JY.Base["äººæ–¹å‘"]=direct;
+    x=JY.Base["ÈËX1"]+CC.DirectX[direct+1];
+    y=JY.Base["ÈËY1"]+CC.DirectY[direct+1];
+    JY.Base["ÈË·½Ïò"]=direct;
     JY.MyPic=GetMyPic();
     DtoSMap();
 
     if  SceneCanPass(x,y)==true then
-        JY.Base["äººX1"]=x;
-        JY.Base["äººY1"]=y;
+        JY.Base["ÈËX1"]=x;
+        JY.Base["ÈËY1"]=y;
     end
-    JY.Base["äººX1"]=limitX(JY.Base["äººX1"],1,CC.SWidth-2);
-    JY.Base["äººY1"]=limitX(JY.Base["äººY1"],1,CC.SHeight-2);
+    JY.Base["ÈËX1"]=limitX(JY.Base["ÈËX1"],1,CC.SWidth-2);
+    JY.Base["ÈËY1"]=limitX(JY.Base["ÈËY1"],1,CC.SHeight-2);
 
     DrawSMap();
 --    Cls();
@@ -4921,12 +4920,12 @@ function instruct_30_sub(direct)            --ä¸»è§’èµ°åŠ¨sub
 	return 1
 end
 
---åˆ¤æ–­æ˜¯å¦å¤Ÿé’±
-function instruct_31(num)             --åˆ¤æ–­æ˜¯å¦å¤Ÿé’±
+--ÅĞ¶ÏÊÇ·ñ¹»Ç®
+function instruct_31(num)             --ÅĞ¶ÏÊÇ·ñ¹»Ç®
     local r=false;
     for i =1,CC.MyThingNum do
-        if JY.Base["ç‰©å“" .. i]==CC.MoneyID then
-            if JY.Base["ç‰©å“æ•°é‡" .. i]>=num then
+        if JY.Base["ÎïÆ·" .. i]==CC.MoneyID then
+            if JY.Base["ÎïÆ·ÊıÁ¿" .. i]>=num then
                 r=true;
             end
             break;
@@ -4935,18 +4934,18 @@ function instruct_31(num)             --åˆ¤æ–­æ˜¯å¦å¤Ÿé’±
     return r;
 end
 
---å¢åŠ ç‰©å“
---num ç‰©å“æ•°é‡ï¼Œè´Ÿæ•°åˆ™ä¸ºå‡å°‘ç‰©å“
-function instruct_32(thingid,num)           --å¢åŠ ç‰©å“
+--Ôö¼ÓÎïÆ·
+--num ÎïÆ·ÊıÁ¿£¬¸ºÊıÔòÎª¼õÉÙÎïÆ·
+function instruct_32(thingid,num)           --Ôö¼ÓÎïÆ·
     local p=1;
     for i=1,CC.MyThingNum do
-        if JY.Base["ç‰©å“" .. i]==thingid then
-            JY.Base["ç‰©å“æ•°é‡" .. i]=JY.Base["ç‰©å“æ•°é‡" .. i]+num
+        if JY.Base["ÎïÆ·" .. i]==thingid then
+            JY.Base["ÎïÆ·ÊıÁ¿" .. i]=JY.Base["ÎïÆ·ÊıÁ¿" .. i]+num
             p=i;
             break;
-        elseif JY.Base["ç‰©å“" .. i]==-1 then
-            JY.Base["ç‰©å“" .. i]=thingid;
-            JY.Base["ç‰©å“æ•°é‡" .. i]=num;
+        elseif JY.Base["ÎïÆ·" .. i]==-1 then
+            JY.Base["ÎïÆ·" .. i]=thingid;
+            JY.Base["ÎïÆ·ÊıÁ¿" .. i]=num;
             p=i;
             break;
         end
@@ -4955,69 +4954,69 @@ function instruct_32(thingid,num)           --å¢åŠ ç‰©å“
 	if thingid==174 then JY.GOLD=JY.GOLD+num end
 	if thingid==155 and num==1 then instruct_32(219,-1) end	   
 
-    if JY.Base["ç‰©å“æ•°é‡" .. p] <=0 then
+    if JY.Base["ÎïÆ·ÊıÁ¿" .. p] <=0 then
         for i=p+1,CC.MyThingNum do
-            JY.Base["ç‰©å“" .. i-1]=JY.Base["ç‰©å“" .. i];
-            JY.Base["ç‰©å“æ•°é‡" .. i-1]=JY.Base["ç‰©å“æ•°é‡" .. i];
+            JY.Base["ÎïÆ·" .. i-1]=JY.Base["ÎïÆ·" .. i];
+            JY.Base["ÎïÆ·ÊıÁ¿" .. i-1]=JY.Base["ÎïÆ·ÊıÁ¿" .. i];
         end
-        JY.Base["ç‰©å“" .. CC.MyThingNum]=-1;
-        JY.Base["ç‰©å“æ•°é‡" .. CC.MyThingNum]=0;
+        JY.Base["ÎïÆ·" .. CC.MyThingNum]=-1;
+        JY.Base["ÎïÆ·ÊıÁ¿" .. CC.MyThingNum]=0;
     end
 end
 
---å­¦ä¼šæ­¦åŠŸ
-function instruct_33(personid,wugongid,flag)           --å­¦ä¼šæ­¦åŠŸ
+--Ñ§»áÎä¹¦
+function instruct_33(personid,wugongid,flag)           --Ñ§»áÎä¹¦
     local add=0;
     for i=1,10 do
-        if JY.Person[personid]["æ­¦åŠŸ" .. i]==0 then
-            JY.Person[personid]["æ­¦åŠŸ" .. i]=wugongid;
-            JY.Person[personid]["æ­¦åŠŸç­‰çº§" .. i]=0;
+        if JY.Person[personid]["Îä¹¦" .. i]==0 then
+            JY.Person[personid]["Îä¹¦" .. i]=wugongid;
+            JY.Person[personid]["Îä¹¦µÈ¼¶" .. i]=0;
             add=1
             break;
         end
     end
 
-    if add==0 then      --ï¼Œæ­¦åŠŸå·²æ»¡ï¼Œè¦†ç›–æœ€åä¸€ä¸ªæ­¦åŠŸ
-        JY.Person[personid]["æ­¦åŠŸ10" ]=wugongid;
-        JY.Person[personid]["æ­¦åŠŸç­‰çº§10"]=0;
+    if add==0 then      --£¬Îä¹¦ÒÑÂú£¬¸²¸Ç×îºóÒ»¸öÎä¹¦
+        JY.Person[personid]["Îä¹¦10" ]=wugongid;
+        JY.Person[personid]["Îä¹¦µÈ¼¶10"]=0;
     end
 
     if flag==0 then
-        DrawStrBoxWaitKey(string.format("%s å­¦ä¼šæ­¦åŠŸ %s",JY.Person[personid]["å§“å"],JY.Wugong[wugongid]["åç§°"]),C_ORANGE,CC.DefaultFont);
+        DrawStrBoxWaitKey(string.format("%s Ñ§»áÎä¹¦ %s",JY.Person[personid]["ĞÕÃû"],JY.Wugong[wugongid]["Ãû³Æ"]),C_ORANGE,CC.DefaultFont);
     end
 end
 
---èµ„è´¨å¢åŠ 
-function instruct_34(id,value)              --èµ„è´¨å¢åŠ 
-    local add,str=AddPersonAttrib(id,"èµ„è´¨",value);
-    DrawStrBoxWaitKey(JY.Person[id]["å§“å"] .. str,C_ORANGE,CC.DefaultFont);
+--×ÊÖÊÔö¼Ó
+function instruct_34(id,value)              --×ÊÖÊÔö¼Ó
+    local add,str=AddPersonAttrib(id,"×ÊÖÊ",value);
+    DrawStrBoxWaitKey(JY.Person[id]["ĞÕÃû"] .. str,C_ORANGE,CC.DefaultFont);
 end
 
---è®¾ç½®æ­¦åŠŸ
-function instruct_35(personid,id,wugongid,wugonglevel)         --è®¾ç½®æ­¦åŠŸ
+--ÉèÖÃÎä¹¦
+function instruct_35(personid,id,wugongid,wugonglevel)         --ÉèÖÃÎä¹¦
     if id>=0 then
-        JY.Person[personid]["æ­¦åŠŸ" .. id+1]=wugongid;
-        JY.Person[personid]["æ­¦åŠŸç­‰çº§" .. id+1]=wugonglevel;
+        JY.Person[personid]["Îä¹¦" .. id+1]=wugongid;
+        JY.Person[personid]["Îä¹¦µÈ¼¶" .. id+1]=wugonglevel;
     else
         local flag=0;
         for i =1,10 do
-            if JY.Person[personid]["æ­¦åŠŸ" .. i]==0 then
+            if JY.Person[personid]["Îä¹¦" .. i]==0 then
                 flag=1;
-                JY.Person[personid]["æ­¦åŠŸ" .. i]=wugongid;
-                JY.Person[personid]["æ­¦åŠŸç­‰çº§" .. i]=wugonglevel;
+                JY.Person[personid]["Îä¹¦" .. i]=wugongid;
+                JY.Person[personid]["Îä¹¦µÈ¼¶" .. i]=wugonglevel;
                 return;
             end
         end
         if flag==0 then
-            JY.Person[personid]["æ­¦åŠŸ" .. 1]=wugongid;
-            JY.Person[personid]["æ­¦åŠŸç­‰çº§" .. 1]=wugonglevel;
+            JY.Person[personid]["Îä¹¦" .. 1]=wugongid;
+            JY.Person[personid]["Îä¹¦µÈ¼¶" .. 1]=wugonglevel;
         end
     end
 end
 
---åˆ¤æ–­ä¸»è§’æ€§åˆ«
-function instruct_36(sex)               --åˆ¤æ–­ä¸»è§’æ€§åˆ«
-    if JY.Person[0]["æ€§åˆ«"]==sex then
+--ÅĞ¶ÏÖ÷½ÇĞÔ±ğ
+function instruct_36(sex)               --ÅĞ¶ÏÖ÷½ÇĞÔ±ğ
+    if JY.Person[0]["ĞÔ±ğ"]==sex then
         return true;
     else
         return false;
@@ -5025,12 +5024,12 @@ function instruct_36(sex)               --åˆ¤æ–­ä¸»è§’æ€§åˆ«
 end
 
 
-function instruct_37(v)              --å¢åŠ å“å¾·
-    AddPersonAttrib(0,"å“å¾·",v);
+function instruct_37(v)              --Ôö¼ÓÆ·µÂ
+    AddPersonAttrib(0,"Æ·µÂ",v);
 end
 
---ä¿®æ”¹åœºæ™¯æŸå±‚è´´å›¾
-function instruct_38(sceneid,level,oldpic,newpic)         --ä¿®æ”¹åœºæ™¯æŸå±‚è´´å›¾
+--ĞŞ¸Ä³¡¾°Ä³²ãÌùÍ¼
+function instruct_38(sceneid,level,oldpic,newpic)         --ĞŞ¸Ä³¡¾°Ä³²ãÌùÍ¼
     if sceneid==-2 then
         sceneid=JY.SubScene;
     end
@@ -5045,46 +5044,46 @@ function instruct_38(sceneid,level,oldpic,newpic)         --ä¿®æ”¹åœºæ™¯æŸå±‚è´
 end
 
 
-function instruct_39(sceneid)             --æ‰“å¼€åœºæ™¯
-    JY.Scene[sceneid]["è¿›å…¥æ¡ä»¶"]=0;
+function instruct_39(sceneid)             --´ò¿ª³¡¾°
+    JY.Scene[sceneid]["½øÈëÌõ¼ş"]=0;
 end
 
 
-function instruct_40(v)                --æ”¹å˜ä¸»è§’æ–¹å‘
-    JY.Base["äººæ–¹å‘"]=v;
+function instruct_40(v)                --¸Ä±äÖ÷½Ç·½Ïò
+    JY.Base["ÈË·½Ïò"]=v;
     JY.MyPic=GetMyPic();
 end
 
 
-function instruct_41(personid,thingid,num)        --å…¶ä»–äººå‘˜å¢åŠ ç‰©å“
+function instruct_41(personid,thingid,num)        --ÆäËûÈËÔ±Ôö¼ÓÎïÆ·
     local k=0;
-    for i =1, 4 do        --å·²æœ‰ç‰©å“
-        if JY.Person[personid]["æºå¸¦ç‰©å“" .. i]==thingid then
-            JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. i]=JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. i]+num;
+    for i =1, 4 do        --ÒÑÓĞÎïÆ·
+        if JY.Person[personid]["Ğ¯´øÎïÆ·" .. i]==thingid then
+            JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. i]=JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. i]+num;
             k=i;
             break
         end
     end
 
-    --ç‰©å“å‡å°‘åˆ°0ï¼Œåˆ™åé¢ç‰©å“å¾€å‰ç§»åŠ¨
-    --[[if k>0 and JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. k] <=0 then
+    --ÎïÆ·¼õÉÙµ½0£¬ÔòºóÃæÎïÆ·ÍùÇ°ÒÆ¶¯
+    --[[if k>0 and JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. k] <=0 then
         for i=k+1,4 do
-            JY.Person[personid]["æºå¸¦ç‰©å“" .. i-1]=JY.Person[personid]["æºå¸¦ç‰©å“" .. i];
-            JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. i-1]=JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. i];
+            JY.Person[personid]["Ğ¯´øÎïÆ·" .. i-1]=JY.Person[personid]["Ğ¯´øÎïÆ·" .. i];
+            JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. i-1]=JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. i];
         end
-        JY.Person[personid]["æºå¸¦ç‰©å“" .. 4]=-1;
-        JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. 4]=0;
+        JY.Person[personid]["Ğ¯´øÎïÆ·" .. 4]=-1;
+        JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. 4]=0;
     end]]
     
-	if k>0 and JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. k] <=0 then
-	   JY.Person[personid]["æºå¸¦ç‰©å“" .. k]=-1
+	if k>0 and JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. k] <=0 then
+	   JY.Person[personid]["Ğ¯´øÎïÆ·" .. k]=-1
 	end
 
-    if k==0 then    --æ²¡æœ‰ç‰©å“ï¼Œæ³¨æ„æ­¤å¤„ä¸è€ƒè™‘è¶…è¿‡4ä¸ªç‰©å“çš„æƒ…å†µï¼Œå¦‚æœè¶…è¿‡ï¼Œåˆ™æ— æ³•åŠ å…¥ã€‚
-        for i =1, 4 do        --å·²æœ‰ç‰©å“
-            if JY.Person[personid]["æºå¸¦ç‰©å“" .. i]==-1 then
-                JY.Person[personid]["æºå¸¦ç‰©å“" .. i]=thingid;
-                JY.Person[personid]["æºå¸¦ç‰©å“æ•°é‡" .. i]=num;
+    if k==0 then    --Ã»ÓĞÎïÆ·£¬×¢Òâ´Ë´¦²»¿¼ÂÇ³¬¹ı4¸öÎïÆ·µÄÇé¿ö£¬Èç¹û³¬¹ı£¬ÔòÎŞ·¨¼ÓÈë¡£
+        for i =1, 4 do        --ÒÑÓĞÎïÆ·
+            if JY.Person[personid]["Ğ¯´øÎïÆ·" .. i]==-1 then
+                JY.Person[personid]["Ğ¯´øÎïÆ·" .. i]=thingid;
+                JY.Person[personid]["Ğ¯´øÎïÆ·ÊıÁ¿" .. i]=num;
                 break
             end
         end
@@ -5092,11 +5091,11 @@ function instruct_41(personid,thingid,num)        --å…¶ä»–äººå‘˜å¢åŠ ç‰©å“
 end
 
 
-function instruct_42()          --é˜Ÿä¼ä¸­æ˜¯å¦æœ‰å¥³æ€§
+function instruct_42()          --¶ÓÎéÖĞÊÇ·ñÓĞÅ®ĞÔ
     local r=false;
     for i =1,CC.TeamNum do
-        if JY.Base["é˜Ÿä¼" .. i] >=0 then
-            if JY.Person[JY.Base["é˜Ÿä¼" .. i]]["æ€§åˆ«"]==1 then
+        if JY.Base["¶ÓÎé" .. i] >=0 then
+            if JY.Person[JY.Base["¶ÓÎé" .. i]]["ĞÔ±ğ"]==1 then
                 r=true;
             end
         end
@@ -5105,12 +5104,12 @@ function instruct_42()          --é˜Ÿä¼ä¸­æ˜¯å¦æœ‰å¥³æ€§
 end
 
 
-function instruct_43(thingid)        --æ˜¯å¦æœ‰æŸç§ç‰©å“
+function instruct_43(thingid)        --ÊÇ·ñÓĞÄ³ÖÖÎïÆ·
     return instruct_18(thingid);
 end
 
 
-function instruct_44(id1,startpic1,endpic1,id2,startpic2,endpic2)     --åŒæ—¶æ˜¾ç¤ºä¸¤ä¸ªåŠ¨ç”»
+function instruct_44(id1,startpic1,endpic1,id2,startpic2,endpic2)     --Í¬Ê±ÏÔÊ¾Á½¸ö¶¯»­
     local old1=GetD(JY.SubScene,id1,5);
     local old2=GetD(JY.SubScene,id1,6);
     local old3=GetD(JY.SubScene,id1,7);
@@ -5154,40 +5153,40 @@ function instruct_44(id1,startpic1,endpic1,id2,startpic2,endpic2)     --åŒæ—¶æ˜
 end
 
 
-function instruct_45(id,value)        --å¢åŠ è½»åŠŸ
-    local add,str=AddPersonAttrib(id,"è½»åŠŸ",value);
-    DrawStrBoxWaitKey(JY.Person[id]["å§“å"] .. str,C_ORANGE,CC.DefaultFont);
+function instruct_45(id,value)        --Ôö¼ÓÇá¹¦
+    local add,str=AddPersonAttrib(id,"Çá¹¦",value);
+    DrawStrBoxWaitKey(JY.Person[id]["ĞÕÃû"] .. str,C_ORANGE,CC.DefaultFont);
 end
 
 
-function instruct_46(id,value)            --å¢åŠ å†…åŠ›
-    local add,str=AddPersonAttrib(id,"å†…åŠ›æœ€å¤§å€¼",value);
-    AddPersonAttrib(id,"å†…åŠ›",0);
-    DrawStrBoxWaitKey(JY.Person[id]["å§“å"] .. str,C_ORANGE,CC.DefaultFont);
+function instruct_46(id,value)            --Ôö¼ÓÄÚÁ¦
+    local add,str=AddPersonAttrib(id,"ÄÚÁ¦×î´óÖµ",value);
+    AddPersonAttrib(id,"ÄÚÁ¦",0);
+    DrawStrBoxWaitKey(JY.Person[id]["ĞÕÃû"] .. str,C_ORANGE,CC.DefaultFont);
 end
 
 
 function instruct_47(id,value)
-    local add,str=AddPersonAttrib(id,"æ”»å‡»åŠ›",value);           --å¢åŠ æ”»å‡»åŠ›
-    DrawStrBoxWaitKey(JY.Person[id]["å§“å"] .. str,C_ORANGE,CC.DefaultFont);
+    local add,str=AddPersonAttrib(id,"¹¥»÷Á¦",value);           --Ôö¼Ó¹¥»÷Á¦
+    DrawStrBoxWaitKey(JY.Person[id]["ĞÕÃû"] .. str,C_ORANGE,CC.DefaultFont);
 end
 
 
-function instruct_48(id,value)         --å¢åŠ ç”Ÿå‘½
-    local add,str=AddPersonAttrib(id,"ç”Ÿå‘½æœ€å¤§å€¼",value);
-    AddPersonAttrib(id,"ç”Ÿå‘½",0);
-    if instruct_16(id)==true then             --æˆ‘æ–¹é˜Ÿå‘˜ï¼Œæ˜¾ç¤ºå¢åŠ 
-        DrawStrBoxWaitKey(JY.Person[id]["å§“å"] .. str,C_ORANGE,CC.DefaultFont);
+function instruct_48(id,value)         --Ôö¼ÓÉúÃü
+    local add,str=AddPersonAttrib(id,"ÉúÃü×î´óÖµ",value);
+    AddPersonAttrib(id,"ÉúÃü",0);
+    if instruct_16(id)==true then             --ÎÒ·½¶ÓÔ±£¬ÏÔÊ¾Ôö¼Ó
+        DrawStrBoxWaitKey(JY.Person[id]["ĞÕÃû"] .. str,C_ORANGE,CC.DefaultFont);
     end
 end
 
 
-function instruct_49(personid,value)       --è®¾ç½®å†…åŠ›å±æ€§
-    JY.Person[personid]["å†…åŠ›æ€§è´¨"]=value;
+function instruct_49(personid,value)       --ÉèÖÃÄÚÁ¦ÊôĞÔ
+    JY.Person[personid]["ÄÚÁ¦ĞÔÖÊ"]=value;
 end
 
---åˆ¤æ–­æ˜¯å¦æœ‰5ç§ç‰©å“
-function instruct_50(id1,id2,id3,id4,id5)       --åˆ¤æ–­æ˜¯å¦æœ‰5ç§ç‰©å“
+--ÅĞ¶ÏÊÇ·ñÓĞ5ÖÖÎïÆ·
+function instruct_50(id1,id2,id3,id4,id5)       --ÅĞ¶ÏÊÇ·ñÓĞ5ÖÖÎïÆ·
     local num=0;
     if instruct_18(id1)==true then
         num=num+1;
@@ -5212,33 +5211,33 @@ function instruct_50(id1,id2,id3,id4,id5)       --åˆ¤æ–­æ˜¯å¦æœ‰5ç§ç‰©å“
 end
 
 
-function instruct_51()     --é—®è½¯ä½“å¨ƒå¨ƒ
+function instruct_51()     --ÎÊÈíÌåÍŞÍŞ
     instruct_1(2547+Rnd(18),114,0);
 end
 
 
-function instruct_52()       --çœ‹å“å¾·
-    DrawStrBoxWaitKey(string.format("ä½ ç°åœ¨çš„å“å¾·æŒ‡æ•°ä¸º: %d",JY.Person[0]["å“å¾·"]),C_ORANGE,CC.DefaultFont);
+function instruct_52()       --¿´Æ·µÂ
+    DrawStrBoxWaitKey(string.format("ÄãÏÖÔÚµÄÆ·µÂÖ¸ÊıÎª: %d",JY.Person[0]["Æ·µÂ"]),C_ORANGE,CC.DefaultFont);
 end
 
 
-function instruct_53()        --çœ‹å£°æœ›
-    DrawStrBoxWaitKey(string.format("ä½ ç°åœ¨çš„å£°æœ›æŒ‡æ•°ä¸º: %d",JY.Person[0]["å£°æœ›"]),C_ORANGE,CC.DefaultFont);
+function instruct_53()        --¿´ÉùÍû
+    DrawStrBoxWaitKey(string.format("ÄãÏÖÔÚµÄÉùÍûÖ¸ÊıÎª: %d",JY.Person[0]["ÉùÍû"]),C_ORANGE,CC.DefaultFont);
 end
 
 
-function instruct_54()        --å¼€æ”¾å…¶ä»–åœºæ™¯
+function instruct_54()        --¿ª·ÅÆäËû³¡¾°
     for i = 0, JY.SceneNum-1 do
-        JY.Scene[i]["è¿›å…¥æ¡ä»¶"]=0;
+        JY.Scene[i]["½øÈëÌõ¼ş"]=0;
     end
-    JY.Scene[2]["è¿›å…¥æ¡ä»¶"]=2;    --äº‘é¹¤å´–
-    JY.Scene[38]["è¿›å…¥æ¡ä»¶"]=2;   --æ‘©å¤©å´–
-    JY.Scene[75]["è¿›å…¥æ¡ä»¶"]=1;   --æ¡ƒèŠ±å²›
-    JY.Scene[80]["è¿›å…¥æ¡ä»¶"]=1;   --ç»æƒ…è°·åº•
+    JY.Scene[2]["½øÈëÌõ¼ş"]=2;    --ÔÆº×ÑÂ
+    JY.Scene[38]["½øÈëÌõ¼ş"]=2;   --Ä¦ÌìÑÂ
+    JY.Scene[75]["½øÈëÌõ¼ş"]=1;   --ÌÒ»¨µº
+    JY.Scene[80]["½øÈëÌõ¼ş"]=1;   --¾øÇé¹Èµ×
 end
 
 
-function instruct_55(id,num)      --åˆ¤æ–­D*ç¼–å·çš„è§¦å‘äº‹ä»¶
+function instruct_55(id,num)      --ÅĞ¶ÏD*±àºÅµÄ´¥·¢ÊÂ¼ş
     if GetD(JY.SubScene,id,2)==num then
         return true;
     else
@@ -5247,13 +5246,13 @@ function instruct_55(id,num)      --åˆ¤æ–­D*ç¼–å·çš„è§¦å‘äº‹ä»¶
 end
 
 
-function instruct_56(v)             --å¢åŠ å£°æœ›
-    JY.Person[0]["å£°æœ›"]=JY.Person[0]["å£°æœ›"]+v;
-    instruct_2_sub();     --æ˜¯å¦å¯ä»¥å¢åŠ æ­¦æ—å¸–
+function instruct_56(v)             --Ôö¼ÓÉùÍû
+    JY.Person[0]["ÉùÍû"]=JY.Person[0]["ÉùÍû"]+v;
+    instruct_2_sub();     --ÊÇ·ñ¿ÉÒÔÔö¼ÓÎäÁÖÌû
 end
 
---é«˜æ˜Œè¿·å®«åŠˆé—¨
-function instruct_57()       --é«˜æ˜Œè¿·å®«åŠˆé—¨
+--¸ß²ıÃÔ¹¬ÅüÃÅ
+function instruct_57()       --¸ß²ıÃÔ¹¬ÅüÃÅ
     instruct_27(-1,7664,7674);
     --Cls();
 	--ShowScreen();
@@ -5282,12 +5281,12 @@ function instruct_57()       --é«˜æ˜Œè¿·å®«åŠˆé—¨
     end
 end
 
---æ­¦é“å¤§ä¼šæ¯”æ­¦
-function instruct_58()           --æ­¦é“å¤§ä¼šæ¯”æ­¦
-    local group=5           --æ¯”æ­¦çš„ç»„æ•°
-    local num1 = 6          --æ¯ç»„æœ‰å‡ ä¸ªæˆ˜æ–—
-    local num2 = 3          --é€‰æ‹©çš„æˆ˜æ–—æ•°
-    local startwar=102      --èµ·å§‹æˆ˜æ–—ç¼–å·
+--ÎäµÀ´ó»á±ÈÎä
+function instruct_58()           --ÎäµÀ´ó»á±ÈÎä
+    local group=5           --±ÈÎäµÄ×éÊı
+    local num1 = 6          --Ã¿×éÓĞ¼¸¸öÕ½¶·
+    local num2 = 3          --Ñ¡ÔñµÄÕ½¶·Êı
+    local startwar=102      --ÆğÊ¼Õ½¶·±àºÅ
     local flag={};
 
     for i = 0,group-1 do
@@ -5297,21 +5296,21 @@ function instruct_58()           --æ­¦é“å¤§ä¼šæ¯”æ­¦
 
         for j = 1,num2 do
             local r;
-            while true do          --é€‰æ‹©ä¸€åœºæˆ˜æ–—
+            while true do          --Ñ¡ÔñÒ»³¡Õ½¶·
                 r=Rnd(num1);
                 if flag[r]==0 then
                     flag[r]=1;
                     break;
                 end
             end
-            local warnum =r+i*num1;      --æ­¦é“å¤§ä¼šæˆ˜æ–—ç¼–å·
+            local warnum =r+i*num1;      --ÎäµÀ´ó»áÕ½¶·±àºÅ
             WarLoad(warnum + startwar);
-            instruct_1(2854+warnum, JY.Person[WAR.Data["æ•Œäºº1"]]["å¤´åƒä»£å·"], 0);
+            instruct_1(2854+warnum, JY.Person[WAR.Data["µĞÈË1"]]["Í·Ïñ´úºÅ"], 0);
             instruct_0();
-            if WarMain(warnum + startwar, 0) ==true  then     --èµ¢
+            if WarMain(warnum + startwar, 0) ==true  then     --Ó®
                 instruct_0();
                 instruct_13();
-                TalkEx("è¿˜æœ‰é‚£ä½å‰è¾ˆè‚¯èµæ•™ï¼Ÿ", 0, 1)
+                TalkEx("»¹ÓĞÄÇÎ»Ç°±²¿Ï´Í½Ì£¿", 0, 1)
                 instruct_0();
             else
                 instruct_15();
@@ -5320,31 +5319,31 @@ function instruct_58()           --æ­¦é“å¤§ä¼šæ¯”æ­¦
         end
 
         if i < group - 1 then
-            TalkEx("å°‘ä¾ å·²è¿æˆ˜ä¸‰åœºï¼Œ*å¯å…ˆä¼‘æ¯å†æˆ˜ï¼", 70, 0);
+            TalkEx("ÉÙÏÀÒÑÁ¬Õ½Èı³¡£¬*¿ÉÏÈĞİÏ¢ÔÙÕ½£®", 70, 0);
             instruct_0();
             instruct_14();
             lib.Delay(300);
-            if JY.Person[0]["å—ä¼¤ç¨‹åº¦"] < 50 and JY.Person[0]["ä¸­æ¯’ç¨‹åº¦"] <= 0 then
-               JY.Person[0]["å—ä¼¤ç¨‹åº¦"] = 0
-               AddPersonAttrib(0,"ä½“åŠ›",math.huge);
-               AddPersonAttrib(0,"å†…åŠ›",math.huge);
-               AddPersonAttrib(0,"ç”Ÿå‘½",math.huge);
+            if JY.Person[0]["ÊÜÉË³Ì¶È"] < 50 and JY.Person[0]["ÖĞ¶¾³Ì¶È"] <= 0 then
+               JY.Person[0]["ÊÜÉË³Ì¶È"] = 0
+               AddPersonAttrib(0,"ÌåÁ¦",math.huge);
+               AddPersonAttrib(0,"ÄÚÁ¦",math.huge);
+               AddPersonAttrib(0,"ÉúÃü",math.huge);
             end
             instruct_13();
-            TalkEx("æˆ‘å·²ç»ä¼‘æ¯å¤Ÿäº†ï¼Œ*æœ‰è°è¦å†ä¸Šï¼Ÿ",0,1);
+            TalkEx("ÎÒÒÑ¾­ĞİÏ¢¹»ÁË£¬*ÓĞË­ÒªÔÙÉÏ£¿",0,1);
             instruct_0();
         end
     end
 
-    TalkEx("æ¥ä¸‹æ¥æ¢è°ï¼Ÿ**ï¼ï¼ï¼ï¼*ï¼ï¼ï¼ï¼***æ²¡æœ‰äººäº†å—ï¼Ÿ",0,1);
+    TalkEx("½ÓÏÂÀ´»»Ë­£¿**£®£®£®£®*£®£®£®£®***Ã»ÓĞÈËÁËÂğ£¿",0,1);
     instruct_0();
-    TalkEx("å¦‚æœè¿˜æ²¡æœ‰äººè¦å‡ºæ¥å‘è¿™ä½*å°‘ä¾ æŒ‘æˆ˜ï¼Œé‚£éº½è¿™æ­¦åŠŸå¤©ä¸‹*ç¬¬ä¸€ä¹‹åï¼Œæ­¦æ—ç›Ÿä¸»ä¹‹ä½ï¼Œ*å°±ç”±è¿™ä½å°‘ä¾ å¤ºå¾—ï¼***ï¼ï¼ï¼ï¼ï¼ï¼*ï¼ï¼ï¼ï¼ï¼ï¼*ï¼ï¼ï¼ï¼ï¼ï¼*å¥½ï¼Œæ­å–œå°‘ä¾ ï¼Œè¿™æ­¦æ—ç›Ÿä¸»*ä¹‹ä½å°±ç”±å°‘ä¾ è·å¾—ï¼Œè€Œè¿™æŠŠ*â€æ­¦æ—ç¥æ–â€ä¹Ÿç”±ä½ ä¿ç®¡ï¼",70,0);
+    TalkEx("Èç¹û»¹Ã»ÓĞÈËÒª³öÀ´ÏòÕâÎ»*ÉÙÏÀÌôÕ½£¬ÄÇ÷áÕâÎä¹¦ÌìÏÂ*µÚÒ»Ö®Ãû£¬ÎäÁÖÃËÖ÷Ö®Î»£¬*¾ÍÓÉÕâÎ»ÉÙÏÀ¶áµÃ£®***£®£®£®£®£®£®*£®£®£®£®£®£®*£®£®£®£®£®£®*ºÃ£¬¹§Ï²ÉÙÏÀ£¬ÕâÎäÁÖÃËÖ÷*Ö®Î»¾ÍÓÉÉÙÏÀ»ñµÃ£¬¶øÕâ°Ñ*¡±ÎäÁÖÉñÕÈ¡±Ò²ÓÉÄã±£¹Ü£®",70,0);
     instruct_0();
-    TalkEx("æ­å–œå°‘ä¾ ï¼",12,0);
+    TalkEx("¹§Ï²ÉÙÏÀ£¡",12,0);
     instruct_0();
-    TalkEx("å°å…„å¼Ÿï¼Œæ­å–œä½ ï¼",64,4);
+    TalkEx("Ğ¡ĞÖµÜ£¬¹§Ï²Äã£¡",64,4);
     instruct_0();
-    TalkEx("å¥½ï¼Œä»Šå¹´çš„æ­¦æ—å¤§ä¼šåˆ°æ­¤å·²*åœ†æ»¡ç»“æŸï¼Œå¸Œæœ›æ˜å¹´å„ä½æ­¦*æ—åŒé“èƒ½å†åˆ°æˆ‘åå±±ä¸€æ¸¸ï¼",19,0);
+    TalkEx("ºÃ£¬½ñÄêµÄÎäÁÖ´ó»áµ½´ËÒÑ*Ô²Âú½áÊø£¬Ï£ÍûÃ÷Äê¸÷Î»Îä*ÁÖÍ¬µÀÄÜÔÙµ½ÎÒ»ªÉ½Ò»ÓÎ£®",19,0);
     instruct_0();
     instruct_14();
     for i = 24,72 do
@@ -5352,17 +5351,17 @@ function instruct_58()           --æ­¦é“å¤§ä¼šæ¯”æ­¦
     end
     instruct_0();
     instruct_13();
-    TalkEx("å†ç»åƒè¾›ä¸‡è‹¦ï¼Œæˆ‘ç»ˆæ–¼æ‰“è´¥*ç¾¤é›„ï¼Œå¾—åˆ°è¿™æ­¦æ—ç›Ÿä¸»ä¹‹ä½*åŠç¥æ–ï¼*ä½†æ˜¯â€åœ£å ‚â€åœ¨é‚£å‘¢ï¼Ÿ*ä¸ºä»€éº½æ²¡äººå‘Šè¯‰æˆ‘ï¼Œéš¾é“å¤§*å®¶éƒ½ä¸çŸ¥é“ï¼*è¿™ä¼šå„¿åˆæœ‰çš„æ‰¾äº†ï¼", 0, 1)
+    TalkEx("Àú¾­Ç§ĞÁÍò¿à£¬ÎÒÖÕì¶´ò°Ü*ÈºĞÛ£¬µÃµ½ÕâÎäÁÖÃËÖ÷Ö®Î»*¼°ÉñÕÈ£®*µ«ÊÇ¡±Ê¥ÌÃ¡±ÔÚÄÇÄØ£¿*ÎªÊ²÷áÃ»ÈË¸æËßÎÒ£¬ÄÑµÀ´ó*¼Ò¶¼²»ÖªµÀ£®*Õâ»á¶ùÓÖÓĞµÄÕÒÁË£®", 0, 1)
     instruct_0();
-    instruct_2(143, 1)           --å¾—åˆ°ç¥æ–
+    instruct_2(143, 1)           --µÃµ½ÉñÕÈ
 
 end
 
---å…¨ä½“é˜Ÿå‘˜ç¦»é˜Ÿ
-function instruct_59()           --å…¨ä½“é˜Ÿå‘˜ç¦»é˜Ÿ
+--È«Ìå¶ÓÔ±Àë¶Ó
+function instruct_59()           --È«Ìå¶ÓÔ±Àë¶Ó
     for i=CC.TeamNum,2,-1 do
-	    if JY.Base["é˜Ÿä¼" .. i]>=0 then
-            instruct_21(JY.Base["é˜Ÿä¼" .. i]);
+	    if JY.Base["¶ÓÎé" .. i]>=0 then
+            instruct_21(JY.Base["¶ÓÎé" .. i]);
 	    end
     end
 
@@ -5371,8 +5370,8 @@ function instruct_59()           --å…¨ä½“é˜Ÿå‘˜ç¦»é˜Ÿ
     end
 end
 
---åˆ¤æ–­D*å›¾ç‰‡
-function instruct_60(sceneid,id,num)          --åˆ¤æ–­D*å›¾ç‰‡
+--ÅĞ¶ÏD*Í¼Æ¬
+function instruct_60(sceneid,id,num)          --ÅĞ¶ÏD*Í¼Æ¬
     if sceneid==-2 then
          sceneid=JY.SubScene;
     end
@@ -5388,8 +5387,8 @@ function instruct_60(sceneid,id,num)          --åˆ¤æ–­D*å›¾ç‰‡
     end
 end
 
---åˆ¤æ–­æ˜¯å¦æ”¾å®Œ14å¤©ä¹¦
-function instruct_61()               --åˆ¤æ–­æ˜¯å¦æ”¾å®Œ14å¤©ä¹¦
+--ÅĞ¶ÏÊÇ·ñ·ÅÍê14ÌìÊé
+function instruct_61()               --ÅĞ¶ÏÊÇ·ñ·ÅÍê14ÌìÊé
     for i=11,24 do
         if GetD(JY.SubScene,i,5) ~= 4664 then
             return false;
@@ -5398,12 +5397,12 @@ function instruct_61()               --åˆ¤æ–­æ˜¯å¦æ”¾å®Œ14å¤©ä¹¦
     return true;
 end
 
---æ’­æ”¾æ—¶ç©ºæœºåŠ¨ç”»ï¼Œç»“æŸ
-function instruct_62(id1,startnum1,endnum1,id2,startnum2,endnum2)      --æ’­æ”¾æ—¶ç©ºæœºåŠ¨ç”»ï¼Œç»“æŸ
+--²¥·ÅÊ±¿Õ»ú¶¯»­£¬½áÊø
+function instruct_62(id1,startnum1,endnum1,id2,startnum2,endnum2)      --²¥·ÅÊ±¿Õ»ú¶¯»­£¬½áÊø
       JY.MyPic=-1;
       instruct_44(id1,startnum1,endnum1,id2,startnum2,endnum2);
 
-      --æ­¤å¤„åº”è¯¥æ’å…¥æ­£è§„çš„ç‰‡å°¾åŠ¨ç”»ã€‚è¿™é‡Œæš‚æ—¶ç”¨å›¾ç‰‡ä»£æ›¿
+      --´Ë´¦Ó¦¸Ã²åÈëÕı¹æµÄÆ¬Î²¶¯»­¡£ÕâÀïÔİÊ±ÓÃÍ¼Æ¬´úÌæ
 
 	  --lib.LoadPicture(CONFIG.PicturePath .."end.png",-1,-1);
 	  ShowScreen();	  
@@ -5434,18 +5433,18 @@ function instruct_62(id1,startnum1,endnum1,id2,startnum2,endnum2)      --æ’­æ”¾æ
 	  JY.Status=xx;
 end
 
---è®¾ç½®æ€§åˆ«
-function instruct_63(personid,sex)          --è®¾ç½®æ€§åˆ«
-    JY.Person[personid]["æ€§åˆ«"]=sex
+--ÉèÖÃĞÔ±ğ
+function instruct_63(personid,sex)          --ÉèÖÃĞÔ±ğ
+    JY.Person[personid]["ĞÔ±ğ"]=sex
 end
 
---å°å®å–ä¸œè¥¿
-function instruct_64()                 --å°å®å–ä¸œè¥¿
-    local headid=223;           --å°å®å¤´åƒ
+--Ğ¡±¦Âô¶«Î÷
+function instruct_64()                 --Ğ¡±¦Âô¶«Î÷
+    local headid=223;           --Ğ¡±¦Í·Ïñ
 
     local ts=0;
     local id=-1;
-    for i=0,JY.ShopNum-1 do                --æ‰¾åˆ°å½“å‰å•†åº—id
+    for i=0,JY.ShopNum-1 do                --ÕÒµ½µ±Ç°ÉÌµêid
         if CC.ShopScene[i].sceneid==JY.SubScene then
             id=i;
             break;
@@ -5455,22 +5454,22 @@ function instruct_64()                 --å°å®å–ä¸œè¥¿
         return ;
     end
 
-    TalkEx("è¿™ä½å°å“¥ï¼Œçœ‹çœ‹æœ‰ä»€éº½éœ€è¦*çš„ï¼Œå°åº—å–çš„ä¸œè¥¿ä»·é’±ç»*å¯¹å…¬é“ï¼",headid,0);
+    TalkEx("ÕâÎ»Ğ¡¸ç£¬¿´¿´ÓĞÊ²÷áĞèÒª*µÄ£¬Ğ¡µêÂôµÄ¶«Î÷¼ÛÇ®¾ø*¶Ô¹«µÀ£®",headid,0);
 
     local menu={};
     for i=1,5 do
         menu[i]={};
-        local thingid=JY.Shop[id]["ç‰©å“" ..i];
-        menu[i][1]=string.format("%-12s %5d",JY.Thing[thingid]["åç§°"],JY.Shop[id]["ç‰©å“ä»·æ ¼" ..i]);
+        local thingid=JY.Shop[id]["ÎïÆ·" ..i];
+        menu[i][1]=string.format("%-12s %5d",JY.Thing[thingid]["Ãû³Æ"],JY.Shop[id]["ÎïÆ·¼Û¸ñ" ..i]);
         menu[i][2]=nil;
-        if JY.Shop[id]["ç‰©å“æ•°é‡" ..i] >0 then
+        if JY.Shop[id]["ÎïÆ·ÊıÁ¿" ..i] >0 then
             menu[i][3]=1;
         else
             menu[i][3]=0;
         end			  
     end
 	for i=1,200 do 
-			if JY.Base["ç‰©å“"..i]>143 and JY.Base["ç‰©å“"..i]<158 then
+			if JY.Base["ÎïÆ·"..i]>143 and JY.Base["ÎïÆ·"..i]<158 then
 				ts=ts+1
 			end
 	end		   
@@ -5488,25 +5487,25 @@ function instruct_64()                 --å°å®å–ä¸œè¥¿
     if r>0 then
 	    
 		
-        if instruct_31(JY.Shop[id]["ç‰©å“ä»·æ ¼" ..r])==false then
-            TalkEx("éå¸¸æŠ±æ­‰ï¼Œ*ä½ èº«ä¸Šçš„é’±ä¼¼ä¹ä¸å¤Ÿï¼",headid,0);
+        if instruct_31(JY.Shop[id]["ÎïÆ·¼Û¸ñ" ..r])==false then
+            TalkEx("·Ç³£±§Ç¸£¬*ÄãÉíÉÏµÄÇ®ËÆºõ²»¹»£®",headid,0);
         else
-            JY.Shop[id]["ç‰©å“æ•°é‡" ..r]=JY.Shop[id]["ç‰©å“æ•°é‡" ..r]-1;
-            instruct_32(CC.MoneyID,-JY.Shop[id]["ç‰©å“ä»·æ ¼" ..r]);
-            instruct_32(JY.Shop[id]["ç‰©å“" ..r],1);
-            TalkEx("å¤§çˆ·ä¹°äº†å°åº—çš„ä¸œè¥¿ï¼Œ*ä¿è¯ç»ä¸å¾Œæ‚”ï¼",headid,0);
+            JY.Shop[id]["ÎïÆ·ÊıÁ¿" ..r]=JY.Shop[id]["ÎïÆ·ÊıÁ¿" ..r]-1;
+            instruct_32(CC.MoneyID,-JY.Shop[id]["ÎïÆ·¼Û¸ñ" ..r]);
+            instruct_32(JY.Shop[id]["ÎïÆ·" ..r],1);
+            TalkEx("´óÒ¯ÂòÁËĞ¡µêµÄ¶«Î÷£¬*±£Ö¤¾ø²»áá»Ú£®",headid,0);
         end
     end
 		
     for i,v in ipairs(CC.ShopScene[id].d_leave) do
-        instruct_3(-2,v,0,-2,-1,-1,939,-1,-1,-1,-2,-2,-2);      --è®¾ç½®ç¦»å¼€åœºæ™¯æ—¶è§¦å‘å°å®ç¦»å¼€äº‹ä»¶ï¼Œ
+        instruct_3(-2,v,0,-2,-1,-1,939,-1,-1,-1,-2,-2,-2);      --ÉèÖÃÀë¿ª³¡¾°Ê±´¥·¢Ğ¡±¦Àë¿ªÊÂ¼ş£¬
     end
 end
 
---å°å®å»å…¶ä»–å®¢æ ˆ
-function instruct_65()           --å°å®å»å…¶ä»–å®¢æ ˆ
+--Ğ¡±¦È¥ÆäËû¿ÍÕ»
+function instruct_65()           --Ğ¡±¦È¥ÆäËû¿ÍÕ»
     local id=-1;
-    for i=0,JY.ShopNum-1 do                --æ‰¾åˆ°å½“å‰å•†åº—id
+    for i=0,JY.ShopNum-1 do                --ÕÒµ½µ±Ç°ÉÌµêid
         if CC.ShopScene[i].sceneid==JY.SubScene then
             id=i;
             break;
@@ -5516,36 +5515,36 @@ function instruct_65()           --å°å®å»å…¶ä»–å®¢æ ˆ
         return ;
     end
 
-    ---æ¸…é™¤å½“å‰å•†åº—æ‰€æœ‰å°å®DÃ—
+    ---Çå³ıµ±Ç°ÉÌµêËùÓĞĞ¡±¦D¡Á
     instruct_3(-2,CC.ShopScene[id].d_shop,0,-2,-1,-1,-1,-1,-1,-1,-2,-2,-2);
     for i,v in ipairs(CC.ShopScene[id].d_leave) do
         instruct_3(-2,v,0,-2,-1,-1,-1,-1,-1,-1,-2,-2,-2);
     end
 
-    local newid=id+1;              --æš‚æ—¶ç”¨é¡ºåºå–ä»£éšæœºï¼Œ
+    local newid=id+1;              --ÔİÊ±ÓÃË³ĞòÈ¡´úËæ»ú£¬
     if newid>=5 then
         newid=0;
     end
 
-    --è®¾ç½®æ–°çš„å°å®å•†åº—ä½ç½®
+    --ÉèÖÃĞÂµÄĞ¡±¦ÉÌµêÎ»ÖÃ
     instruct_3(CC.ShopScene[newid].sceneid,CC.ShopScene[newid].d_shop,1,-2,938,-1,-1,8256,8256,8256,-2,-2,-2);
 end
 
---æ’­æ”¾éŸ³ä¹
-function instruct_66(id)       --æ’­æ”¾éŸ³ä¹
+--²¥·ÅÒôÀÖ
+function instruct_66(id)       --²¥·ÅÒôÀÖ
     PlayMIDI(id);
 end
 
---æ’­æ”¾éŸ³æ•ˆ
-function instruct_67(id)      --æ’­æ”¾éŸ³æ•ˆ
+--²¥·ÅÒôĞ§
+function instruct_67(id)      --²¥·ÅÒôĞ§
      PlayWavAtk(id);
 end
 
 
 
 function Shurufa(x,y)
-	local pinyin=""				--ç”¨äºä¿å­˜æ‹¼éŸ³å­—ç¬¦ä¸²
-	local word=""				--ç”¨äºä¿å­˜å·²è¾“å…¥çš„æ–‡æœ¬
+	local pinyin=""				--ÓÃÓÚ±£´æÆ´Òô×Ö·û´®
+	local word=""				--ÓÃÓÚ±£´æÒÑÊäÈëµÄÎÄ±¾
 	while true do
 		local tmp;
 		pinyin,tmp=GetPinyin(x,y,word)
@@ -5558,1604 +5557,1604 @@ function Shurufa(x,y)
 return word
 end
 
-function SeleteHanzi(x,y,word,pinyin)--é€‰å­—
+function SeleteHanzi(x,y,word,pinyin)--Ñ¡×Ö
 	local T1=
 {
 de=
 {
-"çš„","åœ°","å¾—","å¾·","åº•","é”"
+"µÄ","µØ","µÃ","µÂ","µ×","ï½"
 },
 di=
 {
-"çš„","åœ°","ç¬¬","æ","ä½","åº•","æŠµ","å¼Ÿ","è¿ª","é€’","å¸","æ•Œ","å ¤","è’‚","ç¼”","æ»´","æ¶¤","ç¿Ÿ","å¨£","ç¬›","æ££","è»","è°›","ç‹„","é‚¸","å˜€","ç ¥","å»","è¯‹","å«¡","é•","ç¢²","éª¶","æ°","æŸ¢","ç»¨","ç±´","ç¾","ç‡","è§Œ"
+"µÄ","µØ","µÚ","Ìá","µÍ","µ×","µÖ","µÜ","µÏ","µİ","µÛ","µĞ","µÌ","µÙ","µŞ","µÎ","µÓ","µÔ","æ·","µÑ","é¦","İ¶","ÚĞ","µÒ","Û¡","àÖ","íÆ","Ûæ","Ú®","µÕ","ïá","íÚ","÷¾","Øµ","èÜ","ç°","Ùá","ôÆ","íû","êë"
 },
 yi=
 {
-"ä¸€","ä»¥","å·²","æ„","è®®","ä¹‰","ç›Š","äº¿","æ˜“","åŒ»","è‰º","ä¾","ç§»","è¡£","å¼‚","ä¼Š","ä»ª","å®œ","é—","ç–‘","æ¯…","è°Š","äº¦","ç–«","å½¹","å¿†","æŠ‘","ä¹™","è¯‘","ç¿¼","æº¢","æ¤…","æ²‚","é€¸","èš","å¤·","é‚‘","æ€¡","ç»","å½","è£”","å§¨","ç† ","è´»","çŸ£","å±¹","é¢","å€š","è¯£","èƒ°","å¥•","ç¿Œ","å¼ˆ","è½¶","é©¿","å£¹","çŒ—","è‡†","å¼‹","é“±","æ—–","æ¼ª","è¿¤","ä½š","ç¿Š","è¯’","æ€¿","ç—","æ‡¿","é¥´","å³„","æ–","çœ™","é•’","ä»¡","é»Ÿ","è‚„","å’¿","ç¿³","æŒ¹","ç¼¢","å‘“","åˆˆ","å’¦","å¶·","ç¾¿","é’‡","æ®ª","è‘","è–","èœ´","é•±","å™«","ç™”","è‹¡","æ‚’","å—Œ","ç˜—","æ¬¹","ä½¾","åŸ¸","åœ¯","èˆ£","é…","åŠ“"
+"Ò»","ÒÔ","ÒÑ","Òâ","Òé","Òå","Òæ","ÒÚ","Ò×","Ò½","ÒÕ","ÒÀ","ÒÆ","ÒÂ","Òì","ÒÁ","ÒÇ","ÒË","ÒÅ","ÒÉ","Òã","Òê","Òà","Òß","ÒÛ","Òä","ÒÖ","ÒÒ","Òë","Òí","Òç","ÒÎ","ÒÊ","Òİ","ÒÏ","ÒÄ","ÒØ","âù","Òï","ÒÍ","Òá","ÒÌ","ìÚ","êİ","ÒÓ","ÒÙ","ÒÃ","ÒĞ","Òè","ÒÈ","ŞÈ","Òî","ŞÄ","éó","æä","Ò¼","â¢","ÒÜ","ß®","Ò¿","ì½","äô","åÆ","Øı","ñ´","Ú±","âø","ğê","Ü²","âÂ","á»","Ò¾","íô","ï×","Øî","÷ğ","ÒŞ","ßŞ","ôè","ŞÚ","çË","ß½","Ø×","ß×","áÚ","ôà","îÆ","éì","Üè","Ş²","òæ","ïî","àæ","ñ¯","ÜÓ","ã¨","àÉ","ğù","ì¥","Ù«","Ûü","Ûİ","ô¯","ôı","Øæ"
 },
 guo=
 {
-"å›½","è¿‡","æœ","éƒ­","é”…","è£¹","å¸¼","æ¶¡","æ¤","èˆ","è™¢","è’","åŸš","æ´","çŒ“","å´","èœ¾","å‘™","é¦˜"
+"¹ú","¹ı","¹û","¹ù","¹ø","¹ü","àş","ÎĞ","é¤","òå","ë½","ñø","Ûö","Şâ","â£","áÆ","òä","ßÃ","Ùå"
 },
 zai=
 {
-"åœ¨","å†","ç¾","è½½","æ ½","ä»”","å®°","å“‰","å´½","ç”¾"
+"ÔÚ","ÔÙ","ÔÖ","ÔØ","ÔÔ","×Ğ","Ô×","ÔÕ","áÌ","çŞ"
 },
 ren=
 {
-"äºº","ä»»","è®¤","ä»","å¿","éŸ§","åˆƒ","çº«","é¥ª","å¦Š","è","ç¨”","å£¬","ä»","è½«","è¡½","è‘š"
+"ÈË","ÈÎ","ÈÏ","ÈÊ","ÈÌ","ÈÍ","ÈĞ","ÈÒ","â¿","ÈÑ","Üó","ïş","ÈÉ","Øğ","éí","ñÅ","İØ"
 },
 le=
 {
-"äº†","ä¹","å‹’","è‚‹","å»","é³“","ä»‚","æ³"
+"ÁË","ÀÖ","ÀÕ","Àß","ß·","÷¦","Øì","ãî"
 },
 liao=
 {
-"äº†","æ–™","ç–—","è¾½","å»–","èŠ","å¯¥","åƒš","ç‡","ç¼­","æ’‚","æ’©","å˜¹","æ½¦","é•£","å¯®","è“¼","ç ","é’Œ","å°¥","é¹©"
+"ÁË","ÁÏ","ÁÆ","ÁÉ","ÁÎ","ÁÄ","ÁÈ","ÁÅ","ÁÇ","çÔ","ÁÌ","ÁÃ","àÚ","ÁÊ","ÁÍ","å¼","Ş¤","â²","îÉ","ŞÍ","ğÓ"
 },
 you=
 {
-"æœ‰","ç”±","åˆ","ä¼˜","æ¸¸","æ²¹","å‹","å³","é‚®","å°¤","å¿§","å¹¼","çŠ¹","è¯±","æ‚ ","å¹½","ä½‘","é‡‰","æŸš","é“€","é±¿","å›¿","é…‰","æ”¸","é»","è ","çŒ·","è£","ç–£","å‘¦","èš´","è¸","èœ","é“•","å®¥","ç¹‡","å£","ç‰–","é¼¬","è¤","å°¢","èš°","ä¾‘"
+"ÓĞ","ÓÉ","ÓÖ","ÓÅ","ÓÎ","ÓÍ","ÓÑ","ÓÒ","ÓÊ","ÓÈ","ÓÇ","Ó×","ÓÌ","ÓÕ","ÓÆ","ÓÄ","ÓÓ","ÓÔ","èÖ","ÓË","öÏ","àó","ÓÏ","Øü","÷î","İ¬","éà","òö","ğà","ßÏ","òÊ","İµ","İ¯","îğ","å¶","ôí","ØÕ","ë»","÷ø","òø","ŞÌ","òÄ","Ù§"
 },
 zhong=
 {
-"ä¸­","é‡","ç§","ä¼—","ç»ˆ","é’Ÿ","å¿ ","ä»²","è¡·","è‚¿","è¸µ","å†¢","ç›…","å¿ª","é”º","èˆ¯","è½"
+"ÖĞ","ÖØ","ÖÖ","ÖÚ","ÖÕ","ÖÓ","ÖÒ","ÖÙ","ÖÔ","Ö×","õà","Ú£","ÖÑ","âì","ïñ","ô±","ó®"
 },
 shi=
 {
-"æ˜¯","å¸‚","æ—¶","å®","äº‹","å","ä½¿","ä¸–","æ–½","å¼","åŠ¿","è§†","è¯†","å¸ˆ","å²","ç¤º","çŸ³","é£Ÿ","å§‹","å£«","å¤±","é€‚","è¯•","ä»€","å®¤","ä¼¼","è¯—","é¥°","æ®–","é‡Š","é©¶","æ°","é€","æ¹¿","èš€","ç‹®","èª“","æ‹¾","å°¸","åŒ™","ä»•","æŸ¿","çŸ¢","å³™","ä¾","å™¬","å—œ","æ‹­","å˜˜","å±","æƒ","è½¼","è™±","èˆ","è³","é“ˆ","è°¥","ç‚»","è±•","é²¥","è«","é…¾","ç­®","åŸ˜","å¼‘","è“","é²º","è´³"
+"ÊÇ","ÊĞ","Ê±","Êµ","ÊÂ","Ê®","Ê¹","ÊÀ","Ê©","Ê½","ÊÆ","ÊÓ","Ê¶","Ê¦","Ê·","Ê¾","Ê¯","Ê³","Ê¼","Ê¿","Ê§","ÊÊ","ÊÔ","Ê²","ÊÒ","ËÆ","Ê«","ÊÎ","Ö³","ÊÍ","Ê»","ÊÏ","ÊÅ","Êª","Ê´","Ê¨","ÊÄ","Ê°","Ê¬","³×","ÊË","ÊÁ","Ê¸","ÖÅ","ÊÌ","ÊÉ","ÊÈ","ÊÃ","Ğê","Êº","ÊÑ","éø","Ê­","óÂ","İª","îæ","ÚÖ","ìÂ","õ¹","öå","ó§","õ§","óß","Ûõ","ß±","İé","öõ","êÛ"
 },
 nian=
 {
-"å¹´","å¿µ","é…¿","ç²˜","ç¢¾","å»¿","æ»","æ’µ","æ‹ˆ","è”«","é²¶","åŸ","é²‡","è¾‡","é»"
+"Äê","Äî","Äğ","Õ³","Äë","Ø¥","Äí","Äì","Äé","Äè","öó","Ûş","öÓ","éı","ğ¤"
 },
 he=
 {
-"å’Œ","åˆ","æ²³","ä½•","æ ¸","è´º","å–","èµ«","è·","ç›’","é¹¤","å“","å‘µ","ç¦¾","è","å£‘","è¤","æ¶¸","é˜‚","é˜–","åŠ¾","è¯ƒ","é¢Œ","å—¬","è²‰","æ›·","ç¿®","çº¥","èšµ","ç›"
+"ºÍ","ºÏ","ºÓ","ºÎ","ºË","ºØ","ºÈ","ºÕ","ºÉ","ºĞ","º×","ÏÅ","ºÇ","ºÌ","ºÊ","ÛÖ","ºÖ","ºÔ","ºÒ","ãØ","ÛÀ","Ú­","ò¢","àÀ","ºÑ","êÂ","ôç","æü","òÂ","îÁ"
 },
 hu=
 {
-"å’Œ","æŠ¤","æˆ·","æ ¸","æ¹–","äº’","ä¹","å‘¼","èƒ¡","æˆ","å¿½","è™","æ²ª","ç³Š","å£¶","è‘«","ç‹","è´","å¼§","ç‘š","æµ’","é¹„","ç¥","æ‰ˆ","å”¬","æ»¹","æƒš","ç¥œ","å›«","æ–›","ç¬","é†","çŒ¢","æ€™","å”¿","æˆ½","æ§²","è§³","ç…³","é¹•","å†±","ç“ ","å²µ","é¹±","çƒ€","è½·"
+"ºÍ","»¤","»§","ºË","ºş","»¥","ºõ","ºô","ºú","Ï·","ºö","»¢","»¦","ºı","ºø","ºù","ºü","ºû","»¡","º÷","ä°","ğÀ","çú","ìè","»£","äï","ã±","ìï","àñ","õú","óË","õ­","â©","âï","ßü","ìæ","éÎ","ì²","ìÎ","ğÉ","Ùü","ğ­","á²","ğ×","ìÃ","éõ"
 },
 huo=
 {
-"å’Œ","æ´»","æˆ–","è´§","è·","ç«","ä¼™","æƒ‘","éœ","ç¥¸","è±","åš¯","è—¿","é”ª","è –","é’¬","è€ ","é•¬","å¤¥","åŠ","æ”‰"
+"ºÍ","»î","»ò","»õ","»ñ","»ğ","»ï","»ó","»ô","»ö","»í","àë","Ş½","ïÁ","ó¶","îØ","ñë","ïì","â·","Øå","ß«"
 },
 da=
 {
-"å¤§","è¾¾","æ‰“","ç­”","å¡”","æ­","æ²“","ç˜©","å—’","å“’","è€·","é‘","ç–¸","é¼","è¤¡","ç¬ª","æ€›","å¦²"
+"´ó","´ï","´ò","´ğ","Ëş","´î","í³","´ñ","àª","ßÕ","ŞÇ","÷²","ğã","÷°","ñ×","óÎ","âò","æ§"
 },
 dai=
 {
-"å¤§","ä»£","å¸¦","å¾…","è´·","æˆ´","è¢‹","æ­¹","å‘†","é€®","å²±","å‚£","æ€ ","æ®†","é»›","ç”™","åŸ­","ç»","ç³","å‘”","è¿¨","éª€"
+"´ó","´ú","´ø","´ı","´û","´÷","´ü","´õ","´ô","´ş","á·","´ö","µ¡","´ù","÷ì","ß°","Ü¤","çª","çé","ß¾","åÊ","ææ"
 },
 ye=
 {
-"ä¸š","ä¹Ÿ","å¤œ","å¶","é‡","æ¶²","å†¶","é¡µ","çˆ·","è€¶","é‚ª","å’½","æ¤°","å“—","çƒ¨","æ–","æ‹½","æ›³","æ™”","è°’","è…‹","å™","æ¶","é¥","é‚º","é“˜"
+"Òµ","Ò²","Ò¹","Ò¶","Ò°","Òº","Ò±","Ò³","Ò¯","Ò®","Ğ°","ÑÊ","Ò¬","»©","ìÇ","Ò´","×§","Ò·","êÊ","ÚË","Ò¸","Ò­","ŞŞ","ØÌ","Úş","îô"
 },
 bu=
 {
-"ä¸","éƒ¨","æ­¥","å¸ƒ","è¡¥","æ•","å ¡","åŸ”","åœ","åŸ ","ç°¿","å“º","æ€–","é’š","åŸ","ç“¿","é€‹","æ™¡","é†­","é’¸"
+"²»","²¿","²½","²¼","²¹","²¶","±¤","ÆÒ","²·","²º","²¾","²¸","²À","îĞ","ß²","ê³","åÍ","êÎ","õ³","îß"
 },
 wei=
 {
-"ä¸º","ä½","å§”","æœª","ç»´","å«","å›´","è¿","å¨","ä¼Ÿ","å±","å‘³","å¾®","é—","å”¯","è°“","ä¼ª","æ…°","å°¾","é­","éŸ¦","èƒƒ","ç•","å¸·","å–‚","å·","è","è”š","çº¬","æ½","å°‰","æ¸­","æƒŸ","è–‡","è‹‡","ç‚œ","åœ©","å¨“","è¯¿","ç®","å´´","æ¡…","å","é€¶","çŒ¥","å›—","è‘³","éš—","ç—¿","çŒ¬","æ¶ ","åµ¬","éŸª","ç…¨","è‰‰","å¸","é—±","æ´§","æ²©","éšˆ","é²”","è»"
+"Îª","Î»","Î¯","Î´","Î¬","ÎÀ","Î§","Î¥","Íş","Î°","Î£","Î¶","Î¢","ÒÅ","Î¨","Î½","Î±","Î¿","Î²","Îº","Î¤","Î¸","Î·","á¡","Î¹","Î¡","Î®","Îµ","Î³","Î«","Î¾","Î¼","Î©","Ş±","Î­","ì¿","Û×","æ¸","ÚÃ","çâ","áË","Î¦","ÙË","åÔ","â«","àí","İÚ","Úó","ğô","â¬","ä¶","áÍ","è¸","ìĞ","ôº","àø","ãÇ","ä¢","ãí","Úñ","öÛ","ê¦"
 },
 fa=
 {
-"å‘","æ³•","ç½š","ä¹","ä¼","é˜€","ç­","ç ","å¡","ç"
+"·¢","·¨","·£","·¦","·¥","·§","·¤","íÀ","ÛÒ","·©"
 },
 hui=
 {
-"ä¼š","å›","æŒ¥","æ±‡","æƒ ","è¾‰","æ¢","å¾½","ç»˜","æ¯","æ…§","ç°","è´¿","å‰","æ‚”","å¾Š","ç§½","æºƒ","èŸ","æ™–","å½—","è®³","è¯²","ç²","å •","è¯™","è•™","æ™¦","éº¾","çƒ©","èŒ´","å–™","æ¡§","è›”","æ´„","æµ","è™º","æš","èŸª","å’´","éš³","ç¼‹","å“•"
+"»á","»Ø","»Ó","»ã","»İ","»Ô","»Ö","»Õ","»æ","»Ù","»Û","»Ò","»ß","»Ü","»Ú","»²","»à","À£","Üö","êÍ","åç","»ä","»å","çõ","¶é","Ú¶","Ş¥","»Ş","÷â","»â","Üî","à¹","èí","»×","ä§","ä«","ò³","í£","ó³","ßÔ","ãÄ","çÀ","ßÜ"
 },
 kuai=
 {
-"ä¼š","å¿«","å—","ç­·","è„","è’¯","ä¾©","æµ","éƒ","ç‹¯","å“™"
+"»á","¿ì","¿é","¿ê","ëÚ","Øá","¿ë","ä«","Û¦","áö","ßà"
 },
 gong=
 {
-"å·¥","å…¬","å…±","ä¾›","åŠŸ","çº¢","è´¡","æ”»","å®«","å·©","é¾š","æ­","æ‹±","èº¬","å¼“","æ±","èš£","ç™","è§¥","è‚±"
+"¹¤","¹«","¹²","¹©","¹¦","ºì","¹±","¹¥","¹¬","¹®","¹¨","¹§","¹°","¹ª","¹­","¹¯","ò¼","çî","ö¡","ëÅ"
 },
 jing=
 {
-"é•œ","äº¬","ç²¾","å¢ƒ","ç«","æ™¯","è­¦","ç«Ÿ","äº•","æƒŠ","å¾„","é™","åŠ²","æ•¬","å‡€","é•œ","ç›","æ™¶","è†","å…¢","é–","æ³¾","æ†¬","é²¸","èŒ","è…ˆ","è","èƒ«","é˜±","æ—Œ","ç²³","é“","ç—‰","å„†","è¿³","å©§","è‚¼","åˆ­","å¼ª","ç"
+"¾µ","¾©","¾«","¾³","¾º","¾°","¾¯","¾¹","¾®","¾ª","¾¶","¾²","¾¢","¾´","¾»","¾µ","¾¦","¾§","¾£","¾¤","¾¸","ãş","ã½","¾¨","¾¥","ëæ","İ¼","ëÖ","Úå","ìº","¾¬","ö¦","¾·","ÙÓ","åÉ","æº","ëÂ","ØÙ","åò","â°"
 },
 shang=
 {
-"ä¸Š","å•†","å°š","ä¼¤","èµ","æ±¤","è£³","å¢’","æ™Œ","å§","è§","æ®‡","ç†µ","ç»±"
+"ÉÏ","ÉÌ","ÉĞ","ÉË","ÉÍ","ÌÀ","ÉÑ","ÉÊ","ÉÎ","Ûğ","õü","éä","ìØ","ç´"
 },
 yao=
 {
-"è¦","çº¦","è¯","é‚€","é™¶","æ‘‡","è€€","è…°","é¥","å§š","çª‘","ç‘¶","å’¬","å°§","é’¥","è°£","è‚´","å¤­","ä¾¥","å†","ç–Ÿ","å¦–","å¹º","æ³","èˆ€","çªˆ","æ›œ","é¹","çˆ»","ç¹‡","å¾­","è½º","é“«","é³","å´¾","ç§"
+"Òª","Ô¼","Ò©","Ñû","ÌÕ","Ò¡","Ò«","Ñü","Ò£","Ò¦","Ò¤","Ñş","Ò§","Ò¢","Ô¿","Ò¥","ëÈ","Ø²","½Ä","ßº","Å±","Ñı","çÛ","èÃ","Ò¨","ñº","ê×","ğÎ","Ø³","ôí","áæ","é÷","ï¢","÷¥","áÊ","çò"
 },
 ge=
 {
-"ä¸ª","åˆ","å„","é©","æ ¼","æ­Œ","å“¥","ç›–","éš”","å‰²","é˜","æˆˆ","è‘›","é¸½","æ","å±¹","èƒ³","èˆ¸","ç–™","é“¬","éª¼","è›¤","å’¯","åœª","é•‰","é¢Œ","ä»¡","ç¡Œ","å—","é¬²","è†ˆ","çº¥","è¢¼","æ¿","å¡¥","å“¿","è™¼"
+"¸ö","ºÏ","¸÷","¸ï","¸ñ","¸è","¸ç","¸Ç","¸ô","¸î","¸ó","¸ê","¸ğ","¸ë","¸é","ÒÙ","¸ì","ô´","¸í","¸õ","÷À","¸ò","¿©","ÛÙ","ïÓ","ò¢","Øî","íÑ","àÃ","Øª","ëõ","æü","ñË","ë¡","Üª","ÛÁ","ò´"
 },
 chan=
 {
-"äº§","å•","é˜","ç¼ ","æº","ç¦…","é¢¤","é“²","è‰","æ€","æ½º","èŸ¾","é¦‹","å¿","å©µ","å­±","è§‡","å»›","è°„","è°—","æ¾¶","éª£","ç¾¼","é•¡","èº”","è’‡","å†"
+"²ú","µ¥","²û","²ø","²ô","ìø","²ü","²ù","²õ","²ó","äı","ó¸","²ö","âã","æ¿","åî","êè","âÜ","ÚÆ","²÷","å¤","æö","åñ","ïâ","õğ","İÛ","Ùæ"
 },
 zhe=
 {
-"è¿™","è€…","ç€","æµ™","æŠ˜","å“²","è”—","é®","è¾™","è¾„","æŸ˜","é”—","è¤¶","èœ‡","è›°","é¹§","è°ª","èµ­","æ‘º","ç£”"
+"Õâ","Õß","×Å","Õã","ÕÛ","ÕÜ","Õá","ÕÚ","ÕŞ","éü","èÏ","Õà","ñŞ","òØ","Õİ","ğÑ","ÚØ","ô÷","ß¡","íİ"
 },
 chu=
 {
-"å‡º","å¤„","ç¡€","åˆ","é™¤","å‚¨","ç•œ","è§¦","æ¥š","å¨","é›","çŸ—","æ©±","é”„","è¤š","æ»","èº‡","æ€µ","ç»Œ","æ","åˆ","èœ","é»œ","æµ","è¹°","äº","æ¨—","æ†·","æ¥®"
+"³ö","´¦","´¡","³õ","³ı","´¢","Ğó","´¥","³ş","³ø","³û","´£","³÷","³ú","ñÒ","³ü","³ù","âğ","ç©","´¤","Û»","òÜ","÷í","èÆ","õé","Ø¡","éË","ãÀ","èú"
 },
 xing=
 {
-"è¡Œ","çœ","æ€§","å½¢","å‹","å…´","æ˜Ÿ","åˆ‘","å¹¸","å§“","é†’","é‚¢","æ","è…¥","çŒ©","æ‚»","è¥","é™‰","æƒº","é¥§","æ“¤","ç¡","è‡"
+"ĞĞ","Ê¡","ĞÔ","ĞÎ","ĞÍ","ĞË","ĞÇ","ĞÌ","ĞÒ","ĞÕ","ĞÑ","ĞÏ","ĞÓ","ĞÈ","ĞÉ","ã¬","Üş","Úê","ĞÊ","â¼","ß©","íÊ","Üô"
 },
 hang=
 {
-"è¡Œ","èˆª","æ­","å··","å¤¯","å­","ç©","æ²†","ç»—","é¢ƒ"
+"ĞĞ","º½","º¼","Ïï","º»","¿Ô","çñ","ãì","ç¬","ñş"
 },
 heng=
 {
-"è¡Œ","è¡¡","æ¨ª","æ’","äº¨","å“¼","ç©","æ¡","è˜…"
+"ĞĞ","ºâ","ºá","ºã","ºà","ºß","çñ","èì","Ş¿"
 },
 zuo=
 {
-"ä½œ","åš","åº§","å·¦","å","æ˜¨","ä½","ç¢","å‡¿","æ“","æ’®","ç¥š","æŸ","å”‘","å˜¬","æ€","ç¬®","é˜¼","èƒ™"
+"×÷","×ö","×ù","×ó","×ø","×ò","×ô","×Á","Ôä","´ê","´é","ìñ","×õ","ßò","àÜ","âô","óĞ","Úè","ëÑ"
 },
 sheng=
 {
-"ç”Ÿ","çœ","å£°","å‡","èƒœ","ç››","ä¹˜","åœ£","å‰©","ç‰²","ç»³","ç¬™","ç”¥","åµŠ","æ™Ÿ","æ¸‘","çœš"
+"Éú","Ê¡","Éù","Éı","Ê¤","Ê¢","³Ë","Ê¥","Ê£","Éü","Éş","óÏ","Éû","áÓ","êÉ","äÅ","íò"
 },
 jia=
 {
-"å®¶","åŠ ","ä»·","å‡","ä½³","æ¶","ç”²","å˜‰","è´¾","é©¾","å«","å¤¹","ç¨¼","é’¾","èŒ„","æŒŸ","è¿¦","ä¼½","é¢Š","æµƒ","æ·","æˆ›","èš","ç—‚","é•“","ç¬³","çˆ","å²¬","èƒ›","å˜","è¢ˆ","éƒ","è‘­","è¢·","ç˜•","é“—","è·","è›±","æ"
+"¼Ò","¼Ó","¼Û","¼Ù","¼Ñ","¼Ü","¼×","¼Î","¼Ö","¼İ","¼Ş","¼Ğ","¼Ú","¼Ø","ÇÑ","Ğ®","åÈ","Ù¤","¼Õ","ä¤","¼Ï","ê©","¼Ô","ğè","ïØ","óÕ","çì","áµ","ëÎ","ØÅ","ôÂ","Û£","İç","ñÊ","ğı","îò","õÊ","òÌ","í¢"
 },
 jie=
 {
-"å®¶","ç»“","è§£","ä»·","ç•Œ","æ¥","èŠ‚","å±Š","ä»‹","é˜¶","è¡—","å€Ÿ","æ°","æ´","æˆª","å§","æ­","æ·","åŠ«","æˆ’","çš†","ç«­","æ¡”","è¯«","æ¥·","ç§¸","ç«","è—‰","æ‹®","èŠ¥","è¯˜","ç¢£","å—Ÿ","é¢‰","èš§","å­‘","å©•","ç––","æ¡€","è®¦","ç–¥","åˆ","ç¾¯","å–ˆ","é²’","éª±"
+"¼Ò","½á","½â","¼Û","½ç","½Ó","½Ú","½ì","½é","½×","½Ö","½è","½Ü","½à","½Ø","½ã","½Ò","½İ","½Ù","½ä","½Ô","½ß","½Û","½ë","¿¬","½Õ","½Ş","½å","Ş×","½æ","Úµ","íÙ","àµ","ò¡","ò»","æİ","æ¼","ğÜ","èî","Ú¦","½ê","ÙÊ","ôÉ","à®","öÚ","÷º"
 },
 cheng=
 {
-"æˆ","ç¨‹","åŸ","æ‰¿","ç§°","ç››","ä¹˜","è¯š","å‘ˆ","æƒ©","æ’‘","æ¾„","ç§¤","æ©™","éª‹","é€","ç ","ä¸","é“›","åŸ•","å¡","å™Œ","è›","æŸ½","é“–","é…²","è£","æ¨"
+"³É","³Ì","³Ç","³Ğ","³Æ","Ê¢","³Ë","³Ï","³Ê","³Í","³Å","³Î","³Ó","³È","³Ò","³Ñ","îª","Ø©","îõ","Ûô","ëó","àá","òÉ","èß","îñ","õ¨","ñÎ","èÇ"
 },
 dao=
 {
-"åˆ°","é“","å¯¼","å²›","å€’","åˆ€","ç›—","ç¨»","è¹ˆ","æ‚¼","æ£","å¨","ç¥·","ç„˜","æ°˜","çº›","å¸±","å¿‰"
+"µ½","µÀ","µ¼","µº","µ¹","µ¶","µÁ","µ¾","µ¸","µ¿","µ·","ß¶","µ»","ìâ","ë®","ôî","àü","âá"
 },
 ri=
 {
-"æ—¥"
+"ÈÕ"
 },
 min=
 {
-"æ°‘","æ•","é—½","é—µ","çš¿","æ³¯","å²·","æ‚¯","ç‰","æŠ¿","é»¾","ç¼—","çŸ","æ„","è‹ ","é³˜"
+"Ãñ","Ãô","Ãö","ãÉ","Ãó","ãı","áº","Ãõ","çë","Ãò","ö¼","çÅ","çä","íª","Üå","÷ª"
 },
 lai=
 {
-"æ¥","è±","èµ–","ç","å¾•","ç±","æ¶","èµ‰","æ¿‘","ç™","å´ƒ","é“¼"
+"À´","À³","Àµ","íù","áâ","ô¥","äµ","êã","äş","ñ®","áÁ","ïª"
 },
 wo=
 {
-"æˆ‘","æ¡","çª","æ²ƒ","å§","æŒ","æ¶¡","æ–¡","æ¸¥","å¹„","èœ—","å–”","å€­","è´","é¾Œ","è‚Ÿ","ç¡ª"
+"ÎÒ","ÎÕ","ÎÑ","ÎÖ","ÎÔ","ÎÎ","ÎĞ","ÎÓ","ä×","á¢","ÎÏ","à¸","ÙÁ","İ«","ö»","ë¿","íÒ"
 },
 dui=
 {
-"å¯¹","é˜Ÿ","æ•¦","å…‘","å †","ç¢“","æ€¼","æ†"
+"¶Ô","¶Ó","¶Ø","¶Ò","¶Ñ","íÔ","í¡","í­"
 },
 jin=
 {
-"è¿›","é‡‘","ä»Š","è¿‘","ä»…","ç´§","å°½","æ´¥","æ–¤","ç¦","é”¦","åŠ²","æ™‹","è°¨","ç­‹","å·¾","æµ¸","è¥Ÿ","é³","ç‘¾","çƒ¬","ç¼™","è§","å ‡","é¦‘","è©","å™¤","å»‘","å¦—","æ§¿","èµ†","è¡¿","åº"
+"½ø","½ğ","½ñ","½ü","½ö","½ô","¾¡","½ò","½ï","½û","½õ","¾¢","½ú","½÷","½î","½í","½ş","½ó","½ù","èª","½ı","çÆ","êî","İÀ","âË","İ£","àä","âÛ","æ¡","éÈ","êá","ñÆ","Úá"
 },
 duo=
 {
-"å¤š","åº¦","å¤º","æœµ","èº²","é“","å’„","å •","èˆµ","é©®","å›","æƒ°","å“†","è¸±","è·º","æ‡","å‰","æŸ","ç¼","æ²²","è£°","å“š"
+"¶à","¶È","¶á","¶ä","¶ã","îì","ßÍ","¶é","¶æ","ÍÔ","¶â","¶è","¶ß","õâ","¶å","¶Ş","¶ç","èŞ","ç¶","ãõ","ñÖ","ßá"
 },
 quan=
 {
-"å…¨","æƒ","åˆ¸","æ³‰","åœˆ","æ‹³","åŠ","çŠ¬","é“¨","ç—Š","è¯ ","èƒ","é†›","èœ·","é¢§","ç»»","ç­Œ","é¬ˆ","æ‚›","è¾","ç•"
+"È«","È¨","È¯","Èª","È¦","È­","È°","È®","îı","È¬","Ú¹","Üõ","È©","òé","È§","ç¹","óÜ","÷Ü","ãª","éú","î°"
 },
 jian=
 {
-"å»º","é—´","ä»¶","è§","åš","æ£€","å¥","ç›‘","å‡","ç®€","è‰°","è·µ","å…¼","é‰´","é”®","æ¸","æŸ¬","å‰‘","å°–","è‚©","èˆ°","è","ç®­","æµ…","å‰ª","ä¿­","ç¢±","èŒ§","å¥¸","æ­¼","æ‹£","æ¡","ç…","è´±","æº…","æ§›","æ¶§","ç¬º","è°","é¥¯","é”","ç¼„","ç‘","è¬‡","è¹‡","è…±","è…","ç¿¦","æˆ¬","æ¯½","ç¬•","çŠ","ç¡·","é¯","ç‰®","æ§","æ¹”","é²£","å›","è£¥","è¸º","æ›","ç¼£","é¹£","è’¹","è°«","åƒ­","æˆ‹","è¶¼","æ¥—"
+"½¨","¼ä","¼ş","¼û","¼á","¼ì","½¡","¼à","¼õ","¼ò","¼è","¼ù","¼æ","¼ø","¼ü","½¥","¼í","½£","¼â","¼ç","½¢","¼ö","¼ı","Ç³","¼ô","¼ó","¼î","¼ë","¼é","¼ß","¼ğ","¼ñ","¼å","¼ú","½¦","¼÷","½§","¼ã","ÚÉ","½¤","ïµ","¼ê","íú","åÀ","å¿","ëì","İÑ","ôå","ê¯","ë¦","óÈ","êù","¼ï","÷µ","êğ","èÅ","äÕ","öä","àî","ñĞ","õİ","Şö","çÌ","ğÏ","İó","ÚÙ","ÙÔ","ê§","õÂ","é¥"
 },
 ta=
 {
-"ä»–","å®ƒ","å¥¹","æ‹“","å¡”","è¸","å¡Œ","æ¦»","æ²“","æ¼¯","ç­","å—’","æŒ","è¹‹","è¶¿","é¢","é“Š","é³","æº»","é—¼"
+"Ëû","Ëü","Ëı","ÍØ","Ëş","Ì¤","Ëú","é½","í³","äğ","Ì¡","àª","Ì¢","Ì£","õÁ","åİ","îè","÷£","äâ","ãË"
 },
 kai=
 {
-"å¼€","å‡¯","æ…¨","æ¥·","æº","æ©","é”´","é“ ","å¿¾","å²","å‰€","é”","è’ˆ"
+"¿ª","¿­","¿®","¿¬","âı","¿«","ïÇ","îø","âé","Ûî","ØÜ","ï´","İÜ"
 },
 men=
 {
-"ä»¬","é—¨","é—·","æ‰ª","ç„–","æ‡‘","é’”"
+"ÃÇ","ÃÅ","ÃÆ","ŞÑ","ìË","í¯","îÍ"
 },
 chang=
 {
-"åœº","é•¿","å‚","å¸¸","å¿","æ˜Œ","å”±","ç•…","å€¡","å°","è‚ ","æ•","å€˜","çŒ–","å¨¼","è£³","å¾œ","æ˜¶","æ€…","å«¦","è–","é²³","é˜Š","ä¼¥","è‹Œ","æ°…","æƒ","é¬¯"
+"³¡","³¤","³§","³£","³¥","²ı","³ª","³©","³«","³¢","³¦","³¨","ÌÈ","²ş","æ½","ÉÑ","áä","êÆ","âê","æÏ","İÅ","öğ","ãÑ","Øö","ÜÉ","ë©","ã®","ÛË"
 },
 zhan=
 {
-"å±•","æˆ˜","å ","ç«™","å´­","ç²˜","æ¹›","æ²¾","ç»","é¢¤","è©¹","æ–©","ç›","è¾—","ç»½","æ¯¡","æ ˆ","è˜¸","æ—ƒ","è°µ","æŒ"
+"Õ¹","Õ½","Õ¼","Õ¾","Õ¸","Õ³","Õ¿","Õ´","Õ°","²ü","Õ²","Õ¶","Õµ","Õ·","ÕÀ","Õ±","Õ»","Õº","ì¹","ÚŞ","Şø"
 },
 li=
 {
-"ç†","åŠ›","åˆ©","ç«‹","é‡Œ","æ","å†","ä¾‹","ç¦»","åŠ±","ç¤¼","ä¸½","é»","ç’ƒ","å‰","å˜","ç²’","è‰","æ¢¨","éš¶","æ —","è”","æ²¥","çŠ","æ¼“","å“©","ç‹¸","è—œ","ç½¹","ç¯±","é²¤","ç º","å","æ¾§","ä¿","éªŠ","æº§","ç ¾","è…","é”‚","ç¬ ","è ¡","è›","ç—¢","é›³","ä¿ª","å‚ˆ","é†´","æ ","éƒ¦","ä¿š","æ¥","å–±","é€¦","å¨Œ","é¹‚","æˆ¾","å”³","åœ","ç– ","èœŠ","é»§","çŒ","é¬²","ç²","è“ ","å‘–","è·","ç–¬","ç¼¡","é²¡","é³¢","å« ","è©ˆ","æ‚","è‹ˆ","ç¯¥","è½¹"
+"Àí","Á¦","Àû","Á¢","Àï","Àî","Àú","Àı","Àë","Àø","Àñ","Àö","Àè","Á§","À÷","Àå","Á£","Àò","Àæ","Á¥","Àõ","Àó","Á¤","Àç","Àì","Á¨","Àê","Ş¼","î¾","Àé","Àğ","íÂ","Àô","å¢","Àş","æê","äà","Àù","İ°","ï®","óÒ","ó»","òÃ","Á¡","ö¨","Ù³","Àü","õ·","èİ","Ûª","Ùµ","èÀ","à¬","åÎ","æ²","ğ¿","ìå","à¦","ÛŞ","ğİ","òÛ","÷ó","áû","Øª","ôÏ","İñ","ß¿","õÈ","ğß","çÊ","öâ","÷¯","æË","îº","ã¦","ÜÂ","óö","éö"
 },
 xin=
 {
-"æ–°","å¿ƒ","ä¿¡","å¯»","è¾›","æ¬£","è–ª","é¦¨","é‘«","èŠ¯","é”Œ","å¿»","æ˜•","è¡…","æ­†","å›Ÿ","é•¡"
+"ĞÂ","ĞÄ","ĞÅ","Ñ°","ĞÁ","ĞÀ","Ğ½","Ü°","öÎ","Ğ¾","Ğ¿","ĞÃ","ê¿","ĞÆ","ì§","Ø¶","ïâ"
 },
 fang=
 {
-"æ–¹","æ”¾","æˆ¿","é˜²","è®¿","çºº","èŠ³","ä»¿","åŠ","å¦¨","è‚ª","é‚¡","èˆ«","å½·","æ‹","é²‚","é’«"
+"·½","·Å","·¿","·À","·Ã","·Ä","·¼","·Â","·»","·Á","·¾","Úú","ô³","áİ","èÊ","öĞ","îÕ"
 },
 zhu=
 {
-"ä¸»","æœ¯","ä½","æ³¨","åŠ©","å±","é€","è‘—","ç­‘","é©»","æœ±","ç ","ç¥","çŒª","è¯¸","æŸ±","ç«¹","é“¸","æ ª","ç©","å˜±","è´®","ç…®","çƒ›","è¤š","è››","æ‹„","é“¢","æ´™","ç«º","è›€","æ¸š","ä¼«","æ¼","ä¾","è¯›","èŒ±","ç®¸","ç‚·","èº…","ç¿¥","æ½´","é‚¾","æ§ ","èˆ³","æ©¥","ç˜ƒ","éºˆ","ç–°"
+"Ö÷","Êõ","×¡","×¢","Öú","Êô","Öğ","Öø","Öş","×¤","Öì","Öé","×£","Öí","Öî","Öù","Öñ","Öı","Öê","Öõ","Öö","Öü","Öó","Öò","ñÒ","Öë","Öô","îù","ä¨","óÃ","Öû","ä¾","Øù","èÌ","Ùª","Öï","Üï","óç","ìÄ","õî","ôã","äó","Û¥","éÆ","ô¶","éÍ","ğñ","÷æ","ğæ"
 },
 qi=
 {
-"å¥‡","å…¶","èµ·","æœŸ","æ°”","ä¸ƒ","å™¨","æ±½","å¥‡","é½","å¯","æ——","æ£‹","å¦»","å¼ƒ","æ­§","æ¬º","éª‘","å¥‘","è¿„","äºŸ","æ¼†","æˆš","å²‚","ç¨½","å²","ç¦","æ –","ç¼‰","çª","æ³£","ä¹","ç Œ","ç¥","å´","ç»®","ç¥º","è¹Š","ç¥ˆ","å‡„","æ·‡","æ","è„","éº’","åœ»","å²–","æ†©","èŠª","ä¿Ÿ","ç•¦","è ","è€†","è‘º","æ²","è‹","éª","é³","ç¶¦","è®«","è•²","å±º","é¢€","äº“","ç¢›","æŸ’","æ±”","ç¶®","è","å˜","è›´","æ§­","æ¬¹","èŠ‘","æ¡¤","èœ"
+"Ææ","Æä","Æğ","ÆÚ","Æø","Æß","Æ÷","Æû","Ææ","Æë","Æô","Æì","Æå","ÆŞ","Æú","Æç","ÆÛ","Æï","Æõ","Æù","Ø½","Æá","Æİ","Æñ","»ü","áª","çù","ÆÜ","¼©","ç÷","Æü","Æò","Æö","Æî","Æé","ç²","ì÷","õè","Æí","Æà","ä¿","è½","Æê","÷è","Ûß","á«","í¬","ÜÎ","Ù¹","Æè","Üù","êÈ","İİ","Æã","İÂ","æë","÷¢","ôë","Æı","Ş­","á¨","ñı","ØÁ","íÓ","Æâ","ãà","ôì","İ½","àÒ","òÓ","éÊ","ì¥","Ü»","èç","òà"
 },
 zi=
 {
-"èµ„","è‡ª","å­","å­—","å’¨","æ»‹","ä»”","å§¿","ç´«","å…¹","å­œ","æ·„","ç±½","æ¢“","é²»","æ¸","å§Š","å±","ç§­","æ£","å­³","è¨¾","æ»“","é”±","è¾","è¶‘","é¾‡","èµ€","çœ¦","ç¼","å‘²","ç¬«","è°˜","åµ«","é«­","èŒˆ","ç²¢","è§œ","è€”"
+"×Ê","×Ô","×Ó","×Ö","×É","×Ì","×Ğ","×Ë","×Ï","×È","×Î","×Í","×Ñ","è÷","öö","×Õ","æ¢","Ö¨","ïö","í§","æÜ","ö¤","×Ò","ïÅ","ê¢","ôô","ö·","êß","íö","ç»","ßÚ","óÊ","ÚÑ","áÑ","÷Ú","Üë","ôÒ","õş","ñè"
 },
 xue=
 {
-"å­¦","è¡€","é›ª","å‰Š","è–›","ç©´","é´","è°‘","å™±","é³•","è¸…","æ³¶"
+"Ñ§","Ñª","Ñ©","Ï÷","Ñ¦","Ñ¨","Ñ¥","ÚÊ","àå","÷¨","õ½","í´"
 },
 bao=
 {
-"æŠ¥","ä¿","åŒ…","å®","æš´","èƒ","è–„","çˆ†","ç‚®","é¥±","æŠ±","å ¡","å‰¥","é²","æ›","è‘†","ç€‘","è±¹","åˆ¨","è¤’","é›¹","å­¢","è‹","ç…²","è¤“","è¶µ","é¸¨","é¾…"
+"±¨","±£","°ü","±¦","±©","°û","±¡","±¬","ÅÚ","±¥","±§","±¤","°ş","±«","ÆØ","İá","ÆÙ","±ª","ÅÙ","°ı","±¢","æß","°ú","ìÒ","ñÙ","õÀ","ğ±","öµ"
 },
 zhi=
 {
-"åˆ¶","ä¹‹","æ²»","è´¨","èŒ","åª","å¿—","è‡³","æŒ‡","ç»‡","æ”¯","å€¼","çŸ¥","è¯†","ç›´","è‡´","æ‰§","ç½®","æ­¢","æ¤","çº¸","æ™º","æ®–","ç§©","æ—¨","å€","æ»","æ°","æ","èŠ","è„‚","å¸œ","æ±","è‚¢","æŒš","ç¨š","é…¯","æ·","å³™","ç‚™","æ ‰","ä¾„","èŠ·","çª’","å’«","å±","è¶¾","ç—”","èœ˜","éƒ…","æ¡","é›‰","ç¥‰","é™Ÿ","ç—£","è›­","å¸™","æ³","è¸¯","å¾µ","èƒ","æ €","è´½","ç¥—","è±¸","é¸·","æ‘­","è½µ","å®","è½¾","å½˜","è§¯","çµ·","è·–","åŸ´","é»¹","å¿®","éª˜","è†£","è¸¬"
+"ÖÆ","Ö®","ÖÎ","ÖÊ","Ö°","Ö»","Ö¾","ÖÁ","Ö¸","Ö¯","Ö§","Öµ","Öª","Ê¶","Ö±","ÖÂ","Ö´","ÖÃ","Ö¹","Ö²","Ö½","ÖÇ","Ö³","ÖÈ","Ö¼","Ö·","ÖÍ","ÊÏ","Ö¦","Ö¥","Ö¬","ÖÄ","Ö­","Ö«","Ö¿","ÖÉ","õ¥","ÖÀ","ÖÅ","ÖË","èÎ","Ö¶","ÜÆ","ÖÏ","åë","Ö¨","Öº","ÖÌ","Ö©","Û¤","èä","ïô","ìí","Úì","ğë","òÎ","àù","è×","õÜ","áç","ëÕ","èÙ","êŞ","ìó","õô","ğº","Şı","éò","Ø´","éù","åé","ö£","ôê","õÅ","Ûú","íé","âå","æï","ëù","õÙ"
 },
 zheng=
 {
-"æ”¿","æ­£","è¯","äº‰","æ•´","å¾","éƒ‘","ä¸","ç—‡","æŒ£","è’¸","ç","é“®","ç­","æ‹¯","å¸§","å³¥","æ€”","è¯¤","ç‹°","å¾µ","é’²"
+"Õş","Õı","Ö¤","Õù","Õû","Õ÷","Ö£","¶¡","Ö¢","Õõ","Õô","Õö","ï£","óİ","Õü","Ö¡","á¿","Õú","Úº","Õø","áç","îÛ"
 },
 ji=
 {
-"æµ","æœº","å…¶","æŠ€","åŸº","è®°","è®¡","ç³»","é©","æœŸ","é™…","åŠ","é›†","çº§","å‡ ","ç»™","ç§¯","æ","å·±","çºª","å³","ç»§","å‡»","æ—¢","æ¿€","ç»©","æ€¥","å¥‡","å‰","å­£","é½","ç–¾","è¿¹","é¸¡","å‰‚","è¾‘","ç±","å¯„","æŒ¤","åœ¾","å†€","äºŸ","å¯‚","æš¨","è„Š","è·»","è‚Œ","ç¨½","å¿Œ","é¥¥","ç¥­","ç¼‰","æ£˜","çŸ¶","æ±²","ç•¸","å§¬","è—‰","ç˜ ","éª¥","ç¾","å¦“","è®¥","ç¨·","è“Ÿ","æ‚¸","å«‰","å²Œ","å½","ä¼","é²«","è¯˜","æ¥«","è ","æˆŸ","ç®•","éœ","åµ‡","è§Š","éº‚","ç•¿","ç‘","ç¬ˆ","çŠ„","èŠ¨","å”§","å±","é«»","æˆ¢","ä½¶","åˆ","ç¬„","è·½","è’º","ä¹©","å’­","èµ","åµ´","è™®","æ","é½‘","æ®›","é²š","å‰","æ´","ä¸Œ","å¢¼","è•º","èŠ°","å“œ"
+"¼Ã","»ú","Æä","¼¼","»ù","¼Ç","¼Æ","Ïµ","¸ï","ÆÚ","¼Ê","¼°","¼¯","¼¶","¼¸","¸ø","»ı","¼«","¼º","¼Í","¼´","¼Ì","»÷","¼È","¼¤","¼¨","¼±","Ææ","¼ª","¼¾","Æë","¼²","¼£","¼¦","¼Á","¼­","¼®","¼Ä","¼·","»ø","¼½","Ø½","¼Å","ôß","¼¹","õÒ","¼¡","»ü","¼É","¼¢","¼À","¼©","¼¬","í¶","¼³","»û","¼§","½å","ñ¤","æ÷","î¿","¼Ë","¼¥","ğ¢","¼»","¼Â","¼µ","á§","ß´","¼¿","öê","Úµ","é®","Üù","êª","»ş","ö«","ïú","êé","÷ä","çÜ","çá","óÅ","ê÷","Ü¸","ßó","åì","÷Ù","ê«","Ù¥","ÙÊ","óÇ","õÕ","İğ","ØÀ","ßÒ","êå","áÕ","ò±","Şá","ì´","éê","öİ","ØŞ","ä©","Ø¢","ÛÔ","Şª","ÜÁ","ßâ"
 },
 yong=
 {
-"ç”¨","æ°¸","æ‹¥","å‹‡","æ¶Œ","æ³³","åº¸","ä¿‘","è¸Š","ä½£","å’","é›","ç”¬","é•›","è‡ƒ","é‚•","è›¹","æ¿","æ…µ","å£…","ç—ˆ","é³™","å¢‰","é¥”","å–"
+"ÓÃ","ÓÀ","Óµ","ÓÂ","Ó¿","Ó¾","Ó¹","Ù¸","Ó»","Ó¶","Ó½","Óº","ğ®","ïŞ","Ó·","çß","Ó¼","ÓÁ","ã¼","ÛÕ","Ó¸","÷«","Ü­","÷Ó","à¯"
 },
 tong=
 {
-"åŒ","é€š","ç»Ÿ","ç«¥","ç—›","é“œ","æ¡¶","æ¡","ç­’","å½¤","ä¾—","ä½Ÿ","æ½¼","æ…","é…®","ç ¼","ç³","æ¸","å³’","ä»","æ«","å—µ","åŒ","èŒ¼"
+"Í¬","Í¨","Í³","Í¯","Í´","Í­","Í°","Í©","Í²","Í®","¶±","Ù¡","äü","Í±","Íª","íÅ","Í«","âú","á¼","ÙÚ","¶²","àÌ","Ûí","Üí"
 },
 yu=
 {
-"äº","ä¸","è‚²","ä½™","é¢„","åŸŸ","äºˆ","é‡","è¯­","èª‰","ç‰","é±¼","é›¨","æ¸”","è£•","è°·","æ„ˆ","å¨±","æ¬²","å","èˆ†","å®‡","ç¾½","é€¾","è±«","éƒ","å¯“","ç‹±","å–»","å¾¡","æµ´","æ„‰","ç¦¹","ä¿","è”š","æ¦†","æ„š","æ¸","å°‰","æ·¤","è™","å±¿","å³ª","ç²¥","é©­","ç‘œ","ç¦º","æ¯“","é’°","éš…","èŠ‹","ç†¨","ç˜€","è¿‚","ç…œ","æ˜±","æ–¼","è‡¾","ç›‚","è¿","ç«½","è¸","å¦ª","è…´","åœ„","è°•","è§","æ„","é¾‰","è°€","ä¿£","é¦€","åº¾","å¦¤","ç˜","é¬»","æ¬¤","è…§","é¹¬","é˜ˆ","åµ›","é›©","é¹†","è€","åœ‰","èœ®","ä¼›","çº¡","çª¬","çª³","é¥«","è“£","ç‹³","èˆ","è“","ç‡ "
+"ÓÚ","Óë","Óı","Óà","Ô¤","Óò","Óè","Óö","Óï","Óş","Óñ","Óã","Óê","Óæ","Ô£","¹È","Óú","Óé","Óû","Óõ","Óß","Óî","Óğ","Óâ","Ô¥","Óô","Ô¢","Óü","Ó÷","Óù","Ô¡","Óä","Óí","Óá","Îµ","ÓÜ","ÓŞ","Óå","Î¾","ÓÙ","Óİ","Óì","Óø","Öà","Ô¦","è¤","Ø®","Ø¹","îÚ","Óç","Óó","ìÙ","ğö","ÓØ","ìÏ","êÅ","ì¶","ô§","ÓÛ","í²","óÄ","İÇ","åı","ëé","àô","ÚÍ","êì","Şí","ö¹","ÚÄ","Ù¶","âÅ","â×","æ¥","ğõ","å÷","ì£","ëò","ğÖ","ãĞ","áÎ","ö§","ğÁ","İÒ","àö","òâ","Øñ","æú","ñ¾","ñÁ","âÀ","İ÷","áü","ô¨","òõ","ìÛ"
 },
 gao=
 {
-"é«˜","å‘Š","æ","ç¨¿","è†","ç³•","é•","çš‹","ç¾”","é”†","æ²","éƒœ","ç¾","è¯°","è—","ç¯™","ç¼Ÿ","æ§","æ§”"
+"¸ß","¸æ","¸ã","¸å","¸à","¸â","¸ä","¸Ş","¸á","ï¯","ê½","Û¬","Øº","Ú¾","Ş»","¸İ","çÉ","éÂ","éÀ"
 },
 zhang=
 {
-"é•¿","å¼ ","ç« ","éšœ","æ¶¨","æŒ","å¸","èƒ€","å½°","ä¸ˆ","ä»—","æ¼³","æ¨Ÿ","è´¦","æ–","ç’‹","å¶‚","ä»‰","ç˜´","èŸ‘","ç","å¹›","é„£","å«œ"
+"³¤","ÕÅ","ÕÂ","ÕÏ","ÕÇ","ÕÆ","ÕÊ","ÕÍ","ÕÃ","ÕÉ","ÕÌ","ÕÄ","ÕÁ","ÕË","ÕÈ","è°","áÖ","Øë","ÕÎ","ó¯","â¯","á¤","Ûµ","æÑ"
 },
 xian=
 {
-"ç°","å…ˆ","å¿","è§","çº¿","é™","æ˜¾","é™©","çŒ®","é²œ","æ´—","å®ª","çº¤","é™·","é—²","è´¤","ä»™","è¡”","æ€","å’¸","å«Œ","ç¾¡","å¼¦","è…º","ç—«","å¨´","èˆ·","é¦…","é…°","é“£","å†¼","æ¶","æš¹","ç±¼","é”¨","è‹‹","èš¬","è·¹","å²˜","è—“","ç‡¹","é¹‡","æ°™","è¶","éœ°","è·£","çŒƒ","ç¥†","ç­…"
+"ÏÖ","ÏÈ","ÏØ","¼û","Ïß","ÏŞ","ÏÔ","ÏÕ","Ï×","ÏÊ","Ï´","ÏÜ","ÏË","Ïİ","ÏĞ","ÏÍ","ÏÉ","ÏÎ","ÏÆ","ÏÌ","ÏÓ","ÏÛ","ÏÒ","ÏÙ","ğï","æµ","ÏÏ","ÏÚ","õ£","Ï³","Ùş","ÏÑ","åß","ôÌ","ÏÇ","ÜÈ","ò¹","õÑ","á­","Şº","ìŞ","ğÂ","ë¯","İ²","ö±","õĞ","áı","ìì","óÚ"
 },
 ben=
 {
-"æœ¬","å¥”","è‹¯","ç¬¨","å¤¯","è´²","é”›","ç•š","åŒ"
+"±¾","±¼","±½","±¿","º»","êÚ","ï¼","ÛÎ","ÛĞ"
 },
 yue=
 {
-"æœˆ","è¯´","çº¦","è¶Š","ä¹","è·ƒ","é˜…","å²³","ç²¤","æ‚¦","æ›°","é’¥","æ ","é’º","æ¨¾","ç€¹","é¾ ","åˆ–"
+"ÔÂ","Ëµ","Ô¼","Ô½","ÀÖ","Ô¾","ÔÄ","ÔÀ","ÔÁ","ÔÃ","Ô»","Ô¿","èİ","îá","éĞ","å®","Ùß","ë¾"
 },
 ding=
 {
-"å®š","è®¢","é¡¶","ä¸","é¼","ç›¯","é’‰","é”­","å®","ä»ƒ","é“¤","ç”º","é…Š","å•¶","ç¢‡","è…š","ç–”","ç","è€µ"
+"¶¨","¶©","¶¥","¶¡","¶¦","¶¢","¶¤","¶§","¶£","Øê","îú","î®","ôú","à¤","íÖ","ëë","ğÛ","çà","ñô"
 },
 hua=
 {
-"åŒ–","å","åˆ’","è¯","èŠ±","ç”»","æ»‘","å“—","è±","éª…","æ¡¦","çŒ¾","é“§","ç ‰"
+"»¯","»ª","»®","»°","»¨","»­","»¬","»©","»í","æè","èë","»«","îü","í¹"
 },
 dong=
 {
-"åŠ¨","ä¸œ","è‘£","å†¬","æ´","æ‡‚","å†»","æ ‹","ä¾—","å’š","å³’","æ°¡","æ«","èƒ´","ç¡","åŒ","é¸«","å²½","èƒ¨"
+"¶¯","¶«","¶­","¶¬","¶´","¶®","¶³","¶°","¶±","ßË","á¼","ë±","¶²","ëØ","íÏ","Ûí","ğ´","á´","ëË"
 },
 pin=
 {
-"å“","è´«","è˜","é¢‘","æ‹¼","è‹¹","æ‹š","é¢¦","å§˜","å«”","æ¦€","ç‰"
+"Æ·","Æ¶","Æ¸","Æµ","Æ´","Æ»","ŞÕ","ò­","æ°","æÉ","é¯","êò"
 },
 chong=
 {
-"é‡","ç§","å……","å†²","æ¶Œ","å´‡","è™«","å® ","å¿¡","æ†§","èˆ‚","èŒº","é“³","è‰Ÿ"
+"ÖØ","ÖÖ","³ä","³å","Ó¿","³ç","³æ","³è","âç","ã¿","ô©","Üû","ï¥","ô¾"
 },
 guan=
 {
-"å…³","ç®¡","è§‚","é¦†","å®˜","è´¯","å† ","æƒ¯","çŒ","ç½","è","çº¶","æ£º","çŸœ","å€Œ","é¹³","é³","ç›¥","æ¼","æ¶«"
+"¹Ø","¹Ü","¹Û","¹İ","¹Ù","¹á","¹Ú","¹ß","¹à","¹Ş","İ¸","ÂÚ","¹×","ñæ","ÙÄ","ğÙ","÷¤","îÂ","Şè","äÊ"
 },
 fen=
 {
-"åˆ†","ä»½","çº·","å¥‹","ç²‰","æ°›","èŠ¬","æ„¤","ç²ª","åŸ","æ±¾","ç„š","é…š","å©","å¿¿","æ£¼","ç¢","é¼¢","ç€µ","å¾","é²¼"
+"·Ö","·İ","·×","·Ü","·Û","·Õ","·Ò","·ß","·à","·Ø","·Ú","·Ù","·Ó","·Ô","·Ş","èû","çã","÷÷","å¯","ÙÇ","ö÷"
 },
 wai=
 {
-"å¤–","æ­ª"
+"Íâ","Íá"
 },
 qu=
 {
-"åŒº","å»","å–","ä¸”","æ›²","è¶‹","æ¸ ","è¶£","é©±","å±ˆ","èº¯","è¡¢","å¨¶","ç¥›","ç¿","æˆŒ","å²–","é¾‹","è§‘","æœ","è›","ç™¯","è›†","è‹£","é˜’","è¯","åŠ¬","è•–","è˜§","æ°","é»¢","è ¼","ç’©","éº´","é¸²","ç£²"
+"Çø","È¥","È¡","ÇÒ","Çú","Ç÷","Çş","È¤","Çı","Çü","Çû","áé","È¢","ìî","öÄ","Ğç","á«","È£","êï","ëÔ","òĞ","ñ³","Çù","ÜÄ","ãÖ","Ú°","Û¾","Ş¡","Ş¾","ë¬","÷ñ","ó½","è³","ôğ","ğ¶","íá"
 },
 ou=
 {
-"åŒº","æ¬§","å¶","æ®´","å‘•","è—•","è®´","é¸¥","ç“¯","æ²¤","è€¦","æ€„"
+"Çø","Å·","Å¼","Å¹","Å»","Åº","Ú©","Å¸","ê±","Å½","ñî","âæ"
 },
 neng=
 {
-"èƒ½"
+"ÄÜ"
 },
 she=
 {
-"è®¾","ç¤¾","æ‘„","æ¶‰","å°„","æŠ˜","èˆ","è›‡","èˆŒ","å¥¢","æ…‘","èµ¦","èµŠ","ä½˜","éº","æ­™","ç•²","å","æ‘º","çŒ","æ» "
+"Éè","Éç","Éã","Éæ","Éä","ÕÛ","Éá","Éß","Éà","Éİ","Éå","Éâ","ÉŞ","ÙÜ","÷ê","ì¨","î´","ØÇ","ß¡","â¦","äÜ"
 },
 hou=
 {
-"å","å€™","åš","ä¾¯","çŒ´","å–‰","å¼","é€…","ç¯Œ","ç³‡","éªº","å¾Œ","é²","ç˜Š","å  "
+"ºó","ºò","ºñ","ºî","ºï","ºí","ºğ","åË","óó","ô×","÷¿","áá","ö×","ğú","Ü©"
 },
 jiu=
 {
-"å°±","ç©¶","ä¹","é…’","ä¹…","æ•‘","æ—§","çº ","èˆ…","ç¸","ç–š","æª","å’","éŸ­","ç–","è‡¼","æŸ©","èµ³","é¸ ","é¹«","å©","å•¾","é˜„","æ¡•","åƒ¦","é¬"
+"¾Í","¾¿","¾Å","¾Æ","¾Ã","¾È","¾É","¾À","¾Ë","¾Ä","¾Î","¾¾","¾Ì","¾Â","¾Á","¾Ê","èÑ","ôñ","ğ¯","ğÕ","¾Ç","à±","ãÎ","èê","ÙÖ","÷İ"
 },
 deng=
 {
-"ç­‰","ç™»","é‚“","ç¯","æ¾„","å‡³","çª","è¹¬","å™”","ç£´","å¶","é•«","ç°¦","æˆ¥"
+"µÈ","µÇ","µË","µÆ","³Î","µÊ","µÉ","µÅ","àâ","íã","áØ","ïë","ô£","ê­"
 },
 ti=
 {
-"ä½“","æ","é¢˜","æ›¿","æ¢¯","è¸¢","æƒ•","å‰”","è¹„","å•¼","å±‰","å‰ƒ","æ¶•","é”‘","å€œ","æ‚Œ","é€–","åš","è‘","é†","ç»¨","é¹ˆ","ç¼‡","è£¼"
+"Ìå","Ìá","Ìâ","Ìæ","Ìİ","Ìß","Ìè","ÌŞ","Ìã","Ìä","Ìë","Ìê","Ìé","Ìà","ÙÃ","ã©","åÑ","Ìç","Üè","õ®","ç°","ğÃ","ç¾","ñÓ"
 },
 xia=
 {
-"ä¸‹","å¤","å³¡","å¦","è¾–","éœ","è™¾","ç‹­","å“","ä¾ ","æš‡","é","ç","åŒ£","ç‘•","å”¬","å‘·","é» ","ç¡–","ç½…","ç‹","ç˜•","æŸ™"
+"ÏÂ","ÏÄ","Ï¿","ÏÃ","Ï½","Ï¼","Ïº","ÏÁ","ÏÅ","ÏÀ","Ï¾","åÚ","Ï¹","Ï»","è¦","»£","ßÈ","÷ï","íÌ","óÁ","áò","ğı","èÔ"
 },
 wan=
 {
-"ä¸‡","å®Œ","æ™š","æ¹¾","ç©","ç¢—","é¡½","æŒ½","å¼¯","è”“","ä¸¸","è","çš–","å®›","å©‰","è…•","èœ¿","æƒ‹","çƒ·","å¨©","ç¬","ç•¹","è±Œ","å‰œ","çº¨","ç»¾","è„˜","è€","èŠ„"
+"Íò","Íê","Íí","Íå","Íæ","Íë","Íç","Íì","Íä","Âû","Íè","İ¸","Íî","Íğ","Íñ","Íó","òê","Íï","Íé","Ãä","çş","îµ","Íã","Øà","æı","çº","ëä","İÒ","Ü¹"
 },
 mo=
 {
-"ä¸‡","æ— ","æ²¡","æ¨¡","æœ«","å†’","è«","æ‘©","å¢¨","é»˜","ç£¨","æ‘¸","æ¼ ","è„‰","è†œ","é­”","æ²«","é™Œ","æŠ¹","å¯","è˜‘","æ‘¹","è“¦","é¦","èŒ‰","å˜¿","è°Ÿ","ç§£","è²‰","å««","é•†","æ®","è€±","ç˜¼","è²Š","è²˜"
+"Íò","ÎŞ","Ã»","Ä£","Ä©","Ã°","Äª","Ä¦","Ä«","Ä¬","Ä¥","Ãş","Ä®","Âö","Ä¤","Ä§","Ä­","Ä°","Ä¨","Ä¯","Ä¢","Ä¡","İë","âÉ","ÜÔ","ºÙ","ÚÓ","ï÷","ºÑ","æÆ","ïÒ","éâ","ñò","ñ¢","õö","õø"
 },
 yuan=
 {
-"å…ƒ","å‘˜","é™¢","åŸ","æº","è¿œ","æ„¿","å›­","æ´","åœ†","ç¼˜","è¢","æ€¨","æ¸Š","è‹‘","å†¤","åª›","çŒ¿","å£","æ²…","å¡¬","å¸","é¸³","è¾•","é¸¢","ç‘—","åœœ","çˆ°","èŠ«","é¼‹","æ©¼","èˆ","çœ¢","ç®¢","æ¾"
+"Ôª","Ô±","Ôº","Ô­","Ô´","Ô¶","Ô¸","Ô°","Ô®","Ô²","Ôµ","Ô¬","Ô¹","Ô¨","Ô·","Ô©","æÂ","Ô³","Ô«","ãä","Ü«","Ûù","Ô§","Ô¯","ğ°","è¥","à÷","ë¼","Ü¾","ö½","éÚ","ó¢","íó","óî","Şò"
 },
 qian=
 {
-"å‰","åƒ","é’±","ç­¾","æ½œ","è¿","æ¬ ","çº¤","ç‰µ","æµ…","é£","è°¦","ä¹¾","é“…","æ­‰","é»”","è°´","åµŒ","å€©","é’³","èŒœ","è™”","å ‘","é’","éª","é˜¡","æ®","é’¤","æ‰¦","èŠŠ","çŠ","ç®¬","è¨","ä»Ÿ","èŠ¡","æ‚­","ç¼±","ä½¥","æ„†","è¤°","è‚·","å²","æ´","ç®","æ…Š","æ¤ "
+"Ç°","Ç§","Ç®","Ç©","Ç±","Ç¨","Ç·","ÏË","Ç£","Ç³","Ç²","Ç«","Ç¬","Ç¦","Ç¸","Ç­","Ç´","Ç¶","Ù»","Ç¯","Üç","ò¯","Çµ","Ç¥","å¹","Úä","Şç","îÔ","Ç¤","Ü·","êù","óè","İ¡","Çª","ÜÍ","ã¥","ç×","Ùİ","í©","å½","ëÉ","á©","åº","óé","ã»","èı"
 },
 mian=
 {
-"é¢","æ£‰","å…","ç»µ","ç¼…","å‹‰","çœ ","å†•","å¨©","è…¼","æ¸‘","æ¹","æ²”","çœ„"
+"Ãæ","ÃŞ","Ãâ","Ãà","Ãå","Ãã","Ãß","Ãá","Ãä","ëï","äÅ","äÏ","ãæ","íí"
 },
 nong=
 {
-"å†œ","æµ“","å¼„","è„“","ä¾¬","å“"
+"Å©","Å¨","Åª","Å§","Ù¯","ßæ"
 },
 shuo=
 {
-"è¯´","æ•°","ç¡•","çƒ","æœ”","é“„","å¦","æ§Š","è’´","æ "
+"Ëµ","Êı","Ë¶","Ë¸","Ë·","îå","åù","éÃ","İô","Ş÷"
 },
 shui=
 {
-"è¯´","æ°´","ç¨","è°","ç¡"
+"Ëµ","Ë®","Ë°","Ë­","Ë¯"
 },
 yun=
 {
-"å‘˜","è¿","å‡","äº‘","å…","å­•","è•´","éŸµ","é…","è€˜","æ™•","åŒ€","èŠ¸","é™¨","çº­","ç†¨","éƒ§","æ½","éŸ«","éƒ“","æ°²","æ®’","æ„ ","æ˜€","ç‹"
+"Ô±","ÔË","¾ù","ÔÆ","ÔÊ","ÔĞ","ÔÌ","ÔÏ","ÔÍ","ÔÅ","ÔÎ","ÔÈ","Ü¿","ÔÉ","ç¡","ìÙ","ÔÇ","ã¢","è¹","Û©","ëµ","éæ","ã³","êÀ","áñ"
 },
 er=
 {
-"è€Œ","äºŒ","å°”","å„¿","è€³","è¿©","é¥µ","æ´±","è´°","é“’","ç¥","ä½´","é¸¸","é²•"
+"¶ø","¶ş","¶û","¶ù","¶ú","åÇ","¶ü","¶ı","·¡","îï","çí","Ù¦","ğ¹","öÜ"
 },
 wu=
 {
-"åŠ¡","ç‰©","æ— ","äº”","æ­¦","åˆ","å´","èˆ","ä¼","æ±¡","ä¹Œ","è¯¯","äº¡","æ¶","å±‹","æ™¤","æ‚Ÿ","å¾","é›¾","èŠœ","æ¢§","å‹¿","å·«","ä¾®","å","æ¯‹","è¯¬","å‘œ","é’¨","é‚¬","æ‚","é¹œ","å…€","å©º","å¦©","æ–¼","æˆŠ","é¹‰","æµ¯","èœˆ","å””","éª›","ä»µ","ç„","èŠ´","é‹ˆ","åº‘","é¼¯","ç‰¾","æ€ƒ","åœ¬","å¿¤","ç—¦","è¿•","æŒ","å¯¤","é˜¢"
+"Îñ","Îï","ÎŞ","Îå","Îä","Îç","Îâ","Îè","Îé","ÎÛ","ÎÚ","Îó","Íö","¶ñ","Îİ","Îî","Îò","Îá","Îí","Îß","Îà","Îğ","Î×","Îê","Îë","Îã","ÎÜ","ÎØ","ÎÙ","Úù","Îæ","ğÍ","Ø£","æÄ","åü","ì¶","Îì","ğÄ","ä´","òÚ","ßí","æğ","Øõ","ìÉ","ÜÌ","öÈ","âĞ","÷ù","êõ","âä","ÛØ","âè","ğí","åÃ","è»","å»","Úã"
 },
 dian=
 {
-"ç”µ","ç‚¹","åº—","å…¸","å¥ ","ç”¸","ç¢˜","æ·€","æ®¿","å«","é¢ ","æ»‡","ç™«","å·…","æƒ¦","æ‚","ç™œ","ç·","ä½ƒ","è¸®","é›","é’¿","ç°Ÿ","å«","é˜½"
+"µç","µã","µê","µä","µì","µé","µâ","µí","µî","µæ","µß","µá","ñ²","áÛ","µë","µà","ñ°","çè","µè","õÚ","µå","îä","ô¡","Ûã","Úç"
 },
 wen=
 {
-"æ–‡","é—®","é—»","ç¨³","æ¸©","çº¹","å»","èšŠ","é›¯","ç´Š","ç˜Ÿ","æ±¶","åˆ","ç’º","é˜Œ"
+"ÎÄ","ÎÊ","ÎÅ","ÎÈ","ÎÂ","ÎÆ","ÎÇ","ÎÃ","ö©","ÎÉ","ÎÁ","ãë","ØØ","è·","ãÓ"
 },
 ke=
 {
-"å¯","ç§‘","å…‹","å®¢","åˆ»","è¯¾","é¢—","æ¸´","å£³","æŸ¯","æ£µ","å‘µ","å·","æª","è‹›","å’³","ç£•","ç‚","ç¨","çŒ","æº˜","è½²","çª ","å—‘","ç–´","èŒ","å²¢","é¢","é«","ç¼‚","æ°ª","éª’","é’¶","é”"
+"¿É","¿Æ","¿Ë","¿Í","¿Ì","¿Î","¿Å","¿Ê","¿Ç","¿Â","¿Ã","ºÇ","¿À","ã¡","¿Á","¿È","¿Ä","çæ","ïı","î§","äÛ","éğ","ñ½","à¾","ğâ","òò","á³","ò¤","÷Á","ç¼","ë´","æì","îİ","ï¾"
 },
 zong=
 {
-"æ€»","ç»¼","å®—","çºµ","è¸ª","æ£•","ç²½","é¬ƒ","å¬","æ","è…™"
+"×Ü","×Û","×Ú","×İ","×Ù","×Ø","ôÕ","××","ÙÌ","èÈ","ëê"
 },
 xmjc=
-{"é›¶","é•œ","å¥‡","äºŒ","å››","ä¸ƒ","æ°´"},
+{"Áã","¾µ","Ææ","¶ş","ËÄ","Æß","Ë®"},
 gai=
 {
-"æ”¹","è¯¥","ç›–","æ¦‚","æº‰","é’™","ä¸","èŠ¥","èµ…","å“","é™”","æˆ¤"
+"¸Ä","¸Ã","¸Ç","¸Å","¸È","¸Æ","Ø¤","½æ","êà","Ûò","Úë","ê®"
 },
 san=
 {
-"ä¸‰","æ•£","ä¼","å","ç³","é¦“","æ¯µ"
+"Èı","É¢","É¡","Èş","ôÖ","âÌ","ë§"
 },
 hao=
 {
-"å¥½","å·","æ¯«","è±ª","è€—","æµ©","éƒ","çš“","æ˜Š","é•","è’¿","å£•","ç","åš","æ¿ ","èš","è²‰","é¢¢","å—¥","è–…","åš†"
+"ºÃ","ºÅ","ºÁ","ºÀ","ºÄ","ºÆ","ºÂ","ğ©","ê»","¸ä","İï","º¾","å°","º¿","å©","òº","ºÑ","ò«","àÆ","Ş¶","àã"
 },
 si=
 {
-"å¸","å››","æ€","æ–¯","é£Ÿ","ç§","æ­»","ä¼¼","ä¸","é¥²","å¯º","å•","è‚†","æ’•","æ³—","ä¼º","å—£","ç¥€","å®","é©·","å˜¶","é”¶","ä¿Ÿ","å·³","è›³","å’","è€œ","ç¬¥","é¸¶","ç¼Œ","æ¾Œ","å§’","æ±œ","å¶","å…•"
+"Ë¾","ËÄ","Ë¼","Ë¹","Ê³","Ë½","ËÀ","ËÆ","Ë¿","ËÇ","ËÂ","²Ş","ËÁ","Ëº","ãô","ËÅ","ËÃ","ìë","ØË","æá","Ë»","ïÈ","Ù¹","ËÈ","òÏ","ßĞ","ñê","óÓ","ğ¸","çÁ","äù","æ¦","ãá","ÛÌ","Ùî"
 },
 cong=
 {
-"ä»","ä¸›","åŒ†","èª","è‘±","å›±","ç®","æ·™","éª¢","è‹","ç’"
+"´Ó","´Ô","´Ò","´Ï","´Ğ","´Ñ","çı","äÈ","æõ","ÜÊ","è®"
 },
 ping=
 {
-"å¹³","è¯„","å‡­","ç“¶","å†¯","å±","è","è‹¹","ä¹’","åª","æ°","å¨‰","ä¿œ","é²†"
+"Æ½","ÆÀ","Æ¾","Æ¿","·ë","ÆÁ","Æ¼","Æ»","Æ¹","Æº","èÒ","æ³","Ù·","öÒ"
 },
 dang=
 {
-"å½“","å…š","æ¡£","è¡","æŒ¡","å®•","ç €","è£†","å‡¼","èª","è° "
+"µ±","µ³","µµ","µ´","µ²","å´","í¸","ñÉ","ÛÊ","İĞ","ÚÔ"
 },
 tian=
 {
-"å¤©","ç”°","æ·»","å¡«","ç”œ","æ¬","è…†","ä½ƒ","èˆ”","é˜—","å¿","æ®„","ç•‹","æ­"
+"Ìì","Ìï","Ìí","Ìî","Ìğ","Ìñ","Ìó","µè","Ìò","ãÙ","ãÃ","éå","î±","Şİ"
 },
 nei=
 {
-"å†…","é‚£","å“ª","é¦"
+"ÄÚ","ÄÇ","ÄÄ","ÄÙ"
 },
 xiao=
 {
-"å°","æ•ˆ","é”€","æ¶ˆ","æ ¡","æ™“","ç¬‘","è‚–","å‰Š","å­","è§","æ½‡","ç¡","å®µ","å•¸","åš£","éœ„","æ·†","å“®","ç­±","é€","ç®«","éª","æ­","å““","ç»¡","è›¸","å´¤","æµ","é­ˆ"
+"Ğ¡","Ğ§","Ïú","Ïû","Ğ£","Ïş","Ğ¦","Ğ¤","Ï÷","Ğ¢","Ïô","äì","Ïõ","Ïü","Ğ¥","Ïù","Ïö","Ïı","Ïø","óã","åĞ","óï","æç","èÉ","ßØ","ç¯","òÙ","áÅ","èÕ","÷Ì"
 },
 mu=
 {
-"ç›®","æ¨¡","æœ¨","äº©","å¹•","æ¯","ç‰§","ç©†","å§†","å¢“","æ…•","ç‰Ÿ","ç‰¡","å‹Ÿ","ç¦","æ²","æš®","æ‹‡","å§¥","é’¼","è‹œ","ä»«","æ¯ª","å¶"
+"Ä¿","Ä£","Ä¾","Ä¶","Ä»","Ä¸","ÄÁ","ÄÂ","Ä·","Ä¹","Ä½","Ä²","Äµ","Ä¼","ÄÀ","ãå","Äº","Ä´","ÀÑ","îâ","ÜÙ","Øï","ë¤","Ûé"
 },
 hai=
 {
-"æµ·","è¿˜","å®³","å­©","äº¥","å’³","éª¸","å˜¿","éª‡","æ°¦","å—¨","èƒ²","é†¢"
+"º£","»¹","º¦","º¢","º¥","¿È","º¡","ºÙ","º§","º¤","àË","ëÜ","õ°"
 },
 suo=
 {
-"æ‰€","ç´¢","ç¼©","é”","è","æ¢­","ç","å—¦","å”†","å”¢","å¨‘","è“‘","ç¾§","æŒ²","æ¡«","å—","çƒ"
+"Ëù","Ë÷","Ëõ","Ëø","É¯","Ëó","Ëö","àÂ","Ëô","ßï","æ¶","Ëò","ôÈ","êı","èø","àÊ","íü"
 },
 ru=
 {
-"å…¥","å¦‚","ä¹³","å„’","è¾±","æ±","èŒ¹","è¤¥","å­º","æ¿¡","è •","åš…","ç¼›","æº½","é“·","æ´³","è–·","è¥¦","é¢¥","è“"
+"Èë","Èç","Èé","Èå","Èè","Èê","Èã","Èì","Èæ","å¦","Èä","àé","çÈ","äá","ï¨","ä²","Ş¸","ñà","ò¬","İê"
 },
 liang=
 {
-"é‡","ä¸¤","ç²®","è‰¯","è¾†","äº®","æ¢","å‡‰","è°…","ç²±","æ™¾","é“","è¸‰","è¨","æ¤‹","é­‰","å¢š"
+"Á¿","Á½","Á¸","Á¼","Á¾","ÁÁ","Áº","Á¹","ÁÂ","Á»","ÁÀ","ö¦","õÔ","İ¹","é£","÷Ë","Ü®"
 },
 du=
 {
-"åº¦","éƒ½","ç‹¬","ç£","è¯»","é¡¿","æ¯’","æ¸¡","æœ","å µ","èµŒ","ç¹","è‚š","é•€","æ¸","ç¬ƒ","å˜Ÿ","çŠŠ","å¦’","ç‰","è ¹","æ¤Ÿ","é»©","èŠ","é«‘"
+"¶È","¶¼","¶À","¶½","¶Á","¶Ù","¶¾","¶É","¶Å","¶Â","¶Ä","¶Ã","¶Ç","¶Æ","äÂ","óÆ","à½","¶¿","¶Ê","ë¹","ó¼","èü","÷ò","Ü¶","÷Ç"
 },
 bei=
 {
-"åŒ—","è¢«","å¤‡","å€","èƒŒ","æ¯","è´","è¾ˆ","æ‚²","ç¢‘","è‡‚","å‘","æ‚–","æƒ«","è““","é™‚","é’¡","ç‹ˆ","å‘—","ç„™","ç¢š","è¤™","åŸ¤","é´","å­›","é¹","è†","é‚¶","é¾"
+"±±","±»","±¸","±¶","±³","±­","±´","±²","±¯","±®","±Û","±°","ã£","±¹","İí","Úé","±µ","±·","ßÂ","±º","íÕ","ñØ","Ûı","÷¹","ØÃ","ğÇ","İÉ","Úı","öÍ"
 },
 huan=
 {
-"è¿˜","ç¯","æ¢","æ¬¢","æ‚£","ç¼“","å”¤","ç„•","å¹»","ç—ª","æ¡“","å¯°","æ¶£","å®¦","æ´¹","æµ£","è±¢","å¥‚","éƒ‡","åœœ","ç¾","é²©","é¬Ÿ","è‘","é€­","æ¼¶","é”¾","ç¼³","æ“"
+"»¹","»·","»»","»¶","»¼","»º","»½","»À","»Ã","»¾","»¸","å¾","»Á","»Â","ä¡","ä½","»¿","Û¼","Û¨","à÷","âµ","öé","÷ß","İÈ","åÕ","äñ","ïÌ","çÙ","ß§"
 },
 dou=
 {
-"éƒ½","æ–—","è¯»","è±†","æŠ–","å…œ","é™¡","é€—","çª¦","èšª","ç—˜","è”¸","ç¯¼"
+"¶¼","¶·","¶Á","¶¹","¶¶","¶µ","¶¸","¶º","ñ¼","ò½","¶»","İú","óû"
 },
 shu=
 {
-"æœ¯","ä¹¦","æ•°","å±","æ ‘","è¾“","æŸ","è¿°","ç½²","ç†Ÿ","æ®Š","è”¬","èˆ’","ç–","é¼ ","æ·‘","å”","æš‘","æ¢","å¢…","ä¿","æ›™","æŠ’","ç«–","èœ€","è–¯","æ¢³","æˆ","æ•","å­°","æ²­","èµ","åº¶","æ¼±","å¡¾","å€","æ¾","çº¾","å§","è½","é»","è…§","ç§«","æ¯¹","æ®³","æ‘…","ä¸¨"
+"Êõ","Êé","Êı","Êô","Ê÷","Êä","Êø","Êö","Êğ","Êì","Êâ","Êß","Êæ","Êè","Êó","Êç","Êå","Êî","Êà","Êû","Óá","Êï","Êã","Êú","Êñ","Êí","Êá","Êù","Ë¡","Êë","ãğ","Êê","Êü","Êş","ÛÓ","Ù¿","äø","ç£","æ­","İÄ","Êò","ëò","ïø","ë¨","ì¯","Şó","Ø­"
 },
 ming=
 {
-"æ˜","å","å‘½","ç›Ÿ","é¸£","é“­","å†¥","èŒ—","æºŸ","é…©","ç‘","èŸ","æš"
+"Ã÷","Ãû","Ãü","ÃË","Ãù","Ãú","Ú¤","Üø","äé","õ¤","î¨","Ãø","êÔ"
 },
 zhao=
 {
-"ç€","ç…§","æ‹›","æ‰¾","å¬","æœ","èµµ","å…†","æ˜­","è‚‡","ç½©","é’Š","æ²¼","å˜²","çˆª","è¯","å•","æ£¹","ç¬Š"
+"×Å","ÕÕ","ÕĞ","ÕÒ","ÕÙ","³¯","ÕÔ","Õ×","ÕÑ","ÕØ","ÕÖ","îÈ","ÕÓ","³°","×¦","Ú¯","ßú","èş","óÉ"
 },
 zhuo=
 {
-"ç€","è‘—","ç¼´","æ¡Œ","å“","æ‰","ç¢","ç¼","æµŠ","é…Œ","æ‹™","èŒ","æ¶¿","é•¯","å•„","æ¿¯","ç„¯","å€¬","æ“¢","æ–«","æ£¹","è¯¼","æµ","ç¦š"
+"×Å","Öø","½É","×À","×¿","×½","×Á","×Æ","×Ç","×Ã","×¾","×Â","äÃ","ïí","×Ä","åª","ìÌ","Ù¾","ßª","í½","èş","ÚÂ","ä·","ìú"
 },
 ci=
 {
-"æ¬¡","æ­¤","è¯","è¾","åˆº","ç“·","ç£","å…¹","æ…ˆ","èŒ¨","èµ","ç¥ ","ä¼º","é›Œ","ç–µ","é¹š","ç³","å‘²","èŒˆ"
+"´Î","´Ë","´Ê","´Ç","´Ì","´É","´Å","×È","´È","´Ä","´Í","ìô","ËÅ","´Æ","´Ã","ğË","ôÙ","ßÚ","Üë"
 },
 jiang=
 {
-"å°†","å¼º","æ±Ÿ","å¥–","è®²","é™","ç–†","è’‹","å§œ","æµ†","åŒ ","é…±","åƒµ","æ¡¨","ç»›","ç¼°","çŠŸ","è±‡","ç¤“","æ´š","èŒ³","ç³¨","è€©"
+"½«","Ç¿","½­","½±","½²","½µ","½®","½¯","½ª","½¬","½³","½´","½©","½°","ç­","çÖ","êñ","ôø","íä","ä®","Üü","ôİ","ñğ"
 },
 qiang=
 {
-"å°†","å¼º","æŠ¢","å¢™","æª","è…”","é”µ","å‘›","ç¾Œ","è”·","è¥","ç¾Ÿ","è·„","æ¨¯","æˆ•","å«±","æˆ—","ç‚","é•ª","é”–","èœ£"
+"½«","Ç¿","ÇÀ","Ç½","Ç¹","Ç»","ïÏ","Çº","Ç¼","Ç¾","ñß","ôÇ","õÄ","éÉ","ãŞ","æÍ","ê¨","ìÁ","ïê","ïº","òŞ"
 },
 zeng=
 {
-"å¢","æ›¾","ç»¼","èµ ","æ†","é”ƒ","ç”‘","ç½¾","ç¼¯"
+"Ôö","Ôø","×Û","Ôù","Ô÷","ï­","êµ","îÀ","çÕ"
 },
 xiang=
 {
-"å‘","é¡¹","ç›¸","æƒ³","ä¹¡","è±¡","å“","é¦™","é™","åƒ","äº«","ç®±","ç¥¥","æ¹˜","è¯¦","æ©¡","å··","ç¿”","è¥„","å¢","é•¶","é£¨","é¥·","ç¼ƒ","éª§","èŠ—","åº ","é²","è‘™","èŸ“"
+"Ïò","Ïî","Ïà","Ïë","Ïç","Ïó","Ïì","Ïã","½µ","Ïñ","Ïí","Ïä","Ïé","Ïæ","Ïê","Ïğ","Ïï","Ïè","Ïå","Ïá","Ïâ","÷Ï","âÃ","ç½","æø","Ü¼","âÔ","öß","İÙ","ó­"
 },
 ying=
 {
-"åº”","è¥","å½±","è‹±","è¿","æ˜ ","ç¡¬","ç›ˆ","èµ¢","é¢–","å©´","é¹°","è§","è¹","æ¨±","ç‘›","è‡","è¦","èº","é¢","è†º","ç¼¨","ç€›","æ¥¹","ç½‚","è¥","è¤","é¹¦","æ»¢","è“¥","éƒ¢","èŒ”","å˜¤","ç’","å¬´","ç˜¿","åªµ","æ’„","æ½†"
+"Ó¦","Óª","Ó°","Ó¢","Ó­","Ó³","Ó²","Ó¯","Ó®","Ó±","Ó¤","Ó¥","Ó«","Ó¨","Ó£","çø","Ó¬","İÓ","İº","ò£","âß","Ó§","å­","éº","ó¿","Üş","Ó©","ğĞ","äŞ","İö","Û«","Üã","àÓ","è¬","Ùø","ñ¨","ëô","Şü","äë"
 },
 mei=
 {
-"ç¾","æ²¡","æ¯","ç…¤","æ¢…","åª’","æš","å¦¹","çœ‰","é­…","éœ‰","è°œ","æ˜§","åªš","ç«","é…¶","é•","æ¹„","å¯","è“","è¢‚","æ¥£","ç³œ","åµ‹","é•…","æµ¼","çŒ¸","é¹›"
+"ÃÀ","Ã»","Ã¿","Ãº","Ã·","Ã½","Ã¶","ÃÃ","Ã¼","÷È","Ã¹","ÃÕ","ÃÁ","ÃÄ","Ãµ","Ã¸","Ã¾","äØ","ÃÂ","İ®","ñÇ","é¹","ÃÓ","áÒ","ïÑ","ä¼","â­","ğÌ"
 },
 gui=
 {
-"è§„","è´µ","å½’","è½¨","æ¡‚","æŸœ","åœ­","é¬¼","ç¡…","ç‘°","è·ª","é¾Ÿ","é—º","è¯¡","ç™¸","ç‚”","é³œ","æ¡§","çšˆ","é²‘","åˆ½","æ™·","å‚€","å¦«","ç‚…","åº‹","ç°‹","åˆ¿","å®„","åŒ¦"
+"¹æ","¹ó","¹é","¹ì","¹ğ","¹ñ","¹ç","¹í","¹è","¹å","¹ò","¹ê","¹ë","¹î","¹ï","È²","÷¬","èí","ğ§","öÙ","¹ô","êĞ","¿ş","æ£","êÁ","âÑ","óş","ØÛ","å³","ØĞ"
 },
 xie=
 {
-"äº›","è§£","å","å†™","è¡€","å¶","è°¢","æ¢°","é‹","èƒ","æ–œ","æº","æ‡ˆ","å¥‘","å¸","è°","æ³„","èŸ¹","é‚ª","æ­‡","æ³»","å±‘","æŒŸ","ç‡®","æ¦­","è","æ’·","å•","äºµ","æ¥”","é¢‰","ç¼¬","é‚‚","ç€£","å‹°","æ¦","è–¤","ç»","æ¸«","å»¨","ç¬","èº"
+"Ğ©","½â","Ğ­","Ğ´","Ñª","Ò¶","Ğ»","Ğµ","Ğ¬","Ğ²","Ğ±","Ğ¯","Ğ¸","Æõ","Ğ¶","Ğ³","Ğ¹","Ğ·","Ğ°","Ğª","Ğº","Ğ¼","Ğ®","ÛÆ","é¿","Ğ«","ß¢","ÙÉ","Ùô","Ğ¨","ò¡","çÓ","åâ","å¬","ÛÄ","éÇ","Ş¯","ç¥","äÍ","âİ","â³","õó"
 },
 biao=
 {
-"è¡¨","æ ‡","å½ª","å‹º","é•–","è£±","è†˜","é£™","é•³","å©Š","éª ","é£‘","æ“","é«Ÿ","é³”","ç˜­"
+"±í","±ê","±ë","É×","ïÚ","ñÑ","±ì","ì­","ïğ","æ»","æô","ì©","è¼","÷Ô","÷§","ñ¦"
 },
 xi=
 {
-"ç³»","è¥¿","å¸­","æ¯","å¸Œ","ä¹ ","å¸","å–œ","ç»†","æ","æˆ","æ´—","æ‚‰","é”¡","æºª","æƒœ","ç¨€","è¢­","å¤•","æ™°","æ˜”","ç‰º","è…Š","çƒ¯","ç†™","åª³","æ –","è†","éš™","çŠ€","è¹Š","ç¡’","å…®","ç†„","æ›¦","ç¦§","èŒœ","å¬‰","çº","å¥š","æ±","å¾™","ç¾²","é“£","æ·…","å˜»","æ­™","ç†¹","çŸ½","èŸ‹","éƒ—","å”","çš™","éš°","æ¨¨","æµ ","èœ¥","æª„","ç¿•","é˜‹","èˆ¾","å±£","è‘¸","è…","ç²","è§‹","æ¬·","åƒ–","é†¯","é¼·","è£¼","ç©¸","é¥©","èˆ„","ç¦Š","è¥","è“°"
+"Ïµ","Î÷","Ï¯","Ï¢","Ï£","Ï°","Îü","Ï²","Ï¸","Îö","Ï·","Ï´","Ï¤","Îı","Ïª","Ï§","Ï¡","Ï®","Ï¦","Îú","Îô","Îş","À°","Ï©","Îõ","Ï±","ÆÜ","Ï¥","Ï¶","Ï¬","õè","Îø","Ùâ","Ï¨","êØ","ìû","Üç","æÒ","çô","ŞÉ","Ï«","áã","ôË","Ï³","äÀ","Îû","ì¨","ìä","Îù","ó¬","Û­","ßñ","ğª","Úô","éØ","ä»","òá","Ï­","ôâ","ãÒ","ô¸","åï","İß","ó£","ôÑ","êê","ì¤","ÙÒ","õµ","÷û","ñÓ","ñ¶","â¾","ôª","ìù","İ¾","İû"
 },
 ban=
 {
-"åŠ","ç‰ˆ","åŠ","ç­","èˆ¬","æ¿","é¢","ä¼´","æ¬","æ–‘","æ‰®","æ‹Œ","æ‰³","ç“£","å‚","é˜ª","ç»Š","é’£","ç˜¢","èˆ¨","ç™"
+"°ì","°æ","°ë","°à","°ã","°å","°ä","°é","°á","°ß","°ç","°è","°â","°ê","Ûà","Úæ","°í","îÓ","ñ£","ô²","ñ­"
 },
 jiao=
 {
-"æ•™","äº¤","è¾ƒ","æ ¡","è§’","è§‰","å«","è„š","ç¼´","èƒ¶","è½¿","éƒŠ","ç„¦","éª„","æµ‡","æ¤’","ç¤","ä½¼","å¨‡","çŸ«","æ…","ç»","é…µ","å‰¿","åš¼","é¥º","çª–","è·¤","è›Ÿ","ä¾¥","ç‹¡","å§£","çš","èŒ­","å³¤","é“°","é†®","é²›","æ¹«","å¾¼","é¹ª","åƒ¬","å™","è‰½","æŒ¢","æ•«"
+"½Ì","½»","½Ï","Ğ£","½Ç","¾õ","½Ğ","½Å","½É","½º","½Î","½¼","½¹","½¾","½½","½·","½¸","Ù®","½¿","½Ã","½Á","½Ê","½Í","½Ë","½À","½È","½Ñ","õÓ","òÔ","½Ä","½Æ","æ¯","ğ¨","Üú","á½","½Â","õ´","öŞ","äĞ","áè","ğÔ","ÙÕ","àİ","Ü´","ŞØ","ë¸"
 },
 tiao=
 {
-"æ¡","è°ƒ","æŒ‘","è·³","è¿¢","çœº","è‹•","çª•","ç¬¤","ä½»","ç²œ","é««","ç¥§","é¾†","èœ©","é²¦"
+"Ìõ","µ÷","Ìô","Ìø","Ìö","Ì÷","Üæ","ñ»","óÔ","Ù¬","ôĞ","÷Ø","ìö","ö¶","òè","öæ"
 },
 zui=
 {
-"æœ€","ç½ª","å †","å˜´","é†‰","å’€","è•"
+"×î","×ï","¶Ñ","×ì","×í","¾×","Ş©"
 },
 te=
 {
-"ç‰¹","å¿‘","å¿’","é“½","æ…"
+"ÌØ","ìı","ß¯","ï«","í«"
 },
 shou=
 {
-"æ”¶","æ‰‹","å—","é¦–","å”®","æˆ","å®ˆ","ç†Ÿ","å¯¿","ç˜¦","å…½","ç‹©","ç»¶","è‰"
+"ÊÕ","ÊÖ","ÊÜ","Ê×","ÊÛ","ÊÚ","ÊØ","Êì","ÊÙ","Êİ","ÊŞ","á÷","ç·","ô¼"
 },
 bing=
 {
-"å¹¶","ç—…","å…µ","å†°","å±","é¥¼","ç‚³","ç§‰","ä¸™","æ‘’","æŸ„","æ§Ÿ","ç¦€","é‚´"
+"²¢","²¡","±ø","±ù","ÆÁ","±ı","±ş","±ü","±û","Şğ","±ú","éÄ","Ù÷","Úû"
 },
 an=
 {
-"å‚","å¹¿","å®‰","æ¡ˆ","æŒ‰","å²¸","æš—","é","æ°¨","ä¿º","èƒº","é“µ","è°™","åºµ","é»¯","é¹Œ","æ¡‰","åŸ¯","çŠ´","æ"
+"³§","¹ã","°²","°¸","°´","°¶","°µ","°°","°±","°³","°·","ï§","ÚÏ","âÖ","÷ö","ğÆ","èñ","Ûû","áí","Şî"
 },
 kou=
 {
-"å£","æ‰£","å¯‡","å©","æŠ ","è”»","èŠ¤","çœ","ç­˜"
+"¿Ú","¿Û","¿Ü","ßµ","¿Ù","Ş¢","ÜÒ","íî","óØ"
 },
 diao=
 {
-"è°ƒ","æ‰","é›•","é¸Ÿ","åŠ","é’“","åˆ","è²‚","å‡‹","ç¢‰","é²·","å¼","é“«","é“"
+"µ÷","µô","µñ","Äñ","µõ","µö","µó","õõ","µò","µï","öô","µğ","ï¢","îö"
 },
 zu=
 {
-"ç»„","æ—","è¶³","ç¥–","ç§Ÿ","é˜»","å’","ä¿","è¯…","é•","è¹"
+"×é","×å","×ã","×æ","×â","×è","×ä","ÙŞ","×ç","ïß","İÏ"
 },
 lu=
 {
-"è·¯","ç‡","å¾‹","æ—…","å…­","é™†","å½•","ç»¿","è™‘","éœ²","é²","å¢","ç‚‰","å±¥","å•","é“","å±¡","é¹¿","ç¦„","èµ‚","èŠ¦","åº","ç¢Œ","æ°¯","ç¼•","æ»¤","éº“","ä¾£","é¢…","é©´","æ³¸","å¤","æ½","é¹­","è¾˜","æ¦ˆ","è™","ç’","æ¼‰","å™œ","é—¾","è¤›","æˆ®","é²ˆ","æ³","æ©¹","è½³","é€¯","æ¸Œ","è“¼","æ’¸","é¸¬","æ Œ","æ°‡","èƒª","é•¥","ç°","è†‚","èˆ»","è¾‚","ç¨†","å†"
+"Â·","ÂÊ","ÂÉ","ÂÃ","Áù","Â½","Â¼","ÂÌ","ÂÇ","Â¶","Â³","Â¬","Â¯","ÂÄ","ÂÀ","ÂÁ","ÂÅ","Â¹","Â»","Â¸","Â«","Â®","Âµ","ÂÈ","ÂÆ","ÂË","Â´","ÂÂ","Â­","Â¿","ãò","Â±","Âº","ğØ","ê¤","éµ","Â²","è´","äõ","àà","ãÌ","ñÚ","Â¾","öÔ","Â°","éÖ","éñ","åÖ","äË","Ş¤","ß£","ğµ","èÓ","ëª","ëÍ","ïå","óü","ëö","ôµ","éû","ïù","Ûä"
 },
 guang=
 {
-"å¹¿","å…‰","é€›","çŠ·","èƒ±","å’£","æ¡„"
+"¹ã","¹â","¹ä","áî","ë×","ßÛ","èæ"
 },
 bi=
 {
-"æ¯”","å¿…","å¸","ç¬”","æ¯•","ç§˜","é¿","é—­","è¾Ÿ","å£","å¼Š","å½¼","é€¼","ç¢§","é¼»","è‡‚","è”½","æ‹‚","æ³Œ","ç’§","åº‡","ç—¹","æ¯™","å¼¼","åŒ•","é„™","é™›","è£¨","è´²","æ•","è“–","å¡","ç¯¦","ä¿¾","é“‹","æ¯–","ç­š","è¸","è–œ","å©¢","å“”","è·¸","åŸ¤","æ¿","ç§•","èœ","æ„","ç¥","å¦£","èŠ˜","ç®…","åº³","é«€","ç•€","æ»—","ç‹´","è†","å¬–","è¥","èˆ­"
+"±È","±Ø","±Ò","±Ê","±Ï","ÃØ","±Ü","±Õ","±Ù","±Ú","±×","±Ë","±Æ","±Ì","±Ç","±Û","±Î","·÷","ÃÚ","èµ","±Ó","±Ô","±Ğ","åö","Ø°","±É","±İ","ñÔ","êÚ","±Ö","±Í","ßÁ","ó÷","ÙÂ","îé","±Ñ","óÙ","İ©","Şµ","æ¾","ßÙ","õÏ","Ûı","å¨","ïõ","Üê","ã¹","î¢","åş","ÜÅ","óë","âØ","÷Â","î¯","ää","áù","İÉ","æÔ","ôÅ","ô°"
 },
 tou=
 {
-"æŠ•","å¤´","é€","å·","é’­","éª°"
+"Í¶","Í·","Í¸","Íµ","î×","÷»"
 },
 jue=
 {
-"å†³","ç»","è§’","è§‰","è„š","æ˜","å´›","è¯€","ç—","æŠ‰","çˆµ","åš¼","å€”","å¥","è•¨","æ”«","ç","çŸ","è¹¶","è°²","é•¢","å—Ÿ","å™±","æ¡·","å™˜","æ’…","æ©›","å­“","è§–","åŠ‚","çˆ"
+"¾ö","¾ø","½Ç","¾õ","½Å","¾ò","áÈ","¾÷","â±","¾ñ","¾ô","½À","¾ó","ØÊ","Ş§","¾ğ","çå","ÛÇ","õê","ÚÜ","ïã","àµ","àå","èö","àÙ","¾ï","éÓ","æŞ","õû","Øã","ìß"
 },
 nan=
 {
-"å—","éš¾","ç”·","æ¥ ","å–ƒ","å›¡","èµ§","è…©","å›","è»"
+"ÄÏ","ÄÑ","ÄĞ","éª","à«","àï","ôö","ëî","àî","òï"
 },
 na=
 {
-"å—","é‚£","çº³","æ‹¿","å‘¢","å“ª","å¨œ","é’ ","å‘","æº","è¡²","é•","è‚­"
+"ÄÏ","ÄÇ","ÄÉ","ÄÃ","ÄØ","ÄÄ","ÄÈ","ÄÆ","ÄÅ","Şà","ñÄ","ïÕ","ëÇ"
 },
 ling=
 {
-"é¢†","ä»¤","å¦","é›¶","çµ","é¾„","é™µ","å²­","å‡Œ","ç²","é“ƒ","è±","æ£±","ä¼¶","æ‹","ç¾š","è‹“","è†","ç¿","æ³ ","ç“´","å›¹","ç»«","å‘¤","æ£‚","è›‰","é…ƒ","é²®","æŸƒ"
+"Áì","Áî","Áí","Áã","Áé","Áä","Áê","Áë","Áè","Áá","Áå","Áâ","Àâ","Áæ","Áà","Áç","Üß","ñö","ôá","ãö","ê²","àò","ç±","ßÊ","èù","òÈ","Û¹","öì","èÚ"
 },
 qing=
 {
-"æƒ…","é’","æ¸…","è¯·","äº²","è½»","åº†","å€¾","é¡·","å¿","æ™´","æ°¢","æ“","æ°°","ç½„","ç£¬","èœ»","ç®","é²­","ç¶®","è‹˜","é»¥","åœŠ","æª ","è¬¦"
+"Çé","Çà","Çå","Çë","Ç×","Çá","Çì","Çã","Çê","Çä","Çç","Çâ","Çæ","Çè","óÀ","íà","òß","óä","öë","ôì","ÜÜ","÷ô","àõ","éÑ","ö¥"
 },
 shan=
 {
-"å±±","å•","å–„","é™•","é—ª","è¡«","æ“…","æ±•","æ‰‡","æ‰","çŠ","ç¦…","åˆ ","è†³","ç¼®","èµ¡","é„¯","æ …","ç…½","å§—","è·š","é³","å¬—","æ½¸","è®ª","èˆ¢","è‹«","ç–","æ¸","è†»","é’","å‰¡","èŸ®","èŠŸ","åŸ","éªŸ"
+"É½","µ¥","ÉÆ","ÉÂ","ÉÁ","ÉÀ","ÉÃ","ÉÇ","ÉÈ","É¼","Éº","ìø","É¾","ÉÅ","ÉÉ","ÉÄ","Û·","Õ¤","É¿","æ©","õÇ","÷­","æÓ","äú","Ú¨","ô®","É»","ğŞ","µ§","ëş","îÌ","Øß","óµ","ÜÏ","Ûï","æó"
 },
 che=
 {
-"è½¦","å½»","æ’¤","å°º","æ‰¯","æ¾ˆ","æ£","å¼","ç —"
+"³µ","³¹","³·","³ß","³¶","³º","³¸","Ûå","íº"
 },
 ju=
 {
-"è½¦","å±€","æ®","å…·","ä¸¾","å±…","å‰§","å·¨","èš","è·","å¥","æ‹’","ä¿±","æŸœ","èŠ","æ‹˜","ç‚¬","æ¡”","æƒ§","çŸ©","é ","é©¹","é”¯","è¸","å’€","ç¿","æ¸","æ¬","æ²®","è’","æ©˜","é£“","ç–½","é’œ","è¶„","è¸½","é½","çš","é¾ƒ","æ¤","è‹£","è£¾","æ¦˜","ç‹™","å€¨","æ¦‰","è‹´","è®µ","é›","é””","çª­","é«","çŠ‹","å±¦","é†µ"
+"³µ","¾Ö","¾İ","¾ß","¾Ù","¾Ó","¾ç","¾Ş","¾Û","¾à","¾ä","¾Ü","¾ã","¹ñ","¾Õ","¾Ğ","¾æ","½Û","¾å","¾Ø","¾Ï","¾Ô","¾â","¾á","¾×","öÄ","èÛ","Şä","¾Ú","Üì","éÙ","ì«","¾Ò","îÒ","ôò","õá","åá","è¢","ö´","é§","ÜÄ","ñÕ","é°","¾Ñ","ÙÆ","é·","ÜÚ","Úª","öÂ","ï¸","ñÀ","÷¶","êø","åğ","õ¶"
 },
 ran=
 {
-"ç„¶","æŸ“","ç‡ƒ","å†‰","è‹’","é«¯","èšº"
+"È»","È¾","È¼","È½","ÜÛ","÷×","òÅ"
 },
 yin=
 {
-"å› ","å¼•","é“¶","å°","éŸ³","çƒŸ","é¥®","é˜´","éš","å§»","æ®·","æ·«","å°¹","è«","åŸ","ç˜¾","å¯…","èŒµ","åœ»","å ","é„","æ¹®","èš“","æ°¤","èƒ¤","é¾ˆ","çª¨","å–‘","é“Ÿ","æ´‡","ç‹º","å¤¤","å²","éœª","èŒš","å ™"
+"Òò","Òı","Òø","Ó¡","Òô","ÑÌ","Òû","Òõ","Òş","Òö","Òó","Òù","Òü","Òñ","Ò÷","ñ«","Òú","Òğ","Ûß","Ûó","Û´","äÎ","ò¾","ë³","Ø·","ö¸","ñ¿","à³","î÷","ä¦","áş","â¹","ßÅ","ö¯","Üá","Ü§"
 },
 ba=
 {
-"æŠŠ","å…«","å·´","æ‹”","å§","å","çˆ¸","éœ¸","ç½¢","èŠ­","è·‹","æ‰’","å­","é¶","ç–¤","ç¬†","è€™","é²…","ç²‘","å²œ","ç","é’¯","æŒ","è","é­ƒ","èŒ‡"
+"°Ñ","°Ë","°Í","°Î","°É","°Ó","°Ö","°Ô","°Õ","°Å","°Ï","°Ç","°È","°Ğ","°Ì","°Ê","°Ò","öÑ","ôÎ","á±","å±","îÙ","°Æ","İÃ","÷É","ÜØ"
 },
 chi=
 {
-"æŒ","åƒ","æ± ","è¿Ÿ","èµ¤","é©°","å°º","æ–¥","é½¿","ç¿…","åŒ™","ç—´","è€»","ç‚½","ä¾ˆ","å¼›","å±","å•»","å»","å—¤","å¢€","å“§","èŒŒ","è±‰","æ••","ç¬","é¥¬","è¸Ÿ","èš©","åª¸","é­‘","ç¯ª","è¤«","å½³","é¸±","è­","ç˜›","çœµ","å‚º"
+"³Ö","³Ô","³Ø","³Ù","³à","³Û","³ß","³â","³İ","³á","³×","³Õ","³Ü","³ã","³Ş","³Ú","ß³","à´","Ûæ","àÍ","Ü¯","ßê","Üİ","ôù","ë·","ó×","âÁ","õØ","ò¿","æÊ","÷Î","óø","ñİ","áÜ","ğ·","ó¤","ñ¡","í÷","ÙÑ"
 },
 dan=
 {
-"ä½†","å•","çŸ³","æ‹…","ä¸¹","èƒ†","æ—¦","å¼¹","è›‹","æ·¡","è¯","æ°®","éƒ¸","è€½","æ®š","æƒ®","å„‹","çœˆ","ç–¸","æ¾¹","æ¸","å•–","ç®ª","èƒ","è","ç˜…","èµ•"
+"µ«","µ¥","Ê¯","µ£","µ¤","µ¨","µ©","µ¯","µ°","µ­","µ®","µª","µ¦","µ¢","éé","µ¬","ÙÙ","íñ","ğã","å£","µ§","à¢","óì","ñõ","İÌ","ğ÷","êæ"
 },
 cun=
 {
-"æ‘","å­˜","å¯¸","è¹²","å¿–","çš´"
+"´å","´æ","´ç","¶×","ââ","ñå"
 },
 qiu=
 {
-"æ±‚","çƒ","ç§‹","ä¸˜","é‚±","ä»‡","é…‹","è£˜","é¾Ÿ","å›š","é’","é³…","è™¬","èš¯","æ³…","æ¥¸","æ¹«","çŠ°","é€‘","å·¯","ä¿…","è¤","èµ‡","é¼½","ç³—"
+"Çó","Çò","Çï","Çğ","Çñ","³ğ","Çõ","ôÃ","¹ê","Çô","åÙ","öú","ò°","òÇ","Çö","é±","äĞ","áì","åÏ","ÛÏ","Ù´","òø","êä","÷ü","ôÜ"
 },
 fu=
 {
-"åºœ","æœ","å‰¯","è´Ÿ","å¯Œ","å¤","ç¦","å¤«","å¦‡","å¹…","ä»˜","æ‰¶","çˆ¶","ç¬¦","é™„","è…","èµ´","ä½›","æµ®","è¦†","è¾…","å‚…","ä¼","æŠš","èµ‹","è¾","è…¹","å¼—","è‚¤","é˜œ","è¢±","ç¼š","ç”«","æ°Ÿ","æ–§","å­š","æ•·","ä¿¯","æ‹‚","ä¿˜","å’","è…‘","å­µ","èŠ™","æ¶ª","é‡œ","è„¯","èŒ¯","é¦¥","ç»‚","è®£","å‘‹","ç½˜","éº¸","è ","åŒ","èŠ¾","èœ‰","è·—","å‡«","æ»","è®","é©¸","ç»‹","èš¨","ç ©","æ¡´","èµ™","è”","è¶º","è‹»","æ‹Š","é²‹","æ€«","ç¨ƒ","éƒ›","è©","å¹","ç¥“","è‰´","é»»","é»¼","é³†"
+"¸®","·ş","¸±","¸º","¸»","¸´","¸£","·ò","¸¾","·ù","¸¶","·ö","¸¸","·û","¸½","¸¯","¸°","·ğ","¸¡","¸²","¸¨","¸µ","·ü","¸§","¸³","·ø","¸¹","¸¥","·ô","¸·","¸¤","¸¿","¸¦","·ú","¸«","æÚ","·ó","¸©","·÷","·ı","¸À","¸­","·õ","Ü½","¸¢","¸ª","¸¬","Üò","ğ¥","ç¦","¸¼","ß»","î·","ôï","òğ","Ùë","ÜÀ","òİ","õÆ","Ùì","äæ","òó","æâ","ç¨","ò¶","íÉ","èõ","êç","İÊ","õÃ","ÜŞ","ŞÔ","öÖ","âö","ïû","Û®","İ³","á¥","ìğ","åõ","íê","íë","öû"
 },
 yan=
 {
-"ç ”","ä¸¥","éªŒ","æ¼”","è¨€","çœ¼","çƒŸ","æ²¿","å»¶","ç›","ç‚","ç‡•","å²©","å®´","è‰³","é¢œ","æ®·","å½¦","æ©","æ·¹","é˜","è¡","é“…","é›","å’½","åŒ","ç„°","å °","ç š","å”","ç„‰","æ™","æª","èœ’","å¥„","ä¿¨","è…Œ","å¦","è°š","å…–","ç­µ","ç„±","åƒ","é—«","å«£","é„¢","æ¹®","èµ","èƒ­","ç°","æ»Ÿ","é˜‰","é­‡","é…½","éƒ¾","æ¹","å´¦","èŠ«","é˜","å‰¡","é¼¹","è¸","é¤","è°³","å£","ç½¨","é˜½"
+"ÑĞ","ÑÏ","Ñé","Ñİ","ÑÔ","ÑÛ","ÑÌ","ÑØ","ÑÓ","ÑÎ","Ñ×","Ñà","ÑÒ","Ñç","ÑŞ","ÑÕ","Òó","Ñå","ÑÚ","ÑÍ","ÑÖ","ÑÜ","Ç¦","Ñã","ÑÊ","Ñá","Ñæ","Ñß","Ñâ","Ñä","ÑÉ","êÌ","éÜ","ÑÑ","ÑÙ","Ù²","ëç","åû","Ñè","Ùğ","óÛ","ìÍ","ÙÈ","ãÆ","æÌ","Û³","äÎ","ØÍ","ëÙ","çü","äÙ","ÑË","÷Ê","õ¦","Û±","âû","áÃ","Ü¾","ãÕ","Øß","÷ú","İÎ","÷Ğ","Úİ","ØÉ","î»","Úç"
 },
 jun=
 {
-"å†›","å‡","ä¿Š","å›","å³»","èŒ","ç«£","é’§","éª","é¾Ÿ","æµš","éƒ¡","ç­ ","çš²","éº‡","æƒ"
+"¾ü","¾ù","¿¡","¾ı","¾ş","¾ú","¿¢","¾û","¿¥","¹ê","¿£","¿¤","óŞ","ñä","÷å","ŞÜ"
 },
 yo=
 {
-"è‚²","å“Ÿ","å”·"
+"Óı","Ó´","à¡"
 },
 gan=
 {
-"å¹²","æ„Ÿ","èµ¶","æ•¢","ç”˜","è‚","æ†","èµ£","ä¹¾","æŸ‘","å°´","ç«¿","ç§†","æ©„","çŸ¸","æ·¦","è‹·","æ“€","é…","ç»€","æ³”","å©","æ—°","ç–³","æ¾‰"
+"¸É","¸Ğ","¸Ï","¸Ò","¸Ê","¸Î","¸Ë","¸Ó","Ç¬","¸Ì","ŞÏ","¸Í","¸Ñ","éÏ","í·","äÆ","ÜÕ","ß¦","ôû","ç¤","ãï","Ûá","êº","ğá","ä÷"
 },
 tuan=
 {
-"å›¢","æ¹","ç–ƒ","æŠŸ","å½–"
+"ÍÅ","ÍÄ","î¶","ŞÒ","åè"
 },
 zao=
 {
-"é€ ","æ—©","é­","æ£","å™ª","ç¶","ç‡¥","ç³Ÿ","å‡¿","èº","è—»","çš‚","æ¾¡","èš¤","å”£"
+"Ôì","Ôç","Ôâ","Ôæ","Ôë","Ôî","Ôï","Ôã","Ôä","Ôê","Ôå","Ôí","Ôè","Ôé","ßğ"
 },
 lian=
 {
-"è”","è¿","ç»ƒ","å»‰","ç‚¼","è„¸","è²","æ‹","é“¾","å¸˜","æ€œ","æ¶Ÿ","æ•›","ç","é•°","æ¿‚","æ¥","é²¢","æ®“","æ½‹","è£¢","è££","è‡","å¥","è Š","è”¹"
+"Áª","Á¬","Á·","Á®","Á¶","Á³","Á«","Áµ","Á´","Á±","Á¯","Á°","Á²","çö","Á­","å¥","é¬","öã","éç","äò","ñÍ","ñÏ","ì¡","ŞÆ","ó¹","İü"
 },
 zhuan=
 {
-"ä¸“","è½¬","ä¼ ","èµš","ç –","æ’°","ç¯†","æ²Œ","é¦”","å•­","é¢›"
+"×¨","×ª","´«","×¬","×©","×«","×­","ãç","âÍ","ßù","ò§"
 },
 shao=
 {
-"å°‘","ç»","å¬","çƒ§","ç¨","é‚µ","å“¨","éŸ¶","æ","å‹º","æ¢¢","é˜","èŠ","è‹•","åŠ­","è‰„","ç­²","æ“","è›¸","æ½²"
+"ÉÙ","ÉÜ","ÕÙ","ÉÕ","ÉÔ","ÉÛ","ÉÚ","ÉØ","ÉÓ","É×","ÉÒ","ÇÊ","ÉÖ","Üæ","Û¿","ô¹","óâ","è¼","òÙ","äû"
 },
 fei=
 {
-"è´¹","é","é£","è‚¥","åºŸ","è²","è‚º","å•¡","æ²¸","åŒª","æ–","èœš","å¦ƒ","è¯½","æ‰‰","ç¿¡","éœ","å ","ç»¯","è…“","ç—±","èŠ¾","æ·","æ‚±","ç‹’","æ¦§","é²±","ç¯š","é•„"
+"·Ñ","·Ç","·É","·Ê","·Ï","·Æ","·Î","·È","·Ğ","·Ë","ì³","òã","åú","·Ì","ìé","ôä","ö­","·Í","ç³","ëè","ğò","ÜÀ","äÇ","ã­","áô","é¼","öî","óõ","ïĞ"
 },
 shen=
 {
-"æ·±","å‚","èº«","ç¥","ä»€","å®¡","ç”³","ç”š","æ²ˆ","ä¼¸","æ…","æ¸—","è‚¾","ç»…","è˜","å‘»","å©¶","å¨ ","ç ·","èœƒ","å“‚","æ¤¹","è‘š","æ¸–","è¯œ","è°‚","çŸ§","èƒ‚"
+"Éî","²Î","Éí","Éñ","Ê²","Éó","Éê","Éõ","Éò","Éì","É÷","Éø","Éö","Éğ","İ·","Éë","Éô","Éï","Éé","ò×","ßÓ","é©","İØ","äÉ","Ú·","ÚÅ","ïò","ëÏ"
 },
 geng=
 {
-"æ›´","è€•","é¢ˆ","åºš","è€¿","æ¢—","åŸ‚","ç¾¹","å“½","èµ“","ç» ","é² "
+"¸ü","¸û","¾±","¸ı","¹¢","¹£","¹¡","¸ş","ßì","âÙ","ç®","öá"
 },
 kan=
 {
-"çœ‹","åˆŠ","å‹˜","å ª","å","ç ","ä¾ƒ","åµŒ","æ§›","ç°","é˜š","é¾›","æˆ¡","è°"
+"¿´","¿¯","¿±","¿°","¿²","¿³","Ù©","Ç¶","¼÷","î«","ãÛ","íè","ê¬","İ¨"
 },
 tai=
 {
-"å°","å¤ª","æ€","æ³°","æŠ¬","èƒ","æ±°","é’›","è‹”","è–¹","è‚½","è·†","é‚°","é²","å‘”","é…","éª€","ç‚±"
+"Ì¨","Ì«","Ì¬","Ì©","Ì§","Ì¥","Ì­","îÑ","Ì¦","Ş·","ëÄ","õÌ","Û¢","öØ","ß¾","Ìª","ææ","ìÆ"
 },
 yang=
 {
-"æ ·","å…»","å¤®","é˜³","æ´‹","æ‰¬","æ¨","ç¾Š","æ°§","ä»°","ç§§","ç—’","æ¼¾","ç–¡","æ³±","æ®ƒ","æ™","é¸¯","å¾‰","ä½¯","æ€","ç‚€","çƒŠ","é…","è›˜"
+"Ñù","Ñø","Ñë","Ñô","Ñó","Ñï","Ñî","Ñò","Ñõ","Ñö","Ñí","Ñ÷","Ñú","Ññ","ãó","Ñê","í¦","Ñì","áà","Ñğ","âó","ì¾","ìÈ","÷±","òÕ"
 },
 lao=
 {
-"è€","åŠ³","è½","ç»œ","ç‰¢","æ","æ¶","çƒ™","å§¥","ä½¬","å´‚","å” ","é…ª","æ½¦","ç—¨","é†ª","é“‘","é“¹","æ ³","è€¢"
+"ÀÏ","ÀÍ","Âä","Âç","ÀÎ","ÀÌ","ÀÔ","ÀÓ","ÀÑ","ÀĞ","áÀ","ßë","ÀÒ","ÁÊ","ğì","õ²","îî","ï©","èá","ñì"
 },
 liu=
 {
-"æµ","åˆ˜","å…­","ç•™","é™†","æŸ³","ç˜¤","ç¡«","æºœ","ç¢Œ","æµ","æ¦´","ç‰","é¦","é›","é","éª","ç»º","é•","æ—’","ç†˜","é¹¨","é”"
+"Á÷","Áõ","Áù","Áô","Â½","Áø","Áö","Áò","Áï","Âµ","ä¯","Áñ","Áğ","Áó","åŞ","öÌ","æò","ç¸","ïÖ","ì¼","ìÖ","ğÒ","ï³"
 },
 hen=
 {
-"å¾ˆ","ç‹ ","æ¨","ç—•"
+"ºÜ","ºİ","ºŞ","ºÛ"
 },
 gei=
 {
-"ç»™"
+"¸ø"
 },
 chuang=
 {
-"åˆ›","åºŠ","çª—","é—¯","å¹¢","ç–®","æ€†"
+"´´","´²","´°","´³","´±","´¯","âë"
 },
 lun=
 {
-"è®º","è½®","ä¼¦","ä»‘","çº¶","æ²¦","æŠ¡","å›µ"
+"ÂÛ","ÂÖ","Â×","ÂØ","ÂÚ","ÂÙ","ÂÕ","àğ"
 },
 bie=
 {
-"åˆ«","é³–","æ†‹","ç˜ª","è¹©"
+"±ğ","±î","±ï","±ñ","õ¿"
 },
 bian=
 {
-"å˜","ä¾¿","è¾¹","ç¼–","é","è¾©","é­","è¾¨","è´¬","åŒ¾","æ‰","å","æ±´","è¾«","é£š","ç ­","è‹„","è™","é³Š","å¼","çª†","ç¬¾","ç…¸","è¤Š","ç¢¥","å¿­","ç¼"
+"±ä","±ã","±ß","±à","±é","±ç","±Ş","±æ","±á","ØÒ","±â","±å","ãê","±è","ì®","í¾","ÜĞ","òù","öı","ÛÍ","ñ¹","óÖ","ìÔ","ñÛ","íÜ","âí","çÂ"
 },
 feng=
 {
-"é£","ä¸°","å°","å³°","å¥‰","å‡¤","é”‹","å†¯","é€¢","ç¼","èœ‚","æ«","ç–¯","è®½","çƒ½","ä¿¸","æ²£","é…†","ç œ","è‘‘","å”ª"
+"·ç","·á","·â","·å","·î","·ï","·æ","·ë","·ê","·ì","·ä","·ã","·è","·í","·é","Ùº","ãã","Ûº","í¿","İ×","ßô"
 },
 pi=
 {
-"æ‰¹","å¦","çš®","å","è¾Ÿ","å•¤","åŒ¹","æŠ«","ç–²","åƒ»","æ¯—","å¯","è„¾","è­¬","åŠˆ","åª²","å±","çµ","é‚³","è£¨","ç—","ç™–","é™‚","ä¸•","æ‡","å™¼","éœ¹","å¡","çº°","ç ’","é“","æ· ","éƒ«","åŸ¤","ç¥","èŠ˜","èš","åœ®","é¼™","ç½´","èœ±","ç–‹","è²”","ä»³","åº€","æ“—","ç”“","é™´"
+"Åú","·ñ","Æ¤","»µ","±Ù","Æ¡","Æ¥","Åû","Æ£","Æ§","Åş","Å÷","Æ¢","Æ©","Åü","æÇ","Æ¨","Åı","Úü","ñÔ","Æ¦","ñ±","Úé","Ø§","èÁ","àè","Åù","ßÁ","ç¢","Åø","îë","äÄ","Û¯","Ûı","î¢","ÜÅ","ò·","ÛÜ","Ü±","î¼","òç","ñâ","õù","Øò","âÏ","ß¨","ê¶","Úğ"
 },
 cha=
 {
-"æŸ¥","å¯Ÿ","å·®","èŒ¶","æ’","å‰","åˆ¹","èŒ¬","æ¥‚","å²”","è¯§","ç¢´","åš“","å–³","å§¹","æˆ","æ±Š","è¡©","æ½","æ§","é•²","æª«","é¦‡","é”¸","çŒ¹"
+"²é","²ì","²î","²è","²å","²æ","É²","²ç","é«","²í","²ï","²ê","àê","Ôû","æ±","è¾","ãâ","ñÃ","²ë","é¶","ïï","éß","âÇ","ïÊ","âª"
 },
 zha=
 {
-"æŸ¥","æ‰","ç‚¸","è¯ˆ","è½§","é—¸","æ¸£","èœ¡","å’‹","ä¹","æ¦¨","æ¥‚","æœ­","æ …","çœ¨","å’¤","æŸ","å–³","å–‹","é“¡","èš±","å’","ç Ÿ","æ¸","ç—„","å“³","é½„"
+"²é","Ôú","Õ¨","Õ©","Ôş","Õ¢","Ôü","À¯","Õ¦","Õ§","Õ¥","é«","Ôı","Õ¤","Õ£","ßå","×õ","Ôû","à©","Õ¡","òÆ","ß¸","íÄ","Şê","ğä","ßî","÷ş"
 },
 lin=
 {
-"æ—","ä¸´","é‚»","èµ","ç³","ç£·","æ·‹","éºŸ","éœ–","é³","å‡›","é´","è”º","å","ç²¼","å¶™","èº","å»ª","æª©","å•‰","è¾š","è†¦","çµ","æ‡”"
+"ÁÖ","ÁÙ","ÁÚ","ÁŞ","ÁÕ","Á×","ÁÜ","÷ë","ÁØ","ÁÛ","Áİ","åà","İş","Áß","ôÔ","á×","õï","âŞ","éİ","ßø","ê¥","ì¢","î¬","ãÁ"
 },
 zhuai=
 {
-"è½¬","æ‹½","æ›³"
+"×ª","×§","Ò·"
 },
 huai=
 {
-"åˆ’","æ€€","å","æ·®","å¾Š","æ§","è¸"
+"»®","»³","»µ","»´","»²","»±","õ×"
 },
 zhun=
 {
-"å‡†","å±¯","è°†","è‚«","çª€"
+"×¼","ÍÍ","×»","ëÆ","ñ¸"
 },
 xu=
 {
-"éœ€","è®¸","ç»­","é¡»","åº","å¾","è“„","ç•œ","è™š","å","ç»ª","å™","æ—­","æ¤","å¢Ÿ","æ ©","çµ®","åœ©","å©¿","æˆŒ","èƒ¥","å˜˜","æµ’","ç…¦","é…—","è¯©","ç›±","è“¿","æº†","æ´«","é¡¼","å‹–","ç³ˆ","ç ‰","é†‘"
+"Ğè","Ğí","Ğø","Ğë","Ğò","Ğì","Ğî","Ğó","Ğé","Óõ","Ğ÷","Ğğ","Ğñ","Ğô","Ğæ","èò","Ğõ","Û×","Ğö","Ğç","ñã","Ğê","ä°","ìã","Ğï","Ú¼","íì","Ş£","äÓ","äª","çï","ÛÃ","ôÚ","í¹","õ¯"
 },
 chuan=
 {
-"ä¼ ","å·","èˆ¹","ç©¿","ä¸²","å–˜","æ¤½","èˆ›","é’","é„","æ°š","å·›","èˆ¡"
+"´«","´¨","´¬","´©","´®","´­","´ª","â¶","îË","å×","ë°","çİ","ô­"
 },
 gou=
 {
-"æ„","è´­","å¤Ÿ","å¥","æ²Ÿ","ç‹—","é’©","å‹¾","è‹Ÿ","å¢","æ¸","ç¯","ä½","åª¾","è¯Ÿ","å²£","å½€","ç¼‘","ç¬±","é²","è§","é˜"
+"¹¹","¹º","¹»","¾ä","¹µ","¹·","¹³","¹´","¹¶","¹¸","èÛ","óô","Øş","æÅ","Ú¸","á¸","ì°","çÃ","óÑ","÷¸","êí","åÜ"
 },
 bai=
 {
-"ç™¾","ç™½","è´¥","æ‘†","ä¼¯","æ‹œ","æŸ","ä½°","æ°","æ­","ç¨—"
+"°Ù","°×","°Ü","°Ú","²®","°İ","°Ø","°Û","êş","Şã","°Ş"
 },
 cai=
 {
-"æ‰","é‡‡","è´¢","æ","èœ","å½©","è£","è”¡","çŒœ","è¸©","ç¬"
+"²Å","²É","²Æ","²Ä","²Ë","²Ê","²Ã","²Ì","²Â","²È","²Ç"
 },
 can=
 {
-"å‚","æ®‹","é¤","ç¿","æƒ¨","èš•","ç’¨","æƒ­","ç²²","å­±","éª–","é»ª"
+"²Î","²Ğ","²Í","²Ó","²Ò","²Ï","è²","²Ñ","ôÓ","åî","æî","÷õ"
 },
 cen=
 {
-"å‚","å²‘","æ¶”"
+"²Î","á¯","ä¹"
 },
 zhen=
 {
-"é•‡","çœŸ","é’ˆ","åœ³","æŒ¯","éœ‡","ç","é˜µ","è¯Š","ä¾¦","è‡»","è´","æ•","æ¡¢","èµˆ","ç¥¯","ç”„","æ–Ÿ","ç¼œ","ç®´","ç–¹","ç §","æ¦›","é¸©","è½¸","ç¨¹","æº±","è“","èƒ—","æ¤¹","æœ•","ç•›","æµˆ"
+"Õò","Õæ","Õë","ÛÚ","Õñ","Õğ","Õä","Õó","Õï","Õì","Õé","Õê","Õí","èå","êâ","ìõ","Õç","Õå","çÇ","óğ","Õî","Õè","é»","ğ²","éô","ğ¡","äÚ","İè","ëÓ","é©","ëŞ","î³","ä¥"
 },
 tui=
 {
-"æ¨","é€€","è…¿","è¤ª","é¢“","èœ•","å¿’","ç…º"
+"ÍÆ","ÍË","ÍÈ","ÍÊ","ÍÇ","ÍÉ","ß¯","ìÕ"
 },
 sai=
 {
-"æ€","èµ›","å¡","è…®","å™»","é³ƒ"
+"Ë¼","Èü","Èû","Èù","àç","Èú"
 },
 zou=
 {
-"èµ°","é‚¹","å¥","æ","è¯¹","é©º","é™¬","é„¹","é²°"
+"×ß","×Ş","×à","×á","ÚÁ","æã","Úî","Û¸","öí"
 },
 zhuang=
 {
-"è£…","çŠ¶","åº„","å£®","æ’","å¦†","å¹¢","æ¡©","å¥˜","åƒ®"
+"×°","×´","×¯","×³","×²","×±","´±","×®","ŞÊ","Ù×"
 },
 ze=
 {
-"è´£","åˆ™","æ³½","æ‹©","ä¾§","å’‹","å•§","ä»„","ç®¦","èµœ","ç¬®","èˆ´","æ˜ƒ","è¿®","å¸»"
+"Ôğ","Ôò","Ôó","Ôñ","²à","Õ¦","ßõ","ØÆ","óå","ØÓ","óĞ","ô·","ê¾","åÅ","àı"
 },
 zhou=
 {
-"å·","å‘¨","æ´²","èˆŸ","éª¤","è½´","æ˜¼","å®™","ç²¥","çš±","è‚˜","å’’","å¸š","èƒ„","ç»‰","çº£","å¦¯","å•","è¯Œ","ç¹‡","ç¢¡","ç±€","é…","è®"
+"Öİ","ÖÜ","ÖŞ","ÖÛ","Öè","Öá","Öç","Öæ","Öà","Öå","Öâ","Öä","Öã","ëĞ","ç§","æû","æ¨","ßú","Öß","ôí","íØ","ô¦","ôü","İ§"
 },
 que=
 {
-"ç¡®","å´","ç¼º","é›€","é¹Š","é˜™","ç˜¸","æ¦·","ç‚”","é˜•","æ‚«"
+"È·","È´","È±","È¸","Èµ","ãÚ","È³","È¶","È²","ã×","í¨"
 },
 mao=
 {
-"è´¸","æ¯›","çŸ›","å†’","è²Œ","èŒ‚","èŒ…","å¸½","çŒ«","é«¦","é”š","æ‡‹","è¢¤","ç‰¦","å¯","é“†","è€„","å³","ç‘","èŸŠ","èŒ†","æ—„","æ³–","æ˜´","ç€"
+"Ã³","Ã«","Ã¬","Ã°","Ã²","Ã¯","Ã©","Ã±","Ã¨","÷Ö","Ãª","í®","Ùó","êó","Ã®","Ã­","ë£","á¹","è£","ó±","Üâ","ì¸","ã÷","êÄ","î¦"
 },
 fan=
 {
-"å","èŒƒ","çŠ¯","ç¹","é¥­","æ³›","ç¿»","å‡¡","è¿”","ç•ª","è´©","çƒ¦","å¸†","æ¨Š","è—©","çŸ¾","æ¢µ","è•ƒ","é’’","å¹¡","ç•ˆ","è˜©","è¹¯","ç‡”"
+"·´","·¶","·¸","·±","·¹","·º","·­","·²","·µ","·¬","··","·³","·«","·®","·ª","·¯","èó","Ş¬","·°","á¦","î²","ŞÀ","õì","ìÜ"
 },
 xuan=
 {
-"é€‰","å®£","åˆ¸","æ—‹","æ‚¬","è½©","å–§","ç„","ç»š","æ¸²","ç’‡","ç‚«","è±","ç™£","æ¼©","çœ©","æš„","ç…Š","é“‰","æ¥¦","æ³«","è°–","ç—ƒ","ç¢¹","æ","é•Ÿ","å„‡"
+"Ñ¡","Ğû","È¯","Ğı","Ğü","Ğù","Ğú","Ğş","Ñ¤","äÖ","è¯","ìÅ","İæ","Ñ¢","äö","Ñ£","êÑ","ìÓ","îç","é¸","ãù","ÚÎ","ğç","íÛ","Şï","ïà","ÙØ"
 },
 ya=
 {
-"äºš","å‹","é›…","ç‰™","æŠ¼","åŒ¹","é¸­","å‘€","æ¶¯","å´–","èŠ½","å“‘","è®¶","é¸¦","å¨…","è¡™","ä¸«","èšœ","å­","ä¼¢","æ°©","æ¡ ","çŠ","æ ","çš","ç—–","è¿“","å²ˆ","ç ‘"
+"ÑÇ","Ñ¹","ÑÅ","ÑÀ","Ñº","Æ¥","Ñ¼","Ñ½","ÑÄ","ÑÂ","Ñ¿","ÑÆ","ÑÈ","Ñ»","æ«","ÑÃ","Ñ¾","ÑÁ","Ûë","Øó","ë²","èâ","çğ","Şë","íı","ğé","åÂ","á¬","í¼"
 },
 me=
 {
-"ä¹ˆ","éº½"
+"Ã´","÷á"
 },
 ma=
 {
-"ä¹ˆ","é©¬","å—","æ‘©","éº»","ç ","å¦ˆ","ç›","å˜›","éª‚","æŠ¹","èš‚","å”›","èŸ†","çŠ¸","æ©","å¬·"
+"Ã´","Âí","Âğ","Ä¦","Âé","Âë","Âè","Âê","Âï","Âî","Ä¨","Âì","ßé","ó¡","áï","è¿","æÖ"
 },
 wang=
 {
-"ç‹","æœ›","å¾€","ç½‘","å¿˜","äº¡","æ—º","æ±ª","èŠ’","æ‰","å¦„","æƒ˜","ç½”","è¾‹","é­","å°¢"
+"Íõ","Íû","Íù","Íø","Íü","Íö","Íú","Íô","Ã¢","Í÷","Íı","ã¯","Øè","éş","÷Í","ŞÌ"
 },
 ce=
 {
-"ç­–","æµ‹","å†Œ","ä¾§","å•","æ»"
+"²ß","²â","²á","²à","²Ş","âü"
 },
 nu=
 {
-"å¥³","åŠª","æ€’","å¥´","å¼©","é’•","é©½","è¡„","å­¥","èƒ¬","æ§"
+"Å®","Å¬","Å­","Å«","åó","îÏ","æå","ô¬","æÛ","æÀ","í¤"
 },
 tan=
 {
-"è°ˆ","æ¢","å¦","æ‘Š","å¼¹","ç‚­","å›","æ»©","è´ª","å¹","è°­","æ½­","ç¢³","æ¯¯","ç˜«","æª€","ç—°","è¢’","å","å¿","æ˜™","éƒ¯","æ¾¹","é’½","é”¬","é•¡"
+"Ì¸","Ì½","Ì¹","Ì¯","µ¯","Ì¿","Ì³","Ì²","Ì°","Ì¾","Ì·","Ì¶","Ì¼","Ìº","Ì±","Ì´","Ìµ","Ì»","Ì®","ìş","ê¼","Û°","å£","îã","ïÄ","ïâ"
 },
 kuang=
 {
-"å†µ","çŸ¿","æ¡†","ç‹‚","æ—·","çœ¶","åŒ¡","ç­","é‚","åœ¹","å“","è´¶","å¤¼","è¯³","è¯“","çº©"
+"¿ö","¿ó","¿ò","¿ñ","¿õ","¿ô","¿ï","¿ğ","Ú÷","ÛÛ","ßÑ","êÜ","ŞÅ","Ú¿","Ú²","æş"
 },
 se=
 {
-"è‰²","å¡","ç‘Ÿ","æ¶©","å•¬","ç©‘","é“¯"
+"É«","Èû","Éª","É¬","ØÄ","ğ£","ï¤"
 },
 shai=
 {
-"è‰²","ç­›","æ™’"
+"É«","É¸","É¹"
 },
 tsmz=
-{"ä¸­å²›ç¾é›ª","SYP","æ°´é•œå››å¥‡","é›¶äºŒä¸ƒ"},
+{"ÖĞµºÃÀÑ©","SYP","Ë®¾µËÄÆæ","Áã¶şÆß"},
 lie=
 {
-"åˆ—","çƒˆ","åŠ£","è£‚","çŒ","å†½","å’§","è¶”","æ´Œ","é¬£","åŸ’","æ©","èº"
+"ÁĞ","ÁÒ","ÁÓ","ÁÑ","ÁÔ","Ùı","ßÖ","ôó","ä£","÷à","Ûø","Şæ","õñ"
 },
 gang=
 {
-"æ¸¯","é’¢","åˆš","å²—","çº²","å†ˆ","æ ","ç¼¸","æ‰›","è‚›","ç½¡","æˆ†","ç­»"
+"¸Û","¸Ö","¸Õ","¸Ú","¸Ù","¸Ô","¸Ü","¸×","¿¸","¸Ø","î¸","í°","óà"
 },
 kuan=
 {
-"æ¬¾","å®½","é«‹"
+"¿î","¿í","÷Å"
 },
 la=
 {
-"æ‹‰","è½","è“","åƒ","è…Š","å•¦","è¾£","èœ¡","å–‡","å‰Œ","æ—¯","ç ¬","é‚‹","ç˜Œ"
+"À­","Âä","À¶","À¬","À°","À²","À±","À¯","À®","Øİ","ê¹","íÇ","åå","ğø"
 },
 gu=
 {
-"è‚¡","å¤","é¡¾","æ•…","å›º","é¼“","éª¨","ä¼°","è°·","è´¾","å§‘","å­¤","é›‡","è¾œ","è‡","æ²½","å’•","å‘±","é”¢","é’´","é¹„","ç®","æ±©","æ¢","ç—¼","å´®","è½±","é¸ª","ç‰¯","è›Š","è¯‚","æ¯‚","é¹˜","è°","ç½Ÿ","å˜","è‡Œ","è§š","ç½","è›„","é…¤","ç‰¿","é²´"
+"¹É","¹Å","¹Ë","¹Ê","¹Ì","¹Ä","¹Ç","¹À","¹È","¼Ö","¹Ã","¹Â","¹Í","¹¼","¹½","¹Á","¹¾","ßÉ","ïÀ","îÜ","ğÀ","¹¿","ãé","èô","ğó","áÄ","éï","ğ³","êô","¹Æ","Ú¬","ì±","÷½","İÔ","î¹","ØÅ","ëû","õı","î­","òÁ","ôş","êö","öñ"
 },
 gen=
 {
-"æ ¹","è·Ÿ","äº˜","è‰®","å“","èŒ›"
+"¸ù","¸ú","Ø¨","ôŞ","ßç","İ¢"
 },
 tu=
 {
-"åœŸ","çª","å›¾","é€”","å¾’","æ¶‚","å","å± ","å…”","ç§ƒ","å‡¸","è¼","é’","èŸ","å ","é…´"
+"ÍÁ","Í»","Í¼","Í¾","Í½","Í¿","ÍÂ","ÍÀ","ÍÃ","Íº","Í¹","İ±","îÊ","İË","Ü¢","õ©"
 },
 qun=
 {
-"ç¾¤","è£™","é€¡"
+"Èº","È¹","åÒ"
 },
 su=
 {
-"é€Ÿ","ç´ ","è‹","è¯‰","ç¼©","å¡‘","è‚ƒ","ä¿—","å®¿","ç²Ÿ","æº¯","é…¥","å¤™","æ„«","ç°Œ","ç¨£","åƒ³","è°¡","æ¶‘","è”Œ","å—‰","è§«"
+"ËÙ","ËØ","ËÕ","Ëß","Ëõ","ËÜ","Ëà","Ë×","ËŞ","ËÚ","Ëİ","ËÖ","Ùí","ãº","óù","öÕ","ËÛ","ÚÕ","ä³","İø","à¼","ö¢"
 },
 lei=
 {
-"ç±»","ç´¯","é›·","å‹’","æ³ª","è•¾","å’","ç£Š","æ“‚","é•­","è‚‹","ç¾¸","è€’","å„¡","å«˜","ç¼§","é…¹","å˜","è¯”","æª‘"
+"Àà","ÀÛ","À×","ÀÕ","Àá","ÀÙ","Àİ","ÀÚ","ÀŞ","ÀØ","Àß","Ùú","ñç","ÀÜ","æĞ","çĞ","õª","àÏ","Ú³","éÛ"
 },
 xun=
 {
-"è®¯","è®­","è¿…","å¯»","è¯¢","å¾ª","æ—¬","å·¡","æ±›","å‹‹","é€Š","ç†","å¾‡","æµš","æ®‰","é©¯","é²Ÿ","è¤","è–°","è€","æµ”","æ´µ","å³‹","åŸ™","å·½","éƒ‡","é†º","æ‚","çª¨","è•ˆ","æ››","ç¯"
+"Ñ¶","Ñµ","Ñ¸","Ñ°","Ñ¯","Ñ­","Ñ®","Ñ²","Ñ´","Ñ«","Ñ·","Ñ¬","áß","¿£","Ñ³","Ñ±","öà","»ç","Ş¹","Ü÷","ä±","ä­","á¾","Û÷","Ùã","Û¨","õ¸","âş","ñ¿","Ş¦","êÖ","â´"
 },
 zhua=
 {
-"æŠ“","æŒ"
+"×¥","ÎÎ"
 },
 re=
 {
-"çƒ­","è‹¥","æƒ¹"
+"ÈÈ","Èô","ÈÇ"
 },
 mi=
 {
-"ç±³","å¯†","ç§˜","è¿·","å¼¥","èœœ","è°œ","è§…","é¡","æ³Œ","çœ¯","éº‹","çŒ•","è°§","å’ª","ç³œ","å®“","æ±¨","é†š","å˜§","å¼­","è„’","å¹‚","ç¥¢","ç¸»","è˜¼","èŠˆ","ç³¸","æ•‰"
+"Ã×","ÃÜ","ÃØ","ÃÔ","ÃÖ","ÃÛ","ÃÕ","ÃÙ","ÃÒ","ÃÚ","ÃĞ","÷ç","â¨","Ú×","ßä","ÃÓ","åµ","ãè","ÃÑ","à×","åô","ëß","Ãİ","ìò","÷ã","ŞÂ","ØÂ","ôé","ôÍ"
 },
 pei=
 {
-"é…","åŸ¹","èµ”","ä½©","é™ª","æ²›","è£´","èƒš","éœˆ","æ—†","å¸”","å‘¸","é†…","è¾”","é”«"
+"Åä","Åà","Åâ","Åå","Åã","Åæ","Åá","Åß","ö¬","ì·","àú","ÅŞ","õ¬","àÎ","ïÂ"
 },
 kao=
 {
-"è€ƒ","é ","çƒ¤","æ‹·","é“","æ ²","å°»","çŠ’"
+"¿¼","¿¿","¿¾","¿½","îí","èà","åê","êû"
 },
 duan=
 {
-"æ–­","æ®µ","çŸ­","ç«¯","é”»","ç¼","ç……","æ¤´","ç°–"
+"¶Ï","¶Î","¶Ì","¶Ë","¶Í","¶Ğ","ìÑ","é²","óı"
 },
 luo=
 {
-"è½","ç½—","ç»œ","æ´›","é€»","èº","é”£","éª†","è","è£¸","æ¼¯","çƒ™","æ‘","éª¡","å’¯","ç®©","ç","æ‹","è¦","ç¡Œ","é›’","æ¤¤","é•™","ç˜°","æ³º","è„¶","çŒ¡","å€®","è ƒ"
+"Âä","ÂŞ","Âç","Âå","Âß","Âİ","Âà","Âæ","ÂÜ","Âã","äğ","ÀÓ","Şû","Ââ","¿©","Âá","çó","ŞÛ","Üı","íÑ","öÃ","é¡","ïİ","ñ§","ãø","ëá","â¤","ÙÀ","Ùù"
 },
 e=
 {
-"é¢","ä¿„","æ¶","é¹…","é","é„‚","å„","é¥¿","å³¨","æ‰¼","å¨¥","é³„","è›¾","å™©","æ„•","è®¹","é”·","å©","å©€","é¹—","è¼","è°”","èª","è…­","é”‡","é¢š","å‘ƒ","å±™","è‹Š","è½­"
+"¶î","¶í","¶ñ","¶ì","¶ô","¶õ","¶ò","¶ö","¶ë","¶ó","¶ğ","öù","¶ê","Ø¬","ãµ","¶ï","ïÉ","ÛÑ","æ¹","ğÊ","İà","ÚÌ","İ­","ëñ","ï°","ò¦","ßÀ","åí","ÜÃ","éî"
 },
 shuang=
 {
-"åŒ","çˆ½","éœœ","å­€","æ³·"
+"Ë«","Ë¬","Ëª","æ×","ãñ"
 },
 rang=
 {
-"è®©","å£¤","æ”˜","åš·","ç“¤","ç©°","ç¦³"
+"ÈÃ","ÈÀ","ÈÁ","ÈÂ","È¿","ğ¦","ìü"
 },
 qie=
 {
-"åˆ‡","ä¸”","çªƒ","èŒ„","ç Œ","é”²","æ€¯","ä¼½","æƒ¬","å¦¾","æŒˆ","éƒ„","ç®§","æ…Š"
+"ÇĞ","ÇÒ","ÇÔ","ÇÑ","Æö","ïÆ","ÇÓ","Ù¤","ã«","æª","êü","Û§","óæ","ã»"
 },
 pian=
 {
-"ä¾¿","ç‰‡","ç¯‡","å","éª—","ç¿©","æ‰","éªˆ","èƒ¼","è¹","è°","çŠ","ç¼"
+"±ã","Æ¬","Æª","Æ«","Æ­","ôæ","±â","æé","ëİ","õä","ÚÒ","êú","çÂ"
 },
 kong=
 {
-"ç©º","æ§","å­”","æ","å€¥","å´†","ç®œ"
+"¿Õ","¿Ø","¿×","¿Ö","ÙÅ","áÇ","óí"
 },
 ni=
 {
-"ä½ ","å°¼","å‘¢","æ³¥","æ‹Ÿ","å°¿","é€†","å€ª","å¦®","è…»","åŒ¿","éœ“","æºº","æ—","æ˜µ","å­","é“Œ","é²µ","ä¼²","æ€©","ç¨","ç¥¢","çŒŠ","æ…"
+"Äã","Äá","ÄØ","Äà","Äâ","Äò","Äæ","Äß","Äİ","Äå","Ää","ÄŞ","Äç","ì»","êÇ","Ûè","îê","öò","Ù£","âõ","íş","ìò","â¥","í«"
 },
 ceng=
 {
-"å±‚","æ›¾","è¹­"
+"²ã","Ôø","²ä"
 },
 huang=
 {
-"é»„","è’","ç…Œ","çš‡","å‡°","æ…Œ","æ™ƒ","æ½¢","è°","æƒ¶","ç°§","ç’œ","æ","å¹Œ","æ¹Ÿ","è—","ç£º","éš","å¾¨","é‘","è‚“","ç¯","é³‡","èŸ¥","ç™€"
+"»Æ","»Ä","»Í","»Ê","»Ë","»Å","»Î","äê","»Ñ","»Ì","»É","è«","»Ğ","»Ï","äÒ","»È","»Ç","Úò","áå","åØ","ëÁ","óò","öü","ó¨","ñ¥"
 },
 suan=
 {
-"ç®—","é…¸","è’œ","ç‹»"
+"Ëã","Ëá","Ëâ","â¡"
 },
 po=
 {
-"ç ´","ç¹","å¡","è¿«","é¢‡","æœ´","æ³Š","å©†","æ³¼","é­„","ç²•","é„±","ç€","é™‚","é’¹","åµ","ç¬¸","æ³º","çš¤","é’‹","é’·","æ”´"
+"ÆÆ","·±","ÆÂ","ÆÈ","ÆÄ","ÆÓ","²´","ÆÅ","ÆÃ","ÆÇ","ÆÉ","Û¶","çê","Úé","îà","ØÏ","óÍ","ãø","ğ«","îÇ","îŞ","ê·"
 },
 tie=
 {
-"é“","è´´","å¸–","é¤®","èœ"
+"Ìú","Ìù","Ìû","÷Ñ","İÆ"
 },
 man=
 {
-"æ»¡","æ…¢","æ›¼","æ¼«","è”“","ç’","è›®","é³—","é¦’","å¹”","è°©","è¨","ç†³","ç¼¦","é•˜","é¢Ÿ","å¢","é”"
+"Âú","Âı","Âü","Âş","Âû","Â÷","Âù","÷©","Âø","á£","Ã¡","òı","ì×","çÏ","ïÜ","ò©","Ü¬","÷´"
 },
 ai=
 {
-"çˆ±","åŸƒ","è‰¾","ç¢","ç™Œ","å‘†","å“€","æŒ¨","çŸ®","éš˜","è”¼","å”‰","çš‘","å“","éœ­","æ±","æš§","å«’","å—³","ç‘·","å—Œ","é”¿","ç ¹"
+"°®","°£","°¬","°­","°©","´ô","°§","°¤","°«","°¯","°ª","°¦","°¨","°¥","ö°","Şß","êÓ","æÈ","àÈ","è¨","àÉ","ïÍ","íÁ"
 },
 rong=
 {
-"å®¹","è£","è","ç»’","æº¶","è“‰","ç†”","æˆ","æ¦•","èŒ¸","å†—","åµ˜","è‚œ","ç‹¨","è¾"
+"Èİ","ÈÙ","ÈÚ","ÈŞ","ÈÜ","ÈØ","ÈÛ","ÈÖ","éÅ","È×","Èß","áÉ","ëÀ","áõ","òî"
 },
 chen=
 {
-"ç§°","é™ˆ","æ²ˆ","æ²‰","æ™¨","ç›","è‡£","å°˜","è¾°","è¡¬","è¶","å¿±","éƒ´","å®¸","è°Œ","ç¢œ","å—”","æŠ»","æ¦‡","ä¼§","è°¶","é¾€"
+"³Æ","³Â","Éò","³Á","³¿","è¡","³¼","³¾","³½","³Ä","³Ã","³À","³»","å·","ÚÈ","í×","àÁ","ŞÓ","é´","Ø÷","Úß","ö³"
 },
 pai=
 {
-"ç‰Œ","æ’","æ´¾","æ‹","è¿«","å¾˜","æ¹ƒ","ä¿³","å“Œ","è’"
+"ÅÆ","ÅÅ","ÅÉ","ÅÄ","ÆÈ","ÅÇ","ÅÈ","Ù½","ßß","İå"
 },
 cu=
 {
-"ä¿ƒ","ç²—","ç°‡","é†‹","å’","è¹´","çŒ","è¹™","é…¢","è”Ÿ","æ®‚","å¾‚"
+"´Ù","´Ö","´Ø","´×","×ä","õí","â§","õ¾","õ¡","İı","éã","áŞ"
 },
 kun=
 {
-"å›°","æ˜†","å¤","æ†","ç¨","é”Ÿ","é²²","é†Œ","é«¡","æ‚ƒ","é˜ƒ"
+"À§","À¥","À¤","À¦","çû","ï¿","öï","õ«","÷Õ","ã§","ãÍ"
 },
 chao=
 {
-"è¶…","æœ","æ½®","ç‚’","é’","æŠ„","å·¢","åµ","å‰¿","ç»°","å˜²","æ™","ç„¯","è€–","æ€Š"
+"³¬","³¯","³±","³´","³®","³­","³²","³³","½Ë","´Â","³°","êË","ìÌ","ñé","â÷"
 },
 sui=
 {
-"éš","å²","è™½","ç¢","å°¿","éš§","é‚","é«“","ç©—","ç»¥","éš‹","é‚ƒ","ç¢","ç¥Ÿ","æ¿‰","ç‡§","è°‡","çœ­","è½"
+"Ëæ","Ëê","Ëä","Ëé","Äò","Ëí","Ëì","Ëè","Ëë","Ëç","Ëå","åä","î¡","Ëî","å¡","ìİ","ÚÇ","íõ","İ´"
 },
 chun=
 {
-"æ˜¥","çº¯","é†‡","æ·³","å”‡","æ¤¿","è ¢","é¹‘","è¼","è½"
+"´º","´¿","´¼","´¾","´½","´»","´À","ğÈ","İ»","òí"
 },
 kuo=
 {
-"é€‚","æ‰©","æ‹¬","é˜”","å»“","æ ","è›"
+"ÊÊ","À©","À¨","À«","Àª","èé","òÒ"
 },
 hong=
 {
-"çº¢","å®","æ´ª","è½°","è™¹","é¸¿","å¼˜","å“„","çƒ˜","æ³“","è¨‡","è•»","é—³","è®§","è­","é»‰","è–¨"
+"ºì","ºê","ºé","ºä","ºç","ºè","ºë","ºå","ºæ","ãü","Ùê","Ş®","ãÈ","Ú§","İ¦","Ùä","Ş°"
 },
 mai=
 {
-"ä¹°","å–","éº¦","è¿ˆ","è„‰","åŸ‹","éœ¾","è¬","åŠ¢"
+"Âò","Âô","Âó","Âõ","Âö","Âñ","ö²","İ¤","Û½"
 },
 xiu=
 {
-"ä¿®","ç§€","ä¼‘","å®¿","è¢–","ç»£","è‡­","æœ½","é”ˆ","ç¾","å—…","å²«","æº´","åº¥","é¦","å’»","é«¹","é¸º","è²…"
+"ĞŞ","Ğã","Ğİ","ËŞ","Ğä","Ğå","³ô","Ğà","Ğâ","Ğß","Ğá","á¶","äå","âÓ","âÊ","ßİ","÷Û","ğ¼","õ÷"
 },
 qin=
 {
-"äº²","å‹¤","ä¾µ","ç§¦","é’¦","ç´","ç¦½","èŠ¹","æ²","å¯","æ“’","è¦ƒ","å™™","çŸœ","å—ª","æ¿","æº±","èŠ©","è¡¾","å»‘","é”“","å£","æª","è“"
+"Ç×","ÇÚ","ÇÖ","ÇØ","ÇÕ","ÇÙ","Çİ","ÇÛ","Çß","ÇŞ","ÇÜ","ñû","àß","ñæ","àº","Şì","äÚ","ÜË","ôÀ","âÛ","ï·","ßÄ","éÕ","òû"
 },
 cuo=
 {
-"æª","é”™","ç£‹","æŒ«","æ“","æ’®","è¹‰","é”‰","å","åµ¯","ç—¤","çŸ¬","ç˜¥","è„","é¹¾"
+"´ë","´í","´è","´ì","´ê","´é","õã","ï±","ØÈ","áÏ","ğî","ïó","ğû","ëâ","õº"
 },
 long=
 {
-"é¾™","éš†","å¼„","å„","ç¬¼","æ‹¢","è‹","é™‡","èƒ§","ç‘","çª¿","èŒ","å’™","ç »","å…","æ³·","æ Š","ç™ƒ"
+"Áú","Â¡","Åª","Â¢","Áı","Â£","Áû","Â¤","ëÊ","çç","Áş","Ü×","Áü","íÃ","Ûâ","ãñ","èĞ","ñª"
 },
 dun=
 {
-"å¨","é¡¿","ç›¾","æ•¦","è¹²","å¢©","å›¤","æ²Œ","é’","ç‚–","ç›¹","é","è¶¸","ç ˜","é•¦","ç¤…"
+"¶Ö","¶Ù","¶Ü","¶Ø","¶×","¶Õ","¶Ú","ãç","¶Û","ìÀ","íï","¶İ","õ»","í»","ïæ","íâ"
 },
 kang=
 {
-"åº·","æŠ—","æ‰›","æ…·","ç‚•","äº¢","ç³ ","ä¼‰","é’ª","é—¶"
+"¿µ","¿¹","¿¸","¿¶","¿»","¿º","¿·","Øø","îÖ","ãÊ"
 },
 pu=
 {
-"æ™®","æš´","é“º","æµ¦","æœ´","å ¡","è‘¡","è°±","åŸ”","æ‰‘","ä»†","è’²","æ›","ç€‘","æº¥","è†","åœƒ","ç’","æ¿®","è©","è„¯","è¹¼","åŒ","å™—","æ°†","é•¨","é•¤"
+"ÆÕ","±©","ÆÌ","ÆÖ","ÆÓ","±¤","ÆÏ","Æ×","ÆÒ","ÆË","ÆÍ","ÆÑ","ÆØ","ÆÙ","äß","ÆÎ","ÆÔ","è±","å§","ÆĞ","¸¬","õë","Ùé","àÛ","ë«","ïè","ïä"
 },
 reng=
 {
-"ä»","æ‰”"
+"ÈÔ","ÈÓ"
 },
 bo=
 {
-"æ³¢","åš","æ’­","å‹ƒ","æ‹¨","è–„","ä¼¯","ç»","æ","æŸ","æ³Š","èˆ¶","å‰¥","æ¸¤","é­„","åœ","é©³","è„–","è†Š","ç°¸","è ","ç¤´","ç®”","æ°","é“‚","äº³","é’µ","å¸›","æ“˜","é¥½","è·›","é’¹","è¶µ","æª—","å•µ","é¹","å­›","è¸£"
+"²¨","²©","²¥","²ª","²¦","±¡","²®","²£","²«","°Ø","²´","²°","°ş","²³","ÆÇ","²·","²µ","²±","²²","ô¤","²¤","íç","²­","êş","²¬","Ùñ","²§","²¯","ë¢","âÄ","õË","îà","õÀ","éŞ","à£","ğ¾","ØÃ","õÛ"
 },
 lan=
 {
-"å…°","è§ˆ","è“","ç¯®","æ ","å²š","çƒ‚","æ»¥","ç¼†","æ½","æ¾œ","æ‹¦","æ‡’","æ¦„","æ–“","å©ª","é˜‘","è¤´","ç½±","è°°","é•§","æ¼¤"
+"À¼","ÀÀ","À¶","Àº","À¸","á°","ÀÃ","ÀÄ","ÀÂ","À¿","À½","À¹","ÀÁ","é­","ìµ","À·","À»","ñÜ","î½","À¾","ïç","äí"
 },
 piao=
 {
-"ç¥¨","æœ´","æ¼‚","é£˜","å«–","ç“¢","å‰½","ç¼¥","æ®","çŸ","éª ","å˜Œ","è©","èµ"
+"Æ±","ÆÓ","Æ¯","Æ®","æÎ","Æ°","Øâ","çÎ","éè","î©","æô","àÑ","İ³","óª"
 },
 sun=
 {
-"æŸ","å­™","ç¬‹","èª","æ¦«","éš¼","ç‹²","é£§"
+"Ëğ","Ëï","Ëñ","İ¥","é¾","öÀ","áø","â¸"
 },
 ning=
 {
-"å®","å‡","è‹","æ‹§","æ³","æŸ ","å’›","ç‹","ä½","è","ç”¯"
+"Äş","Äı","ÜÑ","Å¡","Å¢","Äû","ßÌ","Äü","Øú","ñ÷","å¸"
 },
 ku=
 {
-"è‹¦","åº“","å“­","é…·","è£¤","æ¯","çªŸ","éª·","å €","ç»”","åˆ³","å–¾"
+"¿à","¿â","¿Ş","¿á","¿ã","¿İ","¿ß","÷¼","Ü¥","ç«","ØÚ","à·"
 },
 nao=
 {
-"åŠª","è„‘","é—¹","æ¼","æŒ ","ç‘™","æ·–","å­¬","å´","é“™","å‘¶","ç¡‡","çŒ±","è›²"
+"Å¬","ÄÔ","ÄÖ","ÄÕ","ÄÓ","è§","Ä×","Ø«","Ûñ","îó","ßÎ","íĞ","â®","òÍ"
 },
 tao=
 {
-"å¥—","è®¨","é™¶","æ¶›","é€ƒ","æ¡ƒ","è„","æ·˜","æ","æ»”","éŸ¬","å¨","ç„˜","æ´®","å••","ç»¦","é¥•","é¼—"
+"Ì×","ÌÖ","ÌÕ","ÌÎ","ÌÓ","ÌÒ","ÌÑ","ÌÔ","ÌÍ","ÌÏ","èº","ß¶","ìâ","ä¬","ßû","ÌĞ","÷Ò","Ø»"
 },
 song=
 {
-"é€","æ¾","å®‹","è®¼","é¢‚","è€¸","è¯µ","åµ©","æ·","æ€‚","æ‚š","å´§","å‡‡","å¿ª","ç«¦","è˜"
+"ËÍ","ËÉ","ËÎ","ËÏ","ËÌ","ËÊ","ËĞ","áÔ","äÁ","ËË","ã¤","áÂ","Ú¡","âì","ñµ","İ¿"
 },
 mou=
 {
-"æŸ","è°‹","ç‰Ÿ","ç¼ª","çœ¸","å“","è¥","éª","è›‘","ä¾”"
+"Ä³","Ä±","Ä²","çÑ","íø","ßè","òú","öÊ","òÖ","Ù°"
 },
 pa=
 {
-"æ´¾","æ€•","å¸•","çˆ¬","æ‰’","è¶´","ç¶","å•ª","è‘©","è€™","æ·","é’¯","ç­¢"
+"ÅÉ","ÅÂ","ÅÁ","ÅÀ","°Ç","Å¿","ÅÃ","Å¾","İâ","°Ò","èË","îÙ","óá"
 },
 lue=
 {
-"ç•¥","æ ","é”Š"
+"ÂÔ","ÂÓ","ï²"
 },
 hei=
 {
-"é»‘","å˜¿"
+"ºÚ","ºÙ"
 },
 chai=
 {
-"å·®","æ‹†","æŸ´","é’—","è±º","ä¾ª","è™¿","ç˜¥"
+"²î","²ğ","²ñ","îÎ","²ò","Ù­","ò²","ğû"
 },
 a=
 {
-"é˜¿","å•Š","å‘µ","è…Œ","å—„","å–","é”•"
+"°¢","°¡","ºÇ","ëç","àÄ","ß¹","ï¹"
 },
 ting=
 {
-"å¬","åº­","åœ","å…","å»·","æŒº","äº­","è‰‡","å©·","æ±€","é“¤","çƒƒ","éœ†","ç”º","èœ“","è‘¶","æ¢ƒ","è›"
+"Ìı","Í¥","Í£","Ìü","Í¢","Í¦","Í¤","Í§","æÃ","Í¡","îú","Ìş","öª","î®","òÑ","İã","èè","Üğ"
 },
 sha=
 {
-"æ²™","å¦","æ€","çº±","ç ‚","å•¥","è","åˆ¹","æ‰","å‚»","ç…","é²¨","éœ","å—„","ç—§","è£Ÿ","æŒ²","é“©","å”¼","æ­ƒ"
+"É³","ÏÃ","É±","É´","É°","É¶","É¯","É²","É¼","Éµ","É·","öè","ö®","àÄ","ğğ","ôÄ","êı","ï¡","ßş","ì¦"
 },
 tuo=
 {
-"æ‰˜","è„±","æ‹“","æ‹–","å¦¥","é­„","é©¼","é™€","æ²±","é¸µ","èˆµ","é©®","å”¾","æ¤­","å¨","ä½—","ç £","è·","åº¹","æŸ","æ©","ä¹‡","é“Š","é…¡","é¼","ç®¨","æŸ"
+"ÍĞ","ÍÑ","ÍØ","ÍÏ","Í×","ÆÇ","ÍÕ","ÍÓ","ãû","ÍÒ","¶æ","ÍÔ","ÍÙ","ÍÖ","Ûç","Ù¢","íÈ","õÉ","âÕ","èŞ","éÒ","Ø±","îè","õ¢","ö¾","óê","èØ"
 },
 pan=
 {
-"åˆ¤","ç›˜","ç•ª","æ½˜","æ”€","ç›¼","æ‹š","ç•”","èƒ–","å›","è¹’","ç£","çˆ¿","èŸ ","æ³®","è¢¢","è¥»"
+"ÅĞ","ÅÌ","·¬","ÅË","ÅÊ","ÅÎ","ŞÕ","ÅÏ","ÅÖ","ÅÑ","õç","ÅÍ","ãİ","ó´","ãú","ñÈ","ñá"
 },
 gua=
 {
-"æ‹¬","æŒ‚","ç“œ","åˆ®","å¯¡","å¦","å‘±","è¤‚","å‰","èƒ","è¯–","é¸¹","æ "
+"À¨","¹Ò","¹Ï","¹Î","¹Ñ","ØÔ","ßÉ","¹Ó","¹Ğ","ëÒ","Ú´","ğ»","èé"
 },
 lou=
 {
-"æ¥¼","éœ²","æ¼","é™‹","å¨„","æ‚","ç¯“","å–½","é•‚","å»","ç˜˜","é«…","è€§","è¼","åµ","è’Œ"
+"Â¥","Â¶","Â©","Âª","Â¦","Â§","Â¨","à¶","ïÎ","ÙÍ","ğü","÷Ã","ñï","ò÷","áĞ","İä"
 },
 han=
 {
-"æ±‰","éŸ©","å«","æ—±","å¯’","æ±—","æ¶µ","å‡½","å–Š","æ†¾","ç½•","ç„Š","ç¿°","é‚¯","æ’¼","ç€š","æ†¨","æ","é…£","æ‚","é˜š","é¼¾","é‚—","é¢”","èš¶","æ™—","è¡","é¡¸","ç„“","æ’–"
+"ºº","º«","º¬","ºµ","º®","º¹","º­","º¯","º°","º¶","º±","º¸","º²","ºª","º³","å«","º©","º´","º¨","º·","ãÛ","÷ı","Úõ","ò¥","òÀ","êÏ","İÕ","ñü","ìÊ","Şş"
 },
 cao=
 {
-"è‰","æ“","æ›¹","æ§½","ç³™","å˜ˆ","æ¼•","è¬","è‰š"
+"²İ","²Ù","²Ü","²Û","²Ú","àĞ","äî","ó©","ô½"
 },
 cang=
 {
-"è—","ä»“","è‹","æ²§","èˆ±"
+"²Ø","²Ö","²Ô","²×","²Õ"
 },
 zang=
 {
-"è—","è„","è‘¬","èµƒ","è‡§","å¥˜","é©µ"
+"²Ø","Ôà","Ôá","Ôß","ê°","ŞÊ","æà"
 },
 shun=
 {
-"é¡º","ç¬","èˆœ","å®"
+"Ë³","Ë²","Ë´","Ë±"
 },
 ka=
 {
-"å¡","å–€","å’–","å’”","å’¯","ä½§","èƒ©"
+"¿¨","¿¦","¿§","ßÇ","¿©","Øû","ëÌ"
 },
 qia=
 {
-"å¡","æ°","æ´½","ä¼½","æ","é«‚","è¢·","è‘œ"
+"¿¨","Ç¡","Ç¢","Ù¤","Æş","÷Ä","ñÊ","İÖ"
 },
 qiao=
 {
-"æ¡¥","ä¹”","ä¾¨","å·§","æ‚„","æ•²","ä¿","å£³","é›€","è•‰","ç§","ç¿˜","çª","å³­","é”¹","æ’¬","è","è··","æ¨µ","æ†”","é˜","æ©‡","å³¤","è¯®","è°¯","æ„€","é’","ç¡—","åŠ","ç¼²"
+"ÇÅ","ÇÇ","ÇÈ","ÇÉ","ÇÄ","ÇÃ","ÇÎ","¿Ç","È¸","½¶","ÇÆ","ÇÌ","ÇÏ","ÇÍ","ÇÂ","ÇË","Üñ","õÎ","éÔ","ã¾","ÇÊ","ÇÁ","á½","Ú½","ÚÛ","ã¸","÷³","íÍ","Øä","çØ"
 },
 fou=
 {
-"å¦","ç¼¶"
+"·ñ","ó¾"
 },
 bang=
 {
-"å¸®","é‚¦","æ¦œ","æ£’","è†€","é•‘","ç»‘","å‚","ç£…","èšŒ","è°¤","æ¢†","æµœ","è’¡"
+"°ï","°î","°ñ","°ô","°ò","°÷","°ó","°ø","°õ","°ö","°ù","°ğ","äº","İò"
 },
 ao=
 {
-"å¥¥","æ¾³","å‚²","ç†¬","å‡¹","åš£","é³Œ","æ•–","é¨","é–","è¢„","å³","ç¿±","å—·","æ‹—","æ‡Š","å²™","è¯","éªœ","ç’","éŠ","åªª","å»’","è±"
+"°Â","°Ä","°Á","°¾","°¼","Ïù","÷¡","°½","åÛ","÷é","°À","Ûê","°¿","à»","ŞÖ","°Ã","á®","òü","æñ","éá","öË","æÁ","âÚ","ñú"
 },
 zhai=
 {
-"å€º","æ‹©","å®…","å¯¨","ä¾§","æ‘˜","çª„","æ–‹","ç¥­","ç¿Ÿ","ç ¦","ç˜µ"
+"Õ®","Ôñ","Õ¬","Õ¯","²à","Õª","Õ­","Õ«","¼À","µÔ","íÎ","ñ©"
 },
 zhui=
 {
-"è¿½","å ","ç¼€","æ¤","é”¥","èµ˜","æƒ´","éª“","ç¼’"
+"×·","×¹","×º","×µ","×¶","×¸","ã·","æí","çÄ"
 },
 chou=
 {
-"ç­¹","æŠ½","ç»¸","é…¬","æ„","ä¸‘","è‡­","ä»‡","ç•´","ç¨ ","ç…","è¸Œ","æƒ†","ä¿¦","ç˜³","é› ","å¸±"
+"³ï","³é","³ñ","³ê","³î","³ó","³ô","³ğ","³ë","³í","³ò","³ì","ã°","Ù±","ñ¬","öÅ","àü"
 },
 zen=
 {
-"æ€","è°®"
+"Ôõ","ÚÚ"
 },
 kui=
 {
-"äº","å¥","æ„§","é­","é¦ˆ","æºƒ","åŒ®","è‘µ","çª¥","ç›”","é€µ","ç½","é¦—","è©","å–Ÿ","å¤”","ç¯‘","å²¿","å–¹","æ†","éš—","å‚€","æšŒ","è·¬","è’‰","æ„¦","æ‚","è°"
+"¿÷","¿ü","À¢","¿ı","À¡","À£","ØÑ","¿û","¿ú","¿ø","åÓ","î¥","Ø¸","ñù","à°","Ùç","óñ","¿ù","à­","Şñ","Úó","¿ş","êÒ","õÍ","İŞ","ã´","ã¦","òñ"
 },
 ha=
 {
-"å“ˆ","è™¾","è›¤","é“ª"
+"¹ş","Ïº","¸ò","îş"
 },
 za=
 {
-"æ‚","æ‰","å’±","ç ¸","å’‹","åŒ","å’‚"
+"ÔÓ","Ôú","ÔÛ","ÔÒ","Õ¦","ÔÑ","ßÆ"
 },
 luan=
 {
-"ä¹±","åµ","æ»¦","å³¦","é¸¾","æ ¾","éŠ®","æŒ›","å­ª","è„”","å¨ˆ"
+"ÂÒ","ÂÑ","ÂĞ","ÂÍ","ğ½","èï","öÇ","ÂÎ","ÂÏ","Ùõ","æ®"
 },
 xiong=
 {
-"é›„","å…„","ç†Š","èƒ¸","å‡¶","åŒˆ","æ±¹","èŠ"
+"ĞÛ","ĞÖ","ĞÜ","ĞØ","Ğ×","ĞÙ","ĞÚ","Üº"
 },
 ne=
 {
-"å‘¢","å“ª","å‘","è®·"
+"ÄØ","ÄÄ","ÄÅ","Ú«"
 },
 zan=
 {
-"èµ","æš‚","å’±","æ”’","æ˜","ç°ª","ç³Œ","ç“’","éŒ¾","è¶±","æ‹¶"
+"ÔŞ","Ôİ","ÔÛ","ÔÜ","êÃ","ô¢","ôØ","è¶","öÉ","ôõ","ŞÙ"
 },
 rui=
 {
-"ç‘","é”","ç¿","èŠ®","è•Š","è•¤","èš‹","æ˜"
+"Èğ","Èñ","î£","ÜÇ","Èï","Ş¨","ò¸","èÄ"
 },
 tang=
 {
-"å ‚","å”","ç³–","æ±¤","å¡˜","èºº","è¶Ÿ","å€˜","æ£ ","çƒ«","æ·Œ","è†›","æª","é•—","å‚¥","è³","æº","å¸‘","ç¾°","æ¨˜","é†£","è—","è€¥","é“´","ç‘­"
+"ÌÃ","ÌÆ","ÌÇ","ÌÀ","ÌÁ","ÌÉ","ÌË","ÌÈ","ÌÄ","ÌÌ","ÌÊ","ÌÅ","ÌÂ","ïÛ","ÙÎ","ó«","äç","àû","ôÊ","éÌ","õ±","ó¥","ñí","ï¦","è©"
 },
 run=
 {
-"æ¶¦","é—°"
+"Èó","Èò"
 },
 kua=
 {
-"è·¨","å¤¸","å®","æŒ","èƒ¯","ä¾‰"
+"¿ç","¿ä","¿å","¿æ","¿è","Ù¨"
 },
 wa=
 {
-"ç“¦","æŒ–","å¨ƒ","æ´¼","è¢œ","è›™","å‡¹","å“‡","ä½¤","å¨²","è…½"
+"Íß","ÍÚ","ÍŞ","Íİ","Íà","ÍÜ","°¼","ÍÛ","Øô","æ´","ëğ"
 },
 meng=
 {
-"è’™","ç›Ÿ","æ¢¦","çŒ›","å­Ÿ","èŒ","æ°“","æœ¦","é”°","æª¬","å‹","æ‡µ","èœ¢","è™»","è “","è‰¨","ç”","è‰‹","ç¢","ç¤"
+"ÃÉ","ÃË","ÃÎ","ÃÍ","ÃÏ","ÃÈ","Ã¥","ëü","ÃÌ","ÃÊ","ÛÂ","ãÂ","òì","òµ","ó·","ô¿","İù","ô»","Ş«","íæ"
 },
 bin=
 {
-"å®¾","æ»¨","æ–Œ","å½¬","æ¿’","æ®¡","ç¼¤","é¬“","æ§Ÿ","æ‘ˆ","è†‘","ç¢","é•”","è±³","é«Œ","å‚§"
+"±ö","±õ","±ó","±ò","±ô","éë","çÍ","÷Ş","éÄ","±÷","ë÷","çã","ïÙ","áÙ","÷Æ","ÙÏ"
 },
 leng=
 {
-"å†·","æ„£","æ£±","æ¥","å¡„"
+"Àä","ã¶","Àâ","Àã","Ü¨"
 },
 peng=
 {
-"é¹","æœ‹","å½­","è†¨","è“¬","ç¢°","æ£š","æ§","çƒ¹","ç¯·","æ¾","æŠ¨","ç¡¼","æ€¦","ç °","å˜­","èŸ›","å ‹"
+"Åô","Åó","Åí","Åò","Åî","Åö","Åï","Åõ","Åë","Åñ","Åì","Åê","Åğ","âñ","Åé","àØ","ó²","Ü¡"
 },
 niu=
 {
-"ç‰›","çº½","æ‰­","é’®","æ‹—","å¦","å¿¸","ç‹ƒ"
+"Å£","Å¦","Å¤","Å¥","ŞÖ","æ¤","âî","áğ"
 },
 rou=
 {
-"è‚‰","æŸ”","æ‰","ç³…","é£","è¹‚"
+"Èâ","Èá","Èà","ôÛ","÷·","õå"
 },
 ruo=
 {
-"è‹¥","å¼±","åŒ"
+"Èô","Èõ","Ù¼"
 },
 sen=
 {
-"æ£®"
+"É­"
 },
 sa=
 {
-"è¨","æ´’","æ’’","é£’","å…","ä»¨","æŒ²","è„"
+"Èø","È÷","Èö","ìª","Ø¦","Øí","êı","ëÛ"
 },
 juan=
 {
-"å·","æ","ä¿Š","çœ·","å¨Ÿ","å€¦","ç»¢","éš½","é•Œ","æ¶“","é¹ƒ","é„„","è ²","ç‹·","é”©","æ¡Š"
+"¾í","¾è","¿¡","¾ì","¾ê","¾ë","¾î","öÁ","ïÔ","ä¸","¾é","Û²","îÃ","áú","ïÃ","èğ"
 },
 pao=
 {
-"è·‘","ç‚®","æ³¡","æŠ›","åˆ¨","è¢","å’†","ç–±","åº–","ç‹","åŒ","è„¬"
+"ÅÜ","ÅÚ","Åİ","Å×","ÅÙ","ÅÛ","ÅØ","ğå","âÒ","áó","ŞË","ëã"
 },
 ruan=
 {
-"è½¯","é˜®","æœŠ"
+"Èí","Èî","ëÃ"
 },
 lang=
 {
-"æµª","æœ—","éƒ","å»Š","ç‹¼","ç…","æ¦”","è‚","é˜†","é”’","è¨","å•·","è’—","ç¨‚"
+"ÀË","ÀÊ","ÀÉ","ÀÈ","ÀÇ","ÀÅ","ÀÆ","òë","ãÏ","ï¶","İ¹","à¥","İõ","ïü"
 },
 zun=
 {
-"å°Š","éµ","é³Ÿ","æ¨½","æ’™"
+"×ğ","×ñ","÷®","é×","ß¤"
 },
 ken=
 {
-"è‚¯","å¦","æ³","å•ƒ","è£‰"
+"¿Ï","¿Ñ","¿Ò","¿Ğ","ñÌ"
 },
 hun=
 {
-"å©š","æ··","é­‚","æµ‘","æ˜","è¤","é¦„","è¯¨","æº·","é˜"
+"»é","»ì","»ê","»ë","»è","»ç","âÆ","Ú»","äã","ãÔ"
 },
 en=
 {
-"æ©","å—¯","æ‘","è’½"
+"¶÷","àÅ","Şô","İì"
 },
 qiong=
 {
-"ç©·","ç¼","ç©¹","é‚›","èŒ•","ç­‡","è·«","è›©","éŠ"
+"Çî","Çí","ñ·","Úö","Üä","óÌ","õ¼","òË","öÆ"
 },
 rao=
 {
-"ç»•","æ‰°","é¥¶","å¨†","æ¡¡","è›"
+"ÈÆ","ÈÅ","ÈÄ","æ¬","èã","Üé"
 },
 mang=
 {
-"å¿™","ç›²","èŒ«","èŠ’","æ°“","è½","èŸ’","é‚™","ç¡­","æ¼­"
+"Ã¦","Ã¤","Ã£","Ã¢","Ã¥","Ã§","òş","Úø","íË","äİ"
 },
 nuo=
 {
-"è¯º","æŒª","å¨œ","ç³¯","æ‡¦","å‚©","å–","æ¦","é”˜"
+"Åµ","Å²","ÄÈ","Å´","Å³","ÙĞ","ßö","Şù","ï»"
 },
 teng=
 {
-"è…¾","ç–¼","è—¤","æ»•","èªŠ"
+"ÌÚ","ÌÛ","ÌÙ","ëø","ÌÜ"
 },
 nin=
 {
-"æ‚¨"
+"Äú"
 },
 miao=
 {
-"è‹—","ç§’","å¦™","æ","åº™","ç„","ç¼ª","æ¸º","æ·¼","è—","ç¼ˆ","é‚ˆ","é¹‹","æª","çœ‡","å–µ"
+"Ãç","Ãë","Ãî","Ãè","Ãí","Ãé","çÑ","Ãì","íµ","Ãê","ç¿","åã","ğÅ","èÂ","íğ","ß÷"
 },
 mie=
 {
-"ç­","è”‘","ç¯¾","ä¹œ","å’©","è ›"
+"Ãğ","Ãï","óú","Ø¿","ßã","óº"
 },
 niang=
 {
-"å¨˜"
+"Äï"
 },
 nai=
 {
-"ä¹ƒ","å¥¶","è€","å¥ˆ","é¼","è˜","æ°–","æŸ°","è‰¿"
+"ÄË","ÄÌ","ÄÍ","ÄÎ","Ø¾","İÁ","ÄÊ","èÍ","Üµ"
 },
 sang=
 {
-"æ¡‘","ä¸§","å—“","æ¡","é¢¡","ç£‰"
+"É£","É¥","É¤","Şú","òª","íß"
 },
 ca=
 {
-"æ‹†","æ“¦","åš“","ç¤¤"
+"²ğ","²Á","àê","íå"
 },
 sao=
 {
-"æ‰«","éªš","å«‚","æ¢¢","ç¼«","æ”","ç˜™","è‡Š","åŸ½","ç¼²","é³‹"
+"É¨","É§","É©","ÉÒ","çÒ","É¦","ğş","ëı","Ü£","çØ","öş"
 },
 zuan=
 {
-"é’»","èµš","çº‚","æ”¥","ç¼µ","èºœ"
+"×ê","×¬","×ë","ß¬","çÚ","õò"
 },
 shua=
 {
-"åˆ·","è€","å”°"
+"Ë¢","Ë£","à§"
 },
 gun=
 {
-"æ»š","æ£","è¾Š","è¡®","ç£™","é²§","ç»²"
+"¹ö","¹÷","¹õ","Ùò","íŞ","öç","çµ"
 },
 guai=
 {
-"æ€ª","æ‹","ä¹–"
+"¹Ö","¹Õ","¹Ô"
 },
 pang=
 {
-"æ—","åº","ä¹“","è†€","èƒ–","ç£…","èƒ","å½·","æ»‚","é€„","è€ª"
+"ÅÔ","ÅÓ","ÅÒ","°ò","ÅÖ","°õ","ó¦","áİ","äè","åÌ","ÅÕ"
 },
 nuan=
 {
-"æš–"
+"Å¯"
 },
 shuai=
 {
-"è¡°","å¸…","æ‘”","ç”©","èŸ€"
+"Ë¥","Ë§","Ë¤","Ë¦","ó°"
 },
 cui=
 {
-"è¡°","å‚¬","å´”","è„†","ç¿ ","èƒ","ç²¹","æ‘§","ç’€","ç˜","æ‚´","æ·¬","å•","éš¹","æ¯³","æ¦±"
+"Ë¥","´ß","´Ş","´à","´ä","İÍ","´â","´İ","è­","´á","ã²","´ã","ßı","ö¿","ë¥","éÁ"
 },
 niao=
 {
-"é¸Ÿ","å°¿","æºº","è¢…","è„²","èŒ‘","å¬²"
+"Äñ","Äò","Äç","ôÁ","ëå","Üà","æÕ"
 },
 die=
 {
-"è·Œ","å ","è¶","è¿­","ç¢Ÿ","çˆ¹","è°","ç‰’","è€‹","å–‹","è¸®","å ","ç“","é²½","å¤","æ²","è¹€"
+"µø","µş","µû","µü","µú","µù","µı","ëº","ñó","à©","õÚ","Ü¦","ğ¬","öø","Ûì","Şé","õŞ"
 },
 pen=
 {
-"å–·","ç›†","æ¹“"
+"Åç","Åè","äÔ"
 },
 chui=
 {
-"å¹","å‚","é”¤","ç‚Š","æ¤","é™²","æ§Œ","æ¶","æ£°"
+"´µ","´¹","´¸","´¶","×µ","Úï","é³","´·","é¢"
 },
 ang=
 {
-"æ˜‚","ç›","è‚®"
+"°º","°»","°¹"
 },
 keng=
 {
-"å‘","é“¿","å­"
+"¿Ó","ï¬","¿Ô"
 },
 tun=
 {
-"å","å±¯","å›¤","è¤ª","è±š","è‡€","é¥¨","æš¾","æ°½"
+"ÍÌ","ÍÍ","¶Ú","ÍÊ","ëà","ÍÎ","â½","êÕ","ÙÛ"
 },
 diu=
 {
-"ä¸¢","é“¥"
+"¶ª","îû"
 },
 weng=
 {
-"ç¿","å—¡","ç“®","è“Š","è•¹"
+"ÎÌ","ÎË","ÎÍ","İî","Ş³"
 },
 sou=
 {
-"è‰˜","æœ","æ“","å—½","å—–","åŸ","é¦Š","è–®","é£•","å—¾","æº²","é”¼","è‹","ç"
+"ËÒ","ËÑ","ËÓ","ËÔ","à²","ÛÅ","âÈ","Ş´","ì¬","àÕ","äÑ","ïË","òô","î¤"
 },
 ga=
 {
-"å¤¹","å˜","å°¬","èƒ³","å™¶","æ—®","å°•","é’†","å°œ"
+"¼Ğ","¸Â","ŞÎ","¸ì","¸Á","ê¸","æØ","îÅ","æÙ"
 },
 lia=
 {
-"ä¿©"
+"Á©"
 },
 nen=
 {
-"å«©","æ"
+"ÄÛ","í¥"
 },
 nang=
 {
-"å›Š","é¦•","å›”","æ›©","æ”®"
+"ÄÒ","âÎ","àì","êÙ","ß­"
 },
 nie=
 {
-"è‚","æ","æ¶…","é•","å­½","è˜–","å•®","è¹‘","å—«","è‡¬","é•Š","é¢","ä¹œ","é™§"
+"Äô","Äó","Äù","Äø","Äõ","ŞÁ","Äö","õæ","à¿","ô«","Ä÷","ò¨","Ø¿","Úí"
 },
 beng=
 {
-"æ³µ","å´©","èšŒ","è¹¦","è¿¸","ç»·","ç”­","å˜£","ç”"
+"±Ã","±À","°ö","±Ä","±Å","±Á","±Â","àÔ","ê´"
 },
 cou=
 {
-"å‡‘","è¾","è… ","æ¥±"
+"´Õ","ê£","ëí","é¨"
 },
 pou=
 {
-"å‰–","æŠ","è£’"
+"ÆÊ","Şå","Ùö"
 },
 seng=
 {
-"åƒ§"
+"É®"
 },
 nue=
 {
-"è™"
+"Å°"
 },
 cuan=
 {
-"çªœ","æ”’","ç¯¡","è¹¿","æ’º","çˆ¨","æ±†","é•©"
+"´Ü","ÔÜ","´Û","´Ú","ß¥","ìà","Ùà","ïé"
 },
 chuo=
 {
-"è¾","ç»°","æˆ³","å•œ","é¾Š","è¸”"
+"ê¡","´Â","´Á","à¨","öº","õÖ"
 },
 chuai=
 {
-"æ£","è¸¹","å•œ","å˜¬","æ‹","è†ª"
+"´§","õß","à¨","àÜ","Şõ","ëú"
 },
 jiong=
 {
-"çª˜","ç‚¯","è¿¥","ç‚…","æ‰ƒ"
+"¾½","¾¼","åÄ","êÁ","ìç"
 },
 shuan=
 {
-"æ “","æ‹´","æ¶®","é—©"
+"Ë¨","Ë©","äÌ","ãÅ"
 },
 zei=
 {
-"è´¼"
+"Ôô"
 },
 pie=
 {
-"ç¥","æ’‡","è‹¤","æ°•","ä¸¿"
+"Æ³","Æ²","ÜÖ","ë­","Ø¯"
 },
 miu=
 {
-"è°¬"
+"Ãı"
 },
 o=
 {
-"å“¦","å™¢","å–”"
+"Å¶","àŞ","à¸"
 },
 dia=
 {
-"å—²"
+"àÇ"
 },
 nou=
 {
-"è€¨"
+"ññ"
 },
 ei=
 {
-"è¯¶"
+"ÚÀ"
 },
 s=
 {
@@ -7176,15 +7175,15 @@ sz=
 }
 
 	local T2=T1[pinyin]
-	if T2==nil then 			--å¦‚æœè¾“å…¥çš„æ‹¼éŸ³æ— åŒ¹é…é¡¹
+	if T2==nil then 			--Èç¹ûÊäÈëµÄÆ´ÒôÎŞÆ¥ÅäÏî
 		Cls()
-		DrawStrBox(x,y,"æŸ¥æ— æ­¤å­—ï¼Œè¯·é‡æ–°è¾“å…¥",C_GOLD,24) 
+		DrawStrBox(x,y,"²éÎŞ´Ë×Ö£¬ÇëÖØĞÂÊäÈë",C_GOLD,24) 
 		lib.ShowSurface(0)
 		lib.Delay(2000)
 		return ""
 	end
-	local page=0				--é€‰å­—é¡µé¢ï¼Œåˆå§‹å½“ç„¶æ˜¯ç¬¬ä¸€é¡µäº†
-	local str=""				--ç”¨äºä¿å­˜å€™é€‰å­—ç¬¦
+	local page=0				--Ñ¡×ÖÒ³Ãæ£¬³õÊ¼µ±È»ÊÇµÚÒ»Ò³ÁË
+	local str=""				--ÓÃÓÚ±£´æºòÑ¡×Ö·û
 	while true do
 		str="";
 		for i=1,9 do
@@ -7209,9 +7208,9 @@ sz=
 	end
 end
 
-function GetPinyin(x,y,word)--è¾“å…¥æ‹¼éŸ³
+function GetPinyin(x,y,word)--ÊäÈëÆ´Òô
 	local T3={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
-	local T4={"ï¼","ï¼‘","ï¼’","ï¼“","ï¼”","ï¼•","ï¼–","ï¼—","ï¼˜","ï¼™"}
+	local T4={"£°","£±","£²","£³","£´","£µ","£¶","£·","£¸","£¹"}
 	local str=""
 	while true do
 		ShowPinyin(x,y,word,str)
@@ -7235,7 +7234,7 @@ function GetPinyin(x,y,word)--è¾“å…¥æ‹¼éŸ³
 	end
 end
 
-function GetPinyin1(x,y)--è¾“å…¥æ‹¼éŸ³
+function GetPinyin1(x,y)--ÊäÈëÆ´Òô
 	local T3={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"}
 	local T4={"0","1","2","3","4","5","6","7","8","9"}
 	local str=""
@@ -7263,10 +7262,10 @@ function ShowPinyin(x,y,str1,str2,str3)
 	Cls()
 	local size=24
 	DrawBox(x,y+size,CC.ScreenW-x,y+5*size,C_ORANGE)
-	if str3==nil then						--è¾“å…¥æ‹¼éŸ³çŠ¶æ€
-		DrawStrBox(x,y-size/2,"è¯·è¾“å…¥(æ‹¼)",C_WHITE,size)
-	else									--é€‰å­—çŠ¶æ€
-		DrawStrBox(x,y-size/2,"è¯·é€‰æ‹©",C_WHITE,size)
+	if str3==nil then						--ÊäÈëÆ´Òô×´Ì¬
+		DrawStrBox(x,y-size/2,"ÇëÊäÈë(Æ´)",C_WHITE,size)
+	else									--Ñ¡×Ö×´Ì¬
+		DrawStrBox(x,y-size/2,"ÇëÑ¡Ôñ",C_WHITE,size)
 		DrawString(x+15,y+size*3.5,str3,C_WHITE,size)
 	end
 	lib.DrawRect(x+10,y+size*3,CC.ScreenW-10-x,y+size*3+2,C_WHITE)
@@ -7279,10 +7278,10 @@ function ShowPinyin1(x,y,str2,str3)
 	Cls()
 	local size=24
 	DrawBox(x,y+size,640-x,y+5*size,C_ORANGE)
-	if str3==nil then						--è¾“å…¥æ‹¼éŸ³çŠ¶æ€
-		DrawStrBox(x,y-size/2,"è¯·è¾“å…¥(æ‹¼)",C_WHITE,size)
-	else									--é€‰å­—çŠ¶æ€
-		DrawStrBox(x,y-size/2,"è¯·é€‰æ‹©",C_WHITE,size)
+	if str3==nil then						--ÊäÈëÆ´Òô×´Ì¬
+		DrawStrBox(x,y-size/2,"ÇëÊäÈë(Æ´)",C_WHITE,size)
+	else									--Ñ¡×Ö×´Ì¬
+		DrawStrBox(x,y-size/2,"ÇëÑ¡Ôñ",C_WHITE,size)
 		DrawString(x+15,y+size*3.5,str3,C_WHITE,size)
 	end
 	lib.DrawRect(x+10,y+size*3,630-x,y+size*3+2,C_WHITE)
@@ -7294,29 +7293,29 @@ end
 function SelectWarMenu(x,y)
 	local menu={};
 	local num=0
-	local warname={	'æ€è‹—äººå‡¤','ä¸­é˜åŸºè®¡','æ€é˜åŸº','æ•‘è‹—äººå‡¤','å•æŒ‘è‹—','åƒå¹´äººè”˜','é—¯ç‹å®è—','è¡€åˆ€è€ç¥–','æ˜æ•™åˆ†èˆµ','æˆ˜æ˜†ä»‘',
-								'æˆå´‘å¥¸è®¡','æˆ˜åå±±','æˆ˜å´†å³’','å¼‘æ€æˆå´‘','æ³¢æ–¯ä¸‰ä½¿','å…‰æ˜åœ£ç«','æ€ç‹„äº‘','é—¹å´†å³’','æ•‘åº¸åŒ»','é—¹å´‘ä»‘',
-								'å¤ºå€šå¤©å‰‘','å³¨åµ‹å›´æ”»','ä¸‰ä¸°æŒ‡å¯¼','é—¯è§æ€§å³°','æ–—å®šé—²','æ–—æ³°å±±','æ–—å¤©é—¨','é—¯è¡¡å±±','æ–—è«å¤§','é—¯åµ©å±±',
-								'å¾é™å¤©é—¨','å¾é™å®šé—²','å¾é™è«å¤§','å¾é™å·¦','æ€æ—å¹³ä¹‹','ä»¤é™å®šé—²','ä»¤é™è«å¤§','ä»¤é™å·¦','å†æ–—åµ©å±±','å†æ–—å®šé—²',
-								'å†æ–—å¤©é—¨','å†æ–—è«å¤§','è½èŠ±æµæ°´','æ–—ä¸¹é’ç”Ÿ','æ–—ç§ƒç¬”ç¿','æ–—é»‘ç™½å­','æ–—é»„é’Ÿå…¬','æ–—å››å‹','æ•‘æ—å¹³ä¹‹','é’åŸå››ç§€',
-								'æ–—ä½™æ²§æµ·','å¹³ä¹‹å¤ä»‡','æˆ˜æè«æ„','å¸®ç”°ä¼¯å…‰','ä¸œæ–¹ä¸è´¥','è‘µèŠ±å®å…¸','ç¬‘å‚²æ±Ÿæ¹–','ä»»ä¸ä¸œæ–¹','å‡Œéœ„åŸå¤–','æ–—ç™½ä¸‡å‰‘',
-								'æˆ˜é›ªå±±æ´¾','èœ˜è››æ´ä¸€','èœ˜è››æ´äºŒ','èœ˜è››æ´ä¸‰','èœ˜è››æ´å››','èœ˜è››æ´äº”','æ•‘ç¥éµ°','æˆ˜è€é¡½ç«¥','æ€ä¸€ç¯','æˆ˜æ¬§é˜³å…‹',
-								'é“æŒå¸®å¤–','æˆ˜è£˜åƒä»','å†æˆ˜é“æŒ','æˆ˜ä¸ƒå­','æˆ˜é‡‘è½®','æˆ˜æ¨é¾™','æŒ‘æˆ˜éƒ­é–','æŒ‘æ¬§é˜³å…‹','èŸ’ç‰¯æœ±è›¤','å°‘æ—ç»ƒåŠŸ',
-								'ç­å°‘æ—','å°‘æ—ç¾¤æˆ˜','ç ´æ‰“ç‹—é˜µ','ä¸å¸®å¸®ä¸»','ä¸å¸®å››è€','æ…•å®¹å¥¸è®¡','æ€ä¸æ˜¥ç§‹','æ•‘é˜¿ç´«','æˆ˜æ¸¸å¦ä¹‹','é—¯é³„é±¼æ½­',
-								'æ–—å²³è€ä¸‰','æ²™æ¼ åºŸå¢Ÿ','æ•‘ææ–‡ç§€','æŠ¢è¿åŸè¯€','é—¯ç¥é¾™å²›','æ–—æ´ªæ•™ä¸»','é—¯äº”æ¯’æ•™','æ‰¾éŸ¦å°å®','æ–—è“å‡¤å‡°','é—¯é‡‘è½®å¯º',
-								'æˆ˜é¸ æ‘©æ™º','æˆ˜è¢æ‰¿å¿—','å¤§ä¼šæ–—ç™½','å¤§ä¼šæ–—æ®µ','å¤§ä¼šæ–—å†¯','å¤§ä¼šæ–—ä¸','å¤§ä¼šæ–—è£˜','å¤§ä¼šæ–—å²³','å¤§ä¼šæ–—è§','å¤§ä¼šæ–—æ´ª',
-								'å¤§ä¼šæ–—ç„','å¤§ä¼šæ–—é¸ ','å¤§ä¼šæ–—ä»»','å¤§ä¼šæ–—æ´ª','å¤§ä¼šæ–—é‡‘','å¤§ä¼šæ–—æ¬§','å¤§ä¼šæ–—å‘¨','å¤§ä¼šæ–—ç‹','å¤§ä¼šæ–—å¼ ','å¤§ä¼šæ–—é»„',
-								'å¤§ä¼šæ–—å”','å¤§ä¼šæ–—å”','å¤§ä¼šæ–—å”','å¤§ä¼šæ–—å”','å¤§ä¼šæ–—å”','å¤§ä¼šæ–—å”','å¤§ä¼šæ–—å”','å¤§ä¼šæ–—å”','æ—¥æœ¬å¿è€…','æ—¥æœ¬å‰‘å®¢',
-								'æ—¥æœ¬å¤§å','æ—¥æœ¬æˆ˜çŠ¯','æˆ˜è§ä¸­æ…§','åå¤§æ¶äºº','åå¤§å–„äºº','æˆ˜è€é¡½ç«¥','æˆ˜å°æ¹¾','æˆ˜è§åŠå’Œ','çº¢èŠ±ä¼šä¸€','çº¢èŠ±ä¼šäºŒ',
-								'çº¢èŠ±ä¼šä¸‰','å¸®éœé’æ¡','æ•‘æ–‡æ³°æ¥','æˆ˜å¼ å¬é‡','æˆ˜é™ˆå®¶æ´›','æˆ˜æœ±é•¿é¾„','å¼ æˆ˜æ˜†ä»‘','å¼ æˆ˜åå±±','å¼ æˆ˜å´†å³’','å•æŒ‘ç©ºæ€§',
-								'å•æŒ‘ç­ç»','ç«èŸ¾','ç­å´†å³’','ç­åå±±','ç­å³¨åµ‹','ç­æ˜†ä»‘','æˆ˜é‡‘èŠ±','æˆ˜ä½•çº¢è¯','ä¼šä¸¤ä»ª','æˆ˜æ¢…å‰‘å’Œ',
-								'æ•‘é‡‘é¾™å¸®','æŒ‘ç‰çœŸå­','æ–—äº”ä»™æ•™','äº”ä»™æ•™ä¼—','æŒ‘ä½•é“æ‰‹','æ–—ç©†äººæ¸…','ä¸æ°é—¨äºº','å…³ä¸œå››é—¨','ä¸æ°å…„å¼Ÿ','å¼ ä¸‰æå››',
-								'é¾™æœ¨å²›ä¸»','ä¸€æˆ˜è¥¿æ¯’','äºŒæˆ˜è¥¿æ¯’','ä¸‰æˆ˜è¥¿æ¯’','å››æˆ˜è¥¿æ¯’','äº”æˆ˜è¥¿æ¯’','å…­æˆ˜è¥¿æ¯’','æŒ‘ç‹é‡é˜³','æ€æ¬§é˜³å…‹','æ¸”äºº',
-								'æ¨µå­','å†œå¤«','ä¹¦ç”Ÿ','æŠ¢å°„é›•äºŒ','æŠ¢å°„é›•ä¸‰','æŠ¢å°„é›•å››','å°„é›•ä¸­çº¿','æŠ¢å°„é›•ä¸€','æˆ˜åŒ—ä¸','æ±Ÿå—ä¸ƒæ€ª',
-								'æ•‘é’Ÿçµ','å››å¤§æ¶äºº','èšè´¤åº„ä¸€','èšè´¤åº„äºŒ','èšè´¤åº„ä¸‰','èšè´¤åº„å››','èšè´¤åº„äº”','å°‘æ—æŒ‘æ¸¸','å°‘æ—æŒ‘æ…•','æˆ˜æ¸¸æ…•',
-								'æˆ˜æ¸¸æ…•é¸ ','æˆ˜éœéƒ½','æˆ˜æç§‹æ°´','é‡æ—å¹³ä¹‹','æŒ‘ä»¤ç‹å†²','æŒ‘æˆä¸å¿§','æ¡ƒè°·å…­ä»™','æ•‘åå±±æ´¾','æŠ¢åˆ€è°±','æŒ‘ç‹å…ƒéœ¸',
-								'æ•‘å‘é—®å¤©','æˆ˜ä»»æˆ‘è¡Œ','æœ¨äººå··ä¸€','æœ¨äººå··äºŒ','æœ¨äººå··ä¸‰','é“œäººå··ä¸€','é“œäººå··äºŒ','é“œäººå··ä¸‰','æ•‘ä»»ç›ˆç›ˆ','é’åŸç»ƒåŠŸ',
-								'å…¨çœŸç»ƒåŠŸ','ä¸ƒæ˜Ÿå‰‘è°±','é—¯å´†å³’','å°‘æ—ç®±å­','è¶³çƒé˜Ÿ','æˆ˜è«å£°è°·','æ•‘ææ²…èŠ·','è¿·å®«','AIæ¯”è¯•'}
+	local warname={	'É±ÃçÈË·ï','ÖĞÑÖ»ù¼Æ','É±ÑÖ»ù','¾ÈÃçÈË·ï','µ¥ÌôÃç','Ç§ÄêÈËÊQ','´³Íõ±¦²Ø','Ñªµ¶ÀÏ×æ','Ã÷½Ì·Ö¶æ','Õ½À¥ÂØ',
+								'³É‹¼é¼Æ','Õ½»ªÉ½','Õ½áÇá¼','ß±É±³É‹','²¨Ë¹ÈıÊ¹','¹âÃ÷Ê¥»ğ','É±µÒÔÆ','ÄÖáÇá¼','¾ÈÓ¹Ò½','ÄÖ‹ÂØ',
+								'¶áÒĞÌì½£','¶ëáÒÎ§¹¥','Èı·áÖ¸µ¼','´³¼ûĞÔ·å','¶·¶¨ÏĞ','¶·Ì©É½','¶·ÌìÃÅ','´³ºâÉ½','¶·Äª´ó','´³áÔÉ½',
+								'Ğì½µÌìÃÅ','Ğì½µ¶¨ÏĞ','Ğì½µÄª´ó','Ğì½µ×ó','É±ÁÖÆ½Ö®','Áî½µ¶¨ÏĞ','Áî½µÄª´ó','Áî½µ×ó','ÔÙ¶·áÔÉ½','ÔÙ¶·¶¨ÏĞ',
+								'ÔÙ¶·ÌìÃÅ','ÔÙ¶·Äª´ó','Âä»¨Á÷Ë®','¶·µ¤ÇàÉú','¶·Íº±ÊÎÌ','¶·ºÚ°××Ó','¶·»ÆÖÓ¹«','¶·ËÄÓÑ','¾ÈÁÖÆ½Ö®','Çà³ÇËÄĞã',
+								'¶·Óà²×º£','Æ½Ö®¸´³ğ','Õ½ÀîÄª³î','°ïÌï²®¹â','¶«·½²»°Ü','¿û»¨±¦µä','Ğ¦°Á½­ºş','ÈÎÓë¶«·½','ÁèÏö³ÇÍâ','¶·°×Íò½£',
+								'Õ½Ñ©É½ÅÉ','Ö©Öë¶´Ò»','Ö©Öë¶´¶ş','Ö©Öë¶´Èı','Ö©Öë¶´ËÄ','Ö©Öë¶´Îå','¾ÈÉñùm','Õ½ÀÏÍçÍ¯','É±Ò»µÆ','Õ½Å·Ñô¿Ë',
+								'ÌúÕÆ°ïÍâ','Õ½ôÃÇ§Øğ','ÔÙÕ½ÌúÕÆ','Õ½Æß×Ó','Õ½½ğÂÖ','Õ½ÑîÁú','ÌôÕ½¹ù¾¸','ÌôÅ·Ñô¿Ë','òşêôÖì¸ò','ÉÙÁÖÁ·¹¦',
+								'ÃğÉÙÁÖ','ÉÙÁÖÈºÕ½','ÆÆ´ò¹·Õó','Ø¤°ï°ïÖ÷','Ø¤°ïËÄÀÏ','Ä½Èİ¼é¼Æ','É±¶¡´ºÇï','¾È°¢×Ï','Õ½ÓÎÌ¹Ö®','´³öùÓãÌ¶',
+								'¶·ÔÀÀÏÈı','É³Ä®·ÏĞæ','¾ÈÀîÎÄĞã','ÇÀÁ¬³Ç¾÷','´³ÉñÁúµº','¶·ºé½ÌÖ÷','´³Îå¶¾½Ì','ÕÒÎ¤Ğ¡±¦','¶·À¶·ï»Ë','´³½ğÂÖËÂ',
+								'Õ½ğ¯Ä¦ÖÇ','Õ½Ô¬³ĞÖ¾','´ó»á¶·°×','´ó»á¶·¶Î','´ó»á¶··ë','´ó»á¶·¶¡','´ó»á¶·ôÃ','´ó»á¶·ÔÀ','´ó»á¶·Ïô','´ó»á¶·ºé',
+								'´ó»á¶·Ğş','´ó»á¶·ğ¯','´ó»á¶·ÈÎ','´ó»á¶·ºé','´ó»á¶·½ğ','´ó»á¶·Å·','´ó»á¶·ÖÜ','´ó»á¶·Íõ','´ó»á¶·ÕÅ','´ó»á¶·»Æ',
+								'´ó»á¶·ÌÆ','´ó»á¶·ÌÆ','´ó»á¶·ÌÆ','´ó»á¶·ÌÆ','´ó»á¶·ÌÆ','´ó»á¶·ÌÆ','´ó»á¶·ÌÆ','´ó»á¶·ÌÆ','ÈÕ±¾ÈÌÕß','ÈÕ±¾½£¿Í',
+								'ÈÕ±¾´óÃû','ÈÕ±¾Õ½·¸','Õ½ÏôÖĞ»Û','Ê®´ó¶ñÈË','Ê®´óÉÆÈË','Õ½ÀÏÍçÍ¯','Õ½Ì¨Íå','Õ½Ïô°ëºÍ','ºì»¨»áÒ»','ºì»¨»á¶ş',
+								'ºì»¨»áÈı','°ï»ôÇàÍ©','¾ÈÎÄÌ©À´','Õ½ÕÅÕÙÖØ','Õ½³Â¼ÒÂå','Õ½Öì³¤Áä','ÕÅÕ½À¥ÂØ','ÕÅÕ½»ªÉ½','ÕÅÕ½áÇá¼','µ¥Ìô¿ÕĞÔ',
+								'µ¥ÌôÃğ¾ø','»ğó¸','ÃğáÇá¼','Ãğ»ªÉ½','Ãğ¶ëáÒ','ÃğÀ¥ÂØ','Õ½½ğ»¨','Õ½ºÎºìÒ©','»áÁ½ÒÇ','Õ½Ã·½£ºÍ',
+								'¾È½ğÁú°ï','ÌôÓñÕæ×Ó','¶·ÎåÏÉ½Ì','ÎåÏÉ½ÌÖÚ','ÌôºÎÌúÊÖ','¶·ÄÂÈËÇå','¶¡ÊÏÃÅÈË','¹Ø¶«ËÄÃÅ','¶¡ÊÏĞÖµÜ','ÕÅÈıÀîËÄ',
+								'ÁúÄ¾µºÖ÷','Ò»Õ½Î÷¶¾','¶şÕ½Î÷¶¾','ÈıÕ½Î÷¶¾','ËÄÕ½Î÷¶¾','ÎåÕ½Î÷¶¾','ÁùÕ½Î÷¶¾','ÌôÍõÖØÑô','É±Å·Ñô¿Ë','ÓæÈË',
+								'éÔ×Ó','Å©·ò','ÊéÉú','ÇÀÉäµñ¶ş','ÇÀÉäµñÈı','ÇÀÉäµñËÄ','ÉäµñÖĞÏß','ÇÀÉäµñÒ»','Õ½±±Ø¤','½­ÄÏÆß¹Ö',
+								'¾ÈÖÓÁé','ËÄ´ó¶ñÈË','¾ÛÏÍ×¯Ò»','¾ÛÏÍ×¯¶ş','¾ÛÏÍ×¯Èı','¾ÛÏÍ×¯ËÄ','¾ÛÏÍ×¯Îå','ÉÙÁÖÌôÓÎ','ÉÙÁÖÌôÄ½','Õ½ÓÎÄ½',
+								'Õ½ÓÎÄ½ğ¯','Õ½»ô¶¼','Õ½ÀîÇïË®','ÓöÁÖÆ½Ö®','ÌôÁîºü³å','Ìô³É²»ÓÇ','ÌÒ¹ÈÁùÏÉ','¾È»ªÉ½ÅÉ','ÇÀµ¶Æ×','ÌôÍõÔª°Ô',
+								'¾ÈÏòÎÊÌì','Õ½ÈÎÎÒĞĞ','Ä¾ÈËÏïÒ»','Ä¾ÈËÏï¶ş','Ä¾ÈËÏïÈı','Í­ÈËÏïÒ»','Í­ÈËÏï¶ş','Í­ÈËÏïÈı','¾ÈÈÎÓ¯Ó¯','Çà³ÇÁ·¹¦',
+								'È«ÕæÁ·¹¦','ÆßĞÇ½£Æ×','´³áÇá¼','ÉÙÁÖÏä×Ó','×ãÇò¶Ó','Õ½ÄªÉù¹È','¾ÈÀîãäÜÆ','ÃÔ¹¬','AI±ÈÊÔ'}
 	
 	
 	for i=1,229 do
@@ -7334,7 +7333,7 @@ function SelectSceneMenu(x,y)
 	for i=1,200 do
 	    local bh=i-1
 		if JY.Scene[i]==nil then break end
-		menu[i]={bh..JY.Scene[i-1]["åç§°"],nil,1};
+		menu[i]={bh..JY.Scene[i-1]["Ãû³Æ"],nil,1};
 		num=num+1		
 	end
     return ShowMenu(menu,num,15,x,y,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE);	
@@ -7345,10 +7344,10 @@ function SelectFaceMenu(x,y)
 	local num=0
 	
 	for i=1,588 do 
-		local r=JY.Person[i]["å¤´åƒä»£å·"]
+		local r=JY.Person[i]["Í·Ïñ´úºÅ"]
 		if r>num then num=r end
 		if menu[r]==nil then
-			menu[r]={JY.Person[i]["å§“å"],nil,1};
+			menu[r]={JY.Person[i]["ĞÕÃû"],nil,1};
 		end
 	end
 	
@@ -7361,8 +7360,8 @@ end
 
 function migong(x,y)
 	local mg={}
-	--æ ‡è®°0,ä¸é€š  1,é€š
-	--å·²ç»è®¿é—®,æ­£è¦è®¿é—®,è¿˜æ²¡è®¿é—®
+	--±ê¼Ç0,²»Í¨  1,Í¨
+	--ÒÑ¾­·ÃÎÊ,ÕıÒª·ÃÎÊ,»¹Ã»·ÃÎÊ
 	for i=1,64 do
 		mg[i]={}
 		for j=1,64 do
@@ -7484,8 +7483,8 @@ function migong(x,y)
 	cx=1+2*Rnd(31)
 	cy=1+2*Rnd(31)
 	cx,cy=migong2(cx,cy)
-	JY.Base['äººX1']=cx
-	JY.Base['äººY1']=cy
+	JY.Base['ÈËX1']=cx
+	JY.Base['ÈËY1']=cy
 	cx,cy=migong2(cx,cy)
 	lib.SetS(JY.SubScene,cx,cy,1,5100)
 end
@@ -7591,11 +7590,11 @@ function runword(str,color,size,place,offset)
 	return 0;
 end
 
-function Show_Position() --ç½—ç›˜å‡½æ•°ï¼Œæ˜¾ç¤ºä¸»åœ°å›¾ä¸»è§’ä½ç½®
+function Show_Position() --ÂŞÅÌº¯Êı£¬ÏÔÊ¾Ö÷µØÍ¼Ö÷½ÇÎ»ÖÃ
     if JY.Status ~=GAME_MMAP then
         return 0;
     end
-    DrawStrBoxWaitKey(string.format("å½“å‰ä½ç½®(%d,%d)",JY.Base["äººX"],JY.Base["äººY"]),C_ORANGE,CC.DefaultFont);
+    DrawStrBoxWaitKey(string.format("µ±Ç°Î»ÖÃ(%d,%d)",JY.Base["ÈËX"],JY.Base["ÈËY"]),C_ORANGE,CC.DefaultFont);
 	return 1;
 end
 
@@ -7607,11 +7606,11 @@ function walkto(xx,yy,x,y,flag)
 	local x,y
 	AutoMoveTab={[0]=0}
 	if JY.Status==GAME_SMAP  then
-		x=x or JY.Base['äººX1']
-		y=y or JY.Base['äººY1']
+		x=x or JY.Base['ÈËX1']
+		y=y or JY.Base['ÈËY1']
 	elseif JY.Status==GAME_MMAP then
-		x=x or JY.Base['äººX']
-		y=y or JY.Base['äººY']
+		x=x or JY.Base['ÈËX']
+		y=y or JY.Base['ÈËY']
 	end
 	xx,yy=xx+x,yy+y
 	if JY.Status==GAME_SMAP and SceneCanPass(xx,yy)==false then
@@ -7737,8 +7736,8 @@ function walkto(xx,yy,x,y,flag)
 end
 
 function ssssdad()
-    local movetable={};  --   è®°å½•æ¯æ­¥ç§»åŠ¨
-    for i=movenum,1,-1 do    --ä»ç›®çš„ä½ç½®åç€æ‰¾åˆ°åˆå§‹ä½ç½®ï¼Œä½œä¸ºç§»åŠ¨çš„æ¬¡åº
+    local movetable={};  --   ¼ÇÂ¼Ã¿²½ÒÆ¶¯
+    for i=movenum,1,-1 do    --´ÓÄ¿µÄÎ»ÖÃ·´×ÅÕÒµ½³õÊ¼Î»ÖÃ£¬×÷ÎªÒÆ¶¯µÄ´ÎĞò
         movetable[i]={};
         movetable[i].x=xx;
         movetable[i].y=yy;
@@ -7759,8 +7758,8 @@ function ssssdad()
 	local rmove=-1
     for i=1,movenum do
         local t1=lib.GetTime();
-		--JY.Base["äººX1"]=movetable[i].x
-		--JY.Base["äººY1"]=movetable[i].y
+		--JY.Base["ÈËX1"]=movetable[i].x
+		--JY.Base["ÈËY1"]=movetable[i].y
 		if JY.Status==GAME_SMAP then
 			if instruct_30_sub(movetable[i].direct) ==nil then 
 				break
@@ -7803,7 +7802,7 @@ function ssssdad()
 				if JY.Status==GAME_MMAP or mx+i >63 or my+i>63 then
 					break
 				end
-				if math.abs(GetS(JY.SubScene,JY.Base["äººX1"]+mx+i,JY.Base["äººY1"]+my+i,4)-CC.YScale*i*2)<8 then
+				if math.abs(GetS(JY.SubScene,JY.Base["ÈËX1"]+mx+i,JY.Base["ÈËY1"]+my+i,4)-CC.YScale*i*2)<8 then
 					mx=mx+i
 					my=my+i
 					break
@@ -7816,40 +7815,40 @@ end
 function MMAPMovesub(direct)
 	local x,y
 	if direct ~= -1 then
-        AddMyCurrentPic();         --å¢åŠ ä¸»è§’è´´å›¾ç¼–å·ï¼Œäº§ç”Ÿèµ°è·¯æ•ˆæœ
-		x=JY.Base["äººX"]+CC.DirectX[direct+1];
-		y=JY.Base["äººY"]+CC.DirectY[direct+1];
-		JY.Base["äººæ–¹å‘"]=direct;
+        AddMyCurrentPic();         --Ôö¼ÓÖ÷½ÇÌùÍ¼±àºÅ£¬²úÉú×ßÂ·Ğ§¹û
+		x=JY.Base["ÈËX"]+CC.DirectX[direct+1];
+		y=JY.Base["ÈËY"]+CC.DirectY[direct+1];
+		JY.Base["ÈË·½Ïò"]=direct;
     else
-        x=JY.Base["äººX"];
-        y=JY.Base["äººY"];
+        x=JY.Base["ÈËX"];
+        y=JY.Base["ÈËY"];
     end
 	if direct~=-1 then
-		JY.SubScene=CanEnterScene(x,y);   --åˆ¤æ–­æ˜¯å¦è¿›å…¥å­åœºæ™¯
+		JY.SubScene=CanEnterScene(x,y);   --ÅĞ¶ÏÊÇ·ñ½øÈë×Ó³¡¾°
 	end
 	if CC.hx~=nil or (lib.GetMMap(x,y,3)==0 and lib.GetMMap(x,y,4)==0) then
-		JY.Base["äººX"]=x;
-		JY.Base["äººY"]=y;
+		JY.Base["ÈËX"]=x;
+		JY.Base["ÈËY"]=y;
 	end
 		
-    JY.Base["äººX"]=limitX(JY.Base["äººX"],10,CC.MWidth-10);           --é™åˆ¶åæ ‡ä¸èƒ½è¶…å‡ºèŒƒå›´
-    JY.Base["äººY"]=limitX(JY.Base["äººY"],10,CC.MHeight-10);
+    JY.Base["ÈËX"]=limitX(JY.Base["ÈËX"],10,CC.MWidth-10);           --ÏŞÖÆ×ø±ê²»ÄÜ³¬³ö·¶Î§
+    JY.Base["ÈËY"]=limitX(JY.Base["ÈËY"],10,CC.MHeight-10);
 
-    if CC.MMapBoat[lib.GetMMap(JY.Base["äººX"],JY.Base["äººY"],0)]==1 then
-	    JY.Base["ä¹˜èˆ¹"]=1;
+    if CC.MMapBoat[lib.GetMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],0)]==1 then
+	    JY.Base["³Ë´¬"]=1;
 	else
-	    JY.Base["ä¹˜èˆ¹"]=0;
+	    JY.Base["³Ë´¬"]=0;
 	end
 
 	local pic=GetMyPic();
-	lib.DrawMMap(JY.Base["äººX"],JY.Base["äººY"],pic);             --æ˜¾ç¤ºä¸»åœ°å›¾
+	lib.DrawMMap(JY.Base["ÈËX"],JY.Base["ÈËY"],pic);             --ÏÔÊ¾Ö÷µØÍ¼
 --    Cls();
     ShowScreen();
-	JY.oldMMapX=JY.Base["äººX"];
-	JY.oldMMapY=JY.Base["äººY"];
+	JY.oldMMapX=JY.Base["ÈËX"];
+	JY.oldMMapY=JY.Base["ÈËY"];
 	JY.oldMMapPic=pic;
 
-    if JY.SubScene >= 0 then          --è¿›å…¥å­åœºæ™¯
+    if JY.SubScene >= 0 then          --½øÈë×Ó³¡¾°
         CleanMemory();
 		lib.UnloadMMap();
         lib.PicInit();
@@ -7859,8 +7858,8 @@ function MMAPMovesub(direct)
         JY.MmapMusic=-1;
 
         JY.MyPic=GetMyPic();
-        JY.Base["äººX1"]=JY.Scene[JY.SubScene]["å…¥å£X"]
-        JY.Base["äººY1"]=JY.Scene[JY.SubScene]["å…¥å£Y"]
+        JY.Base["ÈËX1"]=JY.Scene[JY.SubScene]["Èë¿ÚX"]
+        JY.Base["ÈËY1"]=JY.Scene[JY.SubScene]["Èë¿ÚY"]
 
         Init_SMap(1);
 		return
@@ -7872,38 +7871,38 @@ end
 function hhinstruct_15()          --game over
     JY.Status=GAME_DEAD;
     Cls();
-    DrawString(CC.GameOverX,CC.GameOverY,JY.Person[0]["å§“å"],RGB(0,0,0),CC.DefaultFont);
+    DrawString(CC.GameOverX,CC.GameOverY,JY.Person[0]["ĞÕÃû"],RGB(0,0,0),CC.DefaultFont);
 
 	local x=CC.ScreenW-9*CC.DefaultFont;
     DrawString(x,10,os.date("%Y-%m-%d %H:%M"),RGB(216, 20, 24) ,CC.DefaultFont);
-    DrawString(x,10+CC.DefaultFont+CC.RowPixel,"åœ¨åœ°çƒçš„æŸå¤„",RGB(216, 20, 24) ,CC.DefaultFont);
-    DrawString(x,10+(CC.DefaultFont+CC.RowPixel)*2,"å½“åœ°äººå£çš„å¤±è¸ªæ•°",RGB(216, 20, 24) ,CC.DefaultFont);
-    DrawString(x,10+(CC.DefaultFont+CC.RowPixel)*3,"åˆå¤šäº†ä¸€ç¬”ã€‚ã€‚ã€‚",RGB(216, 20, 24) ,CC.DefaultFont);
+    DrawString(x,10+CC.DefaultFont+CC.RowPixel,"ÔÚµØÇòµÄÄ³´¦",RGB(216, 20, 24) ,CC.DefaultFont);
+    DrawString(x,10+(CC.DefaultFont+CC.RowPixel)*2,"µ±µØÈË¿ÚµÄÊ§×ÙÊı",RGB(216, 20, 24) ,CC.DefaultFont);
+    DrawString(x,10+(CC.DefaultFont+CC.RowPixel)*3,"ÓÖ¶àÁËÒ»±Ê¡£¡£¡£",RGB(216, 20, 24) ,CC.DefaultFont);
 
-    local loadMenu={ {"è½½å…¥è¿›åº¦ä¸€",nil,1},
-                     {"è½½å…¥è¿›åº¦äºŒ",nil,1},
-                     {"è½½å…¥è¿›åº¦ä¸‰",nil,1},
-                     {"å›å®¶ç¡è§‰å»",nil,1} };
+    local loadMenu={ {"ÔØÈë½ø¶ÈÒ»",nil,1},
+                     {"ÔØÈë½ø¶È¶ş",nil,1},
+                     {"ÔØÈë½ø¶ÈÈı",nil,1},
+                     {"»Ø¼ÒË¯¾õÈ¥",nil,1} };
     local y=CC.ScreenH-4*(CC.DefaultFont+CC.RowPixel)-10;
     local r=ShowMenu(loadMenu,4,0,x,y,0,0,0,0,CC.DefaultFont,C_ORANGE, C_WHITE)
 
     if r<4 then
 		CleanMemory();
         SBLDATAL(r);
-		if JY.Base["æ— ç”¨"]~=-1 then 
-			if JY.SubScene < 0 then          --å¤„äºå¤§åœ°å›¾
+		if JY.Base["ÎŞÓÃ"]~=-1 then 
+			if JY.SubScene < 0 then          --´¦ÓÚ´óµØÍ¼
 				CleanMemory();
 				lib.UnloadMMap();
 			end
 			lib.PicInit();
 			lib.ShowSlow(50,1)
 			JY.Status=GAME_SMAP
-			JY.SubScene=JY.Base["æ— ç”¨"]
-			--JY.Base["äººX1"]=JY.Person[99]["æ­¦åŠŸ3"]
-			--JY.Base["äººY1"]=JY.Person[99]["æ­¦åŠŸ4"]
-			--JY.Base["äººX"]=JY.Person[99]["æ­¦åŠŸ5"]
-			--JY.Base["äººY"]=JY.Person[99]["æ­¦åŠŸ6"]
-			--JY.Base["äººæ–¹å‘"]=JY.Person[99]["æ­¦åŠŸ7"]
+			JY.SubScene=JY.Base["ÎŞÓÃ"]
+			--JY.Base["ÈËX1"]=JY.Person[99]["Îä¹¦3"]
+			--JY.Base["ÈËY1"]=JY.Person[99]["Îä¹¦4"]
+			--JY.Base["ÈËX"]=JY.Person[99]["Îä¹¦5"]
+			--JY.Base["ÈËY"]=JY.Person[99]["Îä¹¦6"]
+			--JY.Base["ÈË·½Ïò"]=JY.Person[99]["Îä¹¦7"]
 			JY.MmapMusic=-1;
 			JY.MyPic=GetMyPic();
 			Init_SMap(1);
@@ -7939,11 +7938,11 @@ if CC.MapKind==2 then
 	for xx=-len,len do
 		for yy=math.abs(xx)-len,len-math.abs(xx) do
 			local dx,dy;
-			local x=xx+JY.Base["äººX"];
-			local y=yy+JY.Base["äººY"];
+			local x=xx+JY.Base["ÈËX"];
+			local y=yy+JY.Base["ÈËY"];
 			dx=CC.ScreenW-len*4+(xx-yy)*4;
 			dy=len*2+(xx+yy)*2;
-			if x==JY.Base["äººX"] and y==JY.Base["äººY"] then
+			if x==JY.Base["ÈËX"] and y==JY.Base["ÈËY"] then
 				lib.FillColor(dx,dy,dx+5,dy+5,C_RED)
 			elseif x>=0 and y>=0 and x<=479 and y<=479 then
 				if lib.GetMMap(x,y,1)~=0 then
@@ -7962,15 +7961,15 @@ if CC.MapKind==2 then
 	for xx=-len,len do
 		for yy=math.abs(xx)-len,len-math.abs(xx) do
 			local dx,dy;
-			local x=xx+JY.Base["äººX"];
-			local y=yy+JY.Base["äººY"];
+			local x=xx+JY.Base["ÈËX"];
+			local y=yy+JY.Base["ÈËY"];
 			dx=CC.ScreenW-len*4+(xx-yy)*4;
 			dy=len*2+(xx+yy)*2;
 			if x>=0 and y>=0 and x<=479 and y<=479 then
 				local sid=CanEnterScene(x,y);
 				if sid>=0 and Sce[sid]==nil then
 					Sce[sid]=true;
-					local str=JY.Scene[sid]["åç§°"];
+					local str=JY.Scene[sid]["Ãû³Æ"];
 					lib.FillColor(dx,dy,dx+3,dy+3,C_ORANGE);
 					lib.Background(dx-string.len(str)*4,dy+4,dx+string.len(str)*4,dy+20,128);
 					DrawString(dx-string.len(str)*4,dy+4,str,C_WHITE,16);
@@ -7979,14 +7978,14 @@ if CC.MapKind==2 then
 		end
 	end
 elseif CC.MapKind==1 then
-	for x=JY.Base["äººX"]-len,JY.Base["äººX"]+len do
-		for y=JY.Base["äººY"]-len,JY.Base["äººY"]+len do
+	for x=JY.Base["ÈËX"]-len,JY.Base["ÈËX"]+len do
+		for y=JY.Base["ÈËY"]-len,JY.Base["ÈËY"]+len do
 			local dx,dy;
-			local xx=x-JY.Base["äººX"];
-			local yy=y-JY.Base["äººY"];
+			local xx=x-JY.Base["ÈËX"];
+			local yy=y-JY.Base["ÈËY"];
 			dx=CC.ScreenW-len*8+(xx-yy)*4;
 			dy=len*4+(xx+yy)*2;
-			if x==JY.Base["äººX"] and y==JY.Base["äººY"] then
+			if x==JY.Base["ÈËX"] and y==JY.Base["ÈËY"] then
 				lib.FillColor(dx,dy,dx+5,dy+5,C_RED)
 			elseif x>=0 and y>=0 and x<=479 and y<=479 then
 				if lib.GetMMap(x,y,1)~=0 then
@@ -8002,18 +8001,18 @@ elseif CC.MapKind==1 then
 		end
 	end
 	local Sce={};
-	for x=JY.Base["äººX"]-len,JY.Base["äººX"]+len do
-		for y=JY.Base["äººY"]-len,JY.Base["äººY"]+len do
+	for x=JY.Base["ÈËX"]-len,JY.Base["ÈËX"]+len do
+		for y=JY.Base["ÈËY"]-len,JY.Base["ÈËY"]+len do
 			local dx,dy;
-			local xx=x-JY.Base["äººX"];
-			local yy=y-JY.Base["äººY"];
+			local xx=x-JY.Base["ÈËX"];
+			local yy=y-JY.Base["ÈËY"];
 			dx=CC.ScreenW-len*8+(xx-yy)*4;
 			dy=len*4+(xx+yy)*2;
 			if x>=0 and y>=0 and x<=479 and y<=479 then
 				local sid=CanEnterScene(x,y);
 				if sid>=0 and Sce[sid]==nil then
 					Sce[sid]=true;
-					local str=JY.Scene[sid]["åç§°"];
+					local str=JY.Scene[sid]["Ãû³Æ"];
 					lib.FillColor(dx,dy,dx+3,dy+3,C_ORANGE);
 					lib.Background(dx-string.len(str)*4,dy+4,dx+string.len(str)*4,dy+20,128);
 					DrawString(dx-string.len(str)*4,dy+4,str,C_WHITE,16);
@@ -8044,11 +8043,11 @@ if CC.MapKind==2 then
 	for xx=-len,len do
 		for yy=math.abs(xx)-len,len-math.abs(xx) do
 			local dx,dy;
-			local x=xx+JY.Base["äººX1"];
-			local y=yy+JY.Base["äººY1"];
+			local x=xx+JY.Base["ÈËX1"];
+			local y=yy+JY.Base["ÈËY1"];
 			dx=CC.ScreenW-len*4+(xx-yy)*4;
 			dy=len*2+(xx+yy)*2;
-			if x==JY.Base["äººX1"] and y==JY.Base["äººY1"] then
+			if x==JY.Base["ÈËX1"] and y==JY.Base["ÈËY1"] then
 				lib.FillColor(dx,dy,dx+5,dy+5,C_RED)
 			elseif x>=0 and y>=0 and x<=63 and y<=63 then
 				if CC.MMapBoat[GetS(JY.SubScene,x,y,0)]==1 then
@@ -8065,14 +8064,14 @@ if CC.MapKind==2 then
 		end
 	end
 elseif CC.MapKind==1 then
-	for x=JY.Base["äººX1"]-len,JY.Base["äººX1"]+len do
-		for y=JY.Base["äººY1"]-len,JY.Base["äººY1"]+len do
+	for x=JY.Base["ÈËX1"]-len,JY.Base["ÈËX1"]+len do
+		for y=JY.Base["ÈËY1"]-len,JY.Base["ÈËY1"]+len do
 			local dx,dy;
-			local xx=x-JY.Base["äººX1"];
-			local yy=y-JY.Base["äººY1"];
+			local xx=x-JY.Base["ÈËX1"];
+			local yy=y-JY.Base["ÈËY1"];
 			dx=CC.ScreenW-len*8+(xx-yy)*4;
 			dy=len*4+(xx+yy)*2;
-			if x==JY.Base["äººX1"] and y==JY.Base["äººY1"] then
+			if x==JY.Base["ÈËX1"] and y==JY.Base["ÈËY1"] then
 				lib.FillColor(dx,dy,dx+5,dy+5,C_RED)
 			elseif x>=0 and y>=0 and x<=63 and y<=63 then
 				if CC.MMapBoat[GetS(JY.SubScene,x,y,0)]==1 then
@@ -8098,8 +8097,8 @@ function DrawSMapMini_bak()
 	local scale=1;
 	local XScale,YScale;
 	local cx,cy;
-	rx1=JY.Base["äººX1"];
-	ry1=JY.Base["äººY1"];
+	rx1=JY.Base["ÈËX1"];
+	ry1=JY.Base["ÈËY1"];
 	len=CC.MapSize;
 	XScale=CC.XScale*scale;
 	YScale=CC.YScale*scale;
@@ -8142,9 +8141,9 @@ function DrawSMapMini_bak()
 end
 
 
-function DrawStrBox(x,y,str,color,size)         --æ˜¾ç¤ºå¸¦æ¡†çš„å­—ç¬¦ä¸²
---æ˜¾ç¤ºå¸¦æ¡†çš„å­—ç¬¦ä¸²
---(x,y) åæ ‡ï¼Œå¦‚æœéƒ½ä¸º-1,åˆ™åœ¨å±å¹•ä¸­é—´æ˜¾ç¤º	
+function DrawStrBox(x,y,str,color,size)         --ÏÔÊ¾´ø¿òµÄ×Ö·û´®
+--ÏÔÊ¾´ø¿òµÄ×Ö·û´®
+--(x,y) ×ø±ê£¬Èç¹û¶¼Îª-1,ÔòÔÚÆÁÄ»ÖĞ¼äÏÔÊ¾	
 	local strarray={}
 	local num,maxlen
 	maxlen=0
@@ -8170,7 +8169,7 @@ function DrawStrBox(x,y,str,color,size)         --æ˜¾ç¤ºå¸¦æ¡†çš„å­—ç¬¦ä¸²
 end
 
 function JYMsgBox(title,str,button,num,headid)
-	--è®¡ç®—é•¿å®½,å­—å·ä½¿ç”¨é»˜è®¤å­—å·ï¼ŒCC.Fontbig
+	--¼ÆËã³¤¿í,×ÖºÅÊ¹ÓÃÄ¬ÈÏ×ÖºÅ£¬CC.Fontbig
 	local strArray={};
 	local xnum,ynum;
 	local width,height;
@@ -8206,9 +8205,9 @@ function JYMsgBox(title,str,button,num,headid)
 	y2=y2+y1-5;
 	local select=1;
 	--lib.FreeSur(0)
-	--local surid=lib.SaveSur((CC.ScreenW-width)/2-4,(CC.ScreenH-height)/2-CC.FontBig,(CC.ScreenW+width)/2+4,(CC.ScreenH+height)/2+4);
+	local surid=lib.SaveSur((CC.ScreenW-width)/2-4,(CC.ScreenH-height)/2-CC.FontBig,(CC.ScreenW+width)/2+4,(CC.ScreenH+height)/2+4);
 	while true do
-		--lib.LoadSur(surid,(CC.ScreenW-width)/2-4,(CC.ScreenH-height)/2-CC.FontBig)
+		lib.LoadSur(surid,(CC.ScreenW-width)/2-4,(CC.ScreenH-height)/2-CC.FontBig)
 		DrawBoxTitle(width,height,title,C_GOLD);
 		if headid~=nil then
 			lib.PicLoadCache(1,headid,x1,y1,1,0);
@@ -8260,14 +8259,14 @@ function JYMsgBox(title,str,button,num,headid)
 		end]]
 		select=limitX(select,1,num);
 	end
-	--lib.LoadSur(surid,(CC.ScreenW-width)/2-4,(CC.ScreenH-height)/2-CC.FontBig)
+	lib.LoadSur(surid,(CC.ScreenW-width)/2-4,(CC.ScreenH-height)/2-CC.FontBig)
 	ShowScreen()
-	--lib.FreeSur(surid);
+	lib.FreeSur(surid);
 	return select;
 end
 
 function NewDrawBoxTitle(width,height,str,color)
-	--è®¾ç½®èœå•ä¹Ÿä¼šç”¨åˆ°çš„å§
+	--ÉèÖÃ²Ëµ¥Ò²»áÓÃµ½µÄ°É
     local s=4;
 	local x1,y1,x2,y2,tx1,tx2;
 	local fontsize=s+CC.Fontbig--math.min(CC.ScreenW/20,CC.ScreenH/15);
@@ -8278,10 +8277,10 @@ function NewDrawBoxTitle(width,height,str,color)
 	y2=(CC.ScreenH+height)/2;
 	tx1=(CC.ScreenW-len)/2;
 	tx2=(CC.ScreenW+len)/2;
-    lib.Background(x1,y1+s,x1+s,y2-s,128);    --é˜´å½±ï¼Œå››è§’ç©ºå‡º,å¤§çª—ä½“éƒ¨åˆ†
+    lib.Background(x1,y1+s,x1+s,y2-s,128);    --ÒõÓ°£¬ËÄ½Ç¿Õ³ö,´ó´°Ìå²¿·Ö
     lib.Background(x1+s,y1,x2-s,y2,128);
     lib.Background(x2-s,y1+s,x2,y2-s,128);
-    lib.Background(tx1,y1-fontsize/2+s,tx2,y1,128);    --é˜´å½±ï¼Œå››è§’ç©ºå‡º,æ ‡é¢˜éƒ¨åˆ†
+    lib.Background(tx1,y1-fontsize/2+s,tx2,y1,128);    --ÒõÓ°£¬ËÄ½Ç¿Õ³ö,±êÌâ²¿·Ö
     lib.Background(tx1+s,y1-fontsize/2,tx2-s,y1-fontsize/2+s,128);
     local r,g,b=GetRGB(color);
     DrawBoxTitle_sub(x1+1,y1+1,x2,y2,tx1+1,y1-fontsize/2+1,tx2,y1+fontsize/2,RGB(math.modf(r/2),math.modf(g/2),math.modf(b/2)));
@@ -8307,7 +8306,7 @@ function DrawBoxTitle_sub(x1,y1,x2,y2,tx1,ty1,tx2,ty2,color)
 	DrawBox_1(tx1,ty1,tx2,ty2,color)
 end
 
-function DrawStrBox2(x,y,str,color,size,bjcolor)         --æ˜¾ç¤ºå¸¦æ¡†çš„å­—ç¬¦ä¸²
+function DrawStrBox2(x,y,str,color,size,bjcolor)         --ÏÔÊ¾´ø¿òµÄ×Ö·û´®
 	
 	local strarray={}
 	local num,maxlen;
@@ -8343,10 +8342,10 @@ function between(v,Min,Max)
 	return false;
 end
 
-function DrawBox(x1,y1,x2,y2,color)         --ç»˜åˆ¶ä¸€ä¸ªå¸¦èƒŒæ™¯çš„ç™½è‰²æ–¹æ¡†
- --ç»˜åˆ¶ä¸€ä¸ªå¸¦èƒŒæ™¯çš„ç™½è‰²æ–¹æ¡†ï¼Œå››è§’å‡¹è¿›
+function DrawBox(x1,y1,x2,y2,color)         --»æÖÆÒ»¸ö´ø±³¾°µÄ°×É«·½¿ò
+ --»æÖÆÒ»¸ö´ø±³¾°µÄ°×É«·½¿ò£¬ËÄ½Ç°¼½ø
     local s=4;
-    --lib.Background(x1,y1+s,x1+s,y2-s,128);    --é˜´å½±ï¼Œå››è§’ç©ºå‡º
+    --lib.Background(x1,y1+s,x1+s,y2-s,128);    --ÒõÓ°£¬ËÄ½Ç¿Õ³ö
     --lib.Background(x1+s,y1,x2-s,y2,128);
     --lib.Background(x2-s,y1+s,x2,y2-s,128);
 	lib.Background(x1+4,y1,x2-4,y1+s,128);
@@ -8361,7 +8360,7 @@ function DrawBox(x1,y1,x2,y2,color)         --ç»˜åˆ¶ä¸€ä¸ªå¸¦èƒŒæ™¯çš„ç™½è‰²æ–¹æ
     DrawBox_1(x1,y1,x2-1,y2-1,color);
 end
 
-function DrawBox_1(x1,y1,x2,y2,color)       --ç»˜åˆ¶å››è§’å‡¹è¿›çš„æ–¹æ¡†
+function DrawBox_1(x1,y1,x2,y2,color)       --»æÖÆËÄ½Ç°¼½øµÄ·½¿ò
     local s=4;
     --lib.DrawRect(x1+s,y1,x2-s,y1,color);
     --lib.DrawRect(x2-s,y1,x2-s,y1+s,color);
@@ -8390,11 +8389,11 @@ function DrawBox_1(x1,y1,x2,y2,color)       --ç»˜åˆ¶å››è§’å‡¹è¿›çš„æ–¹æ¡†
 	lib.DrawRect(x2-1,y2-s+1,x2-1,y2-2,color);
 end
 
-function DrawBox2(x1,y1,x2,y2,color,bjcolor)         --ç»˜åˆ¶ä¸€ä¸ªå¸¦èƒŒæ™¯çš„ç™½è‰²æ–¹æ¡†
+function DrawBox2(x1,y1,x2,y2,color,bjcolor)         --»æÖÆÒ»¸ö´ø±³¾°µÄ°×É«·½¿ò
     local s=4;
 	bjcolor=bjcolor or 0;
 	if bjcolor>=0 then
-		lib.Background(x1,y1+s,x1+s,y2-s,128,bjcolor);    --é˜´å½±ï¼Œå››è§’ç©ºå‡º
+		lib.Background(x1,y1+s,x1+s,y2-s,128,bjcolor);    --ÒõÓ°£¬ËÄ½Ç¿Õ³ö
 		lib.Background(x1+s,y1,x2-s,y2,128,bjcolor);
 		lib.Background(x2-s,y1+s,x2,y2-s,128,bjcolor);
 	end
@@ -8405,7 +8404,7 @@ function DrawBox2(x1,y1,x2,y2,color,bjcolor)         --ç»˜åˆ¶ä¸€ä¸ªå¸¦èƒŒæ™¯çš„ç
 	end
 end
 
-function DrawBox_2(x1,y1,x2,y2,color)       --ç»˜åˆ¶å››è§’å‡¹è¿›çš„æ–¹æ¡†
+function DrawBox_2(x1,y1,x2,y2,color)       --»æÖÆËÄ½Ç°¼½øµÄ·½¿ò
     local s=4;
     lib.DrawRect(x1+s,y1,x2-s,y1,color);
     lib.DrawRect(x2-s,y1,x2-s,y1+s,color);
@@ -8421,14 +8420,14 @@ function DrawBox_2(x1,y1,x2,y2,color)       --ç»˜åˆ¶å››è§’å‡¹è¿›çš„æ–¹æ¡†
     lib.DrawRect(x1+s,y1+s,x1+s,y1,color);
 end
 
-function DrawString(x,y,str,color,size)         --æ˜¾ç¤ºé˜´å½±å­—ç¬¦ä¸²
+function DrawString(x,y,str,color,size)         --ÏÔÊ¾ÒõÓ°×Ö·û´®
 --    local r,g,b=GetRGB(color);
 --    lib.DrawStr(x+1,y+1,str,RGB(math.modf(r/2),math.modf(g/2),math.modf(b/2)),size,CC.FontName,CC.SrcCharSet,CC.OSCharSet);
-    lib.DrawStr(x,y,str,color,size,CC.FontName);
+    lib.DrawStr(x,y,str,color,size,CC.FontName,CC.SrcCharSet,CC.OSCharSet);
 end
 
 function NewDrawString(x,y,str,color,size)
-    local ll=get_show_width(str);
+    local ll=#str;
     local w=size*ll/2+2*CC.MenuBorderPixel;
 	local h=size+2*CC.MenuBorderPixel;		
 	if x==-1 then
@@ -8441,15 +8440,15 @@ function NewDrawString(x,y,str,color,size)
 	else
 	    y=(y-size-2*CC.MenuBorderPixel)/2;
 	end	
-    lib.DrawStr(x,y,str,color,size,CC.FontName);
+    lib.DrawStr(x,y,str,color,size,CC.FontName,CC.SrcCharSet,CC.OSCharSet);
 end
 
-function DrawStrBoxYesNo(x,y,str,color,size)        --æ˜¾ç¤ºå­—ç¬¦ä¸²å¹¶è¯¢é—®Y/N
---æ˜¾ç¤ºå¹¶è¯¢é—®Y/Nï¼Œå¦‚æœç‚¹å‡»Yï¼Œåˆ™è¿”å›true, Nåˆ™è¿”å›false
---(x,y) åæ ‡ï¼Œå¦‚æœéƒ½ä¸º-1,åˆ™åœ¨å±å¹•ä¸­é—´æ˜¾ç¤º
---æ”¹ä¸ºç”¨èœå•è¯¢é—®æ˜¯å¦    
+function DrawStrBoxYesNo(x,y,str,color,size)        --ÏÔÊ¾×Ö·û´®²¢Ñ¯ÎÊY/N
+--ÏÔÊ¾²¢Ñ¯ÎÊY/N£¬Èç¹ûµã»÷Y£¬Ôò·µ»Øtrue, NÔò·µ»Øfalse
+--(x,y) ×ø±ê£¬Èç¹û¶¼Îª-1,ÔòÔÚÆÁÄ»ÖĞ¼äÏÔÊ¾
+--¸ÄÎªÓÃ²Ëµ¥Ñ¯ÎÊÊÇ·ñ    
 	lib.GetKey();
-    local ll=get_show_width(str);
+    local ll=#str;
     local w=size*ll/2+2*CC.MenuBorderPixel;
 	local h=size+2*CC.MenuBorderPixel;
 	if x==-1 then
@@ -8460,8 +8459,8 @@ function DrawStrBoxYesNo(x,y,str,color,size)        --æ˜¾ç¤ºå­—ç¬¦ä¸²å¹¶è¯¢é—®Y/
 	end
 
     DrawStrBox(x,y,str,color,size);
-    local menu={{"ç¡®å®š/æ˜¯",nil,1},
-	            {"å–æ¶ˆ/å¦",nil,2}};
+    local menu={{"È·¶¨/ÊÇ",nil,1},
+	            {"È¡Ïû/·ñ",nil,2}};
 
 	local r=ShowMenu(menu,2,0,x+w-4*size-2*CC.MenuBorderPixel,y+h+CC.MenuBorderPixel,0,0,1,0,CC.DefaultFont,C_ORANGE, C_WHITE)
 
@@ -8473,7 +8472,7 @@ function DrawStrBoxYesNo(x,y,str,color,size)        --æ˜¾ç¤ºå­—ç¬¦ä¸²å¹¶è¯¢é—®Y/
 
 end
 
-function DrawStrBoxWaitKey(s,color,size)          --æ˜¾ç¤ºå­—ç¬¦ä¸²å¹¶ç­‰å¾…å‡»é”®
+function DrawStrBoxWaitKey(s,color,size)          --ÏÔÊ¾×Ö·û´®²¢µÈ´ı»÷¼ü
     lib.GetKey();
     Cls();
     DrawStrBox(-1,-1,s,color,size);
@@ -8483,42 +8482,42 @@ end
 
 
 function FINALWORK()  
-    for i=311,319 do  --é³„é±¼å›¾
-	     JY.Person[i]["å¤´åƒä»£å·"]=214
+    for i=311,319 do  --öùÓãÍ¼
+	     JY.Person[i]["Í·Ïñ´úºÅ"]=214
     end
 
     JY.MY=JY.Person[0]
 	
 	for i=1,200 do
-		 if JY.Base["ç‰©å“" .. i]==174 then
-			JY.GOLD=JY.Base["ç‰©å“æ•°é‡" .. i]
+		 if JY.Base["ÎïÆ·" .. i]==174 then
+			JY.GOLD=JY.Base["ÎïÆ·ÊıÁ¿" .. i]
 			break
 		 end
 	end
 end
 
 function FINALWORK2()
-    JY.Thing[74]["éœ€å†…åŠ›"]=2000
-	JY.Thing[6]["åŠ å†…åŠ›"]=2000
-	JY.Thing[96]["åŠ è½»åŠŸ"]=1
-	JY.Thing[100]["åŠ è½»åŠŸ"]=1
-	JY.Thing[134]["åŠ è½»åŠŸ"]=1
-	JY.Thing[121]["åŠ è½»åŠŸ"]=1
-	JY.Thing[65]["éœ€èµ„è´¨"]=50
-	JY.Thing[88]["åç§°"]=CC.s67
-	JY.Thing[235]["éœ€èµ„è´¨"]=-50
-	JY.Thing[81]["éœ€èµ„è´¨"]=70
-	JY.Person[36]["æºå¸¦ç‰©å“1"]=78
-	JY.Person[47]["æºå¸¦ç‰©å“1"]=8
-	JY.Person[49]["æºå¸¦ç‰©å“1"]=75
-	JY.Person[49]["æºå¸¦ç‰©å“2"]=200
-	JY.Person[27]["å·¦å³äº’æ"]=0
-	JY.Person[111]["å¤´åƒä»£å·"]=111
-	if JY.Person[44]["æ­¦åŠŸ10"]==-1 then JY.Person[44]["æ­¦åŠŸ10"]=0 end
-	JY.Shop[1]["ç‰©å“ä»·æ ¼5"]=1000
-	JY.Shop[2]["ç‰©å“ä»·æ ¼5"]=600
-	JY.Shop[3]["ç‰©å“ä»·æ ¼5"]=800
-	JY.Shop[0]["ç‰©å“ä»·æ ¼5"]=4000
+    JY.Thing[74]["ĞèÄÚÁ¦"]=2000
+	JY.Thing[6]["¼ÓÄÚÁ¦"]=2000
+	JY.Thing[96]["¼ÓÇá¹¦"]=1
+	JY.Thing[100]["¼ÓÇá¹¦"]=1
+	JY.Thing[134]["¼ÓÇá¹¦"]=1
+	JY.Thing[121]["¼ÓÇá¹¦"]=1
+	JY.Thing[65]["Ğè×ÊÖÊ"]=50
+	JY.Thing[88]["Ãû³Æ"]=CC.s67
+	JY.Thing[235]["Ğè×ÊÖÊ"]=-50
+	JY.Thing[81]["Ğè×ÊÖÊ"]=70
+	JY.Person[36]["Ğ¯´øÎïÆ·1"]=78
+	JY.Person[47]["Ğ¯´øÎïÆ·1"]=8
+	JY.Person[49]["Ğ¯´øÎïÆ·1"]=75
+	JY.Person[49]["Ğ¯´øÎïÆ·2"]=200
+	JY.Person[27]["×óÓÒ»¥²«"]=0
+	JY.Person[111]["Í·Ïñ´úºÅ"]=111
+	if JY.Person[44]["Îä¹¦10"]==-1 then JY.Person[44]["Îä¹¦10"]=0 end
+	JY.Shop[1]["ÎïÆ·¼Û¸ñ5"]=1000
+	JY.Shop[2]["ÎïÆ·¼Û¸ñ5"]=600
+	JY.Shop[3]["ÎïÆ·¼Û¸ñ5"]=800
+	JY.Shop[0]["ÎïÆ·¼Û¸ñ5"]=4000
 	
 	CC.TSNGP={};
 	
@@ -8533,13 +8532,13 @@ function FINALWORK2()
 			if p==0 then r=1 end
 			if r==0 then 
 			    if JY.Thing[202][WZ7]>3 then JY.Thing[202][WZ7]=3 end
-			    if JY.Person[p]["ç”Ÿå‘½æœ€å¤§å€¼"]<JY.Thing[202][WZ7]*50+50 then
-				   JY.Person[p]["ç”Ÿå‘½æœ€å¤§å€¼"]=JY.Thing[202][WZ7]*50+50
-				   JY.Person[p]["ç”Ÿå‘½"]=JY.Person[p]["ç”Ÿå‘½æœ€å¤§å€¼"]
+			    if JY.Person[p]["ÉúÃü×î´óÖµ"]<JY.Thing[202][WZ7]*50+50 then
+				   JY.Person[p]["ÉúÃü×î´óÖµ"]=JY.Thing[202][WZ7]*50+50
+				   JY.Person[p]["ÉúÃü"]=JY.Person[p]["ÉúÃü×î´óÖµ"]
 				end
-				if JY.Person[p]["å†…åŠ›æœ€å¤§å€¼"]<JY.Thing[202][WZ7]*300 then
-				   JY.Person[p]["å†…åŠ›æœ€å¤§å€¼"]=JY.Thing[202][WZ7]*300
-				   JY.Person[p]["å†…åŠ›"]=JY.Person[p]["å†…åŠ›æœ€å¤§å€¼"]
+				if JY.Person[p]["ÄÚÁ¦×î´óÖµ"]<JY.Thing[202][WZ7]*300 then
+				   JY.Person[p]["ÄÚÁ¦×î´óÖµ"]=JY.Thing[202][WZ7]*300
+				   JY.Person[p]["ÄÚÁ¦"]=JY.Person[p]["ÄÚÁ¦×î´óÖµ"]
 				end
 		    end
 	end			
@@ -8548,7 +8547,7 @@ function FINALWORK2()
 	SetS(70,33,7,1,0)
 	SetS(70,29,7,1,0)
 	
-	SetS(28,37,11,1,1)  --å°‘æ—æœ¨-é“œè¡¥åœ°
+	SetS(28,37,11,1,1)  --ÉÙÁÖÄ¾-Í­²¹µØ
 	SetS(28,45,9,1,1)
 	
 	SetD(12,22,2,0)
@@ -8557,21 +8556,21 @@ function FINALWORK2()
 	   SetD(83,48,4,0)
 	end
 
-    if GetS(4,5,5,5)==3 then --ç„è™š.æ— å
-       JY.Thing[138]["éœ€å†…åŠ›æ€§è´¨"]=2
-	   JY.Thing[138]["åç§°"]=CC.s50
-	   JY.Wugong[64]["åç§°"]=CC.s51
+    if GetS(4,5,5,5)==3 then --ĞşĞé.ÎŞÃû
+       JY.Thing[138]["ĞèÄÚÁ¦ĞÔÖÊ"]=2
+	   JY.Thing[138]["Ãû³Æ"]=CC.s50
+	   JY.Wugong[64]["Ãû³Æ"]=CC.s51
 	    for i=1,10 do 
-			JY.Wugong[64]["ç§»åŠ¨èŒƒå›´"..i]=4
-			JY.Wugong[64]["æ€ä¼¤èŒƒå›´"..i]=0
+			JY.Wugong[64]["ÒÆ¶¯·¶Î§"..i]=4
+			JY.Wugong[64]["É±ÉË·¶Î§"..i]=0
 	    end
-		JY.Wugong[64]["æ”»å‡»èŒƒå›´"]=3
+		JY.Wugong[64]["¹¥»÷·¶Î§"]=3
 	end
 	
-	JY.Scene[54]["è¿›é—¨éŸ³ä¹"]=31
-	JY.Scene[75]["è¿›é—¨éŸ³ä¹"]=25
-	JY.Scene[70]["è¿›é—¨éŸ³ä¹"]=28
-	JY.Scene[104]["è¿›é—¨éŸ³ä¹"]=32
+	JY.Scene[54]["½øÃÅÒôÀÖ"]=31
+	JY.Scene[75]["½øÃÅÒôÀÖ"]=25
+	JY.Scene[70]["½øÃÅÒôÀÖ"]=28
+	JY.Scene[104]["½øÃÅÒôÀÖ"]=32
 	
 	JY.HEADXZ=2;
 	CC.HeadPicFile={CONFIG.DataPath .. "atmb.idx",CONFIG.DataPath .. "atmb.grp"};
@@ -8631,15 +8630,15 @@ function FINALWORK2()
 						 
 	for i=1,5 do
 	      for z=1,44 do
-			  JY.Person[warzs[z][1]]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°"..i]=0
-			  JY.Person[warzs[z][1]]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ"..i]=0
-			  JY.Person[warzs[z][1]]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ"..i]=0
+			  JY.Person[warzs[z][1]]["³öÕĞ¶¯»­Ö¡Êı"..i]=0
+			  JY.Person[warzs[z][1]]["³öÕĞ¶¯»­ÑÓ³Ù"..i]=0
+			  JY.Person[warzs[z][1]]["Îä¹¦ÒôĞ§ÑÓ³Ù"..i]=0
 		  end
 	end
 	for z=1,44 do
-	     JY.Person[warzs[z][1]]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=warzs[z][2]
-		 JY.Person[warzs[z][1]]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=warzs[z][3]
-		 JY.Person[warzs[z][1]]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=warzs[z][4]
+	     JY.Person[warzs[z][1]]["³öÕĞ¶¯»­Ö¡Êı1"]=warzs[z][2]
+		 JY.Person[warzs[z][1]]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=warzs[z][3]
+		 JY.Person[warzs[z][1]]["³öÕĞ¶¯»­ÑÓ³Ù1"]=warzs[z][4]
 	end		 
 	
 	local wart={56,73,74,75,77,80,83,90,91,
@@ -8651,199 +8650,199 @@ function FINALWORK2()
 					   
 	for i=1,5 do
 	      for z=1,47 do
-			  JY.Person[wart[z]]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°"..i]=0
-			  JY.Person[wart[z]]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ"..i]=0
-			  JY.Person[wart[z]]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ"..i]=0
+			  JY.Person[wart[z]]["³öÕĞ¶¯»­Ö¡Êı"..i]=0
+			  JY.Person[wart[z]]["³öÕĞ¶¯»­ÑÓ³Ù"..i]=0
+			  JY.Person[wart[z]]["Îä¹¦ÒôĞ§ÑÓ³Ù"..i]=0
 		  end
 	end
 	
-	JY.Person[128]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[128]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[128]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[128]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[128]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[128]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[121]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=13
-	JY.Person[121]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=7
-    JY.Person[121]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=6
+	JY.Person[121]["³öÕĞ¶¯»­Ö¡Êı1"]=13
+	JY.Person[121]["³öÕĞ¶¯»­ÑÓ³Ù1"]=7
+    JY.Person[121]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=6
 	
-	JY.Person[122]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[122]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=6
-    JY.Person[122]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=5
+	JY.Person[122]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[122]["³öÕĞ¶¯»­ÑÓ³Ù1"]=6
+    JY.Person[122]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=5
 	
-	JY.Person[118]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=13
-	JY.Person[118]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=9
-    JY.Person[118]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=8
+	JY.Person[118]["³öÕĞ¶¯»­Ö¡Êı1"]=13
+	JY.Person[118]["³öÕĞ¶¯»­ÑÓ³Ù1"]=9
+    JY.Person[118]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=8
 	
-	JY.Person[117]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[117]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=6
-    JY.Person[117]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=5
+	JY.Person[117]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[117]["³öÕĞ¶¯»­ÑÓ³Ù1"]=6
+    JY.Person[117]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=5
 	
-	JY.Person[114]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=13
-	JY.Person[114]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=6
-    JY.Person[114]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=5
+	JY.Person[114]["³öÕĞ¶¯»­Ö¡Êı1"]=13
+	JY.Person[114]["³öÕĞ¶¯»­ÑÓ³Ù1"]=6
+    JY.Person[114]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=5
 	
-	JY.Person[113]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[113]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[113]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[113]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[113]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[113]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[112]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[112]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[112]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[112]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[112]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[112]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[104]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[104]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[104]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[104]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[104]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[104]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[103]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[103]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=2
-    JY.Person[103]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[103]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[103]["³öÕĞ¶¯»­ÑÓ³Ù1"]=2
+    JY.Person[103]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
-	JY.Person[111]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[111]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=4
-    JY.Person[111]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=3
+	JY.Person[111]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[111]["³öÕĞ¶¯»­ÑÓ³Ù1"]=4
+    JY.Person[111]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=3
 	
-	JY.Person[110]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[110]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=4
-    JY.Person[110]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=3
+	JY.Person[110]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[110]["³öÕĞ¶¯»­ÑÓ³Ù1"]=4
+    JY.Person[110]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=3
 	
-	JY.Person[100]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[100]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[100]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[100]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[100]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[100]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[99]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[99]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=2
-    JY.Person[99]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[99]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[99]["³öÕĞ¶¯»­ÑÓ³Ù1"]=2
+    JY.Person[99]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
-	JY.Person[98]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=16
-	JY.Person[98]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=9
-    JY.Person[98]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=8
+	JY.Person[98]["³öÕĞ¶¯»­Ö¡Êı1"]=16
+	JY.Person[98]["³öÕĞ¶¯»­ÑÓ³Ù1"]=9
+    JY.Person[98]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=8
 	
-	JY.Person[42]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=12
-	JY.Person[42]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=6
-    JY.Person[42]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=5
+	JY.Person[42]["³öÕĞ¶¯»­Ö¡Êı1"]=12
+	JY.Person[42]["³öÕĞ¶¯»­ÑÓ³Ù1"]=6
+    JY.Person[42]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=5
 	
-	JY.Person[41]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=12
-	JY.Person[41]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=6
-    JY.Person[41]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=5
+	JY.Person[41]["³öÕĞ¶¯»­Ö¡Êı1"]=12
+	JY.Person[41]["³öÕĞ¶¯»­ÑÓ³Ù1"]=6
+    JY.Person[41]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=5
 	
-	JY.Person[40]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=8
-	JY.Person[40]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=2
-    JY.Person[40]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[40]["³öÕĞ¶¯»­Ö¡Êı1"]=8
+	JY.Person[40]["³öÕĞ¶¯»­ÑÓ³Ù1"]=2
+    JY.Person[40]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
-	JY.Person[39]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[39]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=7
-    JY.Person[39]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=6
+	JY.Person[39]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[39]["³öÕĞ¶¯»­ÑÓ³Ù1"]=7
+    JY.Person[39]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=6
 	
-	JY.Person[96]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=8
-	JY.Person[96]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=2
-    JY.Person[96]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[96]["³öÕĞ¶¯»­Ö¡Êı1"]=8
+	JY.Person[96]["³öÕĞ¶¯»­ÑÓ³Ù1"]=2
+    JY.Person[96]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
-	JY.Person[95]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[95]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[95]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[95]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[95]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[95]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[94]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[94]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=2
-    JY.Person[94]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[94]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[94]["³öÕĞ¶¯»­ÑÓ³Ù1"]=2
+    JY.Person[94]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
-	JY.Person[97]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[97]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=2
-    JY.Person[97]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[97]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[97]["³öÕĞ¶¯»­ÑÓ³Ù1"]=2
+    JY.Person[97]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
-	JY.Person[261]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[261]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[261]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[261]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[261]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[261]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[161]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[161]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[161]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[161]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[161]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[161]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[140]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=16
-	JY.Person[140]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=7
-    JY.Person[140]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=6
+	JY.Person[140]["³öÕĞ¶¯»­Ö¡Êı1"]=16
+	JY.Person[140]["³öÕĞ¶¯»­ÑÓ³Ù1"]=7
+    JY.Person[140]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=6
 	
-	JY.Person[129]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[129]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=4
-    JY.Person[129]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=3
+	JY.Person[129]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[129]["³öÕĞ¶¯»­ÑÓ³Ù1"]=4
+    JY.Person[129]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=3
 	
-	JY.Person[92]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[92]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=2
-    JY.Person[92]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[92]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[92]["³öÕĞ¶¯»­ÑÓ³Ù1"]=2
+    JY.Person[92]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
-	JY.Person[88]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[88]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=2
-    JY.Person[88]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[88]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[88]["³öÕĞ¶¯»­ÑÓ³Ù1"]=2
+    JY.Person[88]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
-	JY.Person[87]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=8
-	JY.Person[87]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[87]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[87]["³öÕĞ¶¯»­Ö¡Êı1"]=8
+	JY.Person[87]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[87]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[85]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=13
-	JY.Person[85]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[85]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[85]["³öÕĞ¶¯»­Ö¡Êı1"]=13
+	JY.Person[85]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[85]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[84]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[84]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[84]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[84]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[84]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[84]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[82]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[82]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[82]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[82]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[82]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[82]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[79]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=12
-	JY.Person[79]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=9
-    JY.Person[79]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=8
+	JY.Person[79]["³öÕĞ¶¯»­Ö¡Êı1"]=12
+	JY.Person[79]["³öÕĞ¶¯»­ÑÓ³Ù1"]=9
+    JY.Person[79]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=8
 	
-	JY.Person[78]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=13
-	JY.Person[78]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=8
-    JY.Person[78]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=7
+	JY.Person[78]["³öÕĞ¶¯»­Ö¡Êı1"]=13
+	JY.Person[78]["³öÕĞ¶¯»­ÑÓ³Ù1"]=8
+    JY.Person[78]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=7
 	
-	JY.Person[72]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[72]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[72]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[72]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[72]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[72]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[66]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[66]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[66]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[66]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[66]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[66]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[52]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=6
-	JY.Person[52]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=3
-    JY.Person[52]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=2
+	JY.Person[52]["³öÕĞ¶¯»­Ö¡Êı1"]=6
+	JY.Person[52]["³öÕĞ¶¯»­ÑÓ³Ù1"]=3
+    JY.Person[52]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=2
 	
-	JY.Person[56]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[56]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[56]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=3
+	JY.Person[56]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[56]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[56]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=3
 	
-    JY.Person[73]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=13
-	JY.Person[73]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=7
-    JY.Person[73]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=5
+    JY.Person[73]["³öÕĞ¶¯»­Ö¡Êı1"]=13
+	JY.Person[73]["³öÕĞ¶¯»­ÑÓ³Ù1"]=7
+    JY.Person[73]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=5
 	
-    JY.Person[74]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[74]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=4
-    JY.Person[74]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=2
+    JY.Person[74]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[74]["³öÕĞ¶¯»­ÑÓ³Ù1"]=4
+    JY.Person[74]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=2
 	
-	JY.Person[75]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=10
-	JY.Person[75]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=3
-    JY.Person[75]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[75]["³öÕĞ¶¯»­Ö¡Êı1"]=10
+	JY.Person[75]["³öÕĞ¶¯»­ÑÓ³Ù1"]=3
+    JY.Person[75]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
-	JY.Person[77]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=8
-	JY.Person[77]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=7
-    JY.Person[77]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=6
+	JY.Person[77]["³öÕĞ¶¯»­Ö¡Êı1"]=8
+	JY.Person[77]["³öÕĞ¶¯»­ÑÓ³Ù1"]=7
+    JY.Person[77]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=6
 	
-	JY.Person[80]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=11
-	JY.Person[80]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[80]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=3
+	JY.Person[80]["³öÕĞ¶¯»­Ö¡Êı1"]=11
+	JY.Person[80]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[80]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=3
 	
-	JY.Person[83]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=7
-	JY.Person[83]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=5
-    JY.Person[83]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=4
+	JY.Person[83]["³öÕĞ¶¯»­Ö¡Êı1"]=7
+	JY.Person[83]["³öÕĞ¶¯»­ÑÓ³Ù1"]=5
+    JY.Person[83]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=4
 	
-	JY.Person[90]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[90]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=6
-    JY.Person[90]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=5
+	JY.Person[90]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[90]["³öÕĞ¶¯»­ÑÓ³Ù1"]=6
+    JY.Person[90]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=5
 	
-	JY.Person[91]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=9
-	JY.Person[91]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=2
-    JY.Person[91]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=1
+	JY.Person[91]["³öÕĞ¶¯»­Ö¡Êı1"]=9
+	JY.Person[91]["³öÕĞ¶¯»­ÑÓ³Ù1"]=2
+    JY.Person[91]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=1
 	
 end
 
@@ -8854,7 +8853,7 @@ end
 
 function PersonKF(p,kf) 
     for i=1,10 do
-	     if JY.Person[p]["æ­¦åŠŸ"..i]==kf then
+	     if JY.Person[p]["Îä¹¦"..i]==kf then
 		     return true;			 
 		 end
     end
@@ -8863,7 +8862,7 @@ end
 
 
 function T1LEQ(id) 
-    if id==0 and JY.Person[id]["å§“å"]==JY.LEQ and GetS(4,5,5,4)==1 and GetS(4,5,5,5)==8 then
+    if id==0 and JY.Person[id]["ĞÕÃû"]==JY.LEQ and GetS(4,5,5,4)==1 and GetS(4,5,5,5)==8 then
        return true
 	else
 	   return false
@@ -8871,7 +8870,7 @@ function T1LEQ(id)
 end
 
 function T2SQ(id)  
-    if id==0 and JY.Person[id]["å§“å"]==JY.SQ and GetS(4,5,5,4)==2 and GetS(4,5,5,5)==8 then
+    if id==0 and JY.Person[id]["ĞÕÃû"]==JY.SQ and GetS(4,5,5,4)==2 and GetS(4,5,5,5)==8 then
        return true
 	else
 	   return false
@@ -8879,7 +8878,7 @@ function T2SQ(id)
 end
 
 function T3XYK(id) 
-    if id==0 and JY.Person[id]["å§“å"]==JY.XYK and GetS(4,5,5,4)==3 and GetS(4,5,5,5)==8 then
+    if id==0 and JY.Person[id]["ĞÕÃû"]==JY.XYK and GetS(4,5,5,4)==3 and GetS(4,5,5,5)==8 then
        return true
 	else
 	   return false
@@ -8920,10 +8919,10 @@ function FKJGN(k)
 	    Cls();		
 	    local MS=JYMsgBox(CC.EVB111,CC.EVB112,KJDYSAVE,4,280);
         if MS<4 then 
-			if JY.Status==GAME_SMAP then 			--ä¿å­˜éƒ¨åˆ†å’Œåœºæ™¯åœ°å›¾å­˜æ¡£ç›¸å…³ä¿¡æ¯
-				JY.Base["æ— ç”¨"]=JY.SubScene			
+			if JY.Status==GAME_SMAP then 			--±£´æ²¿·ÖºÍ³¡¾°µØÍ¼´æµµÏà¹ØĞÅÏ¢
+				JY.Base["ÎŞÓÃ"]=JY.SubScene			
 			else
-				JY.Base["æ— ç”¨"]=-1			
+				JY.Base["ÎŞÓÃ"]=-1			
 			end
 			SBLDATAS(MS);
 			DrawStrBoxWaitKey(CC.EVB113,C_WHITE,30)
@@ -8933,7 +8932,7 @@ function FKJGN(k)
 	    local MS=JYMsgBox(CC.EVB114,CC.EVB115,KJDYLOAD,4,280);
         if MS<4 then		   		
 		    SBLDATAL(MS);
-		    if JY.Base["æ— ç”¨"]~=-1 then 
+		    if JY.Base["ÎŞÓÃ"]~=-1 then 
 				if JY.SubScene < 0 then          
 					CleanMemory();
 					lib.UnloadMMap();
@@ -8941,7 +8940,7 @@ function FKJGN(k)
 				lib.PicInit();
 				lib.ShowSlow(50,1)
 				JY.Status=GAME_SMAP
-				JY.SubScene=JY.Base["æ— ç”¨"]
+				JY.SubScene=JY.Base["ÎŞÓÃ"]
 				
 				JY.MmapMusic=-1;
 				JY.MyPic=GetMyPic();
@@ -9097,8 +9096,8 @@ function NEvent2(keypress)
 			   SetD(83,48,4,882)
 			   --say(CC.EVB168)
 			   --say(CC.EVB169)
-			    local wpz={JY.Person[0]["æ‹³æŒåŠŸå¤«"],JY.Person[0]["å¾¡å‰‘èƒ½åŠ›"],
-                       JY.Person[0]["è€åˆ€æŠ€å·§"],JY.Person[0]["ç‰¹æ®Šå…µå™¨"] }
+			    local wpz={JY.Person[0]["È­ÕÆ¹¦·ò"],JY.Person[0]["Óù½£ÄÜÁ¦"],
+                       JY.Person[0]["Ë£µ¶¼¼ÇÉ"],JY.Person[0]["ÌØÊâ±øÆ÷"] }
 				local maxwp,maxnum=0;
 
 				for i=1,4 do
@@ -9110,11 +9109,11 @@ function NEvent2(keypress)
 
 				local swg={109,110,111,112};
                 say(CC.EVB168)
-				say("ï¼“ï¼§"..JY.Wugong[swg[maxnum]]["åç§°"].."ï¼¨ï¼·"..CC.EVB220)
+				say("£³£Ç"..JY.Wugong[swg[maxnum]]["Ãû³Æ"].."£È£×"..CC.EVB220)
                 if DrawStrBoxYesNo(-1,-1,CC.EVB221,C_WHITE,30) then
-				   JY.Person[0]["æ­¦åŠŸ1"]=swg[maxnum]
-				   JY.Person[0]["æ­¦åŠŸç­‰çº§1"]=900
-				   QZXS(CC.EVB167..JY.Wugong[swg[maxnum]]["åç§°"].."ã€")
+				   JY.Person[0]["Îä¹¦1"]=swg[maxnum]
+				   JY.Person[0]["Îä¹¦µÈ¼¶1"]=900
+				   QZXS(CC.EVB167..JY.Wugong[swg[maxnum]]["Ãû³Æ"].."¡»")
 				else
                    say(CC.EVB222)	
                 end				   						   
@@ -9219,7 +9218,7 @@ function NEvent6(keypress)
            JY.SubSceneY=0;
 		end
 		
-        if JY.SubScene==65 and (GetD(70,7,5)~=0 or GetD(70,8,5)~=0) then --ç‹„äº‘å…¥é˜Ÿ
+        if JY.SubScene==65 and (GetD(70,7,5)~=0 or GetD(70,8,5)~=0) then --µÒÔÆÈë¶Ó
 	        instruct_3(65,1,0,0,0,0,0,-1,-1,-1,0,-2,-2)
 		end
 end
@@ -9326,7 +9325,7 @@ function NEvent7(keypress)
 						 lib.Delay(1000);
 						 SetD(43,4,2,314)
 						if T1LEQ(0) then
-						   JY.Person[0]["æ­¦å­¦å¸¸è¯†"]=100
+						   JY.Person[0]["ÎäÑ§³£Ê¶"]=100
 						   QZXS(CC.EVB192)
 						   QZXS(CC.EVB194)
 						end
@@ -9382,7 +9381,7 @@ function NEvent8(keypress)
 end		
 
 function NEvent9(keypress) 
-        if JY.SubScene==25 and GetS(10,0,8,0)~=1 and GetD(25,74,5)==2610 then --åäº”å¤§
+        if JY.SubScene==25 and GetS(10,0,8,0)~=1 and GetD(25,74,5)==2610 then --Ê®Îå´ó
 		    SetS(25,40,33,3,101)
 			instruct_3(25,101,1,0,0,0,0,6824,6824,6824,0,-2,-2) 
 			
@@ -9488,107 +9487,107 @@ end
 OEVENTLUA={};
 
 OEVENTLUA[33]=function() 
-     if instruct_16(4,2,0) ==false then 	 --  16(10):é˜Ÿä¼æ˜¯å¦æœ‰[é˜åŸº]æ˜¯åˆ™è·³è½¬åˆ°:Label0        
+     if instruct_16(4,2,0) ==false then 	 --  16(10):¶ÓÎéÊÇ·ñÓĞ[ÑÖ»ù]ÊÇÔòÌø×ªµ½:Label0        
 		do return; end
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
     end    --:Label0
 
 
-    if instruct_16(72,2,0) ==false then    --  16(10):é˜Ÿä¼æ˜¯å¦æœ‰[ç”°å½’å†œ]æ˜¯åˆ™è·³è½¬åˆ°:Label1
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    if instruct_16(72,2,0) ==false then    --  16(10):¶ÓÎéÊÇ·ñÓĞ[Ìï¹éÅ©]ÊÇÔòÌø×ªµ½:Label1
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
         do return; end
     end    --:Label1
 
-    instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-    instruct_37(-3);   --  37(25):å¢åŠ é“å¾·-3
-    instruct_3(3,9,1,0,640,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:åœºæ™¯[æœ‰é—´å®¢æ ˆ]:åœºæ™¯äº‹ä»¶ç¼–å· [9]
-    instruct_3(3,12,1,0,640,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:åœºæ™¯[æœ‰é—´å®¢æ ˆ]:åœºæ™¯äº‹ä»¶ç¼–å· [12]
-    instruct_3(3,11,1,0,640,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:åœºæ™¯[æœ‰é—´å®¢æ ˆ]:åœºæ™¯äº‹ä»¶ç¼–å· [11]
-    instruct_3(3,10,1,0,640,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:åœºæ™¯[æœ‰é—´å®¢æ ˆ]:åœºæ™¯äº‹ä»¶ç¼–å· [10]
-    instruct_3(-2,1,0,0,0,0,0,7994,7994,7994,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
-    instruct_3(-2,-2,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·
-    instruct_1(171,72,1);   --  1(1):[ç”°å½’å†œ]è¯´: ä¸€åˆ‡æŒ‰è®¡åˆ’è¡Œäº‹
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(172,4,1);   --  1(1):[é˜åŸº]è¯´: æ‚¨å°±æ”¾å¿ƒå§ï¼Œå˜¿å˜¿
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_30(41,31,35,31);   --  30(1E):ä¸»è§’èµ°åŠ¨41-31--35-31
-    instruct_1(173,72,1);   --  1(1):[ç”°å½’å†œ]è¯´: è‹—å…„ï¼Œåˆ«æ¥æ— æ™ï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(50,3,0);   --  1(1):[è‹—äººå‡¤]è¯´: å§“ç”°çš„ï¼Œäºä½ è¿˜æœ‰è„¸æ¥è§æˆ‘*ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(51,72,1);   --  1(1):[ç”°å½’å†œ]è¯´: è‹—å…„ï¼Œä½•å¿…è¿™ä¹ˆå¤§çš„ç«æ°”ï¼Œ*ä¼¤äº†ä½ æˆ‘å…„å¼Ÿçš„å’Œæ°”ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(52,3,0);   --  1(1):[è‹—äººå‡¤]è¯´: â€¦â€¦**å¥¹è¿˜å¥½å—ï¼Ÿâ€¦â€¦
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(174,72,1);   --  1(1):[ç”°å½’å†œ]è¯´: ï¼œè¿™ä¸ªæ­»é˜åŸºæ€ä¹ˆè¿˜ä¸åŠ¨æ‰‹*â€¦â€¦ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(175,4,1);   --  1(1):[é˜åŸº]è¯´: ç€â€”â€”ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(176,3,0);   --  1(1):[è‹—äººå‡¤]è¯´: å•Šâ€”â€”
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-    instruct_3(-2,1,0,0,0,0,0,5212,5212,5212,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
-    instruct_1(177,72,1);   --  1(1):[ç”°å½’å†œ]è¯´: å“ˆå“ˆï¼Œæˆ‘çœ‹ä½ æ˜¯è§ä¸åˆ°å¥¹äº†*ã€‚è¿™è¯æ˜¯ä»æ¯’æ‰‹è¯ç‹é‚£å¼„æ¥*çš„æ–­è‚ è‰ç²‰æœ«ï¼Œè¯æ•ˆä¹ŸçœŸå¤Ÿ*ç‹ ï¼Œç°ä¸‹ä½ åŒçœ¼å·²çï¼Œæˆ‘çœ‹*"æ‰“éå¤©ä¸‹æ— æ•Œæ‰‹"çš„é‡‘é¢ä½›*è‹—äººå‡¤ï¼Œä»Šæ—¥è¦ä¸Šè¥¿å¤©äº†ï¼Œ*å°å…„å¼Ÿï¼Œå’±ä»¬ä¸Šï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(178,1,0);   --  1(1):[èƒ¡æ–]è¯´: è‹—å¤§ä¾ è«æ…Œï¼Œæˆ‘æ¥å¸®ä½ ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_14();   --  14(E):³¡¾°±äºÚ
+    instruct_37(-3);   --  37(25):Ôö¼ÓµÀµÂ-3
+    instruct_3(3,9,1,0,640,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:³¡¾°[ÓĞ¼ä¿ÍÕ»]:³¡¾°ÊÂ¼ş±àºÅ [9]
+    instruct_3(3,12,1,0,640,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:³¡¾°[ÓĞ¼ä¿ÍÕ»]:³¡¾°ÊÂ¼ş±àºÅ [12]
+    instruct_3(3,11,1,0,640,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:³¡¾°[ÓĞ¼ä¿ÍÕ»]:³¡¾°ÊÂ¼ş±àºÅ [11]
+    instruct_3(3,10,1,0,640,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:³¡¾°[ÓĞ¼ä¿ÍÕ»]:³¡¾°ÊÂ¼ş±àºÅ [10]
+    instruct_3(-2,1,0,0,0,0,0,7994,7994,7994,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
+    instruct_3(-2,-2,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ
+    instruct_1(171,72,1);   --  1(1):[Ìï¹éÅ©]Ëµ: Ò»ÇĞ°´¼Æ»®ĞĞÊÂ
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(172,4,1);   --  1(1):[ÑÖ»ù]Ëµ: Äú¾Í·ÅĞÄ°É£¬ºÙºÙ
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_30(41,31,35,31);   --  30(1E):Ö÷½Ç×ß¶¯41-31--35-31
+    instruct_1(173,72,1);   --  1(1):[Ìï¹éÅ©]Ëµ: ÃçĞÖ£¬±ğÀ´ÎŞí¦£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(50,3,0);   --  1(1):[ÃçÈË·ï]Ëµ: ĞÕÌïµÄ£¬¿÷Äã»¹ÓĞÁ³À´¼ûÎÒ*£¡
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(51,72,1);   --  1(1):[Ìï¹éÅ©]Ëµ: ÃçĞÖ£¬ºÎ±ØÕâÃ´´óµÄ»ğÆø£¬*ÉËÁËÄãÎÒĞÖµÜµÄºÍÆø¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(52,3,0);   --  1(1):[ÃçÈË·ï]Ëµ: ¡­¡­**Ëı»¹ºÃÂğ£¿¡­¡­
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(174,72,1);   --  1(1):[Ìï¹éÅ©]Ëµ: £¼Õâ¸öËÀÑÖ»ùÔõÃ´»¹²»¶¯ÊÖ*¡­¡­£¾
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(175,4,1);   --  1(1):[ÑÖ»ù]Ëµ: ×Å¡ª¡ª£¡
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(176,3,0);   --  1(1):[ÃçÈË·ï]Ëµ: °¡¡ª¡ª
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_14();   --  14(E):³¡¾°±äºÚ
+    instruct_3(-2,1,0,0,0,0,0,5212,5212,5212,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
+    instruct_1(177,72,1);   --  1(1):[Ìï¹éÅ©]Ëµ: ¹ş¹ş£¬ÎÒ¿´ÄãÊÇ¼û²»µ½ËıÁË*¡£ÕâÒ©ÊÇ´Ó¶¾ÊÖÒ©ÍõÄÇÅªÀ´*µÄ¶Ï³¦²İ·ÛÄ©£¬Ò©Ğ§Ò²Õæ¹»*ºİ£¬ÏÖÏÂÄãË«ÑÛÒÑÏ¹£¬ÎÒ¿´*"´ò±éÌìÏÂÎŞµĞÊÖ"µÄ½ğÃæ·ğ*ÃçÈË·ï£¬½ñÈÕÒªÉÏÎ÷ÌìÁË£¬*Ğ¡ĞÖµÜ£¬ÔÛÃÇÉÏ£¡
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(178,1,0);   --  1(1):[ºúì³]Ëµ: Ãç´óÏÀÄª»Å£¬ÎÒÀ´°ïÄã¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 
-    if instruct_6(0,4,0,0) ==false then    --  6(6):æˆ˜æ–—[0]æ˜¯åˆ™è·³è½¬åˆ°:Label2
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-        instruct_15(0);   --  15(F):æˆ˜æ–—å¤±è´¥ï¼Œæ­»äº¡
+    if instruct_6(0,4,0,0) ==false then    --  6(6):Õ½¶·[0]ÊÇÔòÌø×ªµ½:Label2
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+        instruct_15(0);   --  15(F):Õ½¶·Ê§°Ü£¬ËÀÍö
         do return; end
     end    --:Label2
 
-    instruct_3(-2,1,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
-    instruct_2(144,1);   --  2(2):å¾—åˆ°ç‰©å“[é£ç‹å¤–ä¼ ][1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_2(117,1);   --  2(2):å¾—åˆ°ç‰©å“[è‹—å®¶å‰‘æ³•][1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_3(-2,1,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
+    instruct_2(144,1);   --  2(2):µÃµ½ÎïÆ·[·ÉºüÍâ´«][1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_2(117,1);   --  2(2):µÃµ½ÎïÆ·[Ãç¼Ò½£·¨][1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 
-    if instruct_31(10000,0,7) ==true then    --  31(1F):åˆ¤æ–­é“¶å­æ˜¯å¦å¤Ÿ10000å¦åˆ™è·³è½¬åˆ°:Label3
-        instruct_2(225,1);   --  2(2):å¾—åˆ°ç‰©å“[é—¯ç‹è—å®å›¾][1]
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-        instruct_39(5);   --  39(27):æ‰“å¼€åœºæ™¯å±±æ´
+    if instruct_31(10000,0,7) ==true then    --  31(1F):ÅĞ¶ÏÒø×ÓÊÇ·ñ¹»10000·ñÔòÌø×ªµ½:Label3
+        instruct_2(225,1);   --  2(2):µÃµ½ÎïÆ·[´³Íõ²Ø±¦Í¼][1]
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+        instruct_39(5);   --  39(27):´ò¿ª³¡¾°É½¶´
         do return; end
     end    --:Label3
 
 
-    if instruct_31(5000,0,8) ==true then    --  31(1F):åˆ¤æ–­é“¶å­æ˜¯å¦å¤Ÿ5000å¦åˆ™è·³è½¬åˆ°:Label4
-        instruct_2(226,1);   --  2(2):å¾—åˆ°ç‰©å“[é—¯ç‹è—å®å›¾][1]
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-        instruct_39(84);   --  39(27):æ‰“å¼€åœºæ™¯å±±æ´
+    if instruct_31(5000,0,8) ==true then    --  31(1F):ÅĞ¶ÏÒø×ÓÊÇ·ñ¹»5000·ñÔòÌø×ªµ½:Label4
+        instruct_2(226,1);   --  2(2):µÃµ½ÎïÆ·[´³Íõ²Ø±¦Í¼][1]
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+        instruct_39(84);   --  39(27):´ò¿ª³¡¾°É½¶´
         do return; end
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
     end    --:Label4
 
-    instruct_2(227,1);   --  2(2):å¾—åˆ°ç‰©å“[é—¯ç‹è—å®å›¾][1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_39(85);   --  39(27):æ‰“å¼€åœºæ™¯å±±æ´
+    instruct_2(227,1);   --  2(2):µÃµ½ÎïÆ·[´³Íõ²Ø±¦Í¼][1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_39(85);   --  39(27):´ò¿ª³¡¾°É½¶´
 end
 
 OEVENTLUA[50]=function() 
     if GetS(4,5,5,5)==6 then return end
 
-    if instruct_28(0,5,999,6,0) ==false then    --  28(1C):åˆ¤æ–­AAAå“å¾·2-999æ˜¯åˆ™è·³è½¬åˆ°:Label0
-        instruct_1(235,0,1);   --  1(1):[AAA]è¯´: åŠŸå¾·ç®±é‡Œå·²ç»æ²¡æœ‰é’±äº†â€¦â€¦
+    if instruct_28(0,5,999,6,0) ==false then    --  28(1C):ÅĞ¶ÏAAAÆ·µÂ2-999ÊÇÔòÌø×ªµ½:Label0
+        instruct_1(235,0,1);   --  1(1):[AAA]Ëµ: ¹¦µÂÏäÀïÒÑ¾­Ã»ÓĞÇ®ÁË¡­¡­
         do return; end
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
     end    --:Label0
 
-    instruct_1(234,0,1);   --  1(1):[AAA]è¯´: åŠŸå¾·ç®±é‡Œæœ‰ä¸€äº›é¦™ç«é’±ï¼Œç°*åœ¨å››ä¸‹æ— äººï¼Œæˆ‘æ˜¯ä¸æ˜¯æ‹¿æ¥*ä¸€ç‚¹èŠ±èŠ±ï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_1(234,0,1);   --  1(1):[AAA]Ëµ: ¹¦µÂÏäÀïÓĞÒ»Ğ©Ïã»ğÇ®£¬ÏÖ*ÔÚËÄÏÂÎŞÈË£¬ÎÒÊÇ²»ÊÇÄÃÀ´*Ò»µã»¨»¨£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 
-    if instruct_11(0,8) ==true then    --  11(B):æ˜¯å¦ä½å®¿å¦åˆ™è·³è½¬åˆ°:Label1
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-        instruct_2(174,100);   --  2(2):å¾—åˆ°ç‰©å“[é“¶ä¸¤][30]
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-        instruct_37(-5);   --  37(25):å¢åŠ é“å¾·-2
+    if instruct_11(0,8) ==true then    --  11(B):ÊÇ·ñ×¡ËŞ·ñÔòÌø×ªµ½:Label1
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+        instruct_2(174,100);   --  2(2):µÃµ½ÎïÆ·[ÒøÁ½][30]
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+        instruct_37(-5);   --  37(25):Ôö¼ÓµÀµÂ-2
         do return; end
     end    --:Label1
 
@@ -9596,283 +9595,283 @@ end
 
 OEVENTLUA[51]=function() 
 
-    if instruct_4(174,0,21) ==true then    --  4(4):æ˜¯å¦ä½¿ç”¨ç‰©å“[é“¶ä¸¤]ï¼Ÿå¦åˆ™è·³è½¬åˆ°:Label0
+    if instruct_4(174,0,21) ==true then    --  4(4):ÊÇ·ñÊ¹ÓÃÎïÆ·[ÒøÁ½]£¿·ñÔòÌø×ªµ½:Label0
 
-        if instruct_31(100,6,0) ==false then    --  31(1F):åˆ¤æ–­é“¶å­æ˜¯å¦å¤Ÿ100æ˜¯åˆ™è·³è½¬åˆ°:Label1
-            instruct_1(237,0,1);   --  1(1):[AAA]è¯´: æˆ‘èº«ä¸Šçš„é“¶å­ä¹Ÿä¸å¤šäº†â€¦â€¦
-            instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+        if instruct_31(100,6,0) ==false then    --  31(1F):ÅĞ¶ÏÒø×ÓÊÇ·ñ¹»100ÊÇÔòÌø×ªµ½:Label1
+            instruct_1(237,0,1);   --  1(1):[AAA]Ëµ: ÎÒÉíÉÏµÄÒø×ÓÒ²²»¶àÁË¡­¡­
+            instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
             do return; end
         end    --:Label1
 
-        instruct_1(236,0,1);   --  1(1):[AAA]è¯´: é“¶å­å¤ªå¤šäº†ä¹Ÿæ²¡å•¥ç”¨ï¼Œæ‹¿å‡º*100ä¸¤åšæ…ˆå–„äº‹ä¸šå§ã€‚
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-        instruct_32(174,-100);   --  32(20):ç‰©å“[é“¶ä¸¤]+[-100]
-		if JY.Person[0]["å“å¾·"]<65 then
-           instruct_37(1);   --  37(25):å¢åŠ é“å¾·1
+        instruct_1(236,0,1);   --  1(1):[AAA]Ëµ: Òø×ÓÌ«¶àÁËÒ²Ã»É¶ÓÃ£¬ÄÃ³ö*100Á½×ö´ÈÉÆÊÂÒµ°É¡£
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+        instruct_32(174,-100);   --  32(20):ÎïÆ·[ÒøÁ½]+[-100]
+		if JY.Person[0]["Æ·µÂ"]<65 then
+           instruct_37(1);   --  37(25):Ôö¼ÓµÀµÂ1
 		end
         do return; end
     end    --:Label0
 
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 end
       
 
 OEVENTLUA[56]=function() 
-    instruct_3(-2,-2,1,0,0,0,0,2608,2608,2608,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_3(-2,-2,1,0,0,0,0,2608,2608,2608,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 	if GetS(4,5,5,5)==3 then say(CC.s52) end
-	instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)   
-    instruct_2(138,1);   --  2(2):å¾—åˆ°ç‰©å“[ç„è™šåˆ€æ³•][1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)   
+	instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)   
+    instruct_2(138,1);   --  2(2):µÃµ½ÎïÆ·[ĞşĞéµ¶·¨][1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)   
 end
 
 OEVENTLUA[198]=function() 
-    --instruct_1(3997,0,0);   --  1(1):[AAA]è¯´: æå§‘å¨˜ï¼Œä½ å…ˆå›å°æ‘ï¼Œæœ‰éœ€*è¦æ—¶ï¼Œæˆ‘å†å»æ‰¾ä½ å¸®å¿™ã€‚
+    --instruct_1(3997,0,0);   --  1(1):[AAA]Ëµ: Àî¹ÃÄï£¬ÄãÏÈ»ØĞ¡´å£¬ÓĞĞè*ÒªÊ±£¬ÎÒÔÙÈ¥ÕÒÄã°ïÃ¦¡£
     say(string.sub(JY.Person[92][CC.s23],1,2)..CC.EVB210,0,5)
-	instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_21(92);   --  21(15):[ææ²…èŠ·]ç¦»é˜Ÿ
-    instruct_3(70,1,1,0,199,0,0,7266,7266,7266,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:åœºæ™¯[å°æ‘]:åœºæ™¯äº‹ä»¶ç¼–å· [1]
+	instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_21(92);   --  21(15):[ÀîãäÜÆ]Àë¶Ó
+    instruct_3(70,1,1,0,199,0,0,7266,7266,7266,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:³¡¾°[Ğ¡´å]:³¡¾°ÊÂ¼ş±àºÅ [1]
 end
 
 OEVENTLUA[199]=function() 
-    --instruct_1(390,92,0);   --  1(1):[???]è¯´: æœ‰éœ€è¦æˆ‘å¸®å¿™çš„åœ°æ–¹å—ï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-	say(CC.EVB211,JY.Person[92]["å¤´åƒä»£å·"],0,JY.Person[92][CC.s23])
+    --instruct_1(390,92,0);   --  1(1):[???]Ëµ: ÓĞĞèÒªÎÒ°ïÃ¦µÄµØ·½Âğ£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+	say(CC.EVB211,JY.Person[92]["Í·Ïñ´úºÅ"],0,JY.Person[92][CC.s23])
 
-    if instruct_9(0,29) ==true then    --  9(9):æ˜¯å¦è¦æ±‚åŠ å…¥?å¦åˆ™è·³è½¬åˆ°:Label0
+    if instruct_9(0,29) ==true then    --  9(9):ÊÇ·ñÒªÇó¼ÓÈë?·ñÔòÌø×ªµ½:Label0
 
-        if instruct_20(20,0) ==false then    --  20(14):é˜Ÿä¼æ˜¯å¦æ»¡ï¼Ÿæ˜¯åˆ™è·³è½¬åˆ°:Label1
-            instruct_10(92);   --  10(A):åŠ å…¥äººç‰©[ææ²…èŠ·]
-            instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-            instruct_3(-2,-2,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·
-            instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-            instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
+        if instruct_20(20,0) ==false then    --  20(14):¶ÓÎéÊÇ·ñÂú£¿ÊÇÔòÌø×ªµ½:Label1
+            instruct_10(92);   --  10(A):¼ÓÈëÈËÎï[ÀîãäÜÆ]
+            instruct_14();   --  14(E):³¡¾°±äºÚ
+            instruct_3(-2,-2,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ
+            instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+            instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
             do return; end
         end    --:Label1
 
-        instruct_1(391,92,0);   --  1(1):[???]è¯´: ä½ çš„é˜Ÿä¼å·²æ»¡ï¼Œæˆ‘æ— æ³•åŠ å…¥ã€‚
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+        instruct_1(391,92,0);   --  1(1):[???]Ëµ: ÄãµÄ¶ÓÎéÒÑÂú£¬ÎÒÎŞ·¨¼ÓÈë¡£
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
         do return; end
     end    --:Label0
 end
 
 OEVENTLUA[267]=function()    
-    instruct_1(793,0,1);   --  1(1):[AAA]è¯´: çœ‹æˆ‘çš„ï¼Œä¹¾å¤å¤§æŒªç§»â€”â€”ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_57();   --  57(39):é«˜æ˜Œè¿·å®«åŠˆé—¨
-    instruct_3(-2,3,0,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [3]
-    instruct_3(-2,4,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [4]
-    instruct_3(-2,2,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [2]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_1(793,0,1);   --  1(1):[AAA]Ëµ: ¿´ÎÒµÄ£¬Ç¬À¤´óÅ²ÒÆ¡ª¡ª£¡
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_57();   --  57(39):¸ß²ıÃÔ¹¬ÅüÃÅ
+    instruct_3(-2,3,0,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [3]
+    instruct_3(-2,4,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [4]
+    instruct_3(-2,2,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [2]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
     instruct_3(11,100,0,0,0,0,0,0,0,0,-2,-2,-2);	
 end
 
 OEVENTLUA[292]=function() 
-    instruct_1(793,0,1);   --  1(1):[AAA]è¯´: çœ‹æˆ‘çš„ï¼Œä¹¾å¤å¤§æŒªç§»â€”â€”ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_57();   --  57(39):é«˜æ˜Œè¿·å®«åŠˆé—¨
-    instruct_3(-2,3,0,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [3]
-    instruct_3(-2,4,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [4]
-    instruct_3(-2,2,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [2]
-    instruct_3(9,1,1,0,293,0,0,5296,5296,5296,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:åœºæ™¯[æˆå´‘å±…]:åœºæ™¯äº‹ä»¶ç¼–å· [1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(963,0,1);   --  1(1):[AAA]è¯´: ä¸çŸ¥é“è¿™æˆæ˜†è·‘å“ªå»äº†ï¼Œåº”*è¯¥ç¦»æ­¤ä¸è¿œå§ï¼Œæˆ‘å¥½å¥½æ‰¾æ‰¾*ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_1(793,0,1);   --  1(1):[AAA]Ëµ: ¿´ÎÒµÄ£¬Ç¬À¤´óÅ²ÒÆ¡ª¡ª£¡
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_57();   --  57(39):¸ß²ıÃÔ¹¬ÅüÃÅ
+    instruct_3(-2,3,0,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [3]
+    instruct_3(-2,4,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [4]
+    instruct_3(-2,2,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [2]
+    instruct_3(9,1,1,0,293,0,0,5296,5296,5296,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:³¡¾°[³É‹¾Ó]:³¡¾°ÊÂ¼ş±àºÅ [1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(963,0,1);   --  1(1):[AAA]Ëµ: ²»ÖªµÀÕâ³ÉÀ¥ÅÜÄÄÈ¥ÁË£¬Ó¦*¸ÃÀë´Ë²»Ô¶°É£¬ÎÒºÃºÃÕÒÕÒ*¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 	instruct_3(11,100,0,0,0,0,0,0,0,0,-2,-2,-2);
 end
 
 OEVENTLUA[315]=function() 
-    if instruct_16(9,2,0) ==false then    --  16(10):é˜Ÿä¼æ˜¯å¦æœ‰[å¼ æ— å¿Œ]æ˜¯åˆ™è·³è½¬åˆ°:Label0
+    if instruct_16(9,2,0) ==false then    --  16(10):¶ÓÎéÊÇ·ñÓĞ[ÕÅÎŞ¼É]ÊÇÔòÌø×ªµ½:Label0
         do return; end
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
     end    --:Label0
 
-    instruct_37(1);   --  37(25):å¢åŠ é“å¾·1
-    instruct_1(1111,9,1);   --  1(1):[å¼ æ— å¿Œ]è¯´: å¤ªå¸ˆçˆ¶ï¼Œå¤ªå¸ˆçˆ¶ï¼Œ*æ— å¿Œå›æ¥çœ‹ä½ äº†ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1112,5,0);   --  1(1):[å¼ ä¸‰ä¸°]è¯´: æ— å¿Œï¼ŒçœŸçš„æ˜¯ä½ ã€‚å¥½å­©å­ï¼Œ*ä½ æ²¡æœ‰æ­»ï¼Œç¿ å±±å¯æœ‰å¾Œäº†ã€‚*æ˜¯è¶è°·åŒ»ä»™å°†ä½ åŒ»å¥½çš„å—ï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1113,9,1);   --  1(1):[å¼ æ— å¿Œ]è¯´: ä¸æ˜¯çš„ã€‚æˆ‘æ˜¯æœ‰äº†ä¸€ç•ªå¥‡é‡*ã€‚ã€‚ã€‚ã€‚å¦‚æ­¤å¦‚æ­¤ã€‚ã€‚ã€‚ã€‚*è¿™èˆ¬è¿™èˆ¬ã€‚ã€‚ã€‚*å¾Œæ¥ä¿®ä¹ äº†ä¹é˜³ç¥åŠŸï¼Œ*æ‰å°†æˆ‘èº«ä¸Šçš„å¯’æ¯’åŒ–å»ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1114,5,0);   --  1(1):[å¼ ä¸‰ä¸°]è¯´: å¾ˆå¥½ï¼Œå¾ˆå¥½ï¼ŒçœŸéš¾ä¸ºä½ äº†ã€‚*ç°åœ¨ä½ å·²ç»åšäº†æ˜æ•™çš„æ•™ä¸»*ï¼Œè®°å¾—è¦çº¦æŸæ•™ä¼—ï¼Œä¸å¯ä¸º*éä½œæ­¹ã€‚*è®°å¾—å¸¸å­˜ä¾ ä¹‰ä¹‹å¿ƒï¼Œ*æ‰æ˜¯æˆ‘è¾ˆä¸­äººã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1115,9,1);   --  1(1):[å¼ æ— å¿Œ]è¯´: å¤ªå¸ˆçˆ¶æ•™è¯²ï¼Œæ— å¿Œè°¨è®°åœ¨å¿ƒ*ã€‚ã€‚ã€‚ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1124,5,0);   --  1(1):[å¼ ä¸‰ä¸°]è¯´: è¿™æ˜¯å½“å¹´æˆ‘ä¼ æˆä½ çˆ¹çš„ä¸€å¥—*æ­¦åŠŸï¼Œå¦‚ä»Šå°±ä¼ ç»™ä½ å§ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_2(169,1);   --  2(2):å¾—åˆ°ç‰©å“[å€šå¤©å± é¾™åŠŸ][1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_37(1);   --  37(25):Ôö¼ÓµÀµÂ1
+    instruct_1(1111,9,1);   --  1(1):[ÕÅÎŞ¼É]Ëµ: Ì«Ê¦¸¸£¬Ì«Ê¦¸¸£¬*ÎŞ¼É»ØÀ´¿´ÄãÁË¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1112,5,0);   --  1(1):[ÕÅÈı·á]Ëµ: ÎŞ¼É£¬ÕæµÄÊÇÄã¡£ºÃº¢×Ó£¬*ÄãÃ»ÓĞËÀ£¬´äÉ½¿ÉÓĞááÁË¡£*ÊÇµû¹ÈÒ½ÏÉ½«ÄãÒ½ºÃµÄÂğ£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1113,9,1);   --  1(1):[ÕÅÎŞ¼É]Ëµ: ²»ÊÇµÄ¡£ÎÒÊÇÓĞÁËÒ»·¬ÆæÓö*¡£¡£¡£¡£Èç´ËÈç´Ë¡£¡£¡£¡£*Õâ°ãÕâ°ã¡£¡£¡£*ááÀ´ĞŞÏ°ÁË¾ÅÑôÉñ¹¦£¬*²Å½«ÎÒÉíÉÏµÄº®¶¾»¯È¥¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1114,5,0);   --  1(1):[ÕÅÈı·á]Ëµ: ºÜºÃ£¬ºÜºÃ£¬ÕæÄÑÎªÄãÁË¡£*ÏÖÔÚÄãÒÑ¾­×öÁËÃ÷½ÌµÄ½ÌÖ÷*£¬¼ÇµÃÒªÔ¼Êø½ÌÖÚ£¬²»¿ÉÎª*·Ç×÷´õ¡£*¼ÇµÃ³£´æÏÀÒåÖ®ĞÄ£¬*²ÅÊÇÎÒ±²ÖĞÈË¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1115,9,1);   --  1(1):[ÕÅÎŞ¼É]Ëµ: Ì«Ê¦¸¸½Ì»å£¬ÎŞ¼É½÷¼ÇÔÚĞÄ*¡£¡£¡£¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1124,5,0);   --  1(1):[ÕÅÈı·á]Ëµ: ÕâÊÇµ±ÄêÎÒ´«ÊÚÄãµùµÄÒ»Ì×*Îä¹¦£¬Èç½ñ¾Í´«¸øÄã°É¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_2(169,1);   --  2(2):µÃµ½ÎïÆ·[ÒĞÌìÍÀÁú¹¦][1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 	say(CC.EVB91,5)
 	instruct_14() 
 	instruct_13() 
     local tjq=0;
     for a=1,10 do
-         if JY.Person[9]["æ­¦åŠŸ"..a]==16 then 
+         if JY.Person[9]["Îä¹¦"..a]==16 then 
 		    tjq=1 
 			break;
 	     end
     end
-	if tjq==0 then JY.Person[9]["æ­¦åŠŸ2"]=16 end	
-	JY.Person[9]["æ­¦åŠŸç­‰çº§2"]=50
+	if tjq==0 then JY.Person[9]["Îä¹¦2"]=16 end	
+	JY.Person[9]["Îä¹¦µÈ¼¶2"]=50
 	for a=1,10 do
-	     if JY.Person[9]["æ­¦åŠŸ"..a]==0 then
-		    JY.Person[9]["æ­¦åŠŸ"..a]=46
-			JY.Person[9]["æ­¦åŠŸç­‰çº§"..a]=50
+	     if JY.Person[9]["Îä¹¦"..a]==0 then
+		    JY.Person[9]["Îä¹¦"..a]=46
+			JY.Person[9]["Îä¹¦µÈ¼¶"..a]=50
 			break;
 	     end
 	end
-    instruct_1(1125,9,0);   --  1(1):[å¼ æ— å¿Œ]è¯´: å¤šè°¢å¤ªå¸ˆçˆ¶
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1116,5,0);   --  1(1):[å¼ ä¸‰ä¸°]è¯´: å‘µå‘µå‘µï¼Œç¿ å±±æœ‰åäº†ï¼Œç¿ å±±*æœ‰åäº†â€¦â€¦
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_3(-2,5,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [5]
-    instruct_3(-2,10,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [10]
-    instruct_3(-2,9,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [9]
-    instruct_3(-2,8,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [8]
-    instruct_3(-2,7,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [7]
-    instruct_3(-2,6,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [6]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_1(1125,9,0);   --  1(1):[ÕÅÎŞ¼É]Ëµ: ¶àĞ»Ì«Ê¦¸¸
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1116,5,0);   --  1(1):[ÕÅÈı·á]Ëµ: ºÇºÇºÇ£¬´äÉ½ÓĞºóÁË£¬´äÉ½*ÓĞºóÁË¡­¡­
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_3(-2,5,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [5]
+    instruct_3(-2,10,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [10]
+    instruct_3(-2,9,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [9]
+    instruct_3(-2,8,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [8]
+    instruct_3(-2,7,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [7]
+    instruct_3(-2,6,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [6]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 end
 
 OEVENTLUA[331]=function() 
-    instruct_1(1231,201,0);   --  1(1):[???]è¯´: é‡‘é¾™å¸®å¼Ÿå­æ­£åœ¨ç»ƒåŠŸï¼Œè¿™æ˜¯*æˆ‘ä»¬æœ€æ–°è®¾è®¡çš„343é˜µæ³•ã€‚*æˆ‘æ˜¯é‡‘é¾™å¸®æ€»æ•™å¤´ï¼Œå§“ç±³ï¼Œ*åå¢ï¼Œæ˜¯å®‹ä»£ç€åä¹¦æ³•å®¶ç±³*èŠ¾çš„åäººã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    say(CC.s47,201,5,"ç±³å¢")
+    instruct_1(1231,201,0);   --  1(1):[???]Ëµ: ½ğÁú°ïµÜ×ÓÕıÔÚÁ·¹¦£¬ÕâÊÇ*ÎÒÃÇ×îĞÂÉè¼ÆµÄ343Õó·¨¡£*ÎÒÊÇ½ğÁú°ï×Ü½ÌÍ·£¬ĞÕÃ×£¬*ÃûÂ¬£¬ÊÇËÎ´ú×ÅÃûÊé·¨¼ÒÃ×*ÜÀµÄºóÈË¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    say(CC.s47,201,5,"Ã×Â¬")
 end
 
 OEVENTLUA[353]=function() 
-    instruct_3(-2,-2,1,0,361,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·
-    instruct_1(1323,0,1);   --  1(1):[AAA]è¯´: å§‘å¨˜â€¦â€¦å¯æ˜¯è¿™é‡‘é¾™å¸®ä¹‹äºº*ï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1324,239,0);   --  1(1):[???]è¯´: æ˜¯åˆæ€ä¹ˆæ ·ï¼Ÿä½ æƒ³è¿æˆ‘ä¹Ÿä¸€*èµ·æ€ä¹ˆï¼Ÿä½ æ¥å‘€ï¼Œä½ æ¥å‘€ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1325,245,1);   --  1(1):[???]è¯´: å“¼ï¼Œåˆ«è¯´è¿™äº›äººä¸æ˜¯æˆ‘æ€çš„*ï¼Œå°±ç®—æ˜¯æˆ‘æ€çš„åˆå¦‚ä½•ï¼Ÿä¸*è¿‡æ˜¯ä¸ºäº†å¸®é—µäºŒçˆ·æŠ¥ä»‡è€Œå·²*ã€‚ä½ è¿™å°ä¸«å¤´å†è·Ÿæˆ‘ç½—å—¦ï¼Œ*æˆ‘å°±è®©ä½ å’Œä»–ä»¬ä¸€æ ·ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1326,239,0);   --  1(1):[???]è¯´: ä½ æ€äº†æˆ‘å®¹æ˜“ï¼Œå¯æ˜¯ä½ æƒ³è¦*çš„ä¸œè¥¿å°±æ°¸è¿œå¾—ä¸åˆ°äº†ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1327,0,1);   --  1(1):[AAA]è¯´: ä»€ä¹ˆä¸œè¥¿ï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1328,239,0);   --  1(1):[???]è¯´: ä½ ä¸æ˜¯åœ¨æ‰¾åå››å¤©ä¹¦å—ï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1329,0,1);   --  1(1):[AAA]è¯´: ç¥å•Šï¼Œä¸ºä»€ä¹ˆæ¯ä¸ªäººéƒ½çŸ¥é“*æˆ‘è¦æ‰¾åå››å¤©ä¹¦â€¦â€¦
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1330,239,0);   --  1(1):[???]è¯´: å…¶ä¸­ä¸€æœ¬ã€Šç¢§è¡€å‰‘ã€‹ï¼Œåªæœ‰*æˆ‘çŸ¥é“åœ¨å“ªé‡Œã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1331,0,1);   --  1(1):[AAA]è¯´: é‚£ä½ è¦æ€ä¹ˆæ ·ï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1332,239,0);   --  1(1):[???]è¯´: æˆ‘è¦ä½ æ›¿æˆ‘é‡‘é¾™å¸®æŠ¥ä»‡ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1333,0,1);   --  1(1):[AAA]è¯´: ä½ è®©æˆ‘å»æ€é—µå­åï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1334,239,0);   --  1(1):[???]è¯´: å“¼ï¼Œä»™éƒ½æ´¾é‚£å‡ ä¸ªäººï¼Œæœ¬å§‘*å¨˜æˆ‘è‡ªç”±åŠæ³•å¯¹ä»˜ã€‚åœ¨ç­æˆ‘*é‡‘é¾™å¸®çš„äººå½“ä¸­ï¼Œæœ‰å‡ ä¸ªæ˜¯*åå±±æ´¾ç©†äººæ¸…çš„å¾’å¼Ÿï¼Œå“¼å“¼*ï¼Œä½ å¸®æˆ‘æŠŠä»–ä»¬æ€äº†ï¼Œã€Šç¢§*è¡€å‰‘ã€‹ä¸€ä¹¦å°±æ˜¯ä½ çš„äº†ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1335,0,1);   --  1(1):[AAA]è¯´: â€¦â€¦ä¸ºäº†å¤©ä¹¦ï¼Œå¥½ï¼Œæˆ‘ç­”åº”*ä½ ï¼Œä½ ä¹Ÿè¦è¯´è¯ç®—è¯ï¼Œä¸è®¸*åæ‚”ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1336,239,0);   --  1(1):[???]è¯´: é‚£æ˜¯è‡ªç„¶ã€‚å¬è¯´ç©†äººæ¸…æœ‰ä¸ª*å¾’å¼Ÿå«è¢æ‰¿å¿—ï¼Œåˆšåˆšå»äº†äº‘*å—äº”ä»™æ•™ï¼Œä½ å°±å…ˆå»æ‰¾ä»–å§*ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_1(1337,244,1);   --  1(1):[???]è¯´: ï¼œè¢å…¬å­ï¼Œä½ ä¸è¦æ€ªæˆ‘ï¼Œè™½*ç„¶æˆ‘ä»¬ä¹Ÿç®—æ˜¯æœ‹å‹ï¼Œä¸è¿‡ç°*åœ¨â€¦â€¦ï¼
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)   
-    instruct_3(96,0,0,0,0,0,354,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:åœºæ™¯[äº”ä»™æ•™]:åœºæ™¯äº‹ä»¶ç¼–å· [0]
-    instruct_17(95,0,12,48,986);   --  17(11):ä¿®æ”¹åœºæ™¯è´´å›¾:åœºæ™¯[å¤§åŠŸåŠ]å±‚0åæ ‡C-30
-    instruct_3(95,10,1,0,343,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:åœºæ™¯[å¤§åŠŸåŠ]:åœºæ™¯äº‹ä»¶ç¼–å· [10]
-    instruct_37(-1);   --  37(25):å¢åŠ é“å¾·-1
+    instruct_3(-2,-2,1,0,361,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ
+    instruct_1(1323,0,1);   --  1(1):[AAA]Ëµ: ¹ÃÄï¡­¡­¿ÉÊÇÕâ½ğÁú°ïÖ®ÈË*£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1324,239,0);   --  1(1):[???]Ëµ: ÊÇÓÖÔõÃ´Ñù£¿ÄãÏëÁ¬ÎÒÒ²Ò»*ÆğÉ±Ã´£¿ÄãÀ´Ñ½£¬ÄãÀ´Ñ½£¡
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1325,245,1);   --  1(1):[???]Ëµ: ºß£¬±ğËµÕâĞ©ÈË²»ÊÇÎÒÉ±µÄ*£¬¾ÍËãÊÇÎÒÉ±µÄÓÖÈçºÎ£¿²»*¹ıÊÇÎªÁË°ïãÉ¶şÒ¯±¨³ğ¶øÒÑ*¡£ÄãÕâĞ¡Ñ¾Í·ÔÙ¸úÎÒÂŞàÂ£¬*ÎÒ¾ÍÈÃÄãºÍËûÃÇÒ»Ñù£¡
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1326,239,0);   --  1(1):[???]Ëµ: ÄãÉ±ÁËÎÒÈİÒ×£¬¿ÉÊÇÄãÏëÒª*µÄ¶«Î÷¾ÍÓÀÔ¶µÃ²»µ½ÁË¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1327,0,1);   --  1(1):[AAA]Ëµ: Ê²Ã´¶«Î÷£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1328,239,0);   --  1(1):[???]Ëµ: Äã²»ÊÇÔÚÕÒÊ®ËÄÌìÊéÂğ£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1329,0,1);   --  1(1):[AAA]Ëµ: Éñ°¡£¬ÎªÊ²Ã´Ã¿¸öÈË¶¼ÖªµÀ*ÎÒÒªÕÒÊ®ËÄÌìÊé¡­¡­
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1330,239,0);   --  1(1):[???]Ëµ: ÆäÖĞÒ»±¾¡¶±ÌÑª½£¡·£¬Ö»ÓĞ*ÎÒÖªµÀÔÚÄÄÀï¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1331,0,1);   --  1(1):[AAA]Ëµ: ÄÇÄãÒªÔõÃ´Ñù£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1332,239,0);   --  1(1):[???]Ëµ: ÎÒÒªÄãÌæÎÒ½ğÁú°ï±¨³ğ£¡
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1333,0,1);   --  1(1):[AAA]Ëµ: ÄãÈÃÎÒÈ¥É±ãÉ×Ó»ª£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1334,239,0);   --  1(1):[???]Ëµ: ºß£¬ÏÉ¶¼ÅÉÄÇ¼¸¸öÈË£¬±¾¹Ã*ÄïÎÒ×ÔÓÉ°ì·¨¶Ô¸¶¡£ÔÚÃğÎÒ*½ğÁú°ïµÄÈËµ±ÖĞ£¬ÓĞ¼¸¸öÊÇ*»ªÉ½ÅÉÄÂÈËÇåµÄÍ½µÜ£¬ºßºß*£¬Äã°ïÎÒ°ÑËûÃÇÉ±ÁË£¬¡¶±Ì*Ñª½£¡·Ò»Êé¾ÍÊÇÄãµÄÁË¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1335,0,1);   --  1(1):[AAA]Ëµ: ¡­¡­ÎªÁËÌìÊé£¬ºÃ£¬ÎÒ´ğÓ¦*Äã£¬ÄãÒ²ÒªËµ»°Ëã»°£¬²»Ğí*·´»Ú£¡
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1336,239,0);   --  1(1):[???]Ëµ: ÄÇÊÇ×ÔÈ»¡£ÌıËµÄÂÈËÇåÓĞ¸ö*Í½µÜ½ĞÔ¬³ĞÖ¾£¬¸Õ¸ÕÈ¥ÁËÔÆ*ÄÏÎåÏÉ½Ì£¬Äã¾ÍÏÈÈ¥ÕÒËû°É*¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_1(1337,244,1);   --  1(1):[???]Ëµ: £¼Ô¬¹«×Ó£¬Äã²»Òª¹ÖÎÒ£¬Ëä*È»ÎÒÃÇÒ²ËãÊÇÅóÓÑ£¬²»¹ıÏÖ*ÔÚ¡­¡­£¾
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)   
+    instruct_3(96,0,0,0,0,0,354,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:³¡¾°[ÎåÏÉ½Ì]:³¡¾°ÊÂ¼ş±àºÅ [0]
+    instruct_17(95,0,12,48,986);   --  17(11):ĞŞ¸Ä³¡¾°ÌùÍ¼:³¡¾°[´ó¹¦·»]²ã0×ø±êC-30
+    instruct_3(95,10,1,0,343,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:³¡¾°[´ó¹¦·»]:³¡¾°ÊÂ¼ş±àºÅ [10]
+    instruct_37(-1);   --  37(25):Ôö¼ÓµÀµÂ-1
 end
 
 OEVENTLUA[360]=function() 
-    instruct_3(-2,-2,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_2(156,1);   --  2(2):å¾—åˆ°ç‰©å“[ç¢§è¡€å‰‘][1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_3(-2,-2,1,0,0,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_2(156,1);   --  2(2):µÃµ½ÎïÆ·[±ÌÑª½£][1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 	say(CC.EVB170)
     instruct_14()  
     instruct_13()  
-	instruct_3(-2,4,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [4]
-    instruct_3(-2,14,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [14]
-    instruct_3(-2,15,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [15]
-    instruct_3(-2,9,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [9]
-    instruct_3(-2,8,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [8]
-    instruct_3(-2,7,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [7]
-    instruct_3(-2,6,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [6]
+	instruct_3(-2,4,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [4]
+    instruct_3(-2,14,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [14]
+    instruct_3(-2,15,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [15]
+    instruct_3(-2,9,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [9]
+    instruct_3(-2,8,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [8]
+    instruct_3(-2,7,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [7]
+    instruct_3(-2,6,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [6]
     instruct_3(-2,5,0,0,0,0,0,0,0,0,-2,-2,-2); 
 end
 
 OEVENTLUA[621]=function() 
-    --instruct_1(2678,0,1);   --  1(1):[AAA]è¯´: è¿™äº›å›¾ç”»ï¼Œä¼¼ä¹è®°è½½ç€æŸç§*æ­¦åŠŸâ€¦â€¦
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_3(-2,-2,-2,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·
+    --instruct_1(2678,0,1);   --  1(1):[AAA]Ëµ: ÕâĞ©Í¼»­£¬ËÆºõ¼ÇÔØ×ÅÄ³ÖÖ*Îä¹¦¡­¡­
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_3(-2,-2,-2,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ
 end
 
 OEVENTLUA[690]=function() 
     local r=JYMsgBox(CC.EVB153,CC.EVB154,CC.EVB155,3,261);
     if r==2 then	   
-		instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-		instruct_12();   --  12(C):ä½å®¿ä¼‘æ¯
-		instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
-		instruct_1(2830,261,0);   --  1(1):[???]è¯´: å…¬å­ï¼Œæ—©ä¸Šå¥½ï¼*æ˜¨æ™šä¼‘æ¯çš„å¥½å—ï¼Ÿ*èµ¶å¿«å¼€å§‹æ–°çš„æ—…ç¨‹å§ï¼
-		instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+		instruct_14();   --  14(E):³¡¾°±äºÚ
+		instruct_12();   --  12(C):×¡ËŞĞİÏ¢
+		instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
+		instruct_1(2830,261,0);   --  1(1):[???]Ëµ: ¹«×Ó£¬ÔçÉÏºÃ£¡*×òÍíĞİÏ¢µÄºÃÂğ£¿*¸Ï¿ì¿ªÊ¼ĞÂµÄÂÃ³Ì°É£¡
+		instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 	elseif r==1 then
-	                JY.Person[445]["ç­‰çº§"]=JY.Person[0]["ç­‰çº§"]*30
-					JY.Person[446]["ç­‰çº§"]=JY.Person[445]["ç­‰çº§"]					                                                                    
-					JY.Person[445]["å¤´åƒä»£å·"]=math.random(190)
-					JY.Person[446]["å¤´åƒä»£å·"]=math.random(190)
-					JY.Person[445]["ç”Ÿå‘½æœ€å¤§å€¼"]=50
-					JY.Person[446]["ç”Ÿå‘½æœ€å¤§å€¼"]=50
-					JY.Person[445]["ç”Ÿå‘½"]=JY.Person[445]["ç”Ÿå‘½æœ€å¤§å€¼"]
-					JY.Person[446]["ç”Ÿå‘½"]=JY.Person[446]["ç”Ÿå‘½æœ€å¤§å€¼"]
+	                JY.Person[445]["µÈ¼¶"]=JY.Person[0]["µÈ¼¶"]*30
+					JY.Person[446]["µÈ¼¶"]=JY.Person[445]["µÈ¼¶"]					                                                                    
+					JY.Person[445]["Í·Ïñ´úºÅ"]=math.random(190)
+					JY.Person[446]["Í·Ïñ´úºÅ"]=math.random(190)
+					JY.Person[445]["ÉúÃü×î´óÖµ"]=50
+					JY.Person[446]["ÉúÃü×î´óÖµ"]=50
+					JY.Person[445]["ÉúÃü"]=JY.Person[445]["ÉúÃü×î´óÖµ"]
+					JY.Person[446]["ÉúÃü"]=JY.Person[446]["ÉúÃü×î´óÖµ"]
 					
 					instruct_6(226,8,0,1) 
 					
-					JY.Person[445]["ç­‰çº§"]=10
-					JY.Person[446]["ç­‰çº§"]=10
+					JY.Person[445]["µÈ¼¶"]=10
+					JY.Person[446]["µÈ¼¶"]=10
 					                                                                    
-					JY.Person[445]["å¤´åƒä»£å·"]=208
-					JY.Person[446]["å¤´åƒä»£å·"]=208
+					JY.Person[445]["Í·Ïñ´úºÅ"]=208
+					JY.Person[446]["Í·Ïñ´úºÅ"]=208
 	end				
 end
 
 OEVENTLUA[691]=function() 
-    instruct_66(42);   --  66(42):æ’­æ”¾éŸ³ä¹2
-    instruct_3(-2,0,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [0]
-    instruct_19(16,31);   --  19(13):ä¸»è§’ç§»åŠ¨è‡³10-1F
-    instruct_40(2);   --  40(28):æ”¹å˜ä¸»è§’ç«™ç«‹æ–¹å‘2
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_30(16,31,9,31);   --  30(1E):ä¸»è§’èµ°åŠ¨16-31--9-31 
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-    instruct_3(-2,62,0,0,0,0,0,8250,8250,8250,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [62]
-    instruct_3(-2,4,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [4]   
-    --instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯	
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    --instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-    instruct_3(-2,2,1,0,690,0,0,6086,6086,6086,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [2]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    --instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯ 
-    instruct_32(174,400);   --  2(2):å¾—åˆ°ç‰©å“[é“¶ä¸¤][400]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)   
-    instruct_32(234,1);   --  2(2):å¾—åˆ°ç‰©å“[ä»‹ç»ä¿¡][1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)   
-    instruct_32(182,1);   --  2(2):å¾—åˆ°ç‰©å“[ç½—ç›˜][1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)   
-    --instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-    instruct_3(-2,4,1,0,695,0,0,8250,8250,8250,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [4]
-    instruct_3(-2,3,1,0,694,0,0,5098,5098,5098,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [3]
-    instruct_3(-2,61,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [61]
-    instruct_3(-2,62,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [62]
-    instruct_39(19);   --  39(27):æ‰“å¼€åœºæ™¯é‡é˜³å®«
-    instruct_39(101);   --  39(27):æ‰“å¼€åœºæ™¯é»å±±æ´
-    instruct_39(36);   --  39(27):æ‰“å¼€åœºæ™¯é’åŸæ´¾
-    instruct_39(28);   --  39(27):æ‰“å¼€åœºæ™¯å°‘æ—å¯º
-    instruct_39(93);   --  39(27):æ‰“å¼€åœºæ™¯å°‘å®¤å±±ä¸‹
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
+    instruct_66(42);   --  66(42):²¥·ÅÒôÀÖ2
+    instruct_3(-2,0,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [0]
+    instruct_19(16,31);   --  19(13):Ö÷½ÇÒÆ¶¯ÖÁ10-1F
+    instruct_40(2);   --  40(28):¸Ä±äÖ÷½ÇÕ¾Á¢·½Ïò2
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_30(16,31,9,31);   --  30(1E):Ö÷½Ç×ß¶¯16-31--9-31 
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_14();   --  14(E):³¡¾°±äºÚ
+    instruct_3(-2,62,0,0,0,0,0,8250,8250,8250,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [62]
+    instruct_3(-2,4,0,0,0,0,0,0,0,0,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [4]   
+    --instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°	
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    --instruct_14();   --  14(E):³¡¾°±äºÚ
+    instruct_3(-2,2,1,0,690,0,0,6086,6086,6086,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [2]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    --instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾° 
+    instruct_32(174,400);   --  2(2):µÃµ½ÎïÆ·[ÒøÁ½][400]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)   
+    instruct_32(234,1);   --  2(2):µÃµ½ÎïÆ·[½éÉÜĞÅ][1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)   
+    instruct_32(182,1);   --  2(2):µÃµ½ÎïÆ·[ÂŞÅÌ][1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)   
+    --instruct_14();   --  14(E):³¡¾°±äºÚ
+    instruct_3(-2,4,1,0,695,0,0,8250,8250,8250,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [4]
+    instruct_3(-2,3,1,0,694,0,0,5098,5098,5098,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [3]
+    instruct_3(-2,61,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [61]
+    instruct_3(-2,62,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [62]
+    instruct_39(19);   --  39(27):´ò¿ª³¡¾°ÖØÑô¹¬
+    instruct_39(101);   --  39(27):´ò¿ª³¡¾°ÀèÉ½¶´
+    instruct_39(36);   --  39(27):´ò¿ª³¡¾°Çà³ÇÅÉ
+    instruct_39(28);   --  39(27):´ò¿ª³¡¾°ÉÙÁÖËÂ
+    instruct_39(93);   --  39(27):´ò¿ª³¡¾°ÉÙÊÒÉ½ÏÂ
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
 end
 
 OEVENTLUA[707]=function() 
    instruct_1(2879,210,0);
    local lhq=0;
-   if JY.Scene[1]["è¿›å…¥æ¡ä»¶"]==0 then
+   if JY.Scene[1]["½øÈëÌõ¼ş"]==0 then
         for i=1,200 do
-	        if JY.Base["ç‰©å“" .. i]==112 then
+	        if JY.Base["ÎïÆ·" .. i]==112 then
 		      lhq=1
 			  break;
 			end
@@ -9885,44 +9884,44 @@ OEVENTLUA[707]=function()
 end
 
 OEVENTLUA[712]=function() 
-    instruct_1(2884,210,0);   --  1(1):[???]è¯´: å°‘æ—é“œäººå··ï¼Œæ¯ä¸ªäººåªæœ‰ä¸€*æ¬¡æŒ‘æˆ˜æœºä¼šï¼Œä½ æƒ³æŒ‘æˆ˜å—ï¼Ÿ
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_1(2884,210,0);   --  1(1):[???]Ëµ: ÉÙÁÖÍ­ÈËÏï£¬Ã¿¸öÈËÖ»ÓĞÒ»*´ÎÌôÕ½»ú»á£¬ÄãÏëÌôÕ½Âğ£¿
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 
-    if instruct_5(2,0) ==false then    --  5(5):æ˜¯å¦é€‰æ‹©æˆ˜æ–—ï¼Ÿæ˜¯åˆ™è·³è½¬åˆ°:Label0
+    if instruct_5(2,0) ==false then    --  5(5):ÊÇ·ñÑ¡ÔñÕ½¶·£¿ÊÇÔòÌø×ªµ½:Label0
        
     else
-		instruct_1(2881,210,0);   --  1(1):[???]è¯´: å¥½ï¼Œæ–½ä¸»é‡Œè¾¹è¯·ï¼
-		instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-		instruct_19(41,14);   --  19(13):ä¸»è§’ç§»åŠ¨è‡³29-E
-		instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-            if instruct_6(217,0,7,1) ==true then    --  6(6):æˆ˜æ–—[217]å¦åˆ™è·³è½¬åˆ°:Label3
-                instruct_19(41,7);   --  19(13):ä¸»è§’ç§»åŠ¨è‡³29-7
-                instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-                instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
-                instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+		instruct_1(2881,210,0);   --  1(1):[???]Ëµ: ºÃ£¬Ê©Ö÷Àï±ßÇë£¡
+		instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+		instruct_19(41,14);   --  19(13):Ö÷½ÇÒÆ¶¯ÖÁ29-E
+		instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+            if instruct_6(217,0,7,1) ==true then    --  6(6):Õ½¶·[217]·ñÔòÌø×ªµ½:Label3
+                instruct_19(41,7);   --  19(13):Ö÷½ÇÒÆ¶¯ÖÁ29-7
+                instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+                instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
+                instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
             else
-			    instruct_19(42,17);   --  19(13):ä¸»è§’ç§»åŠ¨è‡³2A-11
-				instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-				instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
-				instruct_3(-2,-2,1,0,709,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·					
+			    instruct_19(42,17);   --  19(13):Ö÷½ÇÒÆ¶¯ÖÁ2A-11
+				instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+				instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
+				instruct_3(-2,-2,1,0,709,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ					
             end    
     end
 end
 
 OEVENTLUA[714]=function() 
-    instruct_3(-2,-2,1,0,0,0,0,2952,2952,2952,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
+    instruct_3(-2,-2,1,0,0,0,0,2952,2952,2952,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
 	if GetS(10,0,16,0)==1 then
-       instruct_2(85,1);   --  2(2):å¾—åˆ°ç‰©å“[æ˜“ç­‹ç»][1]
+       instruct_2(85,1);   --  2(2):µÃµ½ÎïÆ·[Ò×½î¾­][1]
 	else
 	
 	end
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-    instruct_3(-2,25,1,0,713,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:åœºæ™¯äº‹ä»¶ç¼–å· [25]
-    instruct_19(42,17);   --  19(13):ä¸»è§’ç§»åŠ¨è‡³2A-11
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_14();   --  14(E):³¡¾°±äºÚ
+    instruct_3(-2,25,1,0,713,0,0,-2,-2,-2,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:³¡¾°ÊÂ¼ş±àºÅ [25]
+    instruct_19(42,17);   --  19(13):Ö÷½ÇÒÆ¶¯ÖÁ2A-11
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
 end
 
 OEVENTLUA[882]=function() 
@@ -9932,30 +9931,30 @@ end
 OEVENTLUA[1082]=function() 
     mm4R();
  
-    say(CC.EVB205,JY.Person[92]["å¤´åƒä»£å·"],0,"???") 
+    say(CC.EVB205,JY.Person[92]["Í·Ïñ´úºÅ"],0,"???") 
 
-    if instruct_9(57,0) ==false then    --  9(9):æ˜¯å¦è¦æ±‚åŠ å…¥?æ˜¯åˆ™è·³è½¬åˆ°:Label0
+    if instruct_9(57,0) ==false then    --  9(9):ÊÇ·ñÒªÇó¼ÓÈë?ÊÇÔòÌø×ªµ½:Label0
          instruct_3(-2,-2,0,0,0,0,0,0,0,0,-2,-2,-2);
-		 say(CC.EVB206,JY.Person[92]["å¤´åƒä»£å·"],0,"???") 
+		 say(CC.EVB206,JY.Person[92]["Í·Ïñ´úºÅ"],0,"???") 
 		return;
     end    --:Label0
 
-    if instruct_20(20,0) ==false then    --  20(14):é˜Ÿä¼æ˜¯å¦æ»¡ï¼Ÿæ˜¯åˆ™è·³è½¬åˆ°:Label3
-        instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-        instruct_3(-2,-2,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·
-        instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-        instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
-        instruct_10(92);   --  10(A):åŠ å…¥äººç‰©[ææ²…èŠ·]
+    if instruct_20(20,0) ==false then    --  20(14):¶ÓÎéÊÇ·ñÂú£¿ÊÇÔòÌø×ªµ½:Label3
+        instruct_14();   --  14(E):³¡¾°±äºÚ
+        instruct_3(-2,-2,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ
+        instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+        instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
+        instruct_10(92);   --  10(A):¼ÓÈëÈËÎï[ÀîãäÜÆ]
         do return; end
     end    --:Label3
 
-    --instruct_1(12,92,0);   --  1(1):[???]è¯´: ä½ çš„é˜Ÿä¼å·²æ»¡ï¼Œæˆ‘å°±ç›´æ¥å»*å°æ‘å§ã€‚
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_14();   --  14(E):åœºæ™¯å˜é»‘
-    instruct_3(-2,-2,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:å½“å‰åœºæ™¯:å½“å‰åœºæ™¯äº‹ä»¶ç¼–å·
-    instruct_3(70,1,1,0,199,0,0,7266,7266,7266,-2,-2,-2);   --  3(3):ä¿®æ”¹äº‹ä»¶å®šä¹‰:åœºæ™¯[å°æ‘]:åœºæ™¯äº‹ä»¶ç¼–å· [1]
-    instruct_0();   --  0(0)::ç©ºè¯­å¥(æ¸…å±)
-    instruct_13();   --  13(D):é‡æ–°æ˜¾ç¤ºåœºæ™¯
+    --instruct_1(12,92,0);   --  1(1):[???]Ëµ: ÄãµÄ¶ÓÎéÒÑÂú£¬ÎÒ¾ÍÖ±½ÓÈ¥*Ğ¡´å°É¡£
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_14();   --  14(E):³¡¾°±äºÚ
+    instruct_3(-2,-2,0,0,0,0,0,0,0,0,0,0,0);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:µ±Ç°³¡¾°:µ±Ç°³¡¾°ÊÂ¼ş±àºÅ
+    instruct_3(70,1,1,0,199,0,0,7266,7266,7266,-2,-2,-2);   --  3(3):ĞŞ¸ÄÊÂ¼ş¶¨Òå:³¡¾°[Ğ¡´å]:³¡¾°ÊÂ¼ş±àºÅ [1]
+    instruct_0();   --  0(0)::¿ÕÓï¾ä(ÇåÆÁ)
+    instruct_13();   --  13(D):ÖØĞÂÏÔÊ¾³¡¾°
 end
   
 OEVENTLUA[2001]=function() 
@@ -10006,14 +10005,14 @@ OEVENTLUA[2003]=function()
 	say(CC.EVB127,223,0,CC.EVB128)
 	local item=MenuDSJ();
 	if item>-1 then 
-		if DrawStrBoxYesNo(-1,-1,CC.EVB129..JY.Thing[item]["åç§°"]..CC.EVB130,C_WHITE,30) then
+		if DrawStrBoxYesNo(-1,-1,CC.EVB129..JY.Thing[item]["Ãû³Æ"]..CC.EVB130,C_WHITE,30) then
 		    if item<36 then
 		       Cls();
 		       DrawStrBoxWaitKey(CC.EVB131,C_WHITE,30)
 			   local items=0;
 			    for i=1,200 do
-			        if JY.Base["ç‰©å“"..i]==item then 
-					   items=JY.Base["ç‰©å“æ•°é‡"..i] 
+			        if JY.Base["ÎïÆ·"..i]==item then 
+					   items=JY.Base["ÎïÆ·ÊıÁ¿"..i] 
 					   break;
 					end
 				end
@@ -10030,7 +10029,7 @@ OEVENTLUA[2003]=function()
                    DrawStrBoxWaitKey(CC.EVB132,C_WHITE,30)
  				end   
 		    else
-			    if JY.Thing[item]["ä½¿ç”¨äºº"]==-1 then
+			    if JY.Thing[item]["Ê¹ÓÃÈË"]==-1 then
 				    if item~=40 then
 		                instruct_32(item,-1) 
 		                instruct_2(174,itemG[item]-math.random(30)) 
@@ -10099,16 +10098,16 @@ OEVENTLUA[2006]=function()
 	    if WarMain(238) then
 	      say(CC.EVB196,1000,0,CC.EVB164)
 		  
-		  JY.Person[0]["æ­¦å­¦å¸¸è¯†"]=100
-		  AddPersonAttrib(0,"æ”»å‡»åŠ›",30); 
-		  AddPersonAttrib(0,"é˜²å¾¡åŠ›",30); 
-		  AddPersonAttrib(0,"è½»åŠŸ",30); 
-		  QZXS(JY.Person[0]["å§“å"]..CC.EVB197)
+		  JY.Person[0]["ÎäÑ§³£Ê¶"]=100
+		  AddPersonAttrib(0,"¹¥»÷Á¦",30); 
+		  AddPersonAttrib(0,"·ÀÓùÁ¦",30); 
+		  AddPersonAttrib(0,"Çá¹¦",30); 
+		  QZXS(JY.Person[0]["ĞÕÃû"]..CC.EVB197)
 		  SetS(10,0,21,0,1)
 		else
 		  say(CC.EVB198,1000,0,CC.EVB164)
 		  
-		  AddPersonAttrib(0,"æ­¦å­¦å¸¸è¯†",50); 
+		  AddPersonAttrib(0,"ÎäÑ§³£Ê¶",50); 
 		  QZXS(CC.EVB199)
 		end
 	else
@@ -10120,142 +10119,142 @@ end
 PNLBD={};
 
 PNLBD[0]=function() 
-  JY.Person[1]["ç”Ÿå‘½"]=750
-  JY.Person[1]["ç”Ÿå‘½æœ€å¤§å€¼"]=750
-  JY.Person[1]["å†…åŠ›"]=2500
-  JY.Person[1]["å†…åŠ›æœ€å¤§å€¼"]=2500
-  JY.Person[1]["æ”»å‡»åŠ›"]=130
-  JY.Person[1]["é˜²å¾¡åŠ›"]=130
-  JY.Person[1]["è½»åŠŸ"]=180
-  JY.Person[1]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[1]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[1]["æ­¦åŠŸ1"]=67
-  JY.Person[1]["æ­¦åŠŸç­‰çº§1"]=999
+  JY.Person[1]["ÉúÃü"]=750
+  JY.Person[1]["ÉúÃü×î´óÖµ"]=750
+  JY.Person[1]["ÄÚÁ¦"]=2500
+  JY.Person[1]["ÄÚÁ¦×î´óÖµ"]=2500
+  JY.Person[1]["¹¥»÷Á¦"]=130
+  JY.Person[1]["·ÀÓùÁ¦"]=130
+  JY.Person[1]["Çá¹¦"]=180
+  JY.Person[1]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[1]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[1]["Îä¹¦1"]=67
+  JY.Person[1]["Îä¹¦µÈ¼¶1"]=999
 end
 
 PNLBD[16]=function() 
-  JY.Person[37]["ç”Ÿå‘½"]=850
-  JY.Person[37]["ç”Ÿå‘½æœ€å¤§å€¼"]=850
-  JY.Person[37]["å†…åŠ›"]=5000
-  JY.Person[37]["å†…åŠ›æœ€å¤§å€¼"]=5000
-  JY.Person[37]["æ”»å‡»åŠ›"]=120
-  JY.Person[37]["é˜²å¾¡åŠ›"]=170
-  JY.Person[37]["è½»åŠŸ"]=120
-  JY.Person[37]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[37]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[37]["æ­¦åŠŸç­‰çº§1"]=999
-  JY.Person[37]["æ­¦åŠŸç­‰çº§2"]=999
-  JY.Person[37]["æ­¦åŠŸ2"]=63
+  JY.Person[37]["ÉúÃü"]=850
+  JY.Person[37]["ÉúÃü×î´óÖµ"]=850
+  JY.Person[37]["ÄÚÁ¦"]=5000
+  JY.Person[37]["ÄÚÁ¦×î´óÖµ"]=5000
+  JY.Person[37]["¹¥»÷Á¦"]=120
+  JY.Person[37]["·ÀÓùÁ¦"]=170
+  JY.Person[37]["Çá¹¦"]=120
+  JY.Person[37]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[37]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[37]["Îä¹¦µÈ¼¶1"]=999
+  JY.Person[37]["Îä¹¦µÈ¼¶2"]=999
+  JY.Person[37]["Îä¹¦2"]=63
 end
 
 PNLBD[34]=function() 
-  JY.Person[36]["ç”Ÿå‘½"]=650
-  JY.Person[36]["ç”Ÿå‘½æœ€å¤§å€¼"]=650
-  JY.Person[36]["å†…åŠ›"]=3000
-  JY.Person[36]["å†…åŠ›æœ€å¤§å€¼"]=3000
-  JY.Person[36]["æ”»å‡»åŠ›"]=180
-  JY.Person[36]["é˜²å¾¡åŠ›"]=130
-  JY.Person[36]["è½»åŠŸ"]=220
-  JY.Person[36]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[36]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[36]["æ­¦åŠŸç­‰çº§1"]=999
+  JY.Person[36]["ÉúÃü"]=650
+  JY.Person[36]["ÉúÃü×î´óÖµ"]=650
+  JY.Person[36]["ÄÚÁ¦"]=3000
+  JY.Person[36]["ÄÚÁ¦×î´óÖµ"]=3000
+  JY.Person[36]["¹¥»÷Á¦"]=180
+  JY.Person[36]["·ÀÓùÁ¦"]=130
+  JY.Person[36]["Çá¹¦"]=220
+  JY.Person[36]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[36]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[36]["Îä¹¦µÈ¼¶1"]=999
 end
 
 PNLBD[75]=function() 
-  JY.Person[58]["ç”Ÿå‘½"]=850
-  JY.Person[58]["ç”Ÿå‘½æœ€å¤§å€¼"]=850
-  JY.Person[58]["å†…åŠ›"]=5500
-  JY.Person[58]["å†…åŠ›æœ€å¤§å€¼"]=5500
-  JY.Person[58]["æ”»å‡»åŠ›"]=230
-  JY.Person[58]["é˜²å¾¡åŠ›"]=200
-  JY.Person[58]["è½»åŠŸ"]=180
-  JY.Person[58]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[58]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[58]["æ­¦åŠŸç­‰çº§1"]=999
-  JY.Person[58]["æ­¦åŠŸç­‰çº§2"]=999
-  JY.Person[58]["æ­¦åŠŸç­‰çº§3"]=999
+  JY.Person[58]["ÉúÃü"]=850
+  JY.Person[58]["ÉúÃü×î´óÖµ"]=850
+  JY.Person[58]["ÄÚÁ¦"]=5500
+  JY.Person[58]["ÄÚÁ¦×î´óÖµ"]=5500
+  JY.Person[58]["¹¥»÷Á¦"]=230
+  JY.Person[58]["·ÀÓùÁ¦"]=200
+  JY.Person[58]["Çá¹¦"]=180
+  JY.Person[58]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[58]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[58]["Îä¹¦µÈ¼¶1"]=999
+  JY.Person[58]["Îä¹¦µÈ¼¶2"]=999
+  JY.Person[58]["Îä¹¦µÈ¼¶3"]=999
   
-  JY.Person[59]["ç”Ÿå‘½"]=750
-  JY.Person[59]["ç”Ÿå‘½æœ€å¤§å€¼"]=750
-  JY.Person[59]["å†…åŠ›"]=3500
-  JY.Person[59]["å†…åŠ›æœ€å¤§å€¼"]=3500
-  JY.Person[59]["æ”»å‡»åŠ›"]=190
-  JY.Person[59]["é˜²å¾¡åŠ›"]=170
-  JY.Person[59]["è½»åŠŸ"]=220
-  JY.Person[59]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[59]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[59]["æ­¦åŠŸç­‰çº§1"]=999
-  JY.Person[59]["æ­¦åŠŸ2"]=107
-  JY.Person[59]["æ­¦åŠŸç­‰çº§2"]=999
+  JY.Person[59]["ÉúÃü"]=750
+  JY.Person[59]["ÉúÃü×î´óÖµ"]=750
+  JY.Person[59]["ÄÚÁ¦"]=3500
+  JY.Person[59]["ÄÚÁ¦×î´óÖµ"]=3500
+  JY.Person[59]["¹¥»÷Á¦"]=190
+  JY.Person[59]["·ÀÓùÁ¦"]=170
+  JY.Person[59]["Çá¹¦"]=220
+  JY.Person[59]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[59]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[59]["Îä¹¦µÈ¼¶1"]=999
+  JY.Person[59]["Îä¹¦2"]=107
+  JY.Person[59]["Îä¹¦µÈ¼¶2"]=999
 end
 
 PNLBD[138]=function() 
-  JY.Person[75]["ç”Ÿå‘½"]=650
-  JY.Person[75]["ç”Ÿå‘½æœ€å¤§å€¼"]=650
-  JY.Person[75]["å†…åŠ›"]=3000
-  JY.Person[75]["å†…åŠ›æœ€å¤§å€¼"]=3000
-  JY.Person[75]["æ”»å‡»åŠ›"]=140
-  JY.Person[75]["é˜²å¾¡åŠ›"]=120
-  JY.Person[75]["è½»åŠŸ"]=130
-  JY.Person[75]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[75]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[75]["æ­¦åŠŸç­‰çº§1"]=999
+  JY.Person[75]["ÉúÃü"]=650
+  JY.Person[75]["ÉúÃü×î´óÖµ"]=650
+  JY.Person[75]["ÄÚÁ¦"]=3000
+  JY.Person[75]["ÄÚÁ¦×î´óÖµ"]=3000
+  JY.Person[75]["¹¥»÷Á¦"]=140
+  JY.Person[75]["·ÀÓùÁ¦"]=120
+  JY.Person[75]["Çá¹¦"]=130
+  JY.Person[75]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[75]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[75]["Îä¹¦µÈ¼¶1"]=999
 end
 
 PNLBD[165]=function() 
-  JY.Person[54]["ç”Ÿå‘½"]=750
-  JY.Person[54]["ç”Ÿå‘½æœ€å¤§å€¼"]=750
-  JY.Person[54]["å†…åŠ›"]=3500
-  JY.Person[54]["å†…åŠ›æœ€å¤§å€¼"]=3500
-  JY.Person[54]["æ”»å‡»åŠ›"]=180
-  JY.Person[54]["é˜²å¾¡åŠ›"]=180
-  JY.Person[54]["è½»åŠŸ"]=180
-  JY.Person[54]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[54]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[54]["æ­¦åŠŸç­‰çº§1"]=999
-  JY.Person[54]["æ­¦åŠŸç­‰çº§2"]=999
+  JY.Person[54]["ÉúÃü"]=750
+  JY.Person[54]["ÉúÃü×î´óÖµ"]=750
+  JY.Person[54]["ÄÚÁ¦"]=3500
+  JY.Person[54]["ÄÚÁ¦×î´óÖµ"]=3500
+  JY.Person[54]["¹¥»÷Á¦"]=180
+  JY.Person[54]["·ÀÓùÁ¦"]=180
+  JY.Person[54]["Çá¹¦"]=180
+  JY.Person[54]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[54]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[54]["Îä¹¦µÈ¼¶1"]=999
+  JY.Person[54]["Îä¹¦µÈ¼¶2"]=999
 end
 
 PNLBD[170]=function() 
-  JY.Person[38]["ç”Ÿå‘½"]=950
-  JY.Person[38]["ç”Ÿå‘½æœ€å¤§å€¼"]=950
-  JY.Person[38]["å†…åŠ›"]=5000
-  JY.Person[38]["å†…åŠ›æœ€å¤§å€¼"]=5000
-  JY.Person[38]["æ”»å‡»åŠ›"]=200
-  JY.Person[38]["é˜²å¾¡åŠ›"]=200
-  JY.Person[38]["è½»åŠŸ"]=160
-  JY.Person[38]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[38]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[38]["æ­¦åŠŸç­‰çº§1"]=999
-  JY.Person[38]["æ­¦åŠŸç­‰çº§2"]=999
+  JY.Person[38]["ÉúÃü"]=950
+  JY.Person[38]["ÉúÃü×î´óÖµ"]=950
+  JY.Person[38]["ÄÚÁ¦"]=5000
+  JY.Person[38]["ÄÚÁ¦×î´óÖµ"]=5000
+  JY.Person[38]["¹¥»÷Á¦"]=200
+  JY.Person[38]["·ÀÓùÁ¦"]=200
+  JY.Person[38]["Çá¹¦"]=160
+  JY.Person[38]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[38]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[38]["Îä¹¦µÈ¼¶1"]=999
+  JY.Person[38]["Îä¹¦µÈ¼¶2"]=999
 end
 
 PNLBD[197]=function()
-  JY.Person[48]["ç”Ÿå‘½"]=850
-  JY.Person[48]["ç”Ÿå‘½æœ€å¤§å€¼"]=850
-  JY.Person[48]["å†…åŠ›"]=3000
-  JY.Person[48]["å†…åŠ›æœ€å¤§å€¼"]=3000
-  JY.Person[48]["æ”»å‡»åŠ›"]=150
-  JY.Person[48]["é˜²å¾¡åŠ›"]=130
-  JY.Person[48]["è½»åŠŸ"]=100
-  JY.Person[48]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[48]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[48]["æ­¦åŠŸç­‰çº§1"]=999
-  JY.Person[48]["æ­¦åŠŸç­‰çº§2"]=999
-  JY.Person[48]["æ­¦åŠŸ2"]=108
+  JY.Person[48]["ÉúÃü"]=850
+  JY.Person[48]["ÉúÃü×î´óÖµ"]=850
+  JY.Person[48]["ÄÚÁ¦"]=3000
+  JY.Person[48]["ÄÚÁ¦×î´óÖµ"]=3000
+  JY.Person[48]["¹¥»÷Á¦"]=150
+  JY.Person[48]["·ÀÓùÁ¦"]=130
+  JY.Person[48]["Çá¹¦"]=100
+  JY.Person[48]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[48]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[48]["Îä¹¦µÈ¼¶1"]=999
+  JY.Person[48]["Îä¹¦µÈ¼¶2"]=999
+  JY.Person[48]["Îä¹¦2"]=108
 end
 
 PNLBD[198]=function()
-  JY.Person[51]["ç”Ÿå‘½"]=750
-  JY.Person[51]["ç”Ÿå‘½æœ€å¤§å€¼"]=750
-  JY.Person[51]["å†…åŠ›"]=3000
-  JY.Person[51]["å†…åŠ›æœ€å¤§å€¼"]=3000
-  JY.Person[51]["æ”»å‡»åŠ›"]=180
-  JY.Person[51]["é˜²å¾¡åŠ›"]=160
-  JY.Person[51]["è½»åŠŸ"]=120
-  JY.Person[51]["å—ä¼¤ç¨‹åº¦"]=0
-  JY.Person[51]["ä¸­æ¯’ç¨‹åº¦"]=0
-  JY.Person[51]["æ­¦åŠŸç­‰çº§1"]=999
+  JY.Person[51]["ÉúÃü"]=750
+  JY.Person[51]["ÉúÃü×î´óÖµ"]=750
+  JY.Person[51]["ÄÚÁ¦"]=3000
+  JY.Person[51]["ÄÚÁ¦×î´óÖµ"]=3000
+  JY.Person[51]["¹¥»÷Á¦"]=180
+  JY.Person[51]["·ÀÓùÁ¦"]=160
+  JY.Person[51]["Çá¹¦"]=120
+  JY.Person[51]["ÊÜÉË³Ì¶È"]=0
+  JY.Person[51]["ÖĞ¶¾³Ì¶È"]=0
+  JY.Person[51]["Îä¹¦µÈ¼¶1"]=999
 end
 
 function mm4R()
@@ -10265,40 +10264,40 @@ function mm4R()
 	else
 	   r=math.random(4)
 	end
-	local bdnl={"å§“å", "å¤´åƒä»£å·", "ç”Ÿå‘½æœ€å¤§å€¼", "å†…åŠ›æœ€å¤§å€¼",
-					   "å†…åŠ›æ€§è´¨", "æ”»å‡»åŠ›", "è½»åŠŸ","é˜²å¾¡åŠ›",
-					   "æ‹³æŒåŠŸå¤«", "å¾¡å‰‘èƒ½åŠ›", "è€åˆ€æŠ€å·§", "ç‰¹æ®Šå…µå™¨",
-					   "èµ„è´¨","æ­¦åŠŸ1" }
+	local bdnl={"ĞÕÃû", "Í·Ïñ´úºÅ", "ÉúÃü×î´óÖµ", "ÄÚÁ¦×î´óÖµ",
+					   "ÄÚÁ¦ĞÔÖÊ", "¹¥»÷Á¦", "Çá¹¦","·ÀÓùÁ¦",
+					   "È­ÕÆ¹¦·ò", "Óù½£ÄÜÁ¦", "Ë£µ¶¼¼ÇÉ", "ÌØÊâ±øÆ÷",
+					   "×ÊÖÊ","Îä¹¦1" }
 	local mm4={};
-	mm4[1]={"å‘¨èŠ·è‹¥",301,350,600,0,60,50,50,30,30,0,0,71,41};
-	mm4[2]={"èµµæ•",302,270,500,1,70,40,50,0,40,0,0,78,37};
-	mm4[3]={"éƒ­è¥„",303,200,500,2,40,40,40,20,20,20,20,73,12};
-	mm4[4]={"é™†æ— åŒ",304,400,700,0,70,40,60,0,0,40,0,64,54};
+	mm4[1]={"ÖÜÜÆÈô",301,350,600,0,60,50,50,30,30,0,0,71,41};
+	mm4[2]={"ÕÔÃô",302,270,500,1,70,40,50,0,40,0,0,78,37};
+	mm4[3]={"¹ùÏå",303,200,500,2,40,40,40,20,20,20,20,73,12};
+	mm4[4]={"Â½ÎŞË«",304,400,700,0,70,40,60,0,0,40,0,64,54};
 
 	for i=1,14 do
 		JY.Person[92][bdnl[i]]=mm4[r][i]
 	end
 
-	JY.Person[92]["ç­‰çº§"]=10
+	JY.Person[92]["µÈ¼¶"]=10
 
 	for i=1,5 do
-		JY.Person[92]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°"..i]=0
-		JY.Person[92]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ"..i]=0
-		JY.Person[92]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ"..i]=0      
+		JY.Person[92]["³öÕĞ¶¯»­Ö¡Êı"..i]=0
+		JY.Person[92]["³öÕĞ¶¯»­ÑÓ³Ù"..i]=0
+		JY.Person[92]["Îä¹¦ÒôĞ§ÑÓ³Ù"..i]=0      
 	end			  
 
 	local avi={ {14,6,7},{8,3,4},{0,0,0},{7,4,5}, }
 
-	JY.Person[92]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°1"]=avi[r][1]
-	JY.Person[92]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ1"]=avi[r][3]
-	JY.Person[92]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ1"]=avi[r][2]
+	JY.Person[92]["³öÕĞ¶¯»­Ö¡Êı1"]=avi[r][1]
+	JY.Person[92]["³öÕĞ¶¯»­ÑÓ³Ù1"]=avi[r][3]
+	JY.Person[92]["Îä¹¦ÒôĞ§ÑÓ³Ù1"]=avi[r][2]
 
 	if r==3 then
 	   local s={ {0,0,0},{9,2,3},{8,3,4},{8,3,4},{9,5,6}, }
 	   for i=1,5 do
-			JY.Person[92]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°"..i]=s[i][1]
-			JY.Person[92]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ"..i]=s[i][3]
-			JY.Person[92]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ"..i]=s[i][2]  
+			JY.Person[92]["³öÕĞ¶¯»­Ö¡Êı"..i]=s[i][1]
+			JY.Person[92]["³öÕĞ¶¯»­ÑÓ³Ù"..i]=s[i][3]
+			JY.Person[92]["Îä¹¦ÒôĞ§ÑÓ³Ù"..i]=s[i][2]  
 	   end
 	end 
 end	
@@ -10331,11 +10330,11 @@ function JYZTB()
 	
 	local mode=0;
 	if JY.Thing[202][WZ7]==1 then
-	   mode="æ˜“"
+	   mode="Ò×"
 	elseif JY.Thing[202][WZ7]==2 then
-	   mode="æ™®"
+	   mode="ÆÕ"
 	else
-	   mode="éš¾"
+	   mode="ÄÑ"
 	end
 	
 	local t=math.modf(((lib.GetTime()-JY.LOADTIME)/60000)+GetS(14,2,1,4))
@@ -10347,7 +10346,7 @@ function JYZTB()
 	t2=t
 	DrawBox(10,10,205,70,M_Yellow);	
 	
-	DrawString(15,15,string.format(CC.s54,JY.Person[0]["å“å¾·"],JY.GOLD),C_GOLD,20)
+	DrawString(15,15,string.format(CC.s54,JY.Person[0]["Æ·µÂ"],JY.GOLD),C_GOLD,20)
 	if JY.WGLVXS==1 then
 	   
     else
@@ -10378,7 +10377,7 @@ function JLSD(s1,s2,dw)
 end
 
 function CurIDTXDH(id,DH1,DH2,str)
-        local x0,y0=WAR.Person[id]["åæ ‡X"],WAR.Person[id]["åæ ‡Y"];
+        local x0,y0=WAR.Person[id]["×ø±êX"],WAR.Person[id]["×ø±êY"];
 		local hb=GetS(JY.SubScene,x0,y0,4)
 		if CONFIG.Zoom==1 then
 			hb=hb*2;
@@ -10393,7 +10392,7 @@ function CurIDTXDH(id,DH1,DH2,str)
 				end
 				ShowScreen();
 				lib.Delay(10);
-				--lib.LoadSur(ssid,0,0);
+				lib.LoadSur(ssid,0,0);
 		end
 		lib.FreeSur(ssid);
 		Cls();
@@ -10401,87 +10400,87 @@ end
 
 
 function CXDYWPSX()
-    JY.Thing[235]["ä»…ä¿®ç‚¼äººç‰©"]=-1
-	JY.Thing[235]["éœ€èµ„è´¨"]=-30
-	JY.Thing[118]["éœ€å¾¡å‰‘èƒ½åŠ›"]=0
-	JY.Thing[118]["éœ€èµ„è´¨"]=80
-	JY.Thing[118]["éœ€å†…åŠ›"]=2000
-	JY.Thing[118]["åŠ æ‹³æŒåŠŸå¤«"]=1
-	JY.Thing[118]["åŠ å¾¡å‰‘èƒ½åŠ›"]=1
-	JY.Thing[118]["åŠ è€åˆ€æŠ€å·§"]=1
-	JY.Thing[118]["åŠ ç‰¹æ®Šå…µå™¨"]=1
-	JY.Thing[114]["éœ€èµ„è´¨"]=0
-	JY.Thing[114]["éœ€å¾¡å‰‘èƒ½åŠ›"]=0
-	JY.Thing[114]["ä»…ä¿®ç‚¼äººç‰©"]=35
-	JY.Thing[86]["éœ€æ‹³æŒåŠŸå¤«"]=120
-	JY.Thing[113]["éœ€å†…åŠ›"]=6000
-	JY.Thing[77]["éœ€å†…åŠ›æ€§è´¨"]=2
-	JY.Thing[71]["éœ€å†…åŠ›æ€§è´¨"]=2
-	JY.Thing[101]["åŠ å¾¡å‰‘èƒ½åŠ›"]=1
-	JY.Thing[123]["åŠ æ‹³æŒåŠŸå¤«"]=1
-	JY.Thing[90]["åŠ æ”»å‡»åŠ›"]=2
-	JY.Thing[220]["ä»…ä¿®ç‚¼äººç‰©"]=-1
-	JY.Thing[221]["ä»…ä¿®ç‚¼äººç‰©"]=-1
-	JY.Thing[139]["ç‰©å“è¯´æ˜"]=CC.WARS128
+    JY.Thing[235]["½öĞŞÁ¶ÈËÎï"]=-1
+	JY.Thing[235]["Ğè×ÊÖÊ"]=-30
+	JY.Thing[118]["ĞèÓù½£ÄÜÁ¦"]=0
+	JY.Thing[118]["Ğè×ÊÖÊ"]=80
+	JY.Thing[118]["ĞèÄÚÁ¦"]=2000
+	JY.Thing[118]["¼ÓÈ­ÕÆ¹¦·ò"]=1
+	JY.Thing[118]["¼ÓÓù½£ÄÜÁ¦"]=1
+	JY.Thing[118]["¼ÓË£µ¶¼¼ÇÉ"]=1
+	JY.Thing[118]["¼ÓÌØÊâ±øÆ÷"]=1
+	JY.Thing[114]["Ğè×ÊÖÊ"]=0
+	JY.Thing[114]["ĞèÓù½£ÄÜÁ¦"]=0
+	JY.Thing[114]["½öĞŞÁ¶ÈËÎï"]=35
+	JY.Thing[86]["ĞèÈ­ÕÆ¹¦·ò"]=120
+	JY.Thing[113]["ĞèÄÚÁ¦"]=6000
+	JY.Thing[77]["ĞèÄÚÁ¦ĞÔÖÊ"]=2
+	JY.Thing[71]["ĞèÄÚÁ¦ĞÔÖÊ"]=2
+	JY.Thing[101]["¼ÓÓù½£ÄÜÁ¦"]=1
+	JY.Thing[123]["¼ÓÈ­ÕÆ¹¦·ò"]=1
+	JY.Thing[90]["¼Ó¹¥»÷Á¦"]=2
+	JY.Thing[220]["½öĞŞÁ¶ÈËÎï"]=-1
+	JY.Thing[221]["½öĞŞÁ¶ÈËÎï"]=-1
+	JY.Thing[139]["ÎïÆ·ËµÃ÷"]=CC.WARS128
 	
 	local DA=0;
 	for DA=135,143 do
-	JY.Thing[DA]["åŠ é˜²å¾¡åŠ›"]=1
+	JY.Thing[DA]["¼Ó·ÀÓùÁ¦"]=1
 	end
 	local TS=0;
 	for TS=167,181 do
-	if TS~=174 then JY.Thing[TS]["åŠ è½»åŠŸ"]=1 end
+	if TS~=174 then JY.Thing[TS]["¼ÓÇá¹¦"]=1 end
 	end
 	
-	JY.Thing[220]["éœ€è¦ç‰©å“æ•°é‡4"]=25
-	JY.Thing[221]["éœ€è¦ç‰©å“æ•°é‡4"]=25
+	JY.Thing[220]["ĞèÒªÎïÆ·ÊıÁ¿4"]=25
+	JY.Thing[221]["ĞèÒªÎïÆ·ÊıÁ¿4"]=25
 	
-	JY.Thing[89]["åç§°"]=CC.QSQJ
-	JY.Thing[178]["åç§°"]=CC.DJDP
-	JY.Thing[25]["åŠ å†…åŠ›æœ€å¤§å€¼"]=300
+	JY.Thing[89]["Ãû³Æ"]=CC.QSQJ
+	JY.Thing[178]["Ãû³Æ"]=CC.DJDP
+	JY.Thing[25]["¼ÓÄÚÁ¦×î´óÖµ"]=300
 	
-	JY.Wugong[109]["æ”»å‡»åŠ›10"]=1600
-	JY.Wugong[110]["æ”»å‡»åŠ›10"]=1500
-	JY.Wugong[111]["æ”»å‡»åŠ›10"]=1500
-	JY.Wugong[112]["æ”»å‡»åŠ›10"]=1400
+	JY.Wugong[109]["¹¥»÷Á¦10"]=1600
+	JY.Wugong[110]["¹¥»÷Á¦10"]=1500
+	JY.Wugong[111]["¹¥»÷Á¦10"]=1500
+	JY.Wugong[112]["¹¥»÷Á¦10"]=1400
 	
-	 JY.Person[4]["æ­¦åŠŸ1"]=67
-	 JY.Person[4]["æ­¦åŠŸç­‰çº§1"]=50
-     JY.Person[9]["æ­¦åŠŸ2"]=7
-     JY.Person[9]["æ­¦åŠŸç­‰çº§2"]=900
-	 JY.Person[9]["åŒ»ç–—èƒ½åŠ›"]=60
-     JY.Person[9]["è§£æ¯’èƒ½åŠ›"]=60
-	 JY.Person[50]["æ­¦åŠŸç­‰çº§1"]=999	
-     JY.Person[64]["æºå¸¦ç‰©å“æ•°é‡2"]=0
-	 JY.Person[516]["æ­¦åŠŸ1"]=112
-	 JY.Person[516]["æ­¦åŠŸç­‰çº§1"]=999	 
-	 JY.Person[541]["æ­¦åŠŸç­‰çº§1"]=0
-	 JY.Person[541]["æ­¦åŠŸ1"]=0	  
-	 JY.Person[91]["æ€§åˆ«"]=1
-	 JY.Person[92]["æ€§åˆ«"]=1
-	 JY.Person[129]["æ­¦åŠŸ2"]=17
-	 JY.Person[129]["æ­¦åŠŸç­‰çº§2"]=999
-	 JY.Person[17]["æºå¸¦ç‰©å“æ•°é‡1"]=1
-	 JY.Person[29]["æºå¸¦ç‰©å“æ•°é‡1"]=1
-	 JY.Person[60]["æ­¦åŠŸ2"]=104
-	 JY.Person[60]["æ”»å‡»åŠ›"]=220
-	 JY.Person[60]["é˜²å¾¡åŠ›"]=180
-	 JY.Person[60]["è½»åŠŸ"]=160
-	 JY.Person[65]["æ­¦åŠŸ2"]=100
-	 JY.Person[84]["æ‹³æŒåŠŸå¤«"]=20
-	 JY.Person[84]["ç‰¹æ®Šå…µå™¨"]=60
+	 JY.Person[4]["Îä¹¦1"]=67
+	 JY.Person[4]["Îä¹¦µÈ¼¶1"]=50
+     JY.Person[9]["Îä¹¦2"]=7
+     JY.Person[9]["Îä¹¦µÈ¼¶2"]=900
+	 JY.Person[9]["Ò½ÁÆÄÜÁ¦"]=60
+     JY.Person[9]["½â¶¾ÄÜÁ¦"]=60
+	 JY.Person[50]["Îä¹¦µÈ¼¶1"]=999	
+     JY.Person[64]["Ğ¯´øÎïÆ·ÊıÁ¿2"]=0
+	 JY.Person[516]["Îä¹¦1"]=112
+	 JY.Person[516]["Îä¹¦µÈ¼¶1"]=999	 
+	 JY.Person[541]["Îä¹¦µÈ¼¶1"]=0
+	 JY.Person[541]["Îä¹¦1"]=0	  
+	 JY.Person[91]["ĞÔ±ğ"]=1
+	 JY.Person[92]["ĞÔ±ğ"]=1
+	 JY.Person[129]["Îä¹¦2"]=17
+	 JY.Person[129]["Îä¹¦µÈ¼¶2"]=999
+	 JY.Person[17]["Ğ¯´øÎïÆ·ÊıÁ¿1"]=1
+	 JY.Person[29]["Ğ¯´øÎïÆ·ÊıÁ¿1"]=1
+	 JY.Person[60]["Îä¹¦2"]=104
+	 JY.Person[60]["¹¥»÷Á¦"]=220
+	 JY.Person[60]["·ÀÓùÁ¦"]=180
+	 JY.Person[60]["Çá¹¦"]=160
+	 JY.Person[65]["Îä¹¦2"]=100
+	 JY.Person[84]["È­ÕÆ¹¦·ò"]=20
+	 JY.Person[84]["ÌØÊâ±øÆ÷"]=60
 	 
 	 
-	JY.Shop[4]["ç‰©å“ä»·æ ¼5"]=8000
-	JY.Shop[0]["ç‰©å“ä»·æ ¼5"]=6000
+	JY.Shop[4]["ÎïÆ·¼Û¸ñ5"]=8000
+	JY.Shop[0]["ÎïÆ·¼Û¸ñ5"]=6000
 	
 	for i=2,6 do
-	       JY.Base["é˜Ÿä¼"..i]=-1
+	       JY.Base["¶ÓÎé"..i]=-1
 	end
-    JY.Base["é˜Ÿä¼1"]=0
+    JY.Base["¶ÓÎé1"]=0
 	for i=1,200 do
-	       JY.Base["ç‰©å“"..i]=-1
-		   JY.Base["ç‰©å“æ•°é‡"..i]=0
+	       JY.Base["ÎïÆ·"..i]=-1
+		   JY.Base["ÎïÆ·ÊıÁ¿"..i]=0
 	end
 	for i=0,236 do
 	     JY.Thing[i][WZ5]=Rnd(10)+1
@@ -10496,12 +10495,12 @@ function CXDYWPSX()
 end
 
 function MenuDSJ() 
-    local menu={ {"å…¨éƒ¨ç‰©å“",nil,0},
-                 {"å‰§æƒ…ç‰©å“",nil,0},
-                 {"ç¥å…µå®ç”²",nil,1},
-                 {"æ­¦åŠŸç§˜ç¬ˆ",nil,1},
-                 {"çµä¸¹å¦™è¯",nil,1},
-                 {"ä¼¤äººæš—å™¨",nil,1}, };
+    local menu={ {"È«²¿ÎïÆ·",nil,0},
+                 {"¾çÇéÎïÆ·",nil,0},
+                 {"Éñ±ø±¦¼×",nil,1},
+                 {"Îä¹¦ÃØóÅ",nil,1},
+                 {"Áéµ¤ÃîÒ©",nil,1},
+                 {"ÉËÈË°µÆ÷",nil,1}, };
 
     local r=ShowMenu(menu,CC.TeamNum,0,CC.MainSubMenuX,CC.MainSubMenuY,0,0,1,1,CC.DefaultFont,C_ORANGE, C_WHITE);
 
@@ -10516,15 +10515,15 @@ function MenuDSJ()
 
         local num=0
 		for i = 0,CC.MyThingNum-1 do
-		    local id=JY.Base["ç‰©å“" .. i+1];
+		    local id=JY.Base["ÎïÆ·" .. i+1];
 			if id>=0 then
 				if r==1 then
 					thing[i]=id
-					thingnum[i]=JY.Base["ç‰©å“æ•°é‡" ..i+1];
+					thingnum[i]=JY.Base["ÎïÆ·ÊıÁ¿" ..i+1];
 				else
-					if JY.Thing[id]["ç±»å‹"]==r-2 then             --å¯¹åº”äºç±»å‹0-4
+					if JY.Thing[id]["ÀàĞÍ"]==r-2 then             --¶ÔÓ¦ÓÚÀàĞÍ0-4
  					    thing[num]=id;
-					    thingnum[num]=JY.Base["ç‰©å“æ•°é‡" ..i+1];
+					    thingnum[num]=JY.Base["ÎïÆ·ÊıÁ¿" ..i+1];
 						num=num+1;
 					end
 				end
@@ -10545,19 +10544,19 @@ SN={};
 	end
 
 
-function say(s,pid,flag,name)          --ä¸ªäººæ–°å¯¹è¯
---æ–°å¯¹è¯æ–¹å¼
---åŠ å…¥æ§åˆ¶å­—ç¬¦
---æš‚åœï¼Œä»»æ„é”®åç»§ç»­ï¼Œï½
---æ§åˆ¶é¢œè‰² ï¼²=redï¼§=goldï¼¢=blackï¼·=whiteï¼¯=orange
---æ§åˆ¶å­—ç¬¦æ˜¾ç¤ºé€Ÿåº¦ï¼ï¼ï¼™
---æ§åˆ¶å­—ä½“ï¼¡ï¼³ï¼¤ï¼¦
---æ§åˆ¶æ¢è¡Œï¼¨åˆ†é¡µï¼°
---ï¼®ä»£è¡¨è‡ªå·±ï½ä»£è¡¨ä¸»è§’
-    local picw=130;       --æœ€å¤§å¤´åƒå›¾ç‰‡å®½é«˜
+function say(s,pid,flag,name)          --¸öÈËĞÂ¶Ô»°
+--ĞÂ¶Ô»°·½Ê½
+--¼ÓÈë¿ØÖÆ×Ö·û
+--ÔİÍ££¬ÈÎÒâ¼üºó¼ÌĞø£¬£ğ
+--¿ØÖÆÑÕÉ« £Ò=red£Ç=gold£Â=black£×=white£Ï=orange
+--¿ØÖÆ×Ö·ûÏÔÊ¾ËÙ¶È£°£­£¹
+--¿ØÖÆ×ÖÌå£Á£Ó£Ä£Æ
+--¿ØÖÆ»»ĞĞ£È·ÖÒ³£Ğ
+--£Î´ú±í×Ô¼º£î´ú±íÖ÷½Ç
+    local picw=130;       --×î´óÍ·ÏñÍ¼Æ¬¿í¸ß
 	local pich=130;
-	local talkxnum=18;         --å¯¹è¯ä¸€è¡Œå­—æ•°
-	local talkynum=3;          --å¯¹è¯è¡Œæ•°
+	local talkxnum=18;         --¶Ô»°Ò»ĞĞ×ÖÊı
+	local talkynum=3;          --¶Ô»°ĞĞÊı
 	local dx=2;
 	local dy=2;
     local boxpicw=picw+10;
@@ -10572,22 +10571,22 @@ function say(s,pid,flag,name)          --ä¸ªäººæ–°å¯¹è¯
 			flag=0
 		end
 	end
-	name=name or JY.Person[pid]["å§“å"]
+	name=name or JY.Person[pid]["ĞÕÃû"]
     local talkBorder=(pich-talkynum*CC.DefaultFont)/(talkynum+1);
 
-	--æ˜¾ç¤ºå¤´åƒå’Œå¯¹è¯çš„åæ ‡
+	--ÏÔÊ¾Í·ÏñºÍ¶Ô»°µÄ×ø±ê
     local xy={ [0]={headx=dx,heady=dy,
 	                talkx=dx+boxpicw+2,talky=dy+27,
 					namex=dx+boxpicw+2,namey=dy,
-					showhead=1},--å·¦ä¸Š
+					showhead=1},--×óÉÏ
                    {headx=CC.ScreenW-1-dx-boxpicw,heady=CC.ScreenH-dy-boxpich,
 				    talkx=CC.ScreenW-1-dx-boxpicw-boxtalkw-2,talky= CC.ScreenH-dy-boxpich+27,
 					namex=CC.ScreenW-1-dx-boxpicw-96,namey=CC.ScreenH-dy-boxpich,
-					showhead=1},--å³ä¸‹
+					showhead=1},--ÓÒÏÂ
                    {headx=dx,heady=dy,
 				   talkx=dx+boxpicw-43,talky=dy+27,
 					namex=dx+boxpicw+2,namey=dy,
-				   showhead=0},--ä¸Šä¸­
+				   showhead=0},--ÉÏÖĞ
                    {headx=CC.ScreenW-1-dx-boxpicw,heady=CC.ScreenH-dy-boxpich,
 				   talkx=CC.ScreenW-1-dx-boxpicw-boxtalkw-2,talky= CC.ScreenH-dy-boxpich+27,
 					namex=CC.ScreenW-1-dx-boxpicw-96,namey=CC.ScreenH-dy-boxpich,
@@ -10595,18 +10594,18 @@ function say(s,pid,flag,name)          --ä¸ªäººæ–°å¯¹è¯
                    {headx=CC.ScreenW-1-dx-boxpicw,heady=dy,
 				    talkx=CC.ScreenW-1-dx-boxpicw-boxtalkw-2,talky=dy+27,
 					namex=CC.ScreenW-1-dx-boxpicw-96,namey=dy,
-					showhead=1},--å³ä¸Š
+					showhead=1},--ÓÒÉÏ
                    {headx=dx,heady=CC.ScreenH-dy-boxpich,
 				   talkx=dx+boxpicw+2,talky=CC.ScreenH-dy-boxpich+27,
 					namex=dx+boxpicw+2,namey=CC.ScreenH-dy-boxpich,
-				   showhead=1}, --å·¦ä¸‹
+				   showhead=1}, --×óÏÂ
 			}
 
     if flag<0 or flag>5 then
         flag=0;
     end
 	
-	local headid=pid--JY.Person[pid]["å¤´åƒä»£å·"]
+	local headid=pid--JY.Person[pid]["Í·Ïñ´úºÅ"]
 	if pid==0 then
 	    if GetS(4,5,5,5)<8 then 
 		   headid=280+GetS(4,5,5,5) 
@@ -10626,11 +10625,11 @@ function say(s,pid,flag,name)          --ä¸ªäººæ–°å¯¹è¯
     lib.GetKey();
 	
 	local function readstr(str)
-		local T1={"ï¼","ï¼‘","ï¼’","ï¼“","ï¼”","ï¼•","ï¼–","ï¼—","ï¼˜","ï¼™"}
-		local T2={{"ï¼²",C_RED},{"ï¼§",C_GOLD},{"ï¼¢",C_BLACK},{"ï¼·",C_WHITE},{"ï¼¯",C_ORANGE}}
-		local T3={{"ï¼¨",CC.FontNameSong},{"ï¼³",CC.FontNameHei},{"ï¼¦",CC.FontName}}
-		--ç¾è§‚èµ·è§ï¼Œé’ˆå¯¹ä¸åŒå­—ä½“åŒä¸€è¡Œæ˜¾ç¤ºï¼Œéœ€è¦å¾®è°ƒï½™åæ ‡ï¼Œä»¥åŠå­—å·
-		--ä»¥é»˜è®¤çš„å­—ä½“ä¸ºæ ‡å‡†ï¼Œå¯ä½“éœ€ä¸‹ç§»ï¼Œç»†é»‘éœ€ä¸Šç§»
+		local T1={"£°","£±","£²","£³","£´","£µ","£¶","£·","£¸","£¹"}
+		local T2={{"£Ò",C_RED},{"£Ç",C_GOLD},{"£Â",C_BLACK},{"£×",C_WHITE},{"£Ï",C_ORANGE}}
+		local T3={{"£È",CC.FontNameSong},{"£Ó",CC.FontNameHei},{"£Æ",CC.FontName}}
+		--ÃÀ¹ÛÆğ¼û£¬Õë¶Ô²»Í¬×ÖÌåÍ¬Ò»ĞĞÏÔÊ¾£¬ĞèÒªÎ¢µ÷£ù×ø±ê£¬ÒÔ¼°×ÖºÅ
+		--ÒÔÄ¬ÈÏµÄ×ÖÌåÎª±ê×¼£¬ÆôÌåĞèÏÂÒÆ£¬Ï¸ºÚĞèÉÏÒÆ
 		for i=0,9 do
 			if T1[i+1]==str then return 1,i*50 end
 		end
@@ -10652,7 +10651,7 @@ function say(s,pid,flag,name)          --ä¸ªäººæ–°å¯¹è¯
 	local page,cy,cx=0,0,0
 	local color,t,font=C_WHITE,0,CC.FontName
 	while string.len(s)>1 do
-		if page==0 then				--æ–°çš„ä¸€é¡µï¼Œæ¸…å±ï¼Œæ˜¾ç¤ºå¤´åƒ
+		if page==0 then				--ĞÂµÄÒ»Ò³£¬ÇåÆÁ£¬ÏÔÊ¾Í·Ïñ
 			Cls()
             if headid>=0 then
                 DrawBox(xy[flag].headx, xy[flag].heady, xy[flag].headx + boxpicw, xy[flag].heady + boxpich,C_WHITE);
@@ -10669,32 +10668,32 @@ function say(s,pid,flag,name)          --ä¸ªäººæ–°å¯¹è¯
 		local str
 		str=string.sub(s,1,1)
 		if str=='*' then
-			str='ï¼¨'
+			str='£È'
 			s=string.sub(s,2,-1)
 		else
 			str=string.sub(s,1,2)
 			s=string.sub(s,3,-1)
 		end
-		--å¼€å§‹æ§åˆ¶é€»è¾‘
-		if str=="ï¼¨" then
+		--¿ªÊ¼¿ØÖÆÂß¼­
+		if str=="£È" then
 			cx=0
 			cy=cy+1
 			if cy==3 then
 				cy=0
 				page=0
 			end
-		elseif str=="ï¼°" then
+		elseif str=="£Ğ" then
 			cx=0
 			cy=0
 			page=0
-		elseif str=="ï½" then
+		elseif str=="£ğ" then
 			ShowScreen();
 			WaitKey();	
 			lib.Delay(100)	
-		elseif str=="ï¼®" then
-			s=JY.Person[pid]["å§“å"]..s
-		elseif str=="ï½" then
-			s=JY.Person[0]["å§“å"]..s
+		elseif str=="£Î" then
+			s=JY.Person[pid]["ĞÕÃû"]..s
+		elseif str=="£î" then
+			s=JY.Person[0]["ĞÕÃû"]..s
 		else 
 			local kz1,kz2=readstr(str)
 			if kz1==1 then
@@ -10706,7 +10705,7 @@ function say(s,pid,flag,name)          --ä¸ªäººæ–°å¯¹è¯
 			else
 				lib.DrawStr(xy[flag].talkx+CC.DefaultFont*cx+5,
 							xy[flag].talky+(CC.DefaultFont+talkBorder)*cy+talkBorder-8,
-							str,color,CC.DefaultFont,font)
+							str,color,CC.DefaultFont,font,0,0)
 				mydelay(t)
 				cx=cx+1
 				if cx==talkxnum then
@@ -10719,7 +10718,7 @@ function say(s,pid,flag,name)          --ä¸ªäººæ–°å¯¹è¯
 				end
 			end
 		end
-		--å¦‚æœæ¢é¡µï¼Œåˆ™æ˜¾ç¤ºï¼Œç­‰å¾…æŒ‰é”®
+		--Èç¹û»»Ò³£¬ÔòÏÔÊ¾£¬µÈ´ı°´¼ü
 		if page==0 or string.len(s)<2 then
 			ShowScreen();
 			WaitKey();
@@ -10735,44 +10734,44 @@ function say(s,pid,flag,name)          --ä¸ªäººæ–°å¯¹è¯
 	Cls();
 end
 
-function TalkEx_bak(s,headid,flag)          --å¤æ‚ç‰ˆæœ¬å¯¹è¯
+function TalkEx_bak(s,headid,flag)          --¸´ÔÓ°æ±¾¶Ô»°
 	local pid=0
 	local name=''
 	for i=0,600 do
 		if JY.Person[i]==nil then
 			pid=0
 			break;
-		elseif JY.Person[i]["å¤´åƒä»£å·"]==headid then
+		elseif JY.Person[i]["Í·Ïñ´úºÅ"]==headid then
 			pid=i
-			name=JY.Person[i]["å§“å"]
+			name=JY.Person[i]["ĞÕÃû"]
 			break;
 		end
 	end
 	say(s,headid,flag,name)
 end
 
-function GenTalkString(str,n)              --äº§ç”Ÿå¯¹è¯æ˜¾ç¤ºéœ€è¦çš„å­—ç¬¦ä¸²ï¼Œå³æ¯éš”nä¸ªä¸­æ–‡å­—ç¬¦åŠ ä¸€ä¸ªæ˜Ÿå·
+function GenTalkString(str,n)              --²úÉú¶Ô»°ÏÔÊ¾ĞèÒªµÄ×Ö·û´®£¬¼´Ã¿¸ôn¸öÖĞÎÄ×Ö·û¼ÓÒ»¸öĞÇºÅ
     local tmpstr="";
-    for s in string.gmatch(str .. "*","(.-)%*") do           --å»æ‰å¯¹è¯ä¸­çš„æ‰€æœ‰*. å­—ç¬¦ä¸²å°¾éƒ¨åŠ ä¸€ä¸ªæ˜Ÿå·ï¼Œé¿å…æ— æ³•åŒ¹é…
+    for s in string.gmatch(str .. "*","(.-)%*") do           --È¥µô¶Ô»°ÖĞµÄËùÓĞ*. ×Ö·û´®Î²²¿¼ÓÒ»¸öĞÇºÅ£¬±ÜÃâÎŞ·¨Æ¥Åä
         tmpstr=tmpstr .. s;
     end
 
     local newstr="";
-    while get_show_width(tmpstr) > 0 do
+    while #tmpstr>0 do
 		local w=0;
-		while w < get_show_width(tmpstr) do
-		    local v=string.byte(tmpstr,w+1);          --å½“å‰å­—ç¬¦çš„å€¼
+		while w<#tmpstr do
+		    local v=string.byte(tmpstr,w+1);          --µ±Ç°×Ö·ûµÄÖµ
 			if v>=128 then
 			    w=w+2;
 			else
 			    w=w+1;
 			end
-			if w >= 2*n-1 then     --ä¸ºäº†é¿å…è·¨æ®µä¸­æ–‡å­—ç¬¦
+			if w >= 2*n-1 then     --ÎªÁË±ÜÃâ¿ç¶ÎÖĞÎÄ×Ö·û
 			    break;
 			end
 		end
 
-        if w<get_show_width(tmpstr) then
+        if w<#tmpstr then
 		    if w==2*n-1 and string.byte(tmpstr,w+1)<128 then
 				newstr=newstr .. string.sub(tmpstr,1,w+1) .. "*";
 				tmpstr=string.sub(tmpstr,w+2,-1);
@@ -10788,21 +10787,21 @@ function GenTalkString(str,n)              --äº§ç”Ÿå¯¹è¯æ˜¾ç¤ºéœ€è¦çš„å­—ç¬¦ä¸
     return newstr;
 end
 
-function Talk(s,personid)            --æœ€ç®€å•ç‰ˆæœ¬å¯¹è¯
+function Talk(s,personid)            --×î¼òµ¥°æ±¾¶Ô»°
     local flag;
     if personid==0 then
         flag=1;
 	else
 	    flag=0;
 	end
-	TalkEx(s,JY.Person[personid]["å¤´åƒä»£å·"],flag);	
+	TalkEx(s,JY.Person[personid]["Í·Ïñ´úºÅ"],flag);	
 end
 
-function TalkEx(s,headid,flag)          --å¤æ‚ç‰ˆæœ¬å¯¹è¯
-    local picw=130;       --æœ€å¤§å¤´åƒå›¾ç‰‡å®½é«˜
+function TalkEx(s,headid,flag)          --¸´ÔÓ°æ±¾¶Ô»°
+    local picw=130;       --×î´óÍ·ÏñÍ¼Æ¬¿í¸ß
 	local pich=130;
-	local talkxnum=18;         --å¯¹è¯ä¸€è¡Œå­—æ•°
-	local talkynum=3;          --å¯¹è¯è¡Œæ•°
+	local talkxnum=18;         --¶Ô»°Ò»ĞĞ×ÖÊı
+	local talkynum=3;          --¶Ô»°ĞĞÊı
 	local dx=2;
 	local dy=2;
     local boxpicw=picw+10;
@@ -10812,7 +10811,7 @@ function TalkEx(s,headid,flag)          --å¤æ‚ç‰ˆæœ¬å¯¹è¯
 
     local talkBorder=(pich-talkynum*CC.DefaultFont)/(talkynum+1);
 
-	--æ˜¾ç¤ºå¤´åƒå’Œå¯¹è¯çš„åæ ‡
+	--ÏÔÊ¾Í·ÏñºÍ¶Ô»°µÄ×ø±ê
     local xy={ [0]={headx=dx,heady=dy,
 	                talkx=dx+boxpicw+2,talky=dy,
 					showhead=1},
@@ -10868,7 +10867,7 @@ function TalkEx(s,headid,flag)          --å¤æ‚ç‰ˆæœ¬å¯¹è¯
 				lib.PicLoadCache(1,headid*2,xy[flag].headx+5+x,xy[flag].heady+5+y,1);
                 
 				if headid>0 and headid<190 then
-				   DrawString(xy[flag].headx+5+x,xy[flag].heady+5+y+110,JY.Person[headid]["å§“å"],C_GOLD,20)
+				   DrawString(xy[flag].headx+5+x,xy[flag].heady+5+y+110,JY.Person[headid]["ĞÕÃû"],C_GOLD,20)
 				end  
 
 		   end
@@ -10924,112 +10923,112 @@ end
 
 TFNLJS={};
 
-TFNLJS["èƒ¡æ–"]="ï¼§ã€å¤©èµ‹ï¼šé­‚ç³»ä¸€åˆ€ã€‘ï¼¨ï¼·èƒ¡å®¶åˆ€æ‹›å¼å‘åŠ¨ç‡å¤§å¹…æå‡ï¼Œå¢åŠ ä¸‰æ‹›èƒ¡åˆ€ç§˜ä¼ æŠ€ï¼°ï¼§ã€ç§°å·ï¼šé›ªå±±é£ç‹ã€‘ï¼¨ï¼·é›†æ°”é€Ÿåº¦å¢åŠ åç‚¹"
+TFNLJS["ºúì³"]="£Ç¡¾Ìì¸³£º»êÏµÒ»µ¶¡¿£È£×ºú¼Òµ¶ÕĞÊ½·¢¶¯ÂÊ´ó·ùÌáÉı£¬Ôö¼ÓÈıÕĞºúµ¶ÃØ´«¼¼£Ğ£Ç¡¾³ÆºÅ£ºÑ©É½·Éºü¡¿£È£×¼¯ÆøËÙ¶ÈÔö¼ÓÊ®µã"
 
-TFNLJS["ç¨‹çµç´ "]="ï¼§ã€ç§°å·ï¼šæ¯’æ‰‹è¯ä»™ã€‘ï¼¨ï¼·ç”¨æ¯’ä¸Šé™äº”ç™¾ï¼Œæ”»å‡»æ—¶æ•Œå…¨ä½“ä¸­æ¯’äºŒåç‚¹"
+TFNLJS["³ÌÁéËØ"]="£Ç¡¾³ÆºÅ£º¶¾ÊÖÒ©ÏÉ¡¿£È£×ÓÃ¶¾ÉÏÏŞÎå°Ù£¬¹¥»÷Ê±µĞÈ«ÌåÖĞ¶¾¶şÊ®µã"
 
-TFNLJS["ç”°å½’å†œ"]="ï¼§ã€ç§°å·ï¼šå¤©é¾™æŒé—¨ã€‘ï¼¨ï¼·äº²æ‰‹æ€æ‰è‹—äººå‡¤ï¼Œæ”»ï¼Œé˜²ï¼Œè½»å„å¢é•¿äºŒåç‚¹ï¼Œé›·éœ‡å‰‘æ³•æ¢ä¸ºè‹—å‰‘ä¸€çº§"
+TFNLJS["Ìï¹éÅ©"]="£Ç¡¾³ÆºÅ£ºÌìÁúÕÆÃÅ¡¿£È£×Ç×ÊÖÉ±µôÃçÈË·ï£¬¹¥£¬·À£¬Çá¸÷Ôö³¤¶şÊ®µã£¬À×Õğ½£·¨»»ÎªÃç½£Ò»¼¶"
 
-TFNLJS["é˜åŸº"]="ï¼§ã€ç§°å·ï¼šé›è¿‡æ‹¨æ¯›ã€‘ï¼¨ï¼·å‡»é€€æ•Œäººè·å¾—é“¶ä¸¤"
+TFNLJS["ÑÖ»ù"]="£Ç¡¾³ÆºÅ£ºÑã¹ı²¦Ã«¡¿£È£×»÷ÍËµĞÈË»ñµÃÒøÁ½"
 
-TFNLJS["ç‹„äº‘"]="ï¼§ã€å¤©èµ‹ï¼šèµ¤å¿ƒè¿åŸã€‘ï¼¨ï¼·æ”»å‡»æ•ˆæœå—ä¸»è§’å“å¾·å½±å“ï¼Œè¶Šé«˜åŠ æˆè¶Šå¤šï¼°ï¼§ã€ç§°å·ï¼šçœŸåç¥ç…§ã€‘ï¼¨ï¼·ç¥ç…§åŠŸæ»¡è¡€å¤æ´»ï¼Œå¤æ´»åç«‹å³è¡ŒåŠ¨"
+TFNLJS["µÒÔÆ"]="£Ç¡¾Ìì¸³£º³àĞÄÁ¬³Ç¡¿£È£×¹¥»÷Ğ§¹ûÊÜÖ÷½ÇÆ·µÂÓ°Ïì£¬Ô½¸ß¼Ó³ÉÔ½¶à£Ğ£Ç¡¾³ÆºÅ£ºÕæÃûÉñÕÕ¡¿£È£×ÉñÕÕ¹¦ÂúÑª¸´»î£¬¸´»îºóÁ¢¼´ĞĞ¶¯"
 
-TFNLJS["èŠ±é“å¹²"]="ï¼§ã€ç§°å·ï¼šä¸­å¹³ç¥æªã€‘ï¼¨ï¼·ä¸­å¹³æªæ³•æ”»å‡»é¢å¤–è¿½åŠ æ€é›†æ°”èƒ½åŠ›"       
+TFNLJS["»¨Ìú¸É"]="£Ç¡¾³ÆºÅ£ºÖĞÆ½ÉñÇ¹¡¿£È£×ÖĞÆ½Ç¹·¨¹¥»÷¶îÍâ×·¼ÓÉ±¼¯ÆøÄÜÁ¦"       
  
-TFNLJS["è§å³°"]="ï¼§ã€å¤©èµ‹ï¼šå¥‹è‹±é›„æ€’ã€‘ï¼¨ï¼·æš´å‡»æœºç‡ç™¾åˆ†ä¹‹ç™¾ï¼›äºŒè¿å‡»æœºç‡ç™¾åˆ†ä¹‹å…­åï¼°ï¼§ã€ç§°å·ï¼šç‹‚é¾™å¤©å¾ã€‘ï¼¨ï¼·é™é¾™åå…«æŒææ„å‘åŠ¨ç‡ç™¾åˆ†ä¹‹ç™¾"                        
+TFNLJS["Ïô·å"]="£Ç¡¾Ìì¸³£º·ÜÓ¢ĞÛÅ­¡¿£È£×±©»÷»úÂÊ°Ù·ÖÖ®°Ù£»¶şÁ¬»÷»úÂÊ°Ù·ÖÖ®ÁùÊ®£Ğ£Ç¡¾³ÆºÅ£º¿ñÁúÌìÕ÷¡¿£È£×½µÁúÊ®°ËÕÆ¼«Òâ·¢¶¯ÂÊ°Ù·ÖÖ®°Ù"                        
 
-TFNLJS["è™šç«¹"]="ï¼§ã€å¤©èµ‹ï¼šç¦ç¼˜æ·±åšã€‘ï¼¨ï¼·æ”»å‡»åç™¾åˆ†ä¹‹äº”åæœºç‡ä»é›†æ°”æ§½äº”åˆ†ä¹‹ä¸€å¤„å¼€å§‹é›†æ°”ï¼°ï¼§ã€ç§°å·ï¼šé€é¥æŒé—¨ã€‘ï¼¨ï¼·ä½¿ç”¨å¤©å±±å…­é˜³æŒä¸€å®šæœºç‡æ‰“å‡ºç”Ÿæ­»ç¬¦ï¼Œå¤§å¹…æ€é›†æ°”"                        
+TFNLJS["ĞéÖñ"]="£Ç¡¾Ìì¸³£º¸£ÔµÉîºñ¡¿£È£×¹¥»÷ºó°Ù·ÖÖ®ÎåÊ®»úÂÊ´Ó¼¯Æø²ÛÎå·ÖÖ®Ò»´¦¿ªÊ¼¼¯Æø£Ğ£Ç¡¾³ÆºÅ£ºåĞÒ£ÕÆÃÅ¡¿£È£×Ê¹ÓÃÌìÉ½ÁùÑôÕÆÒ»¶¨»úÂÊ´ò³öÉúËÀ·û£¬´ó·ùÉ±¼¯Æø"                        
 
-TFNLJS["æ®µèª‰"]="ï¼§ã€å¤©èµ‹ï¼šç£Šè½ä»å¿ƒã€‘ï¼¨ï¼·æ— è§†èµ„è´¨å¯¹å†…åŠ›ä¸Šé™çš„å½±å“ï¼°ï¼§ã€ç§°å·ï¼šå…­è„‰çœŸä¼ ã€‘ï¼¨ï¼·å…­è„‰ç¥å‰‘å¤§æ‹›å‘åŠ¨ç‡ç™¾åˆ†ä¹‹å…­å"                  
+TFNLJS["¶ÎÓş"]="£Ç¡¾Ìì¸³£ºÀÚÂäÈÊĞÄ¡¿£È£×ÎŞÊÓ×ÊÖÊ¶ÔÄÚÁ¦ÉÏÏŞµÄÓ°Ïì£Ğ£Ç¡¾³ÆºÅ£ºÁùÂöÕæ´«¡¿£È£×ÁùÂöÉñ½£´óÕĞ·¢¶¯ÂÊ°Ù·ÖÖ®ÁùÊ®"                  
 
-TFNLJS["æ…•å®¹å¤"]="ï¼§ã€å¤©èµ‹ï¼šç¦»åˆå‚å•†ã€‘ï¼¨ï¼·æ–—è½¬å‘åŠ¨æœºç‡å¤§å¹…æå‡ï¼°ï¼§ã€ç§°å·ï¼šå§‘è‹æ…•å®¹ã€‘ï¼¨ï¼·æ–—è½¬æ˜Ÿç§»è€—å†…åŠ›å€¼å‡å°‘"
+TFNLJS["Ä½Èİ¸´"]="£Ç¡¾Ìì¸³£ºÀëºÏ²ÎÉÌ¡¿£È£×¶·×ª·¢¶¯»úÂÊ´ó·ùÌáÉı£Ğ£Ç¡¾³ÆºÅ£º¹ÃËÕÄ½Èİ¡¿£È£×¶·×ªĞÇÒÆºÄÄÚÁ¦Öµ¼õÉÙ"
 
-TFNLJS["ç‹è¯­å«£"]="ï¼§ã€å¤©èµ‹ï¼šåšé—»å¼ºè®°ã€‘ï¼¨ï¼·æ— è§†ä»»ä½•é™åˆ¶æ¡ä»¶ä¿®ç‚¼ä»»ä½•ç§˜ç±ï¼°ï¼§ã€ç§°å·ï¼šç…å¬›ä»™å­ã€‘ï¼¨ï¼·æå‡é˜Ÿä¼æ­¦å¸¸åŠé˜Ÿä¼ç‰¹æ•ˆå‘åŠ¨æœºç‡"     
+TFNLJS["ÍõÓïæÌ"]="£Ç¡¾Ìì¸³£º²©ÎÅÇ¿¼Ç¡¿£È£×ÎŞÊÓÈÎºÎÏŞÖÆÌõ¼şĞŞÁ¶ÈÎºÎÃØ¼®£Ğ£Ç¡¾³ÆºÅ£ºÀÅ‹ÖÏÉ×Ó¡¿£È£×ÌáÉı¶ÓÎéÎä³£¼°¶ÓÎéÌØĞ§·¢¶¯»úÂÊ"     
 
-TFNLJS["é¸ æ‘©æ™º"]="ï¼§ã€ç§°å·ï¼šå¤§è½®æ˜ç‹ã€‘ï¼¨ï¼·ä½¿ç”¨ç«ç„°åˆ€æ”»å‡»æ—¶ä½¿å¯¹æ‰‹é™„åŠ å—ä¼¤ä¸‰åç‚¹"                                
+TFNLJS["ğ¯Ä¦ÖÇ"]="£Ç¡¾³ÆºÅ£º´óÂÖÃ÷Íõ¡¿£È£×Ê¹ÓÃ»ğÑæµ¶¹¥»÷Ê±Ê¹¶ÔÊÖ¸½¼ÓÊÜÉËÈıÊ®µã"                                
 
-TFNLJS["æ¸¸å¦ä¹‹"]="ï¼§ã€å¤©èµ‹ï¼šå¿ƒæ— æ‰€ä½ã€‘ï¼¨ï¼·èƒ½ä½¿ç”¨ä»»æ„å†…åŠŸæ”»å‡»ï¼°ï¼§ã€ç§°å·ï¼šå†°æ¯’æ€ªå®¢ã€‘ï¼¨ï¼·æ‰€æœ‰æ”»å‡»å¸¦æ¯’å…©ç™¾å››åç‚¹"  
+TFNLJS["ÓÎÌ¹Ö®"]="£Ç¡¾Ìì¸³£ºĞÄÎŞËù×¡¡¿£È£×ÄÜÊ¹ÓÃÈÎÒâÄÚ¹¦¹¥»÷£Ğ£Ç¡¾³ÆºÅ£º±ù¶¾¹Ö¿Í¡¿£È£×ËùÓĞ¹¥»÷´ø¶¾ƒÉ°ÙËÄÊ®µã"  
 
-TFNLJS["é˜¿ç´«"]="ï¼§ã€ç§°å·ï¼šé“ä¸‘ä¹‹ä¸»ã€‘ï¼¨ï¼·ä¸æ¸¸å¦ä¹‹åŒåœ¨æˆ˜åœºæ—¶ï¼Œæ¸¸å¦ä¹‹æ”»å‡»å¿…æš´å‡»"                          
+TFNLJS["°¢×Ï"]="£Ç¡¾³ÆºÅ£ºÌú³óÖ®Ö÷¡¿£È£×ÓëÓÎÌ¹Ö®Í¬ÔÚÕ½³¡Ê±£¬ÓÎÌ¹Ö®¹¥»÷±Ø±©»÷"                          
 
-TFNLJS["å²³è€ä¸‰"]="ï¼§ã€ç§°å·ï¼šå‡¶ç¥æ¶ç…ã€‘ï¼¨ï¼·æš´å‡»æ—¶ä¼¤å®³æ•ˆæœä¸¤å€"
+TFNLJS["ÔÀÀÏÈı"]="£Ç¡¾³ÆºÅ£ºĞ×Éñ¶ñÉ·¡¿£È£×±©»÷Ê±ÉËº¦Ğ§¹ûÁ½±¶"
 
-TFNLJS["è–›æ…•å"]="ï¼§ã€ç§°å·ï¼šé˜ç‹æ•Œã€‘ï¼¨ï¼·åŒ»ç–—ä¸Šé™äº”ç™¾ç‚¹ã€€å¤æ´»åŒä¼´ä¸€æ¬¡"
+TFNLJS["Ñ¦Ä½»ª"]="£Ç¡¾³ÆºÅ£ºÑÖÍõµĞ¡¿£È£×Ò½ÁÆÉÏÏŞÎå°Ùµã¡¡¸´»îÍ¬°éÒ»´Î"
  
-TFNLJS["éƒ­é–"]="ï¼§ã€å¤©èµ‹ï¼šå¤§å™¨æ™šæˆã€‘ï¼¨ï¼·æœ€åäº”çº§æˆé•¿æ—¶ï¼Œæ¯çº§èƒ½åŠ›åŠ æˆç‚¹æ•°å¢åŠ äº”ç‚¹ï¼°ï¼§ã€ç§°å·ï¼šä¾ ä¹‹å¤§è€…ã€‘ï¼¨ï¼·é™é¾™åå…«æŒææ„å‘åŠ¨ç‡ç™¾åˆ†ä¹‹ä¸‰å"  
+TFNLJS["¹ù¾¸"]="£Ç¡¾Ìì¸³£º´óÆ÷Íí³É¡¿£È£××îºóÎå¼¶³É³¤Ê±£¬Ã¿¼¶ÄÜÁ¦¼Ó³ÉµãÊıÔö¼ÓÎåµã£Ğ£Ç¡¾³ÆºÅ£ºÏÀÖ®´óÕß¡¿£È£×½µÁúÊ®°ËÕÆ¼«Òâ·¢¶¯ÂÊ°Ù·ÖÖ®ÈıÊ®"  
 
-TFNLJS["é»„è“‰"]="ï¼§ã€å¤©èµ‹ï¼šå…°å¿ƒæ…§è´¨ã€‘ï¼¨ï¼·ä¿®ç‚¼ç§˜ç±æˆåŠŸæ—¶å…µå™¨å€¼æˆé•¿ä¸¤å€ï¼°ï¼§ã€ç§°å·ï¼šå¥‡æœ¯æ— åŒã€‘ï¼¨ï¼·æˆ˜å‰å¯è¿›è¡Œå¸ƒé˜µ"
+TFNLJS["»ÆÈØ"]="£Ç¡¾Ìì¸³£ºÀ¼ĞÄ»ÛÖÊ¡¿£È£×ĞŞÁ¶ÃØ¼®³É¹¦Ê±±øÆ÷Öµ³É³¤Á½±¶£Ğ£Ç¡¾³ÆºÅ£ºÆæÊõÎŞË«¡¿£È£×Õ½Ç°¿É½øĞĞ²¼Õó"
                  
-TFNLJS["å‘¨ä¼¯é€š"]="ï¼§ã€å¤©èµ‹ï¼šç«¥çœŸæ°¸ç•™ã€‘ï¼¨ï¼·å·¦å³äº’æå¿…å‘åŠ¨ï¼°ï¼§ã€ç§°å·ï¼šé¡½ç«¥æ­¦ç—´ã€‘ï¼¨ï¼·æ¯è¡ŒåŠ¨ä¸€æ¬¡æ”»å‡»æ•ˆæœæå‡ç™¾åˆ†ä¹‹å"
+TFNLJS["ÖÜ²®Í¨"]="£Ç¡¾Ìì¸³£ºÍ¯ÕæÓÀÁô¡¿£È£××óÓÒ»¥²«±Ø·¢¶¯£Ğ£Ç¡¾³ÆºÅ£ºÍçÍ¯Îä³Õ¡¿£È£×Ã¿ĞĞ¶¯Ò»´Î¹¥»÷Ğ§¹ûÌáÉı°Ù·ÖÖ®Ê®"
 
-TFNLJS["é»„è¯å¸ˆ"]="ï¼§ã€ç§°å·ï¼šæ¡ƒèŠ±å²›ä¸»ã€‘ï¼¨ï¼·æ”»å‡»æ—¶æ•Œå…¨ä½“å†…åŠ›å‡å°‘ä¸€åƒï¼Œå¦‚å†…åŠ›ä¸è¶³æ—¶ï¼Œå†…åŠ›å˜ä¸ºé›¶ï¼Œå†å‡ç”Ÿå‘½ä¸€ç™¾"
+TFNLJS["»ÆÒ©Ê¦"]="£Ç¡¾³ÆºÅ£ºÌÒ»¨µºÖ÷¡¿£È£×¹¥»÷Ê±µĞÈ«ÌåÄÚÁ¦¼õÉÙÒ»Ç§£¬ÈçÄÚÁ¦²»×ãÊ±£¬ÄÚÁ¦±äÎªÁã£¬ÔÙ¼õÉúÃüÒ»°Ù"
 
-TFNLJS["æ¬§é˜³å³°"]="ï¼§ã€å¤©èµ‹ï¼šå€’è¡Œé€†æ–½ã€‘ï¼¨ï¼·è¢«æ”»å‡»å¿…å®šè¿›å…¥èµ°ç«å…¥é­”çŠ¶æ€ï¼°ï¼§ã€ç§°å·ï¼šè¥¿æ¯’ã€‘ï¼¨ï¼·æ”»å‡»æ—¶æ— è§†å¯¹æ–¹æŠ—æ¯’èƒ½åŠ›è¿½åŠ ä¸‰åç‚¹ä¸­æ¯’"
+TFNLJS["Å·Ñô·å"]="£Ç¡¾Ìì¸³£ºµ¹ĞĞÄæÊ©¡¿£È£×±»¹¥»÷±Ø¶¨½øÈë×ß»ğÈëÄ§×´Ì¬£Ğ£Ç¡¾³ÆºÅ£ºÎ÷¶¾¡¿£È£×¹¥»÷Ê±ÎŞÊÓ¶Ô·½¿¹¶¾ÄÜÁ¦×·¼ÓÈıÊ®µãÖĞ¶¾"
 
-TFNLJS["æ´ªä¸ƒå…¬"]="ï¼§ã€ç§°å·ï¼šåŒ—ä¸ã€‘ï¼¨ï¼·é™é¾™åå…«æŒææ„å‘åŠ¨ç‡ç™¾åˆ†ä¹‹äº”å"
+TFNLJS["ºéÆß¹«"]="£Ç¡¾³ÆºÅ£º±±Ø¤¡¿£È£×½µÁúÊ®°ËÕÆ¼«Òâ·¢¶¯ÂÊ°Ù·ÖÖ®ÎåÊ®"
 
-TFNLJS["æ¢…è¶…é£"]="ï¼§ã€ç§°å·ï¼šé“å°¸é­”ç…ã€‘ï¼¨ï¼·ä¹é˜´ç™½éª¨çˆªå¨åŠ›ä¸¤å€"
+TFNLJS["Ã·³¬·ç"]="£Ç¡¾³ÆºÅ£ºÌúÊ¬Ä§É·¡¿£È£×¾ÅÒõ°×¹Ç×¦ÍşÁ¦Á½±¶"
 
-TFNLJS["è‹èƒ"]="ï¼§ã€å¤©èµ‹ï¼šåªšçœ¼å¦‚ä¸ã€‘ï¼¨ï¼·æ•Œå…¨ä½“æ”»å‡»æ•ˆæœé™ç™¾åˆ†ä¹‹å"
+TFNLJS["ËÕÜõ"]="£Ç¡¾Ìì¸³£ºÃÄÑÛÈçË¿¡¿£È£×µĞÈ«Ìå¹¥»÷Ğ§¹û½µ°Ù·ÖÖ®Ê®"
 
-TFNLJS["é˜¿ç‚"]="ï¼§ã€å¤©èµ‹ï¼šå€¾å›½å€¾åŸã€‘ï¼¨ï¼·æ•Œå…¨ä½“é˜²å¾¡æ•ˆæœé™ç™¾åˆ†ä¹‹å"
+TFNLJS["°¢çæ"]="£Ç¡¾Ìì¸³£ºÇã¹úÇã³Ç¡¿£È£×µĞÈ«Ìå·ÀÓùĞ§¹û½µ°Ù·ÖÖ®Ê®"
 
-TFNLJS["ä»¤ç‹å†²"]="ï¼§ã€å¤©èµ‹ï¼šçµå¥‡æ´’è„±ã€‘ï¼¨ï¼·è‡ªå¸¦èƒ½åŠ›é™ç•Œçªç ´ï¼Œæˆ˜æ–—ä¸­ç§»åŠ¨åŠ›æå‡ä¸‰æ ¼ï¼°ï¼§ã€ç§°å·ï¼šä¹å‰‘ä¼ äººã€‘ï¼¨ï¼·è¿›å…¥æˆ˜æ–—ç«‹å³è¡ŒåŠ¨"
+TFNLJS["Áîºü³å"]="£Ç¡¾Ìì¸³£ºÁéÆæÈ÷ÍÑ¡¿£È£××Ô´øÄÜÁ¦ÏŞ½çÍ»ÆÆ£¬Õ½¶·ÖĞÒÆ¶¯Á¦ÌáÉıÈı¸ñ£Ğ£Ç¡¾³ÆºÅ£º¾Å½£´«ÈË¡¿£È£×½øÈëÕ½¶·Á¢¼´ĞĞ¶¯"
 
-TFNLJS["ä¸œæ–¹ä¸è´¥"]="ï¼§ã€ç§°å·ï¼šå”¯æˆ‘ä¸è´¥ã€‘ï¼¨ï¼·äºŒè¿å‡»æœºç‡ç™¾åˆ†ä¹‹ç™¾ï¼›ä¸‰è¿å‡»æœºç‡ç™¾åˆ†ä¹‹å…­å"
+TFNLJS["¶«·½²»°Ü"]="£Ç¡¾³ÆºÅ£ºÎ¨ÎÒ²»°Ü¡¿£È£×¶şÁ¬»÷»úÂÊ°Ù·ÖÖ®°Ù£»ÈıÁ¬»÷»úÂÊ°Ù·ÖÖ®ÁùÊ®"
 
-TFNLJS["ä»»ç›ˆç›ˆ"]="ï¼§ã€å¤©èµ‹ï¼šç´é“®ç›ˆç›ˆã€‘ï¼¨ï¼·ä½¿ç”¨æ‰¶ç‘¶ç´æ”»å‡»æ—¶æœºç‡å‘åŠ¨ä¸ƒå¼¦æ— ç´å‰‘æ°”ï¼šæ•Œå…¨ä½“å‡ç”Ÿå‘½ä¸€ç™¾ç‚¹ï¼°ï¼§ã€ç§°å·ï¼šæ—¥æœˆåœ£å§‘ã€‘ï¼¨ï¼·ä¸ä»¤ç‹å†²åœ¨æˆ˜åœºæ—¶ä½¿ç”¨æ‰¶ç‘¶ç´æ”»å‡»æœºç‡å‘åŠ¨ç¬‘å‚²æ±Ÿæ¹–ï¼šä¸¤äººä½“åŠ›å—ä¼¤å…¨å›å¤"
+TFNLJS["ÈÎÓ¯Ó¯"]="£Ç¡¾Ìì¸³£ºÇÙï£Ó¯Ó¯¡¿£È£×Ê¹ÓÃ·öÑşÇÙ¹¥»÷Ê±»úÂÊ·¢¶¯ÆßÏÒÎŞÇÙ½£Æø£ºµĞÈ«Ìå¼õÉúÃüÒ»°Ùµã£Ğ£Ç¡¾³ÆºÅ£ºÈÕÔÂÊ¥¹Ã¡¿£È£×ÓëÁîºü³åÔÚÕ½³¡Ê±Ê¹ÓÃ·öÑşÇÙ¹¥»÷»úÂÊ·¢¶¯Ğ¦°Á½­ºş£ºÁ½ÈËÌåÁ¦ÊÜÉËÈ«»Ø¸´"
 
-TFNLJS["è“å‡¤å‡°"]="ï¼§ã€ç§°å·ï¼šäº”æ¯’æ•™ä¸»ã€‘ï¼¨ï¼·æ”»å‡»å¨åŠ›æå‡ç™¾åˆ†ä¹‹åï¼›ç”¨æ¯’ä¸Šé™å››ç™¾ç‚¹"
+TFNLJS["À¶·ï»Ë"]="£Ç¡¾³ÆºÅ£ºÎå¶¾½ÌÖ÷¡¿£È£×¹¥»÷ÍşÁ¦ÌáÉı°Ù·ÖÖ®Ê®£»ÓÃ¶¾ÉÏÏŞËÄ°Ùµã"
 
-TFNLJS["æ—å¹³ä¹‹"]="ï¼§ã€ç§°å·ï¼šè¾Ÿé‚ªå‰‘å®¢ã€‘ï¼¨ï¼·ä¸å—è‡ªå®«çš„æƒ©ç½šå½±å“ï¼›å­¦ä¹ è‘µèŠ±ç¥åŠŸåé¢†æ‚Ÿè‘µèŠ±ç§»è¡Œï¼›è‘µèŠ±ç¥åŠŸå¯æ”»å‡»"
+TFNLJS["ÁÖÆ½Ö®"]="£Ç¡¾³ÆºÅ£º±ÙĞ°½£¿Í¡¿£È£×²»ÊÜ×Ô¹¬µÄ³Í·£Ó°Ïì£»Ñ§Ï°¿û»¨Éñ¹¦ºóÁìÎò¿û»¨ÒÆĞĞ£»¿û»¨Éñ¹¦¿É¹¥»÷"
 
-TFNLJS["å²³çµå§—"]="ï¼§ã€ç§°å·ï¼šæ…§ä¸­çµå‰‘ã€‘ï¼¨ï¼·æ¯ä¿®ä¹ ä¸€ç§å‰‘æ³•å¹¶ä¸”ç­‰çº§è¾¾åˆ°æä¹‹åï¼Œè‡ªèº«æ”»å‡»ä¼¤å®³æ•ˆæœæå‡ç™¾åˆ†ä¹‹äº”"
+TFNLJS["ÔÀÁéæ©"]="£Ç¡¾³ÆºÅ£º»ÛÖĞÁé½£¡¿£È£×Ã¿ĞŞÏ°Ò»ÖÖ½£·¨²¢ÇÒµÈ¼¶´ïµ½¼«Ö®ºó£¬×ÔÉí¹¥»÷ÉËº¦Ğ§¹ûÌáÉı°Ù·ÖÖ®Îå"
 
-TFNLJS["ç”°ä¼¯å…‰"]="ï¼§ã€ç§°å·ï¼šä¸‡é‡Œç‹¬è¡Œã€‘ï¼¨ï¼·é›†æ°”é€Ÿåº¦æå‡ï¼Œæˆ˜åœºä¸Šå·²æ–¹äººå‘˜è¶Šå°‘æå‡è¶Šå¤š"
+TFNLJS["Ìï²®¹â"]="£Ç¡¾³ÆºÅ£ºÍòÀï¶ÀĞĞ¡¿£È£×¼¯ÆøËÙ¶ÈÌáÉı£¬Õ½³¡ÉÏÒÑ·½ÈËÔ±Ô½ÉÙÌáÉıÔ½¶à"
 
-TFNLJS["å¹³ä¸€æŒ‡"]="ï¼§ã€ç§°å·ï¼šæ€äººååŒ»ã€‘ï¼¨ï¼·åŒ»ç–—ä¸Šé™äº”ç™¾ç‚¹ã€€æˆ˜æ–—ä¸­é›†æ°”é€Ÿåº¦éšæ€æ•Œæ•°ä¸Šå‡"
+TFNLJS["Æ½Ò»Ö¸"]="£Ç¡¾³ÆºÅ£ºÉ±ÈËÃûÒ½¡¿£È£×Ò½ÁÆÉÏÏŞÎå°Ùµã¡¡Õ½¶·ÖĞ¼¯ÆøËÙ¶ÈËæÉ±µĞÊıÉÏÉı"
 
-TFNLJS["é™ˆå®¶æ´›"]="ï¼§ã€ç§°å·ï¼šå¤©æ± çº¢èŠ±ã€‘ï¼¨ï¼·å‡çº§æ—¶å…µå™¨å€¼é«˜æˆé•¿"
+TFNLJS["³Â¼ÒÂå"]="£Ç¡¾³ÆºÅ£ºÌì³Øºì»¨¡¿£È£×Éı¼¶Ê±±øÆ÷Öµ¸ß³É³¤"
 
-TFNLJS["éœé’æ¡"]="ï¼§ã€å¤©èµ‹ï¼šå·¾å¸¼ä¹‹æ‰ã€‘ï¼¨ï¼·æˆ‘æ–¹å…¨ä½“é˜²å¾¡æ•ˆæœä¸Šå‡ç™¾åˆ†ä¹‹åï¼°ï¼§ã€ç§°å·ï¼šç¿ ç¾½é»„è¡«ã€‘ï¼¨ï¼·ä½¿ç”¨ä¸‰åˆ†å‰‘æœ¯æ”»å‡»æ€æ•Œä½“åŠ›åäº”ç‚¹"
+TFNLJS["»ôÇàÍ©"]="£Ç¡¾Ìì¸³£º½íàşÖ®²Å¡¿£È£×ÎÒ·½È«Ìå·ÀÓùĞ§¹ûÉÏÉı°Ù·ÖÖ®Ê®£Ğ£Ç¡¾³ÆºÅ£º´äÓğ»ÆÉÀ¡¿£È£×Ê¹ÓÃÈı·Ö½£Êõ¹¥»÷É±µĞÌåÁ¦Ê®Îåµã"
 
-TFNLJS["å¼ å¬é‡"]="ï¼§ã€å¤©èµ‹ï¼šå‹‡çŒ›ç²¾è¿›ã€‘ï¼¨ï¼·æˆ‘æ–¹å…¨ä½“æ”»å‡»æ•ˆæœä¸Šå‡ç™¾åˆ†ä¹‹åï¼°ï¼§ã€ç§°å·ï¼šç«æ‰‹åˆ¤å®˜ã€‘ï¼¨ï¼·æ”»å‡»æ—¶ä½¿å¯¹æ‰‹å—ä¼¤ç¨‹åº¦ç¿»å€"
+TFNLJS["ÕÅÕÙÖØ"]="£Ç¡¾Ìì¸³£ºÓÂÃÍ¾«½ø¡¿£È£×ÎÒ·½È«Ìå¹¥»÷Ğ§¹ûÉÏÉı°Ù·ÖÖ®Ê®£Ğ£Ç¡¾³ÆºÅ£º»ğÊÖÅĞ¹Ù¡¿£È£×¹¥»÷Ê±Ê¹¶ÔÊÖÊÜÉË³Ì¶È·­±¶"
 
-TFNLJS["æ¨è¿‡"]="ï¼§ã€å¤©èµ‹ï¼šé€†æµå‹‡è¿›ã€‘ï¼¨ï¼·ç”Ÿå‘½ç™¾åˆ†ä¹‹äº”åä»¥ä¸‹æš´å‡»ç‡ä¸¤å€ï¼›ç™¾åˆ†ä¹‹äºŒåäº”ä»¥ä¸‹æš´å‡»ç‡ä¸‰å€ï¼°ï¼§ã€ç§°å·ï¼šè¥¿ç‹‚ã€‘ï¼¨ï¼·æ”»å‡»æ—¶è¿½åŠ è¥¿ç‹‚ä¹‹æ€’å•¸ï¼Œæ•Œå…¨å‘˜é›†æ°”å‡ä¸€ç™¾"
+TFNLJS["Ñî¹ı"]="£Ç¡¾Ìì¸³£ºÄæÁ÷ÓÂ½ø¡¿£È£×ÉúÃü°Ù·ÖÖ®ÎåÊ®ÒÔÏÂ±©»÷ÂÊÁ½±¶£»°Ù·ÖÖ®¶şÊ®ÎåÒÔÏÂ±©»÷ÂÊÈı±¶£Ğ£Ç¡¾³ÆºÅ£ºÎ÷¿ñ¡¿£È£×¹¥»÷Ê±×·¼ÓÎ÷¿ñÖ®Å­Ğ¥£¬µĞÈ«Ô±¼¯Æø¼õÒ»°Ù"
 
-TFNLJS["å°é¾™å¥³"]="ï¼§ã€å¤©èµ‹ï¼šå†·å‰‘å†°éœœã€‘ï¼¨ï¼·å·¦å³å‘åŠ¨æœºç‡ä¸Šå‡ï¼°ï¼§ã€ç§°å·ï¼šè”å¿ƒç´ å¥³ã€‘ï¼¨ï¼·ä»¥ç‰å¥³ç´ å¿ƒå‰‘æ”»å‡»å¿…å®šè¿å‡»"
+TFNLJS["Ğ¡ÁúÅ®"]="£Ç¡¾Ìì¸³£ºÀä½£±ùËª¡¿£È£××óÓÒ·¢¶¯»úÂÊÉÏÉı£Ğ£Ç¡¾³ÆºÅ£ºÁªĞÄËØÅ®¡¿£È£×ÒÔÓñÅ®ËØĞÄ½£¹¥»÷±Ø¶¨Á¬»÷"
 
-TFNLJS["ç¨‹è‹±"]="ï¼§ã€å¤©èµ‹ï¼šå¤–å’Œå†…åˆšã€‘ï¼¨ï¼·ç”Ÿå‘½ç™¾åˆ†ä¹‹äº”åä»¥ä¸‹ä¼¤å®³ä¸Šå‡ç™¾åˆ†ä¹‹äºŒåï¼°ï¼§ã€ç§°å·ï¼šé’è§è½ç‘›ã€‘ï¼¨ï¼·ä½¿ç”¨ç‰è§å‰‘æ³•æ”»å‡»æ€æ•Œå†…åŠ›ä¸‰ç™¾ç‚¹"
+TFNLJS["³ÌÓ¢"]="£Ç¡¾Ìì¸³£ºÍâºÍÄÚ¸Õ¡¿£È£×ÉúÃü°Ù·ÖÖ®ÎåÊ®ÒÔÏÂÉËº¦ÉÏÉı°Ù·ÖÖ®¶şÊ®£Ğ£Ç¡¾³ÆºÅ£ºÇàÏôÂäçø¡¿£È£×Ê¹ÓÃÓñÏô½£·¨¹¥»÷É±µĞÄÚÁ¦Èı°Ùµã"
 
-TFNLJS["é‡‘è½®æ³•ç‹"]="ï¼§ã€ç§°å·ï¼šå…ƒè’™å¸å¸ˆã€‘ï¼¨ï¼·ä»»ä½•æ”»å‡»å¤§å¹…è¿½åŠ æ€é›†æ°”èƒ½åŠ›"
+TFNLJS["½ğÂÖ·¨Íõ"]="£Ç¡¾³ÆºÅ£ºÔªÃÉµÛÊ¦¡¿£È£×ÈÎºÎ¹¥»÷´ó·ù×·¼ÓÉ±¼¯ÆøÄÜÁ¦"
 
-TFNLJS["éœéƒ½"]="ï¼§ã€ç§°å·ï¼šå¾ä¹ƒè›®å¤·ã€‘ï¼¨ï¼·ä»»ä½•æ”»å‡»è¿½åŠ æ€é›†æ°”èƒ½åŠ›"
+TFNLJS["»ô¶¼"]="£Ç¡¾³ÆºÅ£ºÎáÄËÂùÒÄ¡¿£È£×ÈÎºÎ¹¥»÷×·¼ÓÉ±¼¯ÆøÄÜÁ¦"
 
-TFNLJS["çŸ³ç ´å¤©"]="ï¼§ã€å¤©èµ‹ï¼šè´¨æœ´åˆšå¥ã€‘ï¼¨ï¼·ä¸ªäººç‰¹æ•ˆå‘åŠ¨ç‡å¢åŠ åç‚¹ï¼°ï¼§ã€ç§°å·ï¼šç™½é¦–å¤ªç„ã€‘ï¼¨ï¼·å¤ªç„ç¥åŠŸæå‡ç‰¹æ•ˆå‘åŠ¨æœºç‡æ•ˆæœä¸ºä¸¤å€"
+TFNLJS["Ê¯ÆÆÌì"]="£Ç¡¾Ìì¸³£ºÖÊÆÓ¸Õ½¡¡¿£È£×¸öÈËÌØĞ§·¢¶¯ÂÊÔö¼ÓÊ®µã£Ğ£Ç¡¾³ÆºÅ£º°×Ê×Ì«Ğş¡¿£È£×Ì«ĞşÉñ¹¦ÌáÉıÌØĞ§·¢¶¯»úÂÊĞ§¹ûÎªÁ½±¶"
 
-TFNLJS["è´æµ·çŸ³"]="ï¼§ã€ç§°å·ï¼šè€è°‹æ·±ç®—ã€‘ï¼¨ï¼·æ¯æ¬¡å—åˆ°æ”»å‡»è‡ªåŠ¨å›è¡€äº”åç‚¹ï¼ŒåŒ»ç–—ä¸Šé™å››ç™¾ç‚¹"
+TFNLJS["±´º£Ê¯"]="£Ç¡¾³ÆºÅ£ºÀÏÄ±ÉîËã¡¿£È£×Ã¿´ÎÊÜµ½¹¥»÷×Ô¶¯»ØÑªÎåÊ®µã£¬Ò½ÁÆÉÏÏŞËÄ°Ùµã"
 
-TFNLJS["å¼ æ— å¿Œ"]="ï¼§ã€å¤©èµ‹ï¼šè°ä¸äº‰å³°ã€‘ï¼¨ï¼·å†…åŠŸåŠ åŠ›åŠæŠ¤ä½“å‘åŠ¨æœºç‡ç™¾åˆ†ä¹‹ç™¾ï¼°ï¼§ã€ç§°å·ï¼šä¹é˜³æ˜å°Šã€‘ï¼¨ï¼·å‘åŠ¨ä¹¾å¤å¤§æŒªç§»æ—¶åå¼¹ä¼¤å®³ç™¾åˆ†ä¹‹å…«åï¼›æˆ–å—åˆ°æ”»å‡»ä»¥ä¹é˜³ç¥åŠŸåéœ‡æ”»å‡»è€…ç™¾åˆ†ä¹‹äºŒåä¼¤å®³"
+TFNLJS["ÕÅÎŞ¼É"]="£Ç¡¾Ìì¸³£ºË­ÓëÕù·å¡¿£È£×ÄÚ¹¦¼ÓÁ¦¼°»¤Ìå·¢¶¯»úÂÊ°Ù·ÖÖ®°Ù£Ğ£Ç¡¾³ÆºÅ£º¾ÅÑôÃ÷×ğ¡¿£È£×·¢¶¯Ç¬À¤´óÅ²ÒÆÊ±·´µ¯ÉËº¦°Ù·ÖÖ®°ËÊ®£»»òÊÜµ½¹¥»÷ÒÔ¾ÅÑôÉñ¹¦·´Õğ¹¥»÷Õß°Ù·ÖÖ®¶şÊ®ÉËº¦"
 
-TFNLJS["å®‹é’ä¹¦"]="ï¼§ã€å¤©èµ‹ï¼šæˆ‘ä¸ºä¼Šç‹‚ã€‘ï¼¨ï¼·æˆ˜åœºä¸Šæˆ‘æ–¹å¥³æ€§è§’è‰²è¶Šå¤šå…¶æ”»å‡»æ•ˆæœè¶Šé«˜ï¼°"
+TFNLJS["ËÎÇàÊé"]="£Ç¡¾Ìì¸³£ºÎÒÎªÒÁ¿ñ¡¿£È£×Õ½³¡ÉÏÎÒ·½Å®ĞÔ½ÇÉ«Ô½¶àÆä¹¥»÷Ğ§¹ûÔ½¸ß£Ğ"
 
-TFNLJS["å°æ˜­"]="ï¼§ã€ç§°å·ï¼šæ³¢æ–¯åœ£å¥³ã€‘ï¼¨ï¼·æ•Œå…¨ä½“ç§»åŠ¨å‡ä¸‰æ ¼"
+TFNLJS["Ğ¡ÕÑ"]="£Ç¡¾³ÆºÅ£º²¨Ë¹Ê¥Å®¡¿£È£×µĞÈ«ÌåÒÆ¶¯¼õÈı¸ñ"
 
-TFNLJS["æœ±ä¹çœŸ"]="ï¼§ã€ç§°å·ï¼šçµç’æ¯’å¨‡ã€‘ï¼¨ï¼·åœ¨æˆ˜åœºä¸Šä½æœºç‡å‘ç°é£Ÿæ"
+TFNLJS["Öì¾ÅÕæ"]="£Ç¡¾³ÆºÅ£ºÁééá¶¾½¿¡¿£È£×ÔÚÕ½³¡ÉÏµÍ»úÂÊ·¢ÏÖÊ³²Ä"
 
-TFNLJS["ç‹éš¾å§‘"]="ï¼§ã€ç§°å·ï¼šæ¯’æ‰‹å§‘å©†ã€‘ï¼¨ï¼·ç”¨æ¯’ä¸Šé™å››ç™¾ç‚¹"
+TFNLJS["ÍõÄÑ¹Ã"]="£Ç¡¾³ÆºÅ£º¶¾ÊÖ¹ÃÆÅ¡¿£È£×ÓÃ¶¾ÉÏÏŞËÄ°Ùµã"
 
-TFNLJS["èƒ¡é’ç‰›"]="ï¼§ã€ç§°å·ï¼šè¶è°·åŒ»ä»™ã€‘ï¼¨ï¼·åŒ»ç–—ä¸Šé™äº”ç™¾ç‚¹ã€€è¯å“æ•ˆæœä¸Šå‡ã€€å¯å‘é˜Ÿå‹ç”¨è¯"
+TFNLJS["ºúÇàÅ£"]="£Ç¡¾³ÆºÅ£ºµû¹ÈÒ½ÏÉ¡¿£È£×Ò½ÁÆÉÏÏŞÎå°Ùµã¡¡Ò©Æ·Ğ§¹ûÉÏÉı¡¡¿ÉÏò¶ÓÓÑÓÃÒ©"
 
-TFNLJS["è¢æ‰¿å¿—"]="ï¼§ã€å¤©èµ‹ï¼šå¿—å‚æ—¥æœˆã€‘ï¼¨ï¼·è‡ªåŠ¨æ¢å¤å†…ä¼¤ï¼°ï¼§ã€ç§°å·ï¼šæ°”ä¾ é£é›·ã€‘ï¼¨ï¼·æš´å‡»ç‡æå‡ç™¾åˆ†ä¹‹ä¸‰å"
+TFNLJS["Ô¬³ĞÖ¾"]="£Ç¡¾Ìì¸³£ºÖ¾´¹ÈÕÔÂ¡¿£È£××Ô¶¯»Ö¸´ÄÚÉË£Ğ£Ç¡¾³ÆºÅ£ºÆøÏÀ·çÀ×¡¿£È£×±©»÷ÂÊÌáÉı°Ù·ÖÖ®ÈıÊ®"
 
-TFNLJS["æ¸©é’é’"]="ï¼§ã€ç§°å·ï¼šé’é’å­è¡¿ã€‘ï¼¨ï¼·ä½¿ç”¨é›·éœ‡å‰‘æ³•æ”»å‡»éšæœºä¸€è‡³ä¸‰å€å¨åŠ›"
+TFNLJS["ÎÂÇàÇà"]="£Ç¡¾³ÆºÅ£ºÇàÇà×ÓñÆ¡¿£È£×Ê¹ÓÃÀ×Õğ½£·¨¹¥»÷Ëæ»úÒ»ÖÁÈı±¶ÍşÁ¦"
 
-TFNLJS["ä½•é“æ‰‹"]="ï¼§ã€ç§°å·ï¼šé“è¢–æ‹‚é£ã€‘ï¼¨ï¼·æ”»å‡»å¨åŠ›æå‡ç™¾åˆ†ä¹‹åï¼›ç”¨æ¯’ä¸Šé™å››ç™¾ç‚¹"
+TFNLJS["ºÎÌúÊÖ"]="£Ç¡¾³ÆºÅ£ºÌúĞä·÷·ç¡¿£È£×¹¥»÷ÍşÁ¦ÌáÉı°Ù·ÖÖ®Ê®£»ÓÃ¶¾ÉÏÏŞËÄ°Ùµã"
 
-TFNLJS["è§ä¸­æ…§"]="ï¼§ã€ç§°å·ï¼šé¸³é¸¯åˆ€å®¢ã€‘ï¼¨ï¼·ä½¿ç”¨å¤«å¦»åˆ€æ³•æ”»å‡»å¿…æš´å‡»"
+TFNLJS["ÏôÖĞ»Û"]="£Ç¡¾³ÆºÅ£ºÔ§Ñìµ¶¿Í¡¿£È£×Ê¹ÓÃ·òÆŞµ¶·¨¹¥»÷±Ø±©»÷"
 
-TFNLJS["ç¥–åƒç§‹"]="ï¼§ã€ç§°å·ï¼šé…’ç¥ã€‘ï¼¨ï¼·è¢«æ”»å‡»æ—¶æœºç‡å‘åŠ¨é…’ç¥ç§˜è¸ªæ­¥ï¼Œé—ªèº²æ”»å‡»"
+TFNLJS["×æÇ§Çï"]="£Ç¡¾³ÆºÅ£º¾ÆÉñ¡¿£È£×±»¹¥»÷Ê±»úÂÊ·¢¶¯¾ÆÉñÃØ×Ù²½£¬ÉÁ¶ã¹¥»÷"
 
-TFNLJS["äººå¨å­"]="ï¼§ã€ç§°å·ï¼šé£Ÿç¥ã€‘ï¼¨ï¼·æ”»å‡»ä¸å‡ä½“åŠ›"
+TFNLJS["ÈË³ø×Ó"]="£Ç¡¾³ÆºÅ£ºÊ³Éñ¡¿£È£×¹¥»÷²»¼õÌåÁ¦"

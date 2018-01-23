@@ -18,7 +18,7 @@ function SetGlobalConst()
 	    VK_DOWN=SDLK_DOWN;
 	    VK_LEFT=SDLK_LEFT;
 	    VK_RIGHT=SDLK_RIGHT;
-	else           --å³è½¬90åº¦
+	else           --ÓÒ×ª90¶È
 	    VK_UP=SDLK_RIGHT;
 	    VK_DOWN=SDLK_LEFT;
 	    VK_LEFT=SDLK_UP;
@@ -26,11 +26,11 @@ function SetGlobalConst()
 	end
 
 
-   -- æ¸¸æˆä¸­é¢œè‰²å®šä¹‰
-    C_STARTMENU=RGB(132, 0, 4)            -- å¼€å§‹èœå•é¢œè‰²
-    C_RED=RGB(216, 20, 24)                -- å¼€å§‹èœå•é€‰ä¸­é¡¹é¢œè‰²
+   -- ÓÎÏ·ÖÐÑÕÉ«¶¨Òå
+    C_STARTMENU=RGB(132, 0, 4)            -- ¿ªÊ¼²Ëµ¥ÑÕÉ«
+    C_RED=RGB(216, 20, 24)                -- ¿ªÊ¼²Ëµ¥Ñ¡ÖÐÏîÑÕÉ«
 
-    C_WHITE=RGB(236, 236, 236);           --æ¸¸æˆå†…å¸¸ç”¨çš„å‡ ä¸ªé¢œè‰²å€¼
+    C_WHITE=RGB(236, 236, 236);           --ÓÎÏ·ÄÚ³£ÓÃµÄ¼¸¸öÑÕÉ«Öµ
     C_ORANGE=RGB(252, 148, 16);
     C_GOLD=RGB(236, 200, 40);
     C_BLACK=RGB(0,0,0);
@@ -76,503 +76,503 @@ function SetGlobalConst()
 	M_Plum=RGB(221,160,221);
 	M_White=RGB(255,255,255);
 
-   -- æ¸¸æˆçŠ¶æ€å®šä¹‰
-    GAME_START =0 	--å¼€å§‹ç”»é¢
+   -- ÓÎÏ·×´Ì¬¶¨Òå
+    GAME_START =0 	--¿ªÊ¼»­Ãæ
 	GAME_START2 ="1"
-    GAME_FIRSTMMAP = 1  --ç¬¬ä¸€æ¬¡æ˜¾ç¤ºä¸»åœ°å›¾
-    GAME_MMAP =2;       --ä¸»åœ°å›¾
-    GAME_FIRSTSMAP = 3  --ç¬¬ä¸€æ¬¡æ˜¾ç¤ºä¸»åœ°å›¾
-    GAME_SMAP =4;       --åœºæ™¯åœ°å›¾
-    GAME_WMAP =5;       --æˆ˜æ–—åœ°å›¾
-	GAME_DEAD =6;       --æ­»äº¡ç”»é¢
-    GAME_END  =7;       --ç»“æŸ
+    GAME_FIRSTMMAP = 1  --µÚÒ»´ÎÏÔÊ¾Ö÷µØÍ¼
+    GAME_MMAP =2;       --Ö÷µØÍ¼
+    GAME_FIRSTSMAP = 3  --µÚÒ»´ÎÏÔÊ¾Ö÷µØÍ¼
+    GAME_SMAP =4;       --³¡¾°µØÍ¼
+    GAME_WMAP =5;       --Õ½¶·µØÍ¼
+	GAME_DEAD =6;       --ËÀÍö»­Ãæ
+    GAME_END  =7;       --½áÊø
 
-   --æ¸¸æˆæ•°æ®å…¨å±€å˜é‡
-   CC={};      --å®šä¹‰æ¸¸æˆä¸­ä½¿ç”¨çš„å¸¸é‡ï¼Œè¿™äº›å¯ä»¥åœ¨ä¿®æ”¹æ¸¸æˆæ—¶ä¿®æ”¹ä¹‹
+   --ÓÎÏ·Êý¾ÝÈ«¾Ö±äÁ¿
+   CC={};      --¶¨ÒåÓÎÏ·ÖÐÊ¹ÓÃµÄ³£Á¿£¬ÕâÐ©¿ÉÒÔÔÚÐÞ¸ÄÓÎÏ·Ê±ÐÞ¸ÄÖ®
    
-   CC.NGAME= "ï¼‘ï¼²éœ€è¦é‡æ–°å¼€å§‹æ¸¸æˆ"
-   CC.QSQJ="ä¸ƒä¼¤æ‹³ç»"
-   CC.DJDP="å¤§å‰ªåˆ€è°±"
-   CC.TXDH="ç‰¹æ•ˆåŠ¨ç”»"
-   CC.TXWZ1="ç‰¹æ•ˆæ–‡å­—1"
-   CC.TXWZ2="ç‰¹æ•ˆæ–‡å­—2"
-   CC.TXWZ3="ç‰¹æ•ˆæ–‡å­—3"
-   CC.DHJC="ä»£å·"  
-   CC.say1="ï¼‘è€å«åŒ–ä¹Ÿæ¥å‡‘ä¸ªçƒ­é—¹ï¼"
-   CC.say2="ï¼‘æŽ§åˆ¶è¿™èŒèšªä¸€æ ·çš„æ°”æµåœ¨ä½“å†…æ¸¸èµ°è¶Šå‘éšå¿ƒæ‰€æ¬²äº†ï¼çœŸæœ‰è¶£ï¼"
-   CC.say3="çŸ³ç ´å¤©è½»åŠŸä¸Šå‡50ç‚¹"
-   CC.s4="è¯·é€‰æ‹©æ¸¸æˆæ¨¡å¼"
-   CC.s5="ï¼‘æ­¤æ¨¡å¼ç›®å‰è¿˜æœªå¼€æ”¾ï¼"
-   CC.s6="å¤–å·"
-   CC.s7="æ­¦åŠŸ1"
-   CC.s8="æ­¦åŠŸ"
-   CC.s9="æ­¦åŠŸç­‰çº§"
+   CC.NGAME= "£±£ÒÐèÒªÖØÐÂ¿ªÊ¼ÓÎÏ·"
+   CC.QSQJ="ÆßÉËÈ­¾­"
+   CC.DJDP="´ó¼ôµ¶Æ×"
+   CC.TXDH="ÌØÐ§¶¯»­"
+   CC.TXWZ1="ÌØÐ§ÎÄ×Ö1"
+   CC.TXWZ2="ÌØÐ§ÎÄ×Ö2"
+   CC.TXWZ3="ÌØÐ§ÎÄ×Ö3"
+   CC.DHJC="´úºÅ"  
+   CC.say1="£±ÀÏ½Ð»¯Ò²À´´Õ¸öÈÈÄÖ£¡"
+   CC.say2="£±¿ØÖÆÕâòòò½Ò»ÑùµÄÆøÁ÷ÔÚÌåÄÚÓÎ×ßÔ½·¢ËæÐÄËùÓûÁË£¡ÕæÓÐÈ¤£¡"
+   CC.say3="Ê¯ÆÆÌìÇá¹¦ÉÏÉý50µã"
+   CC.s4="ÇëÑ¡ÔñÓÎÏ·Ä£Ê½"
+   CC.s5="£±´ËÄ£Ê½Ä¿Ç°»¹Î´¿ª·Å£¡"
+   CC.s6="ÍâºÅ"
+   CC.s7="Îä¹¦1"
+   CC.s8="Îä¹¦"
+   CC.s9="Îä¹¦µÈ¼¶"
    CC.s10="SYP"
-   CC.s11="ï¼‘æˆ‘çš„ä¸–ç•Œæˆ‘ä½œä¸»"
-   CC.s12="ï¼‘æƒ³çŽ©ä½ å¿ƒä¸­çš„æ±Ÿæ¹–ï¼¨é‚£å°±è¯´å‡ºå®ƒçš„æ¨¡æ ·ï¼¨ç™¾èŠ±è°·æ­å€™å¤§é©¾"
-   CC.s13="ï¼‘ä½ è¿˜æ˜¯é‡é€‰å§ï¼Œå¶çš„èƒ½åŠ›çŽ°åœ¨è¢«å°å°äº†ï¼Œæ— æ³•æˆé•¿ï¼Œå‘œå‘œ......"
-   CC.s14="è¯·é€‰æ‹©ä¸»è§’çš„å¤©èµ‹èƒ½åŠ›"
-   CC.s15="æ‹³æŽŒåŠŸå¤«"
-   CC.s16="å¾¡å‰‘èƒ½åŠ›"
-   CC.s17="è€åˆ€æŠ€å·§"
-   CC.s18="ç‰¹æ®Šå…µå™¨"
-   CC.s19="å†…åŠ›æœ€å¤§å€¼"
-   CC.s20="å†…åŠ›æ€§è´¨"
-   CC.s21="å“å¾·"
-   CC.s22="ï¼‘ç›ˆç›ˆï¼Œä½ å…ˆé€€ä¸‹ï¼ä¸ºçˆ¶æ¥ä¼šä¼šä½ ä¸œæ–¹é˜¿å§¨ï¼Œå“ˆå“ˆå“ˆ----"
-   CC.s23="å§“å"
-   CC.s24="å¤©èµ‹ï¼š"
-   CC.s25="ç§°å·ï¼š"
-   CC.s26="æ”»å‡»åŠ›"
-   CC.s27="é˜²å¾¡åŠ›"
-   CC.s28="è½»åŠŸ"
-   CC.s29="å‘¨ç›®å¥–åŠ±"
-   CC.s30="æ–°Â·è‹é¾™åŠå³æ—¶å¤©èµ‹ç§°å·ç‰ˆ"
-   CC.s31="è¾›å¯0415ç‰ˆ"
-   CC.s32="å‘¨ç›®"
-   CC.s33="æ•´ç†å®Œæ¯•"
-   CC.s34="è¦æ¢å“ªä½é˜Ÿå‘˜çš„ä½ç½®"
-   CC.s35="ä¸»è§’ä¸èƒ½æ¢ä½"
-   CC.s36="è¦å’Œå“ªä½é˜Ÿå‘˜æ›¿æ¢"
-   CC.s37="é˜Ÿä¼"
-   CC.s38="æ— æ³•é€‰æ‹©æ­¤è§’è‰²è¿›è¡Œæ¸¸æˆ"
-   CC.s39="æ—¶åº"
-   CC.s40="ã€ç‚Žä¹‹è¿æ‰‹ã€‘åˆ¶ä½œç»„å‡ºå“"
-   CC.s41="æˆ‘åŽ»å¤§åŽ…çœ‹çœ‹"
-   CC.s42="ï¼§ï¼‘å¦™é£Žä½¿ï¼"
-   CC.s43="ï¼§ï¼‘æµäº‘ä½¿ï¼"
-   CC.s44="ï¼§ï¼‘è¾‰æœˆä½¿ï¼ï¼¨åœ£ç«ä¸‰ç»é˜µï¼"  
-   CC.s45="é£Žäº‘å†èµ·"
-   CC.s46="æˆå‘˜ï¼šæ°´é•œå››å¥‡  qiu001  tsmdsyp"
-   CC.s47="ï¼‘ï¼ˆè¿™å°å­æ¥è¿™é‡Œåšä»€ä¹ˆï¼Ÿæƒ³æ‰¾ä¿ºä»¬é™ªä»–ç»ƒåŠŸï¼Ÿä»–å®¶é‡Œä¸æ˜¯æœ‰ä¸¤ä½å·¨ä¾ åšé™ªç»ƒå—ï¼ä¸è·Ÿä»–çŽ©äº†ï¼‰ï¼°å°‘ä¾ æ­¦åŠŸé«˜å¼ºï¼Œå°äººä¸æ˜¯å¯¹æ‰‹ï¼"
-   CC.s48="ï¼‘ï¼ˆå—¯ï¼Œæ²¡åŠŸå¤«è·Ÿè¿™å°å­çº ç¼ äº†ï¼‰ï¼°å“ˆå“ˆå“ˆï¼Œå°å­ï¼Œç®—ä½ èµ°è¿ï¼è€å¤«è¿˜æœ‰è¦äº‹å¾…åŠžï¼Œè¿™æ¬¡å°±æ”¾ä½ ä¸€é©¬ï¼"
-   CC.s49="ä¸å¥½ï¼æœ‰åŸ‹ä¼----"
-   CC.s50="æ— ååˆ€è°±"
-   CC.s51="æ— ååˆ€æ³•"
-   CC.s52="ï¼‘å—¯ï¼Œï¼²æ— ååˆ€è°±ï¼·ï¼™ï¼ï¼ï¼ï¼ï¼ï¼ï¼¨ï¼·çœ‹æ¥è¿™æ˜¯ä¸€æœ¬è®°è½½ç€ä¸€å¥—ç»ä¸–æ— åŒä¹‹åˆ€æ³•çš„å¤ä¹¦ï¼æˆ‘å¾—å¥½å¥½ç ”ç©¶ä¸€ä¸‹è¿™å¥—æ­¦åŠŸï¼"
-   CC.s53="åˆ€"
-   CC.s54="é“å¾·:%d é“¶ä¸¤:%d"
-   CC.s55="æ¸¸æˆæ—¶é—´:%2dæ—¶%2dåˆ†"
-   CC.s56="æ„Ÿè°¢ä¸‹è½½ï¼²ç‚Žä¹‹è¿æ‰‹åˆ¶ä½œç»„ï¼·å‡ºå“çš„ï¼¨ï¼§æ–°è‹é¾™é€æ—¥åŠå³æ—¶å¤©èµ‹ç§°å·ç‰ˆï¼·ï¼ï¼¨é€‰æ‹©é‡æ–°å¼€å§‹å¯è¿›è¡Œä¸‹ä¸€å‘¨ç›®çš„æ¸¸æˆï¼"
-   CC.s57="ç‚Žä¹‹è‹±é›„"
-   CC.s58="å°å°çŒª"
-   CC.s59="é©¬è½¦ä¼ é€"
-   CC.s60="å°‘ä¾ æƒ³åŽ»ä»€ä¹ˆåœ°æ–¹ï¼Ÿ"
-   CC.s61="åˆ—è¡¨é€‰æ‹©"
-   CC.s62="æ‰‹åŠ¨è¾“å…¥"
-   CC.s63="ï¼‘ï¼²æŠ±æ­‰ï¼ŒçŽ°åœ¨æ— æ³•åŽ»é‚£é‡Œï¼"
-   CC.s64="è½¦å¤«"
-   CC.s65="å¿«é€Ÿè¡Œèµ°"
-   CC.s66="æ…¢é€Ÿè¡Œèµ°"
-   CC.s67="é¡»å¼¥å±±ç¥žæŽŒ"
-   CC.s68="å§“å"
-   CC.s69="é˜¿æœ±"
-   CC.s70="é˜¿æœ± "
-   CC.s71="æ˜¯å¦è§‚çœ‹åºå¹•äº‹ä»¶"
-   CC.s72="åœ¨å¼€å§‹æ¸¸æˆå‰ï¼Œæœ‰ä»¶äº‹å…ˆè¯´æ˜Žä¸€ä¸‹ï¼šï¼¨ï¼˜ï¼§è¿™ä¸ªæ¸¸æˆæ˜¯é’ˆå¯¹éª¨ç°çº§çŽ©å®¶æ¥åˆ¶ä½œçš„ï¼Œéš¾åº¦ç”šé«˜ï¼ä¸é€‚åˆä¸€èˆ¬çŽ©å®¶ï¼æ‰€ä»¥ï¼Œå¦‚æžœå¯¹çŽ©æ¸¸æˆæ²¡æœ‰è¶³å¤Ÿçš„è€å¿ƒå’Œé’»ç ”ç²¾ç¥žï¼Œè¯·é€‰æ‹©é€€å‡ºæ¸¸æˆï¼"
-   CC.s73="ï¼˜ï¼§å¦‚æžœé€‰æ‹©äº†ç»§ç»­ï¼Œé‚£ä¹ˆå°±è¯·ä¸è¦æŠ±æ€¨éš¾åº¦é«˜ï¼åˆ¶ä½œè€…æ˜¯ä¸ªæš´è„¾æ°”ï¼Œä¸è€çƒ¦å¬è¿™äº›åºŸè¯ï¼è°¢è°¢åˆä½œï¼æŽ¥ä¸‹æ¥ï¼Œè¯·é€‰æ‹©--"
-   CC.s74="æ˜¯å¦é€€å‡ºæ¸¸æˆ"
+   CC.s11="£±ÎÒµÄÊÀ½çÎÒ×÷Ö÷"
+   CC.s12="£±ÏëÍæÄãÐÄÖÐµÄ½­ºþ£ÈÄÇ¾ÍËµ³öËüµÄÄ£Ñù£È°Ù»¨¹È¹§ºò´ó¼Ý"
+   CC.s13="£±Äã»¹ÊÇÖØÑ¡°É£¬Å¼µÄÄÜÁ¦ÏÖÔÚ±»·âÓ¡ÁË£¬ÎÞ·¨³É³¤£¬ÎØÎØ......"
+   CC.s14="ÇëÑ¡ÔñÖ÷½ÇµÄÌì¸³ÄÜÁ¦"
+   CC.s15="È­ÕÆ¹¦·ò"
+   CC.s16="Óù½£ÄÜÁ¦"
+   CC.s17="Ë£µ¶¼¼ÇÉ"
+   CC.s18="ÌØÊâ±øÆ÷"
+   CC.s19="ÄÚÁ¦×î´óÖµ"
+   CC.s20="ÄÚÁ¦ÐÔÖÊ"
+   CC.s21="Æ·µÂ"
+   CC.s22="£±Ó¯Ó¯£¬ÄãÏÈÍËÏÂ£¡Îª¸¸À´»á»áÄã¶«·½°¢ÒÌ£¬¹þ¹þ¹þ----"
+   CC.s23="ÐÕÃû"
+   CC.s24="Ìì¸³£º"
+   CC.s25="³ÆºÅ£º"
+   CC.s26="¹¥»÷Á¦"
+   CC.s27="·ÀÓùÁ¦"
+   CC.s28="Çá¹¦"
+   CC.s29="ÖÜÄ¿½±Àø"
+   CC.s30="ÐÂ¡¤²ÔÁú°ë¼´Ê±Ìì¸³³ÆºÅ°æ"
+   CC.s31="ÐÁÃ®0415°æ"
+   CC.s32="ÖÜÄ¿"
+   CC.s33="ÕûÀíÍê±Ï"
+   CC.s34="Òª»»ÄÄÎ»¶ÓÔ±µÄÎ»ÖÃ"
+   CC.s35="Ö÷½Ç²»ÄÜ»»Î»"
+   CC.s36="ÒªºÍÄÄÎ»¶ÓÔ±Ìæ»»"
+   CC.s37="¶ÓÎé"
+   CC.s38="ÎÞ·¨Ñ¡Ôñ´Ë½ÇÉ«½øÐÐÓÎÏ·"
+   CC.s39="Ê±Ðò"
+   CC.s40="¡¾Ñ×Ö®ÔËÊÖ¡¿ÖÆ×÷×é³öÆ·"
+   CC.s41="ÎÒÈ¥´óÌü¿´¿´"
+   CC.s42="£Ç£±Ãî·çÊ¹£¡"
+   CC.s43="£Ç£±Á÷ÔÆÊ¹£¡"
+   CC.s44="£Ç£±»ÔÔÂÊ¹£¡£ÈÊ¥»ðÈý¾øÕó£¡"  
+   CC.s45="·çÔÆÔÙÆð"
+   CC.s46="³ÉÔ±£ºË®¾µËÄÆæ  qiu001  tsmdsyp"
+   CC.s47="£±£¨ÕâÐ¡×ÓÀ´ÕâÀï×öÊ²Ã´£¿ÏëÕÒ°³ÃÇÅãËûÁ·¹¦£¿Ëû¼ÒÀï²»ÊÇÓÐÁ½Î»¾ÞÏÀ×öÅãÁ·Âð£¡²»¸úËûÍæÁË£©£ÐÉÙÏÀÎä¹¦¸ßÇ¿£¬Ð¡ÈË²»ÊÇ¶ÔÊÖ£¡"
+   CC.s48="£±£¨àÅ£¬Ã»¹¦·ò¸úÕâÐ¡×Ó¾À²øÁË£©£Ð¹þ¹þ¹þ£¬Ð¡×Ó£¬ËãÄã×ßÔË£¡ÀÏ·ò»¹ÓÐÒªÊÂ´ý°ì£¬Õâ´Î¾Í·ÅÄãÒ»Âí£¡"
+   CC.s49="²»ºÃ£¡ÓÐÂñ·ü----"
+   CC.s50="ÎÞÃûµ¶Æ×"
+   CC.s51="ÎÞÃûµ¶·¨"
+   CC.s52="£±àÅ£¬£ÒÎÞÃûµ¶Æ×£×£¹£­£­£­£­£­£­£È£×¿´À´ÕâÊÇÒ»±¾¼ÇÔØ×ÅÒ»Ì×¾øÊÀÎÞË«Ö®µ¶·¨µÄ¹ÅÊé£¡ÎÒµÃºÃºÃÑÐ¾¿Ò»ÏÂÕâÌ×Îä¹¦£¡"
+   CC.s53="µ¶"
+   CC.s54="µÀµÂ:%d ÒøÁ½:%d"
+   CC.s55="ÓÎÏ·Ê±¼ä:%2dÊ±%2d·Ö"
+   CC.s56="¸ÐÐ»ÏÂÔØ£ÒÑ×Ö®ÔËÊÖÖÆ×÷×é£×³öÆ·µÄ£È£ÇÐÂ²ÔÁúÖðÈÕ°ë¼´Ê±Ìì¸³³ÆºÅ°æ£×£¡£ÈÑ¡ÔñÖØÐÂ¿ªÊ¼¿É½øÐÐÏÂÒ»ÖÜÄ¿µÄÓÎÏ·£¡"
+   CC.s57="Ñ×Ö®Ó¢ÐÛ"
+   CC.s58="Ð¡Ð¡Öí"
+   CC.s59="Âí³µ´«ËÍ"
+   CC.s60="ÉÙÏÀÏëÈ¥Ê²Ã´µØ·½£¿"
+   CC.s61="ÁÐ±íÑ¡Ôñ"
+   CC.s62="ÊÖ¶¯ÊäÈë"
+   CC.s63="£±£Ò±§Ç¸£¬ÏÖÔÚÎÞ·¨È¥ÄÇÀï£¡"
+   CC.s64="³µ·ò"
+   CC.s65="¿ìËÙÐÐ×ß"
+   CC.s66="ÂýËÙÐÐ×ß"
+   CC.s67="ÐëÃÖÉ½ÉñÕÆ"
+   CC.s68="ÐÕÃû"
+   CC.s69="°¢Öì"
+   CC.s70="°¢Öì "
+   CC.s71="ÊÇ·ñ¹Û¿´ÐòÄ»ÊÂ¼þ"
+   CC.s72="ÔÚ¿ªÊ¼ÓÎÏ·Ç°£¬ÓÐ¼þÊÂÏÈËµÃ÷Ò»ÏÂ£º£È£¸£ÇÕâ¸öÓÎÏ·ÊÇÕë¶Ô¹Ç»Ò¼¶Íæ¼ÒÀ´ÖÆ×÷µÄ£¬ÄÑ¶ÈÉõ¸ß£¡²»ÊÊºÏÒ»°ãÍæ¼Ò£¡ËùÒÔ£¬Èç¹û¶ÔÍæÓÎÏ·Ã»ÓÐ×ã¹»µÄÄÍÐÄºÍ×êÑÐ¾«Éñ£¬ÇëÑ¡ÔñÍË³öÓÎÏ·£¡"
+   CC.s73="£¸£ÇÈç¹ûÑ¡ÔñÁË¼ÌÐø£¬ÄÇÃ´¾ÍÇë²»Òª±§Ô¹ÄÑ¶È¸ß£¡ÖÆ×÷ÕßÊÇ¸ö±©Æ¢Æø£¬²»ÄÍ·³ÌýÕâÐ©·Ï»°£¡Ð»Ð»ºÏ×÷£¡½ÓÏÂÀ´£¬ÇëÑ¡Ôñ--"
+   CC.s74="ÊÇ·ñÍË³öÓÎÏ·"
    
    
    CC.EVB={};
-   CC.EVB[1]="äººX1"
-   CC.EVB[2]="äººY1"
-   CC.EVB[3]="äººæ–¹å‘"  
-   CC.EVB[4]="æ­¦å…·å•†"
-   CC.EVB[5]="ç‰©å“"
-   CC.EVB[6]="ç‰©å“æ•°é‡"
-   CC.EVB[7]="åç§°"
-   CC.EVB[8]="ç¡®å®šå–å‡º"
-   CC.EVB[9]="åŠ æ”»å‡»åŠ›"
-   CC.EVB[10]="åŠ é˜²å¾¡åŠ›"
-   CC.EVB[11]="ï¼‘æƒ³å–å‡ºå“ªä»¶æ­¦å…·ï¼Ÿ"
-   CC.EVB[12]="åŠ è½»åŠŸ"
-   CC.EVB[13]="ï¼‘æƒ³å–å‡ºå“ªæœ¬ç§˜ç±ï¼Ÿ"
-   CC.EVB[14]="ç§˜ç±å•†"
-   CC.EVB[15]="ä½¿ç”¨äºº"
-   CC.EVB[16]="éœ€ç»éªŒ"
-   CC.EVB[17]="ï¼‘çº¹é“¶ä¸€åƒä¸¤ä¹°è¯æ50ä¸ªï¼"
-   CC.EVB[18]="è¯æå•†"
-   CC.EVB[19]="è¦ä¹°è¯æå—ï¼Ÿ"
-   CC.EVB[20]="ï¼‘ä¸‹æ¬¡å†è¯´å§"
-   CC.EVB[21]="ï¼‘ä½ çš„é’±ä¸å¤Ÿï¼"
-   CC.EVB[22]="ï¼‘çº¹é“¶ä¸€åƒä¸¤ä¹°é£Ÿæ30ä¸ªï¼"
-   CC.EVB[23]="é£Ÿæå•†"
-   CC.EVB[24]="è¦ä¹°é£Ÿæå—ï¼Ÿ"
-        CC.EVB1="äººX1"
-		CC.EVB2="äººY1"
-		CC.EVB3="äººæ–¹å‘"
-		CC.EVB4="ï¼‘å’¦ï¼Œæœ‰å¼ çº¸æ¡......ï¼¨ï¼ˆå°å­ï¼Œè¿™æ˜¯ç•™ç»™ä½ çš„äº”åƒä¸¤é“¶å­ï¼Œå¥½å¥½å‡†å¤‡ä¸€ä¸‹å§ï¼‰ï¼¨å“ˆï¼Œé‚£è€å®¶ä¼™è¿˜å¾ˆå¤Ÿæ„æ€å˜›ï¼"
-		CC.EVB5="æ­¦åŠŸç­‰çº§1"
-		CC.EVB6="ï¼‘è‹—å¤§ä¾ ï¼Œæˆ‘å·²ç»æ‰¾åˆ°é›ªå±±é£žç‹è¿™æœ¬ä¹¦äº†"
-		CC.EVB7="ï¼‘å—¯ï¼Œå¾ˆå¥½ï¼çœ‹æ¥ä½ çš„èƒ¡å®¶åˆ€æ³•ä¹Ÿå·²ç»ƒå¾—ç‚‰ç«çº¯é’äº†ï¼Œä»¥åŽçš„æ±Ÿæ¹–å°±çœ‹ä½ ä»¬è¿™äº›å¹´è½»äººçš„äº†ï¼è¿™æœ¬è‹—å®¶å‰‘æ³•ä½ æ‹¿åŽ»å§ï¼"
-		CC.EVB8="ï¼‘å¤šè°¢è‹—å¤§ä¾ ï¼"
-		CC.EVB9="æ­¦åŠŸ"
-		CC.EVB10="æ­¦åŠŸç­‰çº§"
-		CC.EVB11="èƒ¡æ–å­¦ä¼šè‹—å®¶å‰‘æ³•"
-		CC.EVB12="ç‰©å“"
-		CC.EVB13="ï¼‘é›•å…„ï¼ï¼ï¼ŒçœŸæƒ³è§è¯†ä¸€ä¸‹ç‹¬å­¤å‰è¾ˆçš„é£Žé‡‡å•Šï¼æœ€è¿‘æ€»æ„Ÿè§‰åˆ°å¯¹ä¹å‰‘æœ‰äº†æ–°çš„é¢†æ‚Ÿï¼Œä½†åˆå¾ˆæ¨¡ç³Šï¼Œä¸èƒ½å…·ä½“æ€»ç»“å‡ºæ¥ï¼"
-		CC.EVB14="ï¼‘å“ˆå“ˆï¼ï¼ï¼ï¼ï¼Œæ˜¯æ—¶å€™äº†ï¼"
-		CC.EVB15="ï¼‘é£Žå¤ªå¸ˆå”ï¼ï¼ï¼"
-		CC.EVB16="ï¼”å†²å„¿ï¼Œè·Ÿæˆ‘ä¸€èµ·å”±ï¼šæ²§æµ·ä¸€å£°ç¬‘ã€€æ»”æ»”ä¸¤å²¸æ½®ã€€æµ®æ²‰éšæµªåªè®°ä»Šæœã€€è‹å¤©ç¬‘ã€€çº·çº·ä¸–ä¸Šæ½®ã€€è°è´Ÿè°èƒœå‡ºå¤©çŸ¥æ™“ã€€æ±Ÿå±±ç¬‘ã€€çƒŸé›¨é¥ã€€æ¶›æµªæ·˜å°½çº¢å°˜ä¿—äº‹çŸ¥å¤šå°‘ã€€æ¸…é£Žç¬‘ç«Ÿæƒ¹å¯‚å¯¥ã€€è±ªæƒ…è¿˜å‰©ä¸€è¥Ÿæ™šç…§ã€€è‹ç”Ÿç¬‘ã€€ä¸å†å¯‚å¯¥ã€€è±ªæƒ…ä»åœ¨ç—´ç—´ç¬‘ç¬‘"
-		CC.EVB17="ï¼‘å†²å„¿ï¼Œä¹å‰‘çš„æžæ„å°±éšè—åœ¨è¿™é¦–æ­Œä¸­ï¼Œè‡ªå·²å¥½å¥½åŽ»ä½“ä¼šå§ï¼è€å¤«å¿ƒæ„¿å·²äº†ï¼Œä»Žæ­¤å†æ— ç‰µæŒ‚ï¼Œå°±æ­¤åŽ»ä¹Ÿï¼Œå“ˆå“ˆï¼ï¼ï¼ï¼"
-		CC.EVB18="ï¼‘å¤šè°¢å¤ªå¸ˆå”ä¼ å‰‘ï¼Œä½ è€äººå®¶å¤šä¿é‡ï¼å—¯ï¼Œå°±åœ¨è¿™é‡Œå‚æ‚Ÿä¹å‰‘çš„å¥¥ä¹‰å§ï¼ï¼ï¼ï¼"
-		CC.EVB19="ä¸‰æ—¥åŽ"
-		CC.EVB20="ï¼‘æˆäº†ï¼è¿™æ‰æ˜¯çœŸæ­£çš„ç‹¬å­¤ä¹å‰‘å•Šï¼æ­¤ç”Ÿæœ‰å¹¸èƒ½å­¦åˆ°ç‹¬å­¤å‰è¾ˆä¹‹ç¥žæŠ€ï¼Œå¤«å¤ä½•æ†¾ï¼"
-		CC.EVB21="ä»¤ç‹å†²é¢†æ‚Ÿä¹å‰‘ä¹‹ç§˜ä¼ "
-		CC.EVB22="ä»¤ç‹å†²ç§°å·å˜æ”¹"
-		CC.EVB23="ï¼‘ç»™ä½ äººå¤´ï¼"
-		CC.EVB24="ï¼‘ç»™ä½ ä¹¦ï¼"
-		CC.EVB25="ï¼‘ä½ å¥½ï¼Œå¶æ˜¯æ¥è‡ªæœªæ¥çš„è½¯ä½“å¨ƒå¨ƒï¼å¶çš„ä»»åŠ¡æ˜¯è®©åœ¨ä½ èº«ä½“é‡Œæ²‰ç¡çš„åŠ›é‡è§‰é†’ï¼"
-		CC.EVB26="è½¯ä½“å¨ƒå¨ƒ"
-		CC.EVB27="ï¼‘å¾ˆå¥½ï¼Œä½ å·²ç»å…·å¤‡è§‰é†’çš„æ¡ä»¶äº†ï¼ï¼¨å¶ç»™ä½ çœ‹ç‚¹å¥½ä¸œè¥¿å§ï¼ï¼ï¼ï¼"
-		CC.EVB28="æ˜¯å¦è¦è§‚çœ‹æˆ˜æ–—å½±åƒï¼Ÿ"
-		CC.EVB29="æºå¸¦ç‰©å“1"
-		CC.EVB30="æºå¸¦ç‰©å“2"
-		CC.EVB31="æºå¸¦ç‰©å“3"
-		CC.EVB32="æºå¸¦ç‰©å“4"
-		CC.EVB33="ï¼‘æœ€å¼ºäººç‰©æ¨¡æ‹Ÿæˆ˜æ–—å½±åƒï¼ï¼ï¼ï¼ï¼¨ç¬¬ä¸€åœºï¼šå¼ ä¸‰ä¸°å¯¹å†³ä¸œæ–¹ä¸è´¥"
-		CC.EVB34="ï¼‘æœ€å¼ºäººç‰©æ¨¡æ‹Ÿæˆ˜æ–—å½±åƒï¼ï¼ï¼ï¼ï¼¨ç¬¬äºŒåœºï¼šå¼ ä¸‰ä¸°å¯¹å†³æ‰«åœ°ç¥žåƒ§"
-		CC.EVB35="ï¼‘æœ€å¼ºäººç‰©æ¨¡æ‹Ÿæˆ˜æ–—å½±åƒï¼ï¼ï¼ï¼ï¼¨ç¬¬ä¸‰åœºï¼šå¼ ä¸‰ä¸°å¯¹å†³è§å³°"
-		CC.EVB36="ï¼‘æœ€å¼ºäººç‰©æ¨¡æ‹Ÿæˆ˜æ–—å½±åƒï¼ï¼ï¼ï¼ï¼¨ç¬¬å››åœºï¼šä¸œæ–¹ä¸è´¥å¯¹å†³è§å³°"
-		CC.EVB37="ï¼‘æœ€å¼ºäººç‰©æ¨¡æ‹Ÿæˆ˜æ–—å½±åƒï¼ï¼ï¼ï¼ï¼¨ç¬¬äº”åœºï¼šä¸œæ–¹ä¸è´¥å¯¹å†³æ‰«åœ°ç¥žåƒ§"
-		CC.EVB38="ï¼‘æœ€å¼ºäººç‰©æ¨¡æ‹Ÿæˆ˜æ–—å½±åƒï¼ï¼ï¼ï¼ï¼¨ç¬¬å…­åœºï¼šè§å³°å¯¹å†³æ‰«åœ°ç¥žåƒ§"
-		CC.EVB39="ï¼‘å¤ªå¼ºäº†ï¼æˆ‘å¥½åƒé¢†æ‚Ÿåˆ°ä»€ä¹ˆäº†.........."
-		CC.EVB40="æ­¦åŠŸ2"
-		CC.EVB41="æ­¦åŠŸç­‰çº§2"
-		CC.EVB42="åç§°"
-		CC.EVB43="é£Žæž—ç«å±±åŠŸ"
-		CC.EVB44="æ”»å‡»åŠ›10"
-		CC.EVB45="æ­¦åŠŸåŠ¨ç”»&éŸ³æ•ˆ"
-		CC.EVB46="ä¸»è§’å­¦ä¼šç»æŠ€--é£Žæž—ç«å±±åŠŸ"
-		CC.EVB47="ä¸»è§’èŽ·å¾—ç§°å·--è§‰é†’ä¹‹è‹é¾™"
-		CC.EVB48="ï¼‘å…¶å®žä½ çš„åŠ›é‡è¿˜å¯ä»¥è¿›ä¸€æ­¥è§‰é†’ï¼è¦æƒ³å¾—åˆ°æœ€åŽçš„èƒ½åŠ›ï¼Œå°±åŽ»è§é‚£ä¸ªäººå§ï¼å¶å·²ç»æŠŠå°å°ä¹‹å·è½´äº¤ç»™ä»–äº†ï¼ä»–ä¼šæŒ‡å¼•ä½ å®Œæˆæœ€åŽçš„è¯•ç‚¼ï¼"
-		CC.EVB49="ä¸»è§’æ”»é˜²è½»èƒ½åŠ›å„æå‡30ç‚¹"
-		CC.EVB50="ï¼‘å¾ˆå¥½ï¼Œå¶çš„ä»»åŠ¡å®Œæˆäº†ï¼Œå†è§ï¼"
-		CC.EVB51="ï¼‘å—¯ï¼Œå¥½åƒè¿˜ä¸æ˜¯æ—¶å€™ï¼Œå†åŽ»æ±Ÿæ¹–ä¸Šé—¯è¡ä¸€ç•ªå†æ¥å§ï¼"
-		CC.EVB52="ï¼‘ä½ ç»ˆäºŽæ¥äº†ï¼å¾ˆç®€å•ï¼Œæˆ˜èƒœè€å¤«ï¼Œå³å¯å¾—åˆ°æœ€åŽçš„åŠ›é‡ï¼å‡†å¤‡å¥½äº†å—ï¼Ÿ"
-	   CC.EVB53="ï¼‘ï¼²ï¼ˆ......ä¹Ÿä¸çŸ¥é“é‚£ä¸ªé˜®å¨²ä¸ºä»€ä¹ˆè¦è€å¤«è·Ÿè¿™å°å­è¿‡ä¸¤æ‹›ï¼åªå¬å¥¹è¯´åœ¨å¥¹å’Œè¿™å°å­çš„é‚£ä¸ªç©ºé—´ä¸­æœ‰å¾ˆå¤šäººè§‰å¾—è€å¤«å¾ˆå¼±ï¼ä¹Ÿç½¢ï¼Œé‚£å°±æ¥çŽ©çŽ©å§ï¼ï¼‰"
-	   CC.EVB54="è¦æŒ‘æˆ˜å—ï¼Ÿ"
-	   CC.EVB55="ï¼‘å¥½åŠŸå¤«ï¼è¿™æ˜¯é˜®å¨²ç•™ç»™ä½ çš„å·è½´ï¼Œæ‹¿åŽ»å§ï¼"
-	   CC.EVB56="ï¼‘å‘¼ï¼Œç»ˆäºŽåˆ°æ‰‹äº†ï¼çœŸä¸å®¹æ˜“å•Šï¼è¿™è€é“åŠŸå¤«çš„ç¡®äº†å¾—ï¼çœ‹çœ‹è¿™å·è½´çš„å†…å®¹----"
-	   CC.EVB57="ï¼™............ï¼˜..........ï¼—..........ï¼–..........ï¼•..........ï¼”..........ï¼“..........ï¼’..........ï¼‘æˆ‘æ‡‚äº†ï¼ï¼ï¼"
-	   CC.EVB58="%sé¢†æ‚Ÿå…­å¦‚è‹é¾™è¯€"
-	   CC.EVB59="å§“å"
-	   CC.EVB60="åç§°"
-	   CC.EVB61="å…­å¦‚è‹é¾™è¯€"
-	   CC.EVB62="æ”»å‡»åŠ›10"
-	   CC.EVB63="ï¼‘è¡Œäº†ï¼Œä½ å·²ç»é¢†æ‚Ÿäº†ï¼ç»§ç»­åŽ»å®Œæˆä½ çš„ä½¿å‘½å§ï¼"
-	   CC.EVB64="ï¼‘è¿˜ç¼ºç‚¹ç«å€™ï¼Œä¸‹æ¬¡å†æ¥å§ï¼"
-	   CC.EVB65="ï¼‘éšæ—¶å¯ä»¥å†æ¥ï¼è€å¤«æ­å€™ï¼"
-	   CC.EVB66="ï¼‘æ˜¯å¦æƒ³ç›´æŽ¥æŒ‘æˆ˜åäº”å¤§é«˜æ‰‹ï¼Ÿ"
-	   CC.EVB67="è¦ç›´æŽ¥æŒ‘æˆ˜å—ï¼Ÿ"
-	   CC.EVB68="å“å¾·"
-	   CC.EVB69="ï¼‘æ­å–œä½ æˆ˜èƒœäº†åäº”å¤§ï¼Œé‚£ä¹ˆï¼ï¼ï¼ï¼"
-	   CC.EVB70="ï¼‘æ²¡å…³ç³»ï¼Œå†åŽ»å¥½å¥½å‡†å¤‡ä¸€ä¸‹å§ï¼"
-	   CC.EVB71="ï¼‘é‚£å°±è¯·ä¸Šæ“‚å°å§ï¼"
+   CC.EVB[1]="ÈËX1"
+   CC.EVB[2]="ÈËY1"
+   CC.EVB[3]="ÈË·½Ïò"  
+   CC.EVB[4]="Îä¾ßÉÌ"
+   CC.EVB[5]="ÎïÆ·"
+   CC.EVB[6]="ÎïÆ·ÊýÁ¿"
+   CC.EVB[7]="Ãû³Æ"
+   CC.EVB[8]="È·¶¨Âô³ö"
+   CC.EVB[9]="¼Ó¹¥»÷Á¦"
+   CC.EVB[10]="¼Ó·ÀÓùÁ¦"
+   CC.EVB[11]="£±ÏëÂô³öÄÄ¼þÎä¾ß£¿"
+   CC.EVB[12]="¼ÓÇá¹¦"
+   CC.EVB[13]="£±ÏëÂô³öÄÄ±¾ÃØ¼®£¿"
+   CC.EVB[14]="ÃØ¼®ÉÌ"
+   CC.EVB[15]="Ê¹ÓÃÈË"
+   CC.EVB[16]="Ðè¾­Ñé"
+   CC.EVB[17]="£±ÎÆÒøÒ»Ç§Á½ÂòÒ©²Ä50¸ö£¡"
+   CC.EVB[18]="Ò©²ÄÉÌ"
+   CC.EVB[19]="ÒªÂòÒ©²ÄÂð£¿"
+   CC.EVB[20]="£±ÏÂ´ÎÔÙËµ°É"
+   CC.EVB[21]="£±ÄãµÄÇ®²»¹»£¡"
+   CC.EVB[22]="£±ÎÆÒøÒ»Ç§Á½ÂòÊ³²Ä30¸ö£¡"
+   CC.EVB[23]="Ê³²ÄÉÌ"
+   CC.EVB[24]="ÒªÂòÊ³²ÄÂð£¿"
+        CC.EVB1="ÈËX1"
+		CC.EVB2="ÈËY1"
+		CC.EVB3="ÈË·½Ïò"
+		CC.EVB4="£±ß×£¬ÓÐÕÅÖ½Ìõ......£È£¨Ð¡×Ó£¬ÕâÊÇÁô¸øÄãµÄÎåÇ§Á½Òø×Ó£¬ºÃºÃ×¼±¸Ò»ÏÂ°É£©£È¹þ£¬ÄÇÀÏ¼Ò»ï»¹ºÜ¹»ÒâË¼Âï£¡"
+		CC.EVB5="Îä¹¦µÈ¼¶1"
+		CC.EVB6="£±Ãç´óÏÀ£¬ÎÒÒÑ¾­ÕÒµ½Ñ©É½·ÉºüÕâ±¾ÊéÁË"
+		CC.EVB7="£±àÅ£¬ºÜºÃ£¡¿´À´ÄãµÄºú¼Òµ¶·¨Ò²ÒÑÁ·µÃÂ¯»ð´¿ÇàÁË£¬ÒÔºóµÄ½­ºþ¾Í¿´ÄãÃÇÕâÐ©ÄêÇáÈËµÄÁË£¡Õâ±¾Ãç¼Ò½£·¨ÄãÄÃÈ¥°É£¡"
+		CC.EVB8="£±¶àÐ»Ãç´óÏÀ£¡"
+		CC.EVB9="Îä¹¦"
+		CC.EVB10="Îä¹¦µÈ¼¶"
+		CC.EVB11="ºúì³Ñ§»áÃç¼Ò½£·¨"
+		CC.EVB12="ÎïÆ·"
+		CC.EVB13="£±µñÐÖ£­£­£¬ÕæÏë¼ûÊ¶Ò»ÏÂ¶À¹ÂÇ°±²µÄ·ç²É°¡£¡×î½ü×Ü¸Ð¾õµ½¶Ô¾Å½£ÓÐÁËÐÂµÄÁìÎò£¬µ«ÓÖºÜÄ£ºý£¬²»ÄÜ¾ßÌå×Ü½á³öÀ´£¡"
+		CC.EVB14="£±¹þ¹þ£­£­£­£­£¬ÊÇÊ±ºòÁË£¡"
+		CC.EVB15="£±·çÌ«Ê¦Êå£¡£¡£¡"
+		CC.EVB16="£´³å¶ù£¬¸úÎÒÒ»Æð³ª£º²×º£Ò»ÉùÐ¦¡¡ÌÏÌÏÁ½°¶³±¡¡¸¡³ÁËæÀËÖ»¼Ç½ñ³¯¡¡²ÔÌìÐ¦¡¡·×·×ÊÀÉÏ³±¡¡Ë­¸ºË­Ê¤³öÌìÖªÏþ¡¡½­É½Ð¦¡¡ÑÌÓêÒ£¡¡ÌÎÀËÌÔ¾¡ºì³¾Ë×ÊÂÖª¶àÉÙ¡¡Çå·çÐ¦¾¹ÈÇ¼ÅÁÈ¡¡ºÀÇé»¹Ê£Ò»½óÍíÕÕ¡¡²ÔÉúÐ¦¡¡²»ÔÙ¼ÅÁÈ¡¡ºÀÇéÈÔÔÚ³Õ³ÕÐ¦Ð¦"
+		CC.EVB17="£±³å¶ù£¬¾Å½£µÄ¼«Òâ¾ÍÒþ²ØÔÚÕâÊ×¸èÖÐ£¬×ÔÒÑºÃºÃÈ¥Ìå»á°É£¡ÀÏ·òÐÄÔ¸ÒÑÁË£¬´Ó´ËÔÙÎÞÇ£¹Ò£¬¾Í´ËÈ¥Ò²£¬¹þ¹þ£­£­£­£­"
+		CC.EVB18="£±¶àÐ»Ì«Ê¦Êå´«½££¬ÄãÀÏÈË¼Ò¶à±£ÖØ£¡àÅ£¬¾ÍÔÚÕâÀï²ÎÎò¾Å½£µÄ°ÂÒå°É£­£­£­£­"
+		CC.EVB19="ÈýÈÕºó"
+		CC.EVB20="£±³ÉÁË£¡Õâ²ÅÊÇÕæÕýµÄ¶À¹Â¾Å½£°¡£¡´ËÉúÓÐÐÒÄÜÑ§µ½¶À¹ÂÇ°±²Ö®Éñ¼¼£¬·ò¸´ºÎº¶£¡"
+		CC.EVB21="Áîºü³åÁìÎò¾Å½£Ö®ÃØ´«"
+		CC.EVB22="Áîºü³å³ÆºÅ±ä¸Ä"
+		CC.EVB23="£±¸øÄãÈËÍ·£¡"
+		CC.EVB24="£±¸øÄãÊé£¡"
+		CC.EVB25="£±ÄãºÃ£¬Å¼ÊÇÀ´×ÔÎ´À´µÄÈíÌåÍÞÍÞ£¡Å¼µÄÈÎÎñÊÇÈÃÔÚÄãÉíÌåÀï³ÁË¯µÄÁ¦Á¿¾õÐÑ£¡"
+		CC.EVB26="ÈíÌåÍÞÍÞ"
+		CC.EVB27="£±ºÜºÃ£¬ÄãÒÑ¾­¾ß±¸¾õÐÑµÄÌõ¼þÁË£¡£ÈÅ¼¸øÄã¿´µãºÃ¶«Î÷°É£­£­£­£­"
+		CC.EVB28="ÊÇ·ñÒª¹Û¿´Õ½¶·Ó°Ïñ£¿"
+		CC.EVB29="Ð¯´øÎïÆ·1"
+		CC.EVB30="Ð¯´øÎïÆ·2"
+		CC.EVB31="Ð¯´øÎïÆ·3"
+		CC.EVB32="Ð¯´øÎïÆ·4"
+		CC.EVB33="£±×îÇ¿ÈËÎïÄ£ÄâÕ½¶·Ó°Ïñ£­£­£­£­£ÈµÚÒ»³¡£ºÕÅÈý·á¶Ô¾ö¶«·½²»°Ü"
+		CC.EVB34="£±×îÇ¿ÈËÎïÄ£ÄâÕ½¶·Ó°Ïñ£­£­£­£­£ÈµÚ¶þ³¡£ºÕÅÈý·á¶Ô¾öÉ¨µØÉñÉ®"
+		CC.EVB35="£±×îÇ¿ÈËÎïÄ£ÄâÕ½¶·Ó°Ïñ£­£­£­£­£ÈµÚÈý³¡£ºÕÅÈý·á¶Ô¾öÏô·å"
+		CC.EVB36="£±×îÇ¿ÈËÎïÄ£ÄâÕ½¶·Ó°Ïñ£­£­£­£­£ÈµÚËÄ³¡£º¶«·½²»°Ü¶Ô¾öÏô·å"
+		CC.EVB37="£±×îÇ¿ÈËÎïÄ£ÄâÕ½¶·Ó°Ïñ£­£­£­£­£ÈµÚÎå³¡£º¶«·½²»°Ü¶Ô¾öÉ¨µØÉñÉ®"
+		CC.EVB38="£±×îÇ¿ÈËÎïÄ£ÄâÕ½¶·Ó°Ïñ£­£­£­£­£ÈµÚÁù³¡£ºÏô·å¶Ô¾öÉ¨µØÉñÉ®"
+		CC.EVB39="£±Ì«Ç¿ÁË£¡ÎÒºÃÏñÁìÎòµ½Ê²Ã´ÁË.........."
+		CC.EVB40="Îä¹¦2"
+		CC.EVB41="Îä¹¦µÈ¼¶2"
+		CC.EVB42="Ãû³Æ"
+		CC.EVB43="·çÁÖ»ðÉ½¹¦"
+		CC.EVB44="¹¥»÷Á¦10"
+		CC.EVB45="Îä¹¦¶¯»­&ÒôÐ§"
+		CC.EVB46="Ö÷½ÇÑ§»á¾ø¼¼--·çÁÖ»ðÉ½¹¦"
+		CC.EVB47="Ö÷½Ç»ñµÃ³ÆºÅ--¾õÐÑÖ®²ÔÁú"
+		CC.EVB48="£±ÆäÊµÄãµÄÁ¦Á¿»¹¿ÉÒÔ½øÒ»²½¾õÐÑ£¡ÒªÏëµÃµ½×îºóµÄÄÜÁ¦£¬¾ÍÈ¥¼ûÄÇ¸öÈË°É£¡Å¼ÒÑ¾­°Ñ·âÓ¡Ö®¾íÖá½»¸øËûÁË£¡Ëû»áÖ¸ÒýÄãÍê³É×îºóµÄÊÔÁ¶£¡"
+		CC.EVB49="Ö÷½Ç¹¥·ÀÇáÄÜÁ¦¸÷ÌáÉý30µã"
+		CC.EVB50="£±ºÜºÃ£¬Å¼µÄÈÎÎñÍê³ÉÁË£¬ÔÙ¼û£¡"
+		CC.EVB51="£±àÅ£¬ºÃÏñ»¹²»ÊÇÊ±ºò£¬ÔÙÈ¥½­ºþÉÏ´³µ´Ò»·¬ÔÙÀ´°É£¡"
+		CC.EVB52="£±ÄãÖÕÓÚÀ´ÁË£¡ºÜ¼òµ¥£¬Õ½Ê¤ÀÏ·ò£¬¼´¿ÉµÃµ½×îºóµÄÁ¦Á¿£¡×¼±¸ºÃÁËÂð£¿"
+	   CC.EVB53="£±£Ò£¨......Ò²²»ÖªµÀÄÇ¸öÈîæ´ÎªÊ²Ã´ÒªÀÏ·ò¸úÕâÐ¡×Ó¹ýÁ½ÕÐ£¡Ö»ÌýËýËµÔÚËýºÍÕâÐ¡×ÓµÄÄÇ¸ö¿Õ¼äÖÐÓÐºÜ¶àÈË¾õµÃÀÏ·òºÜÈõ£¡Ò²°Õ£¬ÄÇ¾ÍÀ´ÍæÍæ°É£¡£©"
+	   CC.EVB54="ÒªÌôÕ½Âð£¿"
+	   CC.EVB55="£±ºÃ¹¦·ò£¡ÕâÊÇÈîæ´Áô¸øÄãµÄ¾íÖá£¬ÄÃÈ¥°É£¡"
+	   CC.EVB56="£±ºô£¬ÖÕÓÚµ½ÊÖÁË£¡Õæ²»ÈÝÒ×°¡£¡ÕâÀÏµÀ¹¦·òµÄÈ·ÁËµÃ£¡¿´¿´Õâ¾íÖáµÄÄÚÈÝ----"
+	   CC.EVB57="£¹............£¸..........£·..........£¶..........£µ..........£´..........£³..........£²..........£±ÎÒ¶®ÁË£¡£¡£¡"
+	   CC.EVB58="%sÁìÎòÁùÈç²ÔÁú¾÷"
+	   CC.EVB59="ÐÕÃû"
+	   CC.EVB60="Ãû³Æ"
+	   CC.EVB61="ÁùÈç²ÔÁú¾÷"
+	   CC.EVB62="¹¥»÷Á¦10"
+	   CC.EVB63="£±ÐÐÁË£¬ÄãÒÑ¾­ÁìÎòÁË£¡¼ÌÐøÈ¥Íê³ÉÄãµÄÊ¹Ãü°É£¡"
+	   CC.EVB64="£±»¹È±µã»ðºò£¬ÏÂ´ÎÔÙÀ´°É£¡"
+	   CC.EVB65="£±ËæÊ±¿ÉÒÔÔÙÀ´£¡ÀÏ·ò¹§ºò£¡"
+	   CC.EVB66="£±ÊÇ·ñÏëÖ±½ÓÌôÕ½Ê®Îå´ó¸ßÊÖ£¿"
+	   CC.EVB67="ÒªÖ±½ÓÌôÕ½Âð£¿"
+	   CC.EVB68="Æ·µÂ"
+	   CC.EVB69="£±¹§Ï²ÄãÕ½Ê¤ÁËÊ®Îå´ó£¬ÄÇÃ´£­£­£­£­"
+	   CC.EVB70="£±Ã»¹ØÏµ£¬ÔÙÈ¥ºÃºÃ×¼±¸Ò»ÏÂ°É£¡"
+	   CC.EVB71="£±ÄÇ¾ÍÇëÉÏÀÞÌ¨°É£¡"
 	   CC.EVB72="SYP"
-	   CC.EVB73="ï¼‘ä¸€è·¯æ¥åˆ°è¿™é‡Œï¼ŒçœŸæ˜¯è¾›è‹¦äº†ï¼ï¼¨å¶æ˜¯ sypï¼å¤§è™¾è¯·ä¼‘æ¯ä¸€ä¸‹ï¼Œè®©å¶æ¥å¸®ä½ æ”¾ä¹¦å§ï¼"
-	   CC.EVB74="ï¼‘å¥½äº†ï¼Œå…¶å®ƒçš„ä¹¦éƒ½æ”¾å¥½äº†ï¼è¿™æœ¬å¤©é¾™å…«éƒ¨ä½ è‡ªå·²åŽ»æ”¾å§ï¼Œè¿™æ˜¯å¶æœ€å–œæ¬¢çš„å¤©ä¹¦ï¼å†è§äº†ï¼"
-	   CC.EVB75="æ€§åˆ«"
-	   CC.EVB76="ï¼‘è¾½å›½çš‡å¸è€¶å¾‹æ´ªåŸºå³å°†è¿›å†›ä¸­åŽŸï¼Œè§å¤§å“¥åœ¨å°½åŠ›æƒ³æ³•åŠé˜»ï¼Œæ‰€ä»¥æ— æ³•èµ¶æ¥ç›¸åŠ©ï¼Œè¿™æ˜¯ä»–è®©æˆ‘äº¤ç»™ä½ çš„ä¸œè¥¿"
-	   CC.EVB77="ï¼‘æˆ‘è¦å›žåŽ»å¸®åŠ©è§å¤§å“¥äº†ï¼Œå†è§ï¼"
-	   CC.EVB78="ä½¿ç”¨äºº"
-	   CC.EVB79="æ­¦å™¨"
-	   CC.EVB80="åŠ è½»åŠŸ"
-	   CC.EVB81="åŠ æ”»å‡»åŠ›"
-	   CC.EVB82="æˆ˜æ–—èƒœåˆ©"
-	   CC.EVB83="æˆ˜æ–—å¤±è´¥"
-	   CC.EVB84="ç‰¹æ®Šå¥–åŠ±ï¼šåƒå¹´çµèŠä¸¤æžš"
-	   CC.EVB85="ç‰¹æ®Šå¥–åŠ±ï¼šä¸»è§’å››ç³»å…µå™¨å€¼æå‡åç‚¹"
-	   CC.EVB86="ç‰¹æ®Šå¥–åŠ±ï¼šèŽ·å¾—å¤©çŽ‹ä¿å‘½ä¸¹ä¸¤é¢—"
-	   CC.EVB87="ç‰¹æ®Šå¥–åŠ±ï¼šèŽ·å¾—è›¤èŸ†åŠŸç§˜ç±ä¸€å†Œ"
-	   CC.EVB88="ç‰¹æ®Šå¥–åŠ±ï¼šèŽ·å¾—å¤©å±±é›ªèŽ²ä¸¤æžš"
-	   CC.EVB89="ç‰¹æ®Šå¥–åŠ±ï¼šä¸»è§’æ‹³æŽŒåŠŸå¤«æå‡åç‚¹"
-	   CC.EVB90="ç‰¹æ®Šå¥–åŠ±ï¼šä¸»è§’é˜²å¾¡åŠ›å’Œè½»åŠŸå„æå‡åç‚¹"
-	   CC.EVB91="æ— å¿Œï¼Œå¤ªå¸ˆçˆ¶å†ä¼ ä½ ä¸€å¥—ï¼²å¤ªæžæ‹³å‰‘ï¼·ï¼çœ‹å¥½äº†ï¼"
-	   CC.EVB92="ï¼‘åŽå±±ï¼ŒçœŸæ˜¯ä¸€ç•ªå¥½æ™¯è‡´å•Šï¼çŒ®æ­Œä¸€é¦–ï¼šï¼¨ï¼§å±±ä¸Šçš„å±±èŠ±å„¿å¼€å‘€å˜›æˆ‘æ‰åˆ°å±±ä¸Šæ¥ã€€å°å°çš„ä¸€ç‰‡äº‘å‘€ã€€è¯·ä½ åœä¸‹æ¥ï¼ï¼¨ï¼·å››å¤„è½¬è½¬----"
-	   CC.EVB93="ï¼‘å—¯ï¼ï¼ï¼ï¼ï¼Œå¤´å¥½æ™•ï¼ï¼ï¼"
-	   CC.EVB94="ï¼‘å“ˆå“ˆå“ˆï¼Œè¿™è¥¿å¤çš„ï¼²æ‚²é…¥æ¸…é£Žï¼·æžœç„¶äº†å¾—ï¼æ­¤ç•ªç»ˆäºŽæ‰åˆ°è¿™å°å­äº†ï¼"
-	   CC.EVB95="ï¼‘é€Ÿé€Ÿå°†ä»–äº¤äºˆé‚£äººï¼ŒèŽ·å–æˆ‘ä»¬å„è‡ªæƒ³è¦çš„ä¸œè¥¿ï¼"
-	   CC.EVB96="ï¼‘åŠ¨æ‰‹ï¼"
-	   CC.EVB97="ï¼‘ï¼§è‡ªæ‰“ç›˜å¤å¼€å¤©è¾Ÿåœ°  ä¾ è¡Œå¤©ä¸‹æ˜¯ç¤¼æ˜¯ä¹‰ï¼¨ä¸æˆ˜è€Œèƒœæœ€æ˜¯ç†æƒ³  é—¯è¡æ±Ÿæ¹–èº«ä¸ç”±å·²ï¼°é™¤æš´å®‰è‰¯ä¸€èº«æ­£æ°”ã€€é—¯è¡æ±Ÿæ¹–æ— äººèƒ½æ•Œã€€å“ªæ€•ä¸çŸ¥åŽ»å‘ä½•æ–¹ã€€åŠªåŠ›ä¸‹åŽ»å°±æ˜¯å¸Œæœ›"
-	   CC.EVB98="ï¼‘ä»€ä¹ˆäººï¼Ÿ"
-	   CC.EVB99="ï¼‘å‘µå‘µï¼Œé—®ä¿ºå—ï¼Ÿä¿ºçš„åå­—æ˜¯ï¼™ Sã€€ Yã€€ P"
-	   CC.EVB100="å…«éƒ¨ç¥žå¨ç™»åœº"
-	   CC.EVB101="æ•¬è¯·æœŸå¾…åŽç»­æƒ…èŠ‚"
-	   CC.EVB102="è®ºå‰‘ç»“æŸ"
-	   CC.EVB103="æ­¦åŠŸå¤©ä¸‹ç¬¬ä¸€è€…ï¼š"
-	   CC.EVB104="æ˜¯å¦é€‰ç”¨ç‰¹æ®Šäººç‰©è¿›è¡Œæ¸¸æˆ"
-		CC.EVB105="è¦é€‰æ‹©å“ªä½ç‰¹æ®Šäººç‰©"
-		CC.EVB106="ã€é›¶ã€‘é¢–æ‚Ÿç»ä¼¦&è‹åŠæ— åŒ  *ã€æ°´ã€‘ä¸‡èˆ¬çš†é€š&ç™¾èŠ±è°·ä¸»  *ã€è§ã€‘æ…ˆä¸¥æŽŒå…µ&è¡€ç¿¼å†›ç¥ž  "
-		CC.EVB107="è‹ç‚Žæºç ç‰ˆ"
-		CC.EVB108="é˜¿å¼¥é™€ä½›"
-		CC.EVB109="ä¼ª"
-		CC.EVB110="åŒ–æœ½ä¸ºå¥‡"
-		CC.EVB111="ä¿å­˜è¿›åº¦"
-		CC.EVB112="è¦å°†å½“å‰è¿›åº¦ä¿å­˜åˆ°å“ªä¸ªæ¡£æ¡ˆä¸­ï¼Ÿ"
-		CC.EVB113="å­˜æ¡£å®Œæ¯•"
-		CC.EVB114="è¯»å–è¿›åº¦"
-		CC.EVB115="è¦ä»Žå“ªä¸ªæ¡£æ¡ˆä¸­è¯»å–è¿›åº¦ï¼Ÿ"
-		CC.EVB116="è¯»æ¡£å®Œæ¯•"
-		CC.EVB117="Aï¼šæ”»å‡» Dï¼šé˜²å¾¡ Pï¼šè“„åŠ› Iï¼šç‰©å“ Rï¼šä¼‘æ¯"
-		CC.EVB118="Sï¼šå­˜æ¡£  Lï¼šè¯»æ¡£  Qï¼šé€€å‡º  Iï¼šç‰©å“  Zï¼šçŠ¶æ€"
-		CC.EVB119="F1ï¼šä¼ é€ F2ï¼šèµ°é€Ÿ F3ï¼šé˜Ÿåˆ— F4ï¼šç‰©å“ F5ï¼šå…¨å± F6ï¼šéŸ³ä¹"
-		CC.EVB120="ç‰‡å°¾æ›²ï¼šè‹±é›„æ¢¦"
-		CC.EVB121="æŒ‰ä»»æ„é”®é€€å‡º"
-		CC.EVB122="è¯·é€‰æ‹©"
-		CC.EVB123="æƒ³è¦å“ªç§å±žæ€§çš„å†…åŠ›"
-		CC.EVB124="è¯·è¾“å…¥è§’è‰²çš„èµ„è´¨ èŒƒå›´0-100"
-		CC.EVB125="è¾“å…¥é”™è¯¯ èŒƒå›´0-100 è¯·é‡æ–°è¾“å…¥"
-		CC.EVB126={"é˜´æ€§","é˜³æ€§","è°ƒå’Œ"}
-		CC.EVB127="æƒ³å–å‡ºä»€ä¹ˆç‰©å“ï¼Ÿ"
-		 CC.EVB128="å¤§å•†å®¶"
-		 CC.EVB129="ç¡®å®šè¦å–å‡º"
-		 CC.EVB130="å—ï¼Ÿ"
-		 CC.EVB131="è¯·è¾“å…¥å–å‡ºæ•°é‡"
-		 CC.EVB132="å–å‡ºæ•°é‡è¾“å…¥æœ‰è¯¯"
-		 CC.EVB133="è¿˜æƒ³ç»§ç»­å–å‡ºç‰©å“å—"
-		 CC.EVB134="æœ¬åº—ä¾›åº”é£Ÿæå’Œè¯æï¼ï¼¨é£Ÿæä¸€åƒä¸¤ä¸‰åä¸ªã€€è¯æä¸€åƒä¸¤äº”åä¸ªï¼¨è¦ä¹°ç‚¹å—ï¼Ÿ"
-		 CC.EVB135="è¯·é€‰æ‹©"
-		 CC.EVB136="æœ¬åº—å•†å“ä»·å»‰ç‰©ç¾Žï¼Œå®¢å®˜æƒ³ä¹°ç‚¹ä»€ä¹ˆå—ï¼Ÿ"
-		 CC.EVB137={"é£Ÿæ","è¯æ","ä¸ä¹°"}
-		 CC.EVB138="å…ˆçœ‹çœ‹ï¼Œä¸‹æ¬¡å†æ¥ï¼"
-		 CC.EVB139="æ²¡é’±äº†ï¼Œä»¥åŽå†æ¥ä¹°å§"
-		 CC.EVB140="æ­¤ç‰©å“å·²ç»æœ‰äººä¿®ç‚¼ï¼Œæ˜¯å¦æ¢äººä¿®ç‚¼?"
-		 CC.EVB141="è°è¦ä¿®ç‚¼%s?"
-		 CC.EVB142="ä¸€ä¸ªäººåªèƒ½ä¿®ç‚¼10ç§æ­¦åŠŸ"
-		 CC.EVB143="ï¼•ï¼²æ¬²ç»ƒç¥žåŠŸã€€æŒ¥åˆ€è‡ªå®«"
-		 CC.EVB144="ï¼’è¿™å¤ªæƒ¨äº†å§ï¼å…ˆçœ‹çœ‹å†è¯´....ï¼¨ï¼ˆç¿»åˆ°ä¸‹ä¸€é¡µï¼‰"
-		 CC.EVB145="ï¼•ï¼²è‹¥ä¸è‡ªå®«ã€€ä¹Ÿå¯ç»ƒåŠŸ"
-		 CC.EVB146="ï¼‘å“ˆï¼ŒåŽŸæ¥ä¸è‡ªå®«ä¹Ÿèƒ½ç»ƒå•Šï¼ï¼¨å¤ªæ£’äº†ï¼ï¼ï¼"
-		 CC.EVB147="ä¿®ç‚¼æ­¤ä¹¦å¿…é¡»å…ˆæŒ¥åˆ€è‡ªå®«ï¼Œæ˜¯å¦ä»è¦ä¿®ç‚¼?"
-		 CC.EVB148="æ­¤äººä¸é€‚åˆä¿®ç‚¼æ­¤ç‰©å“"
-		 CC.EVB149="æ­¤ç‰©å“æœ‰äººæ­£åœ¨ä½¿ç”¨ æ— æ³•å–å‡º"
-		 CC.EVB150="è¿™æŠŠé‡‘è›‡å‰‘æ˜¯æœ‰äº§æƒè®¤è¯çš„ï¼Œè¦æƒ³å–å‡ºçš„è¯è¯·å¸¦ç€å®ƒçš„äº§æƒè®¤è¯äººä¸€èµ·æ¥ï¼"
-		 CC.EVB151="è€æ¿ï¼Œè¿™æŠŠå‰‘çŽ°åœ¨å·²ç»å±žäºŽè¿™ä½å…¬å­äº†ï¼"
-		 CC.EVB152="å“¦ï¼Œæ—¢ç„¶è¢å°‘ä¾ è¿™ä¹ˆè¯´äº†ï¼Œé‚£ä¹ˆå°åº—ç«‹å³æ”¶è´§ï¼"
-		 CC.EVB153="å¸¸å›žå®¶çœ‹çœ‹"
-		 CC.EVB154="å…¬å­ï¼Œä½ å›žæ¥å•¦ï¼*åœ¨å¤–é¢å¥”æ³¢è¿™ä¹ˆä¹…ï¼Œä¸€å®šå¾ˆè¾›è‹¦å§*çŽ°åœ¨æƒ³åšä»€ä¹ˆï¼Ÿ"
-		 CC.EVB155={"ç»ƒåŠŸ","ä¼‘æ¯","èµ·ç¨‹"}
-		 CC.EVB156="è¯·è¾“å…¥ä¸»è§’çš„åå­—"
-		 CC.EVB157="å¹´è½»äººï¼Œåˆè§é¢äº†ï¼Œçœ‹æ¥ä½ çš„èƒ½åŠ›å·²ç»å®Œå…¨è§‰é†’äº†ï¼ä»¥ä½ çŽ°åœ¨çš„å®žåŠ›ï¼Œå¯ä»¥ç®—å¾—ä¸Šæ˜¯ä¸€ä½ç»é¡¶é«˜æ‰‹äº†ï¼"
-		 CC.EVB158="å½“åˆåœ¨è¿™é‡Œè§‚çœ‹å››å¤§é«˜æ‰‹æ¯”æ­¦æ—¶ï¼Œæ˜¯å¦è§‰å¾—ä¸èƒ½å‚äºˆå…¶ä¸­æœ‰ç‚¹é—æ†¾å‘¢ï¼Ÿ"		 
-		 CC.EVB159="å“¦ï¼Œæ˜¯è¿™æ ·å—ï¼Ÿé‚£å¥½å§ï¼Œç¥ä½ æ—…ç¨‹æ„‰å¿«ï¼Œå†è§ï¼"
-		 CC.EVB160="å—¯ï¼Œå¾ˆå¥½ï¼Œå¹´è½»äººå°±è¯¥æœ‰è¿™æ ·çš„æ–—å¿—ï¼é‚£ä¹ˆï¼ŒçŽ°åœ¨å°±æ¥å¼¥è¡¥è¿™ä¸ªç¼ºæ†¾å§ï¼"
-		 CC.EVB161="æ˜”æ—¥åœ¨è¿™åŽå±±ä¹‹ä¸Šï¼Œæ›¾æœ‰è¿‡æ•°æ¬¡è®ºå‰‘ï¼Œéƒ½ç”±å½“æ—¶ï¼§äº”ä½ç»é¡¶é«˜æ‰‹ï¼·å‚äºˆï¼Œèƒœè€…å°†èŽ·å¾—ï¼²æ­¦åŠŸå¤©ä¸‹ç¬¬ä¸€ï¼·ä¹‹ç§°å·ï¼"
-		 CC.EVB162="ä»¥å½“ä»Šä¸–ä¸Šé«˜æ‰‹æ¥ç®—ï¼Œäº”ç»å½“ç”±ï¼²å°‘æž—çš„æ‰«åœ°åƒ§ï¼Œæ­¦å½“çš„å¼ ä¸‰ä¸°ï¼Œæ—¥æœˆç¥žæ•™çš„ä¸œæ–¹ä¸è´¥ï¼Œä¸å¸®å¸®ä¸»ä¹”å³°å’ŒåŽèµ·ä¸€è¾ˆäººç‰©ä¹‹é­é¦–ï¼ï¼ä¹Ÿå°±æ˜¯ä½ ï¼·æ¥ç»„æˆ"
-		 CC.EVB163="å¥½ï¼Œï¼“ï¼§æ–°åŽå±±è®ºå‰‘ï¼·ï¼™ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼‘å¼€æˆ˜ï¼ï¼ï¼ï¼ï¼ï¼ï¼"
-		 CC.EVB164="è½¯ä½“å¨ƒå¨ƒ"
-		 CC.EVB165="æ˜¯å¦è§‰å¾—å¾ˆé—æ†¾å‘¢ï¼Ÿ"
-		 CC.EVB166="äººç‰©å¤´åƒæ›´æ¢å®Œæ¯•"
-		 CC.EVB167="ä¹ å¾—ã€Ž"
-         CC.EVB168="ï¼‘å—¯ï¼Œè¿™é‡Œè¿˜æœ‰ä¸€æœ¬ç§˜ç±ï¼å¾…æˆ‘çœ‹çœ‹ï¼™......"
-         CC.EVB169="ï¼“å¥½åƒæ˜¯é—¨å¾ˆåŽ‰å®³çš„æ­¦åŠŸï¼Œè€Œä¸”å¾ˆåˆæˆ‘ä¿®ç‚¼çš„è·¯æ•°å˜›ï¼Œå“ˆå“ˆï¼"
-	     CC.EVB170="ï¼‘æ­¤ä¹¦æžœç„¶åœ¨è¿™é‡Œï¼ï¼¨ï¼™......ï¼‘å¯å¹åŽå±±ä¼—äººæš´å°¸è’é‡Žï¼Œè¿˜æ˜¯æŠŠä»–ä»¬åŸ‹äº†å§ï¼"
-         CC.EVB171="ä¼‘æ¯ä¸€ä¸‹"
-		 CC.EVB172="ç‰¹è‰²æŒ‡ä»¤ï¼š"
-		 CC.EVB173={"ç¡®å®š","å–æ¶ˆ"}
-		 CC.EVB174="ä¼‘è¿…é£žå‡« é£˜å¿½è‹¥ç¥ž"
-		 CC.EVB175="å‡Œæ³¢å¾®æ­¥ ç½—è¢œç”Ÿå°˜"
-		 CC.EVB176="æœªæ»¡è¶³å‘åŠ¨æ¡ä»¶"
-		 CC.EVB177="å‚¬ç¬¦ï¼š"
-		 CC.EVB178="ç¬¦æŽŒç”Ÿæ­» å¾·æŠ˜ç¾¤é›„"
-		 CC.EVB179="å°ç©´"
-		 CC.EVB180="æ°”è¡¥ï¼š"
-		 CC.EVB181="åŒ–æ°”è¡¥å…ƒ"
-		 CC.EVB182="æ¢å¤ä½“åŠ›50ç‚¹"
-		 CC.EVB183="æŒªç§»ï¼š"
-		 CC.EVB184="è¯·é€‰æ‹©è¦å°†"
-		 CC.EVB185="æŒªç§»åˆ°ä»€ä¹ˆä½ç½®ï¼Ÿ"
-		 CC.EVB186="æ­¤å¤„æœ‰äººï¼è¯·é‡æ–°é€‰æ‹©"
-		 CC.EVB187="æ°´é¢ï¼Œä¸å¯è¿›å…¥ï¼è¯·é‡æ–°é€‰æ‹©"
-		 CC.EVB188="ä¹é˜³æ˜Žå°Š æŒªç§»ä¹¾å¤"
-		 CC.EVB189="ä¼ åŠŸï¼š"
-		 CC.EVB190="é…’ç¥žæˆçº¢å°˜"
-		 CC.EVB191="é›†æ°”ä¸Šå‡500"
-		 CC.EVB192="é›¶äºŒä¸ƒçš„æ­¦å­¦å¸¸è¯†æå‡è‡³100"
-		 CC.EVB193="æ°´é•œå››å¥‡çš„å·¦å³äº’ææœºçŽ‡æå‡"
-		 CC.EVB194="èŽ·å¾—ç§°å·ï¼šçœŸè‹åŠæ— åŒ"
-		 CC.EVB195="é†‰å§äº‘ç«¯ç¬‘"
-		 CC.EVB196="ï¼‘æ­å–œä½ ç»ˆäºŽèŽ·å¾—ï¼²æ­¦åŠŸå¤©ä¸‹ç¬¬ä¸€ï¼·çš„ç§°å·ï¼ï¼¨å‡­ä½ çŽ°åœ¨çš„ä¿®ä¸ºï¼Œè¦å®Œæˆä½ æ‰€èƒŒè´Ÿçš„ä½¿å‘½ç›¸ä¿¡ä¹Ÿä¸æ˜¯ä»€ä¹ˆéš¾äº‹äº†ï¼å¶ä¼šåœ¨é¾™ä¹‹å›½åº¦ç­‰å¾…ä½ çš„å½’æ¥ï¼Œå†è§......"
-		 CC.EVB197="æ”»è½»é˜²å„æå‡30ç‚¹ æ­¦å­¦å¸¸è¯†æå‡è‡³100"
-		 CC.EVB198="ï¼‘ç²¾å½©çš„æˆ˜æ–—ï¼Œç›¸ä¿¡ä½ ä¹Ÿä»Žä¸­èŽ·ç›Šä¸å°‘å§ï¼å†è§......"
-		 CC.EVB199="æ­¦å­¦å¸¸è¯†æå‡50ç‚¹"
-		 CC.EVB200="åŽå±±è®ºå‰‘"
-		 CC.EVB201="æ˜“ç»ç­‹åŠ åŠ›"
-         CC.EVB202="èˆ¬è‹¥æŽŒ"
-         CC.EVB203="è¾¾æ‘©æŽŒ"
-		 CC.EVB204="å¿æ³•èƒ§åœ°æ–©"
-		 CC.EVB205="å°å­ï¼Œä½ ç»ˆäºŽæ¥äº†ï¼Œåœ¨è¿™é‡Œç­‰ä½ åŠå¤©äº†ï¼"
-	     CC.EVB206="ä¸è¦æˆ‘åŠ å…¥å—ï¼Ÿé‚£æˆ‘èµ°äº†ï¼"
+	   CC.EVB73="£±Ò»Â·À´µ½ÕâÀï£¬ÕæÊÇÐÁ¿àÁË£¡£ÈÅ¼ÊÇ syp£¡´óÏºÇëÐÝÏ¢Ò»ÏÂ£¬ÈÃÅ¼À´°ïÄã·ÅÊé°É£¡"
+	   CC.EVB74="£±ºÃÁË£¬ÆäËüµÄÊé¶¼·ÅºÃÁË£¡Õâ±¾ÌìÁú°Ë²¿Äã×ÔÒÑÈ¥·Å°É£¬ÕâÊÇÅ¼×îÏ²»¶µÄÌìÊé£¡ÔÙ¼ûÁË£¡"
+	   CC.EVB75="ÐÔ±ð"
+	   CC.EVB76="£±ÁÉ¹ú»ÊµÛÒ®ÂÉºé»ù¼´½«½ø¾üÖÐÔ­£¬Ïô´ó¸çÔÚ¾¡Á¦Ïë·¨È°×è£¬ËùÒÔÎÞ·¨¸ÏÀ´ÏàÖú£¬ÕâÊÇËûÈÃÎÒ½»¸øÄãµÄ¶«Î÷"
+	   CC.EVB77="£±ÎÒÒª»ØÈ¥°ïÖúÏô´ó¸çÁË£¬ÔÙ¼û£¡"
+	   CC.EVB78="Ê¹ÓÃÈË"
+	   CC.EVB79="ÎäÆ÷"
+	   CC.EVB80="¼ÓÇá¹¦"
+	   CC.EVB81="¼Ó¹¥»÷Á¦"
+	   CC.EVB82="Õ½¶·Ê¤Àû"
+	   CC.EVB83="Õ½¶·Ê§°Ü"
+	   CC.EVB84="ÌØÊâ½±Àø£ºÇ§ÄêÁéÖ¥Á½Ã¶"
+	   CC.EVB85="ÌØÊâ½±Àø£ºÖ÷½ÇËÄÏµ±øÆ÷ÖµÌáÉýÊ®µã"
+	   CC.EVB86="ÌØÊâ½±Àø£º»ñµÃÌìÍõ±£Ãüµ¤Á½¿Å"
+	   CC.EVB87="ÌØÊâ½±Àø£º»ñµÃ¸òó¡¹¦ÃØ¼®Ò»²á"
+	   CC.EVB88="ÌØÊâ½±Àø£º»ñµÃÌìÉ½Ñ©Á«Á½Ã¶"
+	   CC.EVB89="ÌØÊâ½±Àø£ºÖ÷½ÇÈ­ÕÆ¹¦·òÌáÉýÊ®µã"
+	   CC.EVB90="ÌØÊâ½±Àø£ºÖ÷½Ç·ÀÓùÁ¦ºÍÇá¹¦¸÷ÌáÉýÊ®µã"
+	   CC.EVB91="ÎÞ¼É£¬Ì«Ê¦¸¸ÔÙ´«ÄãÒ»Ì×£ÒÌ«¼«È­½££×£¡¿´ºÃÁË£¡"
+	   CC.EVB92="£±»ªÉ½£¬ÕæÊÇÒ»·¬ºÃ¾°ÖÂ°¡£¡Ï×¸èÒ»Ê×£º£È£ÇÉ½ÉÏµÄÉ½»¨¶ù¿ªÑ½ÂïÎÒ²Åµ½É½ÉÏÀ´¡¡Ð¡Ð¡µÄÒ»Æ¬ÔÆÑ½¡¡ÇëÄãÍ£ÏÂÀ´£¡£È£×ËÄ´¦×ª×ª----"
+	   CC.EVB93="£±àÅ£­£­£­£­£¬Í·ºÃÔÎ£¡£¡£¡"
+	   CC.EVB94="£±¹þ¹þ¹þ£¬ÕâÎ÷ÏÄµÄ£Ò±¯ËÖÇå·ç£×¹ûÈ»ÁËµÃ£¡´Ë·¬ÖÕÓÚ×½µ½ÕâÐ¡×ÓÁË£¡"
+	   CC.EVB95="£±ËÙËÙ½«Ëû½»ÓèÄÇÈË£¬»ñÈ¡ÎÒÃÇ¸÷×ÔÏëÒªµÄ¶«Î÷£¡"
+	   CC.EVB96="£±¶¯ÊÖ£¡"
+	   CC.EVB97="£±£Ç×Ô´òÅÌ¹Å¿ªÌì±ÙµØ  ÏÀÐÐÌìÏÂÊÇÀñÊÇÒå£È²»Õ½¶øÊ¤×îÊÇÀíÏë  ´³µ´½­ºþÉí²»ÓÉÒÑ£Ð³ý±©°²Á¼Ò»ÉíÕýÆø¡¡´³µ´½­ºþÎÞÈËÄÜµÐ¡¡ÄÄÅÂ²»ÖªÈ¥ÏòºÎ·½¡¡Å¬Á¦ÏÂÈ¥¾ÍÊÇÏ£Íû"
+	   CC.EVB98="£±Ê²Ã´ÈË£¿"
+	   CC.EVB99="£±ºÇºÇ£¬ÎÊ°³Âð£¿°³µÄÃû×ÖÊÇ£¹ S¡¡ Y¡¡ P"
+	   CC.EVB100="°Ë²¿ÉñÍþµÇ³¡"
+	   CC.EVB101="¾´ÇëÆÚ´ýºóÐøÇé½Ú"
+	   CC.EVB102="ÂÛ½£½áÊø"
+	   CC.EVB103="Îä¹¦ÌìÏÂµÚÒ»Õß£º"
+	   CC.EVB104="ÊÇ·ñÑ¡ÓÃÌØÊâÈËÎï½øÐÐÓÎÏ·"
+		CC.EVB105="ÒªÑ¡ÔñÄÄÎ»ÌØÊâÈËÎï"
+		CC.EVB106="¡¾Áã¡¿Ó±Îò¾øÂ×&²Ô°ëÎÞË«  *¡¾Ë®¡¿Íò°ã½ÔÍ¨&°Ù»¨¹ÈÖ÷  *¡¾Ïô¡¿´ÈÑÏÕÆ±ø&ÑªÒí¾üÉñ  "
+		CC.EVB107="²ÔÑ×Ô´Âë°æ"
+		CC.EVB108="°¢ÃÖÍÓ·ð"
+		CC.EVB109="Î±"
+		CC.EVB110="»¯ÐàÎªÆæ"
+		CC.EVB111="±£´æ½ø¶È"
+		CC.EVB112="Òª½«µ±Ç°½ø¶È±£´æµ½ÄÄ¸öµµ°¸ÖÐ£¿"
+		CC.EVB113="´æµµÍê±Ï"
+		CC.EVB114="¶ÁÈ¡½ø¶È"
+		CC.EVB115="Òª´ÓÄÄ¸öµµ°¸ÖÐ¶ÁÈ¡½ø¶È£¿"
+		CC.EVB116="¶ÁµµÍê±Ï"
+		CC.EVB117="A£º¹¥»÷ D£º·ÀÓù P£ºÐîÁ¦ I£ºÎïÆ· R£ºÐÝÏ¢"
+		CC.EVB118="S£º´æµµ  L£º¶Áµµ  Q£ºÍË³ö  I£ºÎïÆ·  Z£º×´Ì¬"
+		CC.EVB119="F1£º´«ËÍ F2£º×ßËÙ F3£º¶ÓÁÐ F4£ºÎïÆ· F5£ºÈ«ÆÁ F6£ºÒôÀÖ"
+		CC.EVB120="Æ¬Î²Çú£ºÓ¢ÐÛÃÎ"
+		CC.EVB121="°´ÈÎÒâ¼üÍË³ö"
+		CC.EVB122="ÇëÑ¡Ôñ"
+		CC.EVB123="ÏëÒªÄÄÖÖÊôÐÔµÄÄÚÁ¦"
+		CC.EVB124="ÇëÊäÈë½ÇÉ«µÄ×ÊÖÊ ·¶Î§0-100"
+		CC.EVB125="ÊäÈë´íÎó ·¶Î§0-100 ÇëÖØÐÂÊäÈë"
+		CC.EVB126={"ÒõÐÔ","ÑôÐÔ","µ÷ºÍ"}
+		CC.EVB127="ÏëÂô³öÊ²Ã´ÎïÆ·£¿"
+		 CC.EVB128="´óÉÌ¼Ò"
+		 CC.EVB129="È·¶¨ÒªÂô³ö"
+		 CC.EVB130="Âð£¿"
+		 CC.EVB131="ÇëÊäÈëÂô³öÊýÁ¿"
+		 CC.EVB132="Âô³öÊýÁ¿ÊäÈëÓÐÎó"
+		 CC.EVB133="»¹Ïë¼ÌÐøÂô³öÎïÆ·Âð"
+		 CC.EVB134="±¾µê¹©Ó¦Ê³²ÄºÍÒ©²Ä£¡£ÈÊ³²ÄÒ»Ç§Á½ÈýÊ®¸ö¡¡Ò©²ÄÒ»Ç§Á½ÎåÊ®¸ö£ÈÒªÂòµãÂð£¿"
+		 CC.EVB135="ÇëÑ¡Ôñ"
+		 CC.EVB136="±¾µêÉÌÆ·¼ÛÁ®ÎïÃÀ£¬¿Í¹ÙÏëÂòµãÊ²Ã´Âð£¿"
+		 CC.EVB137={"Ê³²Ä","Ò©²Ä","²»Âò"}
+		 CC.EVB138="ÏÈ¿´¿´£¬ÏÂ´ÎÔÙÀ´£¡"
+		 CC.EVB139="Ã»Ç®ÁË£¬ÒÔºóÔÙÀ´Âò°É"
+		 CC.EVB140="´ËÎïÆ·ÒÑ¾­ÓÐÈËÐÞÁ¶£¬ÊÇ·ñ»»ÈËÐÞÁ¶?"
+		 CC.EVB141="Ë­ÒªÐÞÁ¶%s?"
+		 CC.EVB142="Ò»¸öÈËÖ»ÄÜÐÞÁ¶10ÖÖÎä¹¦"
+		 CC.EVB143="£µ£ÒÓûÁ·Éñ¹¦¡¡»Óµ¶×Ô¹¬"
+		 CC.EVB144="£²ÕâÌ«²ÒÁË°É£¡ÏÈ¿´¿´ÔÙËµ....£È£¨·­µ½ÏÂÒ»Ò³£©"
+		 CC.EVB145="£µ£ÒÈô²»×Ô¹¬¡¡Ò²¿ÉÁ·¹¦"
+		 CC.EVB146="£±¹þ£¬Ô­À´²»×Ô¹¬Ò²ÄÜÁ·°¡£¡£ÈÌ«°ôÁË£¡£¡£¡"
+		 CC.EVB147="ÐÞÁ¶´ËÊé±ØÐëÏÈ»Óµ¶×Ô¹¬£¬ÊÇ·ñÈÔÒªÐÞÁ¶?"
+		 CC.EVB148="´ËÈË²»ÊÊºÏÐÞÁ¶´ËÎïÆ·"
+		 CC.EVB149="´ËÎïÆ·ÓÐÈËÕýÔÚÊ¹ÓÃ ÎÞ·¨Âô³ö"
+		 CC.EVB150="Õâ°Ñ½ðÉß½£ÊÇÓÐ²úÈ¨ÈÏÖ¤µÄ£¬ÒªÏëÂô³öµÄ»°Çë´ø×ÅËüµÄ²úÈ¨ÈÏÖ¤ÈËÒ»ÆðÀ´£¡"
+		 CC.EVB151="ÀÏ°å£¬Õâ°Ñ½£ÏÖÔÚÒÑ¾­ÊôÓÚÕâÎ»¹«×ÓÁË£¡"
+		 CC.EVB152="Å¶£¬¼ÈÈ»Ô¬ÉÙÏÀÕâÃ´ËµÁË£¬ÄÇÃ´Ð¡µêÁ¢¼´ÊÕ»õ£¡"
+		 CC.EVB153="³£»Ø¼Ò¿´¿´"
+		 CC.EVB154="¹«×Ó£¬Äã»ØÀ´À²£¡*ÔÚÍâÃæ±¼²¨ÕâÃ´¾Ã£¬Ò»¶¨ºÜÐÁ¿à°É*ÏÖÔÚÏë×öÊ²Ã´£¿"
+		 CC.EVB155={"Á·¹¦","ÐÝÏ¢","Æð³Ì"}
+		 CC.EVB156="ÇëÊäÈëÖ÷½ÇµÄÃû×Ö"
+		 CC.EVB157="ÄêÇáÈË£¬ÓÖ¼ûÃæÁË£¬¿´À´ÄãµÄÄÜÁ¦ÒÑ¾­ÍêÈ«¾õÐÑÁË£¡ÒÔÄãÏÖÔÚµÄÊµÁ¦£¬¿ÉÒÔËãµÃÉÏÊÇÒ»Î»¾ø¶¥¸ßÊÖÁË£¡"
+		 CC.EVB158="µ±³õÔÚÕâÀï¹Û¿´ËÄ´ó¸ßÊÖ±ÈÎäÊ±£¬ÊÇ·ñ¾õµÃ²»ÄÜ²ÎÓèÆäÖÐÓÐµãÒÅº¶ÄØ£¿"		 
+		 CC.EVB159="Å¶£¬ÊÇÕâÑùÂð£¿ÄÇºÃ°É£¬×£ÄãÂÃ³ÌÓä¿ì£¬ÔÙ¼û£¡"
+		 CC.EVB160="àÅ£¬ºÜºÃ£¬ÄêÇáÈË¾Í¸ÃÓÐÕâÑùµÄ¶·Ö¾£¡ÄÇÃ´£¬ÏÖÔÚ¾ÍÀ´ÃÖ²¹Õâ¸öÈ±º¶°É£¡"
+		 CC.EVB161="ÎôÈÕÔÚÕâ»ªÉ½Ö®ÉÏ£¬ÔøÓÐ¹ýÊý´ÎÂÛ½££¬¶¼ÓÉµ±Ê±£ÇÎåÎ»¾ø¶¥¸ßÊÖ£×²ÎÓè£¬Ê¤Õß½«»ñµÃ£ÒÎä¹¦ÌìÏÂµÚÒ»£×Ö®³ÆºÅ£¡"
+		 CC.EVB162="ÒÔµ±½ñÊÀÉÏ¸ßÊÖÀ´Ëã£¬Îå¾øµ±ÓÉ£ÒÉÙÁÖµÄÉ¨µØÉ®£¬Îäµ±µÄÕÅÈý·á£¬ÈÕÔÂÉñ½ÌµÄ¶«·½²»°Ü£¬Ø¤°ï°ïÖ÷ÇÇ·åºÍºóÆðÒ»±²ÈËÎïÖ®¿ýÊ×£­£­Ò²¾ÍÊÇÄã£×À´×é³É"
+		 CC.EVB163="ºÃ£¬£³£ÇÐÂ»ªÉ½ÂÛ½££×£¹£­£­£­£­£­£­£­£±¿ªÕ½£¡£¡£¡£¡£¡£¡£¡"
+		 CC.EVB164="ÈíÌåÍÞÍÞ"
+		 CC.EVB165="ÊÇ·ñ¾õµÃºÜÒÅº¶ÄØ£¿"
+		 CC.EVB166="ÈËÎïÍ·Ïñ¸ü»»Íê±Ï"
+		 CC.EVB167="Ï°µÃ¡º"
+         CC.EVB168="£±àÅ£¬ÕâÀï»¹ÓÐÒ»±¾ÃØ¼®£¡´ýÎÒ¿´¿´£¹......"
+         CC.EVB169="£³ºÃÏñÊÇÃÅºÜÀ÷º¦µÄÎä¹¦£¬¶øÇÒºÜºÏÎÒÐÞÁ¶µÄÂ·ÊýÂï£¬¹þ¹þ£¡"
+	     CC.EVB170="£±´ËÊé¹ûÈ»ÔÚÕâÀï£¡£È£¹......£±¿ÉÌ¾»ªÉ½ÖÚÈË±©Ê¬»ÄÒ°£¬»¹ÊÇ°ÑËûÃÇÂñÁË°É£¡"
+         CC.EVB171="ÐÝÏ¢Ò»ÏÂ"
+		 CC.EVB172="ÌØÉ«Ö¸Áî£º"
+		 CC.EVB173={"È·¶¨","È¡Ïû"}
+		 CC.EVB174="ÐÝÑ¸·ÉÙì Æ®ºöÈôÉñ"
+		 CC.EVB175="Áè²¨Î¢²½ ÂÞÍàÉú³¾"
+		 CC.EVB176="Î´Âú×ã·¢¶¯Ìõ¼þ"
+		 CC.EVB177="´ß·û£º"
+		 CC.EVB178="·ûÕÆÉúËÀ µÂÕÛÈºÐÛ"
+		 CC.EVB179="·âÑ¨"
+		 CC.EVB180="Æø²¹£º"
+		 CC.EVB181="»¯Æø²¹Ôª"
+		 CC.EVB182="»Ö¸´ÌåÁ¦50µã"
+		 CC.EVB183="Å²ÒÆ£º"
+		 CC.EVB184="ÇëÑ¡ÔñÒª½«"
+		 CC.EVB185="Å²ÒÆµ½Ê²Ã´Î»ÖÃ£¿"
+		 CC.EVB186="´Ë´¦ÓÐÈË£¡ÇëÖØÐÂÑ¡Ôñ"
+		 CC.EVB187="Ë®Ãæ£¬²»¿É½øÈë£¡ÇëÖØÐÂÑ¡Ôñ"
+		 CC.EVB188="¾ÅÑôÃ÷×ð Å²ÒÆÇ¬À¤"
+		 CC.EVB189="´«¹¦£º"
+		 CC.EVB190="¾ÆÉñÏ·ºì³¾"
+		 CC.EVB191="¼¯ÆøÉÏÉý500"
+		 CC.EVB192="Áã¶þÆßµÄÎäÑ§³£Ê¶ÌáÉýÖÁ100"
+		 CC.EVB193="Ë®¾µËÄÆæµÄ×óÓÒ»¥²«»úÂÊÌáÉý"
+		 CC.EVB194="»ñµÃ³ÆºÅ£ºÕæ²Ô°ëÎÞË«"
+		 CC.EVB195="×íÎÔÔÆ¶ËÐ¦"
+		 CC.EVB196="£±¹§Ï²ÄãÖÕÓÚ»ñµÃ£ÒÎä¹¦ÌìÏÂµÚÒ»£×µÄ³ÆºÅ£¡£ÈÆ¾ÄãÏÖÔÚµÄÐÞÎª£¬ÒªÍê³ÉÄãËù±³¸ºµÄÊ¹ÃüÏàÐÅÒ²²»ÊÇÊ²Ã´ÄÑÊÂÁË£¡Å¼»áÔÚÁúÖ®¹ú¶ÈµÈ´ýÄãµÄ¹éÀ´£¬ÔÙ¼û......"
+		 CC.EVB197="¹¥Çá·À¸÷ÌáÉý30µã ÎäÑ§³£Ê¶ÌáÉýÖÁ100"
+		 CC.EVB198="£±¾«²ÊµÄÕ½¶·£¬ÏàÐÅÄãÒ²´ÓÖÐ»ñÒæ²»ÉÙ°É£¡ÔÙ¼û......"
+		 CC.EVB199="ÎäÑ§³£Ê¶ÌáÉý50µã"
+		 CC.EVB200="»ªÉ½ÂÛ½£"
+		 CC.EVB201="Ò×¾­½î¼ÓÁ¦"
+         CC.EVB202="°ãÈôÕÆ"
+         CC.EVB203="´ïÄ¦ÕÆ"
+		 CC.EVB204="ÈÌ·¨ëÊµØÕ¶"
+		 CC.EVB205="Ð¡×Ó£¬ÄãÖÕÓÚÀ´ÁË£¬ÔÚÕâÀïµÈÄã°ëÌìÁË£¡"
+	     CC.EVB206="²»ÒªÎÒ¼ÓÈëÂð£¿ÄÇÎÒ×ßÁË£¡"
 		
-		 CC.EVB210="å§‘å¨˜ï¼Œä½ å…ˆå›žå°æ‘ï¼Œæœ‰éœ€è¦æ—¶ï¼Œæˆ‘å†åŽ»æ‰¾ä½ å¸®å¿™"
-         CC.EVB211="æœ‰éœ€è¦æˆ‘å¸®å¿™çš„åœ°æ–¹å—ï¼Ÿ"
+		 CC.EVB210="¹ÃÄï£¬ÄãÏÈ»ØÐ¡´å£¬ÓÐÐèÒªÊ±£¬ÎÒÔÙÈ¥ÕÒÄã°ïÃ¦"
+         CC.EVB211="ÓÐÐèÒªÎÒ°ïÃ¦µÄµØ·½Âð£¿"
 		 
-		 CC.EVB220="å¥½åƒæ˜¯é—¨å¾ˆåŽ‰å®³çš„æ­¦åŠŸï¼æˆ‘è¦ä¿®ç‚¼å—......"
-         CC.EVB221="æ˜¯å¦è¦ä¿®ç‚¼ï¼Ÿ"
-         CC.EVB222="å—¯ï¼Œç®—äº†ï¼Œè¿˜æ˜¯è§‰å¾—çŽ°åœ¨ç»ƒçš„æ­¦åŠŸæ›´å¥½"
+		 CC.EVB220="ºÃÏñÊÇÃÅºÜÀ÷º¦µÄÎä¹¦£¡ÎÒÒªÐÞÁ¶Âð......"
+         CC.EVB221="ÊÇ·ñÒªÐÞÁ¶£¿"
+         CC.EVB222="àÅ£¬ËãÁË£¬»¹ÊÇ¾õµÃÏÖÔÚÁ·µÄÎä¹¦¸üºÃ"
 	   
- CC.WARS1="å®˜å…µ"
- CC.WARS2="ä¸ºå›½ä¸ºæ°‘"
- CC.WARS3="ä¾ ä¹‹å¤§è€…"
- CC.WARS4="è¡€åˆ€æ”»å‡»å¸å–ç”Ÿå‘½"
- CC.WARS5="ï¼‘ï¼²è´Ÿã‘ã„ãã–ã€€ã ãŒã€€ã‚ªãƒ¬ã†ã¡ãªã‚‹ã¨ã†ã—ãŒã€€ãã‚Œã‚’ã“ã°ã‚€ã€€ã“ã‚Œã¯ã¶ã‚‚ã‚“ã®ã„ã¡ã‹ã€€çœŸç”°å¹¸æ‘ã€€ã„ã–ã€€ã¾ã„ã‚‹"
- CC.WARS6="ï¼–ï¼²ã‚‚ã¯ã‚„ã€€ã“ã‚Œã¾ã§ã‹.........."
- CC.WARS7="ï¼’ï¼ˆçœŸç”°å¹¸æ‘ï¼ï¼ï¼ï¼ï¼Œï¼¨çœŸæ˜¯è®©äººé’¦ä½©çš„å‹‡å£«å•Šï¼ï¼ï¼ï¼‰"
- CC.WARS8="ï¼’ï¼ˆçœŸç”°å…„ï¼Œä¸€å…­ä¸€äº”å¹´å¤§é˜ªåŸŽå†ä¼šå§ï¼ï¼¨é‚£æ—¶æˆ‘çš„åå­—æ˜¯......ï¼‰"
- CC.WARS9="ç½—æ±‰ä¼é­”åŠŸæ¢å¤ç”Ÿå‘½"
- CC.WARS10="ç´«éœžç¥žåŠŸæ¢å¤å†…åŠ›"
- CC.WARS11="æ··å…ƒåŠŸæ¢å¤ä½“åŠ›"
- CC.WARS12="ç›²ç›®çŠ¶æ€æ¢å¤"
- CC.WARS13="é“æŽŒ"
- CC.WARS14="ï¼‘å“ˆå“ˆå“ˆï¼ï¼ï¼ï¼Œè‹—äººå‡¤ï¼Œä½ ç»ˆäºŽæ­»äºŽæˆ‘æ‰‹äº†ï¼ä»Šæ—¥æ–¹è§£å¤šå¹´ä¹‹æ¨ï¼"
- CC.WARS15="ç”°å½’å†œæ”»é˜²è½»èƒ½åŠ›å„æå‡20ç‚¹ å­¦ä¼šè‹—å®¶å‰‘æ³•"
- CC.WARS16="ï¼‘ï¼²é¾™å„¿ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼¨ï¼•å•Šï¼ï¼ï¼ï¼ï¼”ï¼ï¼ï¼ï¼ï¼“ï¼ï¼ï¼ï¼ï¼’ï¼ï¼ï¼ï¼ï¼‘ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼"
- CC.WARS17="æ°´é•œå››å¥‡äº‘ä½“é£Žèº«è“„åŠ›å®Œæ¯•"
- CC.WARS18="%så‘åŠ¨ç¦»åˆå‚å•†åå‡»"
- CC.WARS19="%så‘åŠ¨æ–—è½¬æ˜Ÿç§»åå‡»"
- CC.WARS20="%så‘åŠ¨åŒ—æ–—ç§»è¾°åå‡»"
- CC.WARS21="ï¼‘ï¼ˆå”‰ï¼Œè¿™äº›å¹´è½»äººé—¯è¡æ±Ÿæ¹–ä¹Ÿä¸å®¹æ˜“ï¼Œä¹Ÿç½¢ï¼Œæ­¤æˆ˜å°±ä»¥ï¼²å¤ªç¥–é•¿æ‹³ï¼·æ¥é™ªä½ ä»¬çŽ©çŽ©å§ï¼ï¼‰"
- CC.WARS22="å¤ªç¥–é•¿æ‹³"
- CC.WARS23="é™é¾™ä¸‰å æµª"
- CC.WARS24="æ•™å•äºŽæŠ˜ç®­ å…­å†›è¾Ÿæ˜“ å¥‹è‹±é›„æ€’"
- CC.WARS25="è™½ä¸‡åƒäººå¾å¾€çŸ£"
- CC.WARS26="èƒ¡æ±‰æ©ä»‡  é¡»å€¾è‹±é›„æ³ª"
- CC.WARS27="æ—¥å‡ºä¸œæ–¹  å”¯æˆ‘ä¸è´¥"
- CC.WARS28="æš´å‡»åŠ åŠ›"
- CC.WARS29="æš´å‡»"
- CC.WARS30="è¿žå‡»"
- CC.WARS31='Â·æˆ˜å¼'
- CC.WARS32='è‘µèŠ±ç¥žåŠŸåŠ åŠ›'
- CC.WARS33="åŒ—å†¥ç¥žåŠŸ"
- CC.WARS34="å¸æ˜Ÿå¤§æ³•"
- CC.WARS35="åŒ–åŠŸå¤§æ³•"
- CC.WARS36="æ“’é¾™åŠŸåŠ åŠ›"
- CC.WARS37="å°æ— ç›¸åŠŸåŠ åŠ›"
- CC.WARS38="å…ˆå¤©åŠŸåŠ åŠ›"
- CC.WARS39="å¤©ç½¡çœŸæ°”Â·"
- CC.WARS40="ä¹¾å¤å¤§æŒªç§»åŠ åŠ›"
- CC.WARS41="ä¹é˜³ç¥žåŠŸåŠ åŠ›"
- CC.WARS42="é­”å¸Â·å¸æ˜Ÿ"
- CC.WARS43="ç¥žç…§ç»Â·æ— å½±ç¥žæ‹³"
- CC.WARS44="èƒ¡åˆ€è‹—å‰‘ å½’çœŸåˆä¸€"
- CC.WARS45="é­”éŸ³Â·ç¢§æµ·æ½®ç”Ÿæ›²"
- CC.WARS46="é“å°¸ä¹‹æ€¨å¿µ"
- CC.WARS47="ä¸­å¹³ç¥žæžª"
- CC.WARS48="è¥¿ç‹‚ä¹‹æ€’å•¸"
- CC.WARS49="è¥¿ç‹‚ä¹‹éœ‡æ€’Â·é›·éœ†ç‹‚å•¸"
- CC.WARS50="ä¸ƒå¼¦æ— ç´å‰‘æ°”"
- CC.WARS51="å‰‘èƒ†ç´å¿ƒ ç¬‘å‚²æ±Ÿæ¹–"
- CC.WARS52="ä¸‡æ³•è‡ªç„¶"
- CC.WARS53="ç¦æ³½åŠ æŠ¤"
- CC.WARS54="è‘µèŠ±ç‚¹ç©´æ‰‹"
- CC.WARS55="ä¸ƒå¿ƒæµ·æ£ "
- CC.WARS56="å¤§è½®å¯†å®—Â·ç«ç„°åˆ€"
- CC.WARS57="æ··å…ƒéœ¹é›³åŠŸåŠ åŠ›"
- CC.WARS58="é­”ç›¸Â·å¹»é˜´"
- CC.WARS59='å¤ªæžæ‹³å€ŸåŠ›æ‰“åŠ›'
- CC.WARS60="çµé¹«å®«ç»å­¦Â·ç”Ÿæ­»ç¬¦"
- CC.WARS61="æ‰“ç‹—æ£’æ³•ç»å­¦--å¤©ä¸‹æ— ç‹—"
- CC.WARS62="é‡å‰‘çœŸä¼ Â·æµªå¦‚å±±æ¶Œå‰‘å¦‚è™¹"
- CC.WARS63="æš—ç®­Â·æ‰‡ä¸­é’‰"
- CC.WARS64="ç«å‡¤ç‡ŽåŽŸ"
- CC.WARS65="ç‚Žæžªç´ æµ…é¸£Â·æ— åŒä¹±èˆžçš†ä¼ "
- CC.WARS66="ç‚Žæžªç´ æµ…é¸£Â·çœŸæ— åŒä¹±èˆž"
- CC.WARS67="ç‚Žæžªç´ æµ…é¸£Â·æ— åŒä¹±èˆž"
- CC.WARS68="äºŒå¤©ä¸€æµç§˜å¥¥ä¹‰Â·ä¸‡ç‰©ä¸€ç©º"
- CC.WARS69="æ¯—æ²™é—¨å¤©ä¹‹åŠ æŠ¤"
- CC.WARS70="çœŸè¾Ÿé‚ªå‰‘æ³•Â·è‘µèŠ±åˆºç›®"
- CC.WARS71="ç›²ç›®çŠ¶æ€Â·æ”»å‡»æ— æ•ˆ"
- CC.WARS72="+ä¼šå¿ƒä¹‹ä¸€å‡»"
- CC.WARS73="ä¼šå¿ƒä¹‹ä¸€å‡»"
- CC.WARS74="+è“„åŠ›æ”»å‡»"
- CC.WARS75="è“„åŠ›æ”»å‡»"
- CC.WARS76="%sä¿®ç‚¼%såˆ°ç™»å³°é€ æž"
- CC.WARS77="%s å‡ä¸º %d çº§"
- CC.WARS78="äº‘ä½“é£Žèº«åæ”»"  
- CC.WARS79="+é˜²å¾¡çŠ¶æ€"
- CC.WARS80="é˜²å¾¡çŠ¶æ€"
- CC.WARS81="ä¹é˜³ç¥žåŠŸæŠ¤ä½“"
- CC.WARS82="æ“’é¾™åŠŸæŠ¤ä½“"
- CC.WARS83="å°æ— ç›¸åŠŸæŠ¤ä½“"
- CC.WARS84="æ··å…ƒéœ¹é›³åŠŸæŠ¤ä½“"
- CC.WARS85="å…ˆå¤©åŠŸæŠ¤ä½“"
- CC.WARS86="æ—¥æœˆÂ·åŒè¾‰"
- CC.WARS87="åŒ—å†¥çœŸæ°”"
- CC.WARS88="ç¦»åˆå‚å•†"
- CC.WARS89="æ–—è½¬æ˜Ÿç§»"
- CC.WARS90="åŒ—æ–—ç§»è¾°"
- CC.WARS91="+æ£®ç½—ä¸‡è±¡"
- CC.WARS92="æ£®ç½—ä¸‡è±¡"
- CC.WARS93="æ— æ ¹æ— å½¢"
- CC.WARS94="è‘µèŠ±ç§»å½¢"
- CC.WARS95="é…’ç¥žç§˜è¸ªæ­¥"
- CC.WARS96="å‡Œæ³¢å¾®æ­¥"
- CC.WARS97="è‘µèŠ±ç§»å½¢"
- CC.WARS98="å¤©æœºèº«æ³•"
- CC.WARS99="ç§˜ä¼ Â·ç ´æŽŒå¼"
- CC.WARS100="ç§˜ä¼ Â·ç ´å‰‘å¼"
- CC.WARS101="ç§˜ä¼ Â·ç ´åˆ€å¼"
- CC.WARS102="ç§˜ä¼ Â·ç ´æ£å¼"
- CC.WARS103="ç§˜ä¼ Â·ç ´æ°”å¼"
- CC.WARS104="å¤©ç½¡æŠ¤ä½“"
- CC.WARS105="+å¤©ç½¡æŠ¤ä½“"
- CC.WARS106='åå¼¹'
- CC.WARS107="Â·åŒ"
- CC.WARS108='çœŸ--é€†è¿ç­‹è„‰èµ°ç«å…¥é­”'
- CC.WARS109='èµ°ç«å…¥é­”'
- CC.WARS110="ä¹é˜³ç¥žåŠŸåéœ‡"
- CC.WARS111='èµ·æ­»å›žç”Ÿ'	
- CC.WARS112="å…ˆå¤©ä¸€é˜³ èµ·æ­»å›žç”Ÿ"
- CC.WARS113="é˜ŽçŽ‹æ•Œ é‡ç”Ÿ"
- CC.WARS114="å¤©åœ°ç‹¬å°Š"
- CC.WARS115="+å¤ªæžå¥¥ä¹‰"
- CC.WARS116="å¤ªæžå¥¥ä¹‰--å››ä¸¤æ‹¨åƒæ–¤"
- CC.WARS117="+æ€’æ°”çˆ†å‘"
- CC.WARS118="æ€’æ°”çˆ†å‘"
- CC.WARS119="+äº‘ä½“é£Žèº«"
- CC.WARS120="äº‘ä½“é£Žèº«"
- CC.WARS121="é˜²å¾¡å¼€å§‹"
- CC.WARS122="è“„åŠ›å¤±è´¥"
- CC.WARS123="è“„åŠ›æˆåŠŸ"
- CC.WARS124="%s èŽ·å¾—ç»éªŒç‚¹æ•° %d"
- CC.WARS125="%s å‡çº§äº†"
- CC.WARS126="%s ä¿®ç‚¼ %s æˆåŠŸ"
- CC.WARS127="%s å‡ä¸ºç¬¬%sçº§"  
- CC.WARS128="ä¿®ä¹ ä¼šå‡å°‘ç”Ÿå‘½å€¼"
- CC.WARS129="å…«é—¨å›žå¤©"
- CC.WARS130="Â·ç‹®çŽ‹ä¹‹å’†å“®"
+ CC.WARS1="¹Ù±ø"
+ CC.WARS2="Îª¹úÎªÃñ"
+ CC.WARS3="ÏÀÖ®´óÕß"
+ CC.WARS4="Ñªµ¶¹¥»÷ÎüÈ¡ÉúÃü"
+ CC.WARS5="£±£Ò¸º¤±¤¤¤¯¤¶¡¡¤À¤¬¡¡¥ª¥ì¤¦¤Á¤Ê¤ë¤È¤¦¤·¤¬¡¡¤½¤ì¤ò¤³¤Ð¤à¡¡¤³¤ì¤Ï¤Ö¤â¤ó¤Î¤¤¤Á¤«¡¡ÕæÌïÐÒ´å¡¡¤¤¤¶¡¡¤Þ¤¤¤ë"
+ CC.WARS6="£¶£Ò¤â¤Ï¤ä¡¡¤³¤ì¤Þ¤Ç¤«.........."
+ CC.WARS7="£²£¨ÕæÌïÐÒ´å£­£­£­£­£¬£ÈÕæÊÇÈÃÈËÇÕÅåµÄÓÂÊ¿°¡£¡£¡£¡£©"
+ CC.WARS8="£²£¨ÕæÌïÐÖ£¬Ò»ÁùÒ»ÎåÄê´óÚæ³ÇÔÙ»á°É£¡£ÈÄÇÊ±ÎÒµÄÃû×ÖÊÇ......£©"
+ CC.WARS9="ÂÞºº·üÄ§¹¦»Ö¸´ÉúÃü"
+ CC.WARS10="×ÏÏ¼Éñ¹¦»Ö¸´ÄÚÁ¦"
+ CC.WARS11="»ìÔª¹¦»Ö¸´ÌåÁ¦"
+ CC.WARS12="Ã¤Ä¿×´Ì¬»Ö¸´"
+ CC.WARS13="ÌúÕÆ"
+ CC.WARS14="£±¹þ¹þ¹þ£­£­£­£¬ÃçÈË·ï£¬ÄãÖÕÓÚËÀÓÚÎÒÊÖÁË£¡½ñÈÕ·½½â¶àÄêÖ®ºÞ£¡"
+ CC.WARS15="Ìï¹éÅ©¹¥·ÀÇáÄÜÁ¦¸÷ÌáÉý20µã Ñ§»áÃç¼Ò½£·¨"
+ CC.WARS16="£±£ÒÁú¶ù£­£­£­£­£­£­£¡£È£µ°¡£­£­£­£­£´£­£­£­£­£³£­£­£­£­£²£­£­£­£­£±£­£­£­£­£­£­£­£­£¡£¡£¡"
+ CC.WARS17="Ë®¾µËÄÆæÔÆÌå·çÉíÐîÁ¦Íê±Ï"
+ CC.WARS18="%s·¢¶¯ÀëºÏ²ÎÉÌ·´»÷"
+ CC.WARS19="%s·¢¶¯¶·×ªÐÇÒÆ·´»÷"
+ CC.WARS20="%s·¢¶¯±±¶·ÒÆ³½·´»÷"
+ CC.WARS21="£±£¨°¦£¬ÕâÐ©ÄêÇáÈË´³µ´½­ºþÒ²²»ÈÝÒ×£¬Ò²°Õ£¬´ËÕ½¾ÍÒÔ£ÒÌ«×æ³¤È­£×À´ÅãÄãÃÇÍæÍæ°É£¡£©"
+ CC.WARS22="Ì«×æ³¤È­"
+ CC.WARS23="½µÁúÈýµþÀË"
+ CC.WARS24="½Ìµ¥ÓÚÕÛ¼ý Áù¾ü±ÙÒ× ·ÜÓ¢ÐÛÅ­"
+ CC.WARS25="ËäÍòÇ§ÈËÎáÍùÒÓ"
+ CC.WARS26="ºúºº¶÷³ð  ÐëÇãÓ¢ÐÛÀá"
+ CC.WARS27="ÈÕ³ö¶«·½  Î¨ÎÒ²»°Ü"
+ CC.WARS28="±©»÷¼ÓÁ¦"
+ CC.WARS29="±©»÷"
+ CC.WARS30="Á¬»÷"
+ CC.WARS31='¡¤Õ½ºð'
+ CC.WARS32='¿û»¨Éñ¹¦¼ÓÁ¦'
+ CC.WARS33="±±Ú¤Éñ¹¦"
+ CC.WARS34="ÎüÐÇ´ó·¨"
+ CC.WARS35="»¯¹¦´ó·¨"
+ CC.WARS36="ÇÜÁú¹¦¼ÓÁ¦"
+ CC.WARS37="Ð¡ÎÞÏà¹¦¼ÓÁ¦"
+ CC.WARS38="ÏÈÌì¹¦¼ÓÁ¦"
+ CC.WARS39="Ììî¸ÕæÆø¡¤"
+ CC.WARS40="Ç¬À¤´óÅ²ÒÆ¼ÓÁ¦"
+ CC.WARS41="¾ÅÑôÉñ¹¦¼ÓÁ¦"
+ CC.WARS42="Ä§µÛ¡¤ÎüÐÇ"
+ CC.WARS43="ÉñÕÕ¾­¡¤ÎÞÓ°ÉñÈ­"
+ CC.WARS44="ºúµ¶Ãç½£ ¹éÕæºÏÒ»"
+ CC.WARS45="Ä§Òô¡¤±Ìº£³±ÉúÇú"
+ CC.WARS46="ÌúÊ¬Ö®Ô¹Äî"
+ CC.WARS47="ÖÐÆ½ÉñÇ¹"
+ CC.WARS48="Î÷¿ñÖ®Å­Ð¥"
+ CC.WARS49="Î÷¿ñÖ®ÕðÅ­¡¤À×öª¿ñÐ¥"
+ CC.WARS50="ÆßÏÒÎÞÇÙ½£Æø"
+ CC.WARS51="½£µ¨ÇÙÐÄ Ð¦°Á½­ºþ"
+ CC.WARS52="Íò·¨×ÔÈ»"
+ CC.WARS53="¸£Ôó¼Ó»¤"
+ CC.WARS54="¿û»¨µãÑ¨ÊÖ"
+ CC.WARS55="ÆßÐÄº£ÌÄ"
+ CC.WARS56="´óÂÖÃÜ×Ú¡¤»ðÑæµ¶"
+ CC.WARS57="»ìÔªÅùö¨¹¦¼ÓÁ¦"
+ CC.WARS58="Ä§Ïà¡¤»ÃÒõ"
+ CC.WARS59='Ì«¼«È­½èÁ¦´òÁ¦'
+ CC.WARS60="ÁéðÕ¹¬¾øÑ§¡¤ÉúËÀ·û"
+ CC.WARS61="´ò¹·°ô·¨¾øÑ§--ÌìÏÂÎÞ¹·"
+ CC.WARS62="ÖØ½£Õæ´«¡¤ÀËÈçÉ½Ó¿½£Èçºç"
+ CC.WARS63="°µ¼ý¡¤ÉÈÖÐ¶¤"
+ CC.WARS64="»ð·ïÁÇÔ­"
+ CC.WARS65="Ñ×Ç¹ËØÇ³Ãù¡¤ÎÞË«ÂÒÎè½Ô´«"
+ CC.WARS66="Ñ×Ç¹ËØÇ³Ãù¡¤ÕæÎÞË«ÂÒÎè"
+ CC.WARS67="Ñ×Ç¹ËØÇ³Ãù¡¤ÎÞË«ÂÒÎè"
+ CC.WARS68="¶þÌìÒ»Á÷ÃØ°ÂÒå¡¤ÍòÎïÒ»¿Õ"
+ CC.WARS69="ÅþÉ³ÃÅÌìÖ®¼Ó»¤"
+ CC.WARS70="Õæ±ÙÐ°½£·¨¡¤¿û»¨´ÌÄ¿"
+ CC.WARS71="Ã¤Ä¿×´Ì¬¡¤¹¥»÷ÎÞÐ§"
+ CC.WARS72="+»áÐÄÖ®Ò»»÷"
+ CC.WARS73="»áÐÄÖ®Ò»»÷"
+ CC.WARS74="+ÐîÁ¦¹¥»÷"
+ CC.WARS75="ÐîÁ¦¹¥»÷"
+ CC.WARS76="%sÐÞÁ¶%sµ½µÇ·åÔì¼«"
+ CC.WARS77="%s ÉýÎª %d ¼¶"
+ CC.WARS78="ÔÆÌå·çÉí·´¹¥"  
+ CC.WARS79="+·ÀÓù×´Ì¬"
+ CC.WARS80="·ÀÓù×´Ì¬"
+ CC.WARS81="¾ÅÑôÉñ¹¦»¤Ìå"
+ CC.WARS82="ÇÜÁú¹¦»¤Ìå"
+ CC.WARS83="Ð¡ÎÞÏà¹¦»¤Ìå"
+ CC.WARS84="»ìÔªÅùö¨¹¦»¤Ìå"
+ CC.WARS85="ÏÈÌì¹¦»¤Ìå"
+ CC.WARS86="ÈÕÔÂ¡¤Í¬»Ô"
+ CC.WARS87="±±Ú¤ÕæÆø"
+ CC.WARS88="ÀëºÏ²ÎÉÌ"
+ CC.WARS89="¶·×ªÐÇÒÆ"
+ CC.WARS90="±±¶·ÒÆ³½"
+ CC.WARS91="+É­ÂÞÍòÏó"
+ CC.WARS92="É­ÂÞÍòÏó"
+ CC.WARS93="ÎÞ¸ùÎÞÐÎ"
+ CC.WARS94="¿û»¨ÒÆÐÎ"
+ CC.WARS95="¾ÆÉñÃØ×Ù²½"
+ CC.WARS96="Áè²¨Î¢²½"
+ CC.WARS97="¿û»¨ÒÆÐÎ"
+ CC.WARS98="Ìì»úÉí·¨"
+ CC.WARS99="ÃØ´«¡¤ÆÆÕÆÊ½"
+ CC.WARS100="ÃØ´«¡¤ÆÆ½£Ê½"
+ CC.WARS101="ÃØ´«¡¤ÆÆµ¶Ê½"
+ CC.WARS102="ÃØ´«¡¤ÆÆ¹÷Ê½"
+ CC.WARS103="ÃØ´«¡¤ÆÆÆøÊ½"
+ CC.WARS104="Ììî¸»¤Ìå"
+ CC.WARS105="+Ììî¸»¤Ìå"
+ CC.WARS106='·´µ¯'
+ CC.WARS107="¡¤Ë«"
+ CC.WARS108='Õæ--ÄæÔË½îÂö×ß»ðÈëÄ§'
+ CC.WARS109='×ß»ðÈëÄ§'
+ CC.WARS110="¾ÅÑôÉñ¹¦·´Õð"
+ CC.WARS111='ÆðËÀ»ØÉú'	
+ CC.WARS112="ÏÈÌìÒ»Ñô ÆðËÀ»ØÉú"
+ CC.WARS113="ÑÖÍõµÐ ÖØÉú"
+ CC.WARS114="ÌìµØ¶À×ð"
+ CC.WARS115="+Ì«¼«°ÂÒå"
+ CC.WARS116="Ì«¼«°ÂÒå--ËÄÁ½²¦Ç§½ï"
+ CC.WARS117="+Å­Æø±¬·¢"
+ CC.WARS118="Å­Æø±¬·¢"
+ CC.WARS119="+ÔÆÌå·çÉí"
+ CC.WARS120="ÔÆÌå·çÉí"
+ CC.WARS121="·ÀÓù¿ªÊ¼"
+ CC.WARS122="ÐîÁ¦Ê§°Ü"
+ CC.WARS123="ÐîÁ¦³É¹¦"
+ CC.WARS124="%s »ñµÃ¾­ÑéµãÊý %d"
+ CC.WARS125="%s Éý¼¶ÁË"
+ CC.WARS126="%s ÐÞÁ¶ %s ³É¹¦"
+ CC.WARS127="%s ÉýÎªµÚ%s¼¶"  
+ CC.WARS128="ÐÞÏ°»á¼õÉÙÉúÃüÖµ"
+ CC.WARS129="°ËÃÅ»ØÌì"
+ CC.WARS130="¡¤Ê¨ÍõÖ®ÅØÏø"
    
    
-   CC.SrcCharSet=0;         --æºä»£ç çš„å­—ç¬¦é›† 0 gb  1 big5ï¼Œç”¨äºŽè½¬æ¢RÃ—ã€‚ å¦‚æžœæºç è¢«è½¬æ¢ä¸ºbig5ï¼Œåˆ™åº”è®¾ä¸º1
-   CC.OSCharSet=CONFIG.OSCharSet;         --OS å­—ç¬¦é›†ï¼Œ0 GB, 1 Big5
-   CC.FontName=CONFIG.FontName;    --æ˜¾ç¤ºå­—ä½“
+   CC.SrcCharSet=0;         --Ô´´úÂëµÄ×Ö·û¼¯ 0 gb  1 big5£¬ÓÃÓÚ×ª»»R¡Á¡£ Èç¹ûÔ´Âë±»×ª»»Îªbig5£¬ÔòÓ¦ÉèÎª1
+   CC.OSCharSet=CONFIG.OSCharSet;         --OS ×Ö·û¼¯£¬0 GB, 1 Big5
+   CC.FontName=CONFIG.FontName;    --ÏÔÊ¾×ÖÌå
 
-   CC.ScreenW=CONFIG.Width;          --æ˜¾ç¤ºçª—å£å®½é«˜
+   CC.ScreenW=CONFIG.Width;          --ÏÔÊ¾´°¿Ú¿í¸ß
    CC.ScreenH=CONFIG.Height;
    
    
-   --å®šä¹‰è®°å½•æ–‡ä»¶åã€‚Så’ŒDç”±äºŽæ˜¯å›ºå®šå¤§å°ï¼Œå› æ­¤ä¸å†å®šä¹‰idxäº†ã€‚
+   --¶¨Òå¼ÇÂ¼ÎÄ¼þÃû¡£SºÍDÓÉÓÚÊÇ¹Ì¶¨´óÐ¡£¬Òò´Ë²»ÔÙ¶¨ÒåidxÁË¡£
    CC.R_IDXFilename={[0]=CONFIG.DataPath .. "ranger.idx",
                      CONFIG.DataPath .. "r1.idx",
 					 CONFIG.DataPath .. "r2.idx",
 					 CONFIG.DataPath .. "r3.idx",};
    CC.R_GRPFilename={[0]=CONFIG.DataPath .. "ranger.grp",
-                     CONFIG.DataPath .. "/save/r1.grp",
-					 CONFIG.DataPath .. "/save/r2.grp",
-					 CONFIG.DataPath .. "/save/r3.grp",};
+                     CONFIG.DataPath .. "\\SAVE\\r1.grp",
+					 CONFIG.DataPath .. "\\SAVE\\r2.grp",
+					 CONFIG.DataPath .. "\\SAVE\\r3.grp",};
    CC.S_Filename={[0]=CONFIG.DataPath .. "allsin.grp",
-                  CONFIG.DataPath .. "/save/s1.grp",
-				  CONFIG.DataPath .. "/save/s2.grp",
-				  CONFIG.DataPath .. "/save/s3.grp",};
+                  CONFIG.DataPath .. "\\SAVE\\s1.grp",
+				  CONFIG.DataPath .. "\\SAVE\\s2.grp",
+				  CONFIG.DataPath .. "\\SAVE\\s3.grp",};
 
    CC.TempS_Filename=CONFIG.DataPath .. "allsinbk.grp";
 
    CC.D_Filename={[0]=CONFIG.DataPath .. "alldef.grp",
-                   CONFIG.DataPath .. "/save/d1.grp",
-				   CONFIG.DataPath .. "/save/d2.grp",
-				   CONFIG.DataPath .. "/save/d3.grp",};
+                   CONFIG.DataPath .. "\\SAVE\\d1.grp",
+				   CONFIG.DataPath .. "\\SAVE\\d2.grp",
+				   CONFIG.DataPath .. "\\SAVE\\d3.grp",};
 
    CC.PaletteFile=CONFIG.DataPath .. "mmap.col";
    
@@ -588,24 +588,24 @@ function SetGlobalConst()
 		        CONFIG.DataPath .. "buildx.002",
 				CONFIG.DataPath .. "buildy.002"};
 
-   --å„ç§è´´å›¾æ–‡ä»¶åã€‚
+   --¸÷ÖÖÌùÍ¼ÎÄ¼þÃû¡£
    CC.MMAPPicFile={CONFIG.DataPath .. "mmap.idx",CONFIG.DataPath .. "mmap.grp"};
    CC.SMAPPicFile={CONFIG.DataPath .. "smap.idx",CONFIG.DataPath .. "smap.grp"};
    CC.WMAPPicFile={CONFIG.DataPath .. "wmap.idx",CONFIG.DataPath .. "wmap.grp"};
    CC.EffectFile={CONFIG.DataPath .. "eft.idx",CONFIG.DataPath .. "eft.grp"};
-   CC.FightPicFile={CONFIG.DataPath .. "fight/fight%03d.idx",CONFIG.DataPath .. "fight/fight%03d.grp"};  --æ­¤å¤„ä¸ºå­—ç¬¦ä¸²æ ¼å¼ï¼Œç±»ä¼¼äºŽCä¸­printfçš„æ ¼å¼ã€‚
+   CC.FightPicFile={CONFIG.DataPath .. "fight%03d.idx",CONFIG.DataPath .. "fight%03d.grp"};  --´Ë´¦Îª×Ö·û´®¸ñÊ½£¬ÀàËÆÓÚCÖÐprintfµÄ¸ñÊ½¡£
 
    CC.HeadPicFile={CONFIG.DataPath .. "atmb.idx",CONFIG.DataPath .. "atmb.grp"};
    CC.ThingPicFile={CONFIG.DataPath .. "thing.idx",CONFIG.DataPath .. "thing.grp"};
    CC.SXTFDJ={CONFIG.DataPath .. "tfdj.idx",CONFIG.DataPath .. "tfdj.grp"};
    
    if CONFIG.MP3==1 then
-      CC.MIDIFile=CONFIG.SoundPath .. "game%02d.mp3";
+      CC.MIDIFile=CONFIG.SoundPath .. "game%02d.MP3";
    else
       CC.MIDIFile=CONFIG.SoundPath .. "game%02d.MID";
    end
    CC.ATKFile=CONFIG.SoundPath .. "atk%02d.wav";
-   CC.ATKFileM=CONFIG.SoundPath .. "atk%02d.mp3";
+   CC.ATKFileM=CONFIG.SoundPath .. "atk%02d.MP3";
    CC.EFile=CONFIG.SoundPath .. "e%02d.wav";
 
    CC.WarFile=CONFIG.DataPath .. "war.sta";
@@ -616,287 +616,287 @@ function SetGlobalConst()
    CC.TalkGrpFile=CONFIG.ScriptPath .. "oldtalk.grp";
    
    CC.KDEFFILE=CONFIG.DataPath .. "Kdef.grp";
-   CC.T1={"é›¶","é•œ","å¥‡","äºŒ","å››","ä¸ƒ","æ°´","é›¨","å®¢","è§"};
+   CC.T1={"Áã","¾µ","Ææ","¶þ","ËÄ","Æß","Ë®","Óê","¿Í","Ïô"};
    
    
   
-   --å®šä¹‰è®°å½•æ–‡ä»¶RÃ—ç»“æž„ã€‚  luaä¸æ”¯æŒç»“æž„ï¼Œæ— æ³•ç›´æŽ¥ä»ŽäºŒè¿›åˆ¶æ–‡ä»¶ä¸­è¯»å–ï¼Œå› æ­¤éœ€è¦è¿™äº›å®šä¹‰ï¼Œç”¨tableä¸­ä¸åŒçš„åå­—æ¥ä»¿çœŸç»“æž„ã€‚
-   CC.TeamNum=6;          --é˜Ÿä¼äººæ•°
-   CC.MyThingNum=200      --ä¸»è§’ç‰©å“æ•°é‡
-   CC.Kungfunum=10   --è§’è‰²æ­¦åŠŸæ•°é‡
+   --¶¨Òå¼ÇÂ¼ÎÄ¼þR¡Á½á¹¹¡£  lua²»Ö§³Ö½á¹¹£¬ÎÞ·¨Ö±½Ó´Ó¶þ½øÖÆÎÄ¼þÖÐ¶ÁÈ¡£¬Òò´ËÐèÒªÕâÐ©¶¨Òå£¬ÓÃtableÖÐ²»Í¬µÄÃû×ÖÀ´·ÂÕæ½á¹¹¡£
+   CC.TeamNum=6;          --¶ÓÎéÈËÊý
+   CC.MyThingNum=200      --Ö÷½ÇÎïÆ·ÊýÁ¿
+   CC.Kungfunum=10   --½ÇÉ«Îä¹¦ÊýÁ¿
    
    BASEDATA={ 
-   "äººX",  
-   "äººY",  
-   "äººX1", 
-   "äººY1",   
-   "é˜Ÿä¼1",
-   "é˜Ÿä¼2",
-   "é˜Ÿä¼3",
-   "é˜Ÿä¼4",
-   "é˜Ÿä¼5",
-   "é˜Ÿä¼6"}
+   "ÈËX",  
+   "ÈËY",  
+   "ÈËX1", 
+   "ÈËY1",   
+   "¶ÓÎé1",
+   "¶ÓÎé2",
+   "¶ÓÎé3",
+   "¶ÓÎé4",
+   "¶ÓÎé5",
+   "¶ÓÎé6"}
    
-   WZ="æœªçŸ¥"
-   WZ1="æœªçŸ¥1"
-   WZ2="æœªçŸ¥2"
-   WZ3="æœªçŸ¥3"
-   WZ4="æœªçŸ¥4"  
-   WZ5="æœªçŸ¥5"
-   WZ6="æœªçŸ¥6"
-   WZ7="æœªçŸ¥7"
+   WZ="Î´Öª"
+   WZ1="Î´Öª1"
+   WZ2="Î´Öª2"
+   WZ3="Î´Öª3"
+   WZ4="Î´Öª4"  
+   WZ5="Î´Öª5"
+   WZ6="Î´Öª6"
+   WZ7="Î´Öª7"
 
-   CC.Base_S={};         --ä¿å­˜åŸºæœ¬æ•°æ®çš„ç»“æž„ï¼Œä»¥ä¾¿ä»¥åŽå­˜å–
-   CC.Base_S["ä¹˜èˆ¹"]={0,0,2}   -- èµ·å§‹ä½ç½®(ä»Ž0å¼€å§‹)ï¼Œæ•°æ®ç±»åž‹(0æœ‰ç¬¦å· 1æ— ç¬¦å·ï¼Œ2å­—ç¬¦ä¸²)ï¼Œé•¿åº¦
-   CC.Base_S["æ— ç”¨"]={2,0,2};
-   CC.Base_S["äººX"]={4,0,2};
-   CC.Base_S["äººY"]={6,0,2};
-   CC.Base_S["äººX1"]={8,0,2};
-   CC.Base_S["äººY1"]={10,0,2};
-   CC.Base_S["äººæ–¹å‘"]={12,0,2};
-   CC.Base_S["èˆ¹X"]={14,0,2};
-   CC.Base_S["èˆ¹Y"]={16,0,2};
-   CC.Base_S["èˆ¹X1"]={18,0,2};
-   CC.Base_S["èˆ¹Y1"]={20,0,2};
-   CC.Base_S["èˆ¹æ–¹å‘"]={22,0,2};
+   CC.Base_S={};         --±£´æ»ù±¾Êý¾ÝµÄ½á¹¹£¬ÒÔ±ãÒÔºó´æÈ¡
+   CC.Base_S["³Ë´¬"]={0,0,2}   -- ÆðÊ¼Î»ÖÃ(´Ó0¿ªÊ¼)£¬Êý¾ÝÀàÐÍ(0ÓÐ·ûºÅ 1ÎÞ·ûºÅ£¬2×Ö·û´®)£¬³¤¶È
+   CC.Base_S["ÎÞÓÃ"]={2,0,2};
+   CC.Base_S["ÈËX"]={4,0,2};
+   CC.Base_S["ÈËY"]={6,0,2};
+   CC.Base_S["ÈËX1"]={8,0,2};
+   CC.Base_S["ÈËY1"]={10,0,2};
+   CC.Base_S["ÈË·½Ïò"]={12,0,2};
+   CC.Base_S["´¬X"]={14,0,2};
+   CC.Base_S["´¬Y"]={16,0,2};
+   CC.Base_S["´¬X1"]={18,0,2};
+   CC.Base_S["´¬Y1"]={20,0,2};
+   CC.Base_S["´¬·½Ïò"]={22,0,2};
 
    for i=1,CC.TeamNum do
-        CC.Base_S["é˜Ÿä¼" .. i]={24+2*(i-1),0,2};
+        CC.Base_S["¶ÓÎé" .. i]={24+2*(i-1),0,2};
    end
 
    for i=1,CC.MyThingNum do
-        CC.Base_S["ç‰©å“" .. i]={36+4*(i-1),0,2};
-        CC.Base_S["ç‰©å“æ•°é‡" .. i]={36+4*(i-1)+2,0,2};
+        CC.Base_S["ÎïÆ·" .. i]={36+4*(i-1),0,2};
+        CC.Base_S["ÎïÆ·ÊýÁ¿" .. i]={36+4*(i-1)+2,0,2};
    end
 
-    CC.PersonSize=182;   --æ¯ä¸ªäººç‰©æ•°æ®å ç”¨å­—èŠ‚
-    CC.Person_S={};      --ä¿å­˜äººç‰©æ•°æ®çš„ç»“æž„ï¼Œä»¥ä¾¿ä»¥åŽå­˜å–
-    CC.Person_S["ä»£å·"]={0,0,2}
-    CC.Person_S["å¤´åƒä»£å·"]={2,0,2}
-    CC.Person_S["ç”Ÿå‘½å¢žé•¿"]={4,0,2}
-    CC.Person_S["æ— ç”¨"]={6,0,2}
-    CC.Person_S["å§“å"]={8,2,10}
-    CC.Person_S["å¤–å·"]={18,2,10}
-    CC.Person_S["æ€§åˆ«"]={28,0,2}
-    CC.Person_S["ç­‰çº§"]={30,0,2}
-    CC.Person_S["ç»éªŒ"]={32,1,2}
-    CC.Person_S["ç”Ÿå‘½"]={34,0,2}
-    CC.Person_S["ç”Ÿå‘½æœ€å¤§å€¼"]={36,0,2}
-    CC.Person_S["å—ä¼¤ç¨‹åº¦"]={38,0,2}
-    CC.Person_S["ä¸­æ¯’ç¨‹åº¦"]={40,0,2}
-    CC.Person_S["ä½“åŠ›"]={42,0,2}
-    CC.Person_S["ç‰©å“ä¿®ç‚¼ç‚¹æ•°"]={44,0,2}
-    CC.Person_S["æ­¦å™¨"]={46,0,2}
-    CC.Person_S["é˜²å…·"]={48,0,2}
+    CC.PersonSize=182;   --Ã¿¸öÈËÎïÊý¾ÝÕ¼ÓÃ×Ö½Ú
+    CC.Person_S={};      --±£´æÈËÎïÊý¾ÝµÄ½á¹¹£¬ÒÔ±ãÒÔºó´æÈ¡
+    CC.Person_S["´úºÅ"]={0,0,2}
+    CC.Person_S["Í·Ïñ´úºÅ"]={2,0,2}
+    CC.Person_S["ÉúÃüÔö³¤"]={4,0,2}
+    CC.Person_S["ÎÞÓÃ"]={6,0,2}
+    CC.Person_S["ÐÕÃû"]={8,2,10}
+    CC.Person_S["ÍâºÅ"]={18,2,10}
+    CC.Person_S["ÐÔ±ð"]={28,0,2}
+    CC.Person_S["µÈ¼¶"]={30,0,2}
+    CC.Person_S["¾­Ñé"]={32,1,2}
+    CC.Person_S["ÉúÃü"]={34,0,2}
+    CC.Person_S["ÉúÃü×î´óÖµ"]={36,0,2}
+    CC.Person_S["ÊÜÉË³Ì¶È"]={38,0,2}
+    CC.Person_S["ÖÐ¶¾³Ì¶È"]={40,0,2}
+    CC.Person_S["ÌåÁ¦"]={42,0,2}
+    CC.Person_S["ÎïÆ·ÐÞÁ¶µãÊý"]={44,0,2}
+    CC.Person_S["ÎäÆ÷"]={46,0,2}
+    CC.Person_S["·À¾ß"]={48,0,2}
 
      for i=1,5 do
-        CC.Person_S["å‡ºæ‹›åŠ¨ç”»å¸§æ•°" .. i]={50+2*(i-1),0,2};
-        CC.Person_S["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ" .. i]={60+2*(i-1),0,2};
-        CC.Person_S["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ" .. i]={70+2*(i-1),0,2};
+        CC.Person_S["³öÕÐ¶¯»­Ö¡Êý" .. i]={50+2*(i-1),0,2};
+        CC.Person_S["³öÕÐ¶¯»­ÑÓ³Ù" .. i]={60+2*(i-1),0,2};
+        CC.Person_S["Îä¹¦ÒôÐ§ÑÓ³Ù" .. i]={70+2*(i-1),0,2};
      end
 
-    CC.Person_S["å†…åŠ›æ€§è´¨"]={80,0,2}
-    CC.Person_S["å†…åŠ›"]={82,0,2}
-    CC.Person_S["å†…åŠ›æœ€å¤§å€¼"]={84,0,2}
-    CC.Person_S["æ”»å‡»åŠ›"]={86,0,2}
-    CC.Person_S["è½»åŠŸ"]={88,0,2}
-    CC.Person_S["é˜²å¾¡åŠ›"]={90,0,2}
-    CC.Person_S["åŒ»ç–—èƒ½åŠ›"]={92,0,2}
-    CC.Person_S["ç”¨æ¯’èƒ½åŠ›"]={94,0,2}
-    CC.Person_S["è§£æ¯’èƒ½åŠ›"]={96,0,2}
-    CC.Person_S["æŠ—æ¯’èƒ½åŠ›"]={98,0,2}
+    CC.Person_S["ÄÚÁ¦ÐÔÖÊ"]={80,0,2}
+    CC.Person_S["ÄÚÁ¦"]={82,0,2}
+    CC.Person_S["ÄÚÁ¦×î´óÖµ"]={84,0,2}
+    CC.Person_S["¹¥»÷Á¦"]={86,0,2}
+    CC.Person_S["Çá¹¦"]={88,0,2}
+    CC.Person_S["·ÀÓùÁ¦"]={90,0,2}
+    CC.Person_S["Ò½ÁÆÄÜÁ¦"]={92,0,2}
+    CC.Person_S["ÓÃ¶¾ÄÜÁ¦"]={94,0,2}
+    CC.Person_S["½â¶¾ÄÜÁ¦"]={96,0,2}
+    CC.Person_S["¿¹¶¾ÄÜÁ¦"]={98,0,2}
 
-    CC.Person_S["æ‹³æŽŒåŠŸå¤«"]={100,0,2}
-    CC.Person_S["å¾¡å‰‘èƒ½åŠ›"]={102,0,2}
-    CC.Person_S["è€åˆ€æŠ€å·§"]={104,0,2}
-    CC.Person_S["ç‰¹æ®Šå…µå™¨"]={106,0,2}
-    CC.Person_S["æš—å™¨æŠ€å·§"]={108,0,2}
+    CC.Person_S["È­ÕÆ¹¦·ò"]={100,0,2}
+    CC.Person_S["Óù½£ÄÜÁ¦"]={102,0,2}
+    CC.Person_S["Ë£µ¶¼¼ÇÉ"]={104,0,2}
+    CC.Person_S["ÌØÊâ±øÆ÷"]={106,0,2}
+    CC.Person_S["°µÆ÷¼¼ÇÉ"]={108,0,2}
 
 
-    CC.Person_S["æ­¦å­¦å¸¸è¯†"]={110,0,2}
-    CC.Person_S["å“å¾·"]={112,0,2}
-    CC.Person_S["æ”»å‡»å¸¦æ¯’"]={114,0,2}
-    CC.Person_S["å·¦å³äº’æ"]={116,0,2}
-    CC.Person_S["å£°æœ›"]={118,0,2}
+    CC.Person_S["ÎäÑ§³£Ê¶"]={110,0,2}
+    CC.Person_S["Æ·µÂ"]={112,0,2}
+    CC.Person_S["¹¥»÷´ø¶¾"]={114,0,2}
+    CC.Person_S["×óÓÒ»¥²«"]={116,0,2}
+    CC.Person_S["ÉùÍû"]={118,0,2}
 
-    CC.Person_S["èµ„è´¨"]={120,0,2}
-    CC.Person_S["ä¿®ç‚¼ç‰©å“"]={122,0,2}
-    CC.Person_S["ä¿®ç‚¼ç‚¹æ•°"]={124,0,2}
+    CC.Person_S["×ÊÖÊ"]={120,0,2}
+    CC.Person_S["ÐÞÁ¶ÎïÆ·"]={122,0,2}
+    CC.Person_S["ÐÞÁ¶µãÊý"]={124,0,2}
 
      for i=1,10 do
-        CC.Person_S["æ­¦åŠŸ" .. i]={126+2*(i-1),0,2};
-        CC.Person_S["æ­¦åŠŸç­‰çº§" .. i]={146+2*(i-1),0,2};
+        CC.Person_S["Îä¹¦" .. i]={126+2*(i-1),0,2};
+        CC.Person_S["Îä¹¦µÈ¼¶" .. i]={146+2*(i-1),0,2};
      end
 
      for i=1,4 do
-        CC.Person_S["æºå¸¦ç‰©å“" .. i]={166+2*(i-1),0,2};
-        CC.Person_S["æºå¸¦ç‰©å“æ•°é‡" .. i]={174+2*(i-1),0,2};
+        CC.Person_S["Ð¯´øÎïÆ·" .. i]={166+2*(i-1),0,2};
+        CC.Person_S["Ð¯´øÎïÆ·ÊýÁ¿" .. i]={174+2*(i-1),0,2};
      end
     
-	CC.TFJL="ç”Ÿå‘½å¢žé•¿"
+	CC.TFJL="ÉúÃüÔö³¤"
 	 
-    CC.ThingSize=190;   --æ¯ä¸ªäººç‰©æ•°æ®å ç”¨å­—èŠ‚
+    CC.ThingSize=190;   --Ã¿¸öÈËÎïÊý¾ÝÕ¼ÓÃ×Ö½Ú
     CC.Thing_S={};
-    CC.Thing_S["ä»£å·"]={0,0,2}
-    CC.Thing_S["åç§°"]={2,2,20}
-    CC.Thing_S["åç§°2"]={22,2,20}
-    CC.Thing_S["ç‰©å“è¯´æ˜Ž"]={42,2,30}
-    CC.Thing_S["ç»ƒå‡ºæ­¦åŠŸ"]={72,0,2}
-    CC.Thing_S["æš—å™¨åŠ¨ç”»ç¼–å·"]={74,0,2}
-    CC.Thing_S["ä½¿ç”¨äºº"]={76,0,2}
-    CC.Thing_S["è£…å¤‡ç±»åž‹"]={78,0,2}
-    CC.Thing_S["æ˜¾ç¤ºç‰©å“è¯´æ˜Ž"]={80,0,2}
-    CC.Thing_S["ç±»åž‹"]={82,0,2}
-    CC.Thing_S["æœªçŸ¥5"]={84,0,2}
-    CC.Thing_S["æœªçŸ¥6"]={86,0,2}
-    CC.Thing_S["æœªçŸ¥7"]={88,0,2}	
+    CC.Thing_S["´úºÅ"]={0,0,2}
+    CC.Thing_S["Ãû³Æ"]={2,2,20}
+    CC.Thing_S["Ãû³Æ2"]={22,2,20}
+    CC.Thing_S["ÎïÆ·ËµÃ÷"]={42,2,30}
+    CC.Thing_S["Á·³öÎä¹¦"]={72,0,2}
+    CC.Thing_S["°µÆ÷¶¯»­±àºÅ"]={74,0,2}
+    CC.Thing_S["Ê¹ÓÃÈË"]={76,0,2}
+    CC.Thing_S["×°±¸ÀàÐÍ"]={78,0,2}
+    CC.Thing_S["ÏÔÊ¾ÎïÆ·ËµÃ÷"]={80,0,2}
+    CC.Thing_S["ÀàÐÍ"]={82,0,2}
+    CC.Thing_S["Î´Öª5"]={84,0,2}
+    CC.Thing_S["Î´Öª6"]={86,0,2}
+    CC.Thing_S["Î´Öª7"]={88,0,2}	
 	
-    CC.Thing_S["åŠ ç”Ÿå‘½"]={90,0,2}
-    CC.Thing_S["åŠ ç”Ÿå‘½æœ€å¤§å€¼"]={92,0,2}
-    CC.Thing_S["åŠ ä¸­æ¯’è§£æ¯’"]={94,0,2}
-    CC.Thing_S["åŠ ä½“åŠ›"]={96,0,2}
-    CC.Thing_S["æ”¹å˜å†…åŠ›æ€§è´¨"]={98,0,2}
-    CC.Thing_S["åŠ å†…åŠ›"]={100,0,2}
+    CC.Thing_S["¼ÓÉúÃü"]={90,0,2}
+    CC.Thing_S["¼ÓÉúÃü×î´óÖµ"]={92,0,2}
+    CC.Thing_S["¼ÓÖÐ¶¾½â¶¾"]={94,0,2}
+    CC.Thing_S["¼ÓÌåÁ¦"]={96,0,2}
+    CC.Thing_S["¸Ä±äÄÚÁ¦ÐÔÖÊ"]={98,0,2}
+    CC.Thing_S["¼ÓÄÚÁ¦"]={100,0,2}
 
-    CC.Thing_S["åŠ å†…åŠ›æœ€å¤§å€¼"]={102,0,2}
-    CC.Thing_S["åŠ æ”»å‡»åŠ›"]={104,0,2}
-    CC.Thing_S["åŠ è½»åŠŸ"]={106,0,2}
-    CC.Thing_S["åŠ é˜²å¾¡åŠ›"]={108,0,2}
-    CC.Thing_S["åŠ åŒ»ç–—èƒ½åŠ›"]={110,0,2}
+    CC.Thing_S["¼ÓÄÚÁ¦×î´óÖµ"]={102,0,2}
+    CC.Thing_S["¼Ó¹¥»÷Á¦"]={104,0,2}
+    CC.Thing_S["¼ÓÇá¹¦"]={106,0,2}
+    CC.Thing_S["¼Ó·ÀÓùÁ¦"]={108,0,2}
+    CC.Thing_S["¼ÓÒ½ÁÆÄÜÁ¦"]={110,0,2}
 
-    CC.Thing_S["åŠ ç”¨æ¯’èƒ½åŠ›"]={112,0,2}
-    CC.Thing_S["åŠ è§£æ¯’èƒ½åŠ›"]={114,0,2}
-    CC.Thing_S["åŠ æŠ—æ¯’èƒ½åŠ›"]={116,0,2}
-    CC.Thing_S["åŠ æ‹³æŽŒåŠŸå¤«"]={118,0,2}
-    CC.Thing_S["åŠ å¾¡å‰‘èƒ½åŠ›"]={120,0,2}
+    CC.Thing_S["¼ÓÓÃ¶¾ÄÜÁ¦"]={112,0,2}
+    CC.Thing_S["¼Ó½â¶¾ÄÜÁ¦"]={114,0,2}
+    CC.Thing_S["¼Ó¿¹¶¾ÄÜÁ¦"]={116,0,2}
+    CC.Thing_S["¼ÓÈ­ÕÆ¹¦·ò"]={118,0,2}
+    CC.Thing_S["¼ÓÓù½£ÄÜÁ¦"]={120,0,2}
 
-    CC.Thing_S["åŠ è€åˆ€æŠ€å·§"]={122,0,2}
-    CC.Thing_S["åŠ ç‰¹æ®Šå…µå™¨"]={124,0,2}
-    CC.Thing_S["åŠ æš—å™¨æŠ€å·§"]={126,0,2}
-    CC.Thing_S["åŠ æ­¦å­¦å¸¸è¯†"]={128,0,2}
-    CC.Thing_S["åŠ å“å¾·"]={130,0,2}
+    CC.Thing_S["¼ÓË£µ¶¼¼ÇÉ"]={122,0,2}
+    CC.Thing_S["¼ÓÌØÊâ±øÆ÷"]={124,0,2}
+    CC.Thing_S["¼Ó°µÆ÷¼¼ÇÉ"]={126,0,2}
+    CC.Thing_S["¼ÓÎäÑ§³£Ê¶"]={128,0,2}
+    CC.Thing_S["¼ÓÆ·µÂ"]={130,0,2}
 
-    CC.Thing_S["åŠ æ”»å‡»æ¬¡æ•°"]={132,0,2}
-    CC.Thing_S["åŠ æ”»å‡»å¸¦æ¯’"]={134,0,2}
-    CC.Thing_S["ä»…ä¿®ç‚¼äººç‰©"]={136,0,2}
-    CC.Thing_S["éœ€å†…åŠ›æ€§è´¨"]={138,0,2}
-    CC.Thing_S["éœ€å†…åŠ›"]={140,0,2}
+    CC.Thing_S["¼Ó¹¥»÷´ÎÊý"]={132,0,2}
+    CC.Thing_S["¼Ó¹¥»÷´ø¶¾"]={134,0,2}
+    CC.Thing_S["½öÐÞÁ¶ÈËÎï"]={136,0,2}
+    CC.Thing_S["ÐèÄÚÁ¦ÐÔÖÊ"]={138,0,2}
+    CC.Thing_S["ÐèÄÚÁ¦"]={140,0,2}
 
-    CC.Thing_S["éœ€æ”»å‡»åŠ›"]={142,0,2}
-    CC.Thing_S["éœ€è½»åŠŸ"]={144,0,2}
-    CC.Thing_S["éœ€ç”¨æ¯’èƒ½åŠ›"]={146,0,2}
-    CC.Thing_S["éœ€åŒ»ç–—èƒ½åŠ›"]={148,0,2}
-    CC.Thing_S["éœ€è§£æ¯’èƒ½åŠ›"]={150,0,2}
+    CC.Thing_S["Ðè¹¥»÷Á¦"]={142,0,2}
+    CC.Thing_S["ÐèÇá¹¦"]={144,0,2}
+    CC.Thing_S["ÐèÓÃ¶¾ÄÜÁ¦"]={146,0,2}
+    CC.Thing_S["ÐèÒ½ÁÆÄÜÁ¦"]={148,0,2}
+    CC.Thing_S["Ðè½â¶¾ÄÜÁ¦"]={150,0,2}
 
-    CC.Thing_S["éœ€æ‹³æŽŒåŠŸå¤«"]={152,0,2}
-    CC.Thing_S["éœ€å¾¡å‰‘èƒ½åŠ›"]={154,0,2}
-    CC.Thing_S["éœ€è€åˆ€æŠ€å·§"]={156,0,2}
-    CC.Thing_S["éœ€ç‰¹æ®Šå…µå™¨"]={158,0,2}
-    CC.Thing_S["éœ€æš—å™¨æŠ€å·§"]={160,0,2}
+    CC.Thing_S["ÐèÈ­ÕÆ¹¦·ò"]={152,0,2}
+    CC.Thing_S["ÐèÓù½£ÄÜÁ¦"]={154,0,2}
+    CC.Thing_S["ÐèË£µ¶¼¼ÇÉ"]={156,0,2}
+    CC.Thing_S["ÐèÌØÊâ±øÆ÷"]={158,0,2}
+    CC.Thing_S["Ðè°µÆ÷¼¼ÇÉ"]={160,0,2}
 
-    CC.Thing_S["éœ€èµ„è´¨"]={162,0,2}
-    CC.Thing_S["éœ€ç»éªŒ"]={164,0,2}
-    CC.Thing_S["ç»ƒå‡ºç‰©å“éœ€ç»éªŒ"]={166,0,2}
-    CC.Thing_S["éœ€ææ–™"]={168,0,2}
+    CC.Thing_S["Ðè×ÊÖÊ"]={162,0,2}
+    CC.Thing_S["Ðè¾­Ñé"]={164,0,2}
+    CC.Thing_S["Á·³öÎïÆ·Ðè¾­Ñé"]={166,0,2}
+    CC.Thing_S["Ðè²ÄÁÏ"]={168,0,2}
 
       for i=1,5 do
-        CC.Thing_S["ç»ƒå‡ºç‰©å“" .. i]={170+2*(i-1),0,2};
-        CC.Thing_S["éœ€è¦ç‰©å“æ•°é‡" .. i]={180+2*(i-1),0,2};
+        CC.Thing_S["Á·³öÎïÆ·" .. i]={170+2*(i-1),0,2};
+        CC.Thing_S["ÐèÒªÎïÆ·ÊýÁ¿" .. i]={180+2*(i-1),0,2};
      end
 
-    CC.SceneSize=52;   --æ¯ä¸ªåœºæ™¯æ•°æ®å ç”¨å­—èŠ‚
+    CC.SceneSize=52;   --Ã¿¸ö³¡¾°Êý¾ÝÕ¼ÓÃ×Ö½Ú
     CC.Scene_S={};
-    CC.Scene_S["ä»£å·"]={0,0,2}
-    CC.Scene_S["åç§°"]={2,2,10}
-    CC.Scene_S["å‡ºé—¨éŸ³ä¹"]={12,0,2}
-    CC.Scene_S["è¿›é—¨éŸ³ä¹"]={14,0,2}
-    CC.Scene_S["è·³è½¬åœºæ™¯"]={16,0,2}
-    CC.Scene_S["è¿›å…¥æ¡ä»¶"]={18,0,2}
-    CC.Scene_S["å¤–æ™¯å…¥å£X1"]={20,0,2}
-    CC.Scene_S["å¤–æ™¯å…¥å£Y1"]={22,0,2}
-    CC.Scene_S["å¤–æ™¯å…¥å£X2"]={24,0,2}
-    CC.Scene_S["å¤–æ™¯å…¥å£Y2"]={26,0,2}
-    CC.Scene_S["å…¥å£X"]={28,0,2}
-    CC.Scene_S["å…¥å£Y"]={30,0,2}
-    CC.Scene_S["å‡ºå£X1"]={32,0,2}
-    CC.Scene_S["å‡ºå£X2"]={34,0,2}
-    CC.Scene_S["å‡ºå£X3"]={36,0,2}
-    CC.Scene_S["å‡ºå£Y1"]={38,0,2}
-    CC.Scene_S["å‡ºå£Y2"]={40,0,2}
-    CC.Scene_S["å‡ºå£Y3"]={42,0,2}
-    CC.Scene_S["è·³è½¬å£X1"]={44,0,2}
-    CC.Scene_S["è·³è½¬å£Y1"]={46,0,2}
-    CC.Scene_S["è·³è½¬å£X2"]={48,0,2}
-    CC.Scene_S["è·³è½¬å£Y2"]={50,0,2}
+    CC.Scene_S["´úºÅ"]={0,0,2}
+    CC.Scene_S["Ãû³Æ"]={2,2,10}
+    CC.Scene_S["³öÃÅÒôÀÖ"]={12,0,2}
+    CC.Scene_S["½øÃÅÒôÀÖ"]={14,0,2}
+    CC.Scene_S["Ìø×ª³¡¾°"]={16,0,2}
+    CC.Scene_S["½øÈëÌõ¼þ"]={18,0,2}
+    CC.Scene_S["Íâ¾°Èë¿ÚX1"]={20,0,2}
+    CC.Scene_S["Íâ¾°Èë¿ÚY1"]={22,0,2}
+    CC.Scene_S["Íâ¾°Èë¿ÚX2"]={24,0,2}
+    CC.Scene_S["Íâ¾°Èë¿ÚY2"]={26,0,2}
+    CC.Scene_S["Èë¿ÚX"]={28,0,2}
+    CC.Scene_S["Èë¿ÚY"]={30,0,2}
+    CC.Scene_S["³ö¿ÚX1"]={32,0,2}
+    CC.Scene_S["³ö¿ÚX2"]={34,0,2}
+    CC.Scene_S["³ö¿ÚX3"]={36,0,2}
+    CC.Scene_S["³ö¿ÚY1"]={38,0,2}
+    CC.Scene_S["³ö¿ÚY2"]={40,0,2}
+    CC.Scene_S["³ö¿ÚY3"]={42,0,2}
+    CC.Scene_S["Ìø×ª¿ÚX1"]={44,0,2}
+    CC.Scene_S["Ìø×ª¿ÚY1"]={46,0,2}
+    CC.Scene_S["Ìø×ª¿ÚX2"]={48,0,2}
+    CC.Scene_S["Ìø×ª¿ÚY2"]={50,0,2}
 
-    CC.WugongSize=136;   --æ¯ä¸ªæ­¦åŠŸæ•°æ®å ç”¨å­—èŠ‚
+    CC.WugongSize=136;   --Ã¿¸öÎä¹¦Êý¾ÝÕ¼ÓÃ×Ö½Ú
     CC.Wugong_S={};
-    CC.Wugong_S["ä»£å·"]={0,0,2}
-    CC.Wugong_S["åç§°"]={2,2,10}
-    CC.Wugong_S["æœªçŸ¥1"]={12,0,2}
-    CC.Wugong_S["æœªçŸ¥2"]={14,0,2}
-    CC.Wugong_S["æœªçŸ¥3"]={16,0,2}
-    CC.Wugong_S["æœªçŸ¥4"]={18,0,2}
-    CC.Wugong_S["æœªçŸ¥5"]={20,0,2}
-    CC.Wugong_S["å‡ºæ‹›éŸ³æ•ˆ"]={22,0,2}
-    CC.Wugong_S["æ­¦åŠŸç±»åž‹"]={24,0,2}
-    CC.Wugong_S["æ­¦åŠŸåŠ¨ç”»&éŸ³æ•ˆ"]={26,0,2}
-    CC.Wugong_S["ä¼¤å®³ç±»åž‹"]={28,0,2}
-    CC.Wugong_S["æ”»å‡»èŒƒå›´"]={30,0,2}
-    CC.Wugong_S["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"]={32,0,2}
-    CC.Wugong_S["æ•Œäººä¸­æ¯’ç‚¹æ•°"]={34,0,2}
+    CC.Wugong_S["´úºÅ"]={0,0,2}
+    CC.Wugong_S["Ãû³Æ"]={2,2,10}
+    CC.Wugong_S["Î´Öª1"]={12,0,2}
+    CC.Wugong_S["Î´Öª2"]={14,0,2}
+    CC.Wugong_S["Î´Öª3"]={16,0,2}
+    CC.Wugong_S["Î´Öª4"]={18,0,2}
+    CC.Wugong_S["Î´Öª5"]={20,0,2}
+    CC.Wugong_S["³öÕÐÒôÐ§"]={22,0,2}
+    CC.Wugong_S["Îä¹¦ÀàÐÍ"]={24,0,2}
+    CC.Wugong_S["Îä¹¦¶¯»­&ÒôÐ§"]={26,0,2}
+    CC.Wugong_S["ÉËº¦ÀàÐÍ"]={28,0,2}
+    CC.Wugong_S["¹¥»÷·¶Î§"]={30,0,2}
+    CC.Wugong_S["ÏûºÄÄÚÁ¦µãÊý"]={32,0,2}
+    CC.Wugong_S["µÐÈËÖÐ¶¾µãÊý"]={34,0,2}
 
      for i=1,10 do
-        CC.Wugong_S["æ”»å‡»åŠ›" .. i]={36+2*(i-1),0,2};
-        CC.Wugong_S["ç§»åŠ¨èŒƒå›´" .. i]={56+2*(i-1),0,2};
-        CC.Wugong_S["æ€ä¼¤èŒƒå›´" .. i]={76+2*(i-1),0,2};
-        CC.Wugong_S["åŠ å†…åŠ›" .. i]={96+2*(i-1),0,2};
-        CC.Wugong_S["æ€å†…åŠ›" .. i]={116+2*(i-1),0,2};
+        CC.Wugong_S["¹¥»÷Á¦" .. i]={36+2*(i-1),0,2};
+        CC.Wugong_S["ÒÆ¶¯·¶Î§" .. i]={56+2*(i-1),0,2};
+        CC.Wugong_S["É±ÉË·¶Î§" .. i]={76+2*(i-1),0,2};
+        CC.Wugong_S["¼ÓÄÚÁ¦" .. i]={96+2*(i-1),0,2};
+        CC.Wugong_S["É±ÄÚÁ¦" .. i]={116+2*(i-1),0,2};
      end
 
-   CC.ShopSize=30;   --æ¯ä¸ªå°å®å•†åº—æ•°æ®å ç”¨å­—èŠ‚
+   CC.ShopSize=30;   --Ã¿¸öÐ¡±¦ÉÌµêÊý¾ÝÕ¼ÓÃ×Ö½Ú
    CC.Shop_S={};
    for i=1,5 do
-      CC.Shop_S["ç‰©å“" .. i]={0+2*(i-1),0,2};
-      CC.Shop_S["ç‰©å“æ•°é‡" .. i]={10+2*(i-1),0,2};
-      CC.Shop_S["ç‰©å“ä»·æ ¼" .. i]={20+2*(i-1),0,2};
+      CC.Shop_S["ÎïÆ·" .. i]={0+2*(i-1),0,2};
+      CC.Shop_S["ÎïÆ·ÊýÁ¿" .. i]={10+2*(i-1),0,2};
+      CC.Shop_S["ÎïÆ·¼Û¸ñ" .. i]={20+2*(i-1),0,2};
    end
 
-   CC.ShopScene={};       --å°å®å•†åº—åœºæ™¯æ•°æ®ï¼Œsceneid åœºæ™¯idï¼Œd_shop å°å®ä½ç½®D*, d_leave å°å®ç¦»å¼€D*ï¼Œä¸€èˆ¬åœ¨åœºæ™¯å‡ºå£ï¼Œè·¯è¿‡è§¦å‘
+   CC.ShopScene={};       --Ð¡±¦ÉÌµê³¡¾°Êý¾Ý£¬sceneid ³¡¾°id£¬d_shop Ð¡±¦Î»ÖÃD*, d_leave Ð¡±¦Àë¿ªD*£¬Ò»°ãÔÚ³¡¾°³ö¿Ú£¬Â·¹ý´¥·¢
    CC.ShopScene[0]={sceneid=1,d_shop=16,d_leave={17,18}, };
    CC.ShopScene[1]={sceneid=3,d_shop=14,d_leave={15,16}, };
    CC.ShopScene[2]={sceneid=40,d_shop=20,d_leave={21,22}, };
    CC.ShopScene[3]={sceneid=60,d_shop=16,d_leave={17,18}, };
    CC.ShopScene[4]={sceneid=61,d_shop=9,d_leave={10,11,12}, };
 
-  --å…¶ä»–å¸¸é‡
+  --ÆäËû³£Á¿
   
   
-   CC.MWidth=480;       --ä¸»åœ°å›¾å®½
-   CC.MHeight=480;      --ä¸»åœ°å›¾é«˜
+   CC.MWidth=480;       --Ö÷µØÍ¼¿í
+   CC.MHeight=480;      --Ö÷µØÍ¼¸ß
 
-   CC.SWidth=64;     --å­åœºæ™¯åœ°å›¾å¤§å°
+   CC.SWidth=64;     --×Ó³¡¾°µØÍ¼´óÐ¡
    CC.SHeight=64;
 
-   CC.DNum=200;       --D*æ¯ä¸ªåœºæ™¯çš„äº‹ä»¶æ•°
+   CC.DNum=200;       --D*Ã¿¸ö³¡¾°µÄÊÂ¼þÊý
 
-   CC.XScale=CONFIG.XScale;    --è´´å›¾ä¸€åŠçš„å®½é«˜
+   CC.XScale=CONFIG.XScale;    --ÌùÍ¼Ò»°ëµÄ¿í¸ß
    CC.YScale=CONFIG.YScale;
 
-   CC.Frame=50;     --æ¯å¸§æ¯«ç§’æ•°
-   CC.SceneMoveFrame=CC.Frame*2;           --åœºæ™¯ç§»åŠ¨å¸§é€Ÿï¼Œç”¨äºŽåœºæ™¯ç§»åŠ¨äº‹ä»¶
-   CC.PersonMoveFrame=CC.Frame*2;          --ä¸»è§’ç§»åŠ¨é€Ÿåº¦ï¼Œç”¨äºŽä¸»è§’ç§»åŠ¨äº‹ä»¶
-   CC.AnimationFrame=CC.Frame*3;           --åŠ¨ç”»æ˜¾ç¤ºå¸§é€Ÿï¼Œç”¨äºŽæ˜¾ç¤ºåŠ¨ç”»äº‹ä»¶
+   CC.Frame=50;     --Ã¿Ö¡ºÁÃëÊý
+   CC.SceneMoveFrame=CC.Frame*2;           --³¡¾°ÒÆ¶¯Ö¡ËÙ£¬ÓÃÓÚ³¡¾°ÒÆ¶¯ÊÂ¼þ
+   CC.PersonMoveFrame=CC.Frame*2;          --Ö÷½ÇÒÆ¶¯ËÙ¶È£¬ÓÃÓÚÖ÷½ÇÒÆ¶¯ÊÂ¼þ
+   CC.AnimationFrame=CC.Frame*3;           --¶¯»­ÏÔÊ¾Ö¡ËÙ£¬ÓÃÓÚÏÔÊ¾¶¯»­ÊÂ¼þ
 
-   CC.WarAutoDelay=300;                   --è‡ªåŠ¨æˆ˜æ–—æ—¶æ˜¾ç¤ºå¤´åƒçš„å»¶æ—¶
+   CC.WarAutoDelay=300;                   --×Ô¶¯Õ½¶·Ê±ÏÔÊ¾Í·ÏñµÄÑÓÊ±
 
-   CC.DirectX={0,1,-1,0};  --ä¸åŒæ–¹å‘xï¼Œyçš„åŠ å‡å€¼ï¼Œç”¨äºŽèµ°è·¯æ”¹å˜åæ ‡å€¼
+   CC.DirectX={0,1,-1,0};  --²»Í¬·½Ïòx£¬yµÄ¼Ó¼õÖµ£¬ÓÃÓÚ×ßÂ·¸Ä±ä×ø±êÖµ
    CC.DirectY={-1,0,0,1};
 
-   CC.MyStartPic=2501;      --ä¸»è§’èµ°è·¯èµ·å§‹è´´å›¾
-   CC.BoatStartPic=3715;    --èˆ¹èµ·å§‹è´´å›¾
+   CC.MyStartPic=2501;      --Ö÷½Ç×ßÂ·ÆðÊ¼ÌùÍ¼
+   CC.BoatStartPic=3715;    --´¬ÆðÊ¼ÌùÍ¼
 
-   CC.Level=30;                  ---äººç‰©ç­‰çº§å’Œæ¯ç­‰çº§ç»éªŒ
+   CC.Level=30;                  ---ÈËÎïµÈ¼¶ºÍÃ¿µÈ¼¶¾­Ñé
    CC.Exp={ [0]=0,   50,    150,     300 ,500   , 750 ,
                1050,  1400,   1800 ,2250  , 2750 ,
                3850,  5050,   6350 ,7750  , 9250 ,
@@ -904,53 +904,53 @@ function SetGlobalConst()
                21400, 24700, 28150 ,31750 , 35500 ,
 	           39400, 43450, 47650 ,52000 , 60000  };
 
-    CC.MMapBoat={};    --ä¸»åœ°å›¾èˆ¹å¯ä»¥è¿›å…¥çš„è´´å›¾
+    CC.MMapBoat={};    --Ö÷µØÍ¼´¬¿ÉÒÔ½øÈëµÄÌùÍ¼
 	local tmpBoat={ {0x166,0x16a},{0x176,0x17c},{0x1ca,0x1d0},{0x1fa,0x262},{0x3f8,0x3fe},};
-    for i,v in ipairs(tmpBoat) do      --æŠŠè¿™äº›æ•°æ®å˜æ¢æˆæ•°ç»„ï¼Œå…¶ä¸­æœ‰å€¼å°±æ˜¯å¯ä»¥è¿›å…¥
+    for i,v in ipairs(tmpBoat) do      --°ÑÕâÐ©Êý¾Ý±ä»»³ÉÊý×é£¬ÆäÖÐÓÐÖµ¾ÍÊÇ¿ÉÒÔ½øÈë
         for j=v[1],v[2],2 do
             CC.MMapBoat[j]=1;
         end
     end
 
-    CC.SceneWater={};    --åœºæ™¯äººä¸èƒ½è¿›å…¥çš„è´´å›¾
+    CC.SceneWater={};    --³¡¾°ÈË²»ÄÜ½øÈëµÄÌùÍ¼
     local tmpWater={ {0x166,0x16a},{0x176,0x17c},{0x1ca,0x1d0},{0x1fa,0x262},{0x332,0x338},
                      {0x346,0x346},{0x3a6,0x3a8},{0x3f8,0x3fe},{0x52c,0x544},};
-    for i,v in ipairs(tmpWater) do      --æŠŠè¿™äº›æ•°æ®å˜æ¢æˆæ•°ç»„ï¼Œå…¶ä¸­ç©ºé¡¹å°±æ˜¯å¯ä»¥è¿›å…¥çš„è´´å›¾
+    for i,v in ipairs(tmpWater) do      --°ÑÕâÐ©Êý¾Ý±ä»»³ÉÊý×é£¬ÆäÖÐ¿ÕÏî¾ÍÊÇ¿ÉÒÔ½øÈëµÄÌùÍ¼
         for j=v[1],v[2],2 do
             CC.SceneWater[j]=1;
         end
     end
 
-    CC.WarWater={};    --æˆ˜æ–—åœ°å›¾äººä¸èƒ½è¿›å…¥çš„è´´å›¾
+    CC.WarWater={};    --Õ½¶·µØÍ¼ÈË²»ÄÜ½øÈëµÄÌùÍ¼
     local tmpWater={ {0x166,0x16a},{0x176,0x17c},{0x1ca,0x1d0},{0x1fa,0x262},{0x332,0x338},
                      {0x346,0x346},{0x3a6,0x3a8},{0x3f8,0x3fe},{0x52c,0x544},};
-    for i,v in ipairs(tmpWater) do      --æŠŠè¿™äº›æ•°æ®å˜æ¢æˆæ•°ç»„ï¼Œå…¶ä¸­ç©ºé¡¹å°±æ˜¯å¯ä»¥è¿›å…¥çš„è´´å›¾
+    for i,v in ipairs(tmpWater) do      --°ÑÕâÐ©Êý¾Ý±ä»»³ÉÊý×é£¬ÆäÖÐ¿ÕÏî¾ÍÊÇ¿ÉÒÔ½øÈëµÄÌùÍ¼
         for j=v[1],v[2],2 do
             CC.WarWater[j]=1;
         end
     end
 
 
-    --ç¦»é˜Ÿäººå‘˜åˆ—è¡¨: {äººå‘˜idï¼Œç¦»é˜Ÿè°ƒç”¨å‡½æ•°}      ----å¦‚æžœæœ‰æ–°çš„ç¦»é˜Ÿäººå‘˜åŠ å…¥ï¼Œç›´æŽ¥åœ¨è¿™é‡Œå¢žåŠ 
+    --Àë¶ÓÈËÔ±ÁÐ±í: {ÈËÔ±id£¬Àë¶Óµ÷ÓÃº¯Êý}      ----Èç¹ûÓÐÐÂµÄÀë¶ÓÈËÔ±¼ÓÈë£¬Ö±½ÓÔÚÕâÀïÔö¼Ó
     CC.PersonExit={{1,950},{2,952},{9,954},{16,956},{17,958},
                    {25,960},{28,962},{29,964},{35,966},{36,968},
                    {37,970},{38,972},{44,974},{45,976},{47,978},
                    {48,980},{49,982},{51,984},{53,986},{54,988},
                    {58,990},{59,992},{61,994},{63,996},{76,998},  }
 
-    --æ‰€æœ‰å¯åŠ å…¥äººå‘˜ç¦»é˜Ÿéœ€è¦æ¸…é™¤çš„D*äº‹ä»¶ï¼Œæ¸…é™¤åŽè¿™äº›äººå°±æ‰¾ä¸åˆ°äº†ã€‚å¾—åˆ°æ­¦æž—å¸–æŒ‡ä»¤ä½¿ç”¨
+    --ËùÓÐ¿É¼ÓÈëÈËÔ±Àë¶ÓÐèÒªÇå³ýµÄD*ÊÂ¼þ£¬Çå³ýºóÕâÐ©ÈË¾ÍÕÒ²»µ½ÁË¡£µÃµ½ÎäÁÖÌûÖ¸ÁîÊ¹ÓÃ
     CC.AllPersonExit={ {0,0},{49,2},{4,1},{44,0},{44,1},{37,5},{30,0},{59,0},{40,3},{56,1},{1,7},{1,8},{1,10},
                        {40,7},{40,8},{77,0},{54,0},{62,3},{62,4},{60,2},{60,15},{52,1},{61,0},{61,8},{78,0},
                        {18,0},{18,1},{69,0},{69,1},{45,0},{52,2},{42,6},{42,7},{8,8},{7,6},{80,1}, };
 
-    CC.BookNum=14;               --å¤©ä¹¦ä¸ªæ•°
-    CC.BookStart=144;            --14å¤©ä¹¦èµ·å§‹ç‰©å“id
+    CC.BookNum=14;               --ÌìÊé¸öÊý
+    CC.BookStart=144;            --14ÌìÊéÆðÊ¼ÎïÆ·id
 
-    CC.MoneyID=174;              --é‡‘é’±ç‰©å“id
+    CC.MoneyID=174;              --½ðÇ®ÎïÆ·id
 
-    CC.Shemale={ [78]=1,[93]=1}   --éœ€è¦è‡ªå®«çš„ä¹¦çš„id
+    CC.Shemale={ [78]=1,[93]=1}   --ÐèÒª×Ô¹¬µÄÊéµÄid
 --[[
-   CC.Effect={[0]=9,14,17,9,13,                    --eft.idx/grpè´´å›¾å„ä¸ªæ­¦åŠŸæ•ˆæžœè´´å›¾ä¸ªæ•°
+   CC.Effect={[0]=9,14,17,9,13,                    --eft.idx/grpÌùÍ¼¸÷¸öÎä¹¦Ð§¹ûÌùÍ¼¸öÊý
                  17,17,17,18,19,
                  19,15,13,10,10,
                  15,21,16,9,11,
@@ -962,8 +962,8 @@ function SetGlobalConst()
                  16,13,18,14,17,
                  17,16,7,   };]]--
 				 
-   CC.Effect={[0]=9,14,17,9,13,                    --eft.idx/grpè´´å›¾å„ä¸ªæ­¦åŠŸæ•ˆæžœè´´å›¾ä¸ªæ•°
-                 17,17,17,18,19,						--NND,ä¸æ­¢ç¬¬ä¸€å¸§æœ‰é—®é¢˜ï¼Œä¸­é—´è¿˜æœ‰ä¸ªä¹Ÿæœ‰é—®é¢˜ã€‚å¦å¤–ä»Žé‡‘æ°´å¤åˆ¶è¿‡æ¥çš„ï¼Œä¹Ÿæœ‰ä¸¤å¸§æœ‰é—®é¢˜
+   CC.Effect={[0]=9,14,17,9,13,                    --eft.idx/grpÌùÍ¼¸÷¸öÎä¹¦Ð§¹ûÌùÍ¼¸öÊý
+                 17,17,17,18,19,						--NND,²»Ö¹µÚÒ»Ö¡ÓÐÎÊÌâ£¬ÖÐ¼ä»¹ÓÐ¸öÒ²ÓÐÎÊÌâ¡£ÁíÍâ´Ó½ðË®¸´ÖÆ¹ýÀ´µÄ£¬Ò²ÓÐÁ½Ö¡ÓÐÎÊÌâ
                  19,15,13,10,10,
                  15,21,16,9,11,
                  8,9,8,8,7,
@@ -985,7 +985,7 @@ function SetGlobalConst()
 				 8,29,6,13,31,
 				 14,4,13,13,15,};
 				 
-    CC.ExtraOffense={{106,57,100},             --æ­¦åŠŸæ­¦å™¨é…åˆå¢žåŠ æ”»å‡»åŠ›ï¼Œ ä¾æ¬¡ä¸ºï¼šæ­¦å™¨ç‰©å“idï¼Œæ­¦åŠŸidï¼Œæ”»å‡»åŠ›å¢žåŠ 
+    CC.ExtraOffense={{106,57,100},             --Îä¹¦ÎäÆ÷ÅäºÏÔö¼Ó¹¥»÷Á¦£¬ ÒÀ´ÎÎª£ºÎäÆ÷ÎïÆ·id£¬Îä¹¦id£¬¹¥»÷Á¦Ôö¼Ó
                    {107,49,50},
                    {108,49,50},
                    {110,54,80},
@@ -993,90 +993,90 @@ function SetGlobalConst()
                    {116,67,70},
                    {119,68,100},}
 
-    CC.NewPersonName="å¾å°ä¾ ";                --æ–°æ¸¸æˆçš„æ•°æ®
-    CC.NewGameSceneID=70;                      --åœºæ™¯ID
-    CC.NewGameSceneX=19;                       --åœºæ™¯åæ ‡
+    CC.NewPersonName="ÐìÐ¡ÏÀ";                --ÐÂÓÎÏ·µÄÊý¾Ý
+    CC.NewGameSceneID=70;                      --³¡¾°ID
+    CC.NewGameSceneX=19;                       --³¡¾°×ø±ê
     CC.NewGameSceneY=20;
-    CC.NewGameEvent=691;                       --æ–°æ¸¸æˆåœºæ™¯æ‰§è¡Œäº‹ä»¶ã€‚å¦‚æžœæ²¡æœ‰ï¼Œåˆ™çœ‹æ–°æ¸¸æˆåæ ‡åŽé¢æœ‰æ²¡æœ‰äº‹ä»¶ã€‚691
-    CC.NewPersonPic=3445;                      --å¼€å§‹ä¸»è§’pic
+    CC.NewGameEvent=691;                       --ÐÂÓÎÏ·³¡¾°Ö´ÐÐÊÂ¼þ¡£Èç¹ûÃ»ÓÐ£¬Ôò¿´ÐÂÓÎÏ·×ø±êºóÃæÓÐÃ»ÓÐÊÂ¼þ¡£691
+    CC.NewPersonPic=3445;                      --¿ªÊ¼Ö÷½Çpic
 
-   CC.PersonAttribMax={};             --äººç‰©å±žæ€§æœ€å¤§å€¼
-   CC.PersonAttribMax["ç»éªŒ"]=60000;
-   CC.PersonAttribMax["ç‰©å“ä¿®ç‚¼ç‚¹æ•°"]=60000;
-   CC.PersonAttribMax["ä¿®ç‚¼ç‚¹æ•°"]=60000;
-   CC.PersonAttribMax["ç”Ÿå‘½æœ€å¤§å€¼"]=999;
-   CC.PersonAttribMax["å—ä¼¤ç¨‹åº¦"]=100;
-   CC.PersonAttribMax["ä¸­æ¯’ç¨‹åº¦"]=100;
-   CC.PersonAttribMax["å†…åŠ›æœ€å¤§å€¼"]=999;
-   CC.PersonAttribMax["ä½“åŠ›"]=100;
-   CC.PersonAttribMax["æ”»å‡»åŠ›"]=100;
-   CC.PersonAttribMax["é˜²å¾¡åŠ›"]=100;
-   CC.PersonAttribMax["è½»åŠŸ"]=100;
-   CC.PersonAttribMax["åŒ»ç–—èƒ½åŠ›"]=100;
-   CC.PersonAttribMax["ç”¨æ¯’èƒ½åŠ›"]=100;
-   CC.PersonAttribMax["è§£æ¯’èƒ½åŠ›"]=100;
-   CC.PersonAttribMax["æŠ—æ¯’èƒ½åŠ›"]=100;
-   CC.PersonAttribMax["æ‹³æŽŒåŠŸå¤«"]=100;
-   CC.PersonAttribMax["å¾¡å‰‘èƒ½åŠ›"]=100;
-   CC.PersonAttribMax["è€åˆ€æŠ€å·§"]=100;
-   CC.PersonAttribMax["ç‰¹æ®Šå…µå™¨"]=100;
-   CC.PersonAttribMax["æš—å™¨æŠ€å·§"]=100;
-   CC.PersonAttribMax["æ­¦å­¦å¸¸è¯†"]=100;
-   CC.PersonAttribMax["å“å¾·"]=100;
-   CC.PersonAttribMax["èµ„è´¨"]=100;
-   CC.PersonAttribMax["æ”»å‡»å¸¦æ¯’"]=100;
+   CC.PersonAttribMax={};             --ÈËÎïÊôÐÔ×î´óÖµ
+   CC.PersonAttribMax["¾­Ñé"]=60000;
+   CC.PersonAttribMax["ÎïÆ·ÐÞÁ¶µãÊý"]=60000;
+   CC.PersonAttribMax["ÐÞÁ¶µãÊý"]=60000;
+   CC.PersonAttribMax["ÉúÃü×î´óÖµ"]=999;
+   CC.PersonAttribMax["ÊÜÉË³Ì¶È"]=100;
+   CC.PersonAttribMax["ÖÐ¶¾³Ì¶È"]=100;
+   CC.PersonAttribMax["ÄÚÁ¦×î´óÖµ"]=999;
+   CC.PersonAttribMax["ÌåÁ¦"]=100;
+   CC.PersonAttribMax["¹¥»÷Á¦"]=100;
+   CC.PersonAttribMax["·ÀÓùÁ¦"]=100;
+   CC.PersonAttribMax["Çá¹¦"]=100;
+   CC.PersonAttribMax["Ò½ÁÆÄÜÁ¦"]=100;
+   CC.PersonAttribMax["ÓÃ¶¾ÄÜÁ¦"]=100;
+   CC.PersonAttribMax["½â¶¾ÄÜÁ¦"]=100;
+   CC.PersonAttribMax["¿¹¶¾ÄÜÁ¦"]=100;
+   CC.PersonAttribMax["È­ÕÆ¹¦·ò"]=100;
+   CC.PersonAttribMax["Óù½£ÄÜÁ¦"]=100;
+   CC.PersonAttribMax["Ë£µ¶¼¼ÇÉ"]=100;
+   CC.PersonAttribMax["ÌØÊâ±øÆ÷"]=100;
+   CC.PersonAttribMax["°µÆ÷¼¼ÇÉ"]=100;
+   CC.PersonAttribMax["ÎäÑ§³£Ê¶"]=100;
+   CC.PersonAttribMax["Æ·µÂ"]=100;
+   CC.PersonAttribMax["×ÊÖÊ"]=100;
+   CC.PersonAttribMax["¹¥»÷´ø¶¾"]=100;
 
-    CC.WarDataSize=186;         --æˆ˜æ–—æ•°æ®å¤§å°  war.staæ•°æ®ç»“æž„
-    CC.WarData_S={};        --æˆ˜æ–—æ•°æ®ç»“æž„
-    CC.WarData_S["ä»£å·"]={0,0,2};
-    CC.WarData_S["åç§°"]={2,2,10};
-    CC.WarData_S["åœ°å›¾"]={12,0,2};
-    CC.WarData_S["ç»éªŒ"]={14,0,2};
-    CC.WarData_S["éŸ³ä¹"]={16,0,2};
+    CC.WarDataSize=186;         --Õ½¶·Êý¾Ý´óÐ¡  war.staÊý¾Ý½á¹¹
+    CC.WarData_S={};        --Õ½¶·Êý¾Ý½á¹¹
+    CC.WarData_S["´úºÅ"]={0,0,2};
+    CC.WarData_S["Ãû³Æ"]={2,2,10};
+    CC.WarData_S["µØÍ¼"]={12,0,2};
+    CC.WarData_S["¾­Ñé"]={14,0,2};
+    CC.WarData_S["ÒôÀÖ"]={16,0,2};
     for i=1,6 do
-        CC.WarData_S["æ‰‹åŠ¨é€‰æ‹©å‚æˆ˜äºº"  .. i]={18+(i-1)*2,0,2};
-        CC.WarData_S["è‡ªåŠ¨é€‰æ‹©å‚æˆ˜äºº"  .. i]={30+(i-1)*2,0,2};
-        CC.WarData_S["æˆ‘æ–¹X"  .. i]={42+(i-1)*2,0,2};
-        CC.WarData_S["æˆ‘æ–¹Y"  .. i]={54+(i-1)*2,0,2};
+        CC.WarData_S["ÊÖ¶¯Ñ¡Ôñ²ÎÕ½ÈË"  .. i]={18+(i-1)*2,0,2};
+        CC.WarData_S["×Ô¶¯Ñ¡Ôñ²ÎÕ½ÈË"  .. i]={30+(i-1)*2,0,2};
+        CC.WarData_S["ÎÒ·½X"  .. i]={42+(i-1)*2,0,2};
+        CC.WarData_S["ÎÒ·½Y"  .. i]={54+(i-1)*2,0,2};
     end
     for i=1,20 do
-        CC.WarData_S["æ•Œäºº"  .. i]={66+(i-1)*2,0,2};
-        CC.WarData_S["æ•Œæ–¹X"  .. i]={106+(i-1)*2,0,2};
-        CC.WarData_S["æ•Œæ–¹Y"  .. i]={146+(i-1)*2,0,2};
+        CC.WarData_S["µÐÈË"  .. i]={66+(i-1)*2,0,2};
+        CC.WarData_S["µÐ·½X"  .. i]={106+(i-1)*2,0,2};
+        CC.WarData_S["µÐ·½Y"  .. i]={146+(i-1)*2,0,2};
     end
 	
 	
-    CC.WarWidth=64;        --æˆ˜æ–—åœ°å›¾å¤§å°
+    CC.WarWidth=64;        --Õ½¶·µØÍ¼´óÐ¡
     CC.WarHeight=64;
 
-	--æ˜¾ç¤ºä¸»åœ°å›¾å’Œåœºæ™¯åœ°å›¾åæ ‡
-	--å¦‚æžœæ˜¾ç¤ºåæ ‡ï¼Œåˆ™ä¼šå¢žåŠ cpuå ç”¨ã€‚æœºå™¨é€Ÿåº¦æ…¢çš„è¯å¯èƒ½ä¼šå¡ã€‚è¿™ä¸ªåœ¨è°ƒè¯•æ—¶æœ‰ç”¨ã€‚
-	--æ³¨æ„: å¦‚æžœè®¾ç½®äº†CONFIG.FastShowScreen=1ï¼Œåˆ™åœºæ™¯è§†è§’èŒƒå›´è¶…å‡ºåŽæ˜¾ç¤ºçš„åæ ‡ä¸æ­£ç¡®ã€‚
-	CC.ShowXY=0      --0 ä¸æ˜¾ç¤º 1 æ˜¾ç¤º
+	--ÏÔÊ¾Ö÷µØÍ¼ºÍ³¡¾°µØÍ¼×ø±ê
+	--Èç¹ûÏÔÊ¾×ø±ê£¬Ôò»áÔö¼ÓcpuÕ¼ÓÃ¡£»úÆ÷ËÙ¶ÈÂýµÄ»°¿ÉÄÜ»á¿¨¡£Õâ¸öÔÚµ÷ÊÔÊ±ÓÐÓÃ¡£
+	--×¢Òâ: Èç¹ûÉèÖÃÁËCONFIG.FastShowScreen=1£¬Ôò³¡¾°ÊÓ½Ç·¶Î§³¬³öºóÏÔÊ¾µÄ×ø±ê²»ÕýÈ·¡£
+	CC.ShowXY=0      --0 ²»ÏÔÊ¾ 1 ÏÔÊ¾
 
-	--ä»¥ä¸‹ä¸ºæŽ§åˆ¶æ˜¾ç¤ºæ–¹å¼çš„å‚æ•°
+	--ÒÔÏÂÎª¿ØÖÆÏÔÊ¾·½Ê½µÄ²ÎÊý
 
-	CC.RowPixel=4         -- æ¯è¡Œå­—çš„é—´è·åƒç´ æ•°
+	CC.RowPixel=4         -- Ã¿ÐÐ×ÖµÄ¼ä¾àÏñËØÊý
 
-	CC.MenuBorderPixel=5  -- èœå•å››å‘¨è¾¹æ¡†ç•™çš„åƒç´ æ•°ï¼Œä¹Ÿç”¨äºŽç»˜åˆ¶å­—ç¬¦ä¸²çš„boxå››å‘¨ç•™å¾—åƒç´ 
+	CC.MenuBorderPixel=5  -- ²Ëµ¥ËÄÖÜ±ß¿òÁôµÄÏñËØÊý£¬Ò²ÓÃÓÚ»æÖÆ×Ö·û´®µÄboxËÄÖÜÁôµÃÏñËØ
 	
 
-	if CONFIG.Type==0 then      --320*240æ˜¾ç¤ºæ–¹å¼
+	if CONFIG.Type==0 then      --320*240ÏÔÊ¾·½Ê½
 		CC.DefaultFont=16
 
-		CC.StartMenuFontSize=16  --å¼€å§‹èœå•å­—å·
+		CC.StartMenuFontSize=16  --¿ªÊ¼²Ëµ¥×ÖºÅ
 
-		CC.NewGameFontSize =16   --æ–°æ¸¸æˆå±žæ€§é€‰æ‹©å­—å·
+		CC.NewGameFontSize =16   --ÐÂÓÎÏ·ÊôÐÔÑ¡Ôñ×ÖºÅ
 
-		CC.MainMenuX=10;         --ä¸»èœå•å¼€å§‹åæ ‡
+		CC.MainMenuX=10;         --Ö÷²Ëµ¥¿ªÊ¼×ø±ê
 		CC.MainMenuY=10;
 
 		CC.GameOverX=90;
 		CC.GameOverY=65;
 
-        CC.PersonStateRowPixel= 1;    --æ˜¾ç¤ºäººç‰©çŠ¶æ€è¡Œé—´è·åƒç´ 
+        CC.PersonStateRowPixel= 1;    --ÏÔÊ¾ÈËÎï×´Ì¬ÐÐ¼ä¾àÏñËØ
 
-	elseif CONFIG.Type==1 then  --640*480æ˜¾ç¤ºæ–¹å¼
+	elseif CONFIG.Type==1 then  --640*480ÏÔÊ¾·½Ê½
 		CC.DefaultFont=math.modf(math.min(CC.ScreenW,CC.ScreenH)/20);
 
 		CC.StartMenuFontSize=math.modf(math.min(CC.ScreenW,CC.ScreenH)/15);
@@ -1089,51 +1089,51 @@ function SetGlobalConst()
 		CC.GameOverX=255;
 		CC.GameOverY=165;
 
-        CC.PersonStateRowPixel= 4;  --æ˜¾ç¤ºäººç‰©çŠ¶æ€è¡Œé—´è·åƒç´ 
+        CC.PersonStateRowPixel= 4;  --ÏÔÊ¾ÈËÎï×´Ì¬ÐÐ¼ä¾àÏñËØ
 
 	end
 
     CC.StartMenuY=CC.ScreenH-3*(CC.StartMenuFontSize+CC.RowPixel)-20;
 	CC.NewGameY=CC.ScreenH-4*(CC.NewGameFontSize+CC.RowPixel)-10;
 
-	--å­èœå•çš„å¼€å§‹åæ ‡
-	CC.MainSubMenuX=CC.MainMenuX+2*CC.MenuBorderPixel+2*CC.DefaultFont+5;       --ä¸»èœå•ä¸ºä¸¤ä¸ªæ±‰å­—
+	--×Ó²Ëµ¥µÄ¿ªÊ¼×ø±ê
+	CC.MainSubMenuX=CC.MainMenuX+2*CC.MenuBorderPixel+2*CC.DefaultFont+5;       --Ö÷²Ëµ¥ÎªÁ½¸öºº×Ö
 	CC.MainSubMenuY=CC.MainMenuY;
 
-	--äºŒçº§å­èœå•å¼€å§‹åæ ‡
-	CC.MainSubMenuX2=CC.MainSubMenuX+2*CC.MenuBorderPixel+4*CC.DefaultFont+5;   --å­èœå•ä¸ºå››ä¸ªå­—ç¬¦
+	--¶þ¼¶×Ó²Ëµ¥¿ªÊ¼×ø±ê
+	CC.MainSubMenuX2=CC.MainSubMenuX+2*CC.MenuBorderPixel+4*CC.DefaultFont+5;   --×Ó²Ëµ¥ÎªËÄ¸ö×Ö·û
 
-	CC.SingleLineHeight=CC.DefaultFont+2*CC.MenuBorderPixel+5;  --å¸¦æ¡†çš„å•è¡Œå­—ç¬¦é«˜
+	CC.SingleLineHeight=CC.DefaultFont+2*CC.MenuBorderPixel+5;  --´ø¿òµÄµ¥ÐÐ×Ö·û¸ß
 
-	------------------------ä»¥ä¸‹ä¸ºç‰©å“èœå•å‚æ•°
+	------------------------ÒÔÏÂÎªÎïÆ·²Ëµ¥²ÎÊý
 	if CONFIG.Type==0 then
 		CC.ThingFontSize = 16;
 
-		CC.ThingPicWidth=40;    --ç‰©å“å›¾ç‰‡å®½é«˜
+		CC.ThingPicWidth=40;    --ÎïÆ·Í¼Æ¬¿í¸ß
 		CC.ThingPicHeight=40;
 
-		CC.MenuThingXnum=5      --ä¸€è¡Œæ˜¾ç¤ºå‡ ä¸ªç‰©å“
-		CC.MenuThingYnum=3      --ç‰©å“æ˜¾ç¤ºå‡ åˆ—
+		CC.MenuThingXnum=5      --Ò»ÐÐÏÔÊ¾¼¸¸öÎïÆ·
+		CC.MenuThingYnum=3      --ÎïÆ·ÏÔÊ¾¼¸ÁÐ
 
-		CC.ThingGapOut=10;      --ç‰©å“å›¾åƒæ˜¾ç¤ºå››å‘¨ç•™ç™½
-		CC.ThingGapIn=5;        --ç‰©å“å›¾åƒæ˜¾ç¤ºä¸­é—´é—´éš”
+		CC.ThingGapOut=10;      --ÎïÆ·Í¼ÏñÏÔÊ¾ËÄÖÜÁô°×
+		CC.ThingGapIn=5;        --ÎïÆ·Í¼ÏñÏÔÊ¾ÖÐ¼ä¼ä¸ô
 
 	elseif CONFIG.Type==1 then
 
 		CC.ThingFontSize = 24;  --
 
-		CC.ThingPicWidth=40;    --ç‰©å“å›¾ç‰‡å®½é«˜
+		CC.ThingPicWidth=40;    --ÎïÆ·Í¼Æ¬¿í¸ß
 		CC.ThingPicHeight=40;
 
-		CC.MenuThingXnum=10      --ä¸€è¡Œæ˜¾ç¤ºå‡ ä¸ªç‰©å“
-		CC.MenuThingYnum=5      --ç‰©å“æ˜¾ç¤ºå‡ åˆ—
+		CC.MenuThingXnum=10      --Ò»ÐÐÏÔÊ¾¼¸¸öÎïÆ·
+		CC.MenuThingYnum=5      --ÎïÆ·ÏÔÊ¾¼¸ÁÐ
 
-		CC.ThingGapOut=10;      --ç‰©å“å›¾åƒæ˜¾ç¤ºå››å‘¨ç•™ç™½
-		CC.ThingGapIn=10;        --ç‰©å“å›¾åƒæ˜¾ç¤ºä¸­é—´é—´éš”
+		CC.ThingGapOut=10;      --ÎïÆ·Í¼ÏñÏÔÊ¾ËÄÖÜÁô°×
+		CC.ThingGapIn=10;        --ÎïÆ·Í¼ÏñÏÔÊ¾ÖÐ¼ä¼ä¸ô
 	end
 
 	if CONFIG.Zoom == 1 then--or CONFIG.Zoom == 0 then
-		CC.ThingPicWidth=80;    --ç‰©å“å›¾ç‰‡å®½é«˜
+		CC.ThingPicWidth=80;    --ÎïÆ·Í¼Æ¬¿í¸ß
 		CC.ThingPicHeight=80;
 		local n
 		n=math.modf(CC.ScreenW*0.75/80)
@@ -1146,8 +1146,8 @@ function SetGlobalConst()
 		end
 	end
 
-    --åœºæ™¯è§†è§’èŒƒå›´ã€‚è¶…å‡ºæ­¤èŒƒå›´åˆ™åªç§»åŠ¨ä¸»è§’ï¼Œåœºæ™¯ä¸ç§»åŠ¨äº†ã€‚ä¹Ÿå°±æ˜¯ä¸»è§’ä¸åœ¨å±å¹•ä¸­å¤®äº†
-	if CONFIG.Type==0 then      --320*240æ˜¾ç¤ºæ–¹å¼
+    --³¡¾°ÊÓ½Ç·¶Î§¡£³¬³ö´Ë·¶Î§ÔòÖ»ÒÆ¶¯Ö÷½Ç£¬³¡¾°²»ÒÆ¶¯ÁË¡£Ò²¾ÍÊÇÖ÷½Ç²»ÔÚÆÁÄ»ÖÐÑëÁË
+	if CONFIG.Type==0 then      --320*240ÏÔÊ¾·½Ê½
         CC.SceneXMin=12
         CC.SceneYMin=12
         CC.SceneXMax=45;
@@ -1159,12 +1159,12 @@ function SetGlobalConst()
         CC.SceneYMax=47;
 	end
 
-	CC.SceneFlagPic={2749,2846}    --åœºæ™¯è´´å›¾ä¸­æ——å¸œçš„è´´å›¾ç¼–å·ã€‚
+	CC.SceneFlagPic={2749,2846}    --³¡¾°ÌùÍ¼ÖÐÆìÖÄµÄÌùÍ¼±àºÅ¡£
 
 	if CONFIG.FastShowScreen==0 then
-        CC.ShowFlag=1;                 --0 ä¸æ˜¾ç¤ºæ——å¸œåŠ¨ç”» 1 æ˜¾ç¤ºã€‚ä¸æ˜¾ç¤ºæ——å¸œåŠ¨ç”»å¯ä»¥å¢žåŠ åœºæ™¯ä¸­ä¸»è§’ä¸åŠ¨æ—¶çš„æ˜¾ç¤ºé€Ÿåº¦
+        CC.ShowFlag=1;                 --0 ²»ÏÔÊ¾ÆìÖÄ¶¯»­ 1 ÏÔÊ¾¡£²»ÏÔÊ¾ÆìÖÄ¶¯»­¿ÉÒÔÔö¼Ó³¡¾°ÖÐÖ÷½Ç²»¶¯Ê±µÄÏÔÊ¾ËÙ¶È
 		if CONFIG.Type==1 then
-            CC.AutoWarShowHead=1;          --1 æˆ˜æ–—æ—¶ä¸€ç›´æ˜¾ç¤ºå¤´åƒ 0 ä¸æ˜¾ç¤ºã€‚å¦‚æžœè®¾ä¸º1ï¼Œåˆ™æˆ˜æ–—æ—¶å°†é‡ç»˜æ•´ä¸ªå±å¹•ï¼Œä¼šé™ä½Žæ˜¾ç¤ºé€Ÿåº¦ã€‚
+            CC.AutoWarShowHead=1;          --1 Õ½¶·Ê±Ò»Ö±ÏÔÊ¾Í·Ïñ 0 ²»ÏÔÊ¾¡£Èç¹ûÉèÎª1£¬ÔòÕ½¶·Ê±½«ÖØ»æÕû¸öÆÁÄ»£¬»á½µµÍÏÔÊ¾ËÙ¶È¡£
 		else
 		    CC.AutoWarShowHead=0;
 		end
@@ -1173,37 +1173,37 @@ function SetGlobalConst()
 		CC.AutoWarShowHead=0;
 	end
 
-    CC.LoadThingPic=1           --è¯»å–ç‰©å“è´´å›¾æ–¹å¼ 0 ä»Žmmap/smap/wmapä¸­è¯»å–  1 è¯»å–ç‹¬ç«‹çš„thing.idx/grp
-	CC.StartThingPic=0          --ç‰©å“è´´å›¾åœ¨mmap/smap/wmapä¸­çš„èµ·å§‹ç¼–å·ã€‚CC.LoadThingPic=0æœ‰æ•ˆ
+    CC.LoadThingPic=1           --¶ÁÈ¡ÎïÆ·ÌùÍ¼·½Ê½ 0 ´Ómmap/smap/wmapÖÐ¶ÁÈ¡  1 ¶ÁÈ¡¶ÀÁ¢µÄthing.idx/grp
+	CC.StartThingPic=0          --ÎïÆ·ÌùÍ¼ÔÚmmap/smap/wmapÖÐµÄÆðÊ¼±àºÅ¡£CC.LoadThingPic=0ÓÐÐ§
 
 
 end
 
    
-   GZM={'äºŒ','ä¸‰','å››','äº”','å…­','ä¸ƒ','å…«','ä¹','å'}
+   GZM={'¶þ','Èý','ËÄ','Îå','Áù','Æß','°Ë','¾Å','Ê®'}
   
-   SZB={'ä¸€','äºŒ','ä¸‰','å››','äº”','å…­','ä¸ƒ','å…«','ä¹','å',
-             'åä¸€','åäºŒ','åä¸‰','åå››','åäº”','åå…­','åä¸ƒ','åå…«','åä¹','äºŒå'}
+   SZB={'Ò»','¶þ','Èý','ËÄ','Îå','Áù','Æß','°Ë','¾Å','Ê®',
+             'Ê®Ò»','Ê®¶þ','Ê®Èý','Ê®ËÄ','Ê®Îå','Ê®Áù','Ê®Æß','Ê®°Ë','Ê®¾Å','¶þÊ®'}
    
-   LMSJ={'å°‘å•†å‰‘','å•†é˜³å‰‘','ä¸­å†²å‰‘','å…³å†²å‰‘','å°‘å†²å‰‘','å°‘æ³½å‰‘'}
-   XL18={'äº¢é¾™æœ‰æ‚”','è§é¾™åœ¨ç”°','é£žé¾™åœ¨å¤©','åŒé¾™å‡ºæ°´','ç¥žé¾™æ‘†å°¾','æ½œé¾™å‹¿ç”¨'}			
-   XL18JY={'æžæ„--äº¢é¾™Â·é¸¿æ¸æ–¼é™†','æžæ„--é£žé¾™Â·æˆ–è·ƒåœ¨æ¸Š','æžæ„--æ½œé¾™Â·å¯†é›¨ä¸äº‘','æžæ„--ç¥žé¾™Â·éœ‡æƒŠç™¾é‡Œ','æžæ„--è§é¾™Â·åˆ©æ¶‰å¤§å·','æžæ„--åŒé¾™Â·çªå¦‚å…¶æ¥','æžæ„--å…­é¾™Â·å±¥éœœå†°è‡³','æžæ„--é¾™æˆ˜Â·æŸåˆ™æœ‰å­š'}
-   HDZC={'çœŸä¼ Â·äº‘é¾™ä¸‰çŽ°','ç§˜æŠ€Â·ä¸Šæ­¥æ‘˜æ˜Ÿåˆ€','ç§˜æŠ€Â·é¹žå­ç¿»èº«åˆ€'}
-   TFSSJ={"Â·ã€Žå¤©é“æƒŠé›·æ†¾ã€"  , "Â·ã€Žä¸€å‰‘é•‡ç¥žæ´²ã€" ,  "Â·ã€Žç¾½è‘¬ç…Œç‚Žæ–©ã€",  "Â·ã€Žåƒæœºé¾™ç»é—ªã€"  , "Â·ã€Žæ–—ç„°ç½¡éœ¸ä½“ã€" ,"Â·ã€Žä¾ è¡Œå¤©ä¸‹ã€","Â·ã€Žå…«é—¨èšä¸‡è±¡ã€"}
+   LMSJ={'ÉÙÉÌ½£','ÉÌÑô½£','ÖÐ³å½£','¹Ø³å½£','ÉÙ³å½£','ÉÙÔó½£'}
+   XL18={'¿ºÁúÓÐ»Ú','¼ûÁúÔÚÌï','·ÉÁúÔÚÌì','Ë«Áú³öË®','ÉñÁú°ÚÎ²','Ç±ÁúÎðÓÃ'}			
+   XL18JY={'¼«Òâ--¿ºÁú¡¤ºè½¥ì¶Â½','¼«Òâ--·ÉÁú¡¤»òÔ¾ÔÚÔ¨','¼«Òâ--Ç±Áú¡¤ÃÜÓê²»ÔÆ','¼«Òâ--ÉñÁú¡¤Õð¾ª°ÙÀï','¼«Òâ--¼ûÁú¡¤ÀûÉæ´ó´¨','¼«Òâ--Ë«Áú¡¤Í»ÈçÆäÀ´','¼«Òâ--ÁùÁú¡¤ÂÄËª±ùÖÁ','¼«Òâ--ÁúÕ½¡¤ËðÔòÓÐæÚ'}
+   HDZC={'Õæ´«¡¤ÔÆÁúÈýÏÖ','ÃØ¼¼¡¤ÉÏ²½ÕªÐÇµ¶','ÃØ¼¼¡¤ðÎ×Ó·­Éíµ¶'}
+   TFSSJ={"¡¤¡ºÌìµÀ¾ªÀ×º¶¡»"  , "¡¤¡ºÒ»½£ÕòÉñÖÞ¡»" ,  "¡¤¡ºÓðÔá»ÍÑ×Õ¶¡»",  "¡¤¡ºÇ§»úÁú¾øÉÁ¡»"  , "¡¤¡º¶·Ñæî¸°ÔÌå¡»" ,"¡¤¡ºÏÀÐÐÌìÏÂ¡»","¡¤¡º°ËÃÅ¾ÛÍòÏó¡»"}
    
    ZJTF={
-      "çµçŠ€çœŸæ‹³",--ok
-	  "å‰‘ç¥žä¸€ç¬‘",--ok
-	  "å‚²ä¸–ç‹‚åˆ€",--ok
-	  "æ£è—å¤©æœº",--ok
-	  "ç»ä¸–å¤©ç½¡",--ok
-	  "ä»è€…æ— æ•Œ",--ok
-	  "å›žå¤©åœ£æ‰‹" };
+      "ÁéÏ¬ÕæÈ­",--ok
+	  "½£ÉñÒ»Ð¦",--ok
+	  "°ÁÊÀ¿ñµ¶",--ok
+	  "¹÷²ØÌì»ú",--ok
+	  "¾øÊÀÌìî¸",--ok
+	  "ÈÊÕßÎÞµÐ",--ok
+	  "»ØÌìÊ¥ÊÖ" };
 	  
-	TFE={"æ‹³","å‰‘","åˆ€","ç‰¹","ç½¡","ä»","åŒ»"}
+	TFE={"È­","½£","µ¶","ÌØ","î¸","ÈÊ","Ò½"}
 	
-	KJDYSAVE={"å­˜æ¡£ä¸€","å­˜æ¡£äºŒ","å­˜æ¡£ä¸‰","ä¸å­˜æ¡£"}
-	KJDYLOAD={"å­˜æ¡£ä¸€","å­˜æ¡£äºŒ","å­˜æ¡£ä¸‰","ä¸è¯»æ¡£"}
+	KJDYSAVE={"´æµµÒ»","´æµµ¶þ","´æµµÈý","²»´æµµ"}
+	KJDYLOAD={"´æµµÒ»","´æµµ¶þ","´æµµÈý","²»¶Áµµ"}
 	
 	WARSZJY={
 		 3,2,5,2,40,15,5,5,5,5,
@@ -1227,108 +1227,108 @@ end
 		 2,2,3,7,7,4,3,5,5,3 };
 	  
    RWWH={};
-    RWWH[50]="ç‹‚é¾™å¤©å¾"
-	RWWH[53]="å…­è„‰çœŸä¼ "
-	RWWH[67]="é“æŽŒå¸®ä¸»"
-	RWWH[51]="å§‘è‹æ…•å®¹"
-	RWWH[35]="ä¹å‰‘ä¼ äºº"
-	RWWH['35']='å‰‘é­”å†ä¸´'
-	RWWH[69]="åŒ—ä¸"
-	RWWH[27]="å”¯æˆ‘ä¸è´¥"
-	RWWH[64]="é¡½ç«¥æ­¦ç—´"
-	RWWH[55]="ä¾ ä¹‹å¤§è€…"
-	RWWH[58]="è¥¿ç‹‚"
-	RWWH[59]="è”å¿ƒç´ å¥³"
-	RWWH[9]="ä¹é˜³æ˜Žå°Š"
-	RWWH[76]="ç…å¬›ä»™å­"
-	RWWH[75]="å¤©æ± çº¢èŠ±"
-	RWWH[37]="çœŸåç¥žç…§"
-	RWWH[56]="å¥‡æœ¯æ— åŒ"
-	RWWH[60]="è¥¿æ¯’"
-	RWWH[1]="é›ªå±±é£žç‹"
-	RWWH[54]="æ°”ä¾ é£Žé›·"
-	RWWH[2]="æ¯’æ‰‹è¯ä»™"
-	RWWH[16]="è¶è°·åŒ»ä»™"
-	RWWH[28]="æ€äººååŒ»"
-	RWWH[45]="é˜ŽçŽ‹æ•Œ"
-	RWWH[6]="æœˆæœˆè½»æ¾"	
-	RWWH[114]="è¾¾æ‘©å†ä¸–" 
-	RWWH[5]="å¤ªæžå®—å¸ˆ"
-	RWWH[103]="å¤§è½®æ˜ŽçŽ‹"
-	RWWH[48]="å†°æ¯’æ€ªå®¢"
-	RWWH[47]="é“ä¸‘ä¹‹ä¸»"
-	RWWH[129]="ä¸­ç¥žé€š"
-	RWWH[57]="æ¡ƒèŠ±å²›ä¸»"
-	RWWH[65]="å—åƒ§"
-	RWWH[63]="é’è§è½ç‘›"
-	RWWH[78]="é“å°¸é­”ç…ž"
-	RWWH[73]="æ—¥æœˆåœ£å§‘"
-	RWWH[36]="è¾Ÿé‚ªå‰‘å®¢"
-	RWWH[29]="ä¸‡é‡Œç‹¬è¡Œ"
-	RWWH[72]="å¤©é¾™æŽŒé—¨"
-	RWWH[4]="é›è¿‡æ‹¨æ¯›"	
-    RWWH[25]="äº”æ¯’æ•™ä¸»"	
-    RWWH[83]="é“è¢–æ‹‚é£Ž"	
-    RWWH[17]="æ¯’æ‰‹å§‘å©†"	
-    RWWH[91]="é’é’å­è¡¿"	
-    RWWH[74]="ç¿ ç¾½é»„è¡«"	
-    RWWH[80]="ç«æ‰‹åˆ¤å®˜"	
-    RWWH[62]="å…ƒè’™å¸å¸ˆ"		
-	RWWH[84]="å¾ä¹ƒè›®å¤·"	
-    RWWH[85]="è€è°‹æ·±ç®—"	
-    RWWH[66]="æ³¢æ–¯åœ£å¥³"		
-	RWWH[81]="çµç’æ¯’å¨‡"	
-    RWWH[77]="é¸³é¸¯åˆ€å®¢"	
-    RWWH[88]="é…’ç¥ž"	
-	RWWH[89]="é£Ÿç¥ž"
-    RWWH[90]="æ¯“ç§€çµå§"	
-    RWWH[44]="å‡¶ç¥žæ¶ç…ž"
-	RWWH[52]="ä¸­å¹³ç¥žæžª"
-	RWWH[82]="çŽ‰é¢å­Ÿå°"
-	RWWH[92]="æˆ‘æœ¬ä½³äºº"
-	RWWH[97]="èŒ¹æ¯›é¥®è¡€"
-	RWWH[79]="æ…§ä¸­çµå‰‘"
-	RWWH[26]="æ—¥æœˆé­”å¸"
-	RWWH[553]="çœŸç”°ä¸€ä¹‹å…µ"
-	RWWH['01']="è‹åŠæ— åŒ"
-	RWWH['01b']="çœŸè‹åŠæ— åŒ"
-	RWWH['02']="ç™¾èŠ±è°·ä¸»"
-	RWWH['03']="è¡€ç¿¼å†›ç¥ž"
-	RWWH['04']="è§‰é†’ä¹‹è‹é¾™"
-	RWWH['49']="é€é¥æŽŒé—¨"
-	RWWH['38']="ç™½é¦–å¤ªçŽ„"
+    RWWH[50]="¿ñÁúÌìÕ÷"
+	RWWH[53]="ÁùÂöÕæ´«"
+	RWWH[67]="ÌúÕÆ°ïÖ÷"
+	RWWH[51]="¹ÃËÕÄ½ÈÝ"
+	RWWH[35]="¾Å½£´«ÈË"
+	RWWH['35']='½£Ä§ÔÙÁÙ'
+	RWWH[69]="±±Ø¤"
+	RWWH[27]="Î¨ÎÒ²»°Ü"
+	RWWH[64]="ÍçÍ¯Îä³Õ"
+	RWWH[55]="ÏÀÖ®´óÕß"
+	RWWH[58]="Î÷¿ñ"
+	RWWH[59]="ÁªÐÄËØÅ®"
+	RWWH[9]="¾ÅÑôÃ÷×ð"
+	RWWH[76]="ÀÅ‹ÖÏÉ×Ó"
+	RWWH[75]="Ìì³Øºì»¨"
+	RWWH[37]="ÕæÃûÉñÕÕ"
+	RWWH[56]="ÆæÊõÎÞË«"
+	RWWH[60]="Î÷¶¾"
+	RWWH[1]="Ñ©É½·Éºü"
+	RWWH[54]="ÆøÏÀ·çÀ×"
+	RWWH[2]="¶¾ÊÖÒ©ÏÉ"
+	RWWH[16]="µû¹ÈÒ½ÏÉ"
+	RWWH[28]="É±ÈËÃûÒ½"
+	RWWH[45]="ÑÖÍõµÐ"
+	RWWH[6]="ÔÂÔÂÇáËÉ"	
+	RWWH[114]="´ïÄ¦ÔÙÊÀ" 
+	RWWH[5]="Ì«¼«×ÚÊ¦"
+	RWWH[103]="´óÂÖÃ÷Íõ"
+	RWWH[48]="±ù¶¾¹Ö¿Í"
+	RWWH[47]="Ìú³óÖ®Ö÷"
+	RWWH[129]="ÖÐÉñÍ¨"
+	RWWH[57]="ÌÒ»¨µºÖ÷"
+	RWWH[65]="ÄÏÉ®"
+	RWWH[63]="ÇàÏôÂäçø"
+	RWWH[78]="ÌúÊ¬Ä§É·"
+	RWWH[73]="ÈÕÔÂÊ¥¹Ã"
+	RWWH[36]="±ÙÐ°½£¿Í"
+	RWWH[29]="ÍòÀï¶ÀÐÐ"
+	RWWH[72]="ÌìÁúÕÆÃÅ"
+	RWWH[4]="Ñã¹ý²¦Ã«"	
+    RWWH[25]="Îå¶¾½ÌÖ÷"	
+    RWWH[83]="ÌúÐä·÷·ç"	
+    RWWH[17]="¶¾ÊÖ¹ÃÆÅ"	
+    RWWH[91]="ÇàÇà×ÓñÆ"	
+    RWWH[74]="´äÓð»ÆÉÀ"	
+    RWWH[80]="»ðÊÖÅÐ¹Ù"	
+    RWWH[62]="ÔªÃÉµÛÊ¦"		
+	RWWH[84]="ÎáÄËÂùÒÄ"	
+    RWWH[85]="ÀÏÄ±ÉîËã"	
+    RWWH[66]="²¨Ë¹Ê¥Å®"		
+	RWWH[81]="Áééá¶¾½¿"	
+    RWWH[77]="Ô§Ñìµ¶¿Í"	
+    RWWH[88]="¾ÆÉñ"	
+	RWWH[89]="Ê³Éñ"
+    RWWH[90]="Ø¹ÐãÁéæ­"	
+    RWWH[44]="Ð×Éñ¶ñÉ·"
+	RWWH[52]="ÖÐÆ½ÉñÇ¹"
+	RWWH[82]="ÓñÃæÃÏ³¢"
+	RWWH[92]="ÎÒ±¾¼ÑÈË"
+	RWWH[97]="ÈãÃ«ÒûÑª"
+	RWWH[79]="»ÛÖÐÁé½£"
+	RWWH[26]="ÈÕÔÂÄ§µÛ"
+	RWWH[553]="ÕæÌïÒ»Ö®±ø"
+	RWWH['01']="²Ô°ëÎÞË«"
+	RWWH['01b']="Õæ²Ô°ëÎÞË«"
+	RWWH['02']="°Ù»¨¹ÈÖ÷"
+	RWWH['03']="ÑªÒí¾üÉñ"
+	RWWH['04']="¾õÐÑÖ®²ÔÁú"
+	RWWH['49']="åÐÒ£ÕÆÃÅ"
+	RWWH['38']="°×Ê×Ì«Ðþ"
 	
    RWTFLB={};
-	RWTFLB[50]="å¥‹è‹±é›„æ€’"
-	RWTFLB[49]="ç¦ç¼˜æ·±åŽš"
-	RWTFLB[35]="çµå¥‡æ´’è„±"
-	RWTFLB[55]="å¤§å™¨æ™šæˆ"
-	RWTFLB[58]="é€†æµå‹‡è¿›"
-	RWTFLB[76]="åšé—»å¼ºè®°"
-	RWTFLB[56]="å…°å¿ƒæ…§è´¨"
-	RWTFLB[38]="è´¨æœ´åˆšå¥"
-	RWTFLB[6]="é‚£ä¸ªä¸ç—›"
-	RWTFLB[1]="é­‚ç³»ä¸€åˆ€"
-	RWTFLB[37]="èµ¤å¿ƒè¿žåŸŽ"
-	RWTFLB[53]="ç£Šè½ä»å¿ƒ"
-	RWTFLB[51]="ç¦»åˆå‚å•†"
-	RWTFLB[48]="å¿ƒæ— æ‰€ä½"
-	RWTFLB[64]="ç«¥çœŸæ°¸ç•™"
-	RWTFLB[60]="å€’è¡Œé€†æ–½"
-	RWTFLB[63]="å¤–å’Œå†…åˆš"
-	RWTFLB[87]="åªšçœ¼å¦‚ä¸"
-	RWTFLB[86]="å€¾å›½å€¾åŸŽ"
-	RWTFLB[73]="ç´é“®ç›ˆç›ˆ"
-	RWTFLB[74]="å·¾å¸¼ä¹‹æ‰"
-	RWTFLB[80]="å‹‡çŒ›ç²¾è¿›"
-	RWTFLB[59]="å†·å‰‘å†°èŠ±"
-	RWTFLB[9]="è°ä¸Žäº‰å³°"
-	RWTFLB[82]="æˆ‘ä¸ºä¼Šç‹‚"
-	RWTFLB[54]="å¿—åž‚æ—¥æœˆ"
-	RWTFLB[553]="èµ¤èƒ†å¿ é­‚"
-	RWTFLB['01']="é¢–æ‚Ÿç»ä¼¦"
-	RWTFLB['02']="ä¸‡èˆ¬çš†é€š"
-	RWTFLB['03']="æ…ˆä¸¥æŽŒå…µ"
+	RWTFLB[50]="·ÜÓ¢ÐÛÅ­"
+	RWTFLB[49]="¸£ÔµÉîºñ"
+	RWTFLB[35]="ÁéÆæÈ÷ÍÑ"
+	RWTFLB[55]="´óÆ÷Íí³É"
+	RWTFLB[58]="ÄæÁ÷ÓÂ½ø"
+	RWTFLB[76]="²©ÎÅÇ¿¼Ç"
+	RWTFLB[56]="À¼ÐÄ»ÛÖÊ"
+	RWTFLB[38]="ÖÊÆÓ¸Õ½¡"
+	RWTFLB[6]="ÄÇ¸ö²»Í´"
+	RWTFLB[1]="»êÏµÒ»µ¶"
+	RWTFLB[37]="³àÐÄÁ¬³Ç"
+	RWTFLB[53]="ÀÚÂäÈÊÐÄ"
+	RWTFLB[51]="ÀëºÏ²ÎÉÌ"
+	RWTFLB[48]="ÐÄÎÞËù×¡"
+	RWTFLB[64]="Í¯ÕæÓÀÁô"
+	RWTFLB[60]="µ¹ÐÐÄæÊ©"
+	RWTFLB[63]="ÍâºÍÄÚ¸Õ"
+	RWTFLB[87]="ÃÄÑÛÈçË¿"
+	RWTFLB[86]="Çã¹úÇã³Ç"
+	RWTFLB[73]="ÇÙï£Ó¯Ó¯"
+	RWTFLB[74]="½íàþÖ®²Å"
+	RWTFLB[80]="ÓÂÃÍ¾«½ø"
+	RWTFLB[59]="Àä½£±ù»¨"
+	RWTFLB[9]="Ë­ÓëÕù·å"
+	RWTFLB[82]="ÎÒÎªÒÁ¿ñ"
+	RWTFLB[54]="Ö¾´¹ÈÕÔÂ"
+	RWTFLB[553]="³àµ¨ÖÒ»ê"
+	RWTFLB['01']="Ó±Îò¾øÂ×"
+	RWTFLB['02']="Íò°ã½ÔÍ¨"
+	RWTFLB['03']="´ÈÑÏÕÆ±ø"
 
 	TeamP={  
  0,1,2,4,9,16,
@@ -1343,63 +1343,63 @@ end
  88,89,90,91,92};
    
    FLHSYL={
-    "å…¶ç–¾å¦‚é£Ž",
-	"å…¶å¾å¦‚æž—",
-	"ä¾µç•¥å¦‚ç«",
-	"ä¸åŠ¨å¦‚å±±",
-	"éš¾çŸ¥å¦‚é˜´",
-	"åŠ¨å¦‚é›·éœ‡",
-	"å…­å¦‚è‹é¾™è¯€"};
+    "Æä¼²Èç·ç",
+	"ÆäÐìÈçÁÖ",
+	"ÇÖÂÔÈç»ð",
+	"²»¶¯ÈçÉ½",
+	"ÄÑÖªÈçÒõ",
+	"¶¯ÈçÀ×Õð",
+	"ÁùÈç²ÔÁú¾÷"};
 	
-   YYGZT={"é£Žæž—ç«å±±åŠŸ",
-                "å…­å¦‚è‹é¾™è¯€"};
+   YYGZT={"·çÁÖ»ðÉ½¹¦",
+                "ÁùÈç²ÔÁú¾÷"};
 				
-	TSXMLB={"é›¶äºŒä¸ƒ","æ°´é•œå››å¥‡","è§é›¨å®¢"}			
+	TSXMLB={"Áã¶þÆß","Ë®¾µËÄÆæ","ÏôÓê¿Í"}			
 	
 	MODEXZ={
 	
-	"åˆæ¬¡æŽ¥è§¦æœ¬ä½œå’Œä¸æ“…é•¿çŽ©æ¸¸æˆè€…",
-	"è¯·é€‰æ‹©ã€Žåˆå…¥æ±Ÿæ¹–ã€æ¨¡å¼"};
+	"³õ´Î½Ó´¥±¾×÷ºÍ²»ÉÃ³¤ÍæÓÎÏ·Õß",
+	"ÇëÑ¡Ôñ¡º³õÈë½­ºþ¡»Ä£Ê½"};
 	
-	MODEXZ2={"åˆå…¥æ±Ÿæ¹–","åƒé”¤ç™¾ç‚¼","é¾™å½¢èˆžå¤©"}
+	MODEXZ2={"³õÈë½­ºþ","Ç§´¸°ÙÁ¶","ÁúÐÎÎèÌì"}
 	
-	TFXZSAY1=" æœ”é›ªé£˜é£˜å¼€é›é—¨ * å¹³æ²™åŽ†ä¹±å·è“¬æ ¹ * åŠŸåè€»è®¡æ“’ç”Ÿæ•° * ç›´æ–©æ¥¼å…°æŠ¥å›½æ© "
-	TFXZSAY2=" ã€çµçŠ€çœŸæ‹³ã€‘ * ã€å‰‘ç¥žä¸€ç¬‘ã€‘ * ã€å‚²ä¸–ç‹‚åˆ€ã€‘ * ã€æ£è—å¤©æœºã€‘ * ã€ç»ä¸–å¤©ç½¡ã€‘ * ã€ä»è€…æ— æ•Œã€‘ * ã€å›žå¤©åœ£æ‰‹ã€‘ "  
+	TFXZSAY1=" Ë·Ñ©Æ®Æ®¿ªÑãÃÅ * Æ½É³ÀúÂÒ¾íÅî¸ù * ¹¦Ãû³Ü¼ÆÇÜÉúÊý * Ö±Õ¶Â¥À¼±¨¹ú¶÷ "
+	TFXZSAY2=" ¡¾ÁéÏ¬ÕæÈ­¡¿ * ¡¾½£ÉñÒ»Ð¦¡¿ * ¡¾°ÁÊÀ¿ñµ¶¡¿ * ¡¾¹÷²ØÌì»ú¡¿ * ¡¾¾øÊÀÌìî¸¡¿ * ¡¾ÈÊÕßÎÞµÐ¡¿ * ¡¾»ØÌìÊ¥ÊÖ¡¿ "  
 	
 	XKXSJ={
-	"èµµå®¢ç¼¦èƒ¡ç¼¨ å´é’©éœœé›ªæ˜Ž",
-	"åæ­¥æ€ä¸€äºº åƒé‡Œä¸ç•™è¡Œ",
-	"çºµæ­»ä¾ éª¨é¦™ ä¸æƒ­ä¸–ä¸Šè‹±",
-	"è°èƒ½ä¹¦é˜ä¸‹ ç™½é¦–å¤ªçŽ„ç»"};
+	"ÕÔ¿ÍçÏºúÓ§ Îâ¹³ËªÑ©Ã÷",
+	"Ê®²½É±Ò»ÈË Ç§Àï²»ÁôÐÐ",
+	"×ÝËÀÏÀ¹ÇÏã ²»²ÑÊÀÉÏÓ¢",
+	"Ë­ÄÜÊé¸óÏÂ °×Ê×Ì«Ðþ¾­"};
 	
 	GRTS={};
-	GRTS[53]="å‡Œæ³¢";
-	GRTS[49]="å‚¬ç¬¦";
-	GRTS[89]="æ°”è¡¥";
-	GRTS[9]="æŒªç§»"
-	GRTS[88]="ä¼ åŠŸ";
+	GRTS[53]="Áè²¨";
+	GRTS[49]="´ß·û";
+	GRTS[89]="Æø²¹";
+	GRTS[9]="Å²ÒÆ"
+	GRTS[88]="´«¹¦";
 
 	GRTSSAY={}
-	GRTSSAY[53]="æ•ˆæžœï¼šè‡³è¯¥è§’è‰²ä¸‹æ¬¡è¡ŒåŠ¨ä¸ºæ­¢*      é—ªé¿æœºçŽ‡å¤§å¹…æå‡*æ¡ä»¶ï¼šæ¶ˆè€—ä½“åŠ›10ç‚¹"
-	GRTSSAY[49]="æ•ˆæžœï¼šå‚¬åŠ¨æ•Œäººèº«ä¸Šçš„ç”Ÿæ­»ç¬¦*      ä½¿å…¶å°ç©´25æ—¶åº*æ¡ä»¶ï¼šæ¶ˆè€—ä½“åŠ›5ç‚¹ å†…åŠ›500ç‚¹"
-    GRTSSAY[89]="æ•ˆæžœï¼šå›žå¤æŒ‡å®šé‚»æŽ¥é˜Ÿå‹ä½“åŠ›50ç‚¹*æ¡ä»¶ï¼šæ¶ˆè€—ä½“åŠ›25ç‚¹ å†…åŠ›300ç‚¹"
-    GRTSSAY[9]="æ•ˆæžœï¼šå°†å…«æ ¼èŒƒå›´å†…çš„æˆ‘æ–¹ä»»ä¸€é˜Ÿå‹*      æŒªç§»åˆ°æŒ‡å®šä½ç½®*æ¡ä»¶ï¼šæ¶ˆè€—ä½“åŠ›10ç‚¹ å†…åŠ›500ç‚¹"
-    GRTSSAY[88]="æ•ˆæžœï¼šå°†äº”æ ¼èŒƒå›´å†…æˆ‘æ–¹ä»»ä¸€é˜Ÿå‹*      å½“å‰é›†æ°”æå‡500ç‚¹*æ¡ä»¶ï¼šæ¶ˆè€—ä½“åŠ›10ç‚¹ å†…åŠ›700ç‚¹"
+	GRTSSAY[53]="Ð§¹û£ºÖÁ¸Ã½ÇÉ«ÏÂ´ÎÐÐ¶¯ÎªÖ¹*      ÉÁ±Ü»úÂÊ´ó·ùÌáÉý*Ìõ¼þ£ºÏûºÄÌåÁ¦10µã"
+	GRTSSAY[49]="Ð§¹û£º´ß¶¯µÐÈËÉíÉÏµÄÉúËÀ·û*      Ê¹Æä·âÑ¨25Ê±Ðò*Ìõ¼þ£ºÏûºÄÌåÁ¦5µã ÄÚÁ¦500µã"
+    GRTSSAY[89]="Ð§¹û£º»Ø¸´Ö¸¶¨ÁÚ½Ó¶ÓÓÑÌåÁ¦50µã*Ìõ¼þ£ºÏûºÄÌåÁ¦25µã ÄÚÁ¦300µã"
+    GRTSSAY[9]="Ð§¹û£º½«°Ë¸ñ·¶Î§ÄÚµÄÎÒ·½ÈÎÒ»¶ÓÓÑ*      Å²ÒÆµ½Ö¸¶¨Î»ÖÃ*Ìõ¼þ£ºÏûºÄÌåÁ¦10µã ÄÚÁ¦500µã"
+    GRTSSAY[88]="Ð§¹û£º½«Îå¸ñ·¶Î§ÄÚÎÒ·½ÈÎÒ»¶ÓÓÑ*      µ±Ç°¼¯ÆøÌáÉý500µã*Ìõ¼þ£ºÏûºÄÌåÁ¦10µã ÄÚÁ¦700µã"
     
 
 function SetModify()
 
    
-   --Menu_System_old=Menu_System;         --å¤‡ä»½åŽŸå§‹å‡½æ•°ï¼Œå¦‚æžœæ–°çš„å‡½æ•°éœ€è¦ï¼Œè¿˜å¯ä»¥è°ƒç”¨åŽŸå§‹å‡½æ•°ã€‚
+   --Menu_System_old=Menu_System;         --±¸·ÝÔ­Ê¼º¯Êý£¬Èç¹ûÐÂµÄº¯ÊýÐèÒª£¬»¹¿ÉÒÔµ÷ÓÃÔ­Ê¼º¯Êý¡£
    --Menu_System=Menu_System_new;
 
-   --ExecDoctor_old=ExecDoctor;         --æ–°çš„åŒ»ç–—å‡½æ•°
+   --ExecDoctor_old=ExecDoctor;         --ÐÂµÄÒ½ÁÆº¯Êý
    --ExecDoctor=ExecDoctor_new;
 
-   --War_PersonLostLife_old=War_PersonLostLife;         --æ–°çš„ä¸­æ¯’å‡å°‘ç”Ÿå‘½å‡½æ•°
+   --War_PersonLostLife_old=War_PersonLostLife;         --ÐÂµÄÖÐ¶¾¼õÉÙÉúÃüº¯Êý
    --War_PersonLostLife=War_PersonLostLife_new;
 
-   instruct_11_old=instruct_11;         --æ–°çš„æŒ‡ä»¤
+   instruct_11_old=instruct_11;         --ÐÂµÄÖ¸Áî
    instruct_11=instruct_11_new;
 
    instruct_45_old=instruct_45;
@@ -1416,25 +1416,25 @@ function SetModify()
    
    DrawBoxTitle=NewDrawBoxTitle
 
-   --åœ¨æ­¤å®šä¹‰ç‰¹æ®Šç‰©å“ã€‚æ²¡æœ‰å®šä¹‰çš„å‡è°ƒç”¨ç¼ºçœç‰©å“å‡½æ•°
-    JY.ThingUseFunction[182]=Show_Position;     --ç½—ç›˜å‡½æ•°
+   --ÔÚ´Ë¶¨ÒåÌØÊâÎïÆ·¡£Ã»ÓÐ¶¨ÒåµÄ¾ùµ÷ÓÃÈ±Ê¡ÎïÆ·º¯Êý
+    JY.ThingUseFunction[182]=Show_Position;     --ÂÞÅÌº¯Êý
 
 
---ä¿®æ”¹CCçš„å¸¸é‡
+--ÐÞ¸ÄCCµÄ³£Á¿
 
-	CC.FontBIG=math.modf(math.min(CC.ScreenW,CC.ScreenH)/12)	--æœ€å¤§ï¼Œæœªä½¿ç”¨	640x480æ—¶size=40
-	CC.FontBig=math.modf(math.min(CC.ScreenW,CC.ScreenH)/15)	--è¾ƒå¤§ï¼Œæ¸¸æˆå¼€å§‹èœå•ä½¿ç”¨	640x480æ—¶size=32
-	CC.Fontbig=math.modf(math.min(CC.ScreenW,CC.ScreenH)/20)	--é€šå¸¸å­—å·ï¼Œå¯¹è¯èœå•ç­‰ä½¿ç”¨	640x480æ—¶size=24
-	CC.Fontsmall=math.modf(math.min(CC.ScreenW,CC.ScreenH)/24)	--ç¨å°å­—å·	640x480æ—¶size=20
-	CC.FontSmall=math.modf(math.min(CC.ScreenW,CC.ScreenH)/30)	--è¾ƒå°å­—å·	640x480æ—¶size=16
-	CC.FontSMALL=math.modf(math.min(CC.ScreenW,CC.ScreenH)/40)	--æœ€å°å­—å·	640x480æ—¶size=12
-	CC.RowPixel=math.modf(math.min(CC.ScreenW,CC.ScreenH)/100)         -- æ¯è¡Œå­—çš„é—´è·åƒç´ æ•°
-   --å„ç§è´´å›¾æ–‡ä»¶åã€‚
-   CC.SMAPPicFile={CONFIG.DataPath .. "smap.idx",CONFIG.DataPath .. "smap.grp"};
-   CC.WMAPPicFile={CONFIG.DataPath .. "wmap.idx",CONFIG.DataPath .. "wmap.grp"};
-   CC.FightPicFile={CONFIG.DataPath .. "fight/fight%03d.idx",CONFIG.DataPath .. "fight/fight%03d.grp"};  --æ­¤å¤„ä¸ºå­—ç¬¦ä¸²æ ¼å¼ï¼Œç±»ä¼¼äºŽCä¸­printfçš„æ ¼å¼ã€‚
+	CC.FontBIG=math.modf(math.min(CC.ScreenW,CC.ScreenH)/12)	--×î´ó£¬Î´Ê¹ÓÃ	640x480Ê±size=40
+	CC.FontBig=math.modf(math.min(CC.ScreenW,CC.ScreenH)/15)	--½Ï´ó£¬ÓÎÏ·¿ªÊ¼²Ëµ¥Ê¹ÓÃ	640x480Ê±size=32
+	CC.Fontbig=math.modf(math.min(CC.ScreenW,CC.ScreenH)/20)	--Í¨³£×ÖºÅ£¬¶Ô»°²Ëµ¥µÈÊ¹ÓÃ	640x480Ê±size=24
+	CC.Fontsmall=math.modf(math.min(CC.ScreenW,CC.ScreenH)/24)	--ÉÔÐ¡×ÖºÅ	640x480Ê±size=20
+	CC.FontSmall=math.modf(math.min(CC.ScreenW,CC.ScreenH)/30)	--½ÏÐ¡×ÖºÅ	640x480Ê±size=16
+	CC.FontSMALL=math.modf(math.min(CC.ScreenW,CC.ScreenH)/40)	--×îÐ¡×ÖºÅ	640x480Ê±size=12
+	CC.RowPixel=math.modf(math.min(CC.ScreenW,CC.ScreenH)/100)         -- Ã¿ÐÐ×ÖµÄ¼ä¾àÏñËØÊý
+   --¸÷ÖÖÌùÍ¼ÎÄ¼þÃû¡£
+   CC.SMAPPicFile={CONFIG.DataPath .. "sdx",CONFIG.DataPath .. "smp"};
+   CC.WMAPPicFile={CONFIG.DataPath .. "wdx",CONFIG.DataPath .. "wmp"};
+   CC.FightPicFile={CONFIG.DataPath .. "\\fight\\fdx%03d",CONFIG.DataPath .. "\\fight\\fmp%03d"};  --´Ë´¦Îª×Ö·û´®¸ñÊ½£¬ÀàËÆÓÚCÖÐprintfµÄ¸ñÊ½¡£
 
-       --ç¦»é˜Ÿäººå‘˜åˆ—è¡¨: {äººå‘˜idï¼Œç¦»é˜Ÿè°ƒç”¨å‡½æ•°}      ----å¦‚æžœæœ‰æ–°çš„ç¦»é˜Ÿäººå‘˜åŠ å…¥ï¼Œç›´æŽ¥åœ¨è¿™é‡Œå¢žåŠ 
+       --Àë¶ÓÈËÔ±ÁÐ±í: {ÈËÔ±id£¬Àë¶Óµ÷ÓÃº¯Êý}      ----Èç¹ûÓÐÐÂµÄÀë¶ÓÈËÔ±¼ÓÈë£¬Ö±½ÓÔÚÕâÀïÔö¼Ó
     CC.PersonExit={{1,100},{2,102},{4,104},{9,106},{16,108},
                    {17,110},{25,112},{28,114},{29,116},{30,118},
                    {35,120},{36,122},{37,124},{38,126},{44,128},
@@ -1449,7 +1449,7 @@ function SetModify()
 				   };
 
 
-    CC.ExtraOffense={{52,75,100},             --æ­¦åŠŸæ­¦å™¨é…åˆå¢žåŠ æ”»å‡»åŠ›ï¼Œ ä¾æ¬¡ä¸ºï¼šæ­¦å™¨ç‰©å“idï¼Œæ­¦åŠŸidï¼Œæ”»å‡»åŠ›å¢žåŠ 
+    CC.ExtraOffense={{52,75,100},             --Îä¹¦ÎäÆ÷ÅäºÏÔö¼Ó¹¥»÷Á¦£¬ ÒÀ´ÎÎª£ºÎäÆ÷ÎïÆ·id£¬Îä¹¦id£¬¹¥»÷Á¦Ôö¼Ó
                    {45,67,100},
                    {37,41,100},
                    {49,80,200},
@@ -1457,48 +1457,48 @@ function SetModify()
                    {40,40,150},
                    {36,45,100},}
 
-   CC.PersonAttribMax={};             --äººç‰©å±žæ€§æœ€å¤§å€¼
-   CC.PersonAttribMax["ç»éªŒ"]=60000;
-   CC.PersonAttribMax["ç‰©å“ä¿®ç‚¼ç‚¹æ•°"]=30000;
-   CC.PersonAttribMax["ä¿®ç‚¼ç‚¹æ•°"]=30000;
-   CC.PersonAttribMax["ç”Ÿå‘½æœ€å¤§å€¼"]=999;
-   CC.PersonAttribMax["å—ä¼¤ç¨‹åº¦"]=100;
-   CC.PersonAttribMax["ä¸­æ¯’ç¨‹åº¦"]=100;
-   CC.PersonAttribMax["å†…åŠ›æœ€å¤§å€¼"]=5000;
-   CC.PersonAttribMax["ä½“åŠ›"]=100;
-   CC.PersonAttribMax["æ”»å‡»åŠ›"]=500;
-   CC.PersonAttribMax["é˜²å¾¡åŠ›"]=500;
-   CC.PersonAttribMax["è½»åŠŸ"]=500;
-   CC.PersonAttribMax["åŒ»ç–—èƒ½åŠ›"]=240;
-   CC.PersonAttribMax["ç”¨æ¯’èƒ½åŠ›"]=240;
-   CC.PersonAttribMax["è§£æ¯’èƒ½åŠ›"]=240;
-   CC.PersonAttribMax["æŠ—æ¯’èƒ½åŠ›"]=240;
-   CC.PersonAttribMax["æ‹³æŽŒåŠŸå¤«"]=240;
-   CC.PersonAttribMax["å¾¡å‰‘èƒ½åŠ›"]=240;
-   CC.PersonAttribMax["è€åˆ€æŠ€å·§"]=240;
-   CC.PersonAttribMax["ç‰¹æ®Šå…µå™¨"]=240;
-   CC.PersonAttribMax["æš—å™¨æŠ€å·§"]=240;
-   CC.PersonAttribMax["æ­¦å­¦å¸¸è¯†"]=100;
-   CC.PersonAttribMax["å“å¾·"]=100;
-   CC.PersonAttribMax["èµ„è´¨"]=100;
-   CC.PersonAttribMax["æ”»å‡»å¸¦æ¯’"]=240;
+   CC.PersonAttribMax={};             --ÈËÎïÊôÐÔ×î´óÖµ
+   CC.PersonAttribMax["¾­Ñé"]=60000;
+   CC.PersonAttribMax["ÎïÆ·ÐÞÁ¶µãÊý"]=30000;
+   CC.PersonAttribMax["ÐÞÁ¶µãÊý"]=30000;
+   CC.PersonAttribMax["ÉúÃü×î´óÖµ"]=999;
+   CC.PersonAttribMax["ÊÜÉË³Ì¶È"]=100;
+   CC.PersonAttribMax["ÖÐ¶¾³Ì¶È"]=100;
+   CC.PersonAttribMax["ÄÚÁ¦×î´óÖµ"]=5000;
+   CC.PersonAttribMax["ÌåÁ¦"]=100;
+   CC.PersonAttribMax["¹¥»÷Á¦"]=500;
+   CC.PersonAttribMax["·ÀÓùÁ¦"]=500;
+   CC.PersonAttribMax["Çá¹¦"]=500;
+   CC.PersonAttribMax["Ò½ÁÆÄÜÁ¦"]=240;
+   CC.PersonAttribMax["ÓÃ¶¾ÄÜÁ¦"]=240;
+   CC.PersonAttribMax["½â¶¾ÄÜÁ¦"]=240;
+   CC.PersonAttribMax["¿¹¶¾ÄÜÁ¦"]=240;
+   CC.PersonAttribMax["È­ÕÆ¹¦·ò"]=240;
+   CC.PersonAttribMax["Óù½£ÄÜÁ¦"]=240;
+   CC.PersonAttribMax["Ë£µ¶¼¼ÇÉ"]=240;
+   CC.PersonAttribMax["ÌØÊâ±øÆ÷"]=240;
+   CC.PersonAttribMax["°µÆ÷¼¼ÇÉ"]=240;
+   CC.PersonAttribMax["ÎäÑ§³£Ê¶"]=100;
+   CC.PersonAttribMax["Æ·µÂ"]=100;
+   CC.PersonAttribMax["×ÊÖÊ"]=100;
+   CC.PersonAttribMax["¹¥»÷´ø¶¾"]=240;
 
 
-    CC.NewPersonName="å¾å°ä¾ ";                --æ–°æ¸¸æˆçš„æ•°æ®
-    CC.NewGameSceneID=70;                      --åœºæ™¯ID
-    CC.NewGameSceneX=16;                       --åœºæ™¯åæ ‡
+    CC.NewPersonName="ÐìÐ¡ÏÀ";                --ÐÂÓÎÏ·µÄÊý¾Ý
+    CC.NewGameSceneID=70;                      --³¡¾°ID
+    CC.NewGameSceneX=16;                       --³¡¾°×ø±ê
     CC.NewGameSceneY=31;
-    CC.NewGameEvent=691;                       --æ–°æ¸¸æˆåœºæ™¯æ‰§è¡Œäº‹ä»¶ã€‚å¦‚æžœæ²¡æœ‰ï¼Œåˆ™æ‰§è¡Œæ–°æ¸¸æˆåæ ‡è·¯è¿‡äº‹ä»¶ã€‚691
-    CC.NewPersonPic=2515;                      --å¼€å§‹ä¸»è§’pic
+    CC.NewGameEvent=691;                       --ÐÂÓÎÏ·³¡¾°Ö´ÐÐÊÂ¼þ¡£Èç¹ûÃ»ÓÐ£¬ÔòÖ´ÐÐÐÂÓÎÏ·×ø±êÂ·¹ýÊÂ¼þ¡£691
+    CC.NewPersonPic=2515;                      --¿ªÊ¼Ö÷½Çpic
 
 
-    CC.LoadThingPic=1              --è¯»å–ç‰©å“è´´å›¾æ–¹å¼ 0 ä»Žmmap/smap/wmapä¸­è¯»å–  1 è¯»å–ç‹¬ç«‹çš„thing.idx/grp
-	CC.StartThingPic=4131          --ç‰©å“è´´å›¾åœ¨mmap/smap/wmapä¸­çš„èµ·å§‹ç¼–å·ã€‚CC.LoadThingPic=0æœ‰æ•ˆ
+    CC.LoadThingPic=1              --¶ÁÈ¡ÎïÆ·ÌùÍ¼·½Ê½ 0 ´Ómmap/smap/wmapÖÐ¶ÁÈ¡  1 ¶ÁÈ¡¶ÀÁ¢µÄthing.idx/grp
+	CC.StartThingPic=4131          --ÎïÆ·ÌùÍ¼ÔÚmmap/smap/wmapÖÐµÄÆðÊ¼±àºÅ¡£CC.LoadThingPic=0ÓÐÐ§
 	CC.forg=false
-	CC.KRP='./data/kdef.grp'
-	CC.KDX='./data/kdef.idx'
-	CC.TRP='./data/talk.grp'
-	CC.TDX='./data/talk.idx'
+	CC.KRP='.\\data\\kdef.grp'
+	CC.KDX='.\\data\\kdef.idx'
+	CC.TRP='.\\data\\talk.grp'
+	CC.TDX='.\\data\\talk.idx'
 	
 	CC.MapKind=1;
 	CC.MapSize=16;
@@ -1580,232 +1580,232 @@ function SetModify()
 						fun=demostr,
 					};
 	CC.KfName={
-	                     {2,'é¥­æ¥å¼ å£',600},   --é€é¥æ¸¸3æ‹›
-						{2,'æ²¿é—¨æ‰˜é’µ',600},
-						{2,'è§äººä¼¸æ‰‹',600},
-						{3,'äº”æ¯’æ‘§å¿ƒ',700},
-						{4,'é”å–‰',700},
-						{4,'æŽ¢ç›®',700},
-						{5,'å¯’å†°å°ä½“',700},
-						{6,'å¤©ç½—åœ°ç½‘',700},
-						{7,'ç»µç»µä¸ç»',700},					
-	                    {8,'é˜³æ­Œå¤©é’§',900},   --å¤©å±±å…­é˜³æŽŒ3æ‹›
-						{8,'é˜³æ˜¥ç™½é›ª',900},
-						{8,'é˜³å…³ä¸‰å ',900},	
-						{9,'é›ªå±±ç™½é©¼',800},
-						{10,'ä¸€é”™',800},
-						{10,'å†é”™',800},
-						{11,'æ—‹',800},
-						{11,'é’»',800},						
-						{12,'çžæ¨±ç¼¤çº·',900},  --è½è‹±ç¥žå‰‘æŽŒ3æ‹›
-						{12,'é›¨æ€¥é£Žç‹‚',900},
-						{12,'æ±ŸåŸŽé£žèŠ±',900},
-						{14,'è¸é›ªæŠ˜æ¢…',1000},
-						{14,'å¤©å±±çµé¹«',1000},
-						{15,'æ·±è—è‹¥è™š',1200}, --ç©ºæ˜Žæ‹³3æ‹›
-						{15,'å¤©é©¬è¡Œç©º',1200},
-						{15,'ç©ºç©ºå¦‚ä¹Ÿ',1200},
-						{16,'ä¸Šæ­¥é‡Žé©¬åˆ†é¬ƒ',1000}, --å¤ªæžæ‹³3æ‹›
-						{16,'ææ­¥é«˜æŽ¢é©¬',1000},
-						{16,'ç™½é¹¤æ™¾ç¿…',1000},
-						{17,'ä¸€é˜³å®šä¹¾å¤',1200},
-						{18,'å¼¹æŒ‡Â·ä¸€çž¬',1200},
-						{19,'é­”å¹»å¤©é˜´',1000},
-						{20,'æ²›ç„¶æœ‰é›¨',1000},
-						{21,'çŽ„å†¥ä¾µä½“',1000},
-						{21,'å†°æ¯’ç¼­ç»•',1000},
-						{22,'é‡‘åˆšå¤§æ‰‹å°',1000},
-						{23,'ä¸ƒä¼¤',1000},
-						{24,'è‰²ç©ºå››æ˜¾',1200},  --é¡»å¼¥å±±ç¥žæŽŒ3æ‹›
-						{24,'æ— è‰²æ— ç›¸',1200},
-						{24,'æ…‘ä¼å¤–é“',1200},
-						{25,'æ‹–æ³¥å¸¦æ°´',1300},  --é”€é­‚æŽŒ6æ‹›
-						{25,'å€’è¡Œé€†æ–½',1300},
-						{25,'è¡Œå°¸èµ°è‚‰',1300},
-						{25,'é­‚ä¸å®ˆèˆ',1300},
-						{25,'å¿ƒæƒŠè‚‰è·³',1300},
-						{25,'å…­ç¥žä¸å®‰',1300},
+	                     {2,'·¹À´ÕÅ¿Ú',600},   --åÐÒ£ÓÎ3ÕÐ
+						{2,'ÑØÃÅÍÐ²§',600},
+						{2,'¼ûÈËÉìÊÖ',600},
+						{3,'Îå¶¾´ÝÐÄ',700},
+						{4,'Ëøºí',700},
+						{4,'Ì½Ä¿',700},
+						{5,'º®±ù·âÌå',700},
+						{6,'ÌìÂÞµØÍø',700},
+						{7,'ÃàÃà²»¾ø',700},					
+	                    {8,'Ñô¸èÌì¾û',900},   --ÌìÉ½ÁùÑôÕÆ3ÕÐ
+						{8,'Ñô´º°×Ñ©',900},
+						{8,'Ñô¹ØÈýµþ',900},	
+						{9,'Ñ©É½°×ÍÕ',800},
+						{10,'Ò»´í',800},
+						{10,'ÔÙ´í',800},
+						{11,'Ðý',800},
+						{11,'×ê',800},						
+						{12,'çóÓ£çÍ·×',900},  --ÂäÓ¢Éñ½£ÕÆ3ÕÐ
+						{12,'Óê¼±·ç¿ñ',900},
+						{12,'½­³Ç·É»¨',900},
+						{14,'Ì¤Ñ©ÕÛÃ·',1000},
+						{14,'ÌìÉ½ÁéðÕ',1000},
+						{15,'Éî²ØÈôÐé',1200}, --¿ÕÃ÷È­3ÕÐ
+						{15,'ÌìÂíÐÐ¿Õ',1200},
+						{15,'¿Õ¿ÕÈçÒ²',1200},
+						{16,'ÉÏ²½Ò°Âí·Ö××',1000}, --Ì«¼«È­3ÕÐ
+						{16,'Ìá²½¸ßÌ½Âí',1000},
+						{16,'°×º×ÁÀ³á',1000},
+						{17,'Ò»Ñô¶¨Ç¬À¤',1200},
+						{18,'µ¯Ö¸¡¤Ò»Ë²',1200},
+						{19,'Ä§»ÃÌìÒõ',1000},
+						{20,'ÅæÈ»ÓÐÓê',1000},
+						{21,'ÐþÚ¤ÇÖÌå',1000},
+						{21,'±ù¶¾çÔÈÆ',1000},
+						{22,'½ð¸Õ´óÊÖÓ¡',1000},
+						{23,'ÆßÉË',1000},
+						{24,'É«¿ÕËÄÏÔ',1200},  --ÐëÃÖÉ½ÉñÕÆ3ÕÐ
+						{24,'ÎÞÉ«ÎÞÏà',1200},
+						{24,'Éå·üÍâµÀ',1200},
+						{25,'ÍÏÄà´øË®',1300},  --Ïú»êÕÆ6ÕÐ
+						{25,'µ¹ÐÐÄæÊ©',1300},
+						{25,'ÐÐÊ¬×ßÈâ',1300},
+						{25,'»ê²»ÊØÉá',1300},
+						{25,'ÐÄ¾ªÈâÌø',1300},
+						{25,'ÁùÉñ²»°²',1300},
 						
 						
-						{27,'å¹³æ²™è½é›å¼',300}, --æ¾é£Žå‰‘æœ¯3æ‹›
-						{27,'é¸¿é£žå†¥å†¥',300},
-						{27,'ç¢§æ¸Šè…¾è›Ÿ',300},
-						{28,'è½°é›·æŽ£ç”µ',300}, --é›·éœ‡å‰‘æœ¯3æ‹›
-						{28,'é›·éœ†ä¸‡é’§',300},
-						{28,'é©±é›·æŽ£ç”µ',300},
-				        {29,'å†°æ²³å€’æ³»',400}, --ä¸‰åˆ†å‰‘æœ¯3æ‹›
-						{29,'é›ªä¸­å¥‡èŽ²',400},
-						{29,'å†°æ²³å¼€å†»',400},						
-						{30,'ä¸‡èŠ±é½æ”¾',500}, --æ’å±±å‰‘æ³•3æ‹›
-						{30,'ä¸‡å‰äº‰è‰³',500},
-						{30,'æ¸…æ¾ˆæ¢…èŠ±',500},	
-						{31,'äº”å¤§å¤«å‰‘',500}, --æ³°å±±å‰‘æ³•3æ‹›
-						{31,'å²±å®—å¦‚ä½•',500},
-						{31,'ä¸ƒæ˜Ÿè½é•¿ç©º',500},						
-					    {32,'æ³‰é¸£èŠ™è“‰',600}, --è¡¡å±±å‰‘æ³•3æ‹›
-						{32,'é¹¤ç¿”ç´«ç›–',600},
-						{32,'å¤©æŸ±äº‘æ°”',600},												
-						{33,'å ç¿ æµ®é’',600}, --åµ©å±±å‰‘æ³•3æ‹›
-						{33,'çŽ‰è¿›å¤©æ± ',600},
-						{33,'å¤©å¤–çŽ‰é¾™',600},						
-						{34,'è‹æ¾è¿Žå®¢',600}, --åŽå±±å‰‘æ³•3æ‹›
-						{34,'é‡‘é›æ¨ªç©º',600},
-						{34,'å¤©å¤å€’æ‚¬',600},						
-						{35,'é›ªæ³¥é¸¿çˆª',600},  --é›ªå±±å‰‘æ³•3æ‹›
-						{35,'æ¢…é›ªäº‰æ˜¥',600},
-						{35,'é›ªå±±å…­å‡º',600},						
-						{36,'æèŠ±æ˜¥é›¨',700},  --æŸ”äº‘å‰‘æ³•3æ‹›
-						{36,'æ»¡å¤©èŠ±é›¨',700},
-						{36,'çŽ‰å¸¦å›´è…°',700},												
-						{38,'å±±å¤–æ¸…éŸ³',800},  --çŽ‰è§å‰‘æ³•5æ‹›
-						{38,'é‡‘å£°çŽ‰æŒ¯',800},
-						{38,'å‡¤æ›²é•¿é¸£',800},
-                        {38,'å“éš”æ¥¼å°',800},
-						{38,'æ£¹æ­Œä¸­æµ',800},												
-						{40,'é‡‘è›‡ä¸‡é“',900}, --é‡‘è›‡å‰‘æ³•7æ‹›
-						{40,'é‡‘è›‡ç‹‚èˆž',900},
-						{40,'é‡‘å…‰è›‡å½±',900},
-						{40,'è›‡å½±ä¸‡é¦ˆ',900},
-						{40,'çµè›‡ç”µé—ª',900},
-						{40,'è›‡å›°æ„åŸŽ',900},
-						{40,'é‡‘è›‡åŒ–é¾™',900},																		
-						{41,'ç­',1000},        --ç­å‰‘ç»å‰‘2æ‹›
-						{41,'ç»',1000},						
-						{42,'æ¸…é¥®å°é…Œ',1000},  --çŽ‰å¥³ç´ å¿ƒå‰‘6æ‹›
-						{42,'æµªè¿¹å¤©æ¶¯',1000},
-						{42,'ä¸¾æ¡ˆé½çœ‰',1000},
-						{42,'çš“è…•çŽ‰é•¯',1000},
-						{42,'å†·æœˆçª¥äºº',1000},
-						{42,'ç«¹å¸˜ä¸´æ± ',1000},						
-						{44,'å†²å¤©æŽŒè‹ç§¦èƒŒå‰‘',1000},  --è‹—å®¶å‰‘æ³•6æ‹›
-						{44,'é»„é¾™è½¬èº«åé¡»åŠ¿',1000},
-						{44,'è¿Žé—¨è…¿ååŠˆåŽå±±',1000},
-						{44,'æ´—å‰‘æ€€ä¸­æŠ±æœˆ',1000},
-						{44,'ä¸Šæ­¥äº‘è¾¹æ‘˜æœˆ',1000},
-						{44,'ææ’©å‰‘ç™½é¹¤èˆ’ç¿…',1000},						
-						{45,'é‡å‰‘æ— é”‹',1300},  --çŽ„é“å‰‘æ³•3æ‹›
-						{45,'å¤§å·§ä¸å·¥',1400},
-						{45,'ç ´å°½å¤©ä¸‹',1500},
-						{46,'å¤§é­æ˜Ÿ',1300},  --å¤ªæžå‰‘æ³•3æ‹›
-						{46,'ä¸‰çŽ¯å¥—æœˆ',1400},
-						{46,'äº‘éº¾ä¸‰èˆž',1500},						
-						{47,'æ€»å†³å¼',1600},  --ç‹¬å­¤ä¹å‰‘9æ‹›
-						{47,'ç ´å‰‘å¼',1500},
-						{47,'ç ´æžªå¼',1500},
-						{47,'ç ´åˆ€å¼',1500},
-						{47,'ç ´éž­å¼',1500},
-						{47,'ç ´ç´¢å¼',1500},
-						{47,'ç ´æŽŒå¼',1500},
-						{47,'ç ´ç®­å¼',1500},
-						{47,'ç ´æ°”å¼',1600},
-						{48,'æ‰«è¡ç¾¤é­”',1300},  --è¾Ÿé‚ªå‰‘æ³•6æ‹›
-						{48,'ç´«æ°”ä¸œæ¥',1300},
-						{48,'é”ºé¦—æŠ‰ç›®',1300},		
-						{48,'èŠ±å¼€è§ä½›',1300},
-						{48,'ç›´æ£é»„é¾™',1300},	
-						{48,'æŒ‡æ‰“å¥¸é‚ª',1300},	
+						{27,'Æ½É³ÂäÑãÊ½',300}, --ËÉ·ç½£Êõ3ÕÐ
+						{27,'ºè·ÉÚ¤Ú¤',300},
+						{27,'±ÌÔ¨ÌÚòÔ',300},
+						{28,'ºäÀ×³¸µç',300}, --À×Õð½£Êõ3ÕÐ
+						{28,'À×öªÍò¾û',300},
+						{28,'ÇýÀ×³¸µç',300},
+				        {29,'±ùºÓµ¹Ðº',400}, --Èý·Ö½£Êõ3ÕÐ
+						{29,'Ñ©ÖÐÆæÁ«',400},
+						{29,'±ùºÓ¿ª¶³',400},						
+						{30,'Íò»¨Æë·Å',500}, --ºãÉ½½£·¨3ÕÐ
+						{30,'Íò»ÜÕùÑÞ',500},
+						{30,'Çå³ºÃ·»¨',500},	
+						{31,'Îå´ó·ò½£',500}, --Ì©É½½£·¨3ÕÐ
+						{31,'á·×ÚÈçºÎ',500},
+						{31,'ÆßÐÇÂä³¤¿Õ',500},						
+					    {32,'ÈªÃùÜ½ÈØ',600}, --ºâÉ½½£·¨3ÕÐ
+						{32,'º×Ïè×Ï¸Ç',600},
+						{32,'ÌìÖùÔÆÆø',600},												
+						{33,'µþ´ä¸¡Çà',600}, --áÔÉ½½£·¨3ÕÐ
+						{33,'Óñ½øÌì³Ø',600},
+						{33,'ÌìÍâÓñÁú',600},						
+						{34,'²ÔËÉÓ­¿Í',600}, --»ªÉ½½£·¨3ÕÐ
+						{34,'½ðÑãºá¿Õ',600},
+						{34,'ÌìÀ¤µ¹Ðü',600},						
+						{35,'Ñ©Äàºè×¦',600},  --Ñ©É½½£·¨3ÕÐ
+						{35,'Ã·Ñ©Õù´º',600},
+						{35,'Ñ©É½Áù³ö',600},						
+						{36,'ÐÓ»¨´ºÓê',700},  --ÈáÔÆ½£·¨3ÕÐ
+						{36,'ÂúÌì»¨Óê',700},
+						{36,'Óñ´øÎ§Ñü',700},												
+						{38,'É½ÍâÇåÒô',800},  --ÓñÏô½£·¨5ÕÐ
+						{38,'½ðÉùÓñÕñ',800},
+						{38,'·ïÇú³¤Ãù',800},
+                        {38,'Ïì¸ôÂ¥Ì¨',800},
+						{38,'èþ¸èÖÐÁ÷',800},												
+						{40,'½ðÉßÍòµÀ',900}, --½ðÉß½£·¨7ÕÐ
+						{40,'½ðÉß¿ñÎè',900},
+						{40,'½ð¹âÉßÓ°',900},
+						{40,'ÉßÓ°ÍòÀ¡',900},
+						{40,'ÁéÉßµçÉÁ',900},
+						{40,'ÉßÀ§³î³Ç',900},
+						{40,'½ðÉß»¯Áú',900},																		
+						{41,'Ãð',1000},        --Ãð½£¾ø½£2ÕÐ
+						{41,'¾ø',1000},						
+						{42,'ÇåÒûÐ¡×Ã',1000},  --ÓñÅ®ËØÐÄ½£6ÕÐ
+						{42,'ÀË¼£ÌìÑÄ',1000},
+						{42,'¾Ù°¸ÆëÃ¼',1000},
+						{42,'ð©ÍóÓñïí',1000},
+						{42,'ÀäÔÂ¿úÈË',1000},
+						{42,'ÖñÁ±ÁÙ³Ø',1000},						
+						{44,'³åÌìÕÆËÕÇØ±³½£',1000},  --Ãç¼Ò½£·¨6ÕÐ
+						{44,'»ÆÁú×ªÉíÍÂÐëÊÆ',1000},
+						{44,'Ó­ÃÅÍÈ·´Åü»ªÉ½',1000},
+						{44,'Ï´½£»³ÖÐ±§ÔÂ',1000},
+						{44,'ÉÏ²½ÔÆ±ßÕªÔÂ',1000},
+						{44,'ÌáÁÃ½£°×º×Êæ³á',1000},						
+						{45,'ÖØ½£ÎÞ·æ',1300},  --ÐþÌú½£·¨3ÕÐ
+						{45,'´óÇÉ²»¹¤',1400},
+						{45,'ÆÆ¾¡ÌìÏÂ',1500},
+						{46,'´ó¿ýÐÇ',1300},  --Ì«¼«½£·¨3ÕÐ
+						{46,'Èý»·Ì×ÔÂ',1400},
+						{46,'ÔÆ÷âÈýÎè',1500},						
+						{47,'×Ü¾öÊ½',1600},  --¶À¹Â¾Å½£9ÕÐ
+						{47,'ÆÆ½£Ê½',1500},
+						{47,'ÆÆÇ¹Ê½',1500},
+						{47,'ÆÆµ¶Ê½',1500},
+						{47,'ÆÆ±ÞÊ½',1500},
+						{47,'ÆÆË÷Ê½',1500},
+						{47,'ÆÆÕÆÊ½',1500},
+						{47,'ÆÆ¼ýÊ½',1500},
+						{47,'ÆÆÆøÊ½',1600},
+						{48,'É¨µ´ÈºÄ§',1300},  --±ÙÐ°½£·¨6ÕÐ
+						{48,'×ÏÆø¶«À´',1300},
+						{48,'ïñØ¸¾ñÄ¿',1300},		
+						{48,'»¨¿ª¼û·ð',1300},
+						{48,'Ö±µ·»ÆÁú',1300},	
+						{48,'Ö¸´ò¼éÐ°',1300},	
 						
-						{50,'ç ',500}, 
-						{50,'åŠˆ',500},
-						{52,'é¬¼è§æ„',600}, 
-						{53,'é“é”æ¨ªæ±Ÿ',600},
-						{53,'ç‡•å­å…¥å·¢',600},
-						{54,'å¤§é’',700},
-						{54,'å°é’',700},
-						{55,'ç‹‚é£Žå¤§ä½œ',700}, 
-						{55,'é£žæ²™èµ°çŸ³',700},
-						{56,'å¸¦é†‰è„±é´',700},
-						{56,'å•åˆ€ç ´æžª',700},						
-						{57,'æ”¾ä¸‹å± åˆ€',600},
-						{57,'ç«‹åœ°æˆä½›',600},
-						{58,'æ¨æ„ç»µç»µ',600},
-						{59,'ç™½è™Žè·³æ¶§',600},
-						{59,'å‰ªæ‰‘è‡ªå¦‚',600},
-						{60,'é‡èŠ‚å®ˆä¹‰',700},
-						{60,'ä¸‡åŠ«ä¸å¤',700},
-						{61,'æ¢…é›ªé€¢å¤',700},					
-						{61,'èµ¤æ—¥ç‚Žç‚Ž',700},	
-                        {62,'å¥³è²ŒéƒŽæ‰ç ä¸‡æ–›',800},					
-						{62,'å¤©æ•™ä¸½è´¨ä¸ºçœ·å±ž',800},	
-						{62,'æ¸…é£Žå¼•ä½©ä¸‹ç‘¶å°',800},					
-						{62,'æ˜Žæœˆç…§å¦†æˆé‡‘å±‹',800},							
-						{63,'å‘•å¿ƒæ²¥è¡€',800},						
-						{63,'æ‰¹çº¸å‰Šè…',800},
-						{63,'æµæ˜Ÿç»å¤©',800},						
-						{65,'é’»æœ¨å–ç«',800},
-						{65,'æ— åå­½ç«',1100},
-						{66,'çƒˆç«ç‡ŽåŽŸ',1200},
-						{66,'ä¸¾ç«çƒ§å¤©',1200},
-						{67,'ç©¿æ‰‹è—åˆ€å¼',1100},
-						{67,'å…«æ–¹è—åˆ€å¼',1100},
+						{50,'¿³',500}, 
+						{50,'Åü',500},
+						{52,'¹í¼û³î',600}, 
+						{53,'ÌúËøºá½­',600},
+						{53,'Ñà×ÓÈë³²',600},
+						{54,'´óÇà',700},
+						{54,'Ð¡Çà',700},
+						{55,'¿ñ·ç´ó×÷',700}, 
+						{55,'·ÉÉ³×ßÊ¯',700},
+						{56,'´ø×íÍÑÑ¥',700},
+						{56,'µ¥µ¶ÆÆÇ¹',700},						
+						{57,'·ÅÏÂÍÀµ¶',600},
+						{57,'Á¢µØ³É·ð',600},
+						{58,'ºÞÒâÃàÃà',600},
+						{59,'°×»¢Ìø½§',600},
+						{59,'¼ôÆË×ÔÈç',600},
+						{60,'ÖØ½ÚÊØÒå',700},
+						{60,'Íò½Ù²»¸´',700},
+						{61,'Ã·Ñ©·êÏÄ',700},					
+						{61,'³àÈÕÑ×Ñ×',700},	
+                        {62,'Å®Ã²ÀÉ²ÅÖéÍòõú',800},					
+						{62,'Ìì½ÌÀöÖÊÎª¾ìÊô',800},	
+						{62,'Çå·çÒýÅåÏÂÑþÌ¨',800},					
+						{62,'Ã÷ÔÂÕÕ×±³É½ðÎÝ',800},							
+						{63,'Å»ÐÄÁ¤Ñª',800},						
+						{63,'ÅúÖ½Ï÷¸¯',800},
+						{63,'Á÷ÐÇ¾­Ìì',800},						
+						{65,'×êÄ¾È¡»ð',800},
+						{65,'ÎÞÃûÄõ»ð',1100},
+						{66,'ÁÒ»ðÁÇÔ­',1200},
+						{66,'¾Ù»ðÉÕÌì',1200},
+						{67,'´©ÊÖ²Øµ¶Ê½',1100},
+						{67,'°Ë·½²Øµ¶Ê½',1100},
 
-						{68,'å›žé©¬æžª',500},
-						{68,'æ˜¥é›·éœ‡æ€’',500},
-						{68,'å‡¤ç‚¹å¤´',500},
-						{70,'ä¸­æ­£é”å–‰',600},
-						{70,'æžªå¹³ä¹æ´²',600},
-						{71,'å¤§å›åˆ¶å…­åˆ',700},
-						{71,'çŒ›å°†æ¸…ä¹åž“',700},
-						{74,'çµè›‡åä¿¡',700},
-						{74,'å†²å¤©ä¸€é¹¤',700},
-						{75,'å’”åš“',800},
-						{75,'æˆ‘å‰ª',800},
-						{77,"é‡‘åˆ€é»‘å‰‘",600},
-						{77,"å‡åˆ€éžåˆ€",600},
-						{77,"å‡å‰‘éžå‰‘",600},
-						{78,"è¡€æŸ“é»„æ²™",600},
-						{78,"é£žæ²™ä¸‡é‡Œ",600},
-						{79,"é“¶ç´¢ç¼ èº«",900},
-						{79,"é”ç©´é‡‘é“ƒ",900},
-						{80,'æ£’æ‰“ç‹—å¤´',1000},
-						{80,'åæˆªç‹—è‡€',1000},
-						{80,'ç’å£å¤ºæ–',1000},
-						{80,'æ£’æ‰“åŒçŠ¬',1000},
-						{80,'ç’å£å¤ºæ–',1000},
-						{81,'ä¹¦åŒ–ä¸¹å¿ƒ',1000},
-						{81,'çŽ„å¤©ä¸€é˜³',1000},						
-						{82,'ç¥—å›­ç²¾èˆ',1100},
-						{82,'è¯¸è¡Œæ— å¸¸',1100},
-						{82,'å¨‘ç½—åŒæ ‘',1100},						
-						{82,'å¹»æ¢¦ä¸€åœº',1100},
-						{83,'åŠ›æˆ˜åƒé’§',1200},
-						{83,'æ‹”å±±å¡«æµ·',1200},
-						{83,'åƒé’§åŽ‹é¡¶',1200},
-						{84,'æ­¦æž—è‡³å°Š',800},
-						{84,'å®åˆ€å± é¾™',800},
-						{84,'å·ä»¤å¤©ä¸‹',900},
-						{84,'èŽ«æ•¢ä¸ä»Ž',900},
-						{84,'å€šå¤©ä¸å‡º',1000},
-						{84,'è°ä¸Žäº‰é”‹',1000},
-						{86,'å¤©é­”é™ä¼',1100},
-						{86,'é™é¾™ä¼è™Ž',1100},
+						{68,'»ØÂíÇ¹',500},
+						{68,'´ºÀ×ÕðÅ­',500},
+						{68,'·ïµãÍ·',500},
+						{70,'ÖÐÕýËøºí',600},
+						{70,'Ç¹Æ½¾ÅÖÞ',600},
+						{71,'´ó¾ýÖÆÁùºÏ',700},
+						{71,'ÃÍ½«Çå¾ÅÛò',700},
+						{74,'ÁéÉßÍÂÐÅ',700},
+						{74,'³åÌìÒ»º×',700},
+						{75,'ßÇàê',800},
+						{75,'ÎÒ¼ô',800},
+						{77,"½ðµ¶ºÚ½£",600},
+						{77,"¼Ùµ¶·Çµ¶",600},
+						{77,"¼Ù½£·Ç½£",600},
+						{78,"ÑªÈ¾»ÆÉ³",600},
+						{78,"·ÉÉ³ÍòÀï",600},
+						{79,"ÒøË÷²øÉí",900},
+						{79,"ËøÑ¨½ðÁå",900},
+						{80,'°ô´ò¹·Í·',1000},
+						{80,'·´½Ø¹·ÍÎ',1000},
+						{80,'éá¿Ú¶áÕÈ',1000},
+						{80,'°ô´òË«È®',1000},
+						{80,'éá¿Ú¶áÕÈ',1000},
+						{81,'Êé»¯µ¤ÐÄ',1000},
+						{81,'ÐþÌìÒ»Ñô',1000},						
+						{82,'ìóÔ°¾«Éá',1100},
+						{82,'ÖîÐÐÎÞ³£',1100},
+						{82,'æ¶ÂÞË«Ê÷',1100},						
+						{82,'»ÃÃÎÒ»³¡',1100},
+						{83,'Á¦Õ½Ç§¾û',1200},
+						{83,'°ÎÉ½Ìîº£',1200},
+						{83,'Ç§¾ûÑ¹¶¥',1200},
+						{84,'ÎäÁÖÖÁ×ð',800},
+						{84,'±¦µ¶ÍÀÁú',800},
+						{84,'ºÅÁîÌìÏÂ',900},
+						{84,'Äª¸Ò²»´Ó',900},
+						{84,'ÒÐÌì²»³ö',1000},
+						{84,'Ë­ÓëÕù·æ',1000},
+						{86,'ÌìÄ§½µ·ü',1100},
+						{86,'½µÁú·ü»¢',1100},
 						
-						{109,'çŸ³å¤´',1200},
-						{109,'å‰ªå­',1200},
-						{109,'å¸ƒ',1200},
-						{110,'ç¥žæ´²ç§»å±±å‰‘',1200},
-						{110,'ç¥žæ´²é•‡å±±å‰‘',1200},
-						{110,'ç¥žæ´²æ“Žå±±å‰‘',1200},
-						{111,'åˆ‡ç“œ',1200},
-						{111,'å‰ç“œ',1200},
-						{111,'ç ç“œ',1200},
-						{112,'ä¸€é—ª',1200},
-						{112,'è¿žä¸€é—ª',1200},
-						{112,'çœŸä¸€é—ª',1200},
+						{109,'Ê¯Í·',1200},
+						{109,'¼ô×Ó',1200},
+						{109,'²¼',1200},
+						{110,'ÉñÖÞÒÆÉ½½£',1200},
+						{110,'ÉñÖÞÕòÉ½½£',1200},
+						{110,'ÉñÖÞÇæÉ½½£',1200},
+						{111,'ÇÐ¹Ï',1200},
+						{111,'¶ç¹Ï',1200},
+						{111,'¿³¹Ï',1200},
+						{112,'Ò»ÉÁ',1200},
+						{112,'Á¬Ò»ÉÁ',1200},
+						{112,'ÕæÒ»ÉÁ',1200},
 						
 						
 					};
 	CC.RUNSTR={
-							'è¯·æ³¨æ„ä¸è¦è®©æ‰€æŒç‰©å“æ•°é‡è¶…è¿‡200',
-							'ä»¤ç‹å†²å†…ä¼¤æœªæ„ˆä¹‹å‰æˆé•¿å¾ˆä½Ž',
-							'æœ‰äº›æ­¦åŠŸè‡ªèº«å¸¦æœ‰é«˜è¿žå‡»æœºçŽ‡',
-							'æœ‰äº›æ­¦åŠŸè‡ªèº«å¸¦æœ‰é«˜æš´å‡»æœºçŽ‡',
-							'è¯·å°½å¯èƒ½å¤šåŸ¹å…»ä¸€äº›é˜Ÿå‹',
-							'è¯·å°½å¯èƒ½å¤šåŸ¹å…»ä¸€äº›é˜Ÿå‹',
-							'ä¸»è§’å„ç³»å¤©èµ‹çš„ç»ˆæžæŠ€éƒ½éžå¸¸å¼ºå¤§',
-							'å’Œäººå¯¹è¯æ—¶è¯·å°½é‡ç«™åœ¨å¯¹æ–¹çš„æ­£é¢  å¦åˆ™å¾ˆæ²¡ç¤¼è²Œ',
-							'å’Œäººå¯¹è¯æ—¶è¯·å°½é‡ç«™åœ¨å¯¹æ–¹çš„æ­£é¢  å¦åˆ™å¾ˆæ²¡ç¤¼è²Œ',
-							'é£žé›ªè¿žå¤©å°„ç™½é¹¿  ç¬‘ä¹¦ç¥žä¾ å€šç¢§é¸³  çº¢å°˜æœ‰ä½ ç»ˆç›¸ä¼´  ç¬‘å‚²æ±Ÿæ¹–æƒ…ä¸¤ç‰µ',
+							'Çë×¢Òâ²»ÒªÈÃËù³ÖÎïÆ·ÊýÁ¿³¬¹ý200',
+							'Áîºü³åÄÚÉËÎ´ÓúÖ®Ç°³É³¤ºÜµÍ',
+							'ÓÐÐ©Îä¹¦×ÔÉí´øÓÐ¸ßÁ¬»÷»úÂÊ',
+							'ÓÐÐ©Îä¹¦×ÔÉí´øÓÐ¸ß±©»÷»úÂÊ',
+							'Çë¾¡¿ÉÄÜ¶àÅàÑøÒ»Ð©¶ÓÓÑ',
+							'Çë¾¡¿ÉÄÜ¶àÅàÑøÒ»Ð©¶ÓÓÑ',
+							'Ö÷½Ç¸÷ÏµÌì¸³µÄÖÕ¼«¼¼¶¼·Ç³£Ç¿´ó',
+							'ºÍÈË¶Ô»°Ê±Çë¾¡Á¿Õ¾ÔÚ¶Ô·½µÄÕýÃæ  ·ñÔòºÜÃ»ÀñÃ²',
+							'ºÍÈË¶Ô»°Ê±Çë¾¡Á¿Õ¾ÔÚ¶Ô·½µÄÕýÃæ  ·ñÔòºÜÃ»ÀñÃ²',
+							'·ÉÑ©Á¬ÌìÉä°×Â¹  Ð¦ÊéÉñÏÀÒÐ±ÌÔ§  ºì³¾ÓÐÄãÖÕÏà°é  Ð¦°Á½­ºþÇéÁ½Ç£',
 							'    www.txdx.net                                      www.txdx.net                                      www.txdx.net     ',
 						};
 end

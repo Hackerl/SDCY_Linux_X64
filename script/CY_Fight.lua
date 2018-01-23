@@ -1,27 +1,27 @@
  
-function WarSetGlobal()            --è®¾ç½®æˆ˜æ–—å…¨ç¨‹å˜é‡
+function WarSetGlobal()            --ÉèÖÃÕ½¶·È«³Ì±äÁ¿
     WAR={};
 
-    WAR.Data={};              --æˆ˜æ–—ä¿¡æ¯ï¼Œwar.staæ–‡ä»¶
+    WAR.Data={};              --Õ½¶·ĞÅÏ¢£¬war.staÎÄ¼ş
 
-    WAR.SelectPerson={}            --è®¾ç½®é€‰æ‹©å‚æˆ˜äºº  0 æœªé€‰ï¼Œ1 é€‰ï¼Œä¸å¯å–æ¶ˆï¼Œ2 é€‰ï¼Œå¯å–æ¶ˆã€‚é€‰æ‹©å‚å±•äººèœå•è°ƒç”¨ä½¿ç”¨
+    WAR.SelectPerson={}            --ÉèÖÃÑ¡Ôñ²ÎÕ½ÈË  0 Î´Ñ¡£¬1 Ñ¡£¬²»¿ÉÈ¡Ïû£¬2 Ñ¡£¬¿ÉÈ¡Ïû¡£Ñ¡Ôñ²ÎÕ¹ÈË²Ëµ¥µ÷ÓÃÊ¹ÓÃ
 
-    WAR.Person={};                 --æˆ˜æ–—äººç‰©ä¿¡æ¯
+    WAR.Person={};                 --Õ½¶·ÈËÎïĞÅÏ¢
     for i=0,100-1 do
         WAR.Person[i]={};
-        WAR.Person[i]["äººç‰©ç¼–å·"]=-1;
-        WAR.Person[i]["æˆ‘æ–¹"]=true;            --true æˆ‘æ–¹ï¼Œfalseæ•Œäºº
-        WAR.Person[i]["åæ ‡X"]=-1;
-        WAR.Person[i]["åæ ‡Y"]=-1;
-        WAR.Person[i]["æ­»äº¡"]=true;
-        WAR.Person[i]["äººæ–¹å‘"]=-1;
-        WAR.Person[i]["è´´å›¾"]=-1;
-        WAR.Person[i]["è´´å›¾ç±»å‹"]=0;        --0 wmapä¸­è´´å›¾ï¼Œ1 fight***ä¸­è´´å›¾
-        WAR.Person[i]["è½»åŠŸ"]=0;
-        WAR.Person[i]["ç§»åŠ¨æ­¥æ•°"]=0;
-        WAR.Person[i]["ç‚¹æ•°"]=0;
-        WAR.Person[i]["ç»éªŒ"]=0;
-        WAR.Person[i]["è‡ªåŠ¨é€‰æ‹©å¯¹æ‰‹"]=-1;     --è‡ªåŠ¨æˆ˜æ–—ä¸­æ¯ä¸ªäººé€‰æ‹©çš„æˆ˜æ–—å¯¹æ‰‹
+        WAR.Person[i]["ÈËÎï±àºÅ"]=-1;
+        WAR.Person[i]["ÎÒ·½"]=true;            --true ÎÒ·½£¬falseµĞÈË
+        WAR.Person[i]["×ø±êX"]=-1;
+        WAR.Person[i]["×ø±êY"]=-1;
+        WAR.Person[i]["ËÀÍö"]=true;
+        WAR.Person[i]["ÈË·½Ïò"]=-1;
+        WAR.Person[i]["ÌùÍ¼"]=-1;
+        WAR.Person[i]["ÌùÍ¼ÀàĞÍ"]=0;        --0 wmapÖĞÌùÍ¼£¬1 fight***ÖĞÌùÍ¼
+        WAR.Person[i]["Çá¹¦"]=0;
+        WAR.Person[i]["ÒÆ¶¯²½Êı"]=0;
+        WAR.Person[i]["µãÊı"]=0;
+        WAR.Person[i]["¾­Ñé"]=0;
+        WAR.Person[i]["×Ô¶¯Ñ¡Ôñ¶ÔÊÖ"]=-1;     --×Ô¶¯Õ½¶·ÖĞÃ¿¸öÈËÑ¡ÔñµÄÕ½¶·¶ÔÊÖ
 		WAR.Person[i]["Status"]=0;
 		WAR.Person[i]["Move"]={};
 		WAR.Person[i]["Action"]={};
@@ -30,17 +30,17 @@ function WarSetGlobal()            --è®¾ç½®æˆ˜æ–—å…¨ç¨‹å˜é‡
 		WAR.Person[i]["SpdAdd"]=0;
 		WAR.Person[i]["Point"]=0;
 		WAR.Person[i][CC.TXDH]=-1;
-		WAR.Person[i]["åå‡»æ­¦åŠŸ"]=-1;
+		WAR.Person[i]["·´»÷Îä¹¦"]=-1;
 		WAR.Person[i][CC.TXWZ1]=nil;
 		WAR.Person[i][CC.TXWZ2]=nil;
 		WAR.Person[i][CC.TXWZ3]=nil;
    end
 
-    WAR.PersonNum=0;               --æˆ˜æ–—äººç‰©ä¸ªæ•°
+    WAR.PersonNum=0;               --Õ½¶·ÈËÎï¸öÊı
 
-    WAR.AutoFight=0;               --æˆ‘æ–¹è‡ªåŠ¨æˆ˜æ–—å‚æ•° 0 æ‰‹åŠ¨ï¼Œ1 è‡ªåŠ¨ã€‚
+    WAR.AutoFight=0;               --ÎÒ·½×Ô¶¯Õ½¶·²ÎÊı 0 ÊÖ¶¯£¬1 ×Ô¶¯¡£
 
-    WAR.CurID=-1; 	--å½“å‰æ“ä½œæˆ˜æ–—äººid
+    WAR.CurID=-1; 	--µ±Ç°²Ù×÷Õ½¶·ÈËid
 
 	WAR.SXTJ=0; 
 	
@@ -166,12 +166,12 @@ function WarSetGlobal()            --è®¾ç½®æˆ˜æ–—å…¨ç¨‹å˜é‡
 	WAR.JGZ_DMZ=0 
     WAR.LHQ_BNZ=0 
 
-	WAR.ShowHead=0;                --æ˜¯å¦æ˜¾ç¤ºå¤´åƒ
+	WAR.ShowHead=0;                --ÊÇ·ñÏÔÊ¾Í·Ïñ
 
-    WAR.Effect=0;              --æ•ˆæœï¼Œç”¨æ¥ç¡®è®¤äººç‰©å¤´ä¸Šæ•°å­—çš„é¢œè‰²
-	                           --2 æ€ç”Ÿå‘½ , 3 æ€å†…åŠ›, 4 åŒ»ç–— ï¼Œ 5 ç”¨æ¯’ ï¼Œ 6 è§£æ¯’
+    WAR.Effect=0;              --Ğ§¹û£¬ÓÃÀ´È·ÈÏÈËÎïÍ·ÉÏÊı×ÖµÄÑÕÉ«
+	                           --2 É±ÉúÃü , 3 É±ÄÚÁ¦, 4 Ò½ÁÆ £¬ 5 ÓÃ¶¾ £¬ 6 ½â¶¾
 
-    WAR.EffectColor={};      ---å®šä¹‰äººç‰©å¤´ä¸Šæ•°å­—çš„é¢œè‰²
+    WAR.EffectColor={};      ---¶¨ÒåÈËÎïÍ·ÉÏÊı×ÖµÄÑÕÉ«
     WAR.EffectColor[2]=RGB(236, 200, 40);
     WAR.EffectColor[3]=RGB(112, 12, 112);
     WAR.EffectColor[4]=RGB(236, 200, 40);
@@ -179,8 +179,8 @@ function WarSetGlobal()            --è®¾ç½®æˆ˜æ–—å…¨ç¨‹å˜é‡
     WAR.EffectColor[6]=RGB(104, 192, 232);
 	WAR.Delay=0;
 	WAR.LifeNum=0;
-	WAR.EffectXY=nil            --ä¿å­˜æ­¦åŠŸæ•ˆæœäº§ç”Ÿçš„åæ ‡
-	WAR.EffectXYNum=0;          --åæ ‡ä¸ªæ•°
+	WAR.EffectXY=nil            --±£´æÎä¹¦Ğ§¹û²úÉúµÄ×ø±ê
+	WAR.EffectXYNum=0;          --×ø±ê¸öÊı
 	WAR.tmp={}
 	WAR.Actup={} 
 	WAR.Defup={} 
@@ -209,29 +209,29 @@ function WarSetGlobal()            --è®¾ç½®æˆ˜æ–—å…¨ç¨‹å˜é‡
 
 end
 
-function WarLoad(warid)              --åŠ è½½æˆ˜æ–—æ•°æ®
-    WarSetGlobal();         --åˆå§‹åŒ–æˆ˜æ–—å˜é‡
-    local data=Byte.create(CC.WarDataSize);      --è¯»å–æˆ˜æ–—æ•°æ®
+function WarLoad(warid)              --¼ÓÔØÕ½¶·Êı¾İ
+    WarSetGlobal();         --³õÊ¼»¯Õ½¶·±äÁ¿
+    local data=Byte.create(CC.WarDataSize);      --¶ÁÈ¡Õ½¶·Êı¾İ
     Byte.loadfile(data,CC.WarFile,warid*CC.WarDataSize,CC.WarDataSize);
     LoadData(WAR.Data,CC.WarData_S,data);
 	WAR.ZDDH=warid
 end
 
-function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
---æˆ˜æ–—ä¸»å‡½æ•°
---warid  æˆ˜æ–—ç¼–å·
---isexp  è¾“åæ˜¯å¦æœ‰ç»éªŒ 0 æ²¡ç»éªŒï¼Œ1 æœ‰ç»éªŒ
---è¿”å›  true æˆ˜æ–—èƒœåˆ©ï¼Œfalse å¤±è´¥
+function WarMain(warid,isexp)           --Õ½¶·Ö÷º¯Êı
+--Õ½¶·Ö÷º¯Êı
+--warid  Õ½¶·±àºÅ
+--isexp  ÊäºóÊÇ·ñÓĞ¾­Ñé 0 Ã»¾­Ñé£¬1 ÓĞ¾­Ñé
+--·µ»Ø  true Õ½¶·Ê¤Àû£¬false Ê§°Ü
     lib.Debug(string.format("war start. warid=%d",warid));		
     WarLoad(warid);
-    WarSelectTeam();          --é€‰æ‹©æˆ‘æ–¹
-    WarSelectEnemy();         --é€‰æ‹©æ•Œäºº
+    WarSelectTeam();          --Ñ¡ÔñÎÒ·½
+    WarSelectEnemy();         --Ñ¡ÔñµĞÈË
 
     CleanMemory()
     lib.PicInit();
- 	lib.ShowSlow(50,1) ;      --åœºæ™¯å˜æš—
+ 	lib.ShowSlow(50,1) ;      --³¡¾°±ä°µ
 
-    WarLoadMap(WAR.Data["åœ°å›¾"]);       --åŠ è½½æˆ˜æ–—åœ°å›¾
+    WarLoadMap(WAR.Data["µØÍ¼"]);       --¼ÓÔØÕ½¶·µØÍ¼
 	--migong()
 	
 	if WAR.ZDDH==42 then
@@ -275,7 +275,7 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 	   	
     JY.Status=GAME_WMAP;
 
-	--åŠ è½½è´´å›¾æ–‡ä»¶
+	--¼ÓÔØÌùÍ¼ÎÄ¼ş
    -- lib.PicLoadFile(CC.WMAPPicFile[1],CC.WMAPPicFile[2],0);
     lib.PicLoadFile(CC.WMAPPicFile[1],CC.WMAPPicFile[2],0);
     lib.PicLoadFile(CC.HeadPicFile[1],CC.HeadPicFile[2],1);
@@ -294,31 +294,31 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
     lib.PicLoadFile(CC.EffectFile[1],CC.EffectFile[2],3);
     	
 	if CONFIG.MP3~=1 and (WAR.ZDDH==133 or WAR.ZDDH==134) then
-       WAR.Data["éŸ³ä¹"]=6
+       WAR.Data["ÒôÀÖ"]=6
 	end
 	
 	local mu=math.random(5)+49
-	PlayMIDI(mu)--(WAR.Data["éŸ³ä¹"]);
+	PlayMIDI(mu)--(WAR.Data["ÒôÀÖ"]);
 	if WAR.ZDDH==238 then PlayMIDI(27) end
 	if WAR.ZDDH==217 then PlayMIDI(55) end
 	
-    local first=0;            --ç¬¬ä¸€æ¬¡æ˜¾ç¤ºæˆ˜æ–—æ ‡è®°
-    local warStatus;          --æˆ˜æ–—çŠ¶æ€
+    local first=0;            --µÚÒ»´ÎÏÔÊ¾Õ½¶·±ê¼Ç
+    local warStatus;          --Õ½¶·×´Ì¬
 	
 	
 			  
-	WarPersonSort();    --æˆ˜æ–—äººæŒ‰è½»åŠŸæ’åº
+	WarPersonSort();    --Õ½¶·ÈË°´Çá¹¦ÅÅĞò
 	CleanWarMap(2,-1);
 	for i=0,WAR.PersonNum-1 do
 		if i==0 then
-			WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"]=WE_xy(WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"])
+			WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"]=WE_xy(WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"])
 		else
-			WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"]=WE_xy(WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"],0)
+			WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"]=WE_xy(WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"],0)
 		end
-        SetWarMap(WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"],2,i);
-        local pid=WAR.Person[i]["äººç‰©ç¼–å·"];
-		lib.PicLoadFile(string.format(CC.FightPicFile[1],JY.Person[pid]["å¤´åƒä»£å·"]),
-		                string.format(CC.FightPicFile[2],JY.Person[pid]["å¤´åƒä»£å·"]),
+        SetWarMap(WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"],2,i);
+        local pid=WAR.Person[i]["ÈËÎï±àºÅ"];
+		lib.PicLoadFile(string.format(CC.FightPicFile[1],JY.Person[pid]["Í·Ïñ´úºÅ"]),
+		                string.format(CC.FightPicFile[2],JY.Person[pid]["Í·Ïñ´úºÅ"]),
 						4+i);
 	end
 	
@@ -351,35 +351,35 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 	
 	local function getdelay(x,y)
 	--[[
-		if x>100 then return math.modf((x-100)/10+10+WAR.Person[0]["è½»åŠŸ"]/10)
-		else return math.modf(x/5+WAR.Person[0]["è½»åŠŸ"]/10)
+		if x>100 then return math.modf((x-100)/10+10+WAR.Person[0]["Çá¹¦"]/10)
+		else return math.modf(x/5+WAR.Person[0]["Çá¹¦"]/10)
 		end
 	]]--
 		return math.modf(1.5*(x/y+y-3))
 	end
 	
-	--æˆ˜æ–—ä¸»å¾ªç¯ï¼Œæ”¹æˆåŠå³æ—¶åˆ¶ï¼Œé‡å†™
-	--é¦–å…ˆéšæœºå†³å®šå„äººçš„åˆå§‹è¿›åº¦å€¼
+	--Õ½¶·Ö÷Ñ­»·£¬¸Ä³É°ë¼´Ê±ÖÆ£¬ÖØĞ´
+	--Ê×ÏÈËæ»ú¾ö¶¨¸÷ÈËµÄ³õÊ¼½ø¶ÈÖµ
         for i=0,WAR.PersonNum-1 do
-            WAR.Person[i]["è´´å›¾"]=WarCalPersonPic(i);
+            WAR.Person[i]["ÌùÍ¼"]=WarCalPersonPic(i);
         end
 		--WarPersonSort()
 
-		WarSetPerson();     --è®¾ç½®æˆ˜æ–—äººç‰©ä½ç½®
+		WarSetPerson();     --ÉèÖÃÕ½¶·ÈËÎïÎ»ÖÃ
 	WAR.CurID=0
                     WarDrawMap(0);
 					--DrawSMap(0)
 	                lib.ShowSlow(50,0)
 	for i=0,WAR.PersonNum-1 do
 		WAR.Person[i]["Time"]=800-i*1000/WAR.PersonNum 
-                if WAR.Person[i]["äººç‰©ç¼–å·"]==35 then --ç«‹å³è¡ŒåŠ¨
+                if WAR.Person[i]["ÈËÎï±àºÅ"]==35 then --Á¢¼´ĞĞ¶¯
                    WAR.Person[i]["Time"]=999
                 end 
-                if WAR.Person[i]["äººç‰©ç¼–å·"]==79 then
+                if WAR.Person[i]["ÈËÎï±àºÅ"]==79 then
 				   local JF=0;
 				   for i=1,10 do
-						 if JY.Person[79]["æ­¦åŠŸ"..i]<50 and JY.Person[79]["æ­¦åŠŸ"..i]>26 then
-							if JY.Person[79]["æ­¦åŠŸç­‰çº§"..i]==999 then
+						 if JY.Person[79]["Îä¹¦"..i]<50 and JY.Person[79]["Îä¹¦"..i]>26 then
+							if JY.Person[79]["Îä¹¦µÈ¼¶"..i]==999 then
 							   JF=JF+1
 							end
 						 end
@@ -387,30 +387,30 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 				   WAR.Person[i]["Time"]=WAR.Person[i]["Time"]+JF*50
 				   if WAR.Person[i]["Time"]>990 then WAR.Person[i]["Time"]=990 end
 				end				
-				if WAR.Person[i]["äººç‰©ç¼–å·"]==97 then WAR.Person[i]["Time"]=900 end
-                if JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["æ€§åˆ«"]==2 then WAR.Person[i]["Time"]=-200 end
-				if WAR.Person[i]["äººç‰©ç¼–å·"]==36 then WAR.Person[i]["Time"]=700 end
-				if WAR.Person[i]["äººç‰©ç¼–å·"]==445 and WAR.ZDDH==226 then WAR.Person[i]["Time"]=999 end
-				if WAR.Person[i]["äººç‰©ç¼–å·"]==446 and WAR.ZDDH==226 then WAR.Person[i]["Time"]=900 end
-				local id=WAR.Person[i]["äººç‰©ç¼–å·"];
+				if WAR.Person[i]["ÈËÎï±àºÅ"]==97 then WAR.Person[i]["Time"]=900 end
+                if JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ĞÔ±ğ"]==2 then WAR.Person[i]["Time"]=-200 end
+				if WAR.Person[i]["ÈËÎï±àºÅ"]==36 then WAR.Person[i]["Time"]=700 end
+				if WAR.Person[i]["ÈËÎï±àºÅ"]==445 and WAR.ZDDH==226 then WAR.Person[i]["Time"]=999 end
+				if WAR.Person[i]["ÈËÎï±àºÅ"]==446 and WAR.ZDDH==226 then WAR.Person[i]["Time"]=900 end
+				local id=WAR.Person[i]["ÈËÎï±àºÅ"];
 				if PersonKF(id,93) then 
 				   WAR.Person[i]["Time"]=WAR.Person[i]["Time"]+200+math.random(100)
 		           if WAR.Person[i]["Time"]>990 then WAR.Person[i]["Time"]=990 end
 				end
-		WAR.Person[i]["ç§»åŠ¨æ­¥æ•°"]=math.modf(getnewmove(WAR.Person[i]["è½»åŠŸ"])-JY.Person[id]["ä¸­æ¯’ç¨‹åº¦"]/30-JY.Person[id]["å—ä¼¤ç¨‹åº¦"]/30+JY.Person[id]["ä½“åŠ›"]/30-3);
-		if WAR.Person[i]["ç§»åŠ¨æ­¥æ•°"]<1 then WAR.Person[i]["ç§»åŠ¨æ­¥æ•°"]=1 end
+		WAR.Person[i]["ÒÆ¶¯²½Êı"]=math.modf(getnewmove(WAR.Person[i]["Çá¹¦"])-JY.Person[id]["ÖĞ¶¾³Ì¶È"]/30-JY.Person[id]["ÊÜÉË³Ì¶È"]/30+JY.Person[id]["ÌåÁ¦"]/30-3);
+		if WAR.Person[i]["ÒÆ¶¯²½Êı"]<1 then WAR.Person[i]["ÒÆ¶¯²½Êı"]=1 end
 	end
-	JY.Person[445]["å§“å"]=CC.WARS1
-	JY.Person[446]["å§“å"]=CC.WARS1
+	JY.Person[445]["ĞÕÃû"]=CC.WARS1
+	JY.Person[446]["ĞÕÃû"]=CC.WARS1
 	if WAR.ZDDH==226 then
-	   JY.Person[445]["å§“å"]=CC.WARS2
-	   JY.Person[446]["å§“å"]=CC.WARS3
+	   JY.Person[445]["ĞÕÃû"]=CC.WARS2
+	   JY.Person[446]["ĞÕÃû"]=CC.WARS3
 	end
    
 	for a=0,WAR.PersonNum-1 do 
 	    for s=1,4 do
-		        if JY.Person[WAR.Person[a]["äººç‰©ç¼–å·"]]["æºå¸¦ç‰©å“æ•°é‡" .. s]<1 then
-			       JY.Person[WAR.Person[a]["äººç‰©ç¼–å·"]]["æºå¸¦ç‰©å“" .. s]=-1
+		        if JY.Person[WAR.Person[a]["ÈËÎï±àºÅ"]]["Ğ¯´øÎïÆ·ÊıÁ¿" .. s]<1 then
+			       JY.Person[WAR.Person[a]["ÈËÎï±àºÅ"]]["Ğ¯´øÎïÆ·" .. s]=-1
 				end
 		end
 	end
@@ -423,24 +423,24 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 	end 
 	
 	for a=0,WAR.PersonNum-1 do 
-	    if WAR.Person[a]["äººç‰©ç¼–å·"]==92 and WAR.Person[a]["æˆ‘æ–¹"]==true then 
+	    if WAR.Person[a]["ÈËÎï±àºÅ"]==92 and WAR.Person[a]["ÎÒ·½"]==true then 
 		    WAR.LRZ=1 
 			break;
 		end
 	end
 	
 	for i=1,10 do    
-		JY.Wugong[80]["ç§»åŠ¨èŒƒå›´"..i]=3
-		JY.Wugong[80]["æ€ä¼¤èŒƒå›´"..i]=2
-		JY.Wugong[113]["ç§»åŠ¨èŒƒå›´"..i]=4
-		JY.Wugong[113]["æ€ä¼¤èŒƒå›´"..i]=0
+		JY.Wugong[80]["ÒÆ¶¯·¶Î§"..i]=3
+		JY.Wugong[80]["É±ÉË·¶Î§"..i]=2
+		JY.Wugong[113]["ÒÆ¶¯·¶Î§"..i]=4
+		JY.Wugong[113]["É±ÉË·¶Î§"..i]=0
 	end	
-	JY.Wugong[80]["æ”»å‡»èŒƒå›´"]=0	 
-	JY.Wugong[113]["æ”»å‡»èŒƒå›´"]=3
+	JY.Wugong[80]["¹¥»÷·¶Î§"]=0	 
+	JY.Wugong[113]["¹¥»÷·¶Î§"]=3
 	
 	if WAR.ZDDH==237 then  
 	   for a=0,WAR.PersonNum-1 do 
-			if WAR.Person[a]["æˆ‘æ–¹"]==true then 
+			if WAR.Person[a]["ÎÒ·½"]==true then 
 				WAR.Person[a]["Time"]=0
 			end
 	   end
@@ -468,61 +468,61 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 	WAR.Delay=GetJiqi()
 	local startt,endt=lib.GetTime()
 	while true do
-		--é¦–å…ˆæ ¹æ®äººç‰©æ•°ç›®ï¼Œå†³å®šæ—¶é—´æ§½çš„æ˜¾ç¤ºç¨‹åº¦ï¼Œä»¥åŠå»¶æ—¶é•¿åº¦ï¼Œè¿™é‡Œæš‚ä¸å®Œæˆ
-		--ç„¶åæ ¹æ®ç©å®¶å±æ€§ï¼Œè·å–æ¯æ¬¡å¾ªç¯å¢åŠ çš„æ—¶é—´å€¼ï¼Œè¿™é‡Œæš‚ä¸”è®¾ä¸º10
+		--Ê×ÏÈ¸ù¾İÈËÎïÊıÄ¿£¬¾ö¶¨Ê±¼ä²ÛµÄÏÔÊ¾³Ì¶È£¬ÒÔ¼°ÑÓÊ±³¤¶È£¬ÕâÀïÔİ²»Íê³É
+		--È»ºó¸ù¾İÍæ¼ÒÊôĞÔ£¬»ñÈ¡Ã¿´ÎÑ­»·Ôö¼ÓµÄÊ±¼äÖµ£¬ÕâÀïÔİÇÒÉèÎª10
 		--wardelay=getdelay(least)--+10
 		--lib.Delay(wardelay)
 		WarDrawMap(0);
 		--DrawSMap(0)
-		--å¼€å§‹ç»˜åˆ¶è¿›åº¦æ¡åŠç›¸å…³
+		--¿ªÊ¼»æÖÆ½ø¶ÈÌõ¼°Ïà¹Ø
 		WAR.ShowHead=0;
 		DrawTimeBar();
 		--warStatus=WAR_CALLEVENT(warid);
-		--if warStatus~=0 then break end					--æˆ˜åœºäº‹ä»¶å…¥å£
+		--if warStatus~=0 then break end					--Õ½³¡ÊÂ¼şÈë¿Ú
 		lib.GetKey()
 		ShowScreen()
 		
 		if WAR.ZYHB==1 then 
 		   WAR.ZYHB=2
 		end
-		if WAR.ZDDH==83 then JY.Person[50]["æ­¦åŠŸ1"]=13 end	
+		if WAR.ZDDH==83 then JY.Person[50]["Îä¹¦1"]=13 end	
 		local reget=false
 		for p=0,WAR.PersonNum-1 do
-			if WAR.Person[p]["æ­»äº¡"]==false then
+			if WAR.Person[p]["ËÀÍö"]==false then
 				if WAR.Person[p]["Time"]>1000 then 
 					WarDrawMap(0);
 					ShowScreen();
-					--local surid=lib.SaveSur(CC.ScreenW-80,0,CC.ScreenW,200);
+					local surid=lib.SaveSur(CC.ScreenW-80,0,CC.ScreenW,200);
 					
 					lib.Delay(10)
 					local keypress=lib.GetKey();
-					if WAR.AutoFight==1 then                 --æˆ‘æ–¹è‡ªåŠ¨æˆ˜æ–—æ—¶è¯»å–é”®ç›˜ï¼Œçœ‹æ˜¯å¦å–æ¶ˆ
+					if WAR.AutoFight==1 then                 --ÎÒ·½×Ô¶¯Õ½¶·Ê±¶ÁÈ¡¼üÅÌ£¬¿´ÊÇ·ñÈ¡Ïû
 						if keypress==VK_SPACE or keypress==VK_RETURN then
 							WAR.AutoFight=0;
 						end
 					end
 					
-					--lib.FreeSur(surid)
+					lib.FreeSur(surid)
 					reget=true
-					local id=WAR.Person[p]["äººç‰©ç¼–å·"];
+					local id=WAR.Person[p]["ÈËÎï±àºÅ"];
                                      if WAR.ZYHB==2 then 
-                                        WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]=0
+                                        WAR.Person[p]["ÒÆ¶¯²½Êı"]=0
                                      else
-					WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]=math.modf(getnewmove(WAR.Person[p]["è½»åŠŸ"])-JY.Person[id]["ä¸­æ¯’ç¨‹åº¦"]/50-JY.Person[id]["å—ä¼¤ç¨‹åº¦"]/60+JY.Person[id]["ä½“åŠ›"]/70-1);
+					WAR.Person[p]["ÒÆ¶¯²½Êı"]=math.modf(getnewmove(WAR.Person[p]["Çá¹¦"])-JY.Person[id]["ÖĞ¶¾³Ì¶È"]/50-JY.Person[id]["ÊÜÉË³Ì¶È"]/60+JY.Person[id]["ÌåÁ¦"]/70-1);
 					
 					for j=0,WAR.PersonNum-1 do
-				        if WAR.Person[j]["äººç‰©ç¼–å·"]==66 then
-						    if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]~=WAR.Person[p]["æˆ‘æ–¹"] then                            			   			                   
-				                WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]=WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]-3
+				        if WAR.Person[j]["ÈËÎï±àºÅ"]==66 then
+						    if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]~=WAR.Person[p]["ÎÒ·½"] then                            			   			                   
+				                WAR.Person[p]["ÒÆ¶¯²½Êı"]=WAR.Person[p]["ÒÆ¶¯²½Êı"]-3
 								break
 						    end
 						end
 					end
 					
-					if WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]<1 then WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]=1 end					
-					if id==35 or id==6 or id==97 then WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]=WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]+3 end
-					if id==5 and WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]<8 then WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]=8 end
-					if WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]>10 then WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]=10 end
+					if WAR.Person[p]["ÒÆ¶¯²½Êı"]<1 then WAR.Person[p]["ÒÆ¶¯²½Êı"]=1 end					
+					if id==35 or id==6 or id==97 then WAR.Person[p]["ÒÆ¶¯²½Êı"]=WAR.Person[p]["ÒÆ¶¯²½Êı"]+3 end
+					if id==5 and WAR.Person[p]["ÒÆ¶¯²½Êı"]<8 then WAR.Person[p]["ÒÆ¶¯²½Êı"]=8 end
+					if WAR.Person[p]["ÒÆ¶¯²½Êı"]>10 then WAR.Person[p]["ÒÆ¶¯²½Êı"]=10 end
                             
 									 end
 					WAR.ShowHead=0
@@ -532,18 +532,18 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 					WAR.Person[p]["TimeAdd"]=0;
 					local r;
                                        
-					local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]
+					local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]
 					WAR.Defup[pid]=nil
 					if pid==53 then WAR.TZ_DY=0 end
-					--if WAR.Person[p]["æˆ‘æ–¹"]==true then
-					if instruct_16(pid) and WAR.Person[p]["æˆ‘æ–¹"] and WAR.tmp[1000+pid]~=1 then
+					--if WAR.Person[p]["ÎÒ·½"]==true then
+					if instruct_16(pid) and WAR.Person[p]["ÎÒ·½"] and WAR.tmp[1000+pid]~=1 then
 						if WAR.AutoFight==0 then
-							r=War_Manual();                  --æ‰‹åŠ¨æˆ˜æ–—
+							r=War_Manual();                  --ÊÖ¶¯Õ½¶·
 						else
-							r=War_Auto();                  --è‡ªåŠ¨æˆ˜æ–—
+							r=War_Auto();                  --×Ô¶¯Õ½¶·
 						end
 					else
-						r=War_Auto(); 						--è‡ªåŠ¨æˆ˜æ–—
+						r=War_Auto(); 						--×Ô¶¯Õ½¶·
 						
 					end		
 					
@@ -553,7 +553,7 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 				  if WAR.Person[j]["Time"]>990 then WAR.Person[j]["Time"]=990 end
 		      end
             WAR.Person[p]["Time"]=1005
-			WAR.ZYYD=WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]
+			WAR.ZYYD=WAR.Person[p]["ÒÆ¶¯²½Êı"]
 			WAR.ZYHBP=p
 			
 			if WAR.XDXX>0 then 
@@ -567,12 +567,12 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 			
 			WAR.QKNY=0
 			
-			if JY.Person[129]["ç”Ÿå‘½"]<=0 and WAR.WCY<1 then JY.Person[129]["ç”Ÿå‘½"]=1 end
-			if JY.Person[65]["ç”Ÿå‘½"]<=0 and WAR.WCY<1 then JY.Person[65]["ç”Ÿå‘½"]=1 end
+			if JY.Person[129]["ÉúÃü"]<=0 and WAR.WCY<1 then JY.Person[129]["ÉúÃü"]=1 end
+			if JY.Person[65]["ÉúÃü"]<=0 and WAR.WCY<1 then JY.Person[65]["ÉúÃü"]=1 end
 			   			
 			if WAR.ZDDH==128 then
 			    for i=0,WAR.PersonNum-1 do
-			        if WAR.Person[i]["äººç‰©ç¼–å·"]==553 and JY.Person[553]["ç”Ÿå‘½"]<=0 then 
+			        if WAR.Person[i]["ÈËÎï±àºÅ"]==553 and JY.Person[553]["ÉúÃü"]<=0 then 
 					    WAR.YZB=1 
 						WAR.FXDS[553]=nil
 						WAR.LXZT[553]=nil
@@ -585,20 +585,20 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 										   WAR.YZB=0
 										   WAR.YZB2=WAR.YZB2+1
 										   say(CC.WARS5,553)
-										   JY.Person[553]["ç”Ÿå‘½æœ€å¤§å€¼"]=JY.Person[553]["ç”Ÿå‘½æœ€å¤§å€¼"]+100
-										   JY.Person[553]["å†…åŠ›æœ€å¤§å€¼"]=JY.Person[553]["å†…åŠ›æœ€å¤§å€¼"]+1000
-										   JY.Person[553]["ç”Ÿå‘½"]=JY.Person[553]["ç”Ÿå‘½æœ€å¤§å€¼"]
-										   JY.Person[553]["å†…åŠ›"]=JY.Person[553]["å†…åŠ›æœ€å¤§å€¼"]
-										   JY.Person[553]["ä¸­æ¯’ç¨‹åº¦"]=0
-										   JY.Person[553]["å—ä¼¤ç¨‹åº¦"]=0
-										   JY.Person[553]["ä½“åŠ›"]=100
-	                                       JY.Person[553]["æ”»å‡»åŠ›"]=JY.Person[553]["æ”»å‡»åŠ›"]+100
-										   JY.Person[553]["é˜²å¾¡åŠ›"]=JY.Person[553]["é˜²å¾¡åŠ›"]+100
-										   JY.Person[553]["è½»åŠŸ"]=JY.Person[553]["è½»åŠŸ"]+80
-										   JY.Person[553]["æ­¦åŠŸ1"]=66
-										   JY.Person[553]["æ­¦åŠŸç­‰çº§1"]=999
+										   JY.Person[553]["ÉúÃü×î´óÖµ"]=JY.Person[553]["ÉúÃü×î´óÖµ"]+100
+										   JY.Person[553]["ÄÚÁ¦×î´óÖµ"]=JY.Person[553]["ÄÚÁ¦×î´óÖµ"]+1000
+										   JY.Person[553]["ÉúÃü"]=JY.Person[553]["ÉúÃü×î´óÖµ"]
+										   JY.Person[553]["ÄÚÁ¦"]=JY.Person[553]["ÄÚÁ¦×î´óÖµ"]
+										   JY.Person[553]["ÖĞ¶¾³Ì¶È"]=0
+										   JY.Person[553]["ÊÜÉË³Ì¶È"]=0
+										   JY.Person[553]["ÌåÁ¦"]=100
+	                                       JY.Person[553]["¹¥»÷Á¦"]=JY.Person[553]["¹¥»÷Á¦"]+100
+										   JY.Person[553]["·ÀÓùÁ¦"]=JY.Person[553]["·ÀÓùÁ¦"]+100
+										   JY.Person[553]["Çá¹¦"]=JY.Person[553]["Çá¹¦"]+80
+										   JY.Person[553]["Îä¹¦1"]=66
+										   JY.Person[553]["Îä¹¦µÈ¼¶1"]=999
 										   for j=0,WAR.PersonNum-1 do
-	                                            if WAR.Person[j]["äººç‰©ç¼–å·"]==553 then
+	                                            if WAR.Person[j]["ÈËÎï±àºÅ"]==553 then
 												   WAR.Person[j]["Time"]=980
 												end
 										   end
@@ -622,7 +622,7 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 		    if WAR.ZYHB==2 then           
             WAR.ZYHB=0			
             end
-	        WAR.Person[p]["Time"]=WAR.Person[p]["Time"]-1000;  --å·¦å³
+	        WAR.Person[p]["Time"]=WAR.Person[p]["Time"]-1000;  --×óÓÒ
 			if WAR.Person[p]["Time"]<-500 then WAR.Person[p]["Time"]=-500 end
 			
 		 if WAR.XDXX>0 then 
@@ -635,10 +635,10 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 		 end	
 			
          for i=1,10 do  
-             if JY.Person[pid]["æ­¦åŠŸ"..i]==96 and JY.Person[pid]["ç”Ÿå‘½"]>0 then
+             if JY.Person[pid]["Îä¹¦"..i]==96 and JY.Person[pid]["ÉúÃü"]>0 then
 				 local LK             
-				 LK=math.modf((JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]-JY.Person[pid]["ç”Ÿå‘½"])*JY.Person[pid]["æ­¦åŠŸç­‰çº§"..i]/100*0.015)
-				 JY.Person[pid]["ç”Ÿå‘½"]=JY.Person[pid]["ç”Ÿå‘½"]+LK
+				 LK=math.modf((JY.Person[pid]["ÉúÃü×î´óÖµ"]-JY.Person[pid]["ÉúÃü"])*JY.Person[pid]["Îä¹¦µÈ¼¶"..i]/100*0.015)
+				 JY.Person[pid]["ÉúÃü"]=JY.Person[pid]["ÉúÃü"]+LK
 				 DrawStrBox(-1,-1,CC.WARS9..LK,C_ORANGE,CC.DefaultFont)
 				 ShowScreen();
 				 lib.Delay(400);
@@ -649,10 +649,10 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
          end   
         
           for i=1,10 do  
-             if JY.Person[pid]["æ­¦åŠŸ"..i]==89 then
+             if JY.Person[pid]["Îä¹¦"..i]==89 then
              local NK            
-             NK=math.modf((JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]-JY.Person[pid]["å†…åŠ›"])*JY.Person[pid]["æ­¦åŠŸç­‰çº§"..i]/100*0.015)
-			 JY.Person[pid]["å†…åŠ›"]=JY.Person[pid]["å†…åŠ›"]+NK
+             NK=math.modf((JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]-JY.Person[pid]["ÄÚÁ¦"])*JY.Person[pid]["Îä¹¦µÈ¼¶"..i]/100*0.015)
+			 JY.Person[pid]["ÄÚÁ¦"]=JY.Person[pid]["ÄÚÁ¦"]+NK
              DrawStrBox(-1,-1,CC.WARS10..NK,C_ORANGE,CC.DefaultFont)
              ShowScreen();
              lib.Delay(400);
@@ -663,13 +663,13 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
           end 
 
 		  for i=1,10 do  
-             if JY.Person[pid]["æ­¦åŠŸ"..i]==90 then
+             if JY.Person[pid]["Îä¹¦"..i]==90 then
 				 local TK;
 				 local ZD=0;
 				 TK=6
-				 JY.Person[pid]["ä½“åŠ›"]=JY.Person[pid]["ä½“åŠ›"]+TK
-					if JY.Person[pid]["ä½“åŠ›"]>100 then
-					   JY.Person[pid]["ä½“åŠ›"]=100
+				 JY.Person[pid]["ÌåÁ¦"]=JY.Person[pid]["ÌåÁ¦"]+TK
+					if JY.Person[pid]["ÌåÁ¦"]>100 then
+					   JY.Person[pid]["ÌåÁ¦"]=100
 					end           
 				 DrawStrBox(-1,-1,CC.WARS11..TK,C_ORANGE,CC.DefaultFont)
 				 ShowScreen();
@@ -685,7 +685,7 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 		  
 			  			    			 			 			 
                                         for i=1,10 do
-                                            if JY.Person[id]["æ­¦åŠŸ"..i]==47 then --åˆ¤å®šä¹å‰‘
+                                            if JY.Person[id]["Îä¹¦"..i]==47 then --ÅĞ¶¨¾Å½£
                                                WAR.Person[p]["Time"]=WAR.Person[p]["Time"]+200
                                                break;
                                             end
@@ -703,12 +703,12 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 										   WAR.ZJZ=1
 										end
 									
-									if JY.Person[129]["ç”Ÿå‘½"]<=0 and WAR.WCY<1 then JY.Person[129]["ç”Ÿå‘½"]=1 end
-			                        if JY.Person[65]["ç”Ÿå‘½"]<=0 and WAR.WCY<1 then JY.Person[65]["ç”Ÿå‘½"]=1 end
+									if JY.Person[129]["ÉúÃü"]<=0 and WAR.WCY<1 then JY.Person[129]["ÉúÃü"]=1 end
+			                        if JY.Person[65]["ÉúÃü"]<=0 and WAR.WCY<1 then JY.Person[65]["ÉúÃü"]=1 end
 			   
 									if WAR.ZDDH==128 then
 										for i=0,WAR.PersonNum-1 do
-											if WAR.Person[i]["äººç‰©ç¼–å·"]==553 and JY.Person[553]["ç”Ÿå‘½"]<=0 then 
+											if WAR.Person[i]["ÈËÎï±àºÅ"]==553 and JY.Person[553]["ÉúÃü"]<=0 then 
 												WAR.YZB=1 
 												WAR.FXDS[553]=nil
 												WAR.LXZT[553]=nil
@@ -722,21 +722,21 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 										   WAR.YZB=0
 										   WAR.YZB2=WAR.YZB2+1
 										   say(CC.WARS5,553)
-										   JY.Person[553]["ç”Ÿå‘½æœ€å¤§å€¼"]=JY.Person[553]["ç”Ÿå‘½æœ€å¤§å€¼"]+100
-										   JY.Person[553]["å†…åŠ›æœ€å¤§å€¼"]=JY.Person[553]["å†…åŠ›æœ€å¤§å€¼"]+1000
+										   JY.Person[553]["ÉúÃü×î´óÖµ"]=JY.Person[553]["ÉúÃü×î´óÖµ"]+100
+										   JY.Person[553]["ÄÚÁ¦×î´óÖµ"]=JY.Person[553]["ÄÚÁ¦×î´óÖµ"]+1000
 										   
-										   JY.Person[553]["ç”Ÿå‘½"]=JY.Person[553]["ç”Ÿå‘½æœ€å¤§å€¼"]
-										   JY.Person[553]["å†…åŠ›"]=JY.Person[553]["å†…åŠ›æœ€å¤§å€¼"]
-										   JY.Person[553]["ä¸­æ¯’ç¨‹åº¦"]=0
-										   JY.Person[553]["å—ä¼¤ç¨‹åº¦"]=0
-										   JY.Person[553]["ä½“åŠ›"]=100
-	                                       JY.Person[553]["æ”»å‡»åŠ›"]=JY.Person[553]["æ”»å‡»åŠ›"]+100
-										   JY.Person[553]["é˜²å¾¡åŠ›"]=JY.Person[553]["é˜²å¾¡åŠ›"]+100
-										   JY.Person[553]["è½»åŠŸ"]=JY.Person[553]["è½»åŠŸ"]+80
-										   JY.Person[553]["æ­¦åŠŸ1"]=66
-										   JY.Person[553]["æ­¦åŠŸç­‰çº§1"]=999
+										   JY.Person[553]["ÉúÃü"]=JY.Person[553]["ÉúÃü×î´óÖµ"]
+										   JY.Person[553]["ÄÚÁ¦"]=JY.Person[553]["ÄÚÁ¦×î´óÖµ"]
+										   JY.Person[553]["ÖĞ¶¾³Ì¶È"]=0
+										   JY.Person[553]["ÊÜÉË³Ì¶È"]=0
+										   JY.Person[553]["ÌåÁ¦"]=100
+	                                       JY.Person[553]["¹¥»÷Á¦"]=JY.Person[553]["¹¥»÷Á¦"]+100
+										   JY.Person[553]["·ÀÓùÁ¦"]=JY.Person[553]["·ÀÓùÁ¦"]+100
+										   JY.Person[553]["Çá¹¦"]=JY.Person[553]["Çá¹¦"]+80
+										   JY.Person[553]["Îä¹¦1"]=66
+										   JY.Person[553]["Îä¹¦µÈ¼¶1"]=999
                                             for j=0,WAR.PersonNum-1 do
-	                                            if WAR.Person[j]["äººç‰©ç¼–å·"]==553 then
+	                                            if WAR.Person[j]["ÈËÎï±àºÅ"]==553 then
 												   WAR.Person[j]["Time"]=990
 												end
 										   end
@@ -775,19 +775,19 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 										   if WAR.Actup[id]==0 then WAR.Actup[id]=nil end
 										end
 									
-										if id==54 then JY.Person[id]["å—ä¼¤ç¨‹åº¦"]=0 end
+										if id==54 then JY.Person[id]["ÊÜÉË³Ì¶È"]=0 end
 										
-										 JY.Wugong[13]["åç§°"]=CC.WARS13 	
+										 JY.Wugong[13]["Ãû³Æ"]=CC.WARS13 	
 										
 										if id==64 then WAR.ZBT=WAR.ZBT+1 end
 									
 										if WAR.TGN==1 then
 										   say(CC.WARS14,72)
-										    JY.Person[72]["æ”»å‡»åŠ›"]=JY.Person[72]["æ”»å‡»åŠ›"]+20
-											JY.Person[72]["é˜²å¾¡åŠ›"]=JY.Person[72]["é˜²å¾¡åŠ›"]+20
-											JY.Person[72]["è½»åŠŸ"]=JY.Person[72]["è½»åŠŸ"]+20
-											JY.Person[72]["æ­¦åŠŸ1"]=44
-											JY.Person[72]["æ­¦åŠŸç­‰çº§1"]=50
+										    JY.Person[72]["¹¥»÷Á¦"]=JY.Person[72]["¹¥»÷Á¦"]+20
+											JY.Person[72]["·ÀÓùÁ¦"]=JY.Person[72]["·ÀÓùÁ¦"]+20
+											JY.Person[72]["Çá¹¦"]=JY.Person[72]["Çá¹¦"]+20
+											JY.Person[72]["Îä¹¦1"]=44
+											JY.Person[72]["Îä¹¦µÈ¼¶1"]=50
 										    DrawStrBox(-1,-1,CC.WARS15,C_ORANGE,CC.DefaultFont)
 											 ShowScreen();
 											 lib.Delay(2000);											
@@ -800,7 +800,7 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 									
 										if WAR.XK==1 then
 											  for j=0,WAR.PersonNum-1 do
-												   if WAR.Person[j]["äººç‰©ç¼–å·"]==58 and JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]>0 and WAR.Person[j]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
+												   if WAR.Person[j]["ÈËÎï±àºÅ"]==58 and JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÉúÃü"]>0 and WAR.Person[j]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then
 												       WAR.Person[j]["Time"]=980
 													   say(CC.WARS16,58)
 												       WAR.XK=2
@@ -813,7 +813,7 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 									    if WAR.FLHS5==1 then
                                             local z=WAR.CurID										
 											for j=0,WAR.PersonNum-1 do
-												  if WAR.Person[j]["äººç‰©ç¼–å·"]==0 and JY.Person[0]["ç”Ÿå‘½"]>0 then													 
+												  if WAR.Person[j]["ÈËÎï±àºÅ"]==0 and JY.Person[0]["ÉúÃü"]>0 then													 
 													 WAR.FLHS5=0
 													 WAR.CurID=j
 													 break
@@ -821,8 +821,8 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 											end
 											
 											if WAR.FLHS5==0 and WAR.AutoFight==0 and WAR.tmp[1000+0]~=1 then
-												WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]=6
-												War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"],0);
+												WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]=6
+												War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"],0);
 												local x,y
 												while true do
 													x,y=War_SelectMove()
@@ -837,14 +837,14 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 											WAR.CurID=z
 										end
 				
-				                        if (WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]>0 or WAR.ZYYD>0)  and WAR.Person[p]["æˆ‘æ–¹"]==true and inteam(WAR.Person[p]["äººç‰©ç¼–å·"]) and WAR.AutoFight==0 and WAR.tmp[1000+id]~=1 then
-										    if PersonKF(WAR.Person[p]["äººç‰©ç¼–å·"],93) and JY.Person[WAR.Person[p]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]>0 then
+				                        if (WAR.Person[p]["ÒÆ¶¯²½Êı"]>0 or WAR.ZYYD>0)  and WAR.Person[p]["ÎÒ·½"]==true and inteam(WAR.Person[p]["ÈËÎï±àºÅ"]) and WAR.AutoFight==0 and WAR.tmp[1000+id]~=1 then
+										    if PersonKF(WAR.Person[p]["ÈËÎï±àºÅ"],93) and JY.Person[WAR.Person[p]["ÈËÎï±àºÅ"]]["ÉúÃü"]>0 then
 				                              if WAR.ZYYD>0 then
-											   WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"]=WAR.ZYYD
+											   WAR.Person[p]["ÒÆ¶¯²½Êı"]=WAR.ZYYD
 											   War_CalMoveStep(p,WAR.ZYYD,0);
 											   WAR.ZYYD=0
 											  else
-											   War_CalMoveStep(p,WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"],0);
+											   War_CalMoveStep(p,WAR.Person[p]["ÒÆ¶¯²½Êı"],0);
 											  end
 												local x,y
 												while true do
@@ -860,10 +860,10 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 										
 										if WAR.ZDDH==7 then
 										    for x=0,WAR.PersonNum-1 do
-										        if WAR.Person[x]["äººç‰©ç¼–å·"]==97 and JY.Person[97]["ç”Ÿå‘½"]<=0 then
+										        if WAR.Person[x]["ÈËÎï±àºÅ"]==97 and JY.Person[97]["ÉúÃü"]<=0 then
 												    for xx=0,WAR.PersonNum-1 do
-												        if WAR.Person[xx]["äººç‰©ç¼–å·"]~=97 then
-														   WAR.Person[xx]["æˆ‘æ–¹"]=true
+												        if WAR.Person[xx]["ÈËÎï±àºÅ"]~=97 then
+														   WAR.Person[xx]["ÎÒ·½"]=true
 														end
 													end
 													break
@@ -871,7 +871,7 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 											end
 										end
 										
-										if WAR.ZDDH==176 and JY.Person[0]["å“å¾·"]>80 and WAR.EVENT1==0 and WAR.SXTJ>300 then
+										if WAR.ZDDH==176 and JY.Person[0]["Æ·µÂ"]>80 and WAR.EVENT1==0 and WAR.SXTJ>300 then
 										    for i=32,40 do
 											     if GetWarMap(i,32,2)<0 then
 												   
@@ -890,8 +890,8 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 										
 										if WAR.ZDDH==54 and WAR.EVENT1==0 then
 										    for i=0,WAR.PersonNum-1 do
-										        if WAR.Person[i]["äººç‰©ç¼–å·"]==73 and WAR.Person[i]["æˆ‘æ–¹"]==true then
-												    if JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]<=0 then
+										        if WAR.Person[i]["ÈËÎï±àºÅ"]==73 and WAR.Person[i]["ÎÒ·½"]==true then
+												    if JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÉúÃü"]<=0 then
 												        for r=31,42 do
 													        if GetWarMap(r,27,2)<0 then
 														       
@@ -918,9 +918,9 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 										
 										if WAR.Person[p]["Time"]>500 then WAR.Person[p]["Time"]=500 end
 										
-										local pz=math.modf(JY.Person[0]["èµ„è´¨"]/5)
-										if id==0 and GetS(4,5,5,5)==7 and JY.Person[0]["ä½“åŠ›"]>50 then
-										    if WAR.HTSS==0 and GetS(10,0,7,0)==1 and JLSD(25,50+pz,0) and JY.Person[0]["æ­¦åŠŸ10"]>0  then											       
+										local pz=math.modf(JY.Person[0]["×ÊÖÊ"]/5)
+										if id==0 and GetS(4,5,5,5)==7 and JY.Person[0]["ÌåÁ¦"]>50 then
+										    if WAR.HTSS==0 and GetS(10,0,7,0)==1 and JLSD(25,50+pz,0) and JY.Person[0]["Îä¹¦10"]>0  then											       
 												CurIDTXDH(WAR.CurID,1170,1185)							
 												Cls();
 												if JY.HEADXZ==1 then
@@ -947,7 +947,7 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 													  if WAR.Person[j]["Time"]>995 then WAR.Person[j]["Time"]=995 end
 												end
 												WAR.Person[WAR.CurID]["Time"]=1005
-												JY.Person[0]["ä½“åŠ›"]=JY.Person[0]["ä½“åŠ›"]-10
+												JY.Person[0]["ÌåÁ¦"]=JY.Person[0]["ÌåÁ¦"]-10
 												if JLSD(45,50,0) then
 												    WAR.HTSS=0
 											    else
@@ -962,8 +962,8 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 
 										if WAR.ZDDH==237 and WAR.SXTJ>100 then
 										   for i=0,WAR.PersonNum-1 do
-												if WAR.Person[i]["æˆ‘æ–¹"]==false then
-													WAR.Person[i]["æ­»äº¡"]=true
+												if WAR.Person[i]["ÎÒ·½"]==false then
+													WAR.Person[i]["ËÀÍö"]=true
 												end
 										    end
 											say(CC.s48,18)
@@ -972,10 +972,10 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 										if WAR.ZDDH==238 then
 										    local life=0;
 										    for i=0,WAR.PersonNum-1 do
-												if WAR.Person[i]["æ­»äº¡"]==false then
-												    if JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]>0 then
+												if WAR.Person[i]["ËÀÍö"]==false then
+												    if JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÉúÃü"]>0 then
 													   life=life+1
-													   WAR.NO1=WAR.Person[i]["äººç‰©ç¼–å·"]
+													   WAR.NO1=WAR.Person[i]["ÈËÎï±àºÅ"]
 													end
 												end
 										    end
@@ -986,16 +986,16 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 												    m=0;
 													n=0;
 												    for i=0,WAR.PersonNum-1 do
-														if WAR.Person[i]["æ­»äº¡"]==false and JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]>0 then
-															if WAR.Person[i]["äººç‰©ç¼–å·"]==0 then
-																WAR.Person[i]["æˆ‘æ–¹"]=true
+														if WAR.Person[i]["ËÀÍö"]==false and JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÉúÃü"]>0 then
+															if WAR.Person[i]["ÈËÎï±àºÅ"]==0 then
+																WAR.Person[i]["ÎÒ·½"]=true
 																m=m+1
 															else
 																if math.random(2)==1 then
-																   WAR.Person[i]["æˆ‘æ–¹"]=true
+																   WAR.Person[i]["ÎÒ·½"]=true
 																   m=m+1
 																else
-																   WAR.Person[i]["æˆ‘æ–¹"]=false
+																   WAR.Person[i]["ÎÒ·½"]=false
 																   n=n+1
 																end
 															end
@@ -1011,7 +1011,7 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 				end
 				
 				
-					warStatus=War_isEnd();        --æˆ˜æ–—æ˜¯å¦ç»“æŸï¼Ÿ   0ç»§ç»­ï¼Œ1èµ¢ï¼Œ2è¾“	
+					warStatus=War_isEnd();        --Õ½¶·ÊÇ·ñ½áÊø£¿   0¼ÌĞø£¬1Ó®£¬2Êä	
 					if warStatus>0 then
 						break;
 					end
@@ -1035,14 +1035,14 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 	    PlayMIDI(100)
 		PlayWavAtk(41)
 	    DrawStrBoxWaitKey(CC.EVB102,C_WHITE,CC.DefaultFont);
-		DrawStrBoxWaitKey(CC.EVB103..JY.Person[WAR.NO1]["å§“å"],C_RED,CC.DefaultFont);
+		DrawStrBoxWaitKey(CC.EVB103..JY.Person[WAR.NO1]["ĞÕÃû"],C_RED,CC.DefaultFont);
 	    if WAR.NO1==0 then
 		   r=true; 
         else
            r=false;
         end		   
 	elseif warStatus==1 then--[[
-		local str="æˆ˜æ–—èƒœåˆ©"
+		local str="Õ½¶·Ê¤Àû"
 		for i=0,240 do
 			Cls()
 			DrawString(i,240,str,C_ORANGE,36)
@@ -1057,10 +1057,10 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 		   instruct_32(14,2) 
 		elseif WAR.ZDDH==80 then
 		   DrawStrBoxWaitKey(CC.EVB85,C_GOLD,CC.DefaultFont);
-		   AddPersonAttrib(0,"æ‹³æŒåŠŸå¤«",10);
-		   AddPersonAttrib(0,"å¾¡å‰‘èƒ½åŠ›",10);
-		   AddPersonAttrib(0,"è€åˆ€æŠ€å·§",10);
-		   AddPersonAttrib(0,"ç‰¹æ®Šå…µå™¨",10);
+		   AddPersonAttrib(0,"È­ÕÆ¹¦·ò",10);
+		   AddPersonAttrib(0,"Óù½£ÄÜÁ¦",10);
+		   AddPersonAttrib(0,"Ë£µ¶¼¼ÇÉ",10);
+		   AddPersonAttrib(0,"ÌØÊâ±øÆ÷",10);
 		elseif WAR.ZDDH==100 then
 		   DrawStrBoxWaitKey(CC.EVB86,C_GOLD,CC.DefaultFont);
 		   instruct_32(8,2) 
@@ -1072,18 +1072,18 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 		   instruct_32(17,2) 
 		elseif WAR.ZDDH==188 then
 		   DrawStrBoxWaitKey(CC.EVB89,C_GOLD,CC.DefaultFont);
-		   AddPersonAttrib(0,"æ‹³æŒåŠŸå¤«",10);     
+		   AddPersonAttrib(0,"È­ÕÆ¹¦·ò",10);     
 		elseif WAR.ZDDH==211 then
 		   DrawStrBoxWaitKey(CC.EVB90,C_GOLD,CC.DefaultFont);
-		   AddPersonAttrib(0,"é˜²å¾¡åŠ›",10); 
-		   AddPersonAttrib(0,"è½»åŠŸ",10); 
+		   AddPersonAttrib(0,"·ÀÓùÁ¦",10); 
+		   AddPersonAttrib(0,"Çá¹¦",10); 
 		elseif WAR.ZDDH==86 then
 		    instruct_2(66,1)
         end		   
 		
         r=true;
     elseif warStatus==2 then--[[
-		local str="æˆ˜æ–—å¤±è´¥"
+		local str="Õ½¶·Ê§°Ü"
 		lib.SetClip(0,240,640,280)
 		for i=0,240,2 do
 			Cls()
@@ -1095,12 +1095,12 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
         r=false;
     end
 
-    War_EndPersonData(isexp,warStatus);    --æˆ˜æ–—åè®¾ç½®äººç‰©å‚æ•°
+    War_EndPersonData(isexp,warStatus);    --Õ½¶·ºóÉèÖÃÈËÎï²ÎÊı
 
     lib.ShowSlow(50,1);
 
-    if JY.Scene[JY.SubScene]["è¿›é—¨éŸ³ä¹"]>=0 then
-        PlayMIDI(JY.Scene[JY.SubScene]["è¿›é—¨éŸ³ä¹"]);
+    if JY.Scene[JY.SubScene]["½øÃÅÒôÀÖ"]>=0 then
+        PlayMIDI(JY.Scene[JY.SubScene]["½øÃÅÒôÀÖ"]);
     else
         PlayMIDI(0);
     end
@@ -1120,19 +1120,19 @@ function WarMain(warid,isexp)           --æˆ˜æ–—ä¸»å‡½æ•°
 end
 
 
-function War_MoveMenu()           --æ‰§è¡Œç§»åŠ¨èœå• è¿”å›1ï¼šå·²ç»ç§»åŠ¨    0 æ²¡æœ‰ç§»åŠ¨
-  if WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]~=-1 then
-    WAR.ShowHead=0;   --ä¸æ˜¾ç¤ºå¤´åƒ
-    if WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]<=0 then
+function War_MoveMenu()           --Ö´ĞĞÒÆ¶¯²Ëµ¥ ·µ»Ø1£ºÒÑ¾­ÒÆ¶¯    0 Ã»ÓĞÒÆ¶¯
+  if WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]~=-1 then
+    WAR.ShowHead=0;   --²»ÏÔÊ¾Í·Ïñ
+    if WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]<=0 then
         return 0;
     end
 
-    War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"],0);   --è®¡ç®—ç§»åŠ¨æ­¥æ•°
+    War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"],0);   --¼ÆËãÒÆ¶¯²½Êı
 
     local r;
-    local x,y=War_SelectMove()             --é€‰æ‹©ç§»åŠ¨ä½ç½®
-    if x ~=nil then            --ç©ºå€¼è¡¨ç¤ºæ²¡æœ‰é€‰æ‹©ï¼Œescè¿”å›äº†ï¼Œéç©ºåˆ™è¡¨ç¤ºé€‰æ‹©äº†ä½ç½®
-        War_MovePerson(x,y,1);    --ç§»åŠ¨åˆ°ç›¸åº”çš„ä½ç½®
+    local x,y=War_SelectMove()             --Ñ¡ÔñÒÆ¶¯Î»ÖÃ
+    if x ~=nil then            --¿ÕÖµ±íÊ¾Ã»ÓĞÑ¡Ôñ£¬esc·µ»ØÁË£¬·Ç¿ÕÔò±íÊ¾Ñ¡ÔñÁËÎ»ÖÃ
+        War_MovePerson(x,y,1);    --ÒÆ¶¯µ½ÏàÓ¦µÄÎ»ÖÃ
         r=1;
 	else
 	    r=0
@@ -1145,26 +1145,26 @@ function War_MoveMenu()           --æ‰§è¡Œç§»åŠ¨èœå• è¿”å›1ï¼šå·²ç»ç§»åŠ¨   
     local ydd={};
 	local n=1;
     for i=0,WAR.PersonNum-1 do
-	     if WAR.Person[i]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and WAR.Person[i]["æ­»äº¡"]==false then
+	     if WAR.Person[i]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] and WAR.Person[i]["ËÀÍö"]==false then
             ydd[n]=i
 			n=n+1
 		 end
 	end
 	while true do --DFSY
 	    local dx=ydd[math.random(n-1)];
-		local DX=WAR.Person[dx]["åæ ‡X"]
-		local DY=WAR.Person[dx]["åæ ‡Y"]
+		local DX=WAR.Person[dx]["×ø±êX"]
+		local DY=WAR.Person[dx]["×ø±êY"]
 		local YDX={DX+1,DX-1,DX};
 		local YDY={DY+1,DY-1,DY};
 		local ZX=YDX[math.random(3)]
 		local ZY=YDY[math.random(3)]
         if SceneCanPass(ZX,ZY) and GetWarMap(ZX,ZY,2)<0 then
-		    SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,-1);
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,-1);
-			WAR.Person[WAR.CurID]["åæ ‡X"]=ZX
-			WAR.Person[WAR.CurID]["åæ ‡Y"]=ZY						
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,WAR.CurID);
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,WAR.Person[WAR.CurID]["è´´å›¾"]);
+		    SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,-1);
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,-1);
+			WAR.Person[WAR.CurID]["×ø±êX"]=ZX
+			WAR.Person[WAR.CurID]["×ø±êY"]=ZY						
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,WAR.CurID);
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,WAR.Person[WAR.CurID]["ÌùÍ¼"]);
             break;
 		end
 	end
@@ -1172,24 +1172,24 @@ function War_MoveMenu()           --æ‰§è¡Œç§»åŠ¨èœå• è¿”å›1ï¼šå·²ç»ç§»åŠ¨   
   end	 		 
 end
 
-function War_CanMoveXY(x,y,flag)  --åæ ‡æ˜¯å¦å¯ä»¥é€šè¿‡ï¼Œåˆ¤æ–­ç§»åŠ¨æ—¶ä½¿ç”¨
-	if GetWarMap(x,y,1)>0 then    --ç¬¬1å±‚æœ‰ç‰©ä½“
+function War_CanMoveXY(x,y,flag)  --×ø±êÊÇ·ñ¿ÉÒÔÍ¨¹ı£¬ÅĞ¶ÏÒÆ¶¯Ê±Ê¹ÓÃ
+	if GetWarMap(x,y,1)>0 then    --µÚ1²ãÓĞÎïÌå
 		return false
 	end
 	if flag==0 then
-		if CC.WarWater[GetWarMap(x,y,0)]~=nil then          --æ°´é¢ï¼Œä¸å¯èµ°
+		if CC.WarWater[GetWarMap(x,y,0)]~=nil then          --Ë®Ãæ£¬²»¿É×ß
 			return false
 		end
-		if GetWarMap(x,y,2)>=0 then    --æœ‰äºº
+		if GetWarMap(x,y,2)>=0 then    --ÓĞÈË
 			return false
 		end
 	end
 	return true;
 end
 
-function War_SelectMove()              ---é€‰æ‹©ç§»åŠ¨ä½ç½®
-    local x0=WAR.Person[WAR.CurID]["åæ ‡X"];
-    local y0=WAR.Person[WAR.CurID]["åæ ‡Y"];
+function War_SelectMove()              ---Ñ¡ÔñÒÆ¶¯Î»ÖÃ
+    local x0=WAR.Person[WAR.CurID]["×ø±êX"];
+    local y0=WAR.Person[WAR.CurID]["×ø±êY"];
     local x=x0;
     local y=y0;
 
@@ -1261,14 +1261,14 @@ function War_SelectMove()              ---é€‰æ‹©ç§»åŠ¨ä½ç½®
 
 end
 
-function War_MovePerson(x,y,flag)            --ç§»åŠ¨äººç‰©åˆ°ä½ç½®x,y
+function War_MovePerson(x,y,flag)            --ÒÆ¶¯ÈËÎïµ½Î»ÖÃx,y
     local x1=x
     local y1=y
 	flag=flag or 0;
     local movenum=GetWarMap(x,y,3);
 
-    local movetable={};  --   è®°å½•æ¯æ­¥ç§»åŠ¨
-    for i=movenum,1,-1 do    --ä»ç›®çš„ä½ç½®åç€æ‰¾åˆ°åˆå§‹ä½ç½®ï¼Œä½œä¸ºç§»åŠ¨çš„æ¬¡åº
+    local movetable={};  --   ¼ÇÂ¼Ã¿²½ÒÆ¶¯
+    for i=movenum,1,-1 do    --´ÓÄ¿µÄÎ»ÖÃ·´×ÅÕÒµ½³õÊ¼Î»ÖÃ£¬×÷ÎªÒÆ¶¯µÄ´ÎĞò
         movetable[i]={};
         movetable[i].x=x;
         movetable[i].y=y;
@@ -1289,39 +1289,39 @@ function War_MovePerson(x,y,flag)            --ç§»åŠ¨äººç‰©åˆ°ä½ç½®x,y
 	movetable.num=movenum;
 	movetable.now=0;
 	WAR.Person[WAR.CurID]["Move"]=movetable;
-	if movenum>WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"] then
-		movenum=WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]
-		WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]=0
+	if movenum>WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"] then
+		movenum=WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]
+		WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]=0
 	else
-		WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]=WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]-movenum;    --å¯ç§»åŠ¨æ­¥æ•°å‡å°
+		WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]=WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]-movenum;    --¿ÉÒÆ¶¯²½Êı¼õĞ¡
 	end
 	
 	--[[if flag==1 then
-		SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,-1);
-		SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,-1);
+		SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,-1);
+		SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,-1);
 
-        WAR.Person[WAR.CurID]["åæ ‡X"]=movetable[movenum].x;
-        WAR.Person[WAR.CurID]["åæ ‡Y"]=movetable[movenum].y;
-        WAR.Person[WAR.CurID]["äººæ–¹å‘"]=movetable[movenum].direct;
-        WAR.Person[WAR.CurID]["è´´å›¾"]=WarCalPersonPic(WAR.CurID);
+        WAR.Person[WAR.CurID]["×ø±êX"]=movetable[movenum].x;
+        WAR.Person[WAR.CurID]["×ø±êY"]=movetable[movenum].y;
+        WAR.Person[WAR.CurID]["ÈË·½Ïò"]=movetable[movenum].direct;
+        WAR.Person[WAR.CurID]["ÌùÍ¼"]=WarCalPersonPic(WAR.CurID);
 
-		SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,WAR.CurID);
-		SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,WAR.Person[WAR.CurID]["è´´å›¾"]);
+		SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,WAR.CurID);
+		SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,WAR.Person[WAR.CurID]["ÌùÍ¼"]);
 	end]]--
 	
     for i=1,movenum do
         local t1=lib.GetTime();
 
-		SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,-1);
-		SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,-1);
+		SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,-1);
+		SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,-1);
 
-        WAR.Person[WAR.CurID]["åæ ‡X"]=movetable[i].x;
-        WAR.Person[WAR.CurID]["åæ ‡Y"]=movetable[i].y;
-        WAR.Person[WAR.CurID]["äººæ–¹å‘"]=movetable[i].direct;
-        WAR.Person[WAR.CurID]["è´´å›¾"]=WarCalPersonPic(WAR.CurID);
+        WAR.Person[WAR.CurID]["×ø±êX"]=movetable[i].x;
+        WAR.Person[WAR.CurID]["×ø±êY"]=movetable[i].y;
+        WAR.Person[WAR.CurID]["ÈË·½Ïò"]=movetable[i].direct;
+        WAR.Person[WAR.CurID]["ÌùÍ¼"]=WarCalPersonPic(WAR.CurID);
 
-		SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,WAR.CurID);
-		SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,WAR.Person[WAR.CurID]["è´´å›¾"]);
+		SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,WAR.CurID);
+		SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,WAR.Person[WAR.CurID]["ÌùÍ¼"]);
 
 		WarDrawMap(0);
 		ShowScreen();
@@ -1333,29 +1333,29 @@ function War_MovePerson(x,y,flag)            --ç§»åŠ¨äººç‰©åˆ°ä½ç½®x,y
 		end
     end
 	
-	--[[SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,-1);
-	SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,-1);
-	WAR.Person[WAR.CurID]["åæ ‡X"]=x1
-    WAR.Person[WAR.CurID]["åæ ‡Y"]=y1
-	SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,WAR.CurID);
-	SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,WAR.Person[WAR.CurID]["è´´å›¾"]);
+	--[[SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,-1);
+	SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,-1);
+	WAR.Person[WAR.CurID]["×ø±êX"]=x1
+    WAR.Person[WAR.CurID]["×ø±êY"]=y1
+	SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,WAR.CurID);
+	SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,WAR.Person[WAR.CurID]["ÌùÍ¼"]);
     ]]--
 	
 end
 
-function War_CalMoveStep(id,stepmax,flag) --æ˜¾ç¤ºç§»åŠ¨èŒƒå›´
---é‡å†™ç§»åŠ¨å‡½æ•°ï¼Œä¸»è¦æ˜¯åŠ å…¥zocï¼Œå³å½“é™„è¿‘æœ‰æ•Œäººæ—¶ï¼Œç§»åŠ¨åŠ›é¢å¤–å‡1	
---è®¡ç®—å¯ç§»åŠ¨æ­¥æ•°
---id æˆ˜æ–—äººidï¼Œ
---stepmax æœ€å¤§æ­¥æ•°ï¼Œ
---flag=0  ç§»åŠ¨ï¼Œç‰©å“ä¸èƒ½ç»•è¿‡ï¼Œ1 æ­¦åŠŸï¼Œç”¨æ¯’åŒ»ç–—ç­‰ï¼Œä¸è€ƒè™‘æŒ¡è·¯ã€‚ 	
+function War_CalMoveStep(id,stepmax,flag) --ÏÔÊ¾ÒÆ¶¯·¶Î§
+--ÖØĞ´ÒÆ¶¯º¯Êı£¬Ö÷ÒªÊÇ¼ÓÈëzoc£¬¼´µ±¸½½üÓĞµĞÈËÊ±£¬ÒÆ¶¯Á¦¶îÍâ¼õ1	
+--¼ÆËã¿ÉÒÆ¶¯²½Êı
+--id Õ½¶·ÈËid£¬
+--stepmax ×î´ó²½Êı£¬
+--flag=0  ÒÆ¶¯£¬ÎïÆ·²»ÄÜÈÆ¹ı£¬1 Îä¹¦£¬ÓÃ¶¾Ò½ÁÆµÈ£¬²»¿¼ÂÇµ²Â·¡£ 	
 	
-	CleanWarMap(3,255);           --ç¬¬ä¸‰å±‚åæ ‡ç”¨æ¥è®¾ç½®ç§»åŠ¨ï¼Œå…ˆéƒ½è®¾ä¸º255ï¼Œ
+	CleanWarMap(3,255);           --µÚÈı²ã×ø±êÓÃÀ´ÉèÖÃÒÆ¶¯£¬ÏÈ¶¼ÉèÎª255£¬
 
-    local x=WAR.Person[id]["åæ ‡X"];
-    local y=WAR.Person[id]["åæ ‡Y"];
+    local x=WAR.Person[id]["×ø±êX"];
+    local y=WAR.Person[id]["×ø±êY"];
 
-	local steparray={};     --ç”¨æ•°ç»„ä¿å­˜ç¬¬næ­¥çš„åæ ‡ã€‚
+	local steparray={};     --ÓÃÊı×é±£´æµÚn²½µÄ×ø±ê¡£
 	for i=0,stepmax do
 	    steparray[i]={};
 		steparray[i].bushu={};
@@ -1365,7 +1365,7 @@ function War_CalMoveStep(id,stepmax,flag) --æ˜¾ç¤ºç§»åŠ¨èŒƒå›´
 
 	SetWarMap(x,y,3,0);
     steparray[0].num=1;
-	steparray[0].bushu[1]=stepmax;					--è¿˜èƒ½ç§»åŠ¨çš„æ­¥æ•°
+	steparray[0].bushu[1]=stepmax;					--»¹ÄÜÒÆ¶¯µÄ²½Êı
 	steparray[0].x[1]=x;
 	steparray[0].y[1]=y;
 	War_FindNextStep(steparray,0,flag,id);
@@ -1374,37 +1374,37 @@ function War_CalMoveStep(id,stepmax,flag) --æ˜¾ç¤ºç§»åŠ¨èŒƒå›´
 
 end
 
-function War_FindNextStep(steparray,step,flag,id)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ¨çš„åæ ‡
- --è¢«ä¸Šé¢çš„å‡½æ•°è°ƒç”¨   
+function War_FindNextStep(steparray,step,flag,id)      --ÉèÖÃÏÂÒ»²½¿ÉÒÆ¶¯µÄ×ø±ê
+ --±»ÉÏÃæµÄº¯Êıµ÷ÓÃ   
 	local num=0;
 	local step1=step+1;
 	local function fujinnum(tx,ty)
 		if flag~=0 or id==nil then return 0 end
 		local tnum=0
-		local wofang=WAR.Person[id]["æˆ‘æ–¹"]
+		local wofang=WAR.Person[id]["ÎÒ·½"]
 		local tv;
 		tv=GetWarMap(tx+1,ty,2);
 		if tv~=-1 then
-			if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
-				tnum=9999--tnum+1+math.modf(JY.Person[WAR.Person[tv]['äººç‰©ç¼–å·']]['ç­‰çº§']/10)
+			if WAR.Person[tv]["ÎÒ·½"]~=wofang then
+				tnum=9999--tnum+1+math.modf(JY.Person[WAR.Person[tv]['ÈËÎï±àºÅ']]['µÈ¼¶']/10)
 			end
 		end
 		tv=GetWarMap(tx-1,ty,2);
 		if tv~=-1 then
-			if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
-				tnum=999--tnum+1+math.modf(JY.Person[WAR.Person[tv]['äººç‰©ç¼–å·']]['ç­‰çº§']/10)
+			if WAR.Person[tv]["ÎÒ·½"]~=wofang then
+				tnum=999--tnum+1+math.modf(JY.Person[WAR.Person[tv]['ÈËÎï±àºÅ']]['µÈ¼¶']/10)
 			end
 		end
 		tv=GetWarMap(tx,ty+1,2);
 		if tv~=-1 then
-			if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
-				tnum=999--tnum+1+math.modf(JY.Person[WAR.Person[tv]['äººç‰©ç¼–å·']]['ç­‰çº§']/10)
+			if WAR.Person[tv]["ÎÒ·½"]~=wofang then
+				tnum=999--tnum+1+math.modf(JY.Person[WAR.Person[tv]['ÈËÎï±àºÅ']]['µÈ¼¶']/10)
 			end
 		end
 		tv=GetWarMap(tx,ty-1,2);
 		if tv~=-1 then
-			if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
-				tnum=999--tnum+1+math.modf(JY.Person[WAR.Person[tv]['äººç‰©ç¼–å·']]['ç­‰çº§']/10)
+			if WAR.Person[tv]["ÎÒ·½"]~=wofang then
+				tnum=999--tnum+1+math.modf(JY.Person[WAR.Person[tv]['ÈËÎï±àºÅ']]['µÈ¼¶']/10)
 			end
 		end
 		return tnum
@@ -1419,7 +1419,7 @@ function War_FindNextStep(steparray,step,flag,id)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 	    local y=steparray[step].y[i];
 		--lib.Debug(x)
 		--lib.Debug(y)
-	    if x+1<CC.WarWidth-1 then                        --å½“å‰æ­¥æ•°çš„ç›¸é‚»æ ¼
+	    if x+1<CC.WarWidth-1 then                        --µ±Ç°²½ÊıµÄÏàÁÚ¸ñ
 		    local v=GetWarMap(x+1,y,3);
 			if v ==255 and War_CanMoveXY(x+1,y,flag)==true then
                 num= num+1;
@@ -1430,7 +1430,7 @@ function War_FindNextStep(steparray,step,flag,id)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			end
 		end
 
-	    if x-1>0 then                        --å½“å‰æ­¥æ•°çš„ç›¸é‚»æ ¼
+	    if x-1>0 then                        --µ±Ç°²½ÊıµÄÏàÁÚ¸ñ
 		    local v=GetWarMap(x-1,y,3);
 			if v ==255 and War_CanMoveXY(x-1,y,flag)==true then
                  num=num+1;
@@ -1441,7 +1441,7 @@ function War_FindNextStep(steparray,step,flag,id)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			end
 		end
 
-	    if y+1<CC.WarHeight-1 then                        --å½“å‰æ­¥æ•°çš„ç›¸é‚»æ ¼
+	    if y+1<CC.WarHeight-1 then                        --µ±Ç°²½ÊıµÄÏàÁÚ¸ñ
 		    local v=GetWarMap(x,y+1,3);
 			if v ==255 and War_CanMoveXY(x,y+1,flag)==true then
                  num= num+1;
@@ -1452,7 +1452,7 @@ function War_FindNextStep(steparray,step,flag,id)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			end
 		end
 
-	    if y-1>0 then                        --å½“å‰æ­¥æ•°çš„ç›¸é‚»æ ¼
+	    if y-1>0 then                        --µ±Ç°²½ÊıµÄÏàÁÚ¸ñ
 		    local v=GetWarMap(x ,y-1,3);
 			if v ==255 and War_CanMoveXY(x,y-1,flag)==true then
                 num= num+1;
@@ -1466,8 +1466,8 @@ function War_FindNextStep(steparray,step,flag,id)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 	end
 	if num==0 then return end;
     steparray[step1].num=num;
-	--å°è¯•åŠ å…¥ä¸€ä¸ªæ’åºï¼ŒæŠŠæ­¥æ•°ä½çš„æ”¾åé¢
-	--ä¸è¿‡å¦‚æœåè¿‡æ¥çš„è¯ï¼Œzocçš„æ•ˆæœå°±å¾ˆæå…¶æ˜æ˜¾äº†...
+	--³¢ÊÔ¼ÓÈëÒ»¸öÅÅĞò£¬°Ñ²½ÊıµÍµÄ·ÅºóÃæ
+	--²»¹ıÈç¹û·´¹ıÀ´µÄ»°£¬zocµÄĞ§¹û¾ÍºÜ¼«ÆäÃ÷ÏÔÁË...
 	--[[
 	for i=1,num-1 do
 		for j=i+1,num do
@@ -1484,18 +1484,18 @@ function War_FindNextStep(steparray,step,flag,id)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 
 end
 
-function War_realjl(ida,idb) --è®¡ç®—ä¸¤äººè·ç¦»
---è¿”å›ä¸¤äººä¹‹é—´çš„å®é™…è·ç¦»	
+function War_realjl(ida,idb) --¼ÆËãÁ½ÈË¾àÀë
+--·µ»ØÁ½ÈËÖ®¼äµÄÊµ¼Ê¾àÀë	
 	if ida==nil then
 		ida=WAR.CurID
 	end
 	
-  	CleanWarMap(3,255);           --ç¬¬ä¸‰å±‚åæ ‡ç”¨æ¥è®¾ç½®ç§»åŠ¨ï¼Œå…ˆéƒ½è®¾ä¸º255ï¼Œ
+  	CleanWarMap(3,255);           --µÚÈı²ã×ø±êÓÃÀ´ÉèÖÃÒÆ¶¯£¬ÏÈ¶¼ÉèÎª255£¬
 
-    local x=WAR.Person[ida]["åæ ‡X"];
-    local y=WAR.Person[ida]["åæ ‡Y"];
+    local x=WAR.Person[ida]["×ø±êX"];
+    local y=WAR.Person[ida]["×ø±êY"];
 
-	local steparray={};     --ç”¨æ•°ç»„ä¿å­˜ç¬¬næ­¥çš„åæ ‡ã€‚
+	local steparray={};     --ÓÃÊı×é±£´æµÚn²½µÄ×ø±ê¡£
 	--[[for i=0,128 do
 	    steparray[i]={};
 		steparray[i].bushu={};
@@ -1509,7 +1509,7 @@ function War_realjl(ida,idb) --è®¡ç®—ä¸¤äººè·ç¦»
 
 	SetWarMap(x,y,3,0);
     steparray[0].num=1;
-	steparray[0].bushu[1]=0;					--è¿˜èƒ½ç§»åŠ¨çš„æ­¥æ•°
+	steparray[0].bushu[1]=0;					--»¹ÄÜÒÆ¶¯µÄ²½Êı
 	steparray[0].x[1]=x;
 	steparray[0].y[1]=y;
 	return War_FindNextStep1(steparray,0,ida,idb);
@@ -1517,8 +1517,8 @@ function War_realjl(ida,idb) --è®¡ç®—ä¸¤äººè·ç¦»
 
 end
 
-function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ¨çš„åæ ‡
- --è¢«ä¸Šé¢çš„å‡½æ•°è°ƒç”¨   
+function War_FindNextStep1(steparray,step,id,idb)      --ÉèÖÃÏÂÒ»²½¿ÉÒÆ¶¯µÄ×ø±ê
+ --±»ÉÏÃæµÄº¯Êıµ÷ÓÃ   
 	local num=0;
 	local step1=step+1;
 	
@@ -1529,12 +1529,12 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 	
 	local function fujinnum(tx,ty)
 		local tnum=0
-		local wofang=WAR.Person[id]["æˆ‘æ–¹"]
+		local wofang=WAR.Person[id]["ÎÒ·½"]
 		local tv;
 		tv=GetWarMap(tx+1,ty,2);
 		if idb==nil then
 			if tv~=-1 then
-				if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
+				if WAR.Person[tv]["ÎÒ·½"]~=wofang then
 					return -1
 				end
 			end
@@ -1542,14 +1542,14 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			return -1
 		end
 		if tv~=-1 then
-			if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
+			if WAR.Person[tv]["ÎÒ·½"]~=wofang then
 				tnum=tnum+1
 			end
 		end
 		tv=GetWarMap(tx-1,ty,2);
 		if idb==nil then
 			if tv~=-1 then
-				if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
+				if WAR.Person[tv]["ÎÒ·½"]~=wofang then
 					return -1
 				end
 			end
@@ -1557,14 +1557,14 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			return -1
 		end
 		if tv~=-1 then
-			if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
+			if WAR.Person[tv]["ÎÒ·½"]~=wofang then
 				tnum=tnum+1
 			end
 		end
 		tv=GetWarMap(tx,ty+1,2);
 		if idb==nil then
 			if tv~=-1 then
-				if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
+				if WAR.Person[tv]["ÎÒ·½"]~=wofang then
 					return -1
 				end
 			end
@@ -1572,14 +1572,14 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			return -1
 		end
 		if tv~=-1 then
-			if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
+			if WAR.Person[tv]["ÎÒ·½"]~=wofang then
 				tnum=tnum+1
 			end
 		end
 		tv=GetWarMap(tx,ty-1,2);
 		if idb==nil then
 			if tv~=-1 then
-				if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
+				if WAR.Person[tv]["ÎÒ·½"]~=wofang then
 					return -1
 				end
 			end
@@ -1587,7 +1587,7 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			return -1
 		end
 		if tv~=-1 then
-			if WAR.Person[tv]["æˆ‘æ–¹"]~=wofang then
+			if WAR.Person[tv]["ÎÒ·½"]~=wofang then
 				tnum=tnum+1
 			end
 		end
@@ -1601,7 +1601,7 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 		steparray[step].bushu[i]=steparray[step].bushu[i]+1;
 	    local x=steparray[step].x[i];
 	    local y=steparray[step].y[i];
-	    if x+1<CC.WarWidth-1 then                        --å½“å‰æ­¥æ•°çš„ç›¸é‚»æ ¼
+	    if x+1<CC.WarWidth-1 then                        --µ±Ç°²½ÊıµÄÏàÁÚ¸ñ
 		    local v=GetWarMap(x+1,y,3);
 			if v ==255 and War_CanMoveXY(x+1,y,0)==true then
                 num= num+1;
@@ -1617,7 +1617,7 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			end
 		end
 
-	    if x-1>0 then                        --å½“å‰æ­¥æ•°çš„ç›¸é‚»æ ¼
+	    if x-1>0 then                        --µ±Ç°²½ÊıµÄÏàÁÚ¸ñ
 		    local v=GetWarMap(x-1,y,3);
 			if v ==255 and War_CanMoveXY(x-1,y,0)==true then
                  num=num+1;
@@ -1633,7 +1633,7 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			end
 		end
 
-	    if y+1<CC.WarHeight-1 then                        --å½“å‰æ­¥æ•°çš„ç›¸é‚»æ ¼
+	    if y+1<CC.WarHeight-1 then                        --µ±Ç°²½ÊıµÄÏàÁÚ¸ñ
 		    local v=GetWarMap(x,y+1,3);
 			if v ==255 and War_CanMoveXY(x,y+1,0)==true then
                  num= num+1;
@@ -1649,7 +1649,7 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 			end
 		end
 
-	    if y-1>0 then                        --å½“å‰æ­¥æ•°çš„ç›¸é‚»æ ¼
+	    if y-1>0 then                        --µ±Ç°²½ÊıµÄÏàÁÚ¸ñ
 		    local v=GetWarMap(x ,y-1,3);
 			if v ==255 and War_CanMoveXY(x,y-1,0)==true then
                 num= num+1;
@@ -1684,14 +1684,14 @@ function War_FindNextStep1(steparray,step,id,idb)      --è®¾ç½®ä¸‹ä¸€æ­¥å¯ç§»åŠ
 end
 
 function War_GetCanFightEnemyXY()
---å¾—åˆ°å¯ä»¥èµ°åˆ°æ”»å‡»åˆ°æ•Œäººçš„æœ€è¿‘ä½ç½®ã€‚
---scopeå¯ä»¥æ”»å‡»çš„èŒƒå›´
---è¿”å› x,yã€‚å¦‚æœæ— æ³•èµ°åˆ°æ”»å‡»ä½ç½®ï¼Œè¿”å›ç©º
+--µÃµ½¿ÉÒÔ×ßµ½¹¥»÷µ½µĞÈËµÄ×î½üÎ»ÖÃ¡£
+--scope¿ÉÒÔ¹¥»÷µÄ·¶Î§
+--·µ»Ø x,y¡£Èç¹ûÎŞ·¨×ßµ½¹¥»÷Î»ÖÃ£¬·µ»Ø¿Õ
 	local num,x,y
 	num,x,y=War_realjl(WAR.CurID)
 	--lib.Debug(num..'|'..x..','..y)
 	if num==-1 then 
-		return --WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"]
+		return --WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"]
 	else
 		return x,y
 	end
@@ -1699,27 +1699,27 @@ end
 
 
 function NewWARPersonZJ(id,dw,x,y,life,fx)
-    WAR.Person[WAR.PersonNum]["äººç‰©ç¼–å·"]=id
-	WAR.Person[WAR.PersonNum]["æˆ‘æ–¹"]=dw;
-    WAR.Person[WAR.PersonNum]["åæ ‡X"]=x
-    WAR.Person[WAR.PersonNum]["åæ ‡Y"]=y
-	WAR.Person[WAR.PersonNum]["æ­»äº¡"]=life;
-	WAR.Person[WAR.PersonNum]["äººæ–¹å‘"]=fx;
-    WAR.Person[WAR.PersonNum]["è´´å›¾"]=WarCalPersonPic(WAR.PersonNum);
-	lib.PicLoadFile(string.format(CC.FightPicFile[1],JY.Person[id]["å¤´åƒä»£å·"]),
-						string.format(CC.FightPicFile[2],JY.Person[id]["å¤´åƒä»£å·"]),
+    WAR.Person[WAR.PersonNum]["ÈËÎï±àºÅ"]=id
+	WAR.Person[WAR.PersonNum]["ÎÒ·½"]=dw;
+    WAR.Person[WAR.PersonNum]["×ø±êX"]=x
+    WAR.Person[WAR.PersonNum]["×ø±êY"]=y
+	WAR.Person[WAR.PersonNum]["ËÀÍö"]=life;
+	WAR.Person[WAR.PersonNum]["ÈË·½Ïò"]=fx;
+    WAR.Person[WAR.PersonNum]["ÌùÍ¼"]=WarCalPersonPic(WAR.PersonNum);
+	lib.PicLoadFile(string.format(CC.FightPicFile[1],JY.Person[id]["Í·Ïñ´úºÅ"]),
+						string.format(CC.FightPicFile[2],JY.Person[id]["Í·Ïñ´úºÅ"]),
 						4+WAR.PersonNum)																									
     SetWarMap(x,y,2,WAR.PersonNum)
-	SetWarMap(x,y,5,WAR.Person[WAR.PersonNum]["è´´å›¾"])
+	SetWarMap(x,y,5,WAR.Person[WAR.PersonNum]["ÌùÍ¼"])
     WAR.PersonNum=WAR.PersonNum+1;
 end	
 
 function RealJL(id1,id2,len)
---åˆ¤æ–­ä¸¤ä¸ªidä¹‹é—´çš„è·ç¦»ï¼Œå¦‚æœå°äºç­‰äºlenåˆ™åå›çœŸ
---å¦‚æœlenä¸ºç©ºåˆ™è¿”å›ä¸¤äººçš„è·ç¦»
+--ÅĞ¶ÏÁ½¸öidÖ®¼äµÄ¾àÀë£¬Èç¹ûĞ¡ÓÚµÈÓÚlenÔò·´»ØÕæ
+--Èç¹ûlenÎª¿ÕÔò·µ»ØÁ½ÈËµÄ¾àÀë
 	len=len or 1	
-	local x1,y1=WAR.Person[id1]["åæ ‡X"],WAR.Person[id1]["åæ ‡Y"]
-	local x2,y2=WAR.Person[id2]["åæ ‡X"],WAR.Person[id2]["åæ ‡Y"]
+	local x1,y1=WAR.Person[id1]["×ø±êX"],WAR.Person[id1]["×ø±êY"]
+	local x2,y2=WAR.Person[id2]["×ø±êX"],WAR.Person[id2]["×ø±êY"]
 	local s=math.abs(x1-x2)+math.abs(y1-y2)
 	if len==nil then return s
 	elseif s<=len then return true
@@ -1741,24 +1741,24 @@ end
 function DrawTimeBar()
 	local x1,x2,y=CC.ScreenW*5/8,CC.ScreenW*15/16,CC.FontSmall*5;
 	local xunhuan=true;
-	--local surid=lib.SaveSur(x1-(10+(x2-x1)/2),0,x2+10+20+30,y*2+18+25);
+	local surid=lib.SaveSur(x1-(10+(x2-x1)/2),0,x2+10+20+30,y*2+18+25);
 	--local surid2=lib.SaveSur(25,545,750,585);
 	local xscal=limitX(WAR.Delay/20,1,10);
 	local delay=WAR.Delay/xscal;
 	
 	--[[for i=0,WAR.PersonNum-1 do
-		if WAR.Person[i]["æ­»äº¡"]==false then
+		if WAR.Person[i]["ËÀÍö"]==false then
 			WAR.Person[i]["TimeAdd"]=WAR.Person[i]["TimeAdd"]/xscal;
 		end
 	end]]
 	while xunhuan do
-		--lib.LoadSur(surid,x1-(10+(x2-x1)/2),0)
+		lib.LoadSur(surid,x1-(10+(x2-x1)/2),0)
 		--lib.LoadSur(surid2,25,545)
 		for i=0,WAR.PersonNum-1 do
-		    local jqid=WAR.Person[i]["äººç‰©ç¼–å·"]	
-			if WAR.Person[i]["æ­»äº¡"]==false then			   
-			   if WAR.FXDS[WAR.Person[i]["äººç‰©ç¼–å·"]]==nil then
-				   if PersonKF(jqid,104)==false then--WAR.tmp[1000+WAR.Person[i]["äººç‰©ç¼–å·"]]~=1 then
+		    local jqid=WAR.Person[i]["ÈËÎï±àºÅ"]	
+			if WAR.Person[i]["ËÀÍö"]==false then			   
+			   if WAR.FXDS[WAR.Person[i]["ÈËÎï±àºÅ"]]==nil then
+				   if PersonKF(jqid,104)==false then--WAR.tmp[1000+WAR.Person[i]["ÈËÎï±àºÅ"]]~=1 then
 				      WAR.Person[i]["Time"]=WAR.Person[i]["Time"]+WAR.Person[i]["TimeAdd"] 
 			          if WAR.LQZ[jqid]==100 then WAR.Person[i]["Time"]=WAR.Person[i]["Time"]+WAR.Person[i]["TimeAdd"] end				   
 				   else
@@ -1769,8 +1769,8 @@ function DrawTimeBar()
 						 --end
 						 WAR.Person[i]["Time"]=WAR.Person[i]["Time"]+bdz+1
 						 if math.random(10)==8 or math.random(10)==2 then 					    
-							--if WAR.Person[i]["äººç‰©ç¼–å·"]~=60 then
-							   --JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ä½“åŠ›"]=JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ä½“åŠ›"]-2-math.random(2)
+							--if WAR.Person[i]["ÈËÎï±àºÅ"]~=60 then
+							   --JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÌåÁ¦"]=JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÌåÁ¦"]-2-math.random(2)
 							--else
 							if jqid==60 then
 								if JY.Thing[202][WZ7]==1 then
@@ -1778,11 +1778,11 @@ function DrawTimeBar()
 								else
 								   WAR.Person[i]["Time"]=WAR.Person[i]["Time"]+80
 								end
-							   --JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ä½“åŠ›"]=JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ä½“åŠ›"]
+							   --JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÌåÁ¦"]=JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÌåÁ¦"]
 							else 
 							    WAR.Person[i]["Time"]=WAR.Person[i]["Time"]+30
 							end
-							if JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ä½“åŠ›"]<20 then WAR.tmp[1000+jqid]=nil end					    
+							if JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÌåÁ¦"]<20 then WAR.tmp[1000+jqid]=nil end					    
 						 end
 					   else
 					      WAR.Person[i]["Time"]=WAR.Person[i]["Time"]+WAR.Person[i]["TimeAdd"] 
@@ -1790,72 +1790,72 @@ function DrawTimeBar()
 				       end
 				  end			   
 			   else
-			       WAR.FXDS[WAR.Person[i]["äººç‰©ç¼–å·"]]=WAR.FXDS[WAR.Person[i]["äººç‰©ç¼–å·"]]-1
+			       WAR.FXDS[WAR.Person[i]["ÈËÎï±àºÅ"]]=WAR.FXDS[WAR.Person[i]["ÈËÎï±àºÅ"]]-1
 				   if PersonKF(jqid,108) then WAR.FXDS[jqid]=WAR.FXDS[jqid]-1 end
 				   if WAR.LQZ[jqid]==100 then WAR.FXDS[jqid]=WAR.FXDS[jqid]-1 end
-				   if WAR.FXDS[WAR.Person[i]["äººç‰©ç¼–å·"]]<1 then WAR.FXDS[WAR.Person[i]["äººç‰©ç¼–å·"]]=nil end
+				   if WAR.FXDS[WAR.Person[i]["ÈËÎï±àºÅ"]]<1 then WAR.FXDS[WAR.Person[i]["ÈËÎï±àºÅ"]]=nil end
 			   end   
 				
-			   if PersonKF(jqid,106) and (JY.Person[jqid]["å†…åŠ›æ€§è´¨"]==1 or (jqid==0 and GetS(4,5,5,5)==5)) then
-				  JY.Person[jqid]["å†…åŠ›"]=JY.Person[jqid]["å†…åŠ›"]+3+math.random(2)
-				  if JY.Person[jqid]["å†…åŠ›"]>JY.Person[jqid]["å†…åŠ›æœ€å¤§å€¼"] then
-				    JY.Person[jqid]["å†…åŠ›"]=JY.Person[jqid]["å†…åŠ›æœ€å¤§å€¼"]
+			   if PersonKF(jqid,106) and (JY.Person[jqid]["ÄÚÁ¦ĞÔÖÊ"]==1 or (jqid==0 and GetS(4,5,5,5)==5)) then
+				  JY.Person[jqid]["ÄÚÁ¦"]=JY.Person[jqid]["ÄÚÁ¦"]+3+math.random(2)
+				  if JY.Person[jqid]["ÄÚÁ¦"]>JY.Person[jqid]["ÄÚÁ¦×î´óÖµ"] then
+				    JY.Person[jqid]["ÄÚÁ¦"]=JY.Person[jqid]["ÄÚÁ¦×î´óÖµ"]
 				  end
 			   end
 				
-			   if PersonKF(jqid,107) and (JY.Person[jqid]["å†…åŠ›æ€§è´¨"]==0 or (jqid==0 and GetS(4,5,5,5)==5)) then
-				  JY.Person[jqid]["ç”Ÿå‘½"]=JY.Person[jqid]["ç”Ÿå‘½"]+2
-				  if JY.Person[jqid]["ç”Ÿå‘½"]>JY.Person[jqid]["ç”Ÿå‘½æœ€å¤§å€¼"] then
-				    JY.Person[jqid]["ç”Ÿå‘½"]=JY.Person[jqid]["ç”Ÿå‘½æœ€å¤§å€¼"]
+			   if PersonKF(jqid,107) and (JY.Person[jqid]["ÄÚÁ¦ĞÔÖÊ"]==0 or (jqid==0 and GetS(4,5,5,5)==5)) then
+				  JY.Person[jqid]["ÉúÃü"]=JY.Person[jqid]["ÉúÃü"]+2
+				  if JY.Person[jqid]["ÉúÃü"]>JY.Person[jqid]["ÉúÃü×î´óÖµ"] then
+				    JY.Person[jqid]["ÉúÃü"]=JY.Person[jqid]["ÉúÃü×î´óÖµ"]
 				  end
 			   end
 			   
 			   if jqid==0 and GetS(4,5,5,5)==7 then
-			      AddPersonAttrib(jqid,"ç”Ÿå‘½",1);
-				  if JLSD(25,75,jqid) then AddPersonAttrib(jqid,"å—ä¼¤ç¨‹åº¦",-1) end
-				  AddPersonAttrib(jqid,"ä¸­æ¯’ç¨‹åº¦",-1);
+			      AddPersonAttrib(jqid,"ÉúÃü",1);
+				  if JLSD(25,75,jqid) then AddPersonAttrib(jqid,"ÊÜÉË³Ì¶È",-1) end
+				  AddPersonAttrib(jqid,"ÖĞ¶¾³Ì¶È",-1);
 			   end
 				
 			   if WAR.LXZT[jqid]~=nil then
 			      if inteam(jqid) then
-			         JY.Person[jqid]["ç”Ÿå‘½"]=JY.Person[jqid]["ç”Ÿå‘½"]-math.random(3)-math.modf(JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]/15)
+			         JY.Person[jqid]["ÉúÃü"]=JY.Person[jqid]["ÉúÃü"]-math.random(3)-math.modf(JY.Person[jqid]["ÊÜÉË³Ì¶È"]/15)
 				  else
-				     JY.Person[jqid]["ç”Ÿå‘½"]=JY.Person[jqid]["ç”Ÿå‘½"]-1-math.modf(JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]/51)
+				     JY.Person[jqid]["ÉúÃü"]=JY.Person[jqid]["ÉúÃü"]-1-math.modf(JY.Person[jqid]["ÊÜÉË³Ì¶È"]/51)
 				  end
-				  if JY.Person[jqid]["ç”Ÿå‘½"]<1 then JY.Person[jqid]["ç”Ÿå‘½"]=1 end
+				  if JY.Person[jqid]["ÉúÃü"]<1 then JY.Person[jqid]["ÉúÃü"]=1 end
 				  WAR.LXZT[jqid]=WAR.LXZT[jqid]-1
 				  if PersonKF(jqid,100) then WAR.LXZT[jqid]=WAR.LXZT[jqid]-1 end
 				  if WAR.LXZT[jqid]<1 then WAR.LXZT[jqid]=nil end
 			   end
 				
-				if JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]>0 then
+				if JY.Person[jqid]["ÊÜÉË³Ì¶È"]>0 then
 				   if PersonKF(jqid,92) then
-				      if JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]>70 then
+				      if JY.Person[jqid]["ÊÜÉË³Ì¶È"]>70 then
 					     if JLSD(30,70,jqid) then
-						    JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]=JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]-1
+						    JY.Person[jqid]["ÊÜÉË³Ì¶È"]=JY.Person[jqid]["ÊÜÉË³Ì¶È"]-1
 					     end
-					  elseif JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]>40 then
+					  elseif JY.Person[jqid]["ÊÜÉË³Ì¶È"]>40 then
 				         if JLSD(15,85,jqid) then
-						    JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]=JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]-1
+						    JY.Person[jqid]["ÊÜÉË³Ì¶È"]=JY.Person[jqid]["ÊÜÉË³Ì¶È"]-1
 					     end
 				      else				         
-						    JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]=JY.Person[jqid]["å—ä¼¤ç¨‹åº¦"]-1					     
+						    JY.Person[jqid]["ÊÜÉË³Ì¶È"]=JY.Person[jqid]["ÊÜÉË³Ì¶È"]-1					     
 					  end				      
 				   end
 				end
 				
-				if JY.Person[jqid]["ä¸­æ¯’ç¨‹åº¦"]>0 then
+				if JY.Person[jqid]["ÖĞ¶¾³Ì¶È"]>0 then
 				   if PersonKF(jqid,99) then
-				       if JY.Person[jqid]["ä¸­æ¯’ç¨‹åº¦"]>70 then
+				       if JY.Person[jqid]["ÖĞ¶¾³Ì¶È"]>70 then
 					     if JLSD(30,70,jqid) then
-						    JY.Person[jqid]["ä¸­æ¯’ç¨‹åº¦"]=JY.Person[jqid]["ä¸­æ¯’ç¨‹åº¦"]-1
+						    JY.Person[jqid]["ÖĞ¶¾³Ì¶È"]=JY.Person[jqid]["ÖĞ¶¾³Ì¶È"]-1
 					     end
-					   elseif JY.Person[jqid]["ä¸­æ¯’ç¨‹åº¦"]>40 then
+					   elseif JY.Person[jqid]["ÖĞ¶¾³Ì¶È"]>40 then
 				         if JLSD(15,85,jqid) then
-						    JY.Person[jqid]["ä¸­æ¯’ç¨‹åº¦"]=JY.Person[jqid]["ä¸­æ¯’ç¨‹åº¦"]-1
+						    JY.Person[jqid]["ÖĞ¶¾³Ì¶È"]=JY.Person[jqid]["ÖĞ¶¾³Ì¶È"]-1
 					     end
 				       else				         
-						    JY.Person[jqid]["ä¸­æ¯’ç¨‹åº¦"]=JY.Person[jqid]["ä¸­æ¯’ç¨‹åº¦"]-1					     
+						    JY.Person[jqid]["ÖĞ¶¾³Ì¶È"]=JY.Person[jqid]["ÖĞ¶¾³Ì¶È"]-1					     
 					   end	
                    end					   
 				end
@@ -1896,8 +1896,8 @@ function DrawTimeBar()
 				end
 				if keypress==127 and JY.WGLVXS==1 then
 				    for d=0,WAR.PersonNum-1 do
-				        if WAR.Person[d]["æˆ‘æ–¹"]==false then
-						    --WAR.Person[d]["æ­»äº¡"]=true
+				        if WAR.Person[d]["ÎÒ·½"]==false then
+						    --WAR.Person[d]["ËÀÍö"]=true
 						end
 					end
 				end
@@ -1916,46 +1916,46 @@ function DrawTimeBar()
 		WAR.SXTJ=WAR.SXTJ+1;		
 	end
 	for i=0,WAR.PersonNum-1 do
-		if WAR.Person[i]["æ­»äº¡"]==false then
+		if WAR.Person[i]["ËÀÍö"]==false then
 			WAR.Person[i]["TimeAdd"]=0;
 		end
 	end
 	WAR.ZYHBP=-1
 	lib.Delay(100);
-	--lib.FreeSur(surid);
+	lib.FreeSur(surid);
 	--lib.FreeSur(surid2);
 end
 
 function DrawTimeBar2()
 	local x1,x2,y=CC.ScreenW*5/8,CC.ScreenW*15/16,CC.FontSmall*5;
 	local draw;
-	--local surid=lib.SaveSur(x1-(10+(x2-x1)/2),0,x2+5+30,y*2+18+25);     
+	local surid=lib.SaveSur(x1-(10+(x2-x1)/2),0,x2+5+30,y*2+18+25);     
 	while true do
 		draw=false;
 		for i=0,WAR.PersonNum-1 do		    
-			if WAR.Person[i]["æ­»äº¡"]==false then			   
+			if WAR.Person[i]["ËÀÍö"]==false then			   
 				if WAR.Person[i]["TimeAdd"]<0 then
 				    draw=true;				    
-    	            --DrawStrBoxWaitKey(JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"],C_GOLD,30)
+    	            --DrawStrBoxWaitKey(JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"],C_GOLD,30)
 					WAR.Person[i]["TimeAdd"]=WAR.Person[i]["TimeAdd"]+10;
 					if WAR.Person[i]["Time"]>-500 then
 						WAR.Person[i]["Time"]=WAR.Person[i]["Time"]-10;						
 				    else
-					    if JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]<100 then
-						   if inteam(WAR.Person[i]["äººç‰©ç¼–å·"]) then
-						      JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]=JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]+Rnd(2)+1	
+					    if JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]<100 then
+						   if inteam(WAR.Person[i]["ÈËÎï±àºÅ"]) then
+						      JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]=JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]+Rnd(2)+1	
 						   else
-						      JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]=JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]+Rnd(2)
+						      JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]=JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]+Rnd(2)
 						   end
 						end 
-						if JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]>100 then JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]=100 end
-						if PersonKF(WAR.Person[i]["äººç‰©ç¼–å·"],100) then JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]=0 end					
+						if JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]>100 then JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]=100 end
+						if PersonKF(WAR.Person[i]["ÈËÎï±àºÅ"],100) then JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]=0 end					
 					end
 				end
 			end
 		end
 		if draw then
-			--lib.LoadSur(surid,x1-(10+(x2-x1)/2),0)
+			lib.LoadSur(surid,x1-(10+(x2-x1)/2),0)
 			DrawTimeBar_sub(x1,x2,y,1);
 			ShowScreen();
 			lib.Delay(10);
@@ -1964,7 +1964,7 @@ function DrawTimeBar2()
 		end
 	end
 	lib.Delay(100);
-	--lib.FreeSur(surid);
+	lib.FreeSur(surid);
 end
 
 function DrawTimeBar_sub(x1,x2,y,flag)
@@ -1978,7 +1978,7 @@ function DrawTimeBar_sub(x1,x2,y,flag)
 	DrawBox_1(x1-3,y,x2+3,y+3,C_ORANGE)
 	DrawBox_1(x1-(x2-x1)/2,y,x1-3,y+3,C_RED)
 	for i=0,WAR.PersonNum-1 do
-		if not WAR.Person[i]["æ­»äº¡"] then
+		if not WAR.Person[i]["ËÀÍö"] then
 			--if WAR.Person[i]["Time"]>least then
 				--local cx=x1+math.modf((WAR.Person[i]["Time"]-least)*(x2-x1)/(1000-least));
 				local cx=x1+math.modf(WAR.Person[i]["Time"]/4);
@@ -1987,56 +1987,56 @@ function DrawTimeBar_sub(x1,x2,y,flag)
 				if WAR.Person[i]["TimeAdd"]<5 then
 					color=C_ORANGE;
 				end				
-				if WAR.Person[i]["æˆ‘æ–¹"] then
+				if WAR.Person[i]["ÎÒ·½"] then
 					--lib.FillColor(cx-1,CC.FontSmall*4,cx+1,CC.FontSmall*5-2,C_WHITE);
-					--if WAR.FXDS[WAR.Person[i]["äººç‰©ç¼–å·"]]==nil then
-					   drawname(cx,0,JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å§“å"],CC.FontSmall,color)
+					--if WAR.FXDS[WAR.Person[i]["ÈËÎï±àºÅ"]]==nil then
+					   drawname(cx,0,JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ĞÕÃû"],CC.FontSmall,color)
 					   --drawname(cx,0,WAR.Person[i]["Time"],CC.FontSmall,color)
 					--else
-					   --drawname(cx,0,"å°",CC.FontSmall,color)
+					   --drawname(cx,0,"·â",CC.FontSmall,color)
 					--end
-					local w,h=lib.PicGetXY(99,JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å¤´åƒä»£å·"]*2);
-					if WAR.Person[i]["äººç‰©ç¼–å·"]==0 then
+					local w,h=lib.PicGetXY(99,JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["Í·Ïñ´úºÅ"]*2);
+					if WAR.Person[i]["ÈËÎï±àºÅ"]==0 then
 					   if GetS(4,5,5,5)<8 then
 					      lib.PicLoadCache(99,(280+GetS(4,5,5,5))*2,cx-w/2,y-h-4,1,0);
 					   else  
 						  lib.PicLoadCache(99,(287+GetS(4,5,5,4))*2,cx-w/2,y-h-4,1,0);
 					   end
 					else   
-					   lib.PicLoadCache(99,JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å¤´åƒä»£å·"]*2,cx-w/2,y-h-4,1,0);
+					   lib.PicLoadCache(99,JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["Í·Ïñ´úºÅ"]*2,cx-w/2,y-h-4,1,0);
 				    end
-					if WAR.JQSDXS[WAR.Person[i]["äººç‰©ç¼–å·"]]~=nil then
+					if WAR.JQSDXS[WAR.Person[i]["ÈËÎï±àºÅ"]]~=nil then
 					    if WAR.JQSD_WMM==1 then
-					       DrawString(cx-w/2+2,y-h-4+18,WAR.JQSDXS[WAR.Person[i]["äººç‰©ç¼–å·"]],C_GOLD,15)
+					       DrawString(cx-w/2+2,y-h-4+18,WAR.JQSDXS[WAR.Person[i]["ÈËÎï±àºÅ"]],C_GOLD,15)
 					    end
 					end
 				else
 					--lib.FillColor(cx-1,CC.FontSmall*5+2,cx+1,CC.FontSmall*6,C_WHITE);
-					local w,h=lib.PicGetXY(99,JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å¤´åƒä»£å·"]*2);
-					if WAR.Person[i]["äººç‰©ç¼–å·"]==0 then
+					local w,h=lib.PicGetXY(99,JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["Í·Ïñ´úºÅ"]*2);
+					if WAR.Person[i]["ÈËÎï±àºÅ"]==0 then
 					   if GetS(4,5,5,5)<8 then
 					      lib.PicLoadCache(99,(280+GetS(4,5,5,5))*2,cx-w/2,y+6,1,0);
 					   else  
 						  lib.PicLoadCache(99,(287+GetS(4,5,5,4))*2,cx-w/2,y+6,1,0);
 					   end
 					else   
-					   lib.PicLoadCache(99,JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å¤´åƒä»£å·"]*2,cx-w/2,y+6,1,0);
+					   lib.PicLoadCache(99,JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["Í·Ïñ´úºÅ"]*2,cx-w/2,y+6,1,0);
 				    end
-					if WAR.JQSDXS[WAR.Person[i]["äººç‰©ç¼–å·"]]~=nil then
+					if WAR.JQSDXS[WAR.Person[i]["ÈËÎï±àºÅ"]]~=nil then
 					    if WAR.JQSD_WMM==1 then
-					       DrawString(cx-w/2+2,y+6+18,WAR.JQSDXS[WAR.Person[i]["äººç‰©ç¼–å·"]],C_GOLD,15)
+					       DrawString(cx-w/2+2,y+6+18,WAR.JQSDXS[WAR.Person[i]["ÈËÎï±àºÅ"]],C_GOLD,15)
 					    end
 					end
-					--lib.PicLoadCache(99,JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å¤´åƒä»£å·"]*2,cx-w/2,y+6,1,0);
-					--if WAR.FXDS[WAR.Person[i]["äººç‰©ç¼–å·"]]==nil then					   
-					   --if WAR.LQZ[WAR.Person[i]["äººç‰©ç¼–å·"]]~=nil then
-					   --drawname(cx,y+32,WAR.LQZ[WAR.Person[i]["äººç‰©ç¼–å·"]],CC.FontSmall,color)							       
+					--lib.PicLoadCache(99,JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["Í·Ïñ´úºÅ"]*2,cx-w/2,y+6,1,0);
+					--if WAR.FXDS[WAR.Person[i]["ÈËÎï±àºÅ"]]==nil then					   
+					   --if WAR.LQZ[WAR.Person[i]["ÈËÎï±àºÅ"]]~=nil then
+					   --drawname(cx,y+32,WAR.LQZ[WAR.Person[i]["ÈËÎï±àºÅ"]],CC.FontSmall,color)							       
 					   --else
-					   drawname(cx,y+32,JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å§“å"],CC.FontSmall,color)
+					   drawname(cx,y+32,JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ĞÕÃû"],CC.FontSmall,color)
                        --drawname(cx,y+32,WAR.Person[i]["Time"],CC.FontSmall,color) 					   
 					   --end
 					--else
-					   --drawname(cx,y+32,"å°",CC.FontSmall,color)
+					   --drawname(cx,y+32,"·â",CC.FontSmall,color)
 					--end				
 				end
 			--end
@@ -2054,14 +2054,14 @@ function DrawTimeBar_sub(x1,x2,y,flag)
 				else
 				   wfx=WAR.FXDS[0]
 				end				    
-				DrawString(x1-(10+(x2-x1)/2),y*2+15,string.format("å‘½:%3d å†…:%4d ä¼¤:%2d å°:%2d æµ:%2d",w["ç”Ÿå‘½"],w["å†…åŠ›"],w["å—ä¼¤ç¨‹åº¦"],wfx,wlx),C_WHITE,24)
+				DrawString(x1-(10+(x2-x1)/2),y*2+15,string.format("Ãü:%3d ÄÚ:%4d ÉË:%2d ·â:%2d Á÷:%2d",w["ÉúÃü"],w["ÄÚÁ¦"],w["ÊÜÉË³Ì¶È"],wfx,wlx),C_WHITE,24)
 				]]
 				DrawString(x2+10,y-23,CC.s39,C_WHITE,15)
 				DrawString(x2+10,y-3,WAR.SXTJ,C_GOLD,20)
-				--local pid=WAR.Person[i]["äººç‰©ç¼–å·"]
-				local hp=math.modf(JY.Person[0]["ç”Ÿå‘½"]*320/JY.Person[0]["ç”Ÿå‘½æœ€å¤§å€¼"])
-                local mp=math.modf(JY.Person[0]["å†…åŠ›"]*320/JY.Person[0]["å†…åŠ›æœ€å¤§å€¼"])
-				local zt1=math.modf(JY.Person[0]["å—ä¼¤ç¨‹åº¦"]*100/100)
+				--local pid=WAR.Person[i]["ÈËÎï±àºÅ"]
+				local hp=math.modf(JY.Person[0]["ÉúÃü"]*320/JY.Person[0]["ÉúÃü×î´óÖµ"])
+                local mp=math.modf(JY.Person[0]["ÄÚÁ¦"]*320/JY.Person[0]["ÄÚÁ¦×î´óÖµ"])
+				local zt1=math.modf(JY.Person[0]["ÊÜÉË³Ì¶È"]*100/100)
 				local fx,lx=0,0;
 				--if WAR.FXDS[0]==nil then WAR.FXDS[0]=50 end
 				--if WAR.LXZT[0]==nil then WAR.LXZT[0]=100 end
@@ -2073,7 +2073,7 @@ function DrawTimeBar_sub(x1,x2,y,flag)
 				local a=0;
 				local my;
 				for t=0,WAR.PersonNum-1 do
-				     if WAR.Person[t]["äººç‰©ç¼–å·"]==0 and WAR.Person[t]["æ­»äº¡"]==false then
+				     if WAR.Person[t]["ÈËÎï±àºÅ"]==0 and WAR.Person[t]["ËÀÍö"]==false then
 					    a=1
 						my=t
 						break
@@ -2089,32 +2089,32 @@ function DrawTimeBar_sub(x1,x2,y,flag)
 					lib.PicLoadCache(99,hid*2,A-25,B-3,1,0);
 					DrawBox_1(A,B,A+320,B+10,C_RED) 
 					lib.Background(A,B,A+hp-1,B+10,50,C_RED)
-					DrawString(A+2,B+1,"ç”Ÿå‘½",C_GOLD,8)
+					DrawString(A+2,B+1,"ÉúÃü",C_GOLD,8)
 					DrawBox_1(A,B+10,A+320,B+20,C_ORANGE) 
 					lib.Background(A,B+10,A+mp-1,B+20,50,C_ORANGE)
-					DrawString(A+2,B+11,"å†…åŠ›",C_GOLD,8)
+					DrawString(A+2,B+11,"ÄÚÁ¦",C_GOLD,8)
 					DrawBox_1(A,B+20,A+100,B+30,C_RED) 
 					lib.Background(A,B+20,A+zt1-1,B+30,50,C_RED)
-					DrawString(A+2,B+21,"å†…ä¼¤",C_GOLD,8)
+					DrawString(A+2,B+21,"ÄÚÉË",C_GOLD,8)
 					DrawBox_1(A+110,B+20,A+210,B+30,C_ORANGE) 
 					lib.Background(A+110,B+20,A+110+zt2-1,B+30,50,C_ORANGE)
-					DrawString(A+2+110,B+21,"å°ç©´",C_GOLD,8)
+					DrawString(A+2+110,B+21,"·âÑ¨",C_GOLD,8)
 					DrawBox_1(A+220,B+20,A+320,B+30,C_RED) 
 					lib.Background(A+220,B+20,A+220+zt3-1,B+30,50,C_RED)
-					DrawString(A+2+220,B+21,"æµè¡€",C_GOLD,8)
+					DrawString(A+2+220,B+21,"Á÷Ñª",C_GOLD,8)
 				end
 				if my~=nil and JY.WGLVXS==1 then
-				   --DrawString(10,CC.ScreenH-20,WAR.Person[my]["åæ ‡X"].."  "..WAR.Person[my]["åæ ‡Y"],C_WHITE,20)
+				   --DrawString(10,CC.ScreenH-20,WAR.Person[my]["×ø±êX"].."  "..WAR.Person[my]["×ø±êY"],C_WHITE,20)
 				end
 				--DrawBox_1(A,B,A+160,B+20,C_RED) 
 				--lib.FillColor(A,B,A+hp,B+20,C_RED)
 				--lib.Background(A,B,A+hp,B+20,100,C_RED)
-				--DrawString(A+10,B+2,"ç”Ÿå‘½",C_GOLD,15)
+				--DrawString(A+10,B+2,"ÉúÃü",C_GOLD,15)
 				--lib.PicLoadCache(99,0,A+160,B-5,1,0);
 				--DrawBox_1(A+185,B,A+345,B+20,C_ORANGE) 
 				--lib.FillColor(A+185+(160-mp),B,A+160+185,B+20,C_ORANGE)
 				--lib.Background(A+185+(160-mp),B,A+160+185,B+20,100,C_ORANGE)
-				--DrawString(A+305,B+2,"å†…åŠ›",C_GOLD,15)
+				--DrawString(A+305,B+2,"ÄÚÁ¦",C_GOLD,15)
 				--lib.PicLoadCache(1,275*2,A,B,1);
 				--lib.PicLoadCache(1,275*2,A,B+30,1);
 				--lib.SetClip(A,B,A+hp,B+24)
@@ -2128,9 +2128,9 @@ function SelectWugongMenu(id,x,y)
 	local menu={};
 	for i=1,CC.Kungfunum do
 		menu[i]={"",nil,0};
-		local kfid=JY.Person[id]["æ­¦åŠŸ"..i]
+		local kfid=JY.Person[id]["Îä¹¦"..i]
 		if kfid~=nil and kfid>0 then
-				menu[i][1]=JY.Wugong[kfid]["åç§°"].."Â·"..JY.Person[id]["æ­¦åŠŸç­‰çº§"..i]
+				menu[i][1]=JY.Wugong[kfid]["Ãû³Æ"].."¡¤"..JY.Person[id]["Îä¹¦µÈ¼¶"..i]
 				menu[i][3]=1;
 		end
 	end
@@ -2138,19 +2138,19 @@ function SelectWugongMenu(id,x,y)
 end
 
 function WarDrawMap(flag,v1,v2,v3,v4)
---ç»˜æˆ˜æ–—åœ°å›¾
---flag==0 åŸºæœ¬
---      1 æ˜¾ç¤ºç§»åŠ¨è·¯å¾„ (v1,v2) å½“å‰ç§»åŠ¨ä½ç½®
---      2 å‘½ä¸­äººç‰©ï¼ˆæ­¦åŠŸï¼ŒåŒ»ç–—ç­‰ï¼‰å¦ä¸€ä¸ªé¢œè‰²æ˜¾ç¤º
---      4 æˆ˜æ–—åŠ¨ç”», v1 æˆ˜æ–—äººç‰©pic, v2æˆ˜æ–—äººç‰©è´´å›¾ç±»å‹(0 ä½¿ç”¨æˆ˜æ–—åœºæ™¯è´´å›¾ï¼Œ4ï¼Œfight***è´´å›¾ç¼–å· v3 æ­¦åŠŸæ•ˆæœè´´å›¾ -1æ²¡æœ‰æ•ˆæœ
+--»æÕ½¶·µØÍ¼
+--flag==0 »ù±¾
+--      1 ÏÔÊ¾ÒÆ¶¯Â·¾¶ (v1,v2) µ±Ç°ÒÆ¶¯Î»ÖÃ
+--      2 ÃüÖĞÈËÎï£¨Îä¹¦£¬Ò½ÁÆµÈ£©ÁíÒ»¸öÑÕÉ«ÏÔÊ¾
+--      4 Õ½¶·¶¯»­, v1 Õ½¶·ÈËÎïpic, v2Õ½¶·ÈËÎïÌùÍ¼ÀàĞÍ(0 Ê¹ÓÃÕ½¶·³¡¾°ÌùÍ¼£¬4£¬fight***ÌùÍ¼±àºÅ v3 Îä¹¦Ğ§¹ûÌùÍ¼ -1Ã»ÓĞĞ§¹û
 
-    local x=WAR.Person[WAR.CurID]["åæ ‡X"];
-    local y=WAR.Person[WAR.CurID]["åæ ‡Y"];
+    local x=WAR.Person[WAR.CurID]["×ø±êX"];
+    local y=WAR.Person[WAR.CurID]["×ø±êY"];
 	v4=v4 or JY.SubScene
     if flag==0 then
 	    lib.DrawWarMap(0,x,y,0,0,-1,v4);
     elseif flag==1 then
-		if JY.SubScene==0 or JY.SubScene==2 or JY.SubScene==3 or JY.SubScene==4 or JY.SubScene==39 then     --é›ªåœ°åœ°å›¾ç”¨é»‘è‰²è±å½¢
+		if JY.SubScene==0 or JY.SubScene==2 or JY.SubScene==3 or JY.SubScene==4 or JY.SubScene==39 then     --Ñ©µØµØÍ¼ÓÃºÚÉ«ÁâĞÎ
 		    lib.DrawWarMap(1,x,y,v1,v2,-1,v4);
         else
 		    lib.DrawWarMap(2,x,y,v1,v2,-1,v4);
@@ -2165,10 +2165,10 @@ function WarDrawMap(flag,v1,v2,v3,v4)
 	end
 end
 
-function WarShowHead(id)               --æ˜¾ç¤ºæˆ˜æ–—äººå¤´åƒ
+function WarShowHead(id)               --ÏÔÊ¾Õ½¶·ÈËÍ·Ïñ
 	id=id or WAR.CurID
 	if id<0 then return end
-    local pid=WAR.Person[id]["äººç‰©ç¼–å·"];
+    local pid=WAR.Person[id]["ÈËÎï±àºÅ"];
 	local p=JY.Person[pid];
 
 	local h=16+2;
@@ -2176,7 +2176,7 @@ function WarShowHead(id)               --æ˜¾ç¤ºæˆ˜æ–—äººå¤´åƒ
 	local height=160+2*CC.MenuBorderPixel+4*h;
 	local x1,y1;
 	local i=1;
-    if WAR.Person[id]["æˆ‘æ–¹"]==true then
+    if WAR.Person[id]["ÎÒ·½"]==true then
 	    x1=CC.ScreenW-width-10;
         y1=CC.ScreenH-height-10;
     else
@@ -2185,7 +2185,7 @@ function WarShowHead(id)               --æ˜¾ç¤ºæˆ˜æ–—äººå¤´åƒ
     end
 
     DrawBox(x1,y1,x1+width,y1+height,C_WHITE);
-	local headw,headh=lib.PicGetXY(1,p["å¤´åƒä»£å·"]*2);
+	local headw,headh=lib.PicGetXY(1,p["Í·Ïñ´úºÅ"]*2);
     local headx=(160-headw)/2;
 	local heady=(100-headh)/2;
 	if pid==0 then
@@ -2195,34 +2195,34 @@ function WarShowHead(id)               --æ˜¾ç¤ºæˆ˜æ–—äººå¤´åƒ
 		  lib.PicLoadCache(1,(287+GetS(4,5,5,4))*2,x1+5+headx,y1+5+heady,1);
 	    end
 	else	
-	    lib.PicLoadCache(1,p["å¤´åƒä»£å·"]*2,x1+5+headx,y1+5+heady,1);
+	    lib.PicLoadCache(1,p["Í·Ïñ´úºÅ"]*2,x1+5+headx,y1+5+heady,1);
 	end
 	x1=x1+5
 	y1=y1+5+100;
 	local color;
-	if p["å—ä¼¤ç¨‹åº¦"]<p["ä¸­æ¯’ç¨‹åº¦"] then
-		if p["ä¸­æ¯’ç¨‹åº¦"]==0 then
+	if p["ÊÜÉË³Ì¶È"]<p["ÖĞ¶¾³Ì¶È"] then
+		if p["ÖĞ¶¾³Ì¶È"]==0 then
 			color =RGB(252,148,16);
-		elseif p["ä¸­æ¯’ç¨‹åº¦"]<50 then
+		elseif p["ÖĞ¶¾³Ì¶È"]<50 then
 			color=RGB(120,208,88);
 		else
 			color=RGB(56,136,36);
 		end
 	else
-		if p["å—ä¼¤ç¨‹åº¦"]<33 then
+		if p["ÊÜÉË³Ì¶È"]<33 then
 			color =RGB(236,200,40);
-		elseif p["å—ä¼¤ç¨‹åº¦"]<66 then
+		elseif p["ÊÜÉË³Ì¶È"]<66 then
 			color=RGB(244,128,32);
 		else
 			color=RGB(232,32,44);
 		end	
 	end
-    MyDrawString(x1,x1+160,y1+5,p["å§“å"],color,32);
+    MyDrawString(x1,x1+160,y1+5,p["ĞÕÃû"],color,32);
 	y1=y1+42
 	
-local hp=math.modf(JY.Person[pid]["ç”Ÿå‘½"]*160/JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"])
-local mp=math.modf(JY.Person[pid]["å†…åŠ›"]*160/JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"])
-local tp=math.modf(JY.Person[pid]["ä½“åŠ›"]*160/100)
+local hp=math.modf(JY.Person[pid]["ÉúÃü"]*160/JY.Person[pid]["ÉúÃü×î´óÖµ"])
+local mp=math.modf(JY.Person[pid]["ÄÚÁ¦"]*160/JY.Person[pid]["ÄÚÁ¦×î´óÖµ"])
+local tp=math.modf(JY.Person[pid]["ÌåÁ¦"]*160/100)
 	lib.PicLoadCache(1,275*2,x1,y1,1);
 	lib.PicLoadCache(1,275*2,x1,y1+30,1);
 	lib.PicLoadCache(1,275*2,x1,y1+60,1);
@@ -2234,31 +2234,31 @@ lib.SetClip(x1,y1+30,x1+tp,y1+84)
 	lib.PicLoadCache(1,276*2,x1,y1+60,1);
 lib.SetClip(0,0,0,0)
 
-    DrawString(x1+10,y1+5,"å‘½",C_WHITE,16);
-    DrawString(x1+10,y1+35,"å†…",C_WHITE,16);
-    DrawString(x1+10,y1+65,"ä½“",C_WHITE,16);
+    DrawString(x1+10,y1+5,"Ãü",C_WHITE,16);
+    DrawString(x1+10,y1+35,"ÄÚ",C_WHITE,16);
+    DrawString(x1+10,y1+65,"Ìå",C_WHITE,16);
 
     local lifexs=0;
-	local nlxs=JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["å†…åŠ›"]
-	local tlxs=JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["ä½“åŠ›"]
+	local nlxs=JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]
+	local tlxs=JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["ÌåÁ¦"]
 	
-	if inteam(WAR.Person[id]["äººç‰©ç¼–å·"]) or pid==0 then
-	    lifexs=JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]
+	if inteam(WAR.Person[id]["ÈËÎï±àºÅ"]) or pid==0 then
+	    lifexs=JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["ÉúÃü"]
 	else    
-		lifexs=JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]*2
+		lifexs=JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["ÉúÃü"]*2
 	end
 	DrawString(x1+10+18,y1+5,lifexs,C_WHITE,16);
 	DrawString(x1+10+18,y1+35,nlxs,C_WHITE,16);
 	DrawString(x1+10+18,y1+65,tlxs,C_WHITE,16);
 	
-	if WAR.Person[id]["æˆ‘æ–¹"]==false then--and JY.WGLVXS==1 then
+	if WAR.Person[id]["ÎÒ·½"]==false then--and JY.WGLVXS==1 then
 	   DrawBox(x1-5,y1+95,x1+width-5,y1+220,C_WHITE);
 	   local hl=1;
 	   for i=1,4 do
-	        local wp=JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["æºå¸¦ç‰©å“"..i]
-	        local wps=JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["æºå¸¦ç‰©å“æ•°é‡"..i]        
+	        local wp=JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["Ğ¯´øÎïÆ·"..i]
+	        local wps=JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["Ğ¯´øÎïÆ·ÊıÁ¿"..i]        
 			if wp>=0 then
-			    local wpm=JY.Thing[wp]["åç§°"]
+			    local wpm=JY.Thing[wp]["Ãû³Æ"]
 				DrawString(x1,y1+70+hl*30,wpm..wps,C_WHITE,25);
 	            hl=hl+1;
 		   end
@@ -2304,17 +2304,17 @@ function GetJiqi()
 		end
 	end
 	for i=0,WAR.PersonNum-1 do
-		if not WAR.Person[i]['æ­»äº¡'] then
-			local id=WAR.Person[i]['äººç‰©ç¼–å·']
-			local nsyxjq=0;--JY.Person[id]["å—ä¼¤ç¨‹åº¦"]
+		if not WAR.Person[i]['ËÀÍö'] then
+			local id=WAR.Person[i]['ÈËÎï±àºÅ']
+			local nsyxjq=0;--JY.Person[id]["ÊÜÉË³Ì¶È"]
 			if inteam(id) then
-			    nsyxjq=math.modf(JY.Person[id]["å—ä¼¤ç¨‹åº¦"]/10);
+			    nsyxjq=math.modf(JY.Person[id]["ÊÜÉË³Ì¶È"]/10);
 			else
-                nsyxjq=math.modf(JY.Person[id]["å—ä¼¤ç¨‹åº¦"]/25);
+                nsyxjq=math.modf(JY.Person[id]["ÊÜÉË³Ì¶È"]/25);
             end				
-			WAR.Person[i]["TimeAdd"]=math.modf(getnewmove(WAR.Person[i]["è½»åŠŸ"],inteam(id))+getnewmove1(JY.Person[id]["å†…åŠ›"],JY.Person[id]["å†…åŠ›æœ€å¤§å€¼"],inteam(id))-JY.Person[id]["ä¸­æ¯’ç¨‹åº¦"]/25-nsyxjq+JY.Person[id]["ä½“åŠ›"]/30+5)
+			WAR.Person[i]["TimeAdd"]=math.modf(getnewmove(WAR.Person[i]["Çá¹¦"],inteam(id))+getnewmove1(JY.Person[id]["ÄÚÁ¦"],JY.Person[id]["ÄÚÁ¦×î´óÖµ"],inteam(id))-JY.Person[id]["ÖĞ¶¾³Ì¶È"]/25-nsyxjq+JY.Person[id]["ÌåÁ¦"]/30+5)
 			for ii=1,10 do
-			    if JY.Person[id]["æ­¦åŠŸ"..ii]==105 then
+			    if JY.Person[id]["Îä¹¦"..ii]==105 then
 				   WAR.Person[i]["TimeAdd"]=math.modf(WAR.Person[i]["TimeAdd"]*1.2)
 				end
 		    end
@@ -2325,7 +2325,7 @@ function GetJiqi()
 			if id==29 then
 			   WAR.Person[i]["TimeAdd"]=WAR.Person[i]["TimeAdd"]+20
 			   for j=0,WAR.PersonNum-1 do
-	                if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[i]["æˆ‘æ–¹"] then                            			   			                   
+	                if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[i]["ÎÒ·½"] then                            			   			                   
 		               WAR.Person[i]["TimeAdd"]=WAR.Person[i]["TimeAdd"]-4
 					end
 			   end
@@ -2333,8 +2333,8 @@ function GetJiqi()
 			if GetS(4,5,5,5)==2 and id==0 then
 			   local jsyx=0;
 				for i=1,10 do
-					if JY.Person[0]["æ­¦åŠŸ"..i]==110 or (JY.Person[0]["æ­¦åŠŸ"..i]<50 and JY.Person[0]["æ­¦åŠŸ"..i]>26) then
-						if JY.Person[0]["æ­¦åŠŸç­‰çº§"..i]==999 then
+					if JY.Person[0]["Îä¹¦"..i]==110 or (JY.Person[0]["Îä¹¦"..i]<50 and JY.Person[0]["Îä¹¦"..i]>26) then
+						if JY.Person[0]["Îä¹¦µÈ¼¶"..i]==999 then
 						   jsyx=jsyx+1
 						end
 					end
@@ -2344,7 +2344,7 @@ function GetJiqi()
 			if id==55 then
 			   local xz=0;
 			   for j=0,WAR.PersonNum-1 do
-	                if WAR.Person[j]["æ­»äº¡"]==true and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[i]["æˆ‘æ–¹"] then                            			   			                   
+	                if WAR.Person[j]["ËÀÍö"]==true and WAR.Person[j]["ÎÒ·½"]==WAR.Person[i]["ÎÒ·½"] then                            			   			                   
 		               WAR.Person[i]["TimeAdd"]=WAR.Person[i]["TimeAdd"]+3
 					end
 			   end
@@ -2353,7 +2353,7 @@ function GetJiqi()
 			    if id==173 or id==174 or id==175 then
 			      local shz=0;
 				    for j=0,WAR.PersonNum-1 do
-	                   if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[i]["æˆ‘æ–¹"] then                            			   			                   
+	                   if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[i]["ÎÒ·½"] then                            			   			                   
 		                  shz=shz+1
 					   end
 				    end
@@ -2362,7 +2362,7 @@ function GetJiqi()
 			end	
 			if id==0 and WAR.LRZ==1 then
 			    for j=0,WAR.PersonNum-1 do
-	                    if WAR.Person[j]["äººç‰©ç¼–å·"]==92 and WAR.Person[j]["æ­»äº¡"]==false then                        			   			                   
+	                    if WAR.Person[j]["ÈËÎï±àºÅ"]==92 and WAR.Person[j]["ËÀÍö"]==false then                        			   			                   
 		                    if WE_JL(0,92,3) then					       
 							   WAR.Person[i]["TimeAdd"]=WAR.Person[i]["TimeAdd"]+5
 							end	
@@ -2395,10 +2395,10 @@ function GetJiqi()
 			        WAR.Person[i]["TimeAdd"]=WAR.Person[i]["TimeAdd"]+10
 				end
 			end
-			--if inteam(id) then WAR.Person[i]["TimeAdd"]=WAR.Person[i]["TimeAdd"]-math.modf(JY.Person[id]["å—ä¼¤ç¨‹åº¦"]/20) end
+			--if inteam(id) then WAR.Person[i]["TimeAdd"]=WAR.Person[i]["TimeAdd"]-math.modf(JY.Person[id]["ÊÜÉË³Ì¶È"]/20) end
 			if WAR.Person[i]["TimeAdd"]<5 then WAR.Person[i]["TimeAdd"]=5 end
             if (id==445 or id==446) and WAR.ZDDH==226 then WAR.Person[i]["TimeAdd"]=0 end 			
-			if JY.ZJSL==1 and (not inteam(id)) and WAR.Person[i]["æˆ‘æ–¹"]==false then WAR.Person[i]["TimeAdd"]=0 end --DJQ0			
+			if JY.ZJSL==1 and (not inteam(id)) and WAR.Person[i]["ÎÒ·½"]==false then WAR.Person[i]["TimeAdd"]=0 end --DJQ0			
 			if WAR.Person[i]["TimeAdd"]>60 then WAR.Person[i]["TimeAdd"]=60 end	
 			WAR.JQSDXS[id]=WAR.Person[i]["TimeAdd"]
 			if WAR.LQZ[id]==100 then WAR.JQSDXS[id]=WAR.Person[i]["TimeAdd"]*2 end
@@ -2408,8 +2408,8 @@ function GetJiqi()
 	end
 	WAR.JQSD_WMM=0;
 	for i=0,WAR.PersonNum-1 do
-	    local p=WAR.Person[i]["äººç‰©ç¼–å·"]
-	    if p==76 and inteam(p) and WAR.Person[i]["æ­»äº¡"]==false then
+	    local p=WAR.Person[i]["ÈËÎï±àºÅ"]
+	    if p==76 and inteam(p) and WAR.Person[i]["ËÀÍö"]==false then
 		    WAR.JQSD_WMM=1
 			break;
 		end
@@ -2423,15 +2423,15 @@ function buzhen()
 		return
 	end
 	if WAR.ZDDH==238 then return end
-	say('ï½ï¼Œè¦å¸ƒç½®é˜µå‹å—ï¼Ÿ',56)
-	if not DrawStrBoxYesNo(-1,-1,'è¦å¸ƒç½®é˜µå‹å—',C_WHITE,CC.DefaultFont) then
+	say('£î£¬Òª²¼ÖÃÕóĞÍÂğ£¿',56)
+	if not DrawStrBoxYesNo(-1,-1,'Òª²¼ÖÃÕóĞÍÂğ',C_WHITE,CC.DefaultFont) then
 		return
 	end
 	for i=0,WAR.PersonNum-1 do
-		if WAR.Person[i]['æˆ‘æ–¹'] then
+		if WAR.Person[i]['ÎÒ·½'] then
 			WAR.CurID=i
 			WAR.ShowHead=1
-			War_CalMoveStep(WAR.CurID,math.modf(JY.Person[56]['ç­‰çº§']/3-4),0);
+			War_CalMoveStep(WAR.CurID,math.modf(JY.Person[56]['µÈ¼¶']/3-4),0);
 			local x,y
 			while true do
 				x,y=War_SelectMove()
@@ -2445,62 +2445,62 @@ function buzhen()
 	end
 end
 
-function War_PersonLostLife(i)             --è®¡ç®—æˆ˜æ–—åæ¯å›åˆç”±äºä¸­æ¯’æˆ–å—ä¼¤è€Œæ‰è¡€
+function War_PersonLostLife(i)             --¼ÆËãÕ½¶·ºóÃ¿»ØºÏÓÉÓÚÖĞ¶¾»òÊÜÉË¶øµôÑª
     
-        local pid=WAR.Person[i]["äººç‰©ç¼–å·"]
-        if WAR.Person[i]["æ­»äº¡"]==false then
-            if JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]>0 then
-                local dec=math.modf(JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]/20);
-                AddPersonAttrib(pid,"ç”Ÿå‘½",-dec);
+        local pid=WAR.Person[i]["ÈËÎï±àºÅ"]
+        if WAR.Person[i]["ËÀÍö"]==false then
+            if JY.Person[pid]["ÊÜÉË³Ì¶È"]>0 then
+                local dec=math.modf(JY.Person[pid]["ÊÜÉË³Ì¶È"]/20);
+                AddPersonAttrib(pid,"ÉúÃü",-dec);
             end
-            if JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"]>0 then
-                --local dec=math.modf(JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"]/10);
-                local dec=math.modf(JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"]/3);          --æ­¤å¤„ä¿®æ”¹
-                AddPersonAttrib(pid,"ç”Ÿå‘½",-dec);
+            if JY.Person[pid]["ÖĞ¶¾³Ì¶È"]>0 then
+                --local dec=math.modf(JY.Person[pid]["ÖĞ¶¾³Ì¶È"]/10);
+                local dec=math.modf(JY.Person[pid]["ÖĞ¶¾³Ì¶È"]/3);          --´Ë´¦ĞŞ¸Ä
+                AddPersonAttrib(pid,"ÉúÃü",-dec);
             end
-            if JY.Person[pid]["ç”Ÿå‘½"]<=0 then
-                JY.Person[pid]["ç”Ÿå‘½"]=1;
+            if JY.Person[pid]["ÉúÃü"]<=0 then
+                JY.Person[pid]["ÉúÃü"]=1;
             end
         end
     
 end
 
-function War_EndPersonData(isexp,warStatus)            --æˆ˜æ–—ä»¥åè®¾ç½®äººç‰©å‚æ•°
---æ•Œæ–¹äººå‘˜å‚æ•°æ¢å¤
+function War_EndPersonData(isexp,warStatus)            --Õ½¶·ÒÔºóÉèÖÃÈËÎï²ÎÊı
+--µĞ·½ÈËÔ±²ÎÊı»Ö¸´
     for i=0,WAR.PersonNum-1 do
-        local pid=WAR.Person[i]["äººç‰©ç¼–å·"]
+        local pid=WAR.Person[i]["ÈËÎï±àºÅ"]
         if not instruct_16(pid) then
-            JY.Person[pid]["ç”Ÿå‘½"]=JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"];
-            JY.Person[pid]["å†…åŠ›"]=JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"];
-            JY.Person[pid]["ä½“åŠ›"]=CC.PersonAttribMax["ä½“åŠ›"];
-            JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]=0;
-            JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"]=0;
+            JY.Person[pid]["ÉúÃü"]=JY.Person[pid]["ÉúÃü×î´óÖµ"];
+            JY.Person[pid]["ÄÚÁ¦"]=JY.Person[pid]["ÄÚÁ¦×î´óÖµ"];
+            JY.Person[pid]["ÌåÁ¦"]=CC.PersonAttribMax["ÌåÁ¦"];
+            JY.Person[pid]["ÊÜÉË³Ì¶È"]=0;
+            JY.Person[pid]["ÖĞ¶¾³Ì¶È"]=0;
         end
     end
 
-    --æˆ‘æ–¹äººå‘˜å‚æ•°æ¢å¤ï¼Œè¾“èµ¢éƒ½æœ‰
+    --ÎÒ·½ÈËÔ±²ÎÊı»Ö¸´£¬ÊäÓ®¶¼ÓĞ
     for i=0,WAR.PersonNum-1 do
-        local pid=WAR.Person[i]["äººç‰©ç¼–å·"]
+        local pid=WAR.Person[i]["ÈËÎï±àºÅ"]
         if instruct_16(pid) then
 			if warStatus==1 then
-				JY.Person[pid]["ç”Ÿå‘½"]=JY.Person[pid]["ç”Ÿå‘½"]+math.modf((JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]-JY.Person[pid]["ç”Ÿå‘½"])*0.3)
-				JY.Person[pid]["å†…åŠ›"]=JY.Person[pid]["å†…åŠ›"]+math.modf((JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]-JY.Person[pid]["å†…åŠ›"])*0.3)
-				JY.Person[pid]["ä½“åŠ›"]=JY.Person[pid]["ä½“åŠ›"]+math.modf((100-JY.Person[pid]["ä½“åŠ›"])*0.3)
-				JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]=math.modf(JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]/2)
-				JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"]=math.modf(JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"]/2)
+				JY.Person[pid]["ÉúÃü"]=JY.Person[pid]["ÉúÃü"]+math.modf((JY.Person[pid]["ÉúÃü×î´óÖµ"]-JY.Person[pid]["ÉúÃü"])*0.3)
+				JY.Person[pid]["ÄÚÁ¦"]=JY.Person[pid]["ÄÚÁ¦"]+math.modf((JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]-JY.Person[pid]["ÄÚÁ¦"])*0.3)
+				JY.Person[pid]["ÌåÁ¦"]=JY.Person[pid]["ÌåÁ¦"]+math.modf((100-JY.Person[pid]["ÌåÁ¦"])*0.3)
+				JY.Person[pid]["ÊÜÉË³Ì¶È"]=math.modf(JY.Person[pid]["ÊÜÉË³Ì¶È"]/2)
+				JY.Person[pid]["ÖĞ¶¾³Ì¶È"]=math.modf(JY.Person[pid]["ÖĞ¶¾³Ì¶È"]/2)
 			else
-				if JY.Person[pid]["ç”Ÿå‘½"]<JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]/4 then
-					JY.Person[pid]["ç”Ÿå‘½"]=math.modf(JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]/4);
+				if JY.Person[pid]["ÉúÃü"]<JY.Person[pid]["ÉúÃü×î´óÖµ"]/4 then
+					JY.Person[pid]["ÉúÃü"]=math.modf(JY.Person[pid]["ÉúÃü×î´óÖµ"]/4);
 				end
-				if JY.Person[pid]["ä½“åŠ›"]<10 then
-					JY.Person[pid]["ä½“åŠ›"]=10 ;
+				if JY.Person[pid]["ÌåÁ¦"]<10 then
+					JY.Person[pid]["ÌåÁ¦"]=10 ;
 				end				
 			end
         end
     end
     
-	JY.Person[50]["æ­¦åŠŸ1"]=26 
-	JY.Wugong[13]["åç§°"]="é“æŒ" 
+	JY.Person[50]["Îä¹¦1"]=26 
+	JY.Wugong[13]["Ãû³Æ"]="ÌúÕÆ" 
 	 
 	if WAR.ZDDH==82 then SetS(10,0,18,0,1) end	   
 	if WAR.ZDDH==217 and warStatus==1 then SetS(10,0,16,0,1) end
@@ -2512,40 +2512,40 @@ function War_EndPersonData(isexp,warStatus)            --æˆ˜æ–—ä»¥åè®¾ç½®äººç‰
 	if WAR.ZDDH==46 then instruct_3(55,13,0,0,0,0,0,-2,-2,-2,0,-2,-2) end  
 	
 	--[[for i=0,190 do
-	      if JY.Person[i]["ä»£å·"]~=i then
+	      if JY.Person[i]["´úºÅ"]~=i then
 		     say(CC.EXITSAY)
 			 JY.Status=GANE_END
 		  end
 	end]]
 	
-    if warStatus==2 and isexp==0 then  --è¾“ï¼Œæ²¡æœ‰ç»éªŒï¼Œé€€å‡º
+    if warStatus==2 and isexp==0 then  --Êä£¬Ã»ÓĞ¾­Ñé£¬ÍË³ö
         return ;
     end
 
-    local liveNum=0;          --è®¡ç®—æˆ‘æ–¹æ´»ç€çš„äººæ•°
+    local liveNum=0;          --¼ÆËãÎÒ·½»î×ÅµÄÈËÊı
     for i=0,WAR.PersonNum-1 do
-        if WAR.Person[i]["æˆ‘æ–¹"]==true and JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]>0  then
+        if WAR.Person[i]["ÎÒ·½"]==true and JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÉúÃü"]>0  then
             liveNum=liveNum+1;
         end
     end
     local canyu=false;
-    --åˆ†é…æˆ˜æ–—ç»éªŒ---åŸºæœ¬ç»éªŒï¼Œæˆ˜æ–—æ•°æ®ä¸­çš„
-    if warStatus==1 then     --èµ¢äº†æ‰æœ‰
-	  if WAR.Data["ç»éªŒ"]<1000 then WAR.Data["ç»éªŒ"]=1000 end
-	  --if WAR.Data["ä»£å·"]==226 then WAR.Data["ç»éªŒ"]=10000 end
+    --·ÖÅäÕ½¶·¾­Ñé---»ù±¾¾­Ñé£¬Õ½¶·Êı¾İÖĞµÄ
+    if warStatus==1 then     --Ó®ÁË²ÅÓĞ
+	  if WAR.Data["¾­Ñé"]<1000 then WAR.Data["¾­Ñé"]=1000 end
+	  --if WAR.Data["´úºÅ"]==226 then WAR.Data["¾­Ñé"]=10000 end
         for i=0,WAR.PersonNum-1 do
-            local pid=WAR.Person[i]["äººç‰©ç¼–å·"]
-            if WAR.Person[i]["æˆ‘æ–¹"]==true and inteam(pid) then
-                if JY.Person[pid]["ç”Ÿå‘½"]>0 then
+            local pid=WAR.Person[i]["ÈËÎï±àºÅ"]
+            if WAR.Person[i]["ÎÒ·½"]==true and inteam(pid) then
+                if JY.Person[pid]["ÉúÃü"]>0 then
 					if pid==0 then
 						canyu=true;
 					end
 					for ii=1,10 do
-					   if JY.Person[pid]["æ­¦åŠŸ"..ii]==98 then
-                          WAR.Person[i]["ç»éªŒ"]=WAR.Person[i]["ç»éªŒ"] + math.modf(WAR.Data["ç»éªŒ"]*1.5/liveNum);
+					   if JY.Person[pid]["Îä¹¦"..ii]==98 then
+                          WAR.Person[i]["¾­Ñé"]=WAR.Person[i]["¾­Ñé"] + math.modf(WAR.Data["¾­Ñé"]*1.5/liveNum);
 					   end
 					end     
-					      WAR.Person[i]["ç»éªŒ"]=WAR.Person[i]["ç»éªŒ"] + math.modf(WAR.Data["ç»éªŒ"]/liveNum)
+					      WAR.Person[i]["¾­Ñé"]=WAR.Person[i]["¾­Ñé"] + math.modf(WAR.Data["¾­Ñé"]/liveNum)
 					
                 end
             end
@@ -2553,32 +2553,32 @@ function War_EndPersonData(isexp,warStatus)            --æˆ˜æ–—ä»¥åè®¾ç½®äººç‰
     end
 
 
-    --æ¯ä¸ªäººç»éªŒå¢åŠ ï¼Œä»¥åŠå‡çº§ XLDS
+    --Ã¿¸öÈË¾­ÑéÔö¼Ó£¬ÒÔ¼°Éı¼¶ XLDS
     for i=0,WAR.PersonNum-1 do
-        local pid=WAR.Person[i]["äººç‰©ç¼–å·"];
-        AddPersonAttrib(pid,"ç‰©å“ä¿®ç‚¼ç‚¹æ•°",math.modf(WAR.Person[i]["ç»éªŒ"]*8/10));
-        AddPersonAttrib(pid,"ä¿®ç‚¼ç‚¹æ•°",math.modf(WAR.Person[i]["ç»éªŒ"]*8/10));
-        if JY.Person[pid]["ä¿®ç‚¼ç‚¹æ•°"]<0 then JY.Person[pid]["ä¿®ç‚¼ç‚¹æ•°"]=0 end
+        local pid=WAR.Person[i]["ÈËÎï±àºÅ"];
+        AddPersonAttrib(pid,"ÎïÆ·ĞŞÁ¶µãÊı",math.modf(WAR.Person[i]["¾­Ñé"]*8/10));
+        AddPersonAttrib(pid,"ĞŞÁ¶µãÊı",math.modf(WAR.Person[i]["¾­Ñé"]*8/10));
+        if JY.Person[pid]["ĞŞÁ¶µãÊı"]<0 then JY.Person[pid]["ĞŞÁ¶µãÊı"]=0 end
 	  
-        if WAR.Person[i]["æˆ‘æ–¹"]==true and inteam(pid) then
+        if WAR.Person[i]["ÎÒ·½"]==true and inteam(pid) then
 
-            DrawStrBoxWaitKey( string.format(CC.WARS124,JY.Person[pid]["å§“å"],WAR.Person[i]["ç»éªŒ"]),C_WHITE,CC.DefaultFont);
-			AddPersonAttrib(pid,"ç»éªŒ",math.modf(WAR.Person[i]["ç»éªŒ"]/2));
+            DrawStrBoxWaitKey( string.format(CC.WARS124,JY.Person[pid]["ĞÕÃû"],WAR.Person[i]["¾­Ñé"]),C_WHITE,CC.DefaultFont);
+			AddPersonAttrib(pid,"¾­Ñé",math.modf(WAR.Person[i]["¾­Ñé"]/2));
 
-			local r=War_AddPersonLVUP(pid);     --äººç‰©å‡çº§
+			local r=War_AddPersonLVUP(pid);     --ÈËÎïÉı¼¶
 
 			if r==true then
-				DrawStrBoxWaitKey( string.format(CC.WARS125,JY.Person[pid]["å§“å"]),C_WHITE,CC.DefaultFont);
+				DrawStrBoxWaitKey( string.format(CC.WARS125,JY.Person[pid]["ĞÕÃû"]),C_WHITE,CC.DefaultFont);
 			end
 		else			
-			AddPersonAttrib(pid,"ç»éªŒ",WAR.Person[i]["ç»éªŒ"]);
+			AddPersonAttrib(pid,"¾­Ñé",WAR.Person[i]["¾­Ñé"]);
         end
 
-        War_PersonTrainBook(pid);            --ä¿®ç‚¼ç§˜ç±
-        War_PersonTrainDrug(pid);            --ä¿®ç‚¼è¯å“
+        War_PersonTrainBook(pid);            --ĞŞÁ¶ÃØ¼®
+        War_PersonTrainDrug(pid);            --ĞŞÁ¶Ò©Æ·
     end
-	--[[if warStatus==1 and canyu and JY.Person[0]["ç»éªŒ"]==60000 and JY.Person[0]["æ­¦åŠŸ1"]<109 and JY.Person[0]["æ­¦åŠŸ7"]>0 then
-		CreatKf(WAR.Data["ç»éªŒ"]/100);
+	--[[if warStatus==1 and canyu and JY.Person[0]["¾­Ñé"]==60000 and JY.Person[0]["Îä¹¦1"]<109 and JY.Person[0]["Îä¹¦7"]>0 then
+		CreatKf(WAR.Data["¾­Ñé"]/100);
 	end]]--
 	if WAR.ZDDH==48 then
 	   SetS(57,52,29,1,0)
@@ -2598,37 +2598,37 @@ function War_EndPersonData(isexp,warStatus)            --æˆ˜æ–—ä»¥åè®¾ç½®äººç‰
 	end
 end
 
-function War_AddPersonLVUP(pid)      --äººç‰©æ˜¯å¦å‡çº§ Level
---äººç‰©æ˜¯å¦å‡çº§
---pid äººid
---è¿”å› true å‡çº§ï¼Œfalseä¸å‡çº§
-    local tmplevel=JY.Person[pid]["ç­‰çº§"];
-    if tmplevel>=CC.Level then     --çº§åˆ«åˆ°é¡¶
+function War_AddPersonLVUP(pid)      --ÈËÎïÊÇ·ñÉı¼¶ Level
+--ÈËÎïÊÇ·ñÉı¼¶
+--pid ÈËid
+--·µ»Ø true Éı¼¶£¬false²»Éı¼¶
+    local tmplevel=JY.Person[pid]["µÈ¼¶"];
+    if tmplevel>=CC.Level then     --¼¶±ğµ½¶¥
         return false;
     end
 
-    if JY.Person[pid]["ç»éªŒ"]<CC.Exp[tmplevel] then     --ç»éªŒä¸å¤Ÿå‡çº§
+    if JY.Person[pid]["¾­Ñé"]<CC.Exp[tmplevel] then     --¾­Ñé²»¹»Éı¼¶
         return false
     end
 
-    while true do          --åˆ¤æ–­å¯ä»¥å‡å‡ çº§
+    while true do          --ÅĞ¶Ï¿ÉÒÔÉı¼¸¼¶
         if tmplevel >= CC.Level then
             break;
         end
-        if JY.Person[pid]["ç»éªŒ"]>=CC.Exp[tmplevel] then
-			--JY.Person[pid]["ç»éªŒ"]=JY.Person[pid]["ç»éªŒ"]-CC.Exp[tmplevel]
+        if JY.Person[pid]["¾­Ñé"]>=CC.Exp[tmplevel] then
+			--JY.Person[pid]["¾­Ñé"]=JY.Person[pid]["¾­Ñé"]-CC.Exp[tmplevel]
             tmplevel=tmplevel+1;
         else
             break;
         end
     end
-    local leveladd=tmplevel-JY.Person[pid]["ç­‰çº§"];   --å‡çº§æ¬¡æ•°
-    JY.Person[pid]["ç­‰çº§"]=JY.Person[pid]["ç­‰çº§"]+leveladd;
-    AddPersonAttrib(pid,"ç”Ÿå‘½æœ€å¤§å€¼", (JY.Person[pid]["ç”Ÿå‘½å¢é•¿"]+Rnd(3))*leveladd*3);
-    JY.Person[pid]["ç”Ÿå‘½"]=JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"];
-    JY.Person[pid]["ä½“åŠ›"]=CC.PersonAttribMax["ä½“åŠ›"];
-    JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]=0;
-    JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"]=0;
+    local leveladd=tmplevel-JY.Person[pid]["µÈ¼¶"];   --Éı¼¶´ÎÊı
+    JY.Person[pid]["µÈ¼¶"]=JY.Person[pid]["µÈ¼¶"]+leveladd;
+    AddPersonAttrib(pid,"ÉúÃü×î´óÖµ", (JY.Person[pid]["ÉúÃüÔö³¤"]+Rnd(3))*leveladd*3);
+    JY.Person[pid]["ÉúÃü"]=JY.Person[pid]["ÉúÃü×î´óÖµ"];
+    JY.Person[pid]["ÌåÁ¦"]=CC.PersonAttribMax["ÌåÁ¦"];
+    JY.Person[pid]["ÊÜÉË³Ì¶È"]=0;
+    JY.Person[pid]["ÖĞ¶¾³Ì¶È"]=0;
 
     local function cleveradd()
 		local ca
@@ -2638,9 +2638,9 @@ function War_AddPersonLVUP(pid)      --äººç‰©æ˜¯å¦å‡çº§ Level
 		else
 			rndnum=math.random(1);
 		end
-		--if JY.Person[pid]["èµ„è´¨"]>100 then JY.Person[pid]["èµ„è´¨"]=100 end
-		--ca=JY.Person[pid]["èµ„è´¨"]+Rnd(120-JY.Person[pid]["èµ„è´¨"]);
-		ca=JY.Person[pid]["èµ„è´¨"]/(rndnum+4);
+		--if JY.Person[pid]["×ÊÖÊ"]>100 then JY.Person[pid]["×ÊÖÊ"]=100 end
+		--ca=JY.Person[pid]["×ÊÖÊ"]+Rnd(120-JY.Person[pid]["×ÊÖÊ"]);
+		ca=JY.Person[pid]["×ÊÖÊ"]/(rndnum+4);
 		--ca=ca/7
 		return ca
 	end
@@ -2651,36 +2651,36 @@ function War_AddPersonLVUP(pid)      --äººç‰©æ˜¯å¦å‡çº§ Level
 		else return x1 end
 	end
 	--[[
-    if JY.Person[pid]["èµ„è´¨"]<30 then
+    if JY.Person[pid]["×ÊÖÊ"]<30 then
         cleveradd=1+Rnd(15);
-    elseif JY.Person[pid]["èµ„è´¨"]<50 then
+    elseif JY.Person[pid]["×ÊÖÊ"]<50 then
         cleveradd=2+Rnd(6);
-    elseif JY.Person[pid]["èµ„è´¨"]<70 then
+    elseif JY.Person[pid]["×ÊÖÊ"]<70 then
         cleveradd=3+Rnd(5);
-    elseif JY.Person[pid]["èµ„è´¨"]<90 then
+    elseif JY.Person[pid]["×ÊÖÊ"]<90 then
         cleveradd=4+Rnd(4);
     else
         cleveradd=5+Rnd(3);
     end
 	]]--
-    --cleveradd=Rnd(cleveradd)+1;        --æŒ‰ç…§èµ„è´¨è®¡ç®—çš„å¢é•¿ç‚¹ï¼Œè¶Šé«˜åˆ™æŠ€èƒ½å¢åŠ è¶Šå¤šï¼Œè€Œå†…åŠ›å¢åŠ è¶Šå°‘ã€‚
+    --cleveradd=Rnd(cleveradd)+1;        --°´ÕÕ×ÊÖÊ¼ÆËãµÄÔö³¤µã£¬Ô½¸ßÔò¼¼ÄÜÔö¼ÓÔ½¶à£¬¶øÄÚÁ¦Ôö¼ÓÔ½ÉÙ¡£
 	local theadd=cleveradd()
-    AddPersonAttrib(pid,"å†…åŠ›æœ€å¤§å€¼",  math.modf(leveladd*((10-JY.Person[pid]["ç”Ÿå‘½å¢é•¿"])*7+210/(theadd+1))));   --èªæ˜äººä¸ç»ƒå†…åŠ›
+    AddPersonAttrib(pid,"ÄÚÁ¦×î´óÖµ",  math.modf(leveladd*((10-JY.Person[pid]["ÉúÃüÔö³¤"])*7+210/(theadd+1))));   --´ÏÃ÷ÈË²»Á·ÄÚÁ¦
     if pid==0 and GetS(4,5,5,5)==5 then
-	   AddPersonAttrib(pid,"å†…åŠ›æœ€å¤§å€¼",50*leveladd)
+	   AddPersonAttrib(pid,"ÄÚÁ¦×î´óÖµ",50*leveladd)
 	end
-	JY.Person[pid]["å†…åŠ›"]=JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"];
+	JY.Person[pid]["ÄÚÁ¦"]=JY.Person[pid]["ÄÚÁ¦×î´óÖµ"];
 
 	--local totaladd=3*leveladd;
         
 	for i=1,leveladd do	
-		local ups=math.modf((JY.Person[pid]["èµ„è´¨"]-1)/15)+1;
+		local ups=math.modf((JY.Person[pid]["×ÊÖÊ"]-1)/15)+1;
 
 			if pid==35 and GetD(82,1,0)==1 then  --TLV
 			   ups=3
 			end
 		
-			if pid==55 and JY.Person[pid]["ç­‰çº§"]>20 then
+			if pid==55 and JY.Person[pid]["µÈ¼¶"]>20 then
 			   ups=6
 			end
 			
@@ -2689,50 +2689,50 @@ function War_AddPersonLVUP(pid)      --äººç‰©æ˜¯å¦å‡çº§ Level
 		if JY.Thing[202][WZ7]==2 then ups=ups+1 end
 		if JY.Thing[202][WZ7]==3 then ups=ups+2 end
 		
-        AddPersonAttrib(pid,"æ”»å‡»åŠ›",ups);
-        AddPersonAttrib(pid,"é˜²å¾¡åŠ›",ups);
-        AddPersonAttrib(pid,"è½»åŠŸ",ups);
+        AddPersonAttrib(pid,"¹¥»÷Á¦",ups);
+        AddPersonAttrib(pid,"·ÀÓùÁ¦",ups);
+        AddPersonAttrib(pid,"Çá¹¦",ups);
 		
-		local a1=JY.Person[pid]['æ”»å‡»åŠ›'];
-		local a2=JY.Person[pid]['é˜²å¾¡åŠ›'];
-		local a3=JY.Person[pid]['è½»åŠŸ'];
-		local a4='æ”»å‡»åŠ›'
+		local a1=JY.Person[pid]['¹¥»÷Á¦'];
+		local a2=JY.Person[pid]['·ÀÓùÁ¦'];
+		local a3=JY.Person[pid]['Çá¹¦'];
+		local a4='¹¥»÷Á¦'
 		
-		if a2>=a1 and a2>=a3 then a4='é˜²å¾¡åŠ›' end
-		if a3>=a2 and a3>=a1 then a4='è½»åŠŸ' end
+		if a2>=a1 and a2>=a3 then a4='·ÀÓùÁ¦' end
+		if a3>=a2 and a3>=a1 then a4='Çá¹¦' end
 		
 		AddPersonAttrib(pid,a4,1);
 		
 		if JY.Thing[202][WZ7]>1 then
 			local ran=math.random(3);
 			if ran==1 then
-			   AddPersonAttrib(pid,"æ”»å‡»åŠ›",1);
+			   AddPersonAttrib(pid,"¹¥»÷Á¦",1);
 			elseif ran==2 then
-			   AddPersonAttrib(pid,"é˜²å¾¡åŠ›",1);
+			   AddPersonAttrib(pid,"·ÀÓùÁ¦",1);
 			else
-			   AddPersonAttrib(pid,"è½»åŠŸ",1);
+			   AddPersonAttrib(pid,"Çá¹¦",1);
 			end
 		end
 		if JY.Thing[202][WZ7]>2 then
 		    local ran=math.random(3);
 			if ran==1 then
-			   AddPersonAttrib(pid,"æ”»å‡»åŠ›",1);
+			   AddPersonAttrib(pid,"¹¥»÷Á¦",1);
 			elseif ran==2 then
-			   AddPersonAttrib(pid,"é˜²å¾¡åŠ›",1);
+			   AddPersonAttrib(pid,"·ÀÓùÁ¦",1);
 			else
-			   AddPersonAttrib(pid,"è½»åŠŸ",1);
+			   AddPersonAttrib(pid,"Çá¹¦",1);
 			end
 		end		
 	end	
 		
 	--[[
-	if add_a>=CC.PersonAttribMax['æ”»å‡»åŠ›'] then
+	if add_a>=CC.PersonAttribMax['¹¥»÷Á¦'] then
 		add_a=0
 	end
-	if add_b>=CC.PersonAttribMax['é˜²å¾¡åŠ›'] then
+	if add_b>=CC.PersonAttribMax['·ÀÓùÁ¦'] then
 		add_b=0
 	end
-	if add_c>=CC.PersonAttribMax['è½»åŠŸ'] then
+	if add_c>=CC.PersonAttribMax['Çá¹¦'] then
 		add_c=0
 	end
 	]]--
@@ -2768,47 +2768,47 @@ function War_AddPersonLVUP(pid)      --äººç‰©æ˜¯å¦å‡çº§ Level
        end
        add_b=math.random(totaladd-add_a)
        add_c=totaladd-add_a-add_b
-       AddPersonAttrib(pid,"æ”»å‡»åŠ›",add_b)
-       AddPersonAttrib(pid,"é˜²å¾¡åŠ›",add_c)
-       AddPersonAttrib(pid,"è½»åŠŸ",add_a)
+       AddPersonAttrib(pid,"¹¥»÷Á¦",add_b)
+       AddPersonAttrib(pid,"·ÀÓùÁ¦",add_c)
+       AddPersonAttrib(pid,"Çá¹¦",add_a)
        end
       else           
-    AddPersonAttrib(pid,"æ”»å‡»åŠ›",add_a);
-    AddPersonAttrib(pid,"é˜²å¾¡åŠ›",add_b);
-    AddPersonAttrib(pid,"è½»åŠŸ",add_c);
+    AddPersonAttrib(pid,"¹¥»÷Á¦",add_a);
+    AddPersonAttrib(pid,"·ÀÓùÁ¦",add_b);
+    AddPersonAttrib(pid,"Çá¹¦",add_c);
       end]]
 	--[[
-    AddPersonAttrib(pid,"æ”»å‡»åŠ›",  mymodf(cleveradd()*leveladd));
-    AddPersonAttrib(pid,"é˜²å¾¡åŠ›",  mymodf(cleveradd()*leveladd));
-    AddPersonAttrib(pid,"è½»åŠŸ",  mymodf(cleveradd()*leveladd*0.6));
+    AddPersonAttrib(pid,"¹¥»÷Á¦",  mymodf(cleveradd()*leveladd));
+    AddPersonAttrib(pid,"·ÀÓùÁ¦",  mymodf(cleveradd()*leveladd));
+    AddPersonAttrib(pid,"Çá¹¦",  mymodf(cleveradd()*leveladd*0.6));
 	]]--
-    if JY.Person[pid]["åŒ»ç–—èƒ½åŠ›"]>=20 then
-        AddPersonAttrib(pid,"åŒ»ç–—èƒ½åŠ›",  math.random(2));
+    if JY.Person[pid]["Ò½ÁÆÄÜÁ¦"]>=20 then
+        AddPersonAttrib(pid,"Ò½ÁÆÄÜÁ¦",  math.random(2));
     end
-    if JY.Person[pid]["ç”¨æ¯’èƒ½åŠ›"]>=20 then
-        AddPersonAttrib(pid,"ç”¨æ¯’èƒ½åŠ›",  math.random(2));
+    if JY.Person[pid]["ÓÃ¶¾ÄÜÁ¦"]>=20 then
+        AddPersonAttrib(pid,"ÓÃ¶¾ÄÜÁ¦",  math.random(2));
     end
-    if JY.Person[pid]["è§£æ¯’èƒ½åŠ›"]>=20 then
-        AddPersonAttrib(pid,"è§£æ¯’èƒ½åŠ›",  math.random(2));
+    if JY.Person[pid]["½â¶¾ÄÜÁ¦"]>=20 then
+        AddPersonAttrib(pid,"½â¶¾ÄÜÁ¦",  math.random(2));
     end
     
    if pid==75 then	
-    if JY.Person[pid]["æ‹³æŒåŠŸå¤«"]>=0 then
-        AddPersonAttrib(pid,"æ‹³æŒåŠŸå¤«",  math.random(3)*leveladd);
+    if JY.Person[pid]["È­ÕÆ¹¦·ò"]>=0 then
+        AddPersonAttrib(pid,"È­ÕÆ¹¦·ò",  math.random(3)*leveladd);
     end
-    if JY.Person[pid]["å¾¡å‰‘èƒ½åŠ›"]>=0 then
-        AddPersonAttrib(pid,"å¾¡å‰‘èƒ½åŠ›",  (5+math.random(3))*leveladd);
+    if JY.Person[pid]["Óù½£ÄÜÁ¦"]>=0 then
+        AddPersonAttrib(pid,"Óù½£ÄÜÁ¦",  (5+math.random(3))*leveladd);
     end
-    if JY.Person[pid]["è€åˆ€æŠ€å·§"]>=0 then
-        AddPersonAttrib(pid,"è€åˆ€æŠ€å·§",  (5+math.random(3))*leveladd);
+    if JY.Person[pid]["Ë£µ¶¼¼ÇÉ"]>=0 then
+        AddPersonAttrib(pid,"Ë£µ¶¼¼ÇÉ",  (5+math.random(3))*leveladd);
     end
-    if JY.Person[pid]["ç‰¹æ®Šå…µå™¨"]>=0 then
-        AddPersonAttrib(pid,"ç‰¹æ®Šå…µå™¨",  (5+math.random(3))*leveladd);
+    if JY.Person[pid]["ÌØÊâ±øÆ÷"]>=0 then
+        AddPersonAttrib(pid,"ÌØÊâ±øÆ÷",  (5+math.random(3))*leveladd);
     end
    end
 	
-    if JY.Person[pid]["æš—å™¨æŠ€å·§"]>=20 then
-        AddPersonAttrib(pid,"æš—å™¨æŠ€å·§",  math.random(2));
+    if JY.Person[pid]["°µÆ÷¼¼ÇÉ"]>=20 then
+        AddPersonAttrib(pid,"°µÆ÷¼¼ÇÉ",  math.random(2));
     end
   
 
@@ -2816,20 +2816,20 @@ function War_AddPersonLVUP(pid)      --äººç‰©æ˜¯å¦å‡çº§ Level
 
 end
 
-function War_PersonTrainBook(pid)           --æˆ˜æ–—åä¿®ç‚¼ç§˜ç±æ˜¯å¦æˆåŠŸ
+function War_PersonTrainBook(pid)           --Õ½¶·ºóĞŞÁ¶ÃØ¼®ÊÇ·ñ³É¹¦
     local p=JY.Person[pid];
 
-    local thingid=p["ä¿®ç‚¼ç‰©å“"];
+    local thingid=p["ĞŞÁ¶ÎïÆ·"];
     if thingid<0 then
         return ;
     end
 
-	local wugongid=JY.Thing[thingid]["ç»ƒå‡ºæ­¦åŠŸ"];
+	local wugongid=JY.Thing[thingid]["Á·³öÎä¹¦"];
 	local wg=0;
 	
-	if JY.Person[pid]["æ­¦åŠŸ10"]>0 and wugongid>=0 then
+	if JY.Person[pid]["Îä¹¦10"]>0 and wugongid>=0 then
 	   for i=1,10 do
-	        if JY.Thing[thingid]["ç»ƒå‡ºæ­¦åŠŸ"]==JY.Person[pid]["æ­¦åŠŸ"..i] then
+	        if JY.Thing[thingid]["Á·³öÎä¹¦"]==JY.Person[pid]["Îä¹¦"..i] then
 			   wg=1
 			   break;
 			end
@@ -2839,80 +2839,80 @@ function War_PersonTrainBook(pid)           --æˆ˜æ–—åä¿®ç‚¼ç§˜ç±æ˜¯å¦æˆåŠŸ
 
 	local yes1,yes2,kfnum=false,false
 	while true do
-    local needpoint=TrainNeedExp(pid);      --è®¡ç®—ä¿®ç‚¼æˆåŠŸéœ€è¦ç‚¹æ•°
+    local needpoint=TrainNeedExp(pid);      --¼ÆËãĞŞÁ¶³É¹¦ĞèÒªµãÊı
 
-    if p["ä¿®ç‚¼ç‚¹æ•°"]>=needpoint then   --ä¿®ç‚¼æˆåŠŸ
+    if p["ĞŞÁ¶µãÊı"]>=needpoint then   --ĞŞÁ¶³É¹¦
 		yes1=true
 
-        AddPersonAttrib(pid,"ç”Ÿå‘½æœ€å¤§å€¼",JY.Thing[thingid]["åŠ ç”Ÿå‘½æœ€å¤§å€¼"]);
+        AddPersonAttrib(pid,"ÉúÃü×î´óÖµ",JY.Thing[thingid]["¼ÓÉúÃü×î´óÖµ"]);
 		if thingid==139 then 
-		   AddPersonAttrib(pid,"ç”Ÿå‘½æœ€å¤§å€¼",-15) 
-		   AddPersonAttrib(pid,"ç”Ÿå‘½",-15) 
-		   if JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]<1 then JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]=1 end
-		   if JY.Person[pid]["ç”Ÿå‘½"]<1 then JY.Person[pid]["ç”Ÿå‘½"]=1 end	   
+		   AddPersonAttrib(pid,"ÉúÃü×î´óÖµ",-15) 
+		   AddPersonAttrib(pid,"ÉúÃü",-15) 
+		   if JY.Person[pid]["ÉúÃü×î´óÖµ"]<1 then JY.Person[pid]["ÉúÃü×î´óÖµ"]=1 end
+		   if JY.Person[pid]["ÉúÃü"]<1 then JY.Person[pid]["ÉúÃü"]=1 end	   
 		end
-        if JY.Thing[thingid]["æ”¹å˜å†…åŠ›æ€§è´¨"]==2 then
-            p["å†…åŠ›æ€§è´¨"]=2;
+        if JY.Thing[thingid]["¸Ä±äÄÚÁ¦ĞÔÖÊ"]==2 then
+            p["ÄÚÁ¦ĞÔÖÊ"]=2;
         end
-        AddPersonAttrib(pid,"å†…åŠ›æœ€å¤§å€¼",JY.Thing[thingid]["åŠ å†…åŠ›æœ€å¤§å€¼"]);
-        AddPersonAttrib(pid,"æ”»å‡»åŠ›",JY.Thing[thingid]["åŠ æ”»å‡»åŠ›"]);
-        AddPersonAttrib(pid,"è½»åŠŸ",JY.Thing[thingid]["åŠ è½»åŠŸ"]);
-        AddPersonAttrib(pid,"é˜²å¾¡åŠ›",JY.Thing[thingid]["åŠ é˜²å¾¡åŠ›"]);
-        AddPersonAttrib(pid,"åŒ»ç–—èƒ½åŠ›",JY.Thing[thingid]["åŠ åŒ»ç–—èƒ½åŠ›"]);
-        AddPersonAttrib(pid,"ç”¨æ¯’èƒ½åŠ›",JY.Thing[thingid]["åŠ ç”¨æ¯’èƒ½åŠ›"]);
-        AddPersonAttrib(pid,"è§£æ¯’èƒ½åŠ›",JY.Thing[thingid]["åŠ è§£æ¯’èƒ½åŠ›"]);
-        AddPersonAttrib(pid,"æŠ—æ¯’èƒ½åŠ›",JY.Thing[thingid]["åŠ æŠ—æ¯’èƒ½åŠ›"]);
+        AddPersonAttrib(pid,"ÄÚÁ¦×î´óÖµ",JY.Thing[thingid]["¼ÓÄÚÁ¦×î´óÖµ"]);
+        AddPersonAttrib(pid,"¹¥»÷Á¦",JY.Thing[thingid]["¼Ó¹¥»÷Á¦"]);
+        AddPersonAttrib(pid,"Çá¹¦",JY.Thing[thingid]["¼ÓÇá¹¦"]);
+        AddPersonAttrib(pid,"·ÀÓùÁ¦",JY.Thing[thingid]["¼Ó·ÀÓùÁ¦"]);
+        AddPersonAttrib(pid,"Ò½ÁÆÄÜÁ¦",JY.Thing[thingid]["¼ÓÒ½ÁÆÄÜÁ¦"]);
+        AddPersonAttrib(pid,"ÓÃ¶¾ÄÜÁ¦",JY.Thing[thingid]["¼ÓÓÃ¶¾ÄÜÁ¦"]);
+        AddPersonAttrib(pid,"½â¶¾ÄÜÁ¦",JY.Thing[thingid]["¼Ó½â¶¾ÄÜÁ¦"]);
+        AddPersonAttrib(pid,"¿¹¶¾ÄÜÁ¦",JY.Thing[thingid]["¼Ó¿¹¶¾ÄÜÁ¦"]);
 
         if pid==56 then
-        AddPersonAttrib(pid,"æ‹³æŒåŠŸå¤«",JY.Thing[thingid]["åŠ æ‹³æŒåŠŸå¤«"]*2);
-        AddPersonAttrib(pid,"å¾¡å‰‘èƒ½åŠ›",JY.Thing[thingid]["åŠ å¾¡å‰‘èƒ½åŠ›"]*2);
-        AddPersonAttrib(pid,"è€åˆ€æŠ€å·§",JY.Thing[thingid]["åŠ è€åˆ€æŠ€å·§"]*2);
-        AddPersonAttrib(pid,"ç‰¹æ®Šå…µå™¨",JY.Thing[thingid]["åŠ ç‰¹æ®Šå…µå™¨"]*2);
+        AddPersonAttrib(pid,"È­ÕÆ¹¦·ò",JY.Thing[thingid]["¼ÓÈ­ÕÆ¹¦·ò"]*2);
+        AddPersonAttrib(pid,"Óù½£ÄÜÁ¦",JY.Thing[thingid]["¼ÓÓù½£ÄÜÁ¦"]*2);
+        AddPersonAttrib(pid,"Ë£µ¶¼¼ÇÉ",JY.Thing[thingid]["¼ÓË£µ¶¼¼ÇÉ"]*2);
+        AddPersonAttrib(pid,"ÌØÊâ±øÆ÷",JY.Thing[thingid]["¼ÓÌØÊâ±øÆ÷"]*2);
         else
-        AddPersonAttrib(pid,"æ‹³æŒåŠŸå¤«",JY.Thing[thingid]["åŠ æ‹³æŒåŠŸå¤«"]);
-        AddPersonAttrib(pid,"å¾¡å‰‘èƒ½åŠ›",JY.Thing[thingid]["åŠ å¾¡å‰‘èƒ½åŠ›"]);
-        AddPersonAttrib(pid,"è€åˆ€æŠ€å·§",JY.Thing[thingid]["åŠ è€åˆ€æŠ€å·§"]);
-        AddPersonAttrib(pid,"ç‰¹æ®Šå…µå™¨",JY.Thing[thingid]["åŠ ç‰¹æ®Šå…µå™¨"]);
+        AddPersonAttrib(pid,"È­ÕÆ¹¦·ò",JY.Thing[thingid]["¼ÓÈ­ÕÆ¹¦·ò"]);
+        AddPersonAttrib(pid,"Óù½£ÄÜÁ¦",JY.Thing[thingid]["¼ÓÓù½£ÄÜÁ¦"]);
+        AddPersonAttrib(pid,"Ë£µ¶¼¼ÇÉ",JY.Thing[thingid]["¼ÓË£µ¶¼¼ÇÉ"]);
+        AddPersonAttrib(pid,"ÌØÊâ±øÆ÷",JY.Thing[thingid]["¼ÓÌØÊâ±øÆ÷"]);
         end
       
 
-        AddPersonAttrib(pid,"æš—å™¨æŠ€å·§",JY.Thing[thingid]["åŠ æš—å™¨æŠ€å·§"]);
-        AddPersonAttrib(pid,"æ­¦å­¦å¸¸è¯†",JY.Thing[thingid]["åŠ æ­¦å­¦å¸¸è¯†"]);
-        AddPersonAttrib(pid,"å“å¾·",JY.Thing[thingid]["åŠ å“å¾·"]);
-        AddPersonAttrib(pid,"æ”»å‡»å¸¦æ¯’",JY.Thing[thingid]["åŠ æ”»å‡»å¸¦æ¯’"]);
-        if JY.Thing[thingid]["åŠ æ”»å‡»æ¬¡æ•°"]==1 then
-            p["å·¦å³äº’æ"]=1;
+        AddPersonAttrib(pid,"°µÆ÷¼¼ÇÉ",JY.Thing[thingid]["¼Ó°µÆ÷¼¼ÇÉ"]);
+        AddPersonAttrib(pid,"ÎäÑ§³£Ê¶",JY.Thing[thingid]["¼ÓÎäÑ§³£Ê¶"]);
+        AddPersonAttrib(pid,"Æ·µÂ",JY.Thing[thingid]["¼ÓÆ·µÂ"]);
+        AddPersonAttrib(pid,"¹¥»÷´ø¶¾",JY.Thing[thingid]["¼Ó¹¥»÷´ø¶¾"]);
+        if JY.Thing[thingid]["¼Ó¹¥»÷´ÎÊı"]==1 then
+            p["×óÓÒ»¥²«"]=1;
         end
         
 		if thingid>186 then
-		   p["ä¿®ç‚¼ç‚¹æ•°"]=p["ä¿®ç‚¼ç‚¹æ•°"]-needpoint;
+		   p["ĞŞÁ¶µãÊı"]=p["ĞŞÁ¶µãÊı"]-needpoint;
 		end
 
 		if thingid<187 then
-		   p["ä¿®ç‚¼ç‚¹æ•°"]=p["ä¿®ç‚¼ç‚¹æ•°"]-needpoint;
+		   p["ĞŞÁ¶µãÊı"]=p["ĞŞÁ¶µãÊı"]-needpoint;
 		end
 
         if wugongid>=0 then
 			yes2=true
             local oldwugong=0;
             for i =1,10 do
-                if p["æ­¦åŠŸ" .. i]==wugongid then
+                if p["Îä¹¦" .. i]==wugongid then
                     oldwugong=1;
-                    p["æ­¦åŠŸç­‰çº§" .. i]=math.modf((p["æ­¦åŠŸç­‰çº§" .. i]+100)/100)*100;
+                    p["Îä¹¦µÈ¼¶" .. i]=math.modf((p["Îä¹¦µÈ¼¶" .. i]+100)/100)*100;
 					kfnum=i
 
                     break;
                 end
             end
-            if oldwugong==0 then  --æ–°çš„æ­¦åŠŸ
+            if oldwugong==0 then  --ĞÂµÄÎä¹¦
                 for i=1,10 do
-                    if p["æ­¦åŠŸ" .. i]==0 then
-                        p["æ­¦åŠŸ" .. i]=wugongid;
+                    if p["Îä¹¦" .. i]==0 then
+                        p["Îä¹¦" .. i]=wugongid;
 						kfnum=i
                         break;
                     end
                 end
-                ---è¿™é‡Œä¸è€ƒè™‘10ä¸ªæ­¦åŠŸå·²æ»¡çš„æ—¶å€™å¦‚ä½•å¢åŠ æ–°çš„æ­¦åŠŸ
+                ---ÕâÀï²»¿¼ÂÇ10¸öÎä¹¦ÒÑÂúµÄÊ±ºòÈçºÎÔö¼ÓĞÂµÄÎä¹¦
             end
         end
 	else 
@@ -2921,45 +2921,45 @@ function War_PersonTrainBook(pid)           --æˆ˜æ–—åä¿®ç‚¼ç§˜ç±æ˜¯å¦æˆåŠŸ
 	end
 	
 	if yes1 then
-        DrawStrBoxWaitKey( string.format(CC.WARS126,p["å§“å"],JY.Thing[thingid]["åç§°"]),C_WHITE,CC.DefaultFont);
+        DrawStrBoxWaitKey( string.format(CC.WARS126,p["ĞÕÃû"],JY.Thing[thingid]["Ãû³Æ"]),C_WHITE,CC.DefaultFont);
 	end
 	if yes2 then 
-        DrawStrBoxWaitKey(string.format(CC.WARS127,JY.Wugong[wugongid]["åç§°"],math.modf(p["æ­¦åŠŸç­‰çº§" ..kfnum]/100)+1),C_WHITE,CC.DefaultFont);
+        DrawStrBoxWaitKey(string.format(CC.WARS127,JY.Wugong[wugongid]["Ãû³Æ"],math.modf(p["Îä¹¦µÈ¼¶" ..kfnum]/100)+1),C_WHITE,CC.DefaultFont);
 	end
 end
 
-function War_PersonTrainDrug(pid)         --æˆ˜æ–—åæ˜¯å¦ä¿®ç‚¼å‡ºç‰©å“è¯å“
+function War_PersonTrainDrug(pid)         --Õ½¶·ºóÊÇ·ñĞŞÁ¶³öÎïÆ·Ò©Æ·
     local p=JY.Person[pid];
 
-    local thingid=p["ä¿®ç‚¼ç‰©å“"];
+    local thingid=p["ĞŞÁ¶ÎïÆ·"];
     if thingid<0 then
         return ;
     end
 
-    if JY.Thing[thingid]["ç»ƒå‡ºç‰©å“éœ€ç»éªŒ"] <=0 then          --ä¸å¯ä»¥ä¿®ç‚¼å‡ºç‰©å“
+    if JY.Thing[thingid]["Á·³öÎïÆ·Ğè¾­Ñé"] <=0 then          --²»¿ÉÒÔĞŞÁ¶³öÎïÆ·
         return ;
     end
 
-    local needpoint=(7-math.modf(p["èµ„è´¨"]/15))*JY.Thing[thingid]["ç»ƒå‡ºç‰©å“éœ€ç»éªŒ"];
-    if p["ç‰©å“ä¿®ç‚¼ç‚¹æ•°"]< needpoint then
+    local needpoint=(7-math.modf(p["×ÊÖÊ"]/15))*JY.Thing[thingid]["Á·³öÎïÆ·Ğè¾­Ñé"];
+    if p["ÎïÆ·ĞŞÁ¶µãÊı"]< needpoint then
         return ;
     end
 
-    local haveMaterial=0;       --æ˜¯å¦æœ‰éœ€è¦çš„ææ–™
+    local haveMaterial=0;       --ÊÇ·ñÓĞĞèÒªµÄ²ÄÁÏ
     local MaterialNum=-1;
     for i=1,CC.MyThingNum do
-        if JY.Base["ç‰©å“" .. i]==JY.Thing[thingid]["éœ€ææ–™"] then
+        if JY.Base["ÎïÆ·" .. i]==JY.Thing[thingid]["Ğè²ÄÁÏ"] then
             haveMaterial=1;
-            MaterialNum=JY.Base["ç‰©å“æ•°é‡" .. i]
+            MaterialNum=JY.Base["ÎïÆ·ÊıÁ¿" .. i]
             break;
         end
     end
 
-    if haveMaterial==1 then   --æœ‰ææ–™
+    if haveMaterial==1 then   --ÓĞ²ÄÁÏ
         local enough={};
         local canMake=0;
-        for i=1,5 do       --æ ¹æ®éœ€è¦ææ–™çš„æ•°é‡ï¼Œæ ‡è®°å¯ä»¥ç»ƒå‡ºå“ªäº›ç‰©å“
-            if JY.Thing[thingid]["ç»ƒå‡ºç‰©å“" .. i] >=0 and MaterialNum >= JY.Thing[thingid]["éœ€è¦ç‰©å“æ•°é‡" .. i] then
+        for i=1,5 do       --¸ù¾İĞèÒª²ÄÁÏµÄÊıÁ¿£¬±ê¼Ç¿ÉÒÔÁ·³öÄÄĞ©ÎïÆ·
+            if JY.Thing[thingid]["Á·³öÎïÆ·" .. i] >=0 and MaterialNum >= JY.Thing[thingid]["ĞèÒªÎïÆ·ÊıÁ¿" .. i] then
                 canMake=1;
                 enough[i]=1;
             else
@@ -2973,9 +2973,9 @@ function War_PersonTrainDrug(pid)         --æˆ˜æ–—åæ˜¯å¦ä¿®ç‚¼å‡ºç‰©å“è¯å“
 			end
 		end]]
 
-        if canMake ==1 then    --å¯ç»ƒå‡ºç‰©å“
+        if canMake ==1 then    --¿ÉÁ·³öÎïÆ·
             local makeID;
-            while true do      --éšæœºé€‰æ‹©ç»ƒå‡ºçš„ç‰©å“ï¼Œå¿…é¡»æ˜¯å‰é¢enoughæ•°ç»„ä¸­æ ‡è®°å¯ä»¥ç»ƒå‡ºçš„
+            while true do      --Ëæ»úÑ¡ÔñÁ·³öµÄÎïÆ·£¬±ØĞëÊÇÇ°ÃæenoughÊı×éÖĞ±ê¼Ç¿ÉÒÔÁ·³öµÄ
                 makeID=Rnd(5)+1;
 				if thingid==221 and pid==88 and enough[4]==1 then makeID=4 end
 				if thingid==220 and pid==89 and enough[4]==1 then makeID=4 end
@@ -2983,30 +2983,30 @@ function War_PersonTrainDrug(pid)         --æˆ˜æ–—åæ˜¯å¦ä¿®ç‚¼å‡ºç‰©å“è¯å“
                     break;
                 end
             end
-            local newThingID=JY.Thing[thingid]["ç»ƒå‡ºç‰©å“" .. makeID];
+            local newThingID=JY.Thing[thingid]["Á·³öÎïÆ·" .. makeID];
 
-            DrawStrBoxWaitKey(string.format("%s åˆ¶é€ å‡º %s",p["å§“å"],JY.Thing[newThingID]["åç§°"]),C_WHITE,CC.DefaultFont);
+            DrawStrBoxWaitKey(string.format("%s ÖÆÔì³ö %s",p["ĞÕÃû"],JY.Thing[newThingID]["Ãû³Æ"]),C_WHITE,CC.DefaultFont);
 
-            if instruct_18(newThingID)==true then       --å·²ç»æœ‰ç‰©å“
+            if instruct_18(newThingID)==true then       --ÒÑ¾­ÓĞÎïÆ·
                 instruct_32(newThingID,1);
             else
                 instruct_32(newThingID,1);
             end
 
-            instruct_32(JY.Thing[thingid]["éœ€ææ–™"],-JY.Thing[thingid]["éœ€è¦ç‰©å“æ•°é‡" .. makeID]);
-            p["ç‰©å“ä¿®ç‚¼ç‚¹æ•°"]=0;
+            instruct_32(JY.Thing[thingid]["Ğè²ÄÁÏ"],-JY.Thing[thingid]["ĞèÒªÎïÆ·ÊıÁ¿" .. makeID]);
+            p["ÎïÆ·ĞŞÁ¶µãÊı"]=0;
         end
     end
 end
 
-function War_isEnd()           --æˆ˜æ–—æ˜¯å¦ç»“æŸè¿”å›ï¼š0 ç»§ç»­   1 èµ¢    2 è¾“
+function War_isEnd()           --Õ½¶·ÊÇ·ñ½áÊø·µ»Ø£º0 ¼ÌĞø   1 Ó®    2 Êä
 
     for i=0,WAR.PersonNum-1 do
-        if JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]<=0 then
-            WAR.Person[i]["æ­»äº¡"]=true;
+        if JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÉúÃü"]<=0 then
+            WAR.Person[i]["ËÀÍö"]=true;
         end
     end
-    WarSetPerson();     --è®¾ç½®æˆ˜æ–—äººç‰©ä½ç½®
+    WarSetPerson();     --ÉèÖÃÕ½¶·ÈËÎïÎ»ÖÃ
 
     Cls();
     ShowScreen();
@@ -3014,8 +3014,8 @@ function War_isEnd()           --æˆ˜æ–—æ˜¯å¦ç»“æŸè¿”å›ï¼š0 ç»§ç»­   1 èµ¢    
     local myNum=0;
     local EmenyNum=0;
     for i=0,WAR.PersonNum-1 do
-        if WAR.Person[i]["æ­»äº¡"]==false then
-            if WAR.Person[i]["æˆ‘æ–¹"]==true then
+        if WAR.Person[i]["ËÀÍö"]==false then
+            if WAR.Person[i]["ÎÒ·½"]==true then
                 myNum=1;
             else
                 EmenyNum=1;
@@ -3032,7 +3032,7 @@ function War_isEnd()           --æˆ˜æ–—æ˜¯å¦ç»“æŸè¿”å›ï¼š0 ç»§ç»­   1 èµ¢    
     return 0;
 end
 
-function WarSelectTeam()            --é€‰æ‹©æˆ‘æ–¹å‚æˆ˜äºº
+function WarSelectTeam()            --Ñ¡ÔñÎÒ·½²ÎÕ½ÈË
     WAR.PersonNum=0;
 
 	--local Size=WARFHS();
@@ -3040,32 +3040,32 @@ function WarSelectTeam()            --é€‰æ‹©æˆ‘æ–¹å‚æˆ˜äºº
 	
 	--[[if WAR.ZDDH<=225 then
 	    for i=1,6 do
-	        if WAR.Data["è‡ªåŠ¨é€‰æ‹©å‚æˆ˜äºº" .. i]~=ZDCZR[WAR.ZDDH+1][i]-33 then
-			   --say("è‡ªåŠ¨é€‰æ‹©å‚æˆ˜äºº")
+	        if WAR.Data["×Ô¶¯Ñ¡Ôñ²ÎÕ½ÈË" .. i]~=ZDCZR[WAR.ZDDH+1][i]-33 then
+			   --say("×Ô¶¯Ñ¡Ôñ²ÎÕ½ÈË")
 			   JY.Status=x
 			   ZBXS();
 			end
-			if WAR.Data["æˆ‘æ–¹X" .. i]~=MYCZRX[WAR.ZDDH+1][i]-33 then
-			   --say("æˆ‘æ–¹X"..i)
+			if WAR.Data["ÎÒ·½X" .. i]~=MYCZRX[WAR.ZDDH+1][i]-33 then
+			   --say("ÎÒ·½X"..i)
 			   JY.Status=x
 			   ZBXS();
 			end
-			if WAR.Data["æˆ‘æ–¹Y" .. i]~=MYCZRY[WAR.ZDDH+1][i]-33 then
-			   --say("æˆ‘æ–¹Y"..i)
+			if WAR.Data["ÎÒ·½Y" .. i]~=MYCZRY[WAR.ZDDH+1][i]-33 then
+			   --say("ÎÒ·½Y"..i)
 			   JY.Status=x
 			   ZBXS();
 			end
 		end
 	end]]
     for i=1,6 do	
-	    local id=WAR.Data["è‡ªåŠ¨é€‰æ‹©å‚æˆ˜äºº" .. i];
+	    local id=WAR.Data["×Ô¶¯Ñ¡Ôñ²ÎÕ½ÈË" .. i];
 		if id>=0 then
-            WAR.Person[WAR.PersonNum]["äººç‰©ç¼–å·"]=id;
-            WAR.Person[WAR.PersonNum]["æˆ‘æ–¹"]=true;
-            WAR.Person[WAR.PersonNum]["åæ ‡X"]=WAR.Data["æˆ‘æ–¹X"  .. i];
-            WAR.Person[WAR.PersonNum]["åæ ‡Y"]=WAR.Data["æˆ‘æ–¹Y"  .. i];
-            WAR.Person[WAR.PersonNum]["æ­»äº¡"]=false;
-            WAR.Person[WAR.PersonNum]["äººæ–¹å‘"]=2;
+            WAR.Person[WAR.PersonNum]["ÈËÎï±àºÅ"]=id;
+            WAR.Person[WAR.PersonNum]["ÎÒ·½"]=true;
+            WAR.Person[WAR.PersonNum]["×ø±êX"]=WAR.Data["ÎÒ·½X"  .. i];
+            WAR.Person[WAR.PersonNum]["×ø±êY"]=WAR.Data["ÎÒ·½Y"  .. i];
+            WAR.Person[WAR.PersonNum]["ËÀÍö"]=false;
+            WAR.Person[WAR.PersonNum]["ÈË·½Ïò"]=2;
             WAR.PersonNum=WAR.PersonNum+1;
 		end
     end
@@ -3073,12 +3073,12 @@ function WarSelectTeam()            --é€‰æ‹©æˆ‘æ–¹å‚æˆ˜äºº
 	    return ;
     end
 
-    for i=1,CC.TeamNum do                 --è®¾ç½®äº‹å…ˆç¡®å®šçš„å‚æˆ˜äºº
+    for i=1,CC.TeamNum do                 --ÉèÖÃÊÂÏÈÈ·¶¨µÄ²ÎÕ½ÈË
         WAR.SelectPerson[i]=0;
-        local id=JY.Base["é˜Ÿä¼" .. i];
+        local id=JY.Base["¶ÓÎé" .. i];
         if id>=0 then
             for j=1,6 do
-                if WAR.Data["æ‰‹åŠ¨é€‰æ‹©å‚æˆ˜äºº" .. j]==id then
+                if WAR.Data["ÊÖ¶¯Ñ¡Ôñ²ÎÕ½ÈË" .. j]==id then
                     WAR.SelectPerson[i]=1;
                 end
             end
@@ -3088,10 +3088,10 @@ function WarSelectTeam()            --é€‰æ‹©æˆ‘æ–¹å‚æˆ˜äºº
     local menu={};
     for i=1, CC.TeamNum do
         menu[i]={"",WarSelectMenu,0};
-        local id=JY.Base["é˜Ÿä¼" .. i];
+        local id=JY.Base["¶ÓÎé" .. i];
         if id>=0 then
             menu[i][3]=1;
-            local s=JY.Person[id]["å§“å"];
+            local s=JY.Person[id]["ĞÕÃû"];
             if WAR.SelectPerson[i]==1 then
                 menu[i][1]="*" .. s;
             else
@@ -3100,33 +3100,33 @@ function WarSelectTeam()            --é€‰æ‹©æˆ‘æ–¹å‚æˆ˜äºº
         end
     end
 
-    menu[CC.TeamNum+1]={" ç»“æŸ",nil,1}
+    menu[CC.TeamNum+1]={" ½áÊø",nil,1}
 
 	while true do
 		Cls();
 		local x=(CC.ScreenW-7*CC.DefaultFont-2*CC.MenuBorderPixel)/2;
-		DrawStrBox(x,10,"è¯·é€‰æ‹©å‚æˆ˜äººç‰©",C_WHITE,CC.DefaultFont);
+		DrawStrBox(x,10,"ÇëÑ¡Ôñ²ÎÕ½ÈËÎï",C_WHITE,CC.DefaultFont);
 		local r=ShowMenu(menu,CC.TeamNum+1,0,x,10+CC.SingleLineHeight,0,0,1,0,CC.DefaultFont,C_ORANGE,C_WHITE);
 		Cls();
 
 		for i=1,6 do
 			if WAR.SelectPerson[i]>0 then
-				WAR.Person[WAR.PersonNum]["äººç‰©ç¼–å·"]=JY.Base["é˜Ÿä¼" ..i];
-				WAR.Person[WAR.PersonNum]["æˆ‘æ–¹"]=true;
-				WAR.Person[WAR.PersonNum]["åæ ‡X"]=WAR.Data["æˆ‘æ–¹X"  .. i];
-				WAR.Person[WAR.PersonNum]["åæ ‡Y"]=WAR.Data["æˆ‘æ–¹Y"  .. i];
-				WAR.Person[WAR.PersonNum]["æ­»äº¡"]=false;
-				WAR.Person[WAR.PersonNum]["äººæ–¹å‘"]=2;
+				WAR.Person[WAR.PersonNum]["ÈËÎï±àºÅ"]=JY.Base["¶ÓÎé" ..i];
+				WAR.Person[WAR.PersonNum]["ÎÒ·½"]=true;
+				WAR.Person[WAR.PersonNum]["×ø±êX"]=WAR.Data["ÎÒ·½X"  .. i];
+				WAR.Person[WAR.PersonNum]["×ø±êY"]=WAR.Data["ÎÒ·½Y"  .. i];
+				WAR.Person[WAR.PersonNum]["ËÀÍö"]=false;
+				WAR.Person[WAR.PersonNum]["ÈË·½Ïò"]=2;
 				WAR.PersonNum=WAR.PersonNum+1;
 			end
 		end
-		if WAR.PersonNum>0 then   --é€‰æ‹©äº†æˆ‘æ–¹å‚æˆ˜äºº
+		if WAR.PersonNum>0 then   --Ñ¡ÔñÁËÎÒ·½²ÎÕ½ÈË
 		   break;
 		end
     end
 end
 
-function WarSelectMenu(newmenu,newid)            --é€‰æ‹©æˆ˜æ–—äººèœå•è°ƒç”¨å‡½æ•°
+function WarSelectMenu(newmenu,newid)            --Ñ¡ÔñÕ½¶·ÈË²Ëµ¥µ÷ÓÃº¯Êı
     local id=newmenu[newid][4];
 
     if WAR.SelectPerson[id]==0 then
@@ -3143,88 +3143,88 @@ function WarSelectMenu(newmenu,newid)            --é€‰æ‹©æˆ˜æ–—äººèœå•è°ƒç”¨å‡
     return 0;
 end
 
-function WarSelectEnemy()            --é€‰æ‹©æ•Œæ–¹å‚æˆ˜äºº
+function WarSelectEnemy()            --Ñ¡ÔñµĞ·½²ÎÕ½ÈË
   
    --if PNLBD[WAR.ZDDH]~=nil then PNLBD[WAR.ZDDH]() end
    
 	for i=1,20 do
-        if WAR.Data["æ•Œäºº"  .. i]>0 then
-            WAR.Person[WAR.PersonNum]["äººç‰©ç¼–å·"]=WAR.Data["æ•Œäºº"  .. i];
-            WAR.Person[WAR.PersonNum]["æˆ‘æ–¹"]=false;
-            WAR.Person[WAR.PersonNum]["åæ ‡X"]=WAR.Data["æ•Œæ–¹X"  .. i];
-            WAR.Person[WAR.PersonNum]["åæ ‡Y"]=WAR.Data["æ•Œæ–¹Y"  .. i];
-            WAR.Person[WAR.PersonNum]["æ­»äº¡"]=false;
-            WAR.Person[WAR.PersonNum]["äººæ–¹å‘"]=1;
+        if WAR.Data["µĞÈË"  .. i]>0 then
+            WAR.Person[WAR.PersonNum]["ÈËÎï±àºÅ"]=WAR.Data["µĞÈË"  .. i];
+            WAR.Person[WAR.PersonNum]["ÎÒ·½"]=false;
+            WAR.Person[WAR.PersonNum]["×ø±êX"]=WAR.Data["µĞ·½X"  .. i];
+            WAR.Person[WAR.PersonNum]["×ø±êY"]=WAR.Data["µĞ·½Y"  .. i];
+            WAR.Person[WAR.PersonNum]["ËÀÍö"]=false;
+            WAR.Person[WAR.PersonNum]["ÈË·½Ïò"]=1;
             WAR.PersonNum=WAR.PersonNum+1;
         end
     end	
 end
 
-function WarLoadMap(mapid)      --åŠ è½½æˆ˜æ–—åœ°å›¾
---åŠ è½½æˆ˜æ–—åœ°å›¾
---å…±6å±‚ï¼ŒåŒ…æ‹¬äº†å·¥ä½œç”¨åœ°å›¾
---        0å±‚ åœ°é¢æ•°æ®
---        1å±‚ å»ºç­‘
---ä»¥ä¸Šä¸ºæˆ˜æ–—åœ°å›¾æ•°æ®ï¼Œä»æˆ˜æ–—æ–‡ä»¶ä¸­è½½å…¥ã€‚ä¸‹é¢ä¸ºå·¥ä½œç”¨çš„åœ°å›¾ç»“æ„
---        2å±‚ æˆ˜æ–—äººæˆ˜æ–—ç¼–å·ï¼Œå³WAR.Personçš„ç¼–å·
---        3å±‚ ç§»åŠ¨æ—¶æ˜¾ç¤ºå¯ç§»åŠ¨çš„ä½ç½®
---        4å±‚ å‘½ä¸­æ•ˆæœ
---        5å±‚ æˆ˜æ–—äººå¯¹åº”çš„è´´å›¾
+function WarLoadMap(mapid)      --¼ÓÔØÕ½¶·µØÍ¼
+--¼ÓÔØÕ½¶·µØÍ¼
+--¹²6²ã£¬°üÀ¨ÁË¹¤×÷ÓÃµØÍ¼
+--        0²ã µØÃæÊı¾İ
+--        1²ã ½¨Öş
+--ÒÔÉÏÎªÕ½¶·µØÍ¼Êı¾İ£¬´ÓÕ½¶·ÎÄ¼şÖĞÔØÈë¡£ÏÂÃæÎª¹¤×÷ÓÃµÄµØÍ¼½á¹¹
+--        2²ã Õ½¶·ÈËÕ½¶·±àºÅ£¬¼´WAR.PersonµÄ±àºÅ
+--        3²ã ÒÆ¶¯Ê±ÏÔÊ¾¿ÉÒÆ¶¯µÄÎ»ÖÃ
+--        4²ã ÃüÖĞĞ§¹û
+--        5²ã Õ½¶·ÈË¶ÔÓ¦µÄÌùÍ¼
    lib.Debug(string.format("load war map %d",mapid));
    lib.LoadWarMap(CC.WarMapFile[1],CC.WarMapFile[2],mapid,6,CC.WarWidth,CC.WarHeight);
 end
 
-function GetWarMap(x,y,level)   --å–æˆ˜æ–—åœ°å›¾æ•°æ®
+function GetWarMap(x,y,level)   --È¡Õ½¶·µØÍ¼Êı¾İ
 	if x>63 or x<0 or y>63 or y<0 then
 		return;
 	end
      return lib.GetWarMap(x,y,level);
 end
 
-function SetWarMap(x,y,level,v)  --å­˜æˆ˜æ–—åœ°å›¾æ•°æ®
+function SetWarMap(x,y,level,v)  --´æÕ½¶·µØÍ¼Êı¾İ
 	if x>63 or x<0 or y>63 or y<0 then
 		return;
 	end
  	lib.SetWarMap(x,y,level,v);
 end
 
-function CleanWarMap(level,v)  --è®¾ç½®æŸå±‚ä¸ºç»™å®šå€¼
+function CleanWarMap(level,v)  --ÉèÖÃÄ³²ãÎª¸ø¶¨Öµ
 	lib.CleanWarMap(level,v);
 end
 
-function WarPersonSort(flag)  --æˆ˜æ–—äººç‰©æŒ‰è½»åŠŸæ’åº
-    for i=0,WAR.PersonNum-1 do                ---è®¡ç®—å„äººçš„è½»åŠŸï¼ŒåŒ…æ‹¬è£…å¤‡åŠ æˆ
-        local id=WAR.Person[i]["äººç‰©ç¼–å·"];
+function WarPersonSort(flag)  --Õ½¶·ÈËÎï°´Çá¹¦ÅÅĞò
+    for i=0,WAR.PersonNum-1 do                ---¼ÆËã¸÷ÈËµÄÇá¹¦£¬°üÀ¨×°±¸¼Ó³É
+        local id=WAR.Person[i]["ÈËÎï±àºÅ"];
         local add=0;
-        if JY.Person[id]["æ­¦å™¨"]>-1 then
-            add=add+JY.Thing[JY.Person[id]["æ­¦å™¨"]]["åŠ è½»åŠŸ"];
+        if JY.Person[id]["ÎäÆ÷"]>-1 then
+            add=add+JY.Thing[JY.Person[id]["ÎäÆ÷"]]["¼ÓÇá¹¦"];
         end
-        if JY.Person[id]["é˜²å…·"]>-1 then
-            add=add+JY.Thing[JY.Person[id]["é˜²å…·"]]["åŠ è½»åŠŸ"];
+        if JY.Person[id]["·À¾ß"]>-1 then
+            add=add+JY.Thing[JY.Person[id]["·À¾ß"]]["¼ÓÇá¹¦"];
         end
-        WAR.Person[i]["è½»åŠŸ"]=JY.Person[id]["è½»åŠŸ"]+add;
-		if WAR.Person[i]["æˆ‘æ–¹"] then
+        WAR.Person[i]["Çá¹¦"]=JY.Person[id]["Çá¹¦"]+add;
+		if WAR.Person[i]["ÎÒ·½"] then
 		
 		else
 			if GetS(0,0,0,0)==1 then
-				WAR.Person[i]["è½»åŠŸ"]=WAR.Person[i]["è½»åŠŸ"]+math.modf(JY.Person[id]["å†…åŠ›æœ€å¤§å€¼"]/50)+JY.Person[id]["ç­‰çº§"]
+				WAR.Person[i]["Çá¹¦"]=WAR.Person[i]["Çá¹¦"]+math.modf(JY.Person[id]["ÄÚÁ¦×î´óÖµ"]/50)+JY.Person[id]["µÈ¼¶"]
 			else
-				WAR.Person[i]["è½»åŠŸ"]=WAR.Person[i]["è½»åŠŸ"]+math.modf(JY.Person[id]["å†…åŠ›æœ€å¤§å€¼"]/100)
+				WAR.Person[i]["Çá¹¦"]=WAR.Person[i]["Çá¹¦"]+math.modf(JY.Person[id]["ÄÚÁ¦×î´óÖµ"]/100)
 			end
 		end
 		--[[
-        local move=math.modf(WAR.Person[i]["è½»åŠŸ"]/15)-math.modf(JY.Person[id]["å—ä¼¤ç¨‹åº¦"]/40);
+        local move=math.modf(WAR.Person[i]["Çá¹¦"]/15)-math.modf(JY.Person[id]["ÊÜÉË³Ì¶È"]/40);
         if move<0 then
             move=0;
         end
-        WAR.Person[i]["ç§»åŠ¨æ­¥æ•°"]=move;
+        WAR.Person[i]["ÒÆ¶¯²½Êı"]=move;
 		]]--
 	--if JY.Status==GAME_WMAP then
 		for ii,v in pairs(CC.AddSpd) do
 			if v[1]==id then
 				for wid=0,WAR.PersonNum-1 do
-					if WAR.Person[wid]["äººç‰©ç¼–å·"]==v[2] and  WAR.Person[wid]["æ­»äº¡"]==false then
-						WAR.Person[i]["è½»åŠŸ"]=WAR.Person[i]["è½»åŠŸ"]+v[3];
+					if WAR.Person[wid]["ÈËÎï±àºÅ"]==v[2] and  WAR.Person[wid]["ËÀÍö"]==false then
+						WAR.Person[i]["Çá¹¦"]=WAR.Person[i]["Çá¹¦"]+v[3];
 					end
 				end
 			end
@@ -3237,11 +3237,11 @@ function WarPersonSort(flag)  --æˆ˜æ–—äººç‰©æŒ‰è½»åŠŸæ’åº
 		return
 	end
 
-    --æŒ‰è½»åŠŸæ’åºï¼Œç”¨æ¯”è¾ƒç¬¨çš„æ–¹æ³•
+    --°´Çá¹¦ÅÅĞò£¬ÓÃ±È½Ï±¿µÄ·½·¨
     for i=0,WAR.PersonNum-2 do
         local maxid=i;
         for j=i,WAR.PersonNum-1 do
-            if WAR.Person[j]["è½»åŠŸ"]>WAR.Person[maxid]["è½»åŠŸ"] then
+            if WAR.Person[j]["Çá¹¦"]>WAR.Person[maxid]["Çá¹¦"] then
                 maxid=j;
             end
         end
@@ -3250,73 +3250,73 @@ function WarPersonSort(flag)  --æˆ˜æ–—äººç‰©æŒ‰è½»åŠŸæ’åº
 	
 end
 
-function WarSetPerson()            --è®¾ç½®æˆ˜æ–—äººç‰©ä½ç½®å’Œè´´å›¾
+function WarSetPerson()            --ÉèÖÃÕ½¶·ÈËÎïÎ»ÖÃºÍÌùÍ¼
  	CleanWarMap(2,-1);
  	CleanWarMap(5,-1);
 
 	for i=0,WAR.PersonNum-1 do
-        if WAR.Person[i]["æ­»äº¡"]==false then
-            SetWarMap(WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"],2,i);
-            SetWarMap(WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"],5,WAR.Person[i]["è´´å›¾"]);
+        if WAR.Person[i]["ËÀÍö"]==false then
+            SetWarMap(WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"],2,i);
+            SetWarMap(WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"],5,WAR.Person[i]["ÌùÍ¼"]);
         end
     end
 end
 
-function WarCalPersonPic(id)       --è®¡ç®—æˆ˜æ–—äººç‰©è´´å›¾
-    local n=5106;            --æˆ˜æ–—äººç‰©è´´å›¾èµ·å§‹ä½ç½®
-    n=n+JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["å¤´åƒä»£å·"]*8+WAR.Person[id]["äººæ–¹å‘"]*2;
+function WarCalPersonPic(id)       --¼ÆËãÕ½¶·ÈËÎïÌùÍ¼
+    local n=5106;            --Õ½¶·ÈËÎïÌùÍ¼ÆğÊ¼Î»ÖÃ
+    n=n+JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["Í·Ïñ´úºÅ"]*8+WAR.Person[id]["ÈË·½Ïò"]*2;
     return n;
 end
 
---------------------------æ‰‹åŠ¨æˆ˜æ–—---------------------------------
+--------------------------ÊÖ¶¯Õ½¶·---------------------------------
 
-function War_Manual()        --æ‰‹åŠ¨æˆ˜æ–—
---æ‰‹åŠ¨æˆ˜æ–—
---id æˆ˜æ–—äººç‰©ç¼–å·
---è¿”å›ï¼Œé€‰ä¸­èœå•ç¼–å·ï¼Œé€‰ä¸­"ç­‰å¾…"æ—¶æœ‰æ•ˆï¼Œ
+function War_Manual()        --ÊÖ¶¯Õ½¶·
+--ÊÖ¶¯Õ½¶·
+--id Õ½¶·ÈËÎï±àºÅ
+--·µ»Ø£¬Ñ¡ÖĞ²Ëµ¥±àºÅ£¬Ñ¡ÖĞ"µÈ´ı"Ê±ÓĞĞ§£¬
     local r;
-	local x,y,move,pic=WAR.Person[WAR.CurID]['åæ ‡X'],WAR.Person[WAR.CurID]['åæ ‡Y'],WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"],WAR.Person[WAR.CurID]["è´´å›¾"]
+	local x,y,move,pic=WAR.Person[WAR.CurID]['×ø±êX'],WAR.Person[WAR.CurID]['×ø±êY'],WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"],WAR.Person[WAR.CurID]["ÌùÍ¼"]
 	while true do
-	    WAR.ShowHead=1;          --æ˜¾ç¤ºå¤´åƒ
-	    r=War_Manual_Sub();  --æ‰‹åŠ¨æˆ˜æ–—èœå•
+	    WAR.ShowHead=1;          --ÏÔÊ¾Í·Ïñ
+	    r=War_Manual_Sub();  --ÊÖ¶¯Õ½¶·²Ëµ¥
 		if r==1 or r==-1 then
-			WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]=0
+			WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]=0
 		elseif r==0 then
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,-1);
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,-1);
-			WAR.Person[WAR.CurID]['åæ ‡X'],WAR.Person[WAR.CurID]['åæ ‡Y'],WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]=x,y,move
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,WAR.CurID);
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,pic);
-        else        --ç§»åŠ¨å®Œæ¯•åï¼Œé‡æ–°ç”Ÿæˆèœå•
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,-1);
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,-1);
+			WAR.Person[WAR.CurID]['×ø±êX'],WAR.Person[WAR.CurID]['×ø±êY'],WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]=x,y,move
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,WAR.CurID);
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,pic);
+        else        --ÒÆ¶¯Íê±Ïºó£¬ÖØĞÂÉú³É²Ëµ¥
 		    break;
 		end
 	end
 	WAR.ShowHead=0;--[[
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,-1);
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,-1);
-			WAR.Person[WAR.CurID]['åæ ‡X'],WAR.Person[WAR.CurID]['åæ ‡Y'],WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]=x,y,move
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,WAR.CurID);
-			SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,pic);]]--
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,-1);
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,-1);
+			WAR.Person[WAR.CurID]['×ø±êX'],WAR.Person[WAR.CurID]['×ø±êY'],WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]=x,y,move
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,WAR.CurID);
+			SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,pic);]]--
 	WarDrawMap(0);
 	return r;
 end
 
-function War_Manual_Sub()                --æ‰‹åŠ¨æˆ˜æ–—èœå•
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+function War_Manual_Sub()                --ÊÖ¶¯Õ½¶·²Ëµ¥
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 	local isEsc=0
      
-    local warmenu={ {"ç§»åŠ¨",War_MoveMenu,1},
-                 {"æ”»å‡»",War_FightMenu,1},
-                 {"ç”¨æ¯’",War_PoisonMenu,1},
-                 {"è§£æ¯’",War_DecPoisonMenu,1},
-                 {"åŒ»ç–—",War_DoctorMenu,1},
-                 {"ç‰©å“",War_ThingMenu,1},
-				 {"è“„åŠ›",War_ActupMenu,1},
-                 {"é˜²å¾¡",War_DefupMenu,1},
-                 {"çŠ¶æ€",War_StatusMenu,1},
-                 {"ä¼‘æ¯",War_RestMenu,1},
-				 {"ç‰¹è‰²",War_TgrtsMenu,1},
-                 {"è‡ªåŠ¨",War_AutoMenu,1},   };
+    local warmenu={ {"ÒÆ¶¯",War_MoveMenu,1},
+                 {"¹¥»÷",War_FightMenu,1},
+                 {"ÓÃ¶¾",War_PoisonMenu,1},
+                 {"½â¶¾",War_DecPoisonMenu,1},
+                 {"Ò½ÁÆ",War_DoctorMenu,1},
+                 {"ÎïÆ·",War_ThingMenu,1},
+				 {"ĞîÁ¦",War_ActupMenu,1},
+                 {"·ÀÓù",War_DefupMenu,1},
+                 {"×´Ì¬",War_StatusMenu,1},
+                 {"ĞİÏ¢",War_RestMenu,1},
+				 {"ÌØÉ«",War_TgrtsMenu,1},
+                 {"×Ô¶¯",War_AutoMenu,1},   };
     
 	--if pid==0 then menu[7][1]=" " end	
 	
@@ -3329,20 +3329,20 @@ function War_Manual_Sub()                --æ‰‹åŠ¨æˆ˜æ–—èœå•
 	if pid==49 then
 	    local t=0;
 	    for i=0,WAR.PersonNum-1 do
-	        local wid=WAR.Person[i]["äººç‰©ç¼–å·"]	
-			if WAR.TZ_XZ_SSH[wid]==1 and WAR.Person[i]["æ­»äº¡"]==false then
+	        local wid=WAR.Person[i]["ÈËÎï±àºÅ"]	
+			if WAR.TZ_XZ_SSH[wid]==1 and WAR.Person[i]["ËÀÍö"]==false then
 			   t=1;
 			   break
 			end
 		end
 		if t==0 then warmenu[11][3]=0 end
-		if JY.Person[pid]["ä½“åŠ›"]<20 or JY.Person[pid]["å†…åŠ›"]<1000 then warmenu[11][3]=0 end
+		if JY.Person[pid]["ÌåÁ¦"]<20 or JY.Person[pid]["ÄÚÁ¦"]<1000 then warmenu[11][3]=0 end
 	end
 	
 	if pid==88 then
 	    local yes=0;
 	    for i=0,WAR.PersonNum-1 do
-	        if WAR.Person[i]["æˆ‘æ–¹"]==true and WAR.Person[i]["æ­»äº¡"]==false then
+	        if WAR.Person[i]["ÎÒ·½"]==true and WAR.Person[i]["ËÀÍö"]==false then
 			    if RealJL(WAR.CurID,i,5) and i~=WAR.CurID then
 				     yes=1;
 					 break;
@@ -3350,35 +3350,35 @@ function War_Manual_Sub()                --æ‰‹åŠ¨æˆ˜æ–—èœå•
 			end
 		end
 		if yes==0 then warmenu[11][3]=0 end
-		if JY.Person[pid]["ä½“åŠ›"]<10 or JY.Person[pid]["å†…åŠ›"]<700 then warmenu[11][3]=0 end		
+		if JY.Person[pid]["ÌåÁ¦"]<10 or JY.Person[pid]["ÄÚÁ¦"]<700 then warmenu[11][3]=0 end		
 	end	   
 	
 	if pid==89 then
-	   local px,py=WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"];
+	   local px,py=WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"];
 	   local mxy={
-	           {WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"]+1},
-			   {WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"]-1},
-			   {WAR.Person[WAR.CurID]["åæ ‡X"]+1,WAR.Person[WAR.CurID]["åæ ‡Y"]},
-			   {WAR.Person[WAR.CurID]["åæ ‡X"]-1,WAR.Person[WAR.CurID]["åæ ‡Y"]},			   
+	           {WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"]+1},
+			   {WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"]-1},
+			   {WAR.Person[WAR.CurID]["×ø±êX"]+1,WAR.Person[WAR.CurID]["×ø±êY"]},
+			   {WAR.Person[WAR.CurID]["×ø±êX"]-1,WAR.Person[WAR.CurID]["×ø±êY"]},			   
 			      };
         local yes=0;
 		for i=1,4 do
 		    if GetWarMap(mxy[i][1],mxy[i][2],2)>=0 then
 			    local mid=GetWarMap(mxy[i][1],mxy[i][2],2);
-				if inteam(WAR.Person[mid]["äººç‰©ç¼–å·"]) then
+				if inteam(WAR.Person[mid]["ÈËÎï±àºÅ"]) then
 				   yes=1
 				   break;
 				end
 			end
 		end
 		if yes==0 then warmenu[11][3]=0 end
-		if JY.Person[pid]["ä½“åŠ›"]<25 or JY.Person[pid]["å†…åŠ›"]<300 then warmenu[11][3]=0 end	
+		if JY.Person[pid]["ÌåÁ¦"]<25 or JY.Person[pid]["ÄÚÁ¦"]<300 then warmenu[11][3]=0 end	
 	end
 	
 	if pid==9 then
 	    local yes=0;
 	    for i=0,WAR.PersonNum-1 do
-	        if WAR.Person[i]["æˆ‘æ–¹"]==true and WAR.Person[i]["æ­»äº¡"]==false then
+	        if WAR.Person[i]["ÎÒ·½"]==true and WAR.Person[i]["ËÀÍö"]==false then
 			    if RealJL(WAR.CurID,i,8) and i~=WAR.CurID then
 				     yes=1;
 					 break;
@@ -3386,10 +3386,10 @@ function War_Manual_Sub()                --æ‰‹åŠ¨æˆ˜æ–—èœå•
 			end
 		end
 		if yes==0 then warmenu[11][3]=0 end
-		if JY.Person[pid]["ä½“åŠ›"]<10 or JY.Person[pid]["å†…åŠ›"]<500 then warmenu[11][3]=0 end		
+		if JY.Person[pid]["ÌåÁ¦"]<10 or JY.Person[pid]["ÄÚÁ¦"]<500 then warmenu[11][3]=0 end		
 	end
 
-	if pid==9 and JY.Person[pid]["ä½“åŠ›"]<20 then warmenu[11][3]=0 end
+	if pid==9 and JY.Person[pid]["ÌåÁ¦"]<20 then warmenu[11][3]=0 end
 	
 	if JY.Thing[202][WZ7]<2 then warmenu[11][3]=0 end
 	
@@ -3403,26 +3403,26 @@ function War_Manual_Sub()                --æ‰‹åŠ¨æˆ˜æ–—èœå•
     end
 
 
-    if JY.Person[pid]["ä½“åŠ›"]<=5 or WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]<=0 then  --ä¸èƒ½ç§»åŠ¨
+    if JY.Person[pid]["ÌåÁ¦"]<=5 or WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]<=0 then  --²»ÄÜÒÆ¶¯
         warmenu[1][3]=0;
 		isEsc=1
     end
 
     local minv=War_GetMinNeiLi(pid);
 
-    if JY.Person[pid]["å†…åŠ›"] < minv or JY.Person[pid]["ä½“åŠ›"] <10 then  --ä¸èƒ½æˆ˜æ–—
+    if JY.Person[pid]["ÄÚÁ¦"] < minv or JY.Person[pid]["ÌåÁ¦"] <10 then  --²»ÄÜÕ½¶·
         warmenu[2][3]=0;
     end
 
-    if JY.Person[pid]["ä½“åŠ›"]<10 or JY.Person[pid]["ç”¨æ¯’èƒ½åŠ›"]<20 then  --ä¸èƒ½ç”¨æ¯’
+    if JY.Person[pid]["ÌåÁ¦"]<10 or JY.Person[pid]["ÓÃ¶¾ÄÜÁ¦"]<20 then  --²»ÄÜÓÃ¶¾
         warmenu[3][3]=0;
     end
 
-    if JY.Person[pid]["ä½“åŠ›"]<10 or JY.Person[pid]["è§£æ¯’èƒ½åŠ›"]<20 then  --ä¸èƒ½è§£æ¯’
+    if JY.Person[pid]["ÌåÁ¦"]<10 or JY.Person[pid]["½â¶¾ÄÜÁ¦"]<20 then  --²»ÄÜ½â¶¾
         warmenu[4][3]=0;
     end
 
-    if JY.Person[pid]["ä½“åŠ›"]<50 or JY.Person[pid]["åŒ»ç–—èƒ½åŠ›"]<20 then  --ä¸èƒ½åŒ»ç–—
+    if JY.Person[pid]["ÌåÁ¦"]<50 or JY.Person[pid]["Ò½ÁÆÄÜÁ¦"]<20 then  --²»ÄÜÒ½ÁÆ
         warmenu[5][3]=0;
     end
     
@@ -3442,13 +3442,13 @@ function War_Manual_Sub()                --æ‰‹åŠ¨æˆ˜æ–—èœå•
 
 end
 
-function War_GetMinNeiLi(pid)       --è®¡ç®—æ‰€æœ‰æ­¦åŠŸä¸­éœ€è¦å†…åŠ›æœ€å°‘çš„
+function War_GetMinNeiLi(pid)       --¼ÆËãËùÓĞÎä¹¦ÖĞĞèÒªÄÚÁ¦×îÉÙµÄ
     local minv=math.huge;
     for i=1,10 do
-        local tmpid=JY.Person[pid]["æ­¦åŠŸ" .. i];
+        local tmpid=JY.Person[pid]["Îä¹¦" .. i];
         if tmpid >0 then
-            if JY.Wugong[tmpid]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"]< minv then
-                minv=JY.Wugong[tmpid]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"];
+            if JY.Wugong[tmpid]["ÏûºÄÄÚÁ¦µãÊı"]< minv then
+                minv=JY.Wugong[tmpid]["ÏûºÄÄÚÁ¦µãÊı"];
             end
         end
     end
@@ -3466,20 +3466,20 @@ function TSNGP(p,w)
 	return false;
 end
 
-function War_FightMenu()              --æ‰§è¡Œæ”»å‡»èœå•
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+function War_FightMenu()              --Ö´ĞĞ¹¥»÷²Ëµ¥
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 
     local numwugong=0;
     local menu={};
     for i=1,10 do
-        local tmp=JY.Person[pid]["æ­¦åŠŸ" .. i];
+        local tmp=JY.Person[pid]["Îä¹¦" .. i];
         if tmp>0 then
 		    if JY.WGLVXS==1 then
-               --menu[i]={JY.Wugong[tmp]["åç§°"].."Â·"..JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. i],nil,1};
+               --menu[i]={JY.Wugong[tmp]["Ãû³Æ"].."¡¤"..JY.Person[pid]["Îä¹¦µÈ¼¶" .. i],nil,1};
             else
-			   menu[i]={JY.Wugong[tmp]["åç§°"],nil,1};
+			   menu[i]={JY.Wugong[tmp]["Ãû³Æ"],nil,1};
 			end
-			if JY.Wugong[tmp]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"] > JY.Person[pid]["å†…åŠ›"] then
+			if JY.Wugong[tmp]["ÏûºÄÄÚÁ¦µãÊı"] > JY.Person[pid]["ÄÚÁ¦"] then
                 menu[i][3]=0;
             end
 			if tmp==85 or tmp==87 or tmp==88 or tmp==43 then menu[i][3]=0 end
@@ -3499,7 +3499,7 @@ function War_FightMenu()              --æ‰§è¡Œæ”»å‡»èœå•
             if tmp==94 and pid==37 then menu[i][3]=1 end
 			if tmp==43 and pid==51 then menu[i][3]=1 end
 			if TSNGP(pid,tmp) then menu[i][3]=1 end
-			if JY.Wugong[tmp]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"] > JY.Person[pid]["å†…åŠ›"] then
+			if JY.Wugong[tmp]["ÏûºÄÄÚÁ¦µãÊı"] > JY.Person[pid]["ÄÚÁ¦"] then
                 menu[i][3]=0;
             end
 			numwugong=numwugong+1;
@@ -3525,8 +3525,8 @@ function War_FightMenu()              --æ‰§è¡Œæ”»å‡»èœå•
 	Cls();
 	return r2;
 	--[[
-	local wugong=JY.Person[pid]["æ­¦åŠŸ" .. r];
-    local level=JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. r];
+	local wugong=JY.Person[pid]["Îä¹¦" .. r];
+    local level=JY.Person[pid]["Îä¹¦µÈ¼¶" .. r];
 	if level==999 then 
 		level=11
 	else
@@ -3539,40 +3539,40 @@ function War_FightMenu()              --æ‰§è¡Œæ”»å‡»èœå•
 	if x==nil then
 		return 0
 	end
-	WAR.Person[WAR.CurID]["Action"]={"atk",r,x-WAR.Person[WAR.CurID]["åæ ‡X"],y-WAR.Person[WAR.CurID]["åæ ‡Y"]};
+	WAR.Person[WAR.CurID]["Action"]={"atk",r,x-WAR.Person[WAR.CurID]["×ø±êX"],y-WAR.Person[WAR.CurID]["×ø±êY"]};
 	return 1;
 	]]--
 end
 
-function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
+function War_Fight_Sub(id,wugongnum,x,y)          --Ö´ĞĞÕ½¶·
    
-    local pid=WAR.Person[id]["äººç‰©ç¼–å·"];
-    local wugong=0--JY.Person[pid]["æ­¦åŠŸ" .. wugongnum];
-	--WAR.Person[id]["åå‡»æ­¦åŠŸ"]=9999	
+    local pid=WAR.Person[id]["ÈËÎï±àºÅ"];
+    local wugong=0--JY.Person[pid]["Îä¹¦" .. wugongnum];
+	--WAR.Person[id]["·´»÷Îä¹¦"]=9999	
 	if wugongnum<100 then 
-		wugong=JY.Person[pid]["æ­¦åŠŸ" .. wugongnum];
+		wugong=JY.Person[pid]["Îä¹¦" .. wugongnum];
 	else
 		wugong=wugongnum-100; --dzxy
-		wugongnum=1--JY.Person[pid]["ç±»å‹8"]
+		wugongnum=1--JY.Person[pid]["ÀàĞÍ8"]
 		for i=1,10 do
-			if JY.Person[pid]["æ­¦åŠŸ"..i]==43 then
+			if JY.Person[pid]["Îä¹¦"..i]==43 then
 				wugongnum=i
 				break
 			end
 		end
-		x=WAR.Person[WAR.CurID]["åæ ‡X"]-x
-		y=WAR.Person[WAR.CurID]["åæ ‡Y"]-y
+		x=WAR.Person[WAR.CurID]["×ø±êX"]-x
+		y=WAR.Person[WAR.CurID]["×ø±êY"]-y
 		WarDrawMap(0);
 		local fj;
 		if WAR.DZXYLV[pid]==110 then
-		   --DrawStrBox(-1,24,string.format("%så‘åŠ¨ç¦»åˆå‚å•†åå‡»",JY.Person[pid]["å§“å"]),C_GOLD,26)
-		   fj=string.format(CC.WARS18,JY.Person[pid]["å§“å"])
+		   --DrawStrBox(-1,24,string.format("%s·¢¶¯ÀëºÏ²ÎÉÌ·´»÷",JY.Person[pid]["ĞÕÃû"]),C_GOLD,26)
+		   fj=string.format(CC.WARS18,JY.Person[pid]["ĞÕÃû"])
 		elseif WAR.DZXYLV[pid]==85 then
-		   --DrawStrBox(-1,24,string.format("%så‘åŠ¨æ–—è½¬æ˜Ÿç§»åå‡»",JY.Person[pid]["å§“å"]),C_GOLD,26)
-		   fj=string.format(CC.WARS19,JY.Person[pid]["å§“å"])
+		   --DrawStrBox(-1,24,string.format("%s·¢¶¯¶·×ªĞÇÒÆ·´»÷",JY.Person[pid]["ĞÕÃû"]),C_GOLD,26)
+		   fj=string.format(CC.WARS19,JY.Person[pid]["ĞÕÃû"])
 		elseif WAR.DZXYLV[pid]==60 then
-		   --DrawStrBox(-1,24,string.format("%så‘åŠ¨åŒ—æ–—ç§»è¾°åå‡»",JY.Person[pid]["å§“å"]),C_GOLD,26)
-		   fj=string.format(CC.WARS20,JY.Person[pid]["å§“å"])
+		   --DrawStrBox(-1,24,string.format("%s·¢¶¯±±¶·ÒÆ³½·´»÷",JY.Person[pid]["ĞÕÃû"]),C_GOLD,26)
+		   fj=string.format(CC.WARS20,JY.Person[pid]["ĞÕÃû"])
 		end
 		for i=1,10 do
 		        DrawStrBox(-1,24,fj,C_ORANGE,20+i)
@@ -3587,17 +3587,17 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
 		--lib.Delay(500)	    
 	end;
 	--if level==11 then level=10 end
-	WAR.WGWL=JY.Wugong[wugong]["æ”»å‡»åŠ›10"]
-    local fightscope=JY.Wugong[wugong]["æ”»å‡»èŒƒå›´"];
-	local kfkind=JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"];
-    local level=JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum];
+	WAR.WGWL=JY.Wugong[wugong]["¹¥»÷Á¦10"]
+    local fightscope=JY.Wugong[wugong]["¹¥»÷·¶Î§"];
+	local kfkind=JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"];
+    local level=JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum];
 	if level==999 then 
 		level=11
 	else
 		level=math.modf(level/100)+1
 	end
 	WAR.ShowHead=0
-	--åœ¨map4æ ‡æ³¨æ­¦åŠŸæ”»å‡»æ•ˆæœ
+	--ÔÚmap4±ê×¢Îä¹¦¹¥»÷Ğ§¹û
 	--[[
     if fightscope==0 then
         if War_FightSelectType0(wugong,level,x,y)==false then
@@ -3627,7 +3627,7 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
 	if x==nil then
 		return 0
 	end
-	--äºŒäººé˜µ
+	--¶şÈËÕó
 	local function between(num_1,num_2,num_3,flag)
 		flag=flag or 0;
 		if num_2>num_3 then
@@ -3642,14 +3642,14 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
 		end
 	end
 	local ZHEN_ID=-1;
-	local x0,y0=WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"];
+	local x0,y0=WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"];
 	for i=0,WAR.PersonNum-1 do
-		if WAR.Person[WAR.CurID]["æˆ‘æ–¹"]==WAR.Person[i]["æˆ‘æ–¹"] and i~=WAR.CurID and WAR.Person[i]["æ­»äº¡"]==false and WAR.SQFJ~=1 then
-			local nx=WAR.Person[i]["åæ ‡X"];
-			local ny=WAR.Person[i]["åæ ‡Y"];
-			local fid=WAR.Person[i]["äººç‰©ç¼–å·"];
+		if WAR.Person[WAR.CurID]["ÎÒ·½"]==WAR.Person[i]["ÎÒ·½"] and i~=WAR.CurID and WAR.Person[i]["ËÀÍö"]==false and WAR.SQFJ~=1 then
+			local nx=WAR.Person[i]["×ø±êX"];
+			local ny=WAR.Person[i]["×ø±êY"];
+			local fid=WAR.Person[i]["ÈËÎï±àºÅ"];
 			for j=1,10 do
-				if JY.Person[fid]["æ­¦åŠŸ"..j]==wugong then
+				if JY.Person[fid]["Îä¹¦"..j]==wugong then
 					if math.abs(nx-x0)+math.abs(ny-y0)<9 then
 						local flagx,flagy=0,0;
 						if math.abs(nx-x0)<=1 then
@@ -3667,7 +3667,7 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
 						if between(x,x0,nx,flagx) and between(y,y0,ny,flagy) then
 							ZHEN_ID=i;
 						end
-						WAR.Person[i]["äººæ–¹å‘"]=3-War_Direct(x0,y0,x,y);
+						WAR.Person[i]["ÈË·½Ïò"]=3-War_Direct(x0,y0,x,y);
 					end
 					break;
 				end
@@ -3693,12 +3693,12 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
 			if flag then
 				local v=GetWarMap(nx,ny,2);
 				if v>=0 and v~=WAR.CurID then
-					if WAR.Person[WAR.CurID]["æˆ‘æ–¹"]==WAR.Person[v]["æˆ‘æ–¹"] then
-						local fid=WAR.Person[v]["äººç‰©ç¼–å·"];
+					if WAR.Person[WAR.CurID]["ÎÒ·½"]==WAR.Person[v]["ÎÒ·½"] then
+						local fid=WAR.Person[v]["ÈËÎï±àºÅ"];
 						for j=1,10 do
-							if JY.Person[fid]["æ­¦åŠŸ"..j]==wugong then
+							if JY.Person[fid]["Îä¹¦"..j]==wugong then
 								ZHEN_ID=v;
-								WAR.Person[v]["äººæ–¹å‘"]=4-d;
+								WAR.Person[v]["ÈË·½Ïò"]=4-d;
 								break;
 							end
 						end
@@ -3709,30 +3709,30 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
 	end
 	]]--
     local fightnum=1;
-   --[[ if JY.Person[pid]["å·¦å³äº’æ"]==1 then
-		if WAR.Person[id]["æˆ‘æ–¹"] then
-			if math.random(70)>JY.Person[pid]["èµ„è´¨"] then
+   --[[ if JY.Person[pid]["×óÓÒ»¥²«"]==1 then
+		if WAR.Person[id]["ÎÒ·½"] then
+			if math.random(70)>JY.Person[pid]["×ÊÖÊ"] then
 				fightnum=2;
 			end
 		else
 			fightnum=2;
 		end 
     end]]--
-	        local zyjl=75-JY.Person[pid]["èµ„è´¨"];
+	        local zyjl=75-JY.Person[pid]["×ÊÖÊ"];
 			if zyjl<0 then zyjl=0 end
 			if pid==64 then zyjl=100 end
 			if pid==59 then zyjl=70 end
 			if T2SQ(pid) then zyjl=40 end
 			if T2SQ(pid) and GetS(10,0,7,0)==1 then zyjl=70 end
                                              
-          if JY.Person[pid]["å·¦å³äº’æ"]==1 and WAR.ZYHB==0 and JLSD(0,zyjl,pid) and WAR.DZXY==0 and WAR.SQFJ~=1 then                                           
+          if JY.Person[pid]["×óÓÒ»¥²«"]==1 and WAR.ZYHB==0 and JLSD(0,zyjl,pid) and WAR.DZXY==0 and WAR.SQFJ~=1 then                                           
                WAR.ZYHB=1  
 			    --for i=0,WAR.PersonNum-1 do
 			        --WAR.Person[i]["Time"]=1005
 				--end
 			   
                 for i=1,10 do
-					DrawStrBox(-1,24,"å·¦å³äº’æ",C_ORANGE,20+i)
+					DrawStrBox(-1,24,"×óÓÒ»¥²«",C_ORANGE,20+i)
 					ShowScreen();
 						if i==10 then
 							lib.Delay(40);
@@ -3741,20 +3741,20 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
 						end
 		        end 	 
           end 		                                       
-    local LJ1=math.modf(JY.Person[pid]["è½»åŠŸ"]/18);
-    local LJ2=math.modf((JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]+JY.Person[pid]["å†…åŠ›"])/1000);
-    local LJ3=math.modf(JY.Person[pid]["èµ„è´¨"]/10);
+    local LJ1=math.modf(JY.Person[pid]["Çá¹¦"]/18);
+    local LJ2=math.modf((JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]+JY.Person[pid]["ÄÚÁ¦"])/1000);
+    local LJ3=math.modf(JY.Person[pid]["×ÊÖÊ"]/10);
     local LJ=0;
 	 
              LJ=LJ1+LJ2+LJ3
-             if WAR.Person[id]["æˆ‘æ–¹"] then
+             if WAR.Person[id]["ÎÒ·½"] then
                 LJ=LJ
              else
                 LJ=LJ+20
              end
              
              for i=1,10 do
-                 if JY.Person[pid]["æ­¦åŠŸ"..i]==47 then --åˆ¤å®šä¹å‰‘
+                 if JY.Person[pid]["Îä¹¦"..i]==47 then --ÅĞ¶¨¾Å½£
                     LJ=LJ+10
                     break;
                  end
@@ -3763,9 +3763,9 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
 			 local ljup={10,15,42,31,54,60,68,76,79}
 			 local up=0;
 			  for i=1,10 do
-			        if JY.Person[pid]["æ­¦åŠŸ"..i]>0 then
+			        if JY.Person[pid]["Îä¹¦"..i]>0 then
 					    for ii=1,9 do
-					         if JY.Person[pid]["æ­¦åŠŸ"..i]==ljup[ii] then
+					         if JY.Person[pid]["Îä¹¦"..i]==ljup[ii] then
 							    LJ=LJ+5
 								up=up+1
 								break;
@@ -3817,11 +3817,11 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
                	  say(CC.WARS21,50)                 
 				  WAR.FS=1
 			   end
-			   JY.Wugong[13]["åç§°"]=CC.WARS22
+			   JY.Wugong[13]["Ãû³Æ"]=CC.WARS22
                if JLSD(40,70,pid) then                           
                 fightnum=2
 			   end
-			   if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==26 and (JLSD(45,55,pid) or WAR.LQZ[pid]==100) then
+			   if JY.Person[pid]['Îä¹¦'..wugongnum]==26 and (JLSD(45,55,pid) or WAR.LQZ[pid]==100) then
 			       fightnum=3
 				   WAR.FS=1
 				    for i=1,10 do
@@ -3830,19 +3830,19 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
                         lib.Delay(1)   
 					end
 			   end
-                if JY.Person[pid]["å†…åŠ›"]<math.modf(JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]/3) then
-                   JY.Person[pid]["å†…åŠ›"]=math.modf(JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]/3)                 
+                if JY.Person[pid]["ÄÚÁ¦"]<math.modf(JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]/3) then
+                   JY.Person[pid]["ÄÚÁ¦"]=math.modf(JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]/3)                 
                 end              
              end
              if pid==27 then fightnum=3 end          
              if pid==35 and GetS(10,1,1,0)==1 and JLSD(15,85,pid) then fightnum=2 end
-			 if pid==59 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==42 then fightnum=2 end
+			 if pid==59 and JY.Person[pid]['Îä¹¦'..wugongnum]==42 then fightnum=2 end
              if pid==60 and WAR.tmp[1060]==1 and (WAR.ZDDH==176 or WAR.ZDDH==133) then fightnum=2 end
 			 if WAR.ZDDH==237 and pid==18 and JLSD(30,70,pid) then fightnum=1 end
 			
 			 local glj={7,2,34,37,55,57,70,77};
 			 for i=1,8 do
-			      if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==glj[i] and JLSD(25,75,pid) then
+			      if JY.Person[pid]['Îä¹¦'..wugongnum]==glj[i] and JLSD(25,75,pid) then
 				      fightnum=2 
 					  break;
 				  end
@@ -3853,7 +3853,7 @@ function War_Fight_Sub(id,wugongnum,x,y)          --æ‰§è¡Œæˆ˜æ–—
 			 WAR.ACT=1
 			 WAR.FLHS6=0
 			 if WAR.DZXY==1 or WAR.SQFJ==1 then fightnum=1 end
-while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
+while WAR.ACT<=fightnum  do         --Èç¹û×óÓÒ»¥²«£¬Ôò¹¥»÷Á½´Î
 
     if WAR.WS==1 then WAR.WS=0 end
 	if WAR.BJ==1 then WAR.BJ=0 end
@@ -3887,14 +3887,14 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	if ZHEN_ID>=0 then
 		local tmp_id=WAR.CurID;
 		WAR.CurID=ZHEN_ID;
-		WarDrawAtt(WAR.Person[ZHEN_ID]["åæ ‡X"]+x0-x,WAR.Person[ZHEN_ID]["åæ ‡Y"]+y0-y,atkfanwei,3);
+		WarDrawAtt(WAR.Person[ZHEN_ID]["×ø±êX"]+x0-x,WAR.Person[ZHEN_ID]["×ø±êY"]+y0-y,atkfanwei,3);
 		WAR.CurID=tmp_id;
 	end
 	if WAR.SQFJ==1 then
 	   CleanWarMap(4,0)
 	   for i=0,WAR.PersonNum-1 do
-	        if WAR.Person[i]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and WAR.Person[i]["æ­»äº¡"]==false then
-	           SetWarMap(WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"],4,1)
+	        if WAR.Person[i]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] and WAR.Person[i]["ËÀÍö"]==false then
+	           SetWarMap(WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"],4,1)
 			end
 		end
 	end
@@ -3907,23 +3907,23 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 				ShowScreen();
 				lib.Delay(1);															
 		end 	
-		--DrawStrBox(CC.ScreenW/2-42,24,"è¿å‡»",C_ORANGE,30)
+		--DrawStrBox(CC.ScreenW/2-42,24,"Á¬»÷",C_ORANGE,30)
 		--ShowScreen()
 		--lib.Delay(600)
 	end
-    local BJ1=math.modf(JY.Person[pid]["æ”»å‡»åŠ›"]/18);
-    local BJ2=math.modf((JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]+JY.Person[pid]["å†…åŠ›"])/1000);
-    local BJ3=math.modf(JY.Person[pid]["ä½“åŠ›"]/10);
+    local BJ1=math.modf(JY.Person[pid]["¹¥»÷Á¦"]/18);
+    local BJ2=math.modf((JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]+JY.Person[pid]["ÄÚÁ¦"])/1000);
+    local BJ3=math.modf(JY.Person[pid]["ÌåÁ¦"]/10);
     local BJ=0;
 	     BJ=BJ1+BJ2+BJ3
-             if WAR.Person[id]["æˆ‘æ–¹"] then
+             if WAR.Person[id]["ÎÒ·½"] then
                 BJ=BJ
              else
                 BJ=BJ+20
              end
-             if pid==58 and JY.Person[pid]["ç”Ÿå‘½"]<JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]/4 and JLSD(10,80,pid) then
+             if pid==58 and JY.Person[pid]["ÉúÃü"]<JY.Person[pid]["ÉúÃü×î´óÖµ"]/4 and JLSD(10,80,pid) then
                 WAR.BJ=1
-             elseif pid==58 and JY.Person[pid]["ç”Ÿå‘½"]<JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]/2 and JLSD(25,75,pid) then
+             elseif pid==58 and JY.Person[pid]["ÉúÃü"]<JY.Person[pid]["ÉúÃü×î´óÖµ"]/2 and JLSD(25,75,pid) then
                 WAR.BJ=1
              end
              if pid==54 then
@@ -3933,9 +3933,9 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 			 local bjup={18,22,39,40,56,65,71,78,74}
 			 local up=0;
 			  for i=1,10 do
-			        if JY.Person[pid]["æ­¦åŠŸ"..i]>0 then
+			        if JY.Person[pid]["Îä¹¦"..i]>0 then
 					    for ii=1,9 do
-					         if JY.Person[pid]["æ­¦åŠŸ"..i]==bjup[ii] then
+					         if JY.Person[pid]["Îä¹¦"..i]==bjup[ii] then
 							    BJ=BJ+5
 								up=up+1
 								break;
@@ -3978,20 +3978,20 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 			 
 			 if pid==48 then
 			    for j=0,WAR.PersonNum-1 do
-		             if WAR.Person[j]["äººç‰©ç¼–å·"]==47 then
-	                    if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then			    
+		             if WAR.Person[j]["ÈËÎï±àºÅ"]==47 then
+	                    if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[WAR.CurID]["ÎÒ·½"] then			    
 		                   WAR.BJ=1
 						end
 					 end
 			    end
 			 end
 			 
-			 if pid==77 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==62 then WAR.BJ=1 end
+			 if pid==77 and JY.Person[pid]['Îä¹¦'..wugongnum]==62 then WAR.BJ=1 end
              if pid==60 and WAR.tmp[1060]==1 then WAR.BJ=1 end
 			 
 			 local gbj={11,13,28,33,58,59,72,75};
 			 for i=1,8 do
-			      if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==gbj[i] and JLSD(20,75,pid) then
+			      if JY.Person[pid]['Îä¹¦'..wugongnum]==gbj[i] and JLSD(20,75,pid) then
 				      WAR.BJ=1 
 					  break;
 				  end
@@ -4022,7 +4022,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 				ShowScreen();
 				lib.Delay(1);																		
 			end		
-           --DrawStrBox(-1,-1,"æš´å‡»",C_ORANGE,30)
+           --DrawStrBox(-1,-1,"±©»÷",C_ORANGE,30)
            --ShowScreen()
            --lib.Delay(600)
         end
@@ -4031,7 +4031,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	end]]--
 	local ng=0
 	for i=1,10 do
-		local kfid=JY.Person[pid]["æ­¦åŠŸ"..i]
+		local kfid=JY.Person[pid]["Îä¹¦"..i]
 		if kfid>88 and kfid<109 then
 			if kfid==95 then
 				if WAR.tmp[200+pid]==nil then
@@ -4041,34 +4041,34 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 					ng=WAR.tmp[200+pid]*10+1500;
 					WAR.tmp[200+pid]=0;
 					WAR.Person[id][CC.TXDH]=math.fmod(kfid,10)+85
-					WAR.Person[id][CC.TXWZ2]=JY.Wugong[kfid]['åç§°']..'Â·èŸ¾éœ‡ä¹å¤©'
+					WAR.Person[id][CC.TXWZ2]=JY.Wugong[kfid]['Ãû³Æ']..'¡¤ó¸Õğ¾ÅÌì'
 					break;
 				end
 				end
 			end
-			if myrandom(10,pid) or (pid==9 and myrandom(10+i*4,pid)) or (pid==0 and i==2 and kfid==91 and (JLSD(35,60,pid) or (GetS(4,5,5,5)==6 and JLSD(30,35+math.modf(JY.Person[0]["å“å¾·"]/3),pid)))) or (PersonKF(104,pid) and JLSD(35,60,pid)) then  
-				local lv=math.modf(JY.Person[pid]['æ­¦åŠŸç­‰çº§'..i]/100)+1
-				local wl=JY.Wugong[kfid]['æ”»å‡»åŠ›'..lv]			
+			if myrandom(10,pid) or (pid==9 and myrandom(10+i*4,pid)) or (pid==0 and i==2 and kfid==91 and (JLSD(35,60,pid) or (GetS(4,5,5,5)==6 and JLSD(30,35+math.modf(JY.Person[0]["Æ·µÂ"]/3),pid)))) or (PersonKF(104,pid) and JLSD(35,60,pid)) then  
+				local lv=math.modf(JY.Person[pid]['Îä¹¦µÈ¼¶'..i]/100)+1
+				local wl=JY.Wugong[kfid]['¹¥»÷Á¦'..lv]			
 				if wl>ng then
 					ng=wl
 					WAR.Person[id][CC.TXDH]=math.fmod(kfid,10)+85
-					WAR.Person[id][CC.TXWZ2]=JY.Wugong[kfid]['åç§°']..'åŠ åŠ›'
+					WAR.Person[id][CC.TXWZ2]=JY.Wugong[kfid]['Ãû³Æ']..'¼ÓÁ¦'
 					WAR.NGJL=kfid					
 				end
 			end
 		end
 	end
 	
-	if WAR.NGJL==92 and (WAR.Person[WAR.CurID]["æˆ‘æ–¹"]==false or math.random(10)<6 or pid==13) then
+	if WAR.NGJL==92 and (WAR.Person[WAR.CurID]["ÎÒ·½"]==false or math.random(10)<6 or pid==13) then
 					ng=1;
 					WAR.Person[id][CC.TXDH]=math.fmod(92,10)+85;
 					if pid==13 then
-					   WAR.Person[id][CC.TXWZ2]=JY.Wugong[92]['åç§°']..CC.WARS130;
+					   WAR.Person[id][CC.TXWZ2]=JY.Wugong[92]['Ãû³Æ']..CC.WARS130;
 					else
-					   WAR.Person[id][CC.TXWZ2]=JY.Wugong[92]['åç§°']..CC.WARS31;
+					   WAR.Person[id][CC.TXWZ2]=JY.Wugong[92]['Ãû³Æ']..CC.WARS31;
 					end
 					for j=0,WAR.PersonNum-1 do
-						if WAR.Person[j]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and WAR.Person[j]["æ­»äº¡"]==false then
+						if WAR.Person[j]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] and WAR.Person[j]["ËÀÍö"]==false then
 							WAR.Person[j]["TimeAdd"]=WAR.Person[j]["TimeAdd"]-100;
 							if pid==13 then
 							   WAR.Person[j]["TimeAdd"]=WAR.Person[j]["TimeAdd"]-200;
@@ -4088,7 +4088,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	
 	if pid==0 and WAR.NGJL==91 and GetS(10,0,7,0)==1 and GetS(4,5,5,5)~=8 then
 	   local t=math.random(4);
-	   local mc=JY.Wugong[91]["åç§°"]
+	   local mc=JY.Wugong[91]["Ãû³Æ"]
 	   if GetS(4,5,5,5)==6 and GetS(10,0,11,0)~=1 then t=math.random(2)+1 end	      		
 	   if GetS(4,5,5,5)==6 and GetS(10,0,11,0)==1 and JLSD(25,75,pid) then t=math.random(2)+1 end	
 	   if GetS(4,5,5,5)==6 and GetS(10,0,11,0)==1 and (t==1 or t==4) then
@@ -4099,7 +4099,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 		  WAR.Person[id][CC.TXWZ2]=mc..FLHSYL[1]
 		  WAR.FLHS1=1
 		   for j=0,WAR.PersonNum-1 do
-	        if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then                            			   			                   
+	        if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[WAR.CurID]["ÎÒ·½"] then                            			   			                   
 		        WAR.Person[j]["Time"]=WAR.Person[j]["Time"]+100
                 if WAR.Person[j]["Time"]>980 then WAR.Person[j]["Time"]=980	end		
             end
@@ -4129,9 +4129,9 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 		end
 		WAR.BMXH=1
 		for w=1,10 do
-		    if JY.Person[pid]["æ­¦åŠŸ"..w]==85 then
-			    JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]=JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]+10
-				if JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]>999 then JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]=999 end
+		    if JY.Person[pid]["Îä¹¦"..w]==85 then
+			    JY.Person[pid]["Îä¹¦µÈ¼¶"..w]=JY.Person[pid]["Îä¹¦µÈ¼¶"..w]+10
+				if JY.Person[pid]["Îä¹¦µÈ¼¶"..w]>999 then JY.Person[pid]["Îä¹¦µÈ¼¶"..w]=999 end
 				break
 			end
 		end
@@ -4148,9 +4148,9 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 		end
 		WAR.BMXH=2
 		for w=1,10 do
-		    if JY.Person[pid]["æ­¦åŠŸ"..w]==88 then
-			    JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]=JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]+10
-				if JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]>999 then JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]=999 end
+		    if JY.Person[pid]["Îä¹¦"..w]==88 then
+			    JY.Person[pid]["Îä¹¦µÈ¼¶"..w]=JY.Person[pid]["Îä¹¦µÈ¼¶"..w]+10
+				if JY.Person[pid]["Îä¹¦µÈ¼¶"..w]>999 then JY.Person[pid]["Îä¹¦µÈ¼¶"..w]=999 end
 				break
 			end
 		end
@@ -4167,9 +4167,9 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 		end
 		WAR.BMXH=3
 		for w=1,10 do
-		    if JY.Person[pid]["æ­¦åŠŸ"..w]==87 then
-			    JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]=JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]+10
-				if JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]>999 then JY.Person[pid]["æ­¦åŠŸç­‰çº§"..w]=999 end
+		    if JY.Person[pid]["Îä¹¦"..w]==87 then
+			    JY.Person[pid]["Îä¹¦µÈ¼¶"..w]=JY.Person[pid]["Îä¹¦µÈ¼¶"..w]+10
+				if JY.Person[pid]["Îä¹¦µÈ¼¶"..w]>999 then JY.Person[pid]["Îä¹¦µÈ¼¶"..w]=999 end
 				break
 			end
 		end
@@ -4194,12 +4194,12 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	end
 	
 	if pid==0 and GetS(4,5,5,5)==5 then
-	   if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]>88 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]<109 then
-	      if JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and JLSD(25,75,pid) then
-		     WAR.Person[id][CC.TXWZ3]=CC.WARS39..JY.Wugong[JY.Person[pid]['æ­¦åŠŸ'..wugongnum]]["åç§°"]	      
-		     ng=ng+JY.Wugong[JY.Person[pid]['æ­¦åŠŸ'..wugongnum]]["æ”»å‡»åŠ›10"]
+	   if JY.Person[pid]['Îä¹¦'..wugongnum]>88 and JY.Person[pid]['Îä¹¦'..wugongnum]<109 then
+	      if JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and JLSD(25,75,pid) then
+		     WAR.Person[id][CC.TXWZ3]=CC.WARS39..JY.Wugong[JY.Person[pid]['Îä¹¦'..wugongnum]]["Ãû³Æ"]	      
+		     ng=ng+JY.Wugong[JY.Person[pid]['Îä¹¦'..wugongnum]]["¹¥»÷Á¦10"]
 	      end
-		  if JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 then WAR.WS=1 end
+		  if JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 then WAR.WS=1 end
 	  end
 	end
 	
@@ -4222,16 +4222,16 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	   ng=ng+1500
 	end
 	
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==26 then
-           if pid==50 or (pid==55 and math.random(10)<4) or (pid==69 and math.random(10)<6) or (pid==0 and GetS(4,5,5,5)==1 and JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and JLSD(30,70,pid)) then		
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==26 then
+           if pid==50 or (pid==55 and math.random(10)<4) or (pid==69 and math.random(10)<6) or (pid==0 and GetS(4,5,5,5)==1 and JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and JLSD(30,70,pid)) then		
 			WAR.Person[id][CC.TXWZ3]=XL18JY[math.random(8)]
-			--JY.Person[pid]['æ”»å‡»åŠ›']=JY.Person[pid]['æ”»å‡»åŠ›']*3
+			--JY.Person[pid]['¹¥»÷Á¦']=JY.Person[pid]['¹¥»÷Á¦']*3
 			ng=ng+2500
 			WAR.WS=1
 			--[[
 			for i=1,level do
 				for d=1,4 do
-					SetWarMap(WAR.Person[WAR.CurID]['åæ ‡X']+CC.DirectX[d]*i,WAR.Person[WAR.CurID]['åæ ‡Y']+CC.DirectY[d]*i,4,1)
+					SetWarMap(WAR.Person[WAR.CurID]['×ø±êX']+CC.DirectX[d]*i,WAR.Person[WAR.CurID]['×ø±êY']+CC.DirectY[d]*i,4,1)
 				end
 			end
 			]]--
@@ -4246,14 +4246,14 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
              else
                        if myrandom(15+level,pid) then			
 			WAR.Person[id][CC.TXWZ3]=XL18[math.random(6)]
-			--JY.Person[pid]['æ”»å‡»åŠ›']=JY.Person[pid]['æ”»å‡»åŠ›']*3
+			--JY.Person[pid]['¹¥»÷Á¦']=JY.Person[pid]['¹¥»÷Á¦']*3
 			ng=ng+2000
 			for i=1,(1+level)/2 do
 				for j=1,(1+level)/2 do
-		SetWarMap(WAR.Person[WAR.CurID]['åæ ‡X']+i*2-1,WAR.Person[WAR.CurID]['åæ ‡Y']+j*2-1,4,1)
-		SetWarMap(WAR.Person[WAR.CurID]['åæ ‡X']-i*2+1,WAR.Person[WAR.CurID]['åæ ‡Y']+j*2-1,4,1)
-		SetWarMap(WAR.Person[WAR.CurID]['åæ ‡X']+i*2-1,WAR.Person[WAR.CurID]['åæ ‡Y']-j*2+1,4,1)
-		SetWarMap(WAR.Person[WAR.CurID]['åæ ‡X']-i*2+1,WAR.Person[WAR.CurID]['åæ ‡Y']-j*2+1,4,1)
+		SetWarMap(WAR.Person[WAR.CurID]['×ø±êX']+i*2-1,WAR.Person[WAR.CurID]['×ø±êY']+j*2-1,4,1)
+		SetWarMap(WAR.Person[WAR.CurID]['×ø±êX']-i*2+1,WAR.Person[WAR.CurID]['×ø±êY']+j*2-1,4,1)
+		SetWarMap(WAR.Person[WAR.CurID]['×ø±êX']+i*2-1,WAR.Person[WAR.CurID]['×ø±êY']-j*2+1,4,1)
+		SetWarMap(WAR.Person[WAR.CurID]['×ø±êX']-i*2+1,WAR.Person[WAR.CurID]['×ø±êY']-j*2+1,4,1)
 				end
 			end
                         end
@@ -4261,7 +4261,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
                     
         end		
 	   
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==49 then
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==49 then
 	    if PersonKF(pid,17) then
 		    if JLSD(20,80,pid) or pid==53 then
 		       WAR.Person[id][CC.TXWZ3]=LMSJ[math.random(6)]			
@@ -4280,7 +4280,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 		end
 	end
 	
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==1 and PersonKF(pid,108) then	    
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==1 and PersonKF(pid,108) then	    
 		if inteam(pid) then
 		    if JLSD(20,80,pid) then WAR.LHQ_BNZ=1 end
 		else
@@ -4288,7 +4288,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 		end
 	end
 	
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==22 and PersonKF(pid,108) then	    
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==22 and PersonKF(pid,108) then	    
 		if inteam(pid) then
 		    if JLSD(20,60,pid) then WAR.JGZ_DMZ=1 end
 		else
@@ -4303,22 +4303,22 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	end
 	
 	if pid==38 and wugong==102 then
-	   if JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and JLSD(25,75,pid) then
+	   if JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and JLSD(25,75,pid) then
 	      WAR.Person[id][CC.TXWZ3]=XKXSJ[math.random(4)]
 		  ng=ng+1200
 		end
 	end
 	
 	if pid==37 and wugong==94 then
-	   if JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and JLSD(25,75,pid) then
+	   if JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and JLSD(25,75,pid) then
 	      WAR.Person[id][CC.TXWZ3]=CC.WARS43
 		  ng=ng+1000
 		end
 	end
 	
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==44 and JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and math.random(10)<6 then
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==44 and JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and math.random(10)<6 then
 	   for i=1,10 do
-	       if JY.Person[pid]['æ­¦åŠŸ'..i]==67 and JY.Person[pid]['æ­¦åŠŸç­‰çº§'..i]==999 then
+	       if JY.Person[pid]['Îä¹¦'..i]==67 and JY.Person[pid]['Îä¹¦µÈ¼¶'..i]==999 then
 		      WAR.Person[id][CC.TXWZ1]=CC.WARS44
 			  WAR.Person[id][CC.TXDH]=6
 			  WAR.DJGZ=1
@@ -4328,9 +4328,9 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	   end
 	end
 	
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==67 and JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and math.random(10)<6 then
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==67 and JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and math.random(10)<6 then
 	   for i=1,10 do
-	       if JY.Person[pid]['æ­¦åŠŸ'..i]==44 and JY.Person[pid]['æ­¦åŠŸç­‰çº§'..i]==999 then
+	       if JY.Person[pid]['Îä¹¦'..i]==44 and JY.Person[pid]['Îä¹¦µÈ¼¶'..i]==999 then
 		      WAR.Person[id][CC.TXWZ1]=CC.WARS44
 			  WAR.Person[id][CC.TXDH]=6
 			  WAR.DJGZ=1
@@ -4340,16 +4340,16 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	   end
 	end
 	
-	if pid==90 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==113 then WAR.TD=-2 end
+	if pid==90 and JY.Person[pid]['Îä¹¦'..wugongnum]==113 then WAR.TD=-2 end
 	
     if pid==57 and WAR.ACT==1 then
        	for j=0,WAR.PersonNum-1 do		    
-	            if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then	
-				   if JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["å†…åŠ›"]>1000 then
-		              JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["å†…åŠ›"]=JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["å†…åŠ›"]-1000
+	            if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then	
+				   if JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]>1000 then
+		              JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]=JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]-1000
 	               else
-				      JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["å†…åŠ›"]=0
-					  JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]=JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]-100
+				      JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]=0
+					  JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÉúÃü"]=JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÉúÃü"]-100
 				   end
                 end
         end
@@ -4359,34 +4359,34 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	
 	if pid==60 then WAR.WS=1 end
 	if pid==27 then WAR.WS=1 end
-	if (pid==50 or pid==55 or pid==69) and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==26 then WAR.WS=1 end
-	if pid==35 and GetS(10,1,1,0)==1 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==47 then WAR.WS=1 end
+	if (pid==50 or pid==55 or pid==69) and JY.Person[pid]['Îä¹¦'..wugongnum]==26 then WAR.WS=1 end
+	if pid==35 and GetS(10,1,1,0)==1 and JY.Person[pid]['Îä¹¦'..wugongnum]==47 then WAR.WS=1 end
 	
 	if pid==62 then ng=ng+2000 end 
 	
 	if pid==84 then ng=ng+1000 end 
 	
-	if pid==78 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==11 then 
+	if pid==78 and JY.Person[pid]['Îä¹¦'..wugongnum]==11 then 
 	   WAR.MCF=1 
 	   WAR.Person[id][CC.TXWZ3]=CC.WARS46
 	end
 	
-	if pid==52 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==70 then 
+	if pid==52 and JY.Person[pid]['Îä¹¦'..wugongnum]==70 then 
 	   WAR.Person[id][CC.TXWZ3]=CC.WARS47
 	   ng=ng+1000
 	end
 	
 	if pid==25 or pid==83 then WAR.TFH=1 end
 	
-	if pid==91 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==28 then WAR.WQQ=1 end
+	if pid==91 and JY.Person[pid]['Îä¹¦'..wugongnum]==28 then WAR.WQQ=1 end
 	
-	if pid==74 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==29 then WAR.HQT=1 end
+	if pid==74 and JY.Person[pid]['Îä¹¦'..wugongnum]==29 then WAR.HQT=1 end
 
-	if pid==63 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==38 then WAR.CY=1 end
+	if pid==63 and JY.Person[pid]['Îä¹¦'..wugongnum]==38 then WAR.CY=1 end
 	
 	if pid==58 and WAR.XK~=2 then           
           for j=0,WAR.PersonNum-1 do
-	        if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then                            			   			                   
+	        if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then                            			   			                   
 		        WAR.Person[j]["TimeAdd"]=WAR.Person[j]["TimeAdd"]-100             			               
             end
           end
@@ -4395,48 +4395,48 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
     end
 	
 	
-	if WAR.XK==2 and pid==58 and WAR.Person[WAR.CurID]["æˆ‘æ–¹"]==WAR.XK2 then
+	if WAR.XK==2 and pid==58 and WAR.Person[WAR.CurID]["ÎÒ·½"]==WAR.XK2 then
                    for e=0,WAR.PersonNum-1 do
-					     if WAR.Person[e]["æ­»äº¡"]==false and WAR.Person[e]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then     
-			                WAR.Person[e]["TimeAdd"]=WAR.Person[e]["TimeAdd"]-math.modf(JY.Person[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]["å†…åŠ›"]/5)
+					     if WAR.Person[e]["ËÀÍö"]==false and WAR.Person[e]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then     
+			                WAR.Person[e]["TimeAdd"]=WAR.Person[e]["TimeAdd"]-math.modf(JY.Person[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]/5)
 							if WAR.Person[e]["Time"]<-450 then WAR.Person[e]["Time"]=-450 end
-	                        JY.Person[WAR.Person[e]["äººç‰©ç¼–å·"]]["å†…åŠ›"]=JY.Person[WAR.Person[e]["äººç‰©ç¼–å·"]]["å†…åŠ›"]-math.modf(JY.Person[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]["å†…åŠ›"]/5)
-                            if JY.Person[WAR.Person[e]["äººç‰©ç¼–å·"]]["å†…åŠ›"]<0 then JY.Person[WAR.Person[e]["äººç‰©ç¼–å·"]]["å†…åŠ›"]=0 end						
-		                    JY.Person[WAR.Person[e]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]=JY.Person[WAR.Person[e]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]-math.modf(JY.Person[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]["å†…åŠ›"]/25)
-							if JY.Person[WAR.Person[e]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]<0 then JY.Person[WAR.Person[e]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]=0 end							
+	                        JY.Person[WAR.Person[e]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]=JY.Person[WAR.Person[e]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]-math.modf(JY.Person[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]/5)
+                            if JY.Person[WAR.Person[e]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]<0 then JY.Person[WAR.Person[e]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]=0 end						
+		                    JY.Person[WAR.Person[e]["ÈËÎï±àºÅ"]]["ÉúÃü"]=JY.Person[WAR.Person[e]["ÈËÎï±àºÅ"]]["ÉúÃü"]-math.modf(JY.Person[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]["ÄÚÁ¦"]/25)
+							if JY.Person[WAR.Person[e]["ÈËÎï±àºÅ"]]["ÉúÃü"]<0 then JY.Person[WAR.Person[e]["ÈËÎï±àºÅ"]]["ÉúÃü"]=0 end							
 						  end
 					end
 					if inteam(pid) then
-                       JY.Person[58]["å†…åŠ›"]=0
-					   JY.Person[58]["å†…åŠ›æœ€å¤§å€¼"]=JY.Person[58]["å†…åŠ›æœ€å¤§å€¼"]-100
-					   JY.Person[300]["å£°æœ›"]=JY.Person[300]["å£°æœ›"]+1
+                       JY.Person[58]["ÄÚÁ¦"]=0
+					   JY.Person[58]["ÄÚÁ¦×î´óÖµ"]=JY.Person[58]["ÄÚÁ¦×î´óÖµ"]-100
+					   JY.Person[300]["ÉùÍû"]=JY.Person[300]["ÉùÍû"]+1
 					else
-					   AddPersonAttrib(pid,"å†…åŠ›",-1000);
+					   AddPersonAttrib(pid,"ÄÚÁ¦",-1000);
 					end
-					if JY.Person[58]["å†…åŠ›æœ€å¤§å€¼"]<500 then JY.Person[58]["å†…åŠ›æœ€å¤§å€¼"]=500 end
+					if JY.Person[58]["ÄÚÁ¦×î´óÖµ"]<500 then JY.Person[58]["ÄÚÁ¦×î´óÖµ"]=500 end
 					WAR.Person[id][CC.TXWZ1]=CC.WARS49
 	                WAR.Person[id][CC.TXDH]=6
 				    WAR.XK=3
 	end
    
-	if pid==73 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==73  then
+	if pid==73 and JY.Person[pid]['Îä¹¦'..wugongnum]==73  then
 	   if math.random(10)<7 then
 	    WAR.Person[id][CC.TXWZ3]=CC.WARS50
 	    WAR.Person[id][CC.TXDH]=89
 	     for j=0,WAR.PersonNum-1 do
-	          if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then                            			   			                   
-		        JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]=JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]-70
+	          if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then                            			   			                   
+		        JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÉúÃü"]=JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÉúÃü"]-70
 			  end
 	   end
 	  else
 	   if math.random(10)<7 then
 	    for j=0,WAR.PersonNum-1 do
-		    if WAR.Person[j]["äººç‰©ç¼–å·"]==35 then
-	            if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then			    
-		            JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ä½“åŠ›"]=100
-					JY.Person[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]["ä½“åŠ›"]=100
-					JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]=0
-					JY.Person[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]=0
+		    if WAR.Person[j]["ÈËÎï±àºÅ"]==35 then
+	            if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[WAR.CurID]["ÎÒ·½"] then			    
+		            JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÌåÁ¦"]=100
+					JY.Person[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]["ÌåÁ¦"]=100
+					JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]=0
+					JY.Person[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]=0
 					WAR.Person[id][CC.TXWZ3]=CC.WARS51
 	                WAR.Person[id][CC.TXDH]=89
 			    end
@@ -4463,10 +4463,10 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	
 	if pid==2 then
 	   for j=0,WAR.PersonNum-1 do
-	        if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then                            			   			                   
-		        JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ä¸­æ¯’ç¨‹åº¦"]=JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ä¸­æ¯’ç¨‹åº¦"]+20
-                if 	JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ä¸­æ¯’ç¨‹åº¦"]>100 then			
-	                JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["ä¸­æ¯’ç¨‹åº¦"]=100 
+	        if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then                            			   			                   
+		        JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÖĞ¶¾³Ì¶È"]=JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÖĞ¶¾³Ì¶È"]+20
+                if 	JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÖĞ¶¾³Ì¶È"]>100 then			
+	                JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÖĞ¶¾³Ì¶È"]=100 
 				end
 			end
 		end
@@ -4474,12 +4474,12 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 		WAR.Person[id][CC.TXDH]=64
 	end
 	
-	if pid==103 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==66 then
+	if pid==103 and JY.Person[pid]['Îä¹¦'..wugongnum]==66 then
 	   for j=0,WAR.PersonNum-1 do
-	        if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then                            			   			                   
-		        JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]=JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]+30
-                if 	JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]>100 then			
-	                JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["å—ä¼¤ç¨‹åº¦"]=100 
+	        if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then                            			   			                   
+		        JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]=JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]+30
+                if 	JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]>100 then			
+	                JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ÊÜÉË³Ì¶È"]=100 
 				end
 			end
 		end	
@@ -4495,9 +4495,9 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	   WAR.Person[id][CC.TXWZ3]=CC.WARS58
 	end
 	
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==63 and (JY.Person[pid]["æ­¦å™¨"]==44 or pid==97) then WAR.XDDF=1 end
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==63 and (JY.Person[pid]["ÎäÆ÷"]==44 or pid==97) then WAR.XDDF=1 end
 	   
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==16 then
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==16 then
 		if WAR.tmp[3000+pid]==nil then
 			WAR.tmp[3000+pid]=0;
 		else
@@ -4519,7 +4519,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	
 	if pid==5 then
 	    if WAR.Person[id][CC.TXWZ3]~=nil and JLSD(30,70,pid) then
-		    WAR.Person[id][CC.TXWZ3]=CC.EVB110.."Â·"..WAR.Person[id][CC.TXWZ3]
+		    WAR.Person[id][CC.TXWZ3]=CC.EVB110.."¡¤"..WAR.Person[id][CC.TXWZ3]
 	        ng=ng+1000;
 		    WAR.ZSF2=1;
 		end
@@ -4531,14 +4531,14 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	   WAR.Person[id][CC.TXWZ3]=CC.s53..SZB[d]
 	end
 
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==8 and pid==49 and PersonKF(pid,101) and (JLSD(20,80,pid) or WAR.NGJL==98) then
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==8 and pid==49 and PersonKF(pid,101) and (JLSD(20,80,pid) or WAR.NGJL==98) then
 	   WAR.Person[id][CC.TXWZ3]=CC.WARS60	  
 	   ng=ng+1700
 	   WAR.SSFwav=1;
 	   WAR.TZ_XZ=1;
 	end
 	
-	if JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==80 and JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and (JLSD(30,70,pid) or (GetS(4,5,5,5)==4 and JLSD(30,75,pid))) then
+	if JY.Person[pid]['Îä¹¦'..wugongnum]==80 and JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and (JLSD(30,70,pid) or (GetS(4,5,5,5)==4 and JLSD(30,75,pid))) then
            WAR.Person[id][CC.TXWZ3]=CC.WARS61
 	       WAR.Person[id][CC.TXDH]=89	
            if WAR.Person[id][CC.TXWZ3]~=nil then ng=ng-800 end  
@@ -4554,13 +4554,13 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 			end
 	end
 	
-	if pid==1 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==67 and WAR.Person[id][CC.TXWZ3]==nil and JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and math.random(10)<6 then	   
+	if pid==1 and JY.Person[pid]['Îä¹¦'..wugongnum]==67 and WAR.Person[id][CC.TXWZ3]==nil and JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and math.random(10)<6 then	   
 			WAR.Person[id][CC.TXWZ3]=HDZC[math.random(3)]	
 			WAR.WS=1	
 			ng=ng+1200
 	end
 	
-	if pid==58 and JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==45 and WAR.Person[id][CC.TXWZ3]==nil and JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and math.random(10)<7 then
+	if pid==58 and JY.Person[pid]['Îä¹¦'..wugongnum]==45 and WAR.Person[id][CC.TXWZ3]==nil and JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and math.random(10)<7 then
 	      WAR.Person[id][CC.TXWZ3]=CC.WARS62
 	       WAR.Person[id][CC.TXDH]=84			
 			ng=ng+1800	
@@ -4584,7 +4584,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	if T2SQ(pid) and GetS(10,0,7,0)==1 and JLSD(25,75,0) and WAR.SQFJ~=1 and WAR.DZXY~=1 then
 	   Cls();
 	   DHZFXS(CC.WARS64)											   
-	   --WAR.Person[id][CC.TXWZ1]="ç«å‡¤ç‡åŸ"
+	   --WAR.Person[id][CC.TXWZ1]="»ğ·ïÁÇÔ­"
 	   WAR.Person[id][CC.TXDH]=65
 	    WAR.WS=1			
 			for i=1,10 do
@@ -4626,10 +4626,10 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	   ng=ng+1500
 	end
 	
-	if WAR.Data["ä»£å·"]==130 then
+	if WAR.Data["´úºÅ"]==130 then
 	   for j=0,WAR.PersonNum-1 do
-		    if WAR.Person[j]["äººç‰©ç¼–å·"]==541 then
-	            if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then			    
+		    if WAR.Person[j]["ÈËÎï±àºÅ"]==541 then
+	            if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[WAR.CurID]["ÎÒ·½"] then			    
 		            WAR.BSMT=1
 					WAR.WS=1
 					ng=ng+1500
@@ -4640,7 +4640,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
        end
 	end
 	   
-	if  JY.Person[pid]['æ­¦åŠŸ'..wugongnum]==48 and JY.Person[pid]['æ­¦åŠŸç­‰çº§'..wugongnum]==999 and WAR.NGJL==105 and WAR.KHCM[pid]~=1 then
+	if  JY.Person[pid]['Îä¹¦'..wugongnum]==48 and JY.Person[pid]['Îä¹¦µÈ¼¶'..wugongnum]==999 and WAR.NGJL==105 and WAR.KHCM[pid]~=1 then
 	    WAR.KHBX=1
 		WAR.Person[id][CC.TXWZ3]=CC.WARS70
 	    WAR.Person[id][CC.TXDH]=6			
@@ -4651,21 +4651,21 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	   WAR.Person[id][CC.TXWZ2]=CC.WARS71
 	end
 	
-	local xb=JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"];
-	local pz=math.modf(JY.Person[0]["èµ„è´¨"]/5)
+	local xb=JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"];
+	local pz=math.modf(JY.Person[0]["×ÊÖÊ"]/5)
 	
-	if pid==0 and GetS(4,5,5,5)==2 and JY.Person[pid]["å¾¡å‰‘èƒ½åŠ›"]>=120 and JY.Person[pid]['æ­¦åŠŸ10']>0 and xb==2 and JLSD(30,50+pz,pid) and GetS(10,0,7,0)==1 then 
+	if pid==0 and GetS(4,5,5,5)==2 and JY.Person[pid]["Óù½£ÄÜÁ¦"]>=120 and JY.Person[pid]['Îä¹¦10']>0 and xb==2 and JLSD(30,50+pz,pid) and GetS(10,0,7,0)==1 then 
 	   CleanWarMap(4,0)
 	   for i=0,WAR.PersonNum-1 do
-	        if WAR.Person[i]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and WAR.Person[i]["æ­»äº¡"]==false then
-	           SetWarMap(WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"],4,1)
+	        if WAR.Person[i]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] and WAR.Person[i]["ËÀÍö"]==false then
+	           SetWarMap(WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"],4,1)
 			end
 		end
 		WAR.Person[id][CC.TXDH]=6	
 		if WAR.Person[id][CC.TXWZ3]==nil then
 	        WAR.Person[id][CC.TXWZ3]=ZJTF[2]
 	    else
-		    WAR.Person[id][CC.TXWZ3]=ZJTF[2].."Â·"..WAR.Person[id][CC.TXWZ3]
+		    WAR.Person[id][CC.TXWZ3]=ZJTF[2].."¡¤"..WAR.Person[id][CC.TXWZ3]
 		end	
 		ng=ng+1500
 		WAR.WS=1
@@ -4682,7 +4682,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 		--Cls();
 		for i=12,24 do		        
 		        NewDrawString(-1,-1,ZJTF[2]..TFSSJ[2],C_GOLD,25+i)						
-				--NewDrawString(-1,-1,"ã€ç¥æ´²é“è„ŠÂ·å°ç‹¼å±…èƒ¥ã€",C_GOLD,25+i)										
+				--NewDrawString(-1,-1,"¡ºÉñÖŞÌú¼¹¡¤·âÀÇ¾Óñã¡»",C_GOLD,25+i)										
 				ShowScreen();
 						if i==24 then
 						    Cls();							
@@ -4697,12 +4697,12 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 		WAR.JSYX=1
 	end
 	
-	if pid==0 and GetS(4,5,5,5)==1 and JY.Person[pid]['æ­¦åŠŸ10']>0 and JY.Person[pid]["æ‹³æŒåŠŸå¤«"]>=120 and JLSD(30,50+pz,pid) and xb==1 and GetS(10,0,7,0)==1 then
+	if pid==0 and GetS(4,5,5,5)==1 and JY.Person[pid]['Îä¹¦10']>0 and JY.Person[pid]["È­ÕÆ¹¦·ò"]>=120 and JLSD(30,50+pz,pid) and xb==1 and GetS(10,0,7,0)==1 then
 	   WAR.Person[id][CC.TXDH]=6	
 	    if WAR.Person[id][CC.TXWZ3]==nil then
 	        WAR.Person[id][CC.TXWZ3]=ZJTF[1]
 	    else
-		    WAR.Person[id][CC.TXWZ3]=ZJTF[1].."Â·"..WAR.Person[id][CC.TXWZ3]
+		    WAR.Person[id][CC.TXWZ3]=ZJTF[1].."¡¤"..WAR.Person[id][CC.TXWZ3]
 		end	
 	   ng=ng+1200
 	   WAR.WS=1
@@ -4729,12 +4729,12 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	   WAR.LXZQ=1
 	end
 	
-	if pid==0 and GetS(4,5,5,5)==4 and JY.Person[pid]['æ­¦åŠŸ10']>0 and JY.Person[pid]["ç‰¹æ®Šå…µå™¨"]>=120 and JLSD(25,55+pz,pid) and xb==4 and GetS(10,0,7,0)==1 then
+	if pid==0 and GetS(4,5,5,5)==4 and JY.Person[pid]['Îä¹¦10']>0 and JY.Person[pid]["ÌØÊâ±øÆ÷"]>=120 and JLSD(25,55+pz,pid) and xb==4 and GetS(10,0,7,0)==1 then
 	   WAR.Person[id][CC.TXDH]=6	
 	    if WAR.Person[id][CC.TXWZ3]==nil then
 	        WAR.Person[id][CC.TXWZ3]=ZJTF[4]
 	    else
-		    WAR.Person[id][CC.TXWZ3]=ZJTF[4].."Â·"..WAR.Person[id][CC.TXWZ3]
+		    WAR.Person[id][CC.TXWZ3]=ZJTF[4].."¡¤"..WAR.Person[id][CC.TXWZ3]
 		end	
 	   ng=ng+1000
 	   WAR.WS=1
@@ -4761,12 +4761,12 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	   WAR.GCTJ=1
 	end
 	
-	if pid==0 and GetS(4,5,5,5)==3 and JY.Person[pid]['æ­¦åŠŸ10']>0 and JY.Person[pid]["è€åˆ€æŠ€å·§"]>=120 and JLSD(30,55+pz,pid) and xb==3 and GetS(10,0,7,0)==1 then
+	if pid==0 and GetS(4,5,5,5)==3 and JY.Person[pid]['Îä¹¦10']>0 and JY.Person[pid]["Ë£µ¶¼¼ÇÉ"]>=120 and JLSD(30,55+pz,pid) and xb==3 and GetS(10,0,7,0)==1 then
 	   WAR.Person[id][CC.TXDH]=6	
 	    if WAR.Person[id][CC.TXWZ3]==nil then
 	        WAR.Person[id][CC.TXWZ3]=ZJTF[3]
 	    else
-		    WAR.Person[id][CC.TXWZ3]=ZJTF[3].."Â·"..WAR.Person[id][CC.TXWZ3]
+		    WAR.Person[id][CC.TXWZ3]=ZJTF[3].."¡¤"..WAR.Person[id][CC.TXWZ3]
 		end	
 	   ng=ng+2000
 	   WAR.WS=1
@@ -4797,8 +4797,8 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	if pid==0 and GetS(4,5,5,5)==5 and WAR.JSTG<150 and WAR.DZXY~=1 and JLSD(25,55+pz,pid) then
 	    local tg=0;
 	            for i=1,10 do
-			        if JY.Person[pid]["æ­¦åŠŸ"..i]>84 and JY.Person[pid]["æ­¦åŠŸ"..i]<109 and JY.Person[pid]["æ­¦åŠŸ"..i]~=86 or JY.Person[pid]["æ­¦åŠŸ"..i]==43 then
-					    if JY.Person[pid]["æ­¦åŠŸç­‰çº§"..i]==999 then
+			        if JY.Person[pid]["Îä¹¦"..i]>84 and JY.Person[pid]["Îä¹¦"..i]<109 and JY.Person[pid]["Îä¹¦"..i]~=86 or JY.Person[pid]["Îä¹¦"..i]==43 then
+					    if JY.Person[pid]["Îä¹¦µÈ¼¶"..i]==999 then
 					       tg=tg+1
 						end
 					end
@@ -4860,21 +4860,21 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
     for i=0,CC.WarWidth-1 do
         for j=0,CC.WarHeight-1 do
 			local effect=GetWarMap(i,j,4);
-            if effect>0 then              --æ”»å‡»æ•ˆæœåœ°æ–¹			   
+            if effect>0 then              --¹¥»÷Ğ§¹ûµØ·½			   
   				local emeny=GetWarMap(i,j,2);
 				
 				   
-                 if emeny>=0 then          --æœ‰äºº				 
-                     if emeny~=WAR.CurID then       --æ˜¯æ•Œäºº
-						if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] ~= WAR.Person[emeny]["æˆ‘æ–¹"] or ((GetS(0,0,0,0)==1 or WAR.tmp[1000+pid]~=nil) and ZHEN_ID<0 and WAR.WS==0) then       --æ˜¯æ•Œäºº
-					     --åªæœ‰ç‚¹å’Œé¢æ”»å‡»å¯ä»¥æ€å†…åŠ›ã€‚æ­¤æ—¶ä¼¤å®³ç±»å‹æœ‰æ•ˆ
-							if JY.Wugong[wugong]["ä¼¤å®³ç±»å‹"]==1 and (fightscope==0 or fightscope==3) then
+                 if emeny>=0 then          --ÓĞÈË				 
+                     if emeny~=WAR.CurID then       --ÊÇµĞÈË
+						if WAR.Person[WAR.CurID]["ÎÒ·½"] ~= WAR.Person[emeny]["ÎÒ·½"] or ((GetS(0,0,0,0)==1 or WAR.tmp[1000+pid]~=nil) and ZHEN_ID<0 and WAR.WS==0) then       --ÊÇµĞÈË
+					     --Ö»ÓĞµãºÍÃæ¹¥»÷¿ÉÒÔÉ±ÄÚÁ¦¡£´ËÊ±ÉËº¦ÀàĞÍÓĞĞ§
+							if JY.Wugong[wugong]["ÉËº¦ÀàĞÍ"]==1 and (fightscope==0 or fightscope==3) then
 								if level==11 then level=10 end
-								WAR.Person[emeny]["ç‚¹æ•°"]=-War_WugongHurtNeili(emeny,wugong,level)
+								WAR.Person[emeny]["µãÊı"]=-War_WugongHurtNeili(emeny,wugong,level)
 								SetWarMap(i,j,4,3);
 								WAR.Effect=3;
 							else
-								WAR.Person[emeny]["ç‚¹æ•°"]=-War_WugongHurtLife(emeny,wugong,level,ng)
+								WAR.Person[emeny]["µãÊı"]=-War_WugongHurtLife(emeny,wugong,level,ng)
 								WAR.Effect=2;
 								SetWarMap(i,j,4,2);  							
 							end
@@ -4888,7 +4888,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
         for j=0,CC.WarHeight-1 do
 	        if GetWarMap(i,j,2)>=0 then  
 			    if WAR.NYSH[GetWarMap(i,j,2)]==1 then				 				  
-				    WAR.Person[GetWarMap(i,j,2)]["ç‚¹æ•°"]=WAR.Person[GetWarMap(i,j,2)]["ç‚¹æ•°"]-WAR.fthurt
+				    WAR.Person[GetWarMap(i,j,2)]["µãÊı"]=WAR.Person[GetWarMap(i,j,2)]["µãÊı"]-WAR.fthurt
 				    WAR.Effect=2;
 				    SetWarMap(i,j,4,2);
 					WAR.NYSH[GetWarMap(i,j,2)]=0
@@ -4900,7 +4900,7 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	
 	if fightnum==2 then level=level end
 	
-	local dhxg=JY.Wugong[wugong]["æ­¦åŠŸåŠ¨ç”»&éŸ³æ•ˆ"]
+	local dhxg=JY.Wugong[wugong]["Îä¹¦¶¯»­&ÒôĞ§"]
 	if WAR.LXZQ==1 then
 	   dhxg=71
 	elseif WAR.JSYX==1 then
@@ -4910,17 +4910,17 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	elseif  WAR.GCTJ==1 then
 	   dhxg=108
 	end
-    War_ShowFight(pid,wugong,JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"],level,x,y,dhxg,ZHEN_ID);
+    War_ShowFight(pid,wugong,JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"],level,x,y,dhxg,ZHEN_ID);
 	--end
 	
     for i=0,WAR.PersonNum-1 do
-        WAR.Person[i]["ç‚¹æ•°"]=0;
+        WAR.Person[i]["µãÊı"]=0;
     end
 
-    WAR.Person[WAR.CurID]["ç»éªŒ"]=WAR.Person[WAR.CurID]["ç»éªŒ"]+2;
+    WAR.Person[WAR.CurID]["¾­Ñé"]=WAR.Person[WAR.CurID]["¾­Ñé"]+2;
 	
 	local rz=0
-	if WAR.Person[id]["æˆ‘æ–¹"] then--and inteam(pid) then
+	if WAR.Person[id]["ÎÒ·½"] then--and inteam(pid) then
 	
 	else
 		rz=40 
@@ -4929,62 +4929,62 @@ while WAR.ACT<=fightnum  do         --å¦‚æœå·¦å³äº’æï¼Œåˆ™æ”»å‡»ä¸¤æ¬¡
 	--if JY.WGLVXS==1 then rz=100 end
 
 	if inteam(pid) then
-		if JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]<900 then
-			JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]=JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]+2+Rnd(2);
-		elseif JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]<999 then
-			JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]=JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]+math.modf(JY.Person[pid]["èµ„è´¨"]/15+math.random(2))+rz
-			if JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]>= 999 then    --æ­¦åŠŸå‡çº§äº†
-				JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]=999
+		if JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]<900 then
+			JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]=JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]+2+Rnd(2);
+		elseif JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]<999 then
+			JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]=JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]+math.modf(JY.Person[pid]["×ÊÖÊ"]/15+math.random(2))+rz
+			if JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]>= 999 then    --Îä¹¦Éı¼¶ÁË
+				JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]=999
 				PlayWavAtk(42) 
-				DrawStrBoxWaitKey(string.format(CC.WARS76,JY.Person[pid]["å§“å"],JY.Wugong[JY.Person[pid]["æ­¦åŠŸ" .. wugongnum]]["åç§°"]),C_ORANGE,CC.DefaultFont)
+				DrawStrBoxWaitKey(string.format(CC.WARS76,JY.Person[pid]["ĞÕÃû"],JY.Wugong[JY.Person[pid]["Îä¹¦" .. wugongnum]]["Ãû³Æ"]),C_ORANGE,CC.DefaultFont)
 				ShowScreen();
 				lib.Delay(200);
 				Cls();
 				ShowScreen();
-				if pid==38 and JY.Person[pid]["æ­¦åŠŸ" .. wugongnum]==102 then
+				if pid==38 and JY.Person[pid]["Îä¹¦" .. wugongnum]==102 then
 				   say(CC.say2,38)
 				   DrawStrBoxWaitKey(CC.say3,C_ORANGE,CC.DefaultFont)
 				   ShowScreen();
-				   JY.Person[38]['è½»åŠŸ']=JY.Person[38]['è½»åŠŸ']+50
+				   JY.Person[38]['Çá¹¦']=JY.Person[38]['Çá¹¦']+50
 				end
 			end
 		end
 	end
 
-    if math.modf(JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]/100)+1 > level then    --æ­¦åŠŸå‡çº§äº†
-        level=math.modf(JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. wugongnum]/100)+1;
-        DrawStrBox(-1,-1,string.format(CC.WARS77,JY.Wugong[JY.Person[pid]["æ­¦åŠŸ" .. wugongnum]]["åç§°"],level),C_ORANGE,CC.DefaultFont)
+    if math.modf(JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]/100)+1 > level then    --Îä¹¦Éı¼¶ÁË
+        level=math.modf(JY.Person[pid]["Îä¹¦µÈ¼¶" .. wugongnum]/100)+1;
+        DrawStrBox(-1,-1,string.format(CC.WARS77,JY.Wugong[JY.Person[pid]["Îä¹¦" .. wugongnum]]["Ãû³Æ"],level),C_ORANGE,CC.DefaultFont)
         ShowScreen();
         lib.Delay(500);
         Cls();
         ShowScreen();
     end
-	if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then  --å®šä¹‰æ¶ˆè€—å†…åŠ›
+	if WAR.Person[WAR.CurID]["ÎÒ·½"] then  --¶¨ÒåÏûºÄÄÚÁ¦
 		local nl
-		if JY.Person[pid]["æ­¦åŠŸ"..wugongnum]==43 then
-			nl=math.modf((level+3)/2)*JY.Wugong[wugong]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"]
+		if JY.Person[pid]["Îä¹¦"..wugongnum]==43 then
+			nl=math.modf((level+3)/2)*JY.Wugong[wugong]["ÏûºÄÄÚÁ¦µãÊı"]
 			if nl>400 then nl=400 end
 			if pid==51 then nl=math.modf(nl/2) end
 		else
-			nl=math.modf((level+3)/2)*JY.Wugong[wugong]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"]
+			nl=math.modf((level+3)/2)*JY.Wugong[wugong]["ÏûºÄÄÚÁ¦µãÊı"]
 		end
                 
                 for i=1,10 do
-                   if JY.Person[pid]["æ­¦åŠŸ"..i]==99 then
-                       nl=nl-math.modf(nl*(JY.Person[pid]["æ­¦åŠŸç­‰çº§"..i]/100*0.05))
+                   if JY.Person[pid]["Îä¹¦"..i]==99 then
+                       nl=nl-math.modf(nl*(JY.Person[pid]["Îä¹¦µÈ¼¶"..i]/100*0.05))
                    end
                 end
-		AddPersonAttrib(pid,"å†…åŠ›",-nl)
+		AddPersonAttrib(pid,"ÄÚÁ¦",-nl)
 	else
 		if GetS(0,0,0,0)~=1 then
-			AddPersonAttrib(pid,"å†…åŠ›",-math.modf((level+1)/3)*JY.Wugong[wugong]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"])
+			AddPersonAttrib(pid,"ÄÚÁ¦",-math.modf((level+1)/3)*JY.Wugong[wugong]["ÏûºÄÄÚÁ¦µãÊı"])
 		else
-			AddPersonAttrib(pid,"å†…åŠ›",-math.modf((level+1)/6)*JY.Wugong[wugong]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"])
+			AddPersonAttrib(pid,"ÄÚÁ¦",-math.modf((level+1)/6)*JY.Wugong[wugong]["ÏûºÄÄÚÁ¦µãÊı"])
 		end
 	end
-	if JY.Person[pid]["å†…åŠ›"]<0 then JY.Person[pid]["å†…åŠ›"]=0 end
+	if JY.Person[pid]["ÄÚÁ¦"]<0 then JY.Person[pid]["ÄÚÁ¦"]=0 end
 	
-	if JY.Person[pid]["ç”Ÿå‘½"]<=0 then break end
+	if JY.Person[pid]["ÉúÃü"]<=0 then break end
 
 	DrawTimeBar2();	
 	WAR.ACT=WAR.ACT+1
@@ -5003,10 +5003,10 @@ end
     if pid==89 then
       
     else
-		if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
-		   AddPersonAttrib(pid,"ä½“åŠ›",-jtl)
+		if WAR.Person[WAR.CurID]["ÎÒ·½"] then
+		   AddPersonAttrib(pid,"ÌåÁ¦",-jtl)
 		else
-		   AddPersonAttrib(pid,"ä½“åŠ›",-2)
+		   AddPersonAttrib(pid,"ÌåÁ¦",-2)
 		end
     end
 		   
@@ -5014,10 +5014,10 @@ end
 	local dz={}
 	local dznum=0
 	for i=0,WAR.PersonNum-1 do
-		if WAR.Person[i]["åå‡»æ­¦åŠŸ"]~=-1 and WAR.Person[i]["åå‡»æ­¦åŠŸ"]~=9999 then  			--
+		if WAR.Person[i]["·´»÷Îä¹¦"]~=-1 and WAR.Person[i]["·´»÷Îä¹¦"]~=9999 then  			--
 			dznum=dznum+1
-			dz[dznum]={i,WAR.Person[i]["åå‡»æ­¦åŠŸ"],x-WAR.Person[WAR.CurID]["åæ ‡X"],y-WAR.Person[WAR.CurID]["åæ ‡Y"]}
-			WAR.Person[i]["åå‡»æ­¦åŠŸ"]=9999
+			dz[dznum]={i,WAR.Person[i]["·´»÷Îä¹¦"],x-WAR.Person[WAR.CurID]["×ø±êX"],y-WAR.Person[WAR.CurID]["×ø±êY"]}
+			WAR.Person[i]["·´»÷Îä¹¦"]=9999
 		end
 	end	
 		
@@ -5025,24 +5025,24 @@ end
 		local tmp=WAR.CurID
 		WAR.CurID=dz[i][1]
 		WAR.DZXY=1
-		if WAR.DZXYLV[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]==1 then
-		   WAR.DZXYLV[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]=60
-		elseif WAR.DZXYLV[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]==2 then
-		   WAR.DZXYLV[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]=85
-		elseif WAR.DZXYLV[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]==3 then
-		   WAR.DZXYLV[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]=110
+		if WAR.DZXYLV[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]==1 then
+		   WAR.DZXYLV[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]=60
+		elseif WAR.DZXYLV[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]==2 then
+		   WAR.DZXYLV[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]=85
+		elseif WAR.DZXYLV[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]==3 then
+		   WAR.DZXYLV[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]=110
 		end
 		--lib.Delay(100)
-		War_Fight_Sub(dz[i][1],dz[i][2]+100,dz[i][3],dz[1][4])--dz[i][3],dz[i][4])          --æ‰§è¡Œæˆ˜æ–—
-		WAR.Person[WAR.CurID]["åå‡»æ­¦åŠŸ"]=-1
-		WAR.DZXYLV[WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]]=nil
+		War_Fight_Sub(dz[i][1],dz[i][2]+100,dz[i][3],dz[1][4])--dz[i][3],dz[i][4])          --Ö´ĞĞÕ½¶·
+		WAR.Person[WAR.CurID]["·´»÷Îä¹¦"]=-1
+		WAR.DZXYLV[WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]]=nil
 		WAR.CurID=tmp
         WAR.DZXY=0			
 	end
 	
 	if WAR.YTFS==-1 then	    
 	    for i=0,WAR.PersonNum-1 do
-		      if WAR.Person[i]["äººç‰©ç¼–å·"]==0 and T2SQ(WAR.Person[i]["äººç‰©ç¼–å·"]) then--and JY.Person[0]["ç”Ÿå‘½"]>0 then
+		      if WAR.Person[i]["ÈËÎï±àºÅ"]==0 and T2SQ(WAR.Person[i]["ÈËÎï±àºÅ"]) then--and JY.Person[0]["ÉúÃü"]>0 then
 		         local tmp=WAR.CurID
 				 WAR.CurID=i
 				 WAR.SQFJ=1
@@ -5067,12 +5067,12 @@ end
 										lib.Delay(1);
 									end						
 					end
-				 War_Fight_Sub(i,2,WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"])
+				 War_Fight_Sub(i,2,WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"])
 		         WAR.SQFJ=0
 				 for w=1,10 do
-				        if JY.Person[0]["æ­¦åŠŸ"..w]==JY.Person[0]["æ­¦åŠŸ2"] and w~=2 then
-				           JY.Person[0]["æ­¦åŠŸ2"]=WAR.YT1
-				           JY.Person[0]["æ­¦åŠŸç­‰çº§2"]=WAR.YT2
+				        if JY.Person[0]["Îä¹¦"..w]==JY.Person[0]["Îä¹¦2"] and w~=2 then
+				           JY.Person[0]["Îä¹¦2"]=WAR.YT1
+				           JY.Person[0]["Îä¹¦µÈ¼¶2"]=WAR.YT2
 						    break
 					    end
 				  end					
@@ -5085,10 +5085,10 @@ end
     return 1;
 end
 
-function myrandom(p,pp) --æœºç‡
+function myrandom(p,pp) --»úÂÊ
 	for i=0,WAR.PersonNum-1 do
-		local pid=WAR.Person[i]["äººç‰©ç¼–å·"];
-		if WAR.Person[i]["æ­»äº¡"]==false and pid==76 then
+		local pid=WAR.Person[i]["ÈËÎï±àºÅ"];
+		if WAR.Person[i]["ËÀÍö"]==false and pid==76 then
 			if inteam(pp) then
 				p=p+5;
 			end
@@ -5096,12 +5096,12 @@ function myrandom(p,pp) --æœºç‡
 		end
 	end
 	for i=1,10 do
-		if JY.Person[pp]["æ­¦åŠŸ"..i]==102 then
-			p=p+(math.modf(JY.Person[pp]["æ­¦åŠŸç­‰çº§"..i]/100)+1);
+		if JY.Person[pp]["Îä¹¦"..i]==102 then
+			p=p+(math.modf(JY.Person[pp]["Îä¹¦µÈ¼¶"..i]/100)+1);
 			break;
 		end
 	end	
-	p=math.modf(p+JY.Person[pp]["ç”Ÿå‘½æœ€å¤§å€¼"]*4/(JY.Person[pp]["ç”Ÿå‘½"]+20)+JY.Person[pp]["ä½“åŠ›"]/20)	
+	p=math.modf(p+JY.Person[pp]["ÉúÃü×î´óÖµ"]*4/(JY.Person[pp]["ÉúÃü"]+20)+JY.Person[pp]["ÌåÁ¦"]/20)	
 	if pp==38 then p=p+20 end
 	if WAR.tmp[1000+pp]==1 then p=p+40 end	
 	if inteam(pp) then
@@ -5114,11 +5114,11 @@ function myrandom(p,pp) --æœºç‡
 			end
 		end
 	end   
-	p=p+limitX(math.modf(JY.Person[pp]['å†…åŠ›']/500),0,20);
+	p=p+limitX(math.modf(JY.Person[pp]['ÄÚÁ¦']/500),0,20);
 	--DrawStrBoxWaitKey(string.format("%4d",p),C_GOLD,30)
 	local times=1;
 	if inteam(pp) then
-		if math.random(120)-10>JY.Person[pp]['èµ„è´¨'] then
+		if math.random(120)-10>JY.Person[pp]['×ÊÖÊ'] then
 			times=2;
 		end
 		if T1LEQ(pp) and GetS(10,0,7,0)==1 then times=2 end		 
@@ -5139,12 +5139,12 @@ function myrandom(p,pp) --æœºç‡
 	else
 		local luck
 		if inteam(pp) then
-			luck=100-JY.Person[pp]['èµ„è´¨']
+			luck=100-JY.Person[pp]['×ÊÖÊ']
 		else
 			luck=100
 			p=p*3
 		end
-		p=p+math.modf(JY.Person[pp]['å†…åŠ›']/400)
+		p=p+math.modf(JY.Person[pp]['ÄÚÁ¦']/400)
 		if math.random(100)<=luck then
 			if math.random(100)<=p then
 				return true
@@ -5155,14 +5155,14 @@ function myrandom(p,pp) --æœºç‡
 	return false
 end
 
-function War_Direct(x1,y1,x2,y2)             --è®¡ç®—äººæ–¹å‘
---è®¡ç®—äººæ–¹å‘
---(x1,y1) äººä½ç½®     -(x2,y2) ç›®æ ‡ä½ç½®
---è¿”å›ï¼š æ–¹å‘
+function War_Direct(x1,y1,x2,y2)             --¼ÆËãÈË·½Ïò
+--¼ÆËãÈË·½Ïò
+--(x1,y1) ÈËÎ»ÖÃ     -(x2,y2) Ä¿±êÎ»ÖÃ
+--·µ»Ø£º ·½Ïò
     local x=x2-x1;
     local y=y2-y1;
 	if x==0 and y==0 then
-		return WAR.Person[WAR.CurID]["äººæ–¹å‘"]
+		return WAR.Person[WAR.CurID]["ÈË·½Ïò"]
 	end
     if math.abs(y)>math.abs(x) then
         if y>0 then
@@ -5179,7 +5179,7 @@ function War_Direct(x1,y1,x2,y2)             --è®¡ç®—äººæ–¹å‘
     end
 end
 
-function KungfuString(str,x,y,color,size,font,place)					--è¿”å›æ˜¾ç¤ºæ­¦åŠŸçš„ç‰¹æ•ˆæ–‡å­—
+function KungfuString(str,x,y,color,size,font,place)					--·µ»ØÏÔÊ¾Îä¹¦µÄÌØĞ§ÎÄ×Ö
 	if str==nil then return end
 	local w,h=size,size+5;
 	local len=string.len(str)/2
@@ -5188,17 +5188,17 @@ function KungfuString(str,x,y,color,size,font,place)					--è¿”å›æ˜¾ç¤ºæ­¦åŠŸçš„
 	lib.DrawStr(x,y,str,color,size,font,0,0)
 end
 
-function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)              --æ˜¾ç¤ºæˆ˜æ–—åŠ¨ç”»
---æ˜¾ç¤ºæˆ˜æ–—åŠ¨ç”»
---pid äººid
---wugong  æ­¦åŠŸç¼–å·ï¼Œ 0 è¡¨ç¤ºç”¨æ¯’è§£æ¯’ç­‰ï¼Œä½¿ç”¨æ™®é€šæ”»å‡»æ•ˆæœ
---wogongtype =0 åŒ»ç–—ç”¨æ¯’è§£æ¯’ï¼Œ1,2,3,4 æ­¦åŠŸç±»å‹  -1 æš—å™¨
---level æ­¦åŠŸç­‰çº§
---x,y æ”»å‡»åæ ‡
---eft  æ­¦åŠŸåŠ¨ç”»æ•ˆæœid  eft.idx/grpä¸­çš„æ•ˆæœ
+function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)              --ÏÔÊ¾Õ½¶·¶¯»­
+--ÏÔÊ¾Õ½¶·¶¯»­
+--pid ÈËid
+--wugong  Îä¹¦±àºÅ£¬ 0 ±íÊ¾ÓÃ¶¾½â¶¾µÈ£¬Ê¹ÓÃÆÕÍ¨¹¥»÷Ğ§¹û
+--wogongtype =0 Ò½ÁÆÓÃ¶¾½â¶¾£¬1,2,3,4 Îä¹¦ÀàĞÍ  -1 °µÆ÷
+--level Îä¹¦µÈ¼¶
+--x,y ¹¥»÷×ø±ê
+--eft  Îä¹¦¶¯»­Ğ§¹ûid  eft.idx/grpÖĞµÄĞ§¹û
 	ZHEN_ID=ZHEN_ID or -1
-	local x0=WAR.Person[WAR.CurID]["åæ ‡X"];
-	local y0=WAR.Person[WAR.CurID]["åæ ‡Y"];
+	local x0=WAR.Person[WAR.CurID]["×ø±êX"];
+	local y0=WAR.Person[WAR.CurID]["×ø±êY"];
 		
 	if wugong==47 or pid==114 then
 		eft=math.random(100)
@@ -5209,7 +5209,7 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 	local ZHEN_startframe;
 	local ZHEN_fightframe;
 	if ZHEN_ID>=0 then
-		ZHEN_pid=WAR.Person[ZHEN_ID]["äººç‰©ç¼–å·"];
+		ZHEN_pid=WAR.Person[ZHEN_ID]["ÈËÎï±àºÅ"];
 		ZHEN_type=wugongtype;
 		ZHEN_startframe=0;
 		ZHEN_fightframe=0;
@@ -5217,64 +5217,64 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 	
     local fightdelay,fightframe,sounddelay;
     if wugongtype>=0 then
-        fightdelay=JY.Person[pid]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ" .. wugongtype+1];
-        fightframe=JY.Person[pid]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°" .. wugongtype+1];
-        sounddelay=JY.Person[pid]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ" .. wugongtype+1];
-    else            ---æš—å™¨ï¼Œè¿™äº›æ•°æ®ä»€ä¹ˆæ„æ€ï¼Ÿï¼Ÿ
+        fightdelay=JY.Person[pid]["³öÕĞ¶¯»­ÑÓ³Ù" .. wugongtype+1];
+        fightframe=JY.Person[pid]["³öÕĞ¶¯»­Ö¡Êı" .. wugongtype+1];
+        sounddelay=JY.Person[pid]["Îä¹¦ÒôĞ§ÑÓ³Ù" .. wugongtype+1];
+    else            ---°µÆ÷£¬ÕâĞ©Êı¾İÊ²Ã´ÒâË¼£¿£¿
         fightdelay=0;
         fightframe=-1;
         sounddelay=-1;
     end
-	--å¯¹é‚£äº›æ²¡æœ‰åŠ¨ç”»å¸§æ•°çš„ï¼Œä½¿ç”¨é»˜è®¤çš„å¸§æ•°
+	--¶ÔÄÇĞ©Ã»ÓĞ¶¯»­Ö¡ÊıµÄ£¬Ê¹ÓÃÄ¬ÈÏµÄÖ¡Êı
 	if fightdelay==0 or fightframe==0 then
 		for i=1,5 do
-			if JY.Person[pid]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°"..i]~=0 then
-				fightdelay=JY.Person[pid]["å‡ºæ‹›åŠ¨ç”»å»¶è¿Ÿ"..i];
-				fightframe=JY.Person[pid]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°"..i];
-				sounddelay=JY.Person[pid]["æ­¦åŠŸéŸ³æ•ˆå»¶è¿Ÿ"..i];
+			if JY.Person[pid]["³öÕĞ¶¯»­Ö¡Êı"..i]~=0 then
+				fightdelay=JY.Person[pid]["³öÕĞ¶¯»­ÑÓ³Ù"..i];
+				fightframe=JY.Person[pid]["³öÕĞ¶¯»­Ö¡Êı"..i];
+				sounddelay=JY.Person[pid]["Îä¹¦ÒôĞ§ÑÓ³Ù"..i];
 				wugongtype=i-1
 			end
 		end		
 	end
 	if ZHEN_ID>=0 then
-		if JY.Person[ZHEN_pid]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°" .. ZHEN_type+1]==0 then
+		if JY.Person[ZHEN_pid]["³öÕĞ¶¯»­Ö¡Êı" .. ZHEN_type+1]==0 then
 			for i=1,5 do
-				if JY.Person[ZHEN_pid]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°"..i]~=0 then
+				if JY.Person[ZHEN_pid]["³öÕĞ¶¯»­Ö¡Êı"..i]~=0 then
 					ZHEN_type=i-1;
-					ZHEN_fightframe=JY.Person[ZHEN_pid]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°"..i];
+					ZHEN_fightframe=JY.Person[ZHEN_pid]["³öÕĞ¶¯»­Ö¡Êı"..i];
 				end
 			end
 		else
-			ZHEN_fightframe=JY.Person[ZHEN_pid]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°"..ZHEN_type+1];
+			ZHEN_fightframe=JY.Person[ZHEN_pid]["³öÕĞ¶¯»­Ö¡Êı"..ZHEN_type+1];
 		end
 	end
 	
-    local framenum=fightdelay+CC.Effect[eft];            --æ€»å¸§æ•°
+    local framenum=fightdelay+CC.Effect[eft];            --×ÜÖ¡Êı
 
-    local startframe=0;               --è®¡ç®—fignt***ä¸­å½“å‰å‡ºæ‹›èµ·å§‹å¸§
+    local startframe=0;               --¼ÆËãfignt***ÖĞµ±Ç°³öÕĞÆğÊ¼Ö¡
     if wugongtype>=0 then
         for i=0,wugongtype-1 do
-            startframe=startframe+4*JY.Person[pid]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°" .. i+1];
+            startframe=startframe+4*JY.Person[pid]["³öÕĞ¶¯»­Ö¡Êı" .. i+1];
         end
     end
 	if ZHEN_ID>=0 then
 		if ZHEN_type>=0 then
 			for i=0,ZHEN_type-1 do
-				ZHEN_startframe=ZHEN_startframe+4*JY.Person[ZHEN_pid]["å‡ºæ‹›åŠ¨ç”»å¸§æ•°" .. i+1];
+				ZHEN_startframe=ZHEN_startframe+4*JY.Person[ZHEN_pid]["³öÕĞ¶¯»­Ö¡Êı" .. i+1];
 			end
 		end
 	end
 	
-    local starteft=0;          --è®¡ç®—èµ·å§‹æ­¦åŠŸæ•ˆæœå¸§
+    local starteft=0;          --¼ÆËãÆğÊ¼Îä¹¦Ğ§¹ûÖ¡
     for i=0,eft-1 do
         starteft=starteft+CC.Effect[i];
     end
 
-	WAR.Person[WAR.CurID]["è´´å›¾ç±»å‹"]=0;
-	WAR.Person[WAR.CurID]["è´´å›¾"]=WarCalPersonPic(WAR.CurID);
+	WAR.Person[WAR.CurID]["ÌùÍ¼ÀàĞÍ"]=0;
+	WAR.Person[WAR.CurID]["ÌùÍ¼"]=WarCalPersonPic(WAR.CurID);
 	if ZHEN_ID>=0 then
-		WAR.Person[ZHEN_ID]["è´´å›¾ç±»å‹"]=0;
-		WAR.Person[ZHEN_ID]["è´´å›¾"]=WarCalPersonPic(ZHEN_ID);
+		WAR.Person[ZHEN_ID]["ÌùÍ¼ÀàĞÍ"]=0;
+		WAR.Person[ZHEN_ID]["ÌùÍ¼"]=WarCalPersonPic(ZHEN_ID);
 	end
 
     --WarSetPerson();
@@ -5283,18 +5283,18 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 	--ShowScreen();
 
     local fastdraw;
-    if CONFIG.FastShowScreen==0 or CC.AutoWarShowHead==1 then    --æ˜¾ç¤ºå¤´åƒåˆ™å…¨éƒ¨é‡ç»˜
+    if CONFIG.FastShowScreen==0 or CC.AutoWarShowHead==1 then    --ÏÔÊ¾Í·ÏñÔòÈ«²¿ÖØ»æ
         fastdraw=0;
 	else
 	    fastdraw=1;
 	end
 
-    --åœ¨æ˜¾ç¤ºåŠ¨ç”»å‰å…ˆåŠ è½½è´´å›¾
-    local oldpic=WAR.Person[WAR.CurID]["è´´å›¾"]/2;
+    --ÔÚÏÔÊ¾¶¯»­Ç°ÏÈ¼ÓÔØÌùÍ¼
+    local oldpic=WAR.Person[WAR.CurID]["ÌùÍ¼"]/2;
 	local oldpic_type=0;
 
     local oldeft=-1;
-	local kfname=JY.Wugong[wugong]["åç§°"]
+	local kfname=JY.Wugong[wugong]["Ãû³Æ"]
 	local showsize=32
 	local showx=CC.ScreenW/2-showsize*string.len(kfname)/4
 
@@ -5302,34 +5302,34 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
         local tstart=lib.GetTime();
 		local mytype;
         if fightframe>0 then
-            WAR.Person[WAR.CurID]["è´´å›¾ç±»å‹"]=1;
+            WAR.Person[WAR.CurID]["ÌùÍ¼ÀàĞÍ"]=1;
 		    mytype=4+WAR.CurID;
             if i<fightframe then
-                WAR.Person[WAR.CurID]["è´´å›¾"]=(startframe+WAR.Person[WAR.CurID]["äººæ–¹å‘"]*fightframe+i)*2;
+                WAR.Person[WAR.CurID]["ÌùÍ¼"]=(startframe+WAR.Person[WAR.CurID]["ÈË·½Ïò"]*fightframe+i)*2;
             end
-        else       --æš—å™¨ï¼Œä¸ä½¿ç”¨fightä¸­å›¾åƒ
-            WAR.Person[WAR.CurID]["è´´å›¾ç±»å‹"]=0;
-            WAR.Person[WAR.CurID]["è´´å›¾"]=WarCalPersonPic(WAR.CurID);
+        else       --°µÆ÷£¬²»Ê¹ÓÃfightÖĞÍ¼Ïñ
+            WAR.Person[WAR.CurID]["ÌùÍ¼ÀàĞÍ"]=0;
+            WAR.Person[WAR.CurID]["ÌùÍ¼"]=WarCalPersonPic(WAR.CurID);
 			mytype=0;
         end
 		
 		if ZHEN_ID>=0 then
 			if ZHEN_fightframe>0 then
-				WAR.Person[ZHEN_ID]["è´´å›¾ç±»å‹"]=1;
+				WAR.Person[ZHEN_ID]["ÌùÍ¼ÀàĞÍ"]=1;
 				if i<ZHEN_fightframe and i<framenum-1 then
-					WAR.Person[ZHEN_ID]["è´´å›¾"]=(ZHEN_startframe+WAR.Person[ZHEN_ID]["äººæ–¹å‘"]*ZHEN_fightframe+i)*2;
+					WAR.Person[ZHEN_ID]["ÌùÍ¼"]=(ZHEN_startframe+WAR.Person[ZHEN_ID]["ÈË·½Ïò"]*ZHEN_fightframe+i)*2;
 				else
-					WAR.Person[ZHEN_ID]["è´´å›¾"]=WarCalPersonPic(ZHEN_ID);
+					WAR.Person[ZHEN_ID]["ÌùÍ¼"]=WarCalPersonPic(ZHEN_ID);
 				end
 			else
-				WAR.Person[ZHEN_ID]["è´´å›¾ç±»å‹"]=0;
-				WAR.Person[ZHEN_ID]["è´´å›¾"]=WarCalPersonPic(ZHEN_ID);
+				WAR.Person[ZHEN_ID]["ÌùÍ¼ÀàĞÍ"]=0;
+				WAR.Person[ZHEN_ID]["ÌùÍ¼"]=WarCalPersonPic(ZHEN_ID);
 			end
-			SetWarMap(WAR.Person[ZHEN_ID]["åæ ‡X"],WAR.Person[ZHEN_ID]["åæ ‡Y"],5,WAR.Person[ZHEN_ID]["è´´å›¾"]);
+			SetWarMap(WAR.Person[ZHEN_ID]["×ø±êX"],WAR.Person[ZHEN_ID]["×ø±êY"],5,WAR.Person[ZHEN_ID]["ÌùÍ¼"]);
 		end
 
         if i==sounddelay then
-            PlayWavAtk(JY.Wugong[wugong]["å‡ºæ‹›éŸ³æ•ˆ"]);
+            PlayWavAtk(JY.Wugong[wugong]["³öÕĞÒôĞ§"]);
         end
         if i==fightdelay then
             PlayWavE(eft);
@@ -5343,7 +5343,7 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 		   WAR.LMSJwav=0
 		end
 		
-		local pic=WAR.Person[WAR.CurID]["è´´å›¾"]/2;
+		local pic=WAR.Person[WAR.CurID]["ÌùÍ¼"]/2;
 		if fastdraw==1 then
 			local rr=ClipRect(Cal_PicClip(0,0,oldpic,oldpic_type,0,0,pic,mytype));
 			if rr ~=nil then
@@ -5355,12 +5355,12 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 		oldpic=pic;
 		oldpic_type=mytype;
 
-		if i<fightdelay then   --åªæ˜¾ç¤ºå‡ºæ‹›
+		if i<fightdelay then   --Ö»ÏÔÊ¾³öÕĞ
 		
 		    WarDrawMap(4,pic*2,mytype,-1);
 			local hb=GetS(JY.SubScene,x0,y0,4)--[[
-				local dx=WAR.Person[WAR.CurID]["åæ ‡X"]-WAR.Person[WAR.CurID]["åæ ‡X"]
-				local dy=WAR.Person[i]["åæ ‡Y"]-WAR.Person[WAR.CurID]["åæ ‡Y"]
+				local dx=WAR.Person[WAR.CurID]["×ø±êX"]-WAR.Person[WAR.CurID]["×ø±êX"]
+				local dy=WAR.Person[i]["×ø±êY"]-WAR.Person[WAR.CurID]["×ø±êY"]
 				local rx=CC.XScale*(dx-dy)+CC.ScreenW/2;
 				local ry=CC.YScale*(dx+dy)+CC.ScreenH/2;--]]
 			if CONFIG.Zoom==1 then
@@ -5400,8 +5400,8 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 					lib.Delay(30)
 				end
 			end
-		else		--åŒæ—¶æ˜¾ç¤ºæ­¦åŠŸæ•ˆæœ
-            starteft=starteft+1;            --æ­¤å¤„ä¼¼ä¹æ˜¯eftç¬¬ä¸€ä¸ªæ•°æ®æœ‰é—®é¢˜ï¼Œåº”è¯¥æ˜¯10ï¼Œç°ä¸º9ï¼Œå› æ­¤åŠ 1
+		else		--Í¬Ê±ÏÔÊ¾Îä¹¦Ğ§¹û
+            starteft=starteft+1;            --´Ë´¦ËÆºõÊÇeftµÚÒ»¸öÊı¾İÓĞÎÊÌâ£¬Ó¦¸ÃÊÇ10£¬ÏÖÎª9£¬Òò´Ë¼Ó1
 
 			if fastdraw==1 then
 				local clip1={};
@@ -5413,12 +5413,12 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 				local clip=ClipRect(MergeRect(clip1,clip2));
 
 				if clip ~=nil then
-					local area=(clip.x2-clip.x1)*(clip.y2-clip.y1);          --è®¡ç®—è„çŸ©å½¢é¢ç§¯
-					if area <CC.ScreenW*CC.ScreenH/2 then        --é¢ç§¯è¶³å¤Ÿå°ï¼Œåˆ™æ›´æ–°è„çŸ©å½¢ã€‚
+					local area=(clip.x2-clip.x1)*(clip.y2-clip.y1);          --¼ÆËãÔà¾ØĞÎÃæ»ı
+					if area <CC.ScreenW*CC.ScreenH/2 then        --Ãæ»ı×ã¹»Ğ¡£¬Ôò¸üĞÂÔà¾ØĞÎ¡£
 						WarDrawMap(4,pic*2,mytype,starteft*2);
 						lib.SetClip(clip.x1,clip.y1,clip.x2,clip.y2);
 						WarDrawMap(4,pic*2,mytype,starteft*2);
-					else    --é¢ç§¯å¤ªå¤§ï¼Œç›´æ¥é‡ç»˜
+					else    --Ãæ»ıÌ«´ó£¬Ö±½ÓÖØ»æ
 						lib.SetClip(0,0,CC.ScreenW,CC.ScreenH);
 						WarDrawMap(4,pic*2,mytype,starteft*2);
 					end
@@ -5431,7 +5431,7 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 			end
 			oldeft=starteft;
 			if  ZHEN_ID>=0 then
-				DrawStrBox(CC.ScreenW/2-48,6,"åŒäººåˆå‡»",C_WHITE,24)
+				DrawStrBox(CC.ScreenW/2-48,6,"Ë«ÈËºÏ»÷",C_WHITE,24)
 				lib.Delay(20);
 			end
 			if wugong~=0 then
@@ -5450,43 +5450,43 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
     end
 
 	lib.SetClip(0,0,0,0);
-    WAR.Person[WAR.CurID]["è´´å›¾ç±»å‹"]=0;
-    WAR.Person[WAR.CurID]["è´´å›¾"]=WarCalPersonPic(WAR.CurID);
+    WAR.Person[WAR.CurID]["ÌùÍ¼ÀàĞÍ"]=0;
+    WAR.Person[WAR.CurID]["ÌùÍ¼"]=WarCalPersonPic(WAR.CurID);
     WarSetPerson();
     WarDrawMap(0);
 
     ShowScreen();
     lib.Delay(200);
 
-    WarDrawMap(2);          --å…¨é»‘æ˜¾ç¤ºå‘½ä¸­äººç‰©
+    WarDrawMap(2);          --È«ºÚÏÔÊ¾ÃüÖĞÈËÎï
     ShowScreen();
     lib.Delay(200);
 
     WarDrawMap(0);
     ShowScreen();
 
-    local HitXY={};               --è®°å½•å‘½ä¸­ç‚¹æ•°çš„åæ ‡
+    local HitXY={};               --¼ÇÂ¼ÃüÖĞµãÊıµÄ×ø±ê
 	local HitXYNum=0;
     for i = 0, WAR.PersonNum-1 do
-	    local x1=WAR.Person[i]["åæ ‡X"];
-	    local y1=WAR.Person[i]["åæ ‡Y"];		
-		if WAR.Person[i]["æ­»äº¡"]==false then
+	    local x1=WAR.Person[i]["×ø±êX"];
+	    local y1=WAR.Person[i]["×ø±êY"];		
+		if WAR.Person[i]["ËÀÍö"]==false then
  		    if GetWarMap(x1,y1,4)>1 then
 				SetWarMap(x1,y1,4,1)
-			    local n=WAR.Person[i]["ç‚¹æ•°"]
+			    local n=WAR.Person[i]["µãÊı"]
 				--lib.Debug(i..','..n)
 					if n==0 then
 						HitXY[HitXYNum]={x1,y1,"miss","  ","  "};						
 					else
-					  if WAR.FXXS[WAR.Person[i]["äººç‰©ç¼–å·"]]==1 then
-						HitXY[HitXYNum]={x1,y1,string.format("%d",n),"å°ç©´"};
-						WAR.FXXS[WAR.Person[i]["äººç‰©ç¼–å·"]]=0
+					  if WAR.FXXS[WAR.Person[i]["ÈËÎï±àºÅ"]]==1 then
+						HitXY[HitXYNum]={x1,y1,string.format("%d",n),"·âÑ¨"};
+						WAR.FXXS[WAR.Person[i]["ÈËÎï±àºÅ"]]=0
 					  else
 					    HitXY[HitXYNum]={x1,y1,string.format("%d",n),"  "};
 					  end
-                      if WAR.LXXS[WAR.Person[i]["äººç‰©ç¼–å·"]]==1 then	
-                          HitXY[HitXYNum][5]="æµè¡€"
-						  WAR.LXXS[WAR.Person[i]["äººç‰©ç¼–å·"]]=0
+                      if WAR.LXXS[WAR.Person[i]["ÈËÎï±àºÅ"]]==1 then	
+                          HitXY[HitXYNum][5]="Á÷Ñª"
+						  WAR.LXXS[WAR.Person[i]["ÈËÎï±àºÅ"]]=0
 					  else
 					      HitXY[HitXYNum][5]="  "
 					  end
@@ -5494,7 +5494,7 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 				HitXYNum=HitXYNum+1;
 				if WAR.TD>-1 then
 				   if WAR.TD==118 then
-				      say("ï¼‘å“ˆå“ˆå“ˆï¼ï¼ï¼ï¼Œæƒ³å·å¶çš„æ–—è½¬æ˜Ÿç§»ï¼Ÿæ²¡é—¨å„¿ï¼è¦æƒ³å¾—æ–—è½¬ä¸‹æ¬¡å°±ä¹–ä¹–è·Ÿå¶åˆä½œå§ï¼",51)
+				      say("£±¹ş¹ş¹ş£­£­£­£¬ÏëÍµÅ¼µÄ¶·×ªĞÇÒÆ£¿Ã»ÃÅ¶ù£¡ÒªÏëµÃ¶·×ªÏÂ´Î¾Í¹Ô¹Ô¸úÅ¼ºÏ×÷°É£¡",51)
 				   else
 				      instruct_2(WAR.TD,1) 
 				   end
@@ -5505,14 +5505,14 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 		end
 	end
 	
-	--æ˜¾ç¤ºå®ˆæ–¹ç‰¹æ•ˆ
-	--for x=0,63 do			--æ¸…é™¤ç¬¬å››å±‚ï¼Œå’Œåé¢çš„æœ‰äº›å†²çªï¼Œæš‚æ—¶å…ˆä¸ç®¡äº†--æ”¹äº†ï¼Œç°åœ¨åº”è¯¥ä¸å†²çªäº†
+	--ÏÔÊ¾ÊØ·½ÌØĞ§
+	--for x=0,63 do			--Çå³ıµÚËÄ²ã£¬ºÍºóÃæµÄÓĞĞ©³åÍ»£¬ÔİÊ±ÏÈ²»¹ÜÁË--¸ÄÁË£¬ÏÖÔÚÓ¦¸Ã²»³åÍ»ÁË
 	--	for y=0,63 do SetWarMap(x,y,4,0) end
 	--end
 	--local fanji=false
 	--for i = 0, WAR.PersonNum-1 do
 	--	if WAR.Person[i][CC.TXDH]>100 then fanji=true break end;
-	--	if WAR.Person[i][CC.TXDH]~=-1 then SetWarMap(WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"],4,1) end
+	--	if WAR.Person[i][CC.TXDH]~=-1 then SetWarMap(WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"],4,1) end
 	--end
 	--if not fanji then
 	local sssid=lib.SaveSur(0,0,CC.ScreenW,CC.ScreenH);
@@ -5530,8 +5530,8 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 		for i = 0, WAR.PersonNum-1 do		
 			local theeft=WAR.Person[i][CC.TXDH]
 			if theeft~=-1 and ii<CC.Effect[theeft] then
-				local dx=WAR.Person[i]["åæ ‡X"]-x0--WAR.Person[WAR.CurID]["åæ ‡X"]
-				local dy=WAR.Person[i]["åæ ‡Y"]-y0--WAR.Person[WAR.CurID]["åæ ‡Y"]
+				local dx=WAR.Person[i]["×ø±êX"]-x0--WAR.Person[WAR.CurID]["×ø±êX"]
+				local dy=WAR.Person[i]["×ø±êY"]-y0--WAR.Person[WAR.CurID]["×ø±êY"]
 				local rx=CC.XScale*(dx-dy)+CC.ScreenW/2;
 				local ry=CC.YScale*(dx+dy)+CC.ScreenH/2;
 				starteft=ii
@@ -5566,7 +5566,7 @@ function War_ShowFight(pid,wugong,wugongtype,level,x,y,eft,ZHEN_ID)             
 	--end
 
 if HitXYNum>0 then
-	local clips={};                --è®¡ç®—å‘½ä¸­ç‚¹æ•°clip
+	local clips={};                --¼ÆËãÃüÖĞµãÊıclip
 	for i=0,HitXYNum-1 do
 		local dx=HitXY[i][1]-x0;
 		local dy=HitXY[i][2]-y0;
@@ -5591,9 +5591,9 @@ if HitXYNum>0 then
 	local area=(clip.x2-clip.x1)*(clip.y2-clip.y1)
 	
 	
-	--local surid=lib.SaveSur(0,0,CC.ScreenW,CC.ScreenH);
+	local surid=lib.SaveSur(0,0,CC.ScreenW,CC.ScreenH);
 	for y=3,5 do
-    for i=5,15 do           --æ˜¾ç¤ºå‘½ä¸­çš„ç‚¹æ•°
+    for i=5,15 do           --ÏÔÊ¾ÃüÖĞµÄµãÊı
 	    local tstart=lib.GetTime();
         local y_off=i*2+65;
         if fastdraw==1 and area <CC.ScreenW*CC.ScreenH/2 then
@@ -5607,10 +5607,10 @@ if HitXYNum>0 then
 							   WAR.EffectColor[WAR.Effect],CC.DefaultFont)						   
 				end
 			end
-		else    --é¢ç§¯å¤ªå¤§ï¼Œç›´æ¥é‡ç»˜  YCXS
+		else    --Ãæ»ıÌ«´ó£¬Ö±½ÓÖØ»æ  YCXS
 			lib.SetClip(0,0,CC.ScreenW,CC.ScreenH);
 			--WarDrawMap(0)
-			--lib.LoadSur(surid,0,0);           		
+			lib.LoadSur(surid,0,0);           		
 			 for j=0,HitXYNum-1 do
 				    DrawString(clips[j].x1, clips[j].y1-y_off, HitXY[j][y],
  			                   WAR.EffectColor[WAR.Effect],math.modf(CC.DefaultFont*3/3))
@@ -5626,7 +5626,7 @@ if HitXYNum>0 then
 		end					
     end
 	end
-	--lib.FreeSur(surid);
+	lib.FreeSur(surid);
 	
 end	
 	
@@ -5642,36 +5642,36 @@ end
     ShowScreen();
 end
 
-function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸä¼¤å®³ç”Ÿå‘½
---æ­¦åŠŸä¼¤å®³ç”Ÿå‘½
---enemyid æ•Œäººæˆ˜æ–—idï¼Œ
---wugong  æˆ‘æ–¹ä½¿ç”¨æ­¦åŠŸ
---è¿”å›ï¼šä¼¤å®³ç‚¹æ•°
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
-    local eid=WAR.Person[emenyid]["äººç‰©ç¼–å·"];
+function War_WugongHurtLife(emenyid,wugong,level,ang)             --¼ÆËãÎä¹¦ÉËº¦ÉúÃü
+--Îä¹¦ÉËº¦ÉúÃü
+--enemyid µĞÈËÕ½¶·id£¬
+--wugong  ÎÒ·½Ê¹ÓÃÎä¹¦
+--·µ»Ø£ºÉËº¦µãÊı
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
+    local eid=WAR.Person[emenyid]["ÈËÎï±àºÅ"];
 	local dng=0
-	local WGLX=JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]
+	local WGLX=JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]
 	local function DWPD()
-     if WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
+     if WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then
 	   return true;
 	 else
 	   return false;
 	 end
     end
-    --è®¡ç®—æ­¦å­¦å¸¸è¯†
+    --¼ÆËãÎäÑ§³£Ê¶
     local mywuxue=0;
     local emenywuxue=0;
     for i=0,WAR.PersonNum-1 do
-        local id =WAR.Person[i]["äººç‰©ç¼–å·"]
-        if WAR.Person[i]["æ­»äº¡"]==false and JY.Person[id]["æ­¦å­¦å¸¸è¯†"]>10 then
-            if WAR.Person[WAR.CurID]["æˆ‘æ–¹"]==WAR.Person[i]["æˆ‘æ–¹"] then
-				if JY.Person[id]["æ­¦å­¦å¸¸è¯†"]>mywuxue then
-					mywuxue=JY.Person[id]["æ­¦å­¦å¸¸è¯†"];
+        local id =WAR.Person[i]["ÈËÎï±àºÅ"]
+        if WAR.Person[i]["ËÀÍö"]==false and JY.Person[id]["ÎäÑ§³£Ê¶"]>10 then
+            if WAR.Person[WAR.CurID]["ÎÒ·½"]==WAR.Person[i]["ÎÒ·½"] then
+				if JY.Person[id]["ÎäÑ§³£Ê¶"]>mywuxue then
+					mywuxue=JY.Person[id]["ÎäÑ§³£Ê¶"];
 				end
             end
-			if WAR.Person[emenyid]["æˆ‘æ–¹"]==WAR.Person[i]["æˆ‘æ–¹"] then
-				if JY.Person[id]["æ­¦å­¦å¸¸è¯†"]>emenywuxue then
-					emenywuxue=JY.Person[id]["æ­¦å­¦å¸¸è¯†"];
+			if WAR.Person[emenyid]["ÎÒ·½"]==WAR.Person[i]["ÎÒ·½"] then
+				if JY.Person[id]["ÎäÑ§³£Ê¶"]>emenywuxue then
+					emenywuxue=JY.Person[id]["ÎäÑ§³£Ê¶"];
                                         if emenywuxue<50 then
                                            emenywuxue=50
                                         end
@@ -5680,27 +5680,27 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
         end
     end
 
-    --è®¡ç®—å®é™…ä½¿ç”¨æ­¦åŠŸç­‰çº§
+    --¼ÆËãÊµ¼ÊÊ¹ÓÃÎä¹¦µÈ¼¶
     while true do
-        if math.modf((level+1)/2)*JY.Wugong[wugong]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"] > JY.Person[pid]["å†…åŠ›"] then
+        if math.modf((level+1)/2)*JY.Wugong[wugong]["ÏûºÄÄÚÁ¦µãÊı"] > JY.Person[pid]["ÄÚÁ¦"] then
             level=level-1;
         else
             break;
         end
     end
 
-    if level<=0 then     --é˜²æ­¢å‡ºç°å·¦å³äº’åšæ—¶ç¬¬ä¸€æ¬¡æ”»å‡»å®Œæ¯•ï¼Œç¬¬äºŒæ¬¡æ”»å‡»æ²¡æœ‰å†…åŠ›çš„æƒ…å†µã€‚
+    if level<=0 then     --·ÀÖ¹³öÏÖ×óÓÒ»¥²©Ê±µÚÒ»´Î¹¥»÷Íê±Ï£¬µÚ¶ş´Î¹¥»÷Ã»ÓĞÄÚÁ¦µÄÇé¿ö¡£
 	    level=1;
     end
 	
 	for i=1,10 do
-		local kfid=JY.Person[eid]['æ­¦åŠŸ'..i]
-		if kfid>88 and kfid<109 and kfid~=97 and WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
+		local kfid=JY.Person[eid]['Îä¹¦'..i]
+		if kfid>88 and kfid<109 and kfid~=97 and WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then
 			if kfid==95 then
 				if myrandom(20,eid) then
-					WAR.Person[emenyid][CC.TXWZ2]=JY.Wugong[kfid]['åç§°']..'è“„åŠ›'
+					WAR.Person[emenyid][CC.TXWZ2]=JY.Wugong[kfid]['Ãû³Æ']..'ĞîÁ¦'
 					WAR.Person[emenyid][CC.TXDH]=math.fmod(kfid,10)+85;
-					local lv=math.modf(JY.Person[eid]['æ­¦åŠŸç­‰çº§'..i]/100)+1;
+					local lv=math.modf(JY.Person[eid]['Îä¹¦µÈ¼¶'..i]/100)+1;
 					if WAR.tmp[200+eid]==nil or WAR.tmp[200+eid]==0 then
 						WAR.tmp[200+eid]=lv*5;
 					else
@@ -5713,12 +5713,12 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 				end
 			end
 			if myrandom(10,eid) or (eid==9 and myrandom(10+i*4,eid)) or (eid==0 and i==2 and kfid==91 and (JLSD(35,60,0) or (GetS(4,5,5,5)==6 and JLSD(30,70,0)))) or (PersonKF(95,eid) and JLSD(35,60,eid)) then
-				local lv=math.modf(JY.Person[eid]['æ­¦åŠŸç­‰çº§'..i]/100)+1
-				local wl=JY.Wugong[kfid]['æ”»å‡»åŠ›'..lv]
+				local lv=math.modf(JY.Person[eid]['Îä¹¦µÈ¼¶'..i]/100)+1
+				local wl=JY.Wugong[kfid]['¹¥»÷Á¦'..lv]
 				if wl>dng then
 					dng=wl
-					WAR.Person[emenyid][CC.TXWZ2]=JY.Wugong[kfid]['åç§°']..'æŠ¤ä½“'					
-					WAR.Person[emenyid][CC.TXDH]=math.fmod(kfid,10)+85--JY.Wugong[kfid]["æ­¦åŠŸåŠ¨ç”»&éŸ³æ•ˆ"]
+					WAR.Person[emenyid][CC.TXWZ2]=JY.Wugong[kfid]['Ãû³Æ']..'»¤Ìå'					
+					WAR.Person[emenyid][CC.TXDH]=math.fmod(kfid,10)+85--JY.Wugong[kfid]["Îä¹¦¶¯»­&ÒôĞ§"]
 				    WAR.NGHT=kfid
 				end
 			end
@@ -5739,9 +5739,9 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	end
 	
 	if eid==0 and WAR.NGHT==91 and GetS(10,0,7,0)==1 and GetS(4,5,5,5)~=8 then
-	  if WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
+	  if WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then
 	   local t=math.random(4);
-	   local mc=JY.Wugong[91]["åç§°"]
+	   local mc=JY.Wugong[91]["Ãû³Æ"]
 	   if GetS(4,5,5,5)==6 and GetS(10,0,11,0)~=1 then t=math.random(2)+1 end
 	   if t==3 then
 	      WAR.Person[emenyid][CC.TXDH]=6
@@ -5812,11 +5812,11 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
     end			
 	
 	for i=1,10 do
-		local kfid=JY.Person[eid]['æ­¦åŠŸ'..i]
-		if kfid==43 and JY.Person[eid]["ä½“åŠ›"]>10 and WAR.Person[emenyid]["åå‡»æ­¦åŠŸ"]==-1 and WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then			
+		local kfid=JY.Person[eid]['Îä¹¦'..i]
+		if kfid==43 and JY.Person[eid]["ÌåÁ¦"]>10 and WAR.Person[emenyid]["·´»÷Îä¹¦"]==-1 and WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then			
 			if JLSD(30,70,eid) or (eid==51 and JLSD(20,80,eid)) or (WAR.tmp[1000+eid]==1 and JLSD(30,70,eid)) then
 			    local p=JY.Person[eid]
-			    local dzlv=p["æ‹³æŒåŠŸå¤«"]+p["å¾¡å‰‘èƒ½åŠ›"]+p["è€åˆ€æŠ€å·§"]+p["ç‰¹æ®Šå…µå™¨"]
+			    local dzlv=p["È­ÕÆ¹¦·ò"]+p["Óù½£ÄÜÁ¦"]+p["Ë£µ¶¼¼ÇÉ"]+p["ÌØÊâ±øÆ÷"]
 			    local dzwz
 			    if dzlv>=300 or eid==51 then
 			      dzwz=CC.WARS88
@@ -5837,8 +5837,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 				if WAR.Person[emenyid][CC.TXDH]==nil then
 				   WAR.Person[emenyid][CC.TXDH]=math.fmod(kfid,10)+85
 				end
-				WAR.Person[emenyid]["åå‡»æ­¦åŠŸ"]=wugong;
-				JY.Person[eid]["ä½“åŠ›"]=JY.Person[eid]["ä½“åŠ›"]-3
+				WAR.Person[emenyid]["·´»÷Îä¹¦"]=wugong;
+				JY.Person[eid]["ÌåÁ¦"]=JY.Person[eid]["ÌåÁ¦"]-3
 				break
 			end
 		end
@@ -5846,16 +5846,16 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	
 	local hurt;
 	if level>10 then 
-		hurt=JY.Wugong[wugong]["æ”»å‡»åŠ›" .. 10]/3
+		hurt=JY.Wugong[wugong]["¹¥»÷Á¦" .. 10]/3
 		level=10
 	else
-		hurt=JY.Wugong[wugong]["æ”»å‡»åŠ›" .. level]/4
+		hurt=JY.Wugong[wugong]["¹¥»÷Á¦" .. level]/4
 	end
 	if wugong==64 and pid==0 and GetS(4,5,5,5)==3 then
 	   hurt=hurt+math.modf(GetS(14,3,1,4)/3+1)
 	end
     for i,v in ipairs(CC.ExtraOffense) do
-        if v[1]==JY.Person[pid]["æ­¦å™¨"] and v[2]==wugong then
+        if v[1]==JY.Person[pid]["ÎäÆ÷"] and v[2]==wugong then
             hurt=hurt+v[3]/4;
             break;
         end
@@ -5869,14 +5869,14 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		end
 	end
 	
-	local atk=JY.Person[pid]["æ”»å‡»åŠ›"];
-	local def=JY.Person[eid]["é˜²å¾¡åŠ›"];
+	local atk=JY.Person[pid]["¹¥»÷Á¦"];
+	local def=JY.Person[eid]["·ÀÓùÁ¦"];
 	
 	if JY.Status==GAME_WMAP then
 		for i,v in pairs(CC.AddAtk) do
 			if v[1]==pid then
 				for wid=0,WAR.PersonNum-1 do
-					if WAR.Person[wid]["äººç‰©ç¼–å·"]==v[2] and  WAR.Person[wid]["æ­»äº¡"]==false then
+					if WAR.Person[wid]["ÈËÎï±àºÅ"]==v[2] and  WAR.Person[wid]["ËÀÍö"]==false then
 						atk=atk+v[3];
 					end
 				end
@@ -5886,7 +5886,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		for i,v in pairs(CC.AddDef) do
 			if v[1]==eid then
 				for wid=0,WAR.PersonNum-1 do
-					if WAR.Person[wid]["äººç‰©ç¼–å·"]==v[2] and  WAR.Person[wid]["æ­»äº¡"]==false then
+					if WAR.Person[wid]["ÈËÎï±àºÅ"]==v[2] and  WAR.Person[wid]["ËÀÍö"]==false then
 						def=def+v[3];
 					end
 				end
@@ -5896,7 +5896,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	
 	local t
 	local function getnl(id)
-		return (JY.Person[id]["å†…åŠ›"]*2+JY.Person[id]["å†…åŠ›æœ€å¤§å€¼"])/3
+		return (JY.Person[id]["ÄÚÁ¦"]*2+JY.Person[id]["ÄÚÁ¦×î´óÖµ"])/3
 	end
 	if inteam(pid) then
 		t=1;
@@ -5918,7 +5918,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	if inteam(eid) then
 		t=1;
 	else
-		if GetS(0,0,0,0)~=1 then --WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and inteam(pid) 
+		if GetS(0,0,0,0)~=1 then --WAR.Person[WAR.CurID]["ÎÒ·½"] and inteam(pid) 
 			t=1.5;
 		else 
 			t=2;
@@ -5935,38 +5935,38 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		if x<=1 then return 0 end
 		return math.random(x*0.5,x)
 	end
-    if JY.Person[pid]["æ­¦å™¨"]>=0 then
-        hurt=hurt+myrnd(JY.Thing[JY.Person[pid]["æ­¦å™¨"]]["åŠ æ”»å‡»åŠ›"]);
+    if JY.Person[pid]["ÎäÆ÷"]>=0 then
+        hurt=hurt+myrnd(JY.Thing[JY.Person[pid]["ÎäÆ÷"]]["¼Ó¹¥»÷Á¦"]);
     end
-    if JY.Person[pid]["é˜²å…·"]>=0 then
-        hurt=hurt+myrnd(JY.Thing[JY.Person[pid]["é˜²å…·"]]["åŠ æ”»å‡»åŠ›"]);
+    if JY.Person[pid]["·À¾ß"]>=0 then
+        hurt=hurt+myrnd(JY.Thing[JY.Person[pid]["·À¾ß"]]["¼Ó¹¥»÷Á¦"]);
     end
-    if JY.Person[eid]["æ­¦å™¨"]>=0 then
-        hurt=hurt-myrnd(JY.Thing[JY.Person[eid]["æ­¦å™¨"]]["åŠ é˜²å¾¡åŠ›"]);
+    if JY.Person[eid]["ÎäÆ÷"]>=0 then
+        hurt=hurt-myrnd(JY.Thing[JY.Person[eid]["ÎäÆ÷"]]["¼Ó·ÀÓùÁ¦"]);
     end
-    if JY.Person[eid]["é˜²å…·"]>=0 then
-        hurt=hurt-myrnd(JY.Thing[JY.Person[eid]["é˜²å…·"]]["åŠ é˜²å¾¡åŠ›"]);
+    if JY.Person[eid]["·À¾ß"]>=0 then
+        hurt=hurt-myrnd(JY.Thing[JY.Person[eid]["·À¾ß"]]["¼Ó·ÀÓùÁ¦"]);
     end
 	
-	hurt=hurt-def/8--JY.Person[eid]["é˜²å¾¡åŠ›"]/8-JY.Person[eid]["å†…åŠ›"]/200
+	hurt=hurt-def/8--JY.Person[eid]["·ÀÓùÁ¦"]/8-JY.Person[eid]["ÄÚÁ¦"]/200
 	
-    hurt=hurt-dng/30+JY.Person[pid]["ä½“åŠ›"]/5-JY.Person[eid]["ä½“åŠ›"]/5+JY.Person[eid]["å—ä¼¤ç¨‹åº¦"]/3-JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]/3+JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]/2-JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"]/2;
+    hurt=hurt-dng/30+JY.Person[pid]["ÌåÁ¦"]/5-JY.Person[eid]["ÌåÁ¦"]/5+JY.Person[eid]["ÊÜÉË³Ì¶È"]/3-JY.Person[pid]["ÊÜÉË³Ì¶È"]/3+JY.Person[eid]["ÖĞ¶¾³Ì¶È"]/2-JY.Person[pid]["ÖĞ¶¾³Ì¶È"]/2;
 	--[[
-	local dlv=JY.Person[pid]["ç­‰çº§"]-JY.Person[eid]["ç­‰çº§"]
+	local dlv=JY.Person[pid]["µÈ¼¶"]-JY.Person[eid]["µÈ¼¶"]
 	if dlv>30 then dlv=30
 	elseif dlv<-30 then dlv=-30 end	
-	if (WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and dlv<0) or (WAR.Person[WAR.CurID]["æˆ‘æ–¹"]==false and dlv>0) then
+	if (WAR.Person[WAR.CurID]["ÎÒ·½"] and dlv<0) or (WAR.Person[WAR.CurID]["ÎÒ·½"]==false and dlv>0) then
 		hurt=hurt+dlv
 	end--]]
 	--[[
     if hurt <0 then
-        hurt=Rnd(10)+myrnd(JY.Person[eid]["ç”Ÿå‘½"]/100)+1;
+        hurt=Rnd(10)+myrnd(JY.Person[eid]["ÉúÃü"]/100)+1;
     end
 	--]]
-    --è€ƒè™‘è·ç¦»å› ç´ 
-	if inteam(pid) then--WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and inteam(pid)
-		local offset=math.abs(WAR.Person[WAR.CurID]["åæ ‡X"]-WAR.Person[emenyid]["åæ ‡X"])+
-					math.abs(WAR.Person[WAR.CurID]["åæ ‡Y"]-WAR.Person[emenyid]["åæ ‡Y"]);
+    --¿¼ÂÇ¾àÀëÒòËØ
+	if inteam(pid) then--WAR.Person[WAR.CurID]["ÎÒ·½"] and inteam(pid)
+		local offset=math.abs(WAR.Person[WAR.CurID]["×ø±êX"]-WAR.Person[emenyid]["×ø±êX"])+
+					math.abs(WAR.Person[WAR.CurID]["×ø±êY"]-WAR.Person[emenyid]["×ø±êY"]);
 
 		if offset <10 then
 			hurt=hurt*(100-(offset-1)*3)/100;
@@ -5978,11 +5978,11 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
        if WAR.BJ==1 then
 	      local SLWX=0
           for i=1,10 do
-		        if JY.Person[eid]["æ­¦åŠŸ" .. i]==106 or JY.Person[eid]["æ­¦åŠŸ" .. i]==107 then
+		        if JY.Person[eid]["Îä¹¦" .. i]==106 or JY.Person[eid]["Îä¹¦" .. i]==107 then
 		           SLWX=SLWX+1
 				end
 		  end
-          if JY.Person[eid]["å†…åŠ›æ€§è´¨"]==2	or (eid==0 and GetS(4,5,5,5)==5) then SLWX=SLWX+1 end
+          if JY.Person[eid]["ÄÚÁ¦ĞÔÖÊ"]==2	or (eid==0 and GetS(4,5,5,5)==5) then SLWX=SLWX+1 end
 		  if SLWX==3 then 
               WAR.Person[emenyid][CC.TXDH]=6
 			  if WAR.Person[emenyid][CC.TXWZ2]~=nil then
@@ -6005,11 +6005,11 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	   
 	   if eid==13 then hurt=math.modf(hurt*0.6) end
 	    
-	   if pid==37 and JY.Person[0]["å“å¾·"]>70 then 
-	      hurt=math.modf((1+(JY.Person[0]["å“å¾·"]-70)/100)*hurt)
+	   if pid==37 and JY.Person[0]["Æ·µÂ"]>70 then 
+	      hurt=math.modf((1+(JY.Person[0]["Æ·µÂ"]-70)/100)*hurt)
 	   end
 	   
-	   if pid==63 and JY.Person[pid]["ç”Ÿå‘½"]<math.modf(JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]/2) then
+	   if pid==63 and JY.Person[pid]["ÉúÃü"]<math.modf(JY.Person[pid]["ÉúÃü×î´óÖµ"]/2) then
 	      hurt=math.modf(hurt*1.2);	
 	   end
 	
@@ -6028,8 +6028,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	   if pid==82 then
 			local s=0
 			for j=0,WAR.PersonNum-1 do
-				if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then                            			   			                   
-				   if JY.Person[WAR.Person[j]["äººç‰©ç¼–å·"]]["æ€§åˆ«"]==1 then
+				if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[WAR.CurID]["ÎÒ·½"] then                            			   			                   
+				   if JY.Person[WAR.Person[j]["ÈËÎï±àºÅ"]]["ĞÔ±ğ"]==1 then
 					  s=s+1
 				   end
 				end
@@ -6038,14 +6038,14 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	   end
 	   
 	for i=1,10 do
-	    if JY.Person[pid]["æ­¦åŠŸ"..i]==107 and (JY.Person[pid]["å†…åŠ›æ€§è´¨"]==0 or (pid==0 and GetS(4,5,5,5)==5)) then
+	    if JY.Person[pid]["Îä¹¦"..i]==107 and (JY.Person[pid]["ÄÚÁ¦ĞÔÖÊ"]==0 or (pid==0 and GetS(4,5,5,5)==5)) then
 		   hurt=math.modf(hurt*1.2);
 		   break
 		end
 	end
 	
 	for i=1,10 do
-	    if JY.Person[eid]["æ­¦åŠŸ"..i]==106 and (JY.Person[eid]["å†…åŠ›æ€§è´¨"]==1 or (eid==0 and GetS(4,5,5,5)==5)) then
+	    if JY.Person[eid]["Îä¹¦"..i]==106 and (JY.Person[eid]["ÄÚÁ¦ĞÔÖÊ"]==1 or (eid==0 and GetS(4,5,5,5)==5)) then
 		   hurt=math.modf(hurt*0.8);
 		   break
 		end
@@ -6054,8 +6054,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	if GetS(4,5,5,5)==1 and pid==0 then
 	   local lxzq=0;
 	    for i=1,10 do
-	        if JY.Person[0]["æ­¦åŠŸ"..i]==109 or (JY.Person[0]["æ­¦åŠŸ"..i]<27 and JY.Person[0]["æ­¦åŠŸ"..i]>0) then
-			    if JY.Person[0]["æ­¦åŠŸç­‰çº§"..i]==999 then
+	        if JY.Person[0]["Îä¹¦"..i]==109 or (JY.Person[0]["Îä¹¦"..i]<27 and JY.Person[0]["Îä¹¦"..i]>0) then
+			    if JY.Person[0]["Îä¹¦µÈ¼¶"..i]==999 then
 				   lxzq=lxzq+1
 				end
 			end
@@ -6066,8 +6066,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	if GetS(4,5,5,5)==3 and eid==0 then
 	   local askd=0;
 	    for i=1,10 do
-	        if JY.Person[0]["æ­¦åŠŸ"..i]==111 or (JY.Person[0]["æ­¦åŠŸ"..i]<68 and JY.Person[0]["æ­¦åŠŸ"..i]>49) then
-			    if JY.Person[0]["æ­¦åŠŸç­‰çº§"..i]==999 then
+	        if JY.Person[0]["Îä¹¦"..i]==111 or (JY.Person[0]["Îä¹¦"..i]<68 and JY.Person[0]["Îä¹¦"..i]>49) then
+			    if JY.Person[0]["Îä¹¦µÈ¼¶"..i]==999 then
 				   askd=askd+1
 				end
 			end
@@ -6082,8 +6082,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	if pid==79 then
 	   local JF=0;
 	   for i=1,10 do
-	         if JY.Person[79]["æ­¦åŠŸ"..i]<50 and JY.Person[79]["æ­¦åŠŸ"..i]>26 then
-			    if JY.Person[79]["æ­¦åŠŸç­‰çº§"..i]==999 then
+	         if JY.Person[79]["Îä¹¦"..i]<50 and JY.Person[79]["Îä¹¦"..i]>26 then
+			    if JY.Person[79]["Îä¹¦µÈ¼¶"..i]==999 then
 				   JF=JF+1
 				end
 		     end
@@ -6094,8 +6094,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	
 	if not inteam(pid) then 
 	     for j=0,WAR.PersonNum-1 do
-		    if WAR.Person[j]["äººç‰©ç¼–å·"]==87 or WAR.Person[j]["äººç‰©ç¼–å·"]==74 then
-	            if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then			    
+		    if WAR.Person[j]["ÈËÎï±àºÅ"]==87 or WAR.Person[j]["ÈËÎï±àºÅ"]==74 then
+	            if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then			    
 		            hurt=math.modf(hurt*0.9);
 			    end
 			end
@@ -6104,8 +6104,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	
 	if inteam(pid) then 
 	     for j=0,WAR.PersonNum-1 do
-		    if WAR.Person[j]["äººç‰©ç¼–å·"]==86 or WAR.Person[j]["äººç‰©ç¼–å·"]==80 then
-	            if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then			    
+		    if WAR.Person[j]["ÈËÎï±àºÅ"]==86 or WAR.Person[j]["ÈËÎï±àºÅ"]==80 then
+	            if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[WAR.CurID]["ÎÒ·½"] then			    
 		            hurt=math.modf(hurt*1.1);
 			    end
 			end
@@ -6125,8 +6125,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
     hurt=math.modf(hurt);--hurt2
 	
 	
-	if inteam(pid) then hurt=math.modf(hurt*(1-JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]*0.002)) end
-	if inteam(eid) then hurt=math.modf(hurt*(1+JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]*0.0015)) end
+	if inteam(pid) then hurt=math.modf(hurt*(1-JY.Person[pid]["ÊÜÉË³Ì¶È"]*0.002)) end
+	if inteam(eid) then hurt=math.modf(hurt*(1+JY.Person[pid]["ÊÜÉË³Ì¶È"]*0.0015)) end
 		
 	if pid==5 and WAR.ZDDH>220 then hurt=math.modf(hurt*1.1) end
 	if WAR.ZSF2==1 then
@@ -6140,7 +6140,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 			    if pid==173 or pid==174 or pid==175 then
 			      local shz=0;
 				    for j=0,WAR.PersonNum-1 do
-	                   if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then                            			   			                   
+	                   if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[WAR.CurID]["ÎÒ·½"] then                            			   			                   
 		                  shz=shz+1
 					   end
 				    end
@@ -6154,7 +6154,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 			    if eid==173 or eid==174 or eid==175 then
 			      local shz=0;
 				    for j=0,WAR.PersonNum-1 do
-	                   if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[emenyid]["æˆ‘æ–¹"] then                            			   			                   
+	                   if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[emenyid]["ÎÒ·½"] then                            			   			                   
 		                  shz=shz+1
 					   end
 				    end
@@ -6167,8 +6167,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	
 	if WAR.HDWZ==1 then 
 	   hurt=math.modf(hurt+50)
-	    JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]+15
-		if JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]>100 then JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=100 end
+	    JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=JY.Person[eid]["ÖĞ¶¾³Ì¶È"]+15
+		if JY.Person[eid]["ÖĞ¶¾³Ì¶È"]>100 then JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=100 end
 	end
 	
 	if eid==114 then hurt=math.modf(hurt*0.6) end
@@ -6181,28 +6181,28 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	
 	local defadd=0;
 	if wugong<109 and wugong>88 then 
-	   JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]=math.random(4) 
+	   JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]=math.random(4) 
 	end
-	if JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]==1 then
-		defadd=JY.Person[eid]["æ‹³æŒåŠŸå¤«"];
-	elseif JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]==2 then
-		defadd=JY.Person[eid]["å¾¡å‰‘èƒ½åŠ›"];
-	elseif JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]==3 then
-		defadd=JY.Person[eid]["è€åˆ€æŠ€å·§"];
-	elseif JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]==4 then
-		defadd=JY.Person[eid]["ç‰¹æ®Šå…µå™¨"];
+	if JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]==1 then
+		defadd=JY.Person[eid]["È­ÕÆ¹¦·ò"];
+	elseif JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]==2 then
+		defadd=JY.Person[eid]["Óù½£ÄÜÁ¦"];
+	elseif JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]==3 then
+		defadd=JY.Person[eid]["Ë£µ¶¼¼ÇÉ"];
+	elseif JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]==4 then
+		defadd=JY.Person[eid]["ÌØÊâ±øÆ÷"];
 	end
 	hurt=math.modf(hurt*limitX(1.2-defadd/240,0.2,1.2));	
 	
 	if eid==35 and GetS(10,1,1,0)==1 and JLSD(15,85,eid) then
-	 if WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
-	   if JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]==1 then
+	 if WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then
+	   if JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]==1 then
 	      WAR.Person[emenyid][CC.TXWZ3]=CC.WARS99
-	   elseif JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]==2 then 
+	   elseif JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]==2 then 
 		  WAR.Person[emenyid][CC.TXWZ3]=CC.WARS100
-	   elseif JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]==3 then
+	   elseif JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]==3 then
 	      WAR.Person[emenyid][CC.TXWZ3]=CC.WARS101
-	   elseif JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"]==4 then
+	   elseif JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"]==4 then
 	      WAR.Person[emenyid][CC.TXWZ3]=CC.WARS102
 	   end
 	   if wugong<109 and wugong>88 then 
@@ -6216,7 +6216,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	if eid==50 then
 	   hurt=math.modf(hurt*0.85)
 	   local minhurt=math.modf(hurt/4)
-	   hurt=math.modf(hurt*JY.Person[eid]["ç”Ÿå‘½"]/JY.Person[eid]["ç”Ÿå‘½æœ€å¤§å€¼"])
+	   hurt=math.modf(hurt*JY.Person[eid]["ÉúÃü"]/JY.Person[eid]["ÉúÃü×î´óÖµ"])
 	   if hurt<minhurt then hurt=minhurt end	   
 	end
 	
@@ -6306,7 +6306,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	
     if eid==36 then
 	    for i=1,10 do
-	         if JY.Person[eid]["æ­¦åŠŸ"..i]==105 and math.random(10)<6 then
+	         if JY.Person[eid]["Îä¹¦"..i]==105 and math.random(10)<6 then
 			    hurt=math.modf(hurt/3) 
 	            ang=0
 			    WAR.Person[emenyid][CC.TXWZ2]=CC.WARS97
@@ -6319,8 +6319,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	if GetS(4,5,5,5)==4 and eid==0 then
 	    local gctj=0;
 	    for i=1,10 do
-	        if JY.Person[0]["æ­¦åŠŸ"..i]==112 or (JY.Person[0]["æ­¦åŠŸ"..i]<85 and JY.Person[0]["æ­¦åŠŸ"..i]>67) then
-			    if JY.Person[0]["æ­¦åŠŸç­‰çº§"..i]==999 then
+	        if JY.Person[0]["Îä¹¦"..i]==112 or (JY.Person[0]["Îä¹¦"..i]<85 and JY.Person[0]["Îä¹¦"..i]>67) then
+			    if JY.Person[0]["Îä¹¦µÈ¼¶"..i]==999 then
 				   gctj=gctj+1
 				end
 			end
@@ -6352,13 +6352,13 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		WAR.Person[emenyid][CC.TXDH]=6	
 	end
 	
-	for i=1,10 do  --ä¹¾å¤å¤§æŒªç§»ä¼¤å®³åå¼¹
-		local kfid=JY.Person[eid]['æ­¦åŠŸ'..i]
-		if WAR.QKNY<2 and kfid==97 and WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and pid~=114 and pid~=50 then
-			local lv=math.modf(JY.Person[eid]['æ­¦åŠŸç­‰çº§'..i]/100)+1
+	for i=1,10 do  --Ç¬À¤´óÅ²ÒÆÉËº¦·´µ¯
+		local kfid=JY.Person[eid]['Îä¹¦'..i]
+		if WAR.QKNY<2 and kfid==97 and WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] and pid~=114 and pid~=50 then
+			local lv=math.modf(JY.Person[eid]['Îä¹¦µÈ¼¶'..i]/100)+1
 			if (hurt>20 and math.random(10)<5) or (eid==9 and hurt>20 and math.random(10)<7) then			  			  
-				--WAR.Person[emenyid][CC.TXWZ1]=JY.Wugong[kfid]['åç§°']..'åå¼¹'
-				--SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],4,2)
+				--WAR.Person[emenyid][CC.TXWZ1]=JY.Wugong[kfid]['Ãû³Æ']..'·´µ¯'
+				--SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],4,2)
 				--local selfhurt=math.modf(hurt*30/100)+Rnd(9)+1
 				WAR.fthurt=0
 				WAR.fthurt=math.modf(hurt*30/100)
@@ -6371,46 +6371,46 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 				local nydx={};
 				local nynum=1;
 				for i=0,WAR.PersonNum-1 do	
-                    if WAR.Person[i]["æˆ‘æ–¹"]~=WAR.Person[emenyid]["æˆ‘æ–¹"] and WAR.Person[i]["æ­»äº¡"]==false then
+                    if WAR.Person[i]["ÎÒ·½"]~=WAR.Person[emenyid]["ÎÒ·½"] and WAR.Person[i]["ËÀÍö"]==false then
 				         nydx[nynum]=i
 						 nynum=nynum+1
 					end
 				end
 				local nyft=nydx[math.random(nynum-1)];
 				local nyft2=nydx[math.random(nynum-1)];
-				--SetWarMap(WAR.Person[nyft]["åæ ‡X"],WAR.Person[nyft]["åæ ‡Y"],4,2)
-				JY.Person[WAR.Person[nyft]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]=JY.Person[WAR.Person[nyft]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]-math.modf(WAR.fthurt/2+Rnd(3))
-				if JY.Person[WAR.Person[nyft]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]<1 then 
-				   JY.Person[WAR.Person[nyft]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]=0 				   
+				--SetWarMap(WAR.Person[nyft]["×ø±êX"],WAR.Person[nyft]["×ø±êY"],4,2)
+				JY.Person[WAR.Person[nyft]["ÈËÎï±àºÅ"]]["ÉúÃü"]=JY.Person[WAR.Person[nyft]["ÈËÎï±àºÅ"]]["ÉúÃü"]-math.modf(WAR.fthurt/2+Rnd(3))
+				if JY.Person[WAR.Person[nyft]["ÈËÎï±àºÅ"]]["ÉúÃü"]<1 then 
+				   JY.Person[WAR.Person[nyft]["ÈËÎï±àºÅ"]]["ÉúÃü"]=0 				   
 				end
-				--WAR.Person[nyft]["ç‚¹æ•°"]=-fthurt
-				WAR.Person[emenyid][CC.TXWZ1]=JY.Wugong[kfid]['åç§°']..CC.WARS106--..JY.Person[WAR.Person[nyft]["äººç‰©ç¼–å·"]]["å§“å"]
+				--WAR.Person[nyft]["µãÊı"]=-fthurt
+				WAR.Person[emenyid][CC.TXWZ1]=JY.Wugong[kfid]['Ãû³Æ']..CC.WARS106--..JY.Person[WAR.Person[nyft]["ÈËÎï±àºÅ"]]["ĞÕÃû"]
 				WAR.NYSH[nyft]=1
 				if eid==9 and nyft~=nyft2 then
-				    --SetWarMap(WAR.Person[nyft2]["åæ ‡X"],WAR.Person[nyft2]["åæ ‡Y"],4,2)
-					JY.Person[WAR.Person[nyft2]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]=JY.Person[WAR.Person[nyft2]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]-math.modf(WAR.fthurt/2+Rnd(3))
-					if JY.Person[WAR.Person[nyft2]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]<1 then JY.Person[WAR.Person[nyft2]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]=0 end
-					--WAR.Person[nyft2]["ç‚¹æ•°"]=-fthurt
-					WAR.Person[emenyid][CC.TXWZ1]=WAR.Person[emenyid][CC.TXWZ1]..CC.WARS107--"+"..JY.Person[WAR.Person[nyft2]["äººç‰©ç¼–å·"]]["å§“å"]
+				    --SetWarMap(WAR.Person[nyft2]["×ø±êX"],WAR.Person[nyft2]["×ø±êY"],4,2)
+					JY.Person[WAR.Person[nyft2]["ÈËÎï±àºÅ"]]["ÉúÃü"]=JY.Person[WAR.Person[nyft2]["ÈËÎï±àºÅ"]]["ÉúÃü"]-math.modf(WAR.fthurt/2+Rnd(3))
+					if JY.Person[WAR.Person[nyft2]["ÈËÎï±àºÅ"]]["ÉúÃü"]<1 then JY.Person[WAR.Person[nyft2]["ÈËÎï±àºÅ"]]["ÉúÃü"]=0 end
+					--WAR.Person[nyft2]["µãÊı"]=-fthurt
+					WAR.Person[emenyid][CC.TXWZ1]=WAR.Person[emenyid][CC.TXWZ1]..CC.WARS107--"+"..JY.Person[WAR.Person[nyft2]["ÈËÎï±àºÅ"]]["ĞÕÃû"]
 				    WAR.NYSH[nyft2]=1
 				end
-				--[[JY.Person[pid]["ç”Ÿå‘½"]=JY.Person[pid]["ç”Ÿå‘½"]-math.modf(selfhurt/2)
-				if JY.Person[pid]["ç”Ÿå‘½"]<=0 then JY.Person[pid]["ç”Ÿå‘½"]=1 end
-				WAR.Person[WAR.CurID]["ç‚¹æ•°"]=-selfhurt]]
+				--[[JY.Person[pid]["ÉúÃü"]=JY.Person[pid]["ÉúÃü"]-math.modf(selfhurt/2)
+				if JY.Person[pid]["ÉúÃü"]<=0 then JY.Person[pid]["ÉúÃü"]=1 end
+				WAR.Person[WAR.CurID]["µãÊı"]=-selfhurt]]
 				WAR.QKNY=WAR.QKNY+1
 				 if WAR.Person[emenyid][CC.TXDH]==-1 then
-				    WAR.Person[emenyid][CC.TXDH]=math.fmod(97,10)+85--JY.Wugong[kfid]["æ­¦åŠŸåŠ¨ç”»&éŸ³æ•ˆ"]
+				    WAR.Person[emenyid][CC.TXDH]=math.fmod(97,10)+85--JY.Wugong[kfid]["Îä¹¦¶¯»­&ÒôĞ§"]
 			     end				 
 				break
 			end
 		elseif WAR.tmp[1000+eid]~=1 and WAR.ZDDH~=171 and eid==60 then --(kfid==104 and inteam(eid) or eid==60) 
-			local lv=math.modf(JY.Person[eid]['æ­¦åŠŸç­‰çº§'..i]/100)+1
-			if ((hurt>150 and JLSD(45,60,eid)) or eid==60 or hurt>350) and JY.Person[eid]["ä½“åŠ›"]>50 then
-				WAR.Person[emenyid][CC.TXDH]=math.fmod(kfid,10)+85--JY.Wugong[kfid]["æ­¦åŠŸåŠ¨ç”»&éŸ³æ•ˆ"]
+			local lv=math.modf(JY.Person[eid]['Îä¹¦µÈ¼¶'..i]/100)+1
+			if ((hurt>150 and JLSD(45,60,eid)) or eid==60 or hurt>350) and JY.Person[eid]["ÌåÁ¦"]>50 then
+				WAR.Person[emenyid][CC.TXDH]=math.fmod(kfid,10)+85--JY.Wugong[kfid]["Îä¹¦¶¯»­&ÒôĞ§"]
 				if eid==60 then
 				WAR.Person[emenyid][CC.TXWZ1]=CC.WARS108
 				else
-				WAR.Person[emenyid][CC.TXWZ1]=JY.Wugong[kfid]['åç§°']..CC.WARS109
+				WAR.Person[emenyid][CC.TXWZ1]=JY.Wugong[kfid]['Ãû³Æ']..CC.WARS109
 				end
 				WAR.tmp[1000+eid]=1;
 				break;
@@ -6419,33 +6419,33 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	end
 	
 	if eid==9 and WAR.Person[emenyid][CC.TXWZ1]==nil then
-	   if WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and hurt>10 and PersonKF(9,106) then --ZWJ
+	   if WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] and hurt>10 and PersonKF(9,106) then --ZWJ
 		   WAR.Person[emenyid][CC.TXDH]=math.fmod(97,10)+85
 		   WAR.Person[emenyid][CC.TXWZ1]=CC.WARS110
-		   SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],4,2)
+		   SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],4,2)
 		   local selfhurt=math.modf(hurt*0.3)
-		   JY.Person[pid]["ç”Ÿå‘½"]=JY.Person[pid]["ç”Ÿå‘½"]-math.modf(selfhurt/2)
-		   WAR.Person[WAR.CurID]["ç‚¹æ•°"]=-selfhurt
-		   if JY.Person[pid]["ç”Ÿå‘½"]<=0 then JY.Person[pid]["ç”Ÿå‘½"]=0 end
+		   JY.Person[pid]["ÉúÃü"]=JY.Person[pid]["ÉúÃü"]-math.modf(selfhurt/2)
+		   WAR.Person[WAR.CurID]["µãÊı"]=-selfhurt
+		   if JY.Person[pid]["ÉúÃü"]<=0 then JY.Person[pid]["ÉúÃü"]=0 end
 	    end
     end
 	
-	if WAR.Person[WAR.CurID]["æˆ‘æ–¹"]==WAR.Person[emenyid]["æˆ‘æ–¹"] and WAR.tmp[1000+pid]==nil then
-		if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then		    
+	if WAR.Person[WAR.CurID]["ÎÒ·½"]==WAR.Person[emenyid]["ÎÒ·½"] and WAR.tmp[1000+pid]==nil then
+		if WAR.Person[WAR.CurID]["ÎÒ·½"] then		    
             hurt=math.modf(hurt*0.5)+Rnd(3)	          		   
 		else
 			hurt=math.modf(hurt*0.2)+Rnd(3)
 		end
 	end
 	
-	if inteam(eid) then--WAR.Person[emenyid]["æˆ‘æ–¹"] then--or GetS(0,0,0,0)~=1 then
-		JY.Person[eid]["ç”Ÿå‘½"]=JY.Person[eid]["ç”Ÿå‘½"]-hurt;
+	if inteam(eid) then--WAR.Person[emenyid]["ÎÒ·½"] then--or GetS(0,0,0,0)~=1 then
+		JY.Person[eid]["ÉúÃü"]=JY.Person[eid]["ÉúÃü"]-hurt;
 	else
-		JY.Person[eid]["ç”Ÿå‘½"]=JY.Person[eid]["ç”Ÿå‘½"]-math.modf(hurt*0.5);
+		JY.Person[eid]["ÉúÃü"]=JY.Person[eid]["ÉúÃü"]-math.modf(hurt*0.5);
 	end
 	
 	for i=1,10 do
-		local kfid=JY.Person[eid]['æ­¦åŠŸ'..i]
+		local kfid=JY.Person[eid]['Îä¹¦'..i]
 		if kfid==16 then
 			if WAR.tmp[3000+eid]==nil then
 				WAR.tmp[3000+eid]=0;
@@ -6454,24 +6454,24 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		end
 	end
 	
-    WAR.Person[WAR.CurID]["ç»éªŒ"]=WAR.Person[WAR.CurID]["ç»éªŒ"]+math.modf(hurt/5);
+    WAR.Person[WAR.CurID]["¾­Ñé"]=WAR.Person[WAR.CurID]["¾­Ñé"]+math.modf(hurt/5);
 	
-	if JY.Person[eid]["ç”Ÿå‘½"]<=0 then  --ç¥ç…§èµ·æ­»å›ç”Ÿ
+	if JY.Person[eid]["ÉúÃü"]<=0 then  --ÉñÕÕÆğËÀ»ØÉú
 		for i=1,10 do
-			local kfid=JY.Person[eid]['æ­¦åŠŸ'..i]
+			local kfid=JY.Person[eid]['Îä¹¦'..i]
 		if kfid==94 and WAR.tmp[2000+eid]==nil then
-				WAR.Person[emenyid][CC.TXDH]=math.fmod(kfid,10)+85--JY.Wugong[kfid]["æ­¦åŠŸåŠ¨ç”»&éŸ³æ•ˆ"]								
-				WAR.Person[emenyid][CC.TXWZ1]=JY.Wugong[kfid]['åç§°']..CC.WARS111			
-				local lv=math.modf(JY.Person[eid]['æ­¦åŠŸç­‰çº§'..i]/100)+1				
+				WAR.Person[emenyid][CC.TXDH]=math.fmod(kfid,10)+85--JY.Wugong[kfid]["Îä¹¦¶¯»­&ÒôĞ§"]								
+				WAR.Person[emenyid][CC.TXWZ1]=JY.Wugong[kfid]['Ãû³Æ']..CC.WARS111			
+				local lv=math.modf(JY.Person[eid]['Îä¹¦µÈ¼¶'..i]/100)+1				
 				if eid==37 then
-				JY.Person[eid]["ç”Ÿå‘½"]=JY.Person[eid]["ç”Ÿå‘½æœ€å¤§å€¼"]
+				JY.Person[eid]["ÉúÃü"]=JY.Person[eid]["ÉúÃü×î´óÖµ"]
 				else
-				JY.Person[eid]["ç”Ÿå‘½"]=math.modf(JY.Person[eid]["ç”Ÿå‘½æœ€å¤§å€¼"]*(1+lv)/25)
+				JY.Person[eid]["ÉúÃü"]=math.modf(JY.Person[eid]["ÉúÃü×î´óÖµ"]*(1+lv)/25)
 				end
-				JY.Person[eid]["å†…åŠ›"]=math.modf((JY.Person[eid]["å†…åŠ›"]+JY.Person[eid]["å†…åŠ›æœ€å¤§å€¼"])/2)
-				JY.Person[eid]["ä½“åŠ›"]=math.modf((JY.Person[eid]["ä½“åŠ›"]+50)/2)
-				JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=math.modf(JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]/2)
-				JY.Person[eid]["å—ä¼¤ç¨‹åº¦"]=math.modf(JY.Person[eid]["å—ä¼¤ç¨‹åº¦"]/2)
+				JY.Person[eid]["ÄÚÁ¦"]=math.modf((JY.Person[eid]["ÄÚÁ¦"]+JY.Person[eid]["ÄÚÁ¦×î´óÖµ"])/2)
+				JY.Person[eid]["ÌåÁ¦"]=math.modf((JY.Person[eid]["ÌåÁ¦"]+50)/2)
+				JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=math.modf(JY.Person[eid]["ÖĞ¶¾³Ì¶È"]/2)
+				JY.Person[eid]["ÊÜÉË³Ì¶È"]=math.modf(JY.Person[eid]["ÊÜÉË³Ì¶È"]/2)
                   WAR.Person[emenyid]["Time"]=WAR.Person[emenyid]["Time"]+500
 				  if eid==37 then 
 				     WAR.Person[emenyid]["Time"]=990 
@@ -6485,28 +6485,28 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		end
 	end
 	
-	if JY.Person[eid]["ç”Ÿå‘½"]<=0 and (eid==129 or eid==65) and WAR.WCY<1 then
+	if JY.Person[eid]["ÉúÃü"]<=0 and (eid==129 or eid==65) and WAR.WCY<1 then
 	   WAR.Person[emenyid][CC.TXDH]=19
 	   WAR.Person[emenyid][CC.TXWZ1]=CC.WARS112
 	   WAR.WCY=WAR.WCY+1
-	   JY.Person[eid]["ç”Ÿå‘½"]=JY.Person[eid]["ç”Ÿå‘½æœ€å¤§å€¼"]
-	   JY.Person[eid]["å†…åŠ›"]=JY.Person[eid]["å†…åŠ›æœ€å¤§å€¼"]
-	   JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=0
-	   JY.Person[eid]["å—ä¼¤ç¨‹åº¦"]=0
-	   JY.Person[eid]["ä½“åŠ›"]=100
+	   JY.Person[eid]["ÉúÃü"]=JY.Person[eid]["ÉúÃü×î´óÖµ"]
+	   JY.Person[eid]["ÄÚÁ¦"]=JY.Person[eid]["ÄÚÁ¦×î´óÖµ"]
+	   JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=0
+	   JY.Person[eid]["ÊÜÉË³Ì¶È"]=0
+	   JY.Person[eid]["ÌåÁ¦"]=100
 	   WAR.Person[emenyid]["Time"]=980
 	end
 	
-	if JY.Person[eid]["ç”Ÿå‘½"]<=0 and WAR.XMH==0 then 
+	if JY.Person[eid]["ÉúÃü"]<=0 and WAR.XMH==0 then 
         for i=0,WAR.PersonNum-1 do
-	        if WAR.Person[i]["äººç‰©ç¼–å·"]==45 and WAR.Person[i]["æ­»äº¡"]==false and WAR.Person[i]["æˆ‘æ–¹"]==WAR.Person[emenyid]["æˆ‘æ–¹"] then
+	        if WAR.Person[i]["ÈËÎï±àºÅ"]==45 and WAR.Person[i]["ËÀÍö"]==false and WAR.Person[i]["ÎÒ·½"]==WAR.Person[emenyid]["ÎÒ·½"] then
 	           WAR.Person[emenyid][CC.TXDH]=89
 	           WAR.Person[emenyid][CC.TXWZ1]=CC.WARS113
-			   JY.Person[eid]["ç”Ÿå‘½"]=JY.Person[eid]["ç”Ÿå‘½æœ€å¤§å€¼"]
-			   JY.Person[eid]["å†…åŠ›"]=JY.Person[eid]["å†…åŠ›æœ€å¤§å€¼"]
-			   JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=0
-			   JY.Person[eid]["å—ä¼¤ç¨‹åº¦"]=0
-			   JY.Person[eid]["ä½“åŠ›"]=100
+			   JY.Person[eid]["ÉúÃü"]=JY.Person[eid]["ÉúÃü×î´óÖµ"]
+			   JY.Person[eid]["ÄÚÁ¦"]=JY.Person[eid]["ÄÚÁ¦×î´óÖµ"]
+			   JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=0
+			   JY.Person[eid]["ÊÜÉË³Ì¶È"]=0
+			   JY.Person[eid]["ÌåÁ¦"]=100
 			   WAR.FXDS[eid]=nil
 			   WAR.LXZT[eid]=nil
 			   WAR.XMH=1
@@ -6515,12 +6515,12 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		end
 	end
 			   
-	if eid==553 and JY.Person[eid]["ç”Ÿå‘½"]<=0 then WAR.YZB=1 end--YZB
+	if eid==553 and JY.Person[eid]["ÉúÃü"]<=0 then WAR.YZB=1 end--YZB
    
-    if JY.Person[eid]["ç”Ÿå‘½"]<=0 then                 --æ‰“æ­»æ•Œäººè·å¾—é¢å¤–ç»éªŒ
-        JY.Person[eid]["ç”Ÿå‘½"]=0;
-        WAR.Person[WAR.CurID]["ç»éªŒ"]=WAR.Person[WAR.CurID]["ç»éªŒ"]+JY.Person[eid]["ç­‰çº§"]*5;
-		WAR.Person[emenyid]["åå‡»æ­¦åŠŸ"]=-1
+    if JY.Person[eid]["ÉúÃü"]<=0 then                 --´òËÀµĞÈË»ñµÃ¶îÍâ¾­Ñé
+        JY.Person[eid]["ÉúÃü"]=0;
+        WAR.Person[WAR.CurID]["¾­Ñé"]=WAR.Person[WAR.CurID]["¾­Ñé"]+JY.Person[eid]["µÈ¼¶"]*5;
+		WAR.Person[emenyid]["·´»÷Îä¹¦"]=-1
     end
 	ang=ang-dng;
 	if ang>0 then
@@ -6531,7 +6531,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	end
 	
 	if eid==114 then
-	   --[[DrawStrBox(CC.ScreenW/2+200,24,"å¤©åœ°ç‹¬å°Š",C_ORANGE,30)
+	   --[[DrawStrBox(CC.ScreenW/2+200,24,"ÌìµØ¶À×ğ",C_ORANGE,30)
                   ShowScreen()
                   lib.Delay(400)]]--
        	--WAR.Person[emenyid][CC.TXDH]=89								
@@ -6549,14 +6549,14 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	if eid==0 and WAR.FLHS4>0 then dng=1 end
 	
 	for i=1,10 do	     
-	     if JY.Person[eid]["æ­¦åŠŸ"..i]==16 or JY.Person[eid]["æ­¦åŠŸ"..i]==46 then
-		    if JY.Person[eid]["æ­¦åŠŸç­‰çº§"..i]==999 then
+	     if JY.Person[eid]["Îä¹¦"..i]==16 or JY.Person[eid]["Îä¹¦"..i]==46 then
+		    if JY.Person[eid]["Îä¹¦µÈ¼¶"..i]==999 then
 		        WAR.TJAY=WAR.TJAY+1
 		    end
 		end
 	end
 	
-	if WAR.TJAY==2 and JLSD(15,45+math.modf(JY.Person[eid]["èµ„è´¨"]/2.5),eid) then 
+	if WAR.TJAY==2 and JLSD(15,45+math.modf(JY.Person[eid]["×ÊÖÊ"]/2.5),eid) then 
 	   dng=1 
 	   if WAR.Person[emenyid][CC.TXWZ2]~=nil and WAR.Person[emenyid][CC.TXWZ2]~=" " then
 	       WAR.Person[emenyid][CC.TXWZ2]=WAR.Person[emenyid][CC.TXWZ2]..CC.WARS115
@@ -6570,7 +6570,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	
 	--[[if eid==35 and GetS(10,1,1,0)==1 and math.random(10)<6 then 
 	   dng=1 
-	   WAR.Person[emenyid][CC.TXWZ2]="ä¸‡å‰‘å½’å®—Â·å‰‘æ°”æŠ¤ä½“"
+	   WAR.Person[emenyid][CC.TXWZ2]="Íò½£¹é×Ú¡¤½£Æø»¤Ìå"
 	   --WAR.Person[emenyid][CC.TXDH]=21	  
 	end]]
 	
@@ -6580,35 +6580,35 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	    if inteam(eid) then
 			if pid==80 then
 				if PersonKF(eid,100) then
-				 AddPersonAttrib(eid,"å—ä¼¤ç¨‹åº¦",myrnd(hurt*2/12));
+				 AddPersonAttrib(eid,"ÊÜÉË³Ì¶È",myrnd(hurt*2/12));
 				else
-				 AddPersonAttrib(eid,"å—ä¼¤ç¨‹åº¦",myrnd(hurt*2/6));
+				 AddPersonAttrib(eid,"ÊÜÉË³Ì¶È",myrnd(hurt*2/6));
 				end
 			else
 				if PersonKF(eid,100) then
-				 AddPersonAttrib(eid,"å—ä¼¤ç¨‹åº¦",myrnd(hurt/12));
+				 AddPersonAttrib(eid,"ÊÜÉË³Ì¶È",myrnd(hurt/12));
 				else
-				 AddPersonAttrib(eid,"å—ä¼¤ç¨‹åº¦",myrnd(hurt/6));
+				 AddPersonAttrib(eid,"ÊÜÉË³Ì¶È",myrnd(hurt/6));
 				end
 			end
 		else
 		    if pid==80 then
 				if PersonKF(eid,100) then
-				 AddPersonAttrib(eid,"å—ä¼¤ç¨‹åº¦",myrnd(hurt*2/16));
+				 AddPersonAttrib(eid,"ÊÜÉË³Ì¶È",myrnd(hurt*2/16));
 				else
-				 AddPersonAttrib(eid,"å—ä¼¤ç¨‹åº¦",myrnd(hurt*2/8));
+				 AddPersonAttrib(eid,"ÊÜÉË³Ì¶È",myrnd(hurt*2/8));
 				end
 			else
 				if PersonKF(eid,100) then
-				 AddPersonAttrib(eid,"å—ä¼¤ç¨‹åº¦",myrnd(hurt/16));
+				 AddPersonAttrib(eid,"ÊÜÉË³Ì¶È",myrnd(hurt/16));
 				else
-				 AddPersonAttrib(eid,"å—ä¼¤ç¨‹åº¦",myrnd(hurt/8));
+				 AddPersonAttrib(eid,"ÊÜÉË³Ì¶È",myrnd(hurt/8));
 				end
 			end
         end			
 	end
 	   
-	if dng==0 and WAR.Person[WAR.CurID]["æˆ‘æ–¹"]~=WAR.Person[emenyid]["æˆ‘æ–¹"] then
+	if dng==0 and WAR.Person[WAR.CurID]["ÎÒ·½"]~=WAR.Person[emenyid]["ÎÒ·½"] then
         local killsq=0;
 		if JY.Thing[202][WZ7]==1 then  --MODEWL
 		   killsq=8
@@ -6628,37 +6628,37 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 			spdhurt=math.modf(hurt*0.7);
 		end
 		for i=1,10 do
-			if JY.Person[pid]["æ­¦åŠŸ"..i]==103 then
+			if JY.Person[pid]["Îä¹¦"..i]==103 then
 				spdhurt=math.modf(hurt*2/5);
 				break;
 			end
 		end
 		for i=1,10 do
-			if JY.Person[eid]["æ­¦åŠŸ"..i]==101 then
+			if JY.Person[eid]["Îä¹¦"..i]==101 then
 				spdhurt=0;
 			end
 		end
 		WAR.Person[emenyid]["TimeAdd"]=WAR.Person[emenyid]["TimeAdd"]-spdhurt;		
 	end
 
-        if eid==59 and JY.Person[eid]["ç”Ÿå‘½"]<=0 then 
+        if eid==59 and JY.Person[eid]["ÉúÃü"]<=0 then 
 		   WAR.XK=1 
-		   WAR.XK2=WAR.Person[emenyid]["æˆ‘æ–¹"]
+		   WAR.XK2=WAR.Person[emenyid]["ÎÒ·½"]
 		end        
   
 		if pid==60 then
-		   JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]+30
-		    if JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]>100 then JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=100 end
+		   JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=JY.Person[eid]["ÖĞ¶¾³Ì¶È"]+30
+		    if JY.Person[eid]["ÖĞ¶¾³Ì¶È"]>100 then JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=100 end
 		end
 		
 	    if WAR.TD==-2 then
 		   local i; 
 	       i=math.random(4);		   
-	       if JY.Person[eid]["æºå¸¦ç‰©å“æ•°é‡"..i]>0 and JY.Person[eid]["æºå¸¦ç‰©å“"..i]>-1 and WAR.Person[WAR.CurID]["æˆ‘æ–¹"]~=WAR.Person[emenyid]["æˆ‘æ–¹"] then
-		      JY.Person[eid]["æºå¸¦ç‰©å“æ•°é‡"..i]=JY.Person[eid]["æºå¸¦ç‰©å“æ•°é‡"..i]-1
-			  WAR.TD=JY.Person[eid]["æºå¸¦ç‰©å“"..i]
-			  if JY.Person[eid]["æºå¸¦ç‰©å“æ•°é‡"..i]<1 then 
-			     JY.Person[eid]["æºå¸¦ç‰©å“"..i]=-1
+	       if JY.Person[eid]["Ğ¯´øÎïÆ·ÊıÁ¿"..i]>0 and JY.Person[eid]["Ğ¯´øÎïÆ·"..i]>-1 and WAR.Person[WAR.CurID]["ÎÒ·½"]~=WAR.Person[emenyid]["ÎÒ·½"] then
+		      JY.Person[eid]["Ğ¯´øÎïÆ·ÊıÁ¿"..i]=JY.Person[eid]["Ğ¯´øÎïÆ·ÊıÁ¿"..i]-1
+			  WAR.TD=JY.Person[eid]["Ğ¯´øÎïÆ·"..i]
+			  if JY.Person[eid]["Ğ¯´øÎïÆ·ÊıÁ¿"..i]<1 then 
+			     JY.Person[eid]["Ğ¯´øÎïÆ·"..i]=-1
 			  end
               --if WAR.TD==81 then WAR.TD=-1 end			  
 		   else
@@ -6667,50 +6667,50 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
         end
 				
 		if WAR.XDDF==1 then
-		   JY.Person[pid]["ç”Ÿå‘½"]=JY.Person[pid]["ç”Ÿå‘½"]+math.modf(hurt*0.1)
-		   if JY.Person[pid]["ç”Ÿå‘½"]>JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"] then 
-		      JY.Person[pid]["ç”Ÿå‘½"]=JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]
+		   JY.Person[pid]["ÉúÃü"]=JY.Person[pid]["ÉúÃü"]+math.modf(hurt*0.1)
+		   if JY.Person[pid]["ÉúÃü"]>JY.Person[pid]["ÉúÃü×î´óÖµ"] then 
+		      JY.Person[pid]["ÉúÃü"]=JY.Person[pid]["ÉúÃü×î´óÖµ"]
 		   end
 		   WAR.XDXX=WAR.XDXX+math.modf(hurt*0.1)
 		end
 		
-		if eid==85 and JY.Person[eid]["ç”Ÿå‘½"]>0 then
-		   JY.Person[eid]["ç”Ÿå‘½"]=JY.Person[eid]["ç”Ÿå‘½"]+50
-		   if JY.Person[eid]["ç”Ÿå‘½"]>JY.Person[eid]["ç”Ÿå‘½æœ€å¤§å€¼"] then 
-		      JY.Person[eid]["ç”Ÿå‘½"]=JY.Person[eid]["ç”Ÿå‘½æœ€å¤§å€¼"]
+		if eid==85 and JY.Person[eid]["ÉúÃü"]>0 then
+		   JY.Person[eid]["ÉúÃü"]=JY.Person[eid]["ÉúÃü"]+50
+		   if JY.Person[eid]["ÉúÃü"]>JY.Person[eid]["ÉúÃü×î´óÖµ"] then 
+		      JY.Person[eid]["ÉúÃü"]=JY.Person[eid]["ÉúÃü×î´óÖµ"]
 		   end
 		end
 		
-		if eid==516 and JY.Person[eid]["ç”Ÿå‘½"]>0 then
-		   JY.Person[eid]["ç”Ÿå‘½"]=JY.Person[eid]["ç”Ÿå‘½"]+150
-		   if JY.Person[eid]["ç”Ÿå‘½"]>JY.Person[eid]["ç”Ÿå‘½æœ€å¤§å€¼"] then 
-		      JY.Person[eid]["ç”Ÿå‘½"]=JY.Person[eid]["ç”Ÿå‘½æœ€å¤§å€¼"]
+		if eid==516 and JY.Person[eid]["ÉúÃü"]>0 then
+		   JY.Person[eid]["ÉúÃü"]=JY.Person[eid]["ÉúÃü"]+150
+		   if JY.Person[eid]["ÉúÃü"]>JY.Person[eid]["ÉúÃü×î´óÖµ"] then 
+		      JY.Person[eid]["ÉúÃü"]=JY.Person[eid]["ÉúÃü×î´óÖµ"]
 		   end
 		end
 		   
 		if WAR.HQT==1 then
-		    JY.Person[eid]["ä½“åŠ›"]=JY.Person[eid]["ä½“åŠ›"]-15
-		   if JY.Person[eid]["ä½“åŠ›"]<1 then 
-		      JY.Person[eid]["ä½“åŠ›"]=1
+		    JY.Person[eid]["ÌåÁ¦"]=JY.Person[eid]["ÌåÁ¦"]-15
+		   if JY.Person[eid]["ÌåÁ¦"]<1 then 
+		      JY.Person[eid]["ÌåÁ¦"]=1
 		   end
 		end
 		
 		if WAR.CY==1 then
-		    JY.Person[eid]["å†…åŠ›"]=JY.Person[eid]["å†…åŠ›"]-300
-		   if JY.Person[eid]["å†…åŠ›"]<1 then 
-		      JY.Person[eid]["å†…åŠ›"]=1
+		    JY.Person[eid]["ÄÚÁ¦"]=JY.Person[eid]["ÄÚÁ¦"]-300
+		   if JY.Person[eid]["ÄÚÁ¦"]<1 then 
+		      JY.Person[eid]["ÄÚÁ¦"]=1
 		   end
 		end
 		
-		if WAR.Data["ä»£å·"]==0 then
-		   if pid==72 and eid==3 and JY.Person[eid]["ç”Ÿå‘½"]<=0 and JY.Person[72]["æ­¦åŠŸ1"]==28 then
+		if WAR.Data["´úºÅ"]==0 then
+		   if pid==72 and eid==3 and JY.Person[eid]["ÉúÃü"]<=0 and JY.Person[72]["Îä¹¦1"]==28 then
 		      WAR.TGN=1
 		   end
 		end
 		
 		if eid~=445 and eid~=446 and eid<578 and eid~=64 and WAR.ZDDH~=17 then
-		   if pid==4 and JY.Person[eid]["ç”Ÿå‘½"]<=0 and inteam(pid) then
-		      if WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] and not inteam(eid) then
+		   if pid==4 and JY.Person[eid]["ÉúÃü"]<=0 and inteam(pid) then
+		      if WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] and not inteam(eid) then
 		         WAR.YJ=WAR.YJ+math.random(15)+25
 			  end
 		   end
@@ -6718,10 +6718,10 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		
 		if pid==72 then 
 		    for j=0,WAR.PersonNum-1 do
-		      if WAR.Person[j]["äººç‰©ç¼–å·"]==4 then
-	            if WAR.Person[j]["æ­»äº¡"]==false and WAR.Person[j]["æˆ‘æ–¹"]==WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then			    
-		            JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]+5+math.random(15)
-		            if JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]>100 then JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=100 end
+		      if WAR.Person[j]["ÈËÎï±àºÅ"]==4 then
+	            if WAR.Person[j]["ËÀÍö"]==false and WAR.Person[j]["ÎÒ·½"]==WAR.Person[WAR.CurID]["ÎÒ·½"] then			    
+		            JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=JY.Person[eid]["ÖĞ¶¾³Ì¶È"]+5+math.random(15)
+		            if JY.Person[eid]["ÖĞ¶¾³Ì¶È"]>100 then JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=100 end
 			    end
 			  end
 			end
@@ -6730,8 +6730,8 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		if WAR.KHBX==1 and hurt>0 then WAR.KHCM[eid]=1 end
 		   
 		if WAR.GBWZ==1 and math.random(10)<6 then
-		    if WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then 
-		        JY.Person[eid]["ç”Ÿå‘½"]=0
+		    if WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then 
+		        JY.Person[eid]["ÉúÃü"]=0
 		    end
 	    end
 		
@@ -6793,9 +6793,9 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
         end	
         WAR.BLX=0		
 		
-		--if eid==0 and JY.Person[eid]["ä½“åŠ›"]>70 then WAR.tmp[1000]=1 end
+		--if eid==0 and JY.Person[eid]["ÌåÁ¦"]>70 then WAR.tmp[1000]=1 end
 		
-		if JY.Person[eid]["ç”Ÿå‘½"]>0 and (WAR.LQZ[eid]==nil or WAR.LQZ[eid]<100) and DWPD() and WAR.DZXY~=1 and WAR.ASKD~=1 then
+		if JY.Person[eid]["ÉúÃü"]>0 and (WAR.LQZ[eid]==nil or WAR.LQZ[eid]<100) and DWPD() and WAR.DZXY~=1 and WAR.ASKD~=1 then
 		   local minlqzj=math.modf((hurt/3)*0.2)
 		   local lqzj=math.random(math.modf(hurt/3)+1)
 		   if lqzj<minlqzj then lqzj=minlqzj end
@@ -6805,7 +6805,7 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		   else
 		      WAR.LQZ[eid]=WAR.LQZ[eid]+lqzj+2
 		   end
-		   if WAR.Person[emenyid]["æˆ‘æ–¹"]==false then 
+		   if WAR.Person[emenyid]["ÎÒ·½"]==false then 
 		        local flqzj=0;
 			    if JY.Thing[202][WZ7]==1 then  --MODEWL
 				   flqzj=1
@@ -6830,25 +6830,25 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		if WAR.ASKD==1 and DWPD() then WAR.LQZ[eid]=0 end
 	
 		if pid==97 and math.random(10)<6 then
-		   if WAR.Person[emenyid]["æˆ‘æ–¹"]~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
-		      WAR.Person[emenyid]["æˆ‘æ–¹"]=WAR.Person[WAR.CurID]["æˆ‘æ–¹"]
+		   if WAR.Person[emenyid]["ÎÒ·½"]~=WAR.Person[WAR.CurID]["ÎÒ·½"] then
+		      WAR.Person[emenyid]["ÎÒ·½"]=WAR.Person[WAR.CurID]["ÎÒ·½"]
 		   end
 		end
 		
 		if WAR.ZDDH==205 and eid==141 then
-		    JY.Person[eid]["ç”Ÿå‘½"]=0
+		    JY.Person[eid]["ÉúÃü"]=0
 	    end
 				
 		if pid==48 then --YTZ
-		   local d=math.modf((340-JY.Person[eid]["æŠ—æ¯’èƒ½åŠ›"]-JY.Person[eid]["å†…åŠ›"]/50)/4)
+		   local d=math.modf((340-JY.Person[eid]["¿¹¶¾ÄÜÁ¦"]-JY.Person[eid]["ÄÚÁ¦"]/50)/4)
 		   if d<0 then d=0 end
-		   JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]+d
-		   if JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]>100 then JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=100 end
+		   JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=JY.Person[eid]["ÖĞ¶¾³Ì¶È"]+d
+		   if JY.Person[eid]["ÖĞ¶¾³Ì¶È"]>100 then JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=100 end
 		end
 		
 		
 	
-	    if JY.Person[eid]["ç”Ÿå‘½"]<=0 and inteam(pid) and DWPD() and WAR.SZJPYX[eid]==nil then
+	    if JY.Person[eid]["ÉúÃü"]<=0 and inteam(pid) and DWPD() and WAR.SZJPYX[eid]==nil then
 		   local wxzd={17,67,226,220,224,219,79};
 		   local wx=0;
 		   for i=1,7 do
@@ -6877,18 +6877,18 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 			end
 		end
 		
-		if JY.Person[eid]["ç”Ÿå‘½"]<=0 and pid==28 then
+		if JY.Person[eid]["ÉúÃü"]<=0 and pid==28 then
 		   WAR.PYZ=WAR.PYZ+1
 		   if WAR.PYZ>5 then WAR.PYZ=5 end
 		end
 		
 		if (WAR.BMXH==1 or WAR.BMXH==2) and hurt>0 and DWPD() then
 		   local xnl;
-		   xnl=math.modf(JY.Person[eid]["å†…åŠ›"]/16+2)	
+		   xnl=math.modf(JY.Person[eid]["ÄÚÁ¦"]/16+2)	
 		   if xnl>300 then xnl=300 end
-		   AddPersonAttrib(eid,"å†…åŠ›",-xnl);
-		   AddPersonAttrib(pid,"å†…åŠ›",math.modf(xnl+1));
-		   AddPersonAttrib(pid,"å†…åŠ›æœ€å¤§å€¼",math.modf(xnl*2/3+10));
+		   AddPersonAttrib(eid,"ÄÚÁ¦",-xnl);
+		   AddPersonAttrib(pid,"ÄÚÁ¦",math.modf(xnl+1));
+		   AddPersonAttrib(pid,"ÄÚÁ¦×î´óÖµ",math.modf(xnl*2/3+10));
 		end
 		
 		if WAR.YTFS>100 and T2SQ(eid) and GetS(10,0,7,0)==1 and WAR.YTFS>100 then
@@ -6899,39 +6899,39 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 			       WAR.Person[emenyid][CC.TXWZ1]=CC.WARS120
 			   end
 			WAR.YTFS=-1
-			WAR.YT1=JY.Person[0]["æ­¦åŠŸ2"]
-			WAR.YT2=JY.Person[0]["æ­¦åŠŸç­‰çº§2"]
-			JY.Person[0]["æ­¦åŠŸ2"]=wugong
-			JY.Person[0]["æ­¦åŠŸç­‰çº§2"]=999
+			WAR.YT1=JY.Person[0]["Îä¹¦2"]
+			WAR.YT2=JY.Person[0]["Îä¹¦µÈ¼¶2"]
+			JY.Person[0]["Îä¹¦2"]=wugong
+			JY.Person[0]["Îä¹¦µÈ¼¶2"]=999
 		end
 		
 		if WAR.BMXH==3 and hurt>0 and DWPD() then
 		   local xnl;
-		   xnl=math.modf(JY.Person[eid]["å†…åŠ›"]/20+2)		   
-		   AddPersonAttrib(eid,"å†…åŠ›",-xnl);
-		   AddPersonAttrib(eid,"ä¸­æ¯’ç¨‹åº¦",20);
+		   xnl=math.modf(JY.Person[eid]["ÄÚÁ¦"]/20+2)		   
+		   AddPersonAttrib(eid,"ÄÚÁ¦",-xnl);
+		   AddPersonAttrib(eid,"ÖĞ¶¾³Ì¶È",20);
 		end
 		
 		if WAR.BMXH==2 and hurt>0 and DWPD() then
 		   local xt1=Rnd(3)+2
 		   local xt2=Rnd(5)+6
 		   local xt3=2+Rnd(2)
-		      AddPersonAttrib(eid,"ä½“åŠ›",-xt1) 
-			  AddPersonAttrib(pid,"ä½“åŠ›",xt3) 			  			
+		      AddPersonAttrib(eid,"ÌåÁ¦",-xt1) 
+			  AddPersonAttrib(pid,"ÌåÁ¦",xt3) 			  			
 		    if pid==26 then 
-		      AddPersonAttrib(eid,"ä½“åŠ›",-xt2) 
-			  AddPersonAttrib(pid,"ä½“åŠ›",xt2) 
+		      AddPersonAttrib(eid,"ÌåÁ¦",-xt2) 
+			  AddPersonAttrib(pid,"ÌåÁ¦",xt2) 
 			end
 		end
 		
 		if wugong==64 and pid==0 and GetS(4,5,5,5)==3 and hurt>0 and WAR.XXCC==0 then
 		   for i=1,10 do
-		        if JY.Person[0]["æ­¦åŠŸ"..i]==64 then
-				    if JY.Person[0]["æ­¦åŠŸç­‰çº§"..i]==999 then
+		        if JY.Person[0]["Îä¹¦"..i]==64 then
+				    if JY.Person[0]["Îä¹¦µÈ¼¶"..i]==999 then
 					   SetS(14,3,1,4,GetS(14,3,1,4)+math.random(2))
 					   if GetS(14,3,1,4)>600 then SetS(14,3,1,4,600) end
-					   if GetS(14,3,1,4)>JY.Person[0]['è€åˆ€æŠ€å·§']*10-900 then 
-					      SetS(14,3,1,4,JY.Person[0]['è€åˆ€æŠ€å·§']*10-900)
+					   if GetS(14,3,1,4)>JY.Person[0]['Ë£µ¶¼¼ÇÉ']*10-900 then 
+					      SetS(14,3,1,4,JY.Person[0]['Ë£µ¶¼¼ÇÉ']*10-900)
 					   end					   
 					   WAR.XXCC=1
 					   --QZXS(GetS(14,3,1,4))
@@ -6946,20 +6946,20 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 		end
 				       
 		
-    --æ•Œäººä¸­æ¯’ç‚¹æ•°
-    local poisonnum=math.modf(level*JY.Wugong[wugong]["æ•Œäººä¸­æ¯’ç‚¹æ•°"]+5*JY.Person[pid]["æ”»å‡»å¸¦æ¯’"]);
+    --µĞÈËÖĞ¶¾µãÊı
+    local poisonnum=math.modf(level*JY.Wugong[wugong]["µĞÈËÖĞ¶¾µãÊı"]+5*JY.Person[pid]["¹¥»÷´ø¶¾"]);
 
-    if 10*JY.Person[eid]["æŠ—æ¯’èƒ½åŠ›"]< poisonnum and dng==0 and pid~=48 then
-		poisonnum=math.modf(poisonnum/10-JY.Person[eid]["æŠ—æ¯’èƒ½åŠ›"]-JY.Person[eid]["å†…åŠ›"]/150)
+    if 10*JY.Person[eid]["¿¹¶¾ÄÜÁ¦"]< poisonnum and dng==0 and pid~=48 then
+		poisonnum=math.modf(poisonnum/10-JY.Person[eid]["¿¹¶¾ÄÜÁ¦"]-JY.Person[eid]["ÄÚÁ¦"]/150)
 		if poisonnum<0 then poisonnum=0 end
-		AddPersonAttrib(eid,"ä¸­æ¯’ç¨‹åº¦",myrnd(poisonnum));
+		AddPersonAttrib(eid,"ÖĞ¶¾³Ì¶È",myrnd(poisonnum));
     end
     
 	WAR.NGHT=0
 	WAR.FLHS4=0
 	
-	if PersonKF(eid,108) then JY.Person[eid]["ä¸­æ¯’ç¨‹åº¦"]=0 end
-	--if PersonKF(eid,100) then JY.Person[eid]["å—ä¼¤ç¨‹åº¦"]=0 end
+	if PersonKF(eid,108) then JY.Person[eid]["ÖĞ¶¾³Ì¶È"]=0 end
+	--if PersonKF(eid,100) then JY.Person[eid]["ÊÜÉË³Ì¶È"]=0 end
 	
 	if WAR.Person[emenyid][CC.TXWZ2]==nil then WAR.Person[emenyid][CC.TXWZ2]='  ' end
 	if DWPD()==false then
@@ -6970,41 +6970,41 @@ function War_WugongHurtLife(emenyid,wugong,level,ang)             --è®¡ç®—æ­¦åŠŸ
 	end
 	
 	--WAR.Person[emenyid][CC.TXDH]=math.fmod(107,10)+85
-	--WAR.Person[emenyid][CC.TXWZ2]="ä¹é˜³ç¥åŠŸæŠ¤ä½“+å¤ªæå¥¥ä¹‰"
-	--WAR.Person[emenyid][CC.TXWZ1]="ä¹¾å¤å¤§æŒªç§»åå¼¹å¦™é£ä½¿+æµäº‘ä½¿"
+	--WAR.Person[emenyid][CC.TXWZ2]="¾ÅÑôÉñ¹¦»¤Ìå+Ì«¼«°ÂÒå"
+	--WAR.Person[emenyid][CC.TXWZ1]="Ç¬À¤´óÅ²ÒÆ·´µ¯Ãî·çÊ¹+Á÷ÔÆÊ¹"
 	return hurt;
 end
 
-function War_WugongHurtNeili(enemyid,wugong,level)           --è®¡ç®—æ­¦åŠŸä¼¤å®³å†…åŠ›
---æ­¦åŠŸä¼¤å®³å†…åŠ›
---enemyid æ•Œäººæˆ˜æ–—idï¼Œ
---wugong  æˆ‘æ–¹ä½¿ç”¨æ­¦åŠŸ
---è¿”å›ï¼šä¼¤å®³ç‚¹æ•°
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
-    local eid=WAR.Person[enemyid]["äººç‰©ç¼–å·"];
+function War_WugongHurtNeili(enemyid,wugong,level)           --¼ÆËãÎä¹¦ÉËº¦ÄÚÁ¦
+--Îä¹¦ÉËº¦ÄÚÁ¦
+--enemyid µĞÈËÕ½¶·id£¬
+--wugong  ÎÒ·½Ê¹ÓÃÎä¹¦
+--·µ»Ø£ºÉËº¦µãÊı
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
+    local eid=WAR.Person[enemyid]["ÈËÎï±àºÅ"];
 
-    local addvalue=JY.Wugong[wugong]["åŠ å†…åŠ›" .. level];
-    local decvalue=JY.Wugong[wugong]["æ€å†…åŠ›" .. level];
+    local addvalue=JY.Wugong[wugong]["¼ÓÄÚÁ¦" .. level];
+    local decvalue=JY.Wugong[wugong]["É±ÄÚÁ¦" .. level];
 	
-	if WAR.Person[WAR.CurID]["æˆ‘æ–¹"]~=WAR.Person[enemyid]["æˆ‘æ–¹"] then
+	if WAR.Person[WAR.CurID]["ÎÒ·½"]~=WAR.Person[enemyid]["ÎÒ·½"] then
 		if addvalue>0 then
 			if math.modf(addvalue/2)>0 then
-				AddPersonAttrib(pid,"å†…åŠ›æœ€å¤§å€¼",Rnd(math.modf(addvalue/2)));
+				AddPersonAttrib(pid,"ÄÚÁ¦×î´óÖµ",Rnd(math.modf(addvalue/2)));
 			end
-			AddPersonAttrib(pid,"å†…åŠ›",math.abs(addvalue+Rnd(3)-Rnd(3)));
+			AddPersonAttrib(pid,"ÄÚÁ¦",math.abs(addvalue+Rnd(3)-Rnd(3)));
 		end
-		if JY.Wugong[wugong]["ä»£å·"]==88 then
-		   JY.Person[eid]['ä½“åŠ›']=JY.Person[eid]['ä½“åŠ›']-3-math.random(3)
-		   if JY.Person[eid]['ä½“åŠ›']<0 then JY.Person[eid]['ä½“åŠ›']=0 end
+		if JY.Wugong[wugong]["´úºÅ"]==88 then
+		   JY.Person[eid]['ÌåÁ¦']=JY.Person[eid]['ÌåÁ¦']-3-math.random(3)
+		   if JY.Person[eid]['ÌåÁ¦']<0 then JY.Person[eid]['ÌåÁ¦']=0 end
 		end
 						
-		return -AddPersonAttrib(eid,"å†…åŠ›",-math.abs(decvalue+Rnd(3)-Rnd(3)));
+		return -AddPersonAttrib(eid,"ÄÚÁ¦",-math.abs(decvalue+Rnd(3)-Rnd(3)));
     else
-	    return -AddPersonAttrib(eid,"å†…åŠ›",0);
+	    return -AddPersonAttrib(eid,"ÄÚÁ¦",0);
     end
 end
 
-function War_PoisonMenu()              ---ç”¨æ¯’èœå•
+function War_PoisonMenu()              ---ÓÃ¶¾²Ëµ¥
     WAR.ShowHead=0;
     local r=War_ExecuteMenu(1);
 	WAR.ShowHead=1;
@@ -7012,22 +7012,22 @@ function War_PoisonMenu()              ---ç”¨æ¯’èœå•
 	return r;
 end
 
-function War_PoisonHurt(pid,emenyid)     --è®¡ç®—æ•Œäººä¸­æ¯’ç‚¹æ•°
-    local vv=math.modf((JY.Person[pid]["ç”¨æ¯’èƒ½åŠ›"]-JY.Person[emenyid]["æŠ—æ¯’èƒ½åŠ›"])/4);
+function War_PoisonHurt(pid,emenyid)     --¼ÆËãµĞÈËÖĞ¶¾µãÊı
+    local vv=math.modf((JY.Person[pid]["ÓÃ¶¾ÄÜÁ¦"]-JY.Person[emenyid]["¿¹¶¾ÄÜÁ¦"])/4);
 	if JY.Status==GAME_WMAP then
 		for i,v in pairs(CC.AddPoi) do
 			if v[1]==pid then
 				for wid=0,WAR.PersonNum-1 do
-					if WAR.Person[wid]["äººç‰©ç¼–å·"]==v[2] and  WAR.Person[wid]["æ­»äº¡"]==false then
+					if WAR.Person[wid]["ÈËÎï±àºÅ"]==v[2] and  WAR.Person[wid]["ËÀÍö"]==false then
 						vv=vv+v[3]/4;
 					end
 				end
 			end
 		end
 	end
-	vv=vv-(JY.Person[emenyid]["å†…åŠ›"]/200)
+	vv=vv-(JY.Person[emenyid]["ÄÚÁ¦"]/200)
 	for i=1,10 do
-	    if JY.Person[emenyid]["æ­¦åŠŸ"..i]==108 then
+	    if JY.Person[emenyid]["Îä¹¦"..i]==108 then
 		   vv=0
 		   break
 		end
@@ -7036,10 +7036,10 @@ function War_PoisonHurt(pid,emenyid)     --è®¡ç®—æ•Œäººä¸­æ¯’ç‚¹æ•°
     if vv<0 then
         vv=0;
     end
-    return AddPersonAttrib(emenyid,"ä¸­æ¯’ç¨‹åº¦",vv);
+    return AddPersonAttrib(emenyid,"ÖĞ¶¾³Ì¶È",vv);
 end
 
-function War_DecPoisonMenu()          ---è§£æ¯’èœå•
+function War_DecPoisonMenu()          ---½â¶¾²Ëµ¥
     WAR.ShowHead=0;
     local r=War_ExecuteMenu(2);
 	WAR.ShowHead=1;
@@ -7047,7 +7047,7 @@ function War_DecPoisonMenu()          ---è§£æ¯’èœå•
 	return r;
 end
 
-function War_DoctorMenu()            ---åŒ»ç–—èœå•
+function War_DoctorMenu()            ---Ò½ÁÆ²Ëµ¥
     WAR.ShowHead=0;
     local r=War_ExecuteMenu(3);
 	WAR.ShowHead=1;
@@ -7055,26 +7055,26 @@ function War_DoctorMenu()            ---åŒ»ç–—èœå•
 	return r;
 end
 
-function War_ExecuteMenu(flag,thingid)            ---æ‰§è¡ŒåŒ»ç–—ï¼Œè§£æ¯’ç”¨æ¯’æš—å™¨
----æ‰§è¡ŒåŒ»ç–—ï¼Œè§£æ¯’ç”¨æ¯’
----flag=1 ç”¨æ¯’ï¼Œ 2 è§£æ¯’ï¼Œ3 åŒ»ç–— 4 æš—å™¨
----thingid æš—å™¨ç‰©å“id
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+function War_ExecuteMenu(flag,thingid)            ---Ö´ĞĞÒ½ÁÆ£¬½â¶¾ÓÃ¶¾°µÆ÷
+---Ö´ĞĞÒ½ÁÆ£¬½â¶¾ÓÃ¶¾
+---flag=1 ÓÃ¶¾£¬ 2 ½â¶¾£¬3 Ò½ÁÆ 4 °µÆ÷
+---thingid °µÆ÷ÎïÆ·id
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
     local step;
 
     if flag==1 then
-        step=math.modf(JY.Person[pid]["ç”¨æ¯’èƒ½åŠ›"]/40);         --ç”¨æ¯’æ­¥æ•°
+        step=math.modf(JY.Person[pid]["ÓÃ¶¾ÄÜÁ¦"]/40);         --ÓÃ¶¾²½Êı
     elseif flag==2 then
-        step=math.modf(JY.Person[pid]["è§£æ¯’èƒ½åŠ›"]/40);         --è§£æ¯’æ­¥æ•°
+        step=math.modf(JY.Person[pid]["½â¶¾ÄÜÁ¦"]/40);         --½â¶¾²½Êı
     elseif flag==3 then
-        step=math.modf(JY.Person[pid]["åŒ»ç–—èƒ½åŠ›"]/40);         --åŒ»ç–—æ­¥æ•°
+        step=math.modf(JY.Person[pid]["Ò½ÁÆÄÜÁ¦"]/40);         --Ò½ÁÆ²½Êı
     elseif flag==4 then
-        step=math.modf(JY.Person[pid]["æš—å™¨æŠ€å·§"]/15)+1;         --æš—å™¨æ­¥æ•°
+        step=math.modf(JY.Person[pid]["°µÆ÷¼¼ÇÉ"]/15)+1;         --°µÆ÷²½Êı
     end
 
     War_CalMoveStep(WAR.CurID,step,1);
 
-    local x1,y1=War_SelectMove();              --é€‰æ‹©æ”»å‡»å¯¹è±¡
+    local x1,y1=War_SelectMove();              --Ñ¡Ôñ¹¥»÷¶ÔÏó
 
     if x1 ==nil then
         lib.GetKey();
@@ -7085,44 +7085,44 @@ function War_ExecuteMenu(flag,thingid)            ---æ‰§è¡ŒåŒ»ç–—ï¼Œè§£æ¯’ç”¨æ¯’
     end
 end
 
-function War_ExecuteMenu_Sub(x1,y1,flag,thingid)     ---æ‰§è¡ŒåŒ»ç–—ï¼Œè§£æ¯’ç”¨æ¯’æš—å™¨çš„å­å‡½æ•°ï¼Œè‡ªåŠ¨åŒ»ç–—ä¹Ÿå¯è°ƒç”¨
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
-    local x0=WAR.Person[WAR.CurID]["åæ ‡X"];
-    local y0=WAR.Person[WAR.CurID]["åæ ‡Y"];
+function War_ExecuteMenu_Sub(x1,y1,flag,thingid)     ---Ö´ĞĞÒ½ÁÆ£¬½â¶¾ÓÃ¶¾°µÆ÷µÄ×Óº¯Êı£¬×Ô¶¯Ò½ÁÆÒ²¿Éµ÷ÓÃ
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
+    local x0=WAR.Person[WAR.CurID]["×ø±êX"];
+    local y0=WAR.Person[WAR.CurID]["×ø±êY"];
 
     CleanWarMap(4,0);
 
-	WAR.Person[WAR.CurID]["äººæ–¹å‘"]=War_Direct(x0,y0,x1,y1);
+	WAR.Person[WAR.CurID]["ÈË·½Ïò"]=War_Direct(x0,y0,x1,y1);
 
 	SetWarMap(x1,y1,4,1);
 
     local emeny=GetWarMap(x1,y1,2);
-	if emeny>=0 then          --æœ‰äºº
+	if emeny>=0 then          --ÓĞÈË
 		 if flag==1 then
-			 if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] ~= WAR.Person[emeny]["æˆ‘æ–¹"] then       --æ˜¯æ•Œäºº
-				 WAR.Person[emeny]["ç‚¹æ•°"]=War_PoisonHurt(pid,WAR.Person[emeny]["äººç‰©ç¼–å·"])
+			 if WAR.Person[WAR.CurID]["ÎÒ·½"] ~= WAR.Person[emeny]["ÎÒ·½"] then       --ÊÇµĞÈË
+				 WAR.Person[emeny]["µãÊı"]=War_PoisonHurt(pid,WAR.Person[emeny]["ÈËÎï±àºÅ"])
 				 SetWarMap(x1,y1,4,5);
   			     WAR.Effect=5;
 			 end
 		 elseif flag==2 then
-			 if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] == WAR.Person[emeny]["æˆ‘æ–¹"] then       --ä¸æ˜¯æ•Œäºº
-				 WAR.Person[emeny]["ç‚¹æ•°"]=ExecDecPoison(pid,WAR.Person[emeny]["äººç‰©ç¼–å·"])
+			 if WAR.Person[WAR.CurID]["ÎÒ·½"] == WAR.Person[emeny]["ÎÒ·½"] then       --²»ÊÇµĞÈË
+				 WAR.Person[emeny]["µãÊı"]=ExecDecPoison(pid,WAR.Person[emeny]["ÈËÎï±àºÅ"])
 				 SetWarMap(x1,y1,4,6);
   			     WAR.Effect=6;
 			 end
 		 elseif flag==3 then
-		     if WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]==0 and GetS(4,5,5,5)==7 then
+		     if WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]==0 and GetS(4,5,5,5)==7 then
 				 
 			 else	 
-				 if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] == WAR.Person[emeny]["æˆ‘æ–¹"] then       --ä¸æ˜¯æ•Œäºº
-					 WAR.Person[emeny]["ç‚¹æ•°"]=ExecDoctor(pid,WAR.Person[emeny]["äººç‰©ç¼–å·"])
+				 if WAR.Person[WAR.CurID]["ÎÒ·½"] == WAR.Person[emeny]["ÎÒ·½"] then       --²»ÊÇµĞÈË
+					 WAR.Person[emeny]["µãÊı"]=ExecDoctor(pid,WAR.Person[emeny]["ÈËÎï±àºÅ"])
 					 SetWarMap(x1,y1,4,4);
 					 WAR.Effect=4;
 				 end
 			 end
 		 elseif flag==4 then
-			 if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] ~= WAR.Person[emeny]["æˆ‘æ–¹"] then       --æ˜¯æ•Œäºº
-				 WAR.Person[emeny]["ç‚¹æ•°"]=War_AnqiHurt(pid,WAR.Person[emeny]["äººç‰©ç¼–å·"],thingid)*2
+			 if WAR.Person[WAR.CurID]["ÎÒ·½"] ~= WAR.Person[emeny]["ÎÒ·½"] then       --ÊÇµĞÈË
+				 WAR.Person[emeny]["µãÊı"]=War_AnqiHurt(pid,WAR.Person[emeny]["ÈËÎï±àºÅ"],thingid)*2
 				 SetWarMap(x1,y1,4,2);
   			     WAR.Effect=2;
 			 end
@@ -7130,15 +7130,15 @@ function War_ExecuteMenu_Sub(x1,y1,flag,thingid)     ---æ‰§è¡ŒåŒ»ç–—ï¼Œè§£æ¯’ç”¨
 
 	end
 	
-	if flag==3 and WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]==0 and GetS(4,5,5,5)==7 then				 
+	if flag==3 and WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]==0 and GetS(4,5,5,5)==7 then				 
 		for ex=x1-3,x1+3 do
 			for ey=y1-3,y1+3 do
 			    SetWarMap(ex,ey,4,1)
 				--WAR.Effect=4;				
 				if GetWarMap(ex,ey,2)~=nil and GetWarMap(ex,ey,2)>-1 then
 				    local ep=GetWarMap(ex,ey,2)
-					if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] == WAR.Person[ep]["æˆ‘æ–¹"] then					
-					   WAR.Person[ep]["ç‚¹æ•°"]=ExecDoctor(pid,WAR.Person[ep]["äººç‰©ç¼–å·"])
+					if WAR.Person[WAR.CurID]["ÎÒ·½"] == WAR.Person[ep]["ÎÒ·½"] then					
+					   WAR.Person[ep]["µãÊı"]=ExecDoctor(pid,WAR.Person[ep]["ÈËÎï±àºÅ"])
 					   SetWarMap(ex,ey,4,4)
 				       WAR.Effect=4;			
 					end
@@ -7159,31 +7159,31 @@ function War_ExecuteMenu_Sub(x1,y1,flag,thingid)     ---æ‰§è¡ŒåŒ»ç–—ï¼Œè§£æ¯’ç”¨
 		War_ShowFight(pid,0,0,0,x1,y1,0);
 	elseif flag==4 then
 		if emeny>=0 then
-			War_ShowFight(pid,0,-1,0,x1,y1,JY.Thing[thingid]["æš—å™¨åŠ¨ç”»ç¼–å·"]);
+			War_ShowFight(pid,0,-1,0,x1,y1,JY.Thing[thingid]["°µÆ÷¶¯»­±àºÅ"]);
 		end
 	end
 
 	for i=0,WAR.PersonNum-1 do
-		WAR.Person[i]["ç‚¹æ•°"]=0;
+		WAR.Person[i]["µãÊı"]=0;
 	end
 	if flag==4 then
 		if emeny>=0 then
-			instruct_32(thingid,-1);            --ç‰©å“æ•°é‡å‡å°‘
+			instruct_32(thingid,-1);            --ÎïÆ·ÊıÁ¿¼õÉÙ
 			return 1;
 		else
-			return 0;                   --æš—å™¨æ‰“ç©ºï¼Œåˆ™ç­‰äºæ²¡æœ‰æ‰“
+			return 0;                   --°µÆ÷´ò¿Õ£¬ÔòµÈÓÚÃ»ÓĞ´ò
 		end
 	else
-		WAR.Person[WAR.CurID]["ç»éªŒ"]=WAR.Person[WAR.CurID]["ç»éªŒ"]+1;
-		AddPersonAttrib(pid,"ä½“åŠ›",-2);
-		if inteam(pid) then AddPersonAttrib(pid,"ä½“åŠ›",-4) end
+		WAR.Person[WAR.CurID]["¾­Ñé"]=WAR.Person[WAR.CurID]["¾­Ñé"]+1;
+		AddPersonAttrib(pid,"ÌåÁ¦",-2);
+		if inteam(pid) then AddPersonAttrib(pid,"ÌåÁ¦",-4) end
 	end
 
 	return 1;
 
 end
 
-function War_ThingMenu()            --æˆ˜æ–—ç‰©å“èœå•
+function War_ThingMenu()            --Õ½¶·ÎïÆ·²Ëµ¥
     WAR.ShowHead=0;
     local thing={};
     local thingnum={};
@@ -7195,11 +7195,11 @@ function War_ThingMenu()            --æˆ˜æ–—ç‰©å“èœå•
 
     local num=0;
     for i = 0,CC.MyThingNum-1 do
-        local id = JY.Base["ç‰©å“" .. i+1];
+        local id = JY.Base["ÎïÆ·" .. i+1];
         if id>=0 then
-            if JY.Thing[id]["ç±»å‹"]==3 or JY.Thing[id]["ç±»å‹"]==4 then
+            if JY.Thing[id]["ÀàĞÍ"]==3 or JY.Thing[id]["ÀàĞÍ"]==4 then
                 thing[num]=id;
-                thingnum[num]=JY.Base["ç‰©å“æ•°é‡" ..i+1];
+                thingnum[num]=JY.Base["ÎïÆ·ÊıÁ¿" ..i+1];
                 num=num+1;
             end
         end
@@ -7218,51 +7218,51 @@ function War_ThingMenu()            --æˆ˜æ–—ç‰©å“èœå•
     return rr;
 end
 
-function War_UseAnqi(id)          ---æˆ˜æ–—ä½¿ç”¨æš—å™¨
+function War_UseAnqi(id)          ---Õ½¶·Ê¹ÓÃ°µÆ÷
     return War_ExecuteMenu(4,id);
 end
 
-function War_AnqiHurt(pid,emenyid,thingid)         --è®¡ç®—æš—å™¨ä¼¤å®³
+function War_AnqiHurt(pid,emenyid,thingid)         --¼ÆËã°µÆ÷ÉËº¦
     local num;
-    if JY.Person[emenyid]["å—ä¼¤ç¨‹åº¦"]==0 then
-        num=JY.Thing[thingid]["åŠ ç”Ÿå‘½"]/4-Rnd(5);
-    elseif JY.Person[emenyid]["å—ä¼¤ç¨‹åº¦"]<=33 then
-        num=JY.Thing[thingid]["åŠ ç”Ÿå‘½"]/3-Rnd(5);
-    elseif JY.Person[emenyid]["å—ä¼¤ç¨‹åº¦"]<=66 then
-        num=JY.Thing[thingid]["åŠ ç”Ÿå‘½"]/2-Rnd(5);
+    if JY.Person[emenyid]["ÊÜÉË³Ì¶È"]==0 then
+        num=JY.Thing[thingid]["¼ÓÉúÃü"]/4-Rnd(5);
+    elseif JY.Person[emenyid]["ÊÜÉË³Ì¶È"]<=33 then
+        num=JY.Thing[thingid]["¼ÓÉúÃü"]/3-Rnd(5);
+    elseif JY.Person[emenyid]["ÊÜÉË³Ì¶È"]<=66 then
+        num=JY.Thing[thingid]["¼ÓÉúÃü"]/2-Rnd(5);
     else
-        num=JY.Thing[thingid]["åŠ ç”Ÿå‘½"]/2-Rnd(5);
+        num=JY.Thing[thingid]["¼ÓÉúÃü"]/2-Rnd(5);
     end
 
-    num=math.modf((num-JY.Person[pid]["æš—å™¨æŠ€å·§"]*2)/3);
-    AddPersonAttrib(emenyid,"å—ä¼¤ç¨‹åº¦",math.modf(-num/6));      --æ­¤å¤„çš„numä¸ºè´Ÿå€¼
+    num=math.modf((num-JY.Person[pid]["°µÆ÷¼¼ÇÉ"]*2)/3);
+    AddPersonAttrib(emenyid,"ÊÜÉË³Ì¶È",math.modf(-num/6));      --´Ë´¦µÄnumÎª¸ºÖµ
 
-    local r=AddPersonAttrib(emenyid,"ç”Ÿå‘½",math.modf(num/2));
-	if (emenyid==129 or emenyid==65) and JY.Person[emenyid]["ç”Ÿå‘½"]<=0 then
-	   JY.Person[emenyid]["ç”Ÿå‘½"]=1
+    local r=AddPersonAttrib(emenyid,"ÉúÃü",math.modf(num/2));
+	if (emenyid==129 or emenyid==65) and JY.Person[emenyid]["ÉúÃü"]<=0 then
+	   JY.Person[emenyid]["ÉúÃü"]=1
 	end
-	if emenyid==553 and JY.Person[emenyid]["ç”Ÿå‘½"]<=0 then WAR.YZB=1 end
-	if JY.Person[emenyid]["ç”Ÿå‘½"]<=0 then
-	   WAR.Person[WAR.CurID]["ç»éªŒ"]=WAR.Person[WAR.CurID]["ç»éªŒ"]+JY.Person[emenyid]["ç­‰çº§"]*5;
+	if emenyid==553 and JY.Person[emenyid]["ÉúÃü"]<=0 then WAR.YZB=1 end
+	if JY.Person[emenyid]["ÉúÃü"]<=0 then
+	   WAR.Person[WAR.CurID]["¾­Ñé"]=WAR.Person[WAR.CurID]["¾­Ñé"]+JY.Person[emenyid]["µÈ¼¶"]*5;
 	end	
-    if JY.Thing[thingid]["åŠ ä¸­æ¯’è§£æ¯’"]>0 then
-        num=math.modf((JY.Thing[thingid]["åŠ ä¸­æ¯’è§£æ¯’"]+JY.Person[pid]["æš—å™¨æŠ€å·§"])/4);
-        num=num-JY.Person[emenyid]["æŠ—æ¯’èƒ½åŠ›"];
-        num=limitX(num,0,CC.PersonAttribMax["ç”¨æ¯’èƒ½åŠ›"]);
-        AddPersonAttrib(emenyid,"ä¸­æ¯’ç¨‹åº¦",num);
+    if JY.Thing[thingid]["¼ÓÖĞ¶¾½â¶¾"]>0 then
+        num=math.modf((JY.Thing[thingid]["¼ÓÖĞ¶¾½â¶¾"]+JY.Person[pid]["°µÆ÷¼¼ÇÉ"])/4);
+        num=num-JY.Person[emenyid]["¿¹¶¾ÄÜÁ¦"];
+        num=limitX(num,0,CC.PersonAttribMax["ÓÃ¶¾ÄÜÁ¦"]);
+        AddPersonAttrib(emenyid,"ÖĞ¶¾³Ì¶È",num);
     end
     return r;
 end
 
-function War_RestMenu()           --ä¼‘æ¯
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+function War_RestMenu()           --ĞİÏ¢
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 	if WAR.tmp[1000+pid]==1 then return 1 end
 	--[[
-	local vv=math.modf(WAR.Person[WAR.CurID]["è½»åŠŸ"]/20-JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]/40+JY.Person[pid]["ä½“åŠ›"]/30-3)+3;
-	vv=(WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]+1)/vv
+	local vv=math.modf(WAR.Person[WAR.CurID]["Çá¹¦"]/20-JY.Person[pid]["ÊÜÉË³Ì¶È"]/40+JY.Person[pid]["ÌåÁ¦"]/30-3)+3;
+	vv=(WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]+1)/vv
 	vv=vv/15--]]
-	local vv=math.modf(JY.Person[pid]["ä½“åŠ›"]/100-JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]/50-JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"]/50)+2;
-	if WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"]>0 then
+	local vv=math.modf(JY.Person[pid]["ÌåÁ¦"]/100-JY.Person[pid]["ÊÜÉË³Ì¶È"]/50-JY.Person[pid]["ÖĞ¶¾³Ì¶È"]/50)+2;
+	if WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"]>0 then
 		vv=vv+2
 	end
 	if inteam(pid) then
@@ -7272,15 +7272,15 @@ function War_RestMenu()           --ä¼‘æ¯
 	end
 	vv=vv/120
     local v=3+Rnd(3);
-    AddPersonAttrib(pid,"ä½“åŠ›",v);
-    if JY.Person[pid]["ä½“åŠ›"]>0 then
-        v=3+math.modf(JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]*vv);
-        AddPersonAttrib(pid,"ç”Ÿå‘½",v);
-        v=3+math.modf(JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"]*vv);
-        AddPersonAttrib(pid,"å†…åŠ›",v);
+    AddPersonAttrib(pid,"ÌåÁ¦",v);
+    if JY.Person[pid]["ÌåÁ¦"]>0 then
+        v=3+math.modf(JY.Person[pid]["ÉúÃü×î´óÖµ"]*vv);
+        AddPersonAttrib(pid,"ÉúÃü",v);
+        v=3+math.modf(JY.Person[pid]["ÄÚÁ¦×î´óÖµ"]*vv);
+        AddPersonAttrib(pid,"ÄÚÁ¦",v);
     end
 	if JY.Thing[202][WZ7]>1 and (not inteam(pid)) then
-	   if JY.Person[pid]["ç”Ÿå‘½"]>math.modf(JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]/2) then
+	   if JY.Person[pid]["ÉúÃü"]>math.modf(JY.Person[pid]["ÉúÃü×î´óÖµ"]/2) then
 	      return War_ActupMenu() ;
 	   else
 	      return War_DefupMenu() ;
@@ -7291,7 +7291,7 @@ function War_RestMenu()           --ä¼‘æ¯
 end
 
 function War_TgrtsMenu()
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 	Cls();
 	WAR.ShowHead=0;
 	WarDrawMap(0);
@@ -7299,28 +7299,28 @@ function War_TgrtsMenu()
     if yn==2 then return 0 end
 	
     if pid==53 then 
-	    if JY.Person[pid]["ä½“åŠ›"]>20 then
+	    if JY.Person[pid]["ÌåÁ¦"]>20 then
 		   WAR.TZ_DY=1 
 		   PlayWavE(16) 
 		   CurIDTXDH(WAR.CurID,1080,1085,CC.EVB174)	   
 		   CurIDTXDH(WAR.CurID,1086,1093,CC.EVB175)	   	
-           JY.Person[pid]["ä½“åŠ›"]=JY.Person[pid]["ä½“åŠ›"]-10
+           JY.Person[pid]["ÌåÁ¦"]=JY.Person[pid]["ÌåÁ¦"]-10
 		else
 		   DrawStrBoxWaitKey(CC.EVB176,C_WHITE,30)  
 		   return 0;
 	    end
 	end
 	if pid==49 then
-	    if JY.Person[pid]["ä½“åŠ›"]>20 and JY.Person[pid]["å†…åŠ›"]>1000 then
+	    if JY.Person[pid]["ÌåÁ¦"]>20 and JY.Person[pid]["ÄÚÁ¦"]>1000 then
 	        
-			JY.Person[pid]["ä½“åŠ›"]=JY.Person[pid]["ä½“åŠ›"]-5
-			JY.Person[pid]["å†…åŠ›"]=JY.Person[pid]["å†…åŠ›"]-500
+			JY.Person[pid]["ÌåÁ¦"]=JY.Person[pid]["ÌåÁ¦"]-5
+			JY.Person[pid]["ÄÚÁ¦"]=JY.Person[pid]["ÄÚÁ¦"]-500
 			local ssh={};
 			local num=1;
 			
 			for i=0,WAR.PersonNum-1 do
-			    local wid=WAR.Person[i]["äººç‰©ç¼–å·"]
-		        if WAR.TZ_XZ_SSH[wid]==1 and WAR.Person[i]["æ­»äº¡"]==false then
+			    local wid=WAR.Person[i]["ÈËÎï±àºÅ"]
+		        if WAR.TZ_XZ_SSH[wid]==1 and WAR.Person[i]["ËÀÍö"]==false then
 				    if WAR.FXDS[wid]==nil then
 					    WAR.FXDS[wid]=25
 				    else
@@ -7338,7 +7338,7 @@ function War_TgrtsMenu()
 			local name={};
 			for i=1,num-1 do
 			     name[i]={};
-			     name[i][1]=JY.Person[ssh[i][2]]["å§“å"]
+			     name[i][1]=JY.Person[ssh[i][2]]["ĞÕÃû"]
 				 name[i][2]=nil
 				 name[i][3]=1
 			end
@@ -7352,10 +7352,10 @@ function War_TgrtsMenu()
 			local sssid=lib.SaveSur(0,0,CC.ScreenW,CC.ScreenH);
 			for DH=114,129 do
 				for i=1,num-1 do
-					local x0=WAR.Person[WAR.CurID]["åæ ‡X"];
-					local y0=WAR.Person[WAR.CurID]["åæ ‡Y"];
-					local dx=WAR.Person[ssh[i][1]]["åæ ‡X"]-x0--WAR.Person[WAR.CurID]["åæ ‡X"]
-					local dy=WAR.Person[ssh[i][1]]["åæ ‡Y"]-y0--WAR.Person[WAR.CurID]["åæ ‡Y"]
+					local x0=WAR.Person[WAR.CurID]["×ø±êX"];
+					local y0=WAR.Person[WAR.CurID]["×ø±êY"];
+					local dx=WAR.Person[ssh[i][1]]["×ø±êX"]-x0--WAR.Person[WAR.CurID]["×ø±êX"]
+					local dy=WAR.Person[ssh[i][1]]["×ø±êY"]-y0--WAR.Person[WAR.CurID]["×ø±êY"]
 					local rx=CC.XScale*(dx-dy)+CC.ScreenW/2;
 					local ry=CC.YScale*(dx+dy)+CC.ScreenH/2;
 					local hb=GetS(JY.SubScene,dx+x0,dy+y0,4)				
@@ -7377,21 +7377,21 @@ function War_TgrtsMenu()
         end
     end	
     if pid==89 then
-	    if JY.Person[pid]["ä½“åŠ›"]>25 and JY.Person[pid]["å†…åŠ›"]>300 then
-		       local px,py=WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"];
+	    if JY.Person[pid]["ÌåÁ¦"]>25 and JY.Person[pid]["ÄÚÁ¦"]>300 then
+		       local px,py=WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"];
 			   local mxy={
-					   {WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"]+1},
-					   {WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"]-1},
-					   {WAR.Person[WAR.CurID]["åæ ‡X"]+1,WAR.Person[WAR.CurID]["åæ ‡Y"]},
-					   {WAR.Person[WAR.CurID]["åæ ‡X"]-1,WAR.Person[WAR.CurID]["åæ ‡Y"]},			   
+					   {WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"]+1},
+					   {WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"]-1},
+					   {WAR.Person[WAR.CurID]["×ø±êX"]+1,WAR.Person[WAR.CurID]["×ø±êY"]},
+					   {WAR.Person[WAR.CurID]["×ø±êX"]-1,WAR.Person[WAR.CurID]["×ø±êY"]},			   
 						  };
 				local zdp={};
 				local num=1;
 				for i=1,4 do
 					if GetWarMap(mxy[i][1],mxy[i][2],2)>=0 then
 						local mid=GetWarMap(mxy[i][1],mxy[i][2],2);
-						if inteam(WAR.Person[mid]["äººç‰©ç¼–å·"]) then
-						   zdp[num]=WAR.Person[mid]["äººç‰©ç¼–å·"]
+						if inteam(WAR.Person[mid]["ÈËÎï±àºÅ"]) then
+						   zdp[num]=WAR.Person[mid]["ÈËÎï±àºÅ"]
 						   num=num+1
 						end
 					end
@@ -7399,7 +7399,7 @@ function War_TgrtsMenu()
 				local zdp2={};
 				for i=1,num-1 do
 				     zdp2[i]={};
-				     zdp2[i][1]=JY.Person[zdp[i]]["å§“å"].."Â·"..JY.Person[zdp[i]]["ä½“åŠ›"]
+				     zdp2[i][1]=JY.Person[zdp[i]]["ĞÕÃû"].."¡¤"..JY.Person[zdp[i]]["ÌåÁ¦"]
 					 zdp2[i][2]=nil
 					 zdp2[i][3]=1
 				end				     
@@ -7407,15 +7407,15 @@ function War_TgrtsMenu()
 				--Cls();
 				local r=ShowMenu(zdp2,num-1,10,CC.MainMenuX,CC.MainMenuY+45,0,0,1,0,CC.DefaultFont,C_RED,C_GOLD);
 				Cls();
-				AddPersonAttrib(zdp[r],"ä½“åŠ›",50);
-				AddPersonAttrib(89,"ä½“åŠ›",-25);
-				AddPersonAttrib(89,"å†…åŠ›",-300);
+				AddPersonAttrib(zdp[r],"ÌåÁ¦",50);
+				AddPersonAttrib(89,"ÌåÁ¦",-25);
+				AddPersonAttrib(89,"ÄÚÁ¦",-300);
 				PlayWavE(28) 
 				lib.Delay(10)
 				CurIDTXDH(WAR.CurID,1345,1364,CC.EVB181)
 				local Ocur=WAR.CurID;
 				for i=0,WAR.PersonNum-1 do
-				    if WAR.Person[i]["äººç‰©ç¼–å·"]==zdp[r] then
+				    if WAR.Person[i]["ÈËÎï±àºÅ"]==zdp[r] then
 					    WAR.CurID=i;
 						break;
 					end
@@ -7424,24 +7424,24 @@ function War_TgrtsMenu()
 				PlayWavE(36)
                 lib.Delay(100)				
 				CurIDTXDH(WAR.CurID,1382,1398,CC.EVB182)
-				--CurIDTXDH(WAR.CurID,1397,1382,"æ¢å¤ä½“åŠ›50ç‚¹")
+				--CurIDTXDH(WAR.CurID,1397,1382,"»Ö¸´ÌåÁ¦50µã")
 				WAR.CurID=Ocur;
 				WarDrawMap(0);
-                --QZXS(JY.Person[zdp[r]]["å§“å"].."æ¢å¤ä½“åŠ›50ç‚¹")				
+                --QZXS(JY.Person[zdp[r]]["ĞÕÃû"].."»Ö¸´ÌåÁ¦50µã")				
 		else
 		   DrawStrBoxWaitKey(CC.EVB176,C_WHITE,30)  
 		   return 0;
 		end
 	end
 	if pid==9 then
-	    if JY.Person[pid]["ä½“åŠ›"]>10 and JY.Person[pid]["å†…åŠ›"]>500 then
+	    if JY.Person[pid]["ÌåÁ¦"]>10 and JY.Person[pid]["ÄÚÁ¦"]>500 then
 		    local nyp={};
 			local num=1;	
 			for i=0,WAR.PersonNum-1 do
-	            if WAR.Person[i]["æˆ‘æ–¹"]==true and WAR.Person[i]["æ­»äº¡"]==false then
+	            if WAR.Person[i]["ÎÒ·½"]==true and WAR.Person[i]["ËÀÍö"]==false then
 			        if RealJL(WAR.CurID,i,8) and i~=WAR.CurID then
 					   nyp[num]={};		   
-					   nyp[num][1]=JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å§“å"]
+					   nyp[num][1]=JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ĞÕÃû"]
 					   nyp[num][2]=nil
 					   nyp[num][3]=1
 	                   nyp[num][4]=i
@@ -7453,8 +7453,8 @@ function War_TgrtsMenu()
 				--Cls();
 			local r=ShowMenu(nyp,num-1,10,CC.MainMenuX,CC.MainMenuY+45,0,0,1,0,CC.DefaultFont,C_RED,C_GOLD);
 			Cls();
-			local mid=WAR.Person[nyp[r][4]]["äººç‰©ç¼–å·"]
-			QZXS(CC.EVB184..JY.Person[mid]["å§“å"]..CC.EVB185)
+			local mid=WAR.Person[nyp[r][4]]["ÈËÎï±àºÅ"]
+			QZXS(CC.EVB184..JY.Person[mid]["ĞÕÃû"]..CC.EVB185)
 			War_CalMoveStep(WAR.CurID,8,1);
 			local nx,ny;
 			while true do
@@ -7475,20 +7475,20 @@ function War_TgrtsMenu()
 			WAR.CurID=nyp[r][4];
 			WarDrawMap(0);
 			CurIDTXDH(WAR.CurID,1382,1390)
-			lib.SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,-1)
-			lib.SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,-1)			
+			lib.SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,-1)
+			lib.SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,-1)			
 			WarDrawMap(0);			
 		    CurIDTXDH(WAR.CurID,1390,1398)
-			WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"]=nx,ny;
+			WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"]=nx,ny;
 			WarDrawMap(0);
 			CurIDTXDH(WAR.CurID,1382,1390)			
-			lib.SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],5,WAR.Person[WAR.CurID]["è´´å›¾"])
-			lib.SetWarMap(WAR.Person[WAR.CurID]["åæ ‡X"],WAR.Person[WAR.CurID]["åæ ‡Y"],2,WAR.CurID)			
+			lib.SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],5,WAR.Person[WAR.CurID]["ÌùÍ¼"])
+			lib.SetWarMap(WAR.Person[WAR.CurID]["×ø±êX"],WAR.Person[WAR.CurID]["×ø±êY"],2,WAR.CurID)			
 			WarDrawMap(0);	
 			CurIDTXDH(WAR.CurID,1390,1398)
 			WAR.CurID=Ocur;	
-			AddPersonAttrib(9,"ä½“åŠ›",-10);
-		    AddPersonAttrib(9,"å†…åŠ›",-500);				
+			AddPersonAttrib(9,"ÌåÁ¦",-10);
+		    AddPersonAttrib(9,"ÄÚÁ¦",-500);				
 		else
 		     DrawStrBoxWaitKey(CC.EVB176,C_WHITE,30)  
 		     return 0;
@@ -7496,14 +7496,14 @@ function War_TgrtsMenu()
 	end 
 
 	if pid==88 then
-	    if JY.Person[pid]["ä½“åŠ›"]>10 and JY.Person[pid]["å†…åŠ›"]>700 then
+	    if JY.Person[pid]["ÌåÁ¦"]>10 and JY.Person[pid]["ÄÚÁ¦"]>700 then
 		    local dxp={};
 			local num=1;	
 			for i=0,WAR.PersonNum-1 do
-	            if WAR.Person[i]["æˆ‘æ–¹"]==true and WAR.Person[i]["æ­»äº¡"]==false then
+	            if WAR.Person[i]["ÎÒ·½"]==true and WAR.Person[i]["ËÀÍö"]==false then
 			        if RealJL(WAR.CurID,i,5) and i~=WAR.CurID then
 					   dxp[num]={};		   
-					   dxp[num][1]=JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["å§“å"]
+					   dxp[num][1]=JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ĞÕÃû"]
 					   dxp[num][2]=nil
 					   dxp[num][3]=1
 	                   dxp[num][4]=i
@@ -7515,7 +7515,7 @@ function War_TgrtsMenu()
 				--Cls();
 			local r=ShowMenu(dxp,num-1,10,CC.MainMenuX,CC.MainMenuY+45,0,0,1,0,CC.DefaultFont,C_RED,C_GOLD);
 			Cls();
-			local mid=WAR.Person[dxp[r][4]]["äººç‰©ç¼–å·"]
+			local mid=WAR.Person[dxp[r][4]]["ÈËÎï±àºÅ"]
 			PlayWavE(28) 
 			lib.Delay(10)
 			CurIDTXDH(WAR.CurID,1305,1314,CC.EVB190)
@@ -7530,8 +7530,8 @@ function War_TgrtsMenu()
 			WarDrawMap(0);
 			WAR.Person[dxp[r][4]]["Time"]=WAR.Person[dxp[r][4]]["Time"]+500
 			if WAR.Person[dxp[r][4]]["Time"]>999 then WAR.Person[dxp[r][4]]["Time"]=999 end
-	        AddPersonAttrib(88,"ä½“åŠ›",-10);
-		    AddPersonAttrib(88,"å†…åŠ›",-1000);	
+	        AddPersonAttrib(88,"ÌåÁ¦",-10);
+		    AddPersonAttrib(88,"ÄÚÁ¦",-1000);	
         else
              DrawStrBoxWaitKey(CC.EVB176,C_WHITE,30)  
 		     return 0;
@@ -7541,13 +7541,13 @@ function War_TgrtsMenu()
 	return 1;
 end	
 
-function War_DefupMenu()            --é˜²å¾¡
+function War_DefupMenu()            --·ÀÓù
 	
 	local p=WAR.CurID
-	local id=WAR.Person[p]["äººç‰©ç¼–å·"];
-	local x0,y0=WAR.Person[p]["åæ ‡X"],WAR.Person[p]["åæ ‡Y"];
-	--[[local v=math.modf(WAR.Person[p]["è½»åŠŸ"]/20-JY.Person[id]["å—ä¼¤ç¨‹åº¦"]/40+JY.Person[id]["ä½“åŠ›"]/30-3)+3;
-	local y=WAR.Person[p]["ç§»åŠ¨æ­¥æ•°"];
+	local id=WAR.Person[p]["ÈËÎï±àºÅ"];
+	local x0,y0=WAR.Person[p]["×ø±êX"],WAR.Person[p]["×ø±êY"];
+	--[[local v=math.modf(WAR.Person[p]["Çá¹¦"]/20-JY.Person[id]["ÊÜÉË³Ì¶È"]/40+JY.Person[id]["ÌåÁ¦"]/30-3)+3;
+	local y=WAR.Person[p]["ÒÆ¶¯²½Êı"];
 	WAR.Person[WAR.CurID]["Time"]=1000+math.modf(500*y/v)
 	return 1]]
 	WAR.Defup[id]=1
@@ -7569,8 +7569,8 @@ function War_DefupMenu()            --é˜²å¾¡
 	ShowScreen();
 	lib.Delay(500);	
 	--for i=0,WAR.PersonNum-1 do
-	    --if WAR.Person[i]["æˆ‘æ–¹"]==false then
-		    -- JY.Person[WAR.Person[i]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]=0
+	    --if WAR.Person[i]["ÎÒ·½"]==false then
+		    -- JY.Person[WAR.Person[i]["ÈËÎï±àºÅ"]]["ÉúÃü"]=0
 		--end
 	--end
 	return 1
@@ -7579,23 +7579,23 @@ function War_DefupMenu()            --é˜²å¾¡
         local tmp=WAR.Person[i+1];
         WAR.Person[i+1]=WAR.Person[i];
         WAR.Person[i]=tmp;
-        --è°ƒæ¢äººç‰©
+        --µ÷»»ÈËÎï
     end
 
-    WarSetPerson();     --è®¾ç½®æˆ˜æ–—äººç‰©ä½ç½®
+    WarSetPerson();     --ÉèÖÃÕ½¶·ÈËÎïÎ»ÖÃ
 
     for i=0,WAR.PersonNum-1 do
-        WAR.Person[i]["è´´å›¾"]=WarCalPersonPic(i);
+        WAR.Person[i]["ÌùÍ¼"]=WarCalPersonPic(i);
     end
 
     return 1;
 ]]--
 end
 
-function War_ActupMenu()            --è“„åŠ›
+function War_ActupMenu()            --ĞîÁ¦
 	local p=WAR.CurID
-	local id=WAR.Person[p]["äººç‰©ç¼–å·"];
-	local x0,y0=WAR.Person[p]["åæ ‡X"],WAR.Person[p]["åæ ‡Y"];
+	local id=WAR.Person[p]["ÈËÎï±àºÅ"];
+	local x0,y0=WAR.Person[p]["×ø±êX"],WAR.Person[p]["×ø±êY"];
 	if PersonKF(id,103) then
 	   WAR.Actup[id]=2
 	else
@@ -7631,14 +7631,14 @@ function War_ActupMenu()            --è“„åŠ›
 	return 1
 end
 
-function War_StatusMenu()          --æˆ˜æ–—ä¸­æ˜¾ç¤ºçŠ¶æ€
+function War_StatusMenu()          --Õ½¶·ÖĞÏÔÊ¾×´Ì¬
     WAR.ShowHead=0;
 	Menu_Status();
 	WAR.ShowHead=1;
 	Cls();
 end
 
-function War_AutoMenu()           --è®¾ç½®è‡ªåŠ¨æˆ˜æ–—
+function War_AutoMenu()           --ÉèÖÃ×Ô¶¯Õ½¶·
     WAR.AutoFight=1;
 	WAR.ShowHead=0;
 	Cls();
@@ -7647,8 +7647,8 @@ function War_AutoMenu()           --è®¾ç½®è‡ªåŠ¨æˆ˜æ–—
 end
 
 
-function War_Auto()             --è‡ªåŠ¨æˆ˜æ–—ä¸»å‡½æ•°
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+function War_Auto()             --×Ô¶¯Õ½¶·Ö÷º¯Êı
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 	WAR.ShowHead=1;
 	WarDrawMap(0);
 	ShowScreen();
@@ -7659,9 +7659,9 @@ function War_Auto()             --è‡ªåŠ¨æˆ˜æ–—ä¸»å‡½æ•°
 	    WAR.ShowHead=1;
 	end
 
-    local autotype=War_Think();         --æ€è€ƒå¦‚ä½•æˆ˜æ–—
-	if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] or WAR.ZDDH==238 then
-	    if JY.Person[pid]["å†…åŠ›"]>50 and JY.Person[pid]["ä½“åŠ›"]>10 then
+    local autotype=War_Think();         --Ë¼¿¼ÈçºÎÕ½¶·
+	if WAR.Person[WAR.CurID]["ÎÒ·½"] or WAR.ZDDH==238 then
+	    if JY.Person[pid]["ÄÚÁ¦"]>50 and JY.Person[pid]["ÌåÁ¦"]>10 then
 	       autotype=1
 		else 
 		   autotype=0
@@ -7674,27 +7674,27 @@ function War_Auto()             --è‡ªåŠ¨æˆ˜æ–—ä¸»å‡½æ•°
 		end
 	end
 	
-    if autotype==0 then  --ä¼‘æ¯
-        War_AutoEscape();  --å…ˆè·‘å¼€
+    if autotype==0 then  --ĞİÏ¢
+        War_AutoEscape();  --ÏÈÅÜ¿ª
         War_RestMenu();
     elseif autotype==1 then
-        War_AutoFight();      --è‡ªåŠ¨æˆ˜æ–—
-    elseif autotype==2 then    --åƒè¯åŠ ç”Ÿå‘½
+        War_AutoFight();      --×Ô¶¯Õ½¶·
+    elseif autotype==2 then    --³ÔÒ©¼ÓÉúÃü
         War_AutoEscape();
         War_AutoEatDrug(2);
-    elseif autotype==3 then    --åƒè¯åŠ å†…åŠ›
+    elseif autotype==3 then    --³ÔÒ©¼ÓÄÚÁ¦
         War_AutoEscape();
          War_AutoEatDrug(3);
-    elseif autotype==4 then    --åƒè¯åŠ ä½“åŠ›
+    elseif autotype==4 then    --³ÔÒ©¼ÓÌåÁ¦
         War_AutoEscape();
         War_AutoEatDrug(4);
-    elseif autotype==5 then    --è‡ªå·±åŒ»ç–—
+    elseif autotype==5 then    --×Ô¼ºÒ½ÁÆ
         War_AutoEscape();
         War_AutoDoctor();
-    elseif autotype==6 then    --åƒè¯è§£æ¯’
+    elseif autotype==6 then    --³ÔÒ©½â¶¾
         War_AutoEscape();
         War_AutoEatDrug(6);
-    elseif autotype==7 then    --æˆ‘æ–¹AI
+    elseif autotype==7 then    --ÎÒ·½AI
 	    CurIDTXDH(WAR.CurID,1325,1344,CC.EVB171)	
 		War_RestMenu();
     end
@@ -7702,15 +7702,15 @@ function War_Auto()             --è‡ªåŠ¨æˆ˜æ–—ä¸»å‡½æ•°
     return 0;
 end
 
---æ€è€ƒå¦‚ä½•æˆ˜æ–—
---è¿”å›ï¼š0 ä¼‘æ¯ï¼Œ 1 æˆ˜æ–—ï¼Œ2 ä½¿ç”¨ç‰©å“å¢åŠ ç”Ÿå‘½ï¼Œ 3 ä½¿ç”¨ç‰©å“å¢åŠ å†…åŠ› 4 åƒè¯åŠ ä½“åŠ›ï¼Œ 5 åŒ»ç–—
---     6 ä½¿ç”¨ç‰©å“è§£æ¯’
+--Ë¼¿¼ÈçºÎÕ½¶·
+--·µ»Ø£º0 ĞİÏ¢£¬ 1 Õ½¶·£¬2 Ê¹ÓÃÎïÆ·Ôö¼ÓÉúÃü£¬ 3 Ê¹ÓÃÎïÆ·Ôö¼ÓÄÚÁ¦ 4 ³ÔÒ©¼ÓÌåÁ¦£¬ 5 Ò½ÁÆ
+--     6 Ê¹ÓÃÎïÆ·½â¶¾
 
-function War_Think()           --æ€è€ƒå¦‚ä½•æˆ˜æ–—
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
-    local r=-1;         --è€ƒè™‘çš„ç»“æœ
+function War_Think()           --Ë¼¿¼ÈçºÎÕ½¶·
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
+    local r=-1;         --¿¼ÂÇµÄ½á¹û
 
-    if JY.Person[pid]["ä½“åŠ›"] <10 then         --ä¼‘æ¯
+    if JY.Person[pid]["ÌåÁ¦"] <10 then         --ĞİÏ¢
         r=War_ThinkDrug(4);
         if r>=0 then
             return r;
@@ -7718,29 +7718,29 @@ function War_Think()           --æ€è€ƒå¦‚ä½•æˆ˜æ–—
         return 0;
     end
 
-    if JY.Person[pid]["ç”Ÿå‘½"]<20 or JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]>50 then
-        r=War_ThinkDrug(2);       --è€ƒè™‘å¢åŠ ç”Ÿå‘½
+    if JY.Person[pid]["ÉúÃü"]<20 or JY.Person[pid]["ÊÜÉË³Ì¶È"]>50 then
+        r=War_ThinkDrug(2);       --¿¼ÂÇÔö¼ÓÉúÃü
         if r>=0 then
             return r;
         end
     end
 
-    local rate=-1;         --å¢åŠ ç”Ÿå‘½çš„ç™¾åˆ†æ¯”
-    if JY.Person[pid]["ç”Ÿå‘½"] <JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"] /5 then
+    local rate=-1;         --Ôö¼ÓÉúÃüµÄ°Ù·Ö±È
+    if JY.Person[pid]["ÉúÃü"] <JY.Person[pid]["ÉúÃü×î´óÖµ"] /5 then
         rate=90;
-    elseif JY.Person[pid]["ç”Ÿå‘½"] <JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"] /4 then
+    elseif JY.Person[pid]["ÉúÃü"] <JY.Person[pid]["ÉúÃü×î´óÖµ"] /4 then
         rate=70;
-    elseif JY.Person[pid]["ç”Ÿå‘½"] <JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"] /3 then
+    elseif JY.Person[pid]["ÉúÃü"] <JY.Person[pid]["ÉúÃü×î´óÖµ"] /3 then
         rate=50;
-    elseif JY.Person[pid]["ç”Ÿå‘½"] <JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"] /2 then
+    elseif JY.Person[pid]["ÉúÃü"] <JY.Person[pid]["ÉúÃü×î´óÖµ"] /2 then
         rate=25;
     end
 
     if Rnd(100)<rate then
-        r=War_ThinkDrug(2);       --è€ƒè™‘å¢åŠ ç”Ÿå‘½
+        r=War_ThinkDrug(2);       --¿¼ÂÇÔö¼ÓÉúÃü
         if r>=0 then
             return r;
-        else             --æ²¡æœ‰å¢åŠ ç”Ÿå‘½çš„è¯ï¼Œè€ƒè™‘æ˜¯å¦è‡ªå·±åŒ»ç–—
+        else             --Ã»ÓĞÔö¼ÓÉúÃüµÄÒ©£¬¿¼ÂÇÊÇ·ñ×Ô¼ºÒ½ÁÆ
 		    r=War_ThinkDoctor();
 		    if r>=0 then
 		       return r;
@@ -7748,38 +7748,38 @@ function War_Think()           --æ€è€ƒå¦‚ä½•æˆ˜æ–—
         end
     end
 
-    rate=-1;         --å¢åŠ å†…åŠ›çš„ç™¾åˆ†æ¯”
-    if JY.Person[pid]["å†…åŠ›"] <JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"] /5 then
+    rate=-1;         --Ôö¼ÓÄÚÁ¦µÄ°Ù·Ö±È
+    if JY.Person[pid]["ÄÚÁ¦"] <JY.Person[pid]["ÄÚÁ¦×î´óÖµ"] /5 then
         rate=75;
-    elseif JY.Person[pid]["å†…åŠ›"] <JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"] /4 then
+    elseif JY.Person[pid]["ÄÚÁ¦"] <JY.Person[pid]["ÄÚÁ¦×î´óÖµ"] /4 then
         rate=50;
     end
 
     if Rnd(100)<rate then
-        r=War_ThinkDrug(3);       --è€ƒè™‘å¢åŠ å†…åŠ›
+        r=War_ThinkDrug(3);       --¿¼ÂÇÔö¼ÓÄÚÁ¦
         if r>=0 then
             return r;
         end
     end
 
 
-    rate=-1;         --è§£æ¯’çš„ç™¾åˆ†æ¯”
-    if JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"] > CC.PersonAttribMax["ä¸­æ¯’ç¨‹åº¦"] *3/4 then
+    rate=-1;         --½â¶¾µÄ°Ù·Ö±È
+    if JY.Person[pid]["ÖĞ¶¾³Ì¶È"] > CC.PersonAttribMax["ÖĞ¶¾³Ì¶È"] *3/4 then
         rate=60;
-    elseif JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"] >CC.PersonAttribMax["ä¸­æ¯’ç¨‹åº¦"] /2 then
+    elseif JY.Person[pid]["ÖĞ¶¾³Ì¶È"] >CC.PersonAttribMax["ÖĞ¶¾³Ì¶È"] /2 then
         rate=30;
     end
 
     if Rnd(100)<rate then
-        r=War_ThinkDrug(6);       --è€ƒè™‘è§£æ¯’
+        r=War_ThinkDrug(6);       --¿¼ÂÇ½â¶¾
         if r>=0 then
             return r;
         end
     end
 
-    local minNeili=War_GetMinNeiLi(pid);     --æ‰€æœ‰æ­¦åŠŸçš„æœ€å°å†…åŠ›
+    local minNeili=War_GetMinNeiLi(pid);     --ËùÓĞÎä¹¦µÄ×îĞ¡ÄÚÁ¦
 
-    if JY.Person[pid]["å†…åŠ›"]>=minNeili then
+    if JY.Person[pid]["ÄÚÁ¦"]>=minNeili then
         r=1;
     else
         r=0;
@@ -7788,49 +7788,49 @@ function War_Think()           --æ€è€ƒå¦‚ä½•æˆ˜æ–—
     return r;
 end
 
---èƒ½å¦åƒè¯å¢åŠ å‚æ•°
---flag=2 ç”Ÿå‘½ï¼Œ3å†…åŠ›ï¼›4ä½“åŠ›  6 è§£æ¯’
-function War_ThinkDrug(flag)             --èƒ½å¦åƒè¯å¢åŠ å‚æ•°
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+--ÄÜ·ñ³ÔÒ©Ôö¼Ó²ÎÊı
+--flag=2 ÉúÃü£¬3ÄÚÁ¦£»4ÌåÁ¦  6 ½â¶¾
+function War_ThinkDrug(flag)             --ÄÜ·ñ³ÔÒ©Ôö¼Ó²ÎÊı
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
     local str;
     local r=-1;
 
     if flag==2 then
-        str="åŠ ç”Ÿå‘½";
+        str="¼ÓÉúÃü";
     elseif flag==3 then
-        str="åŠ å†…åŠ›";
+        str="¼ÓÄÚÁ¦";
     elseif flag==4 then
-        str="åŠ ä½“åŠ›";
+        str="¼ÓÌåÁ¦";
     elseif flag==6 then
-        str="åŠ ä¸­æ¯’è§£æ¯’";
+        str="¼ÓÖĞ¶¾½â¶¾";
     else
         return r;
     end
 
-    local function Get_Add(thingid)    --å®šä¹‰å±€éƒ¨å‡½æ•°ã€‚å–å¾—ç‰©å“thingidå¢åŠ çš„å€¼
+    local function Get_Add(thingid)    --¶¨Òå¾Ö²¿º¯Êı¡£È¡µÃÎïÆ·thingidÔö¼ÓµÄÖµ
 		if flag==6 then
-			return -JY.Thing[thingid][str];   --è§£æ¯’ä¸ºè´Ÿå€¼
+			return -JY.Thing[thingid][str];   --½â¶¾Îª¸ºÖµ
 		else
 			return JY.Thing[thingid][str];
 		end
     end
 
-    if inteam(pid) and WAR.Person[WAR.CurID]["æˆ‘æ–¹"]==true then
+    if inteam(pid) and WAR.Person[WAR.CurID]["ÎÒ·½"]==true then
         for i =1, CC.MyThingNum do
-            local thingid=JY.Base["ç‰©å“" ..i];
+            local thingid=JY.Base["ÎïÆ·" ..i];
             if thingid>=0 then
-                if JY.Thing[thingid]["ç±»å‹"]==3 and Get_Add(thingid)>0 then
-                    r=flag;                     ---æœ‰å¢åŠ ç”Ÿå‘½çš„è¯ï¼Œåˆ™åŠ¨ä½œï¼šä½¿ç”¨ç‰©å“åŠ ç”Ÿå‘½
+                if JY.Thing[thingid]["ÀàĞÍ"]==3 and Get_Add(thingid)>0 then
+                    r=flag;                     ---ÓĞÔö¼ÓÉúÃüµÄÒ©£¬Ôò¶¯×÷£ºÊ¹ÓÃÎïÆ·¼ÓÉúÃü
                     break;
                 end
             end
         end
     else
         for i =1, 4 do
-            local thingid=JY.Person[pid]["æºå¸¦ç‰©å“" ..i];
+            local thingid=JY.Person[pid]["Ğ¯´øÎïÆ·" ..i];
             if thingid>=0 then--and thingid<236 then
-                if JY.Thing[thingid]["ç±»å‹"]==3 and Get_Add(thingid)>0  then
-                    r=flag;                     ---æœ‰å¢åŠ ç”Ÿå‘½çš„è¯ï¼Œåˆ™åŠ¨ä½œï¼šä½¿ç”¨ç‰©å“åŠ ç”Ÿå‘½
+                if JY.Thing[thingid]["ÀàĞÍ"]==3 and Get_Add(thingid)>0  then
+                    r=flag;                     ---ÓĞÔö¼ÓÉúÃüµÄÒ©£¬Ôò¶¯×÷£ºÊ¹ÓÃÎïÆ·¼ÓÉúÃü
                     break;
                 end
             end
@@ -7842,25 +7842,25 @@ function War_ThinkDrug(flag)             --èƒ½å¦åƒè¯å¢åŠ å‚æ•°
 end
 
 
---è€ƒè™‘æ˜¯å¦è‡ªå·±åŒ»ç–—
-function War_ThinkDoctor()          --è€ƒè™‘æ˜¯å¦ç»™è‡ªå·±åŒ»ç–—
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+--¿¼ÂÇÊÇ·ñ×Ô¼ºÒ½ÁÆ
+function War_ThinkDoctor()          --¿¼ÂÇÊÇ·ñ¸ø×Ô¼ºÒ½ÁÆ
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 
-	if JY.Person[pid]["ä½“åŠ›"]<50 or JY.Person[pid]["åŒ»ç–—èƒ½åŠ›"]<20 then
+	if JY.Person[pid]["ÌåÁ¦"]<50 or JY.Person[pid]["Ò½ÁÆÄÜÁ¦"]<20 then
 	    return -1;
 	end
 
-	if JY.Person[pid]["å—ä¼¤ç¨‹åº¦"]>JY.Person[pid]["åŒ»ç–—èƒ½åŠ›"]+20 then
+	if JY.Person[pid]["ÊÜÉË³Ì¶È"]>JY.Person[pid]["Ò½ÁÆÄÜÁ¦"]+20 then
 	    return -1;
 	end
 
 	local rate = -1;
-	local v=JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"]-JY.Person[pid]["ç”Ÿå‘½"];
-	if JY.Person[pid]["åŒ»ç–—èƒ½åŠ›"] < v/4 then
+	local v=JY.Person[pid]["ÉúÃü×î´óÖµ"]-JY.Person[pid]["ÉúÃü"];
+	if JY.Person[pid]["Ò½ÁÆÄÜÁ¦"] < v/4 then
         rate=30;
-	elseif JY.Person[pid]["åŒ»ç–—èƒ½åŠ›"] < v/3 then
+	elseif JY.Person[pid]["Ò½ÁÆÄÜÁ¦"] < v/3 then
 	    rate=50;
-	elseif JY.Person[pid]["åŒ»ç–—èƒ½åŠ›"] < v/2 then
+	elseif JY.Person[pid]["Ò½ÁÆÄÜÁ¦"] < v/2 then
 	    rate=70;
 	else
 	    rate=90;
@@ -7873,22 +7873,22 @@ function War_ThinkDoctor()          --è€ƒè™‘æ˜¯å¦ç»™è‡ªå·±åŒ»ç–—
 	return -1;
 end
 
----è‡ªåŠ¨æˆ˜æ–—
-function War_AutoFight()             ---æ‰§è¡Œè‡ªåŠ¨æˆ˜æ–—
+---×Ô¶¯Õ½¶·
+function War_AutoFight()             ---Ö´ĞĞ×Ô¶¯Õ½¶·
 
-	local wugongnum=War_AutoSelectWugong();    --é€‰æ‹©æ­¦åŠŸ
+	local wugongnum=War_AutoSelectWugong();    --Ñ¡ÔñÎä¹¦
 
-	if wugongnum <=0 then --æ²¡æœ‰é€‰æ‹©åˆ°æ­¦åŠŸï¼Œä¼‘æ¯
+	if wugongnum <=0 then --Ã»ÓĞÑ¡Ôñµ½Îä¹¦£¬ĞİÏ¢
         War_AutoEscape();
         War_RestMenu();
 		return
 	end
-	--[[if inteam(WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"]) and GetS(0,0,0,0)==1 then--WAR.Person[WAR.CurID]["æˆ‘æ–¹"]
-		local r=War_AutoMove(wugongnum);         -- å¾€æ•Œäººæ–¹å‘ç§»åŠ¨
-		if r==1 then   --å¦‚æœåœ¨æ”»å‡»èŒƒå›´
-			War_AutoExecuteFight(wugongnum);     --æ”»å‡»
+	--[[if inteam(WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"]) and GetS(0,0,0,0)==1 then--WAR.Person[WAR.CurID]["ÎÒ·½"]
+		local r=War_AutoMove(wugongnum);         -- ÍùµĞÈË·½ÏòÒÆ¶¯
+		if r==1 then   --Èç¹ûÔÚ¹¥»÷·¶Î§
+			War_AutoExecuteFight(wugongnum);     --¹¥»÷
 		else
-			War_RestMenu();           --ä¼‘æ¯
+			War_RestMenu();           --ĞİÏ¢
 		end
 	else]]
 		unnamed(wugongnum)
@@ -7896,25 +7896,25 @@ function War_AutoFight()             ---æ‰§è¡Œè‡ªåŠ¨æˆ˜æ–—
 end
 
 
-function War_AutoSelectWugong()           --è‡ªåŠ¨é€‰æ‹©åˆé€‚çš„æ­¦åŠŸ
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+function War_AutoSelectWugong()           --×Ô¶¯Ñ¡ÔñºÏÊÊµÄÎä¹¦
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 	
-    local probability={};       --æ¯ç§æ­¦åŠŸé€‰æ‹©çš„æ¦‚ç‡
+    local probability={};       --Ã¿ÖÖÎä¹¦Ñ¡ÔñµÄ¸ÅÂÊ
 
-    local wugongnum=10;         --ç¼ºçœ10ç§æ­¦åŠŸ
-	for i =1, 10 do             --è®¡ç®—æ¯ç§å¯é€‰æ‹©æ­¦åŠŸçš„æ€»æ”»å‡»åŠ›
-        local wugongid=JY.Person[pid]["æ­¦åŠŸ" .. i];
+    local wugongnum=10;         --È±Ê¡10ÖÖÎä¹¦
+	for i =1, 10 do             --¼ÆËãÃ¿ÖÖ¿ÉÑ¡ÔñÎä¹¦µÄ×Ü¹¥»÷Á¦
+        local wugongid=JY.Person[pid]["Îä¹¦" .. i];
         if wugongid>0 then
-		       --é€‰æ‹©æ€ç”Ÿå‘½çš„æ­¦åŠŸï¼Œå¿…é¡»æ¶ˆè€—å†…åŠ›æ¯”ç°æœ‰å†…åŠ›å°ï¼Œèµ·ç å¯ä»¥å‘å‡ºä¸€çº§çš„æ­¦åŠŸã€‚
-            if JY.Wugong[wugongid]["ä¼¤å®³ç±»å‹"]==0 then
-				if JY.Wugong[wugongid]["æ¶ˆè€—å†…åŠ›ç‚¹æ•°"]<=JY.Person[pid]["å†…åŠ›"] then
-					local level=math.modf(JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. i]/100)+1;
-					--æ€»æ”»å‡»åŠ›å³ä¸ºæ¦‚ç‡
-					probability[i]=(JY.Person[pid]["æ”»å‡»åŠ›"]*3+JY.Wugong[wugongid]["æ”»å‡»åŠ›" .. level ])/2;
+		       --Ñ¡ÔñÉ±ÉúÃüµÄÎä¹¦£¬±ØĞëÏûºÄÄÚÁ¦±ÈÏÖÓĞÄÚÁ¦Ğ¡£¬ÆğÂë¿ÉÒÔ·¢³öÒ»¼¶µÄÎä¹¦¡£
+            if JY.Wugong[wugongid]["ÉËº¦ÀàĞÍ"]==0 then
+				if JY.Wugong[wugongid]["ÏûºÄÄÚÁ¦µãÊı"]<=JY.Person[pid]["ÄÚÁ¦"] then
+					local level=math.modf(JY.Person[pid]["Îä¹¦µÈ¼¶" .. i]/100)+1;
+					--×Ü¹¥»÷Á¦¼´Îª¸ÅÂÊ
+					probability[i]=(JY.Person[pid]["¹¥»÷Á¦"]*3+JY.Wugong[wugongid]["¹¥»÷Á¦" .. level ])/2;
 				else
 					probability[i]=0;
 				end
-				if inteam(pid) and WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
+				if inteam(pid) and WAR.Person[WAR.CurID]["ÎÒ·½"] then
 					if wugongid>88 and wugongid<109  then
 						 if pid==0 and GetS(4,5,5,5)==5 then
 						
@@ -7940,8 +7940,8 @@ function War_AutoSelectWugong()           --è‡ªåŠ¨é€‰æ‹©åˆé€‚çš„æ­¦åŠŸ
 					end
 				end
 				
-			else            --æ€å†…åŠ›çš„æ­¦åŠŸ
-                probability[i]=10;  --å¾ˆå°çš„æ¦‚ç‡é€‰æ‹©æ€å†…åŠ›
+			else            --É±ÄÚÁ¦µÄÎä¹¦
+                probability[i]=10;  --ºÜĞ¡µÄ¸ÅÂÊÑ¡ÔñÉ±ÄÚÁ¦
 			end
 		else
 		    wugongnum=i-1;
@@ -7949,18 +7949,18 @@ function War_AutoSelectWugong()           --è‡ªåŠ¨é€‰æ‹©åˆé€‚çš„æ­¦åŠŸ
         end
     end
 	
-    local maxoffense=0;       --è®¡ç®—æœ€å¤§æ”»å‡»åŠ›
+    local maxoffense=0;       --¼ÆËã×î´ó¹¥»÷Á¦
 	for i =1, wugongnum do
         if  probability[i]>maxoffense then
             maxoffense=probability[i];
         end
     end
 
-    local mynum=0;             --è®¡ç®—æˆ‘æ–¹å’Œæ•Œäººä¸ªæ•°
+    local mynum=0;             --¼ÆËãÎÒ·½ºÍµĞÈË¸öÊı
 	local enemynum=0;
 	for i=0, WAR.PersonNum-1 do
-	    if WAR.Person[i]["æ­»äº¡"]==false then
-		    if WAR.Person[i]["æˆ‘æ–¹"]==WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
+	    if WAR.Person[i]["ËÀÍö"]==false then
+		    if WAR.Person[i]["ÎÒ·½"]==WAR.Person[WAR.CurID]["ÎÒ·½"] then
 			    mynum=mynum+1;
 			else
 			    enemynum=enemynum+1;
@@ -7968,32 +7968,32 @@ function War_AutoSelectWugong()           --è‡ªåŠ¨é€‰æ‹©åˆé€‚çš„æ­¦åŠŸ
 		end
 	end
 
-    local factor=0;       --æ•Œäººäººæ•°å½±å“å› å­ï¼Œæ•Œäººå¤šåˆ™å¯¹çº¿é¢ç­‰æ”»å‡»å¤šäººæ­¦åŠŸçš„é€‰æ‹©æ¦‚ç‡å¢åŠ 
+    local factor=0;       --µĞÈËÈËÊıÓ°ÏìÒò×Ó£¬µĞÈË¶àÔò¶ÔÏßÃæµÈ¹¥»÷¶àÈËÎä¹¦µÄÑ¡Ôñ¸ÅÂÊÔö¼Ó
 	if enemynum>mynum then
 	    factor=2;
 	else
 	    factor=1;
 	end
 
-	for i =1, wugongnum do       --è€ƒè™‘å…¶ä»–æ¦‚ç‡æ•ˆæœ
-        local wugongid=JY.Person[pid]["æ­¦åŠŸ" .. i];
+	for i =1, wugongnum do       --¿¼ÂÇÆäËû¸ÅÂÊĞ§¹û
+        local wugongid=JY.Person[pid]["Îä¹¦" .. i];
         if probability[i]>0 then
-		    if probability[i]<maxoffense-300 then       --å»æ‰æ”»å‡»åŠ›å°çš„æ­¦åŠŸ
+		    if probability[i]<maxoffense-300 then       --È¥µô¹¥»÷Á¦Ğ¡µÄÎä¹¦
 			    probability[i]=0
 			end
-			local extranum=0;           --æ­¦åŠŸæ­¦å™¨é…åˆçš„æ”»å‡»åŠ›
+			local extranum=0;           --Îä¹¦ÎäÆ÷ÅäºÏµÄ¹¥»÷Á¦
 			for j,v in ipairs(CC.ExtraOffense) do
-				if v[1]==JY.Person[pid]["æ­¦å™¨"] and v[2]==wugongid then
+				if v[1]==JY.Person[pid]["ÎäÆ÷"] and v[2]==wugongid then
 					extranum=v[3];
 					break;
 				end
 			end
-    		local level=math.modf(JY.Person[pid]["æ­¦åŠŸç­‰çº§" .. i]/100)+1;
-			probability[i]=probability[i]+JY.Wugong[wugongid]["æ”»å‡»èŒƒå›´"]*factor*JY.Wugong[wugongid]["æ€ä¼¤èŒƒå›´" ..level]*20;
+    		local level=math.modf(JY.Person[pid]["Îä¹¦µÈ¼¶" .. i]/100)+1;
+			probability[i]=probability[i]+JY.Wugong[wugongid]["¹¥»÷·¶Î§"]*factor*JY.Wugong[wugongid]["É±ÉË·¶Î§" ..level]*20;
         end
     end
 
-	local s={};           --æŒ‰ç…§æ¦‚ç‡ä¾æ¬¡ç´¯åŠ 
+	local s={};           --°´ÕÕ¸ÅÂÊÒÀ´ÎÀÛ¼Ó
 	local maxnum=0;
     for i=1,wugongnum do
         s[i]=maxnum;
@@ -8001,13 +8001,13 @@ function War_AutoSelectWugong()           --è‡ªåŠ¨é€‰æ‹©åˆé€‚çš„æ­¦åŠŸ
 	end
 	s[wugongnum+1]=maxnum;
 
-	if maxnum==0 then    --æ²¡æœ‰å¯ä»¥é€‰æ‹©çš„æ­¦åŠŸ
+	if maxnum==0 then    --Ã»ÓĞ¿ÉÒÔÑ¡ÔñµÄÎä¹¦
 	    return -1;
 	end
 
-    local v=Rnd(maxnum);            --äº§ç”Ÿéšæœºæ•°
+    local v=Rnd(maxnum);            --²úÉúËæ»úÊı
 	local selectid=0;
-    for i=1,wugongnum do            --æ ¹æ®äº§ç”Ÿçš„éšæœºæ•°ï¼Œå¯»æ‰¾è½åœ¨å“ªä¸ªæ­¦åŠŸåŒºé—´
+    for i=1,wugongnum do            --¸ù¾İ²úÉúµÄËæ»úÊı£¬Ñ°ÕÒÂäÔÚÄÄ¸öÎä¹¦Çø¼ä
 	    if v>=s[i] and v< s[i+1] then
 		    selectid=i;
 			break;
@@ -8018,23 +8018,23 @@ function War_AutoSelectWugong()           --è‡ªåŠ¨é€‰æ‹©åˆé€‚çš„æ­¦åŠŸ
 end
 
 
-function War_AutoSelectEnemy()             --é€‰æ‹©æˆ˜æ–—å¯¹æ‰‹
+function War_AutoSelectEnemy()             --Ñ¡ÔñÕ½¶·¶ÔÊÖ
     local enemyid=War_AutoSelectEnemy_near()
-    WAR.Person[WAR.CurID]["è‡ªåŠ¨é€‰æ‹©å¯¹æ‰‹"]=enemyid;
+    WAR.Person[WAR.CurID]["×Ô¶¯Ñ¡Ôñ¶ÔÊÖ"]=enemyid;
     return enemyid;
 end
 
 
-function War_AutoSelectEnemy_near()              --é€‰æ‹©æœ€è¿‘å¯¹æ‰‹
+function War_AutoSelectEnemy_near()              --Ñ¡Ôñ×î½ü¶ÔÊÖ
 
-    War_CalMoveStep(WAR.CurID,100,1);           --æ ‡è®°æ¯ä¸ªä½ç½®çš„æ­¥æ•°
+    War_CalMoveStep(WAR.CurID,100,1);           --±ê¼ÇÃ¿¸öÎ»ÖÃµÄ²½Êı
 
     local maxDest=math.huge;
     local nearid=-1;
-    for i=0,WAR.PersonNum-1 do           --æŸ¥æ‰¾æœ€è¿‘æ­¥æ•°çš„æ•Œäºº
-        if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] ~=WAR.Person[i]["æˆ‘æ–¹"] then
-            if WAR.Person[i]["æ­»äº¡"]==false then
-			   local step=GetWarMap(WAR.Person[i]["åæ ‡X"],WAR.Person[i]["åæ ‡Y"],3);
+    for i=0,WAR.PersonNum-1 do           --²éÕÒ×î½ü²½ÊıµÄµĞÈË
+        if WAR.Person[WAR.CurID]["ÎÒ·½"] ~=WAR.Person[i]["ÎÒ·½"] then
+            if WAR.Person[i]["ËÀÍö"]==false then
+			   local step=GetWarMap(WAR.Person[i]["×ø±êX"],WAR.Person[i]["×ø±êY"],3);
                 if step<maxDest then
                     nearid=i;
                     maxDest=step;
@@ -8045,17 +8045,17 @@ function War_AutoSelectEnemy_near()              --é€‰æ‹©æœ€è¿‘å¯¹æ‰‹
     return nearid;
 end
 
---è‡ªåŠ¨å¾€æ•Œäººæ–¹å‘ç§»åŠ¨
---äººç‰©æ­¦åŠŸç¼–å·ï¼Œä¸æ˜¯æ­¦åŠŸid
---è¿”å› 1=å¯ä»¥æ”»å‡»æ•Œäººï¼Œ 0 ä¸èƒ½æ”»å‡»
-function War_AutoMove(wugongnum)              --è‡ªåŠ¨å¾€æ•Œäººæ–¹å‘ç§»åŠ¨
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
-    local wugongid=JY.Person[pid]["æ­¦åŠŸ"  ..wugongnum];
-    local level=math.modf(JY.Person[pid]["æ­¦åŠŸç­‰çº§".. wugongnum]/100)+1;
+--×Ô¶¯ÍùµĞÈË·½ÏòÒÆ¶¯
+--ÈËÎïÎä¹¦±àºÅ£¬²»ÊÇÎä¹¦id
+--·µ»Ø 1=¿ÉÒÔ¹¥»÷µĞÈË£¬ 0 ²»ÄÜ¹¥»÷
+function War_AutoMove(wugongnum)              --×Ô¶¯ÍùµĞÈË·½ÏòÒÆ¶¯
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
+    local wugongid=JY.Person[pid]["Îä¹¦"  ..wugongnum];
+    local level=math.modf(JY.Person[pid]["Îä¹¦µÈ¼¶".. wugongnum]/100)+1;
 
-    local wugongtype=JY.Wugong[wugongid]["æ”»å‡»èŒƒå›´"];
-	local movescope=JY.Wugong[wugongid]["ç§»åŠ¨èŒƒå›´" ..level];
-	local fightscope=JY.Wugong[wugongid]["æ€ä¼¤èŒƒå›´" ..level];
+    local wugongtype=JY.Wugong[wugongid]["¹¥»÷·¶Î§"];
+	local movescope=JY.Wugong[wugongid]["ÒÆ¶¯·¶Î§" ..level];
+	local fightscope=JY.Wugong[wugongid]["É±ÉË·¶Î§" ..level];
     local scope=movescope+fightscope;
 
 
@@ -8063,11 +8063,11 @@ function War_AutoMove(wugongnum)              --è‡ªåŠ¨å¾€æ•Œäººæ–¹å‘ç§»åŠ¨
 	local move=128;
     local maxenemy=0;
 
-	local movestep=War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"],0);   --è®¡ç®—ç§»åŠ¨æ­¥æ•°
+	local movestep=War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"],0);   --¼ÆËãÒÆ¶¯²½Êı
 
-	War_AutoCalMaxEnemyMap(wugongid,level);  --è®¡ç®—è¯¥æ­¦åŠŸå„ä¸ªåæ ‡å¯ä»¥æ”»å‡»åˆ°æ•Œäººçš„ä¸ªæ•°
+	War_AutoCalMaxEnemyMap(wugongid,level);  --¼ÆËã¸ÃÎä¹¦¸÷¸ö×ø±ê¿ÉÒÔ¹¥»÷µ½µĞÈËµÄ¸öÊı
 
-	for i=0,WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"] do
+	for i=0,WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"] do
 	    local step_num=movestep[i].num ;
 		if step_num==nil or step_num==0 then
 		    break;
@@ -8078,9 +8078,9 @@ function War_AutoMove(wugongnum)              --è‡ªåŠ¨å¾€æ•Œäººæ–¹å‘ç§»åŠ¨
 
 			local num=0;
 			if wugongtype==0 or wugongtype==2 or wugongtype==3 then
-				num=GetWarMap(xx,yy,4)      --è®¡ç®—è¿™ä¸ªä½ç½®å¯ä»¥æ”»å‡»åˆ°çš„æœ€å¤šæ•Œäººä¸ªæ•°
+				num=GetWarMap(xx,yy,4)      --¼ÆËãÕâ¸öÎ»ÖÃ¿ÉÒÔ¹¥»÷µ½µÄ×î¶àµĞÈË¸öÊı
 			elseif wugongtype==1  then
-				local v=GetWarMap(xx,yy,4)      --è®¡ç®—è¿™ä¸ªä½ç½®å¯ä»¥æ”»å‡»åˆ°çš„æœ€å¤šæ•Œäººä¸ªæ•°
+				local v=GetWarMap(xx,yy,4)      --¼ÆËãÕâ¸öÎ»ÖÃ¿ÉÒÔ¹¥»÷µ½µÄ×î¶àµĞÈË¸öÊı
 				if v>0 then
 					num=War_AutoCalMaxEnemy(xx,yy,wugongid,level);
 				end
@@ -8102,25 +8102,25 @@ function War_AutoMove(wugongnum)              --è‡ªåŠ¨å¾€æ•Œäººæ–¹å‘ç§»åŠ¨
 	end
 
     if maxenemy>0 then
-	    War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"],0);   --é‡æ–°è®¡ç®—ç§»åŠ¨æ­¥æ•°
-        War_MovePerson(x,y);    --ç§»åŠ¨åˆ°ç›¸åº”çš„ä½ç½®
+	    War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"],0);   --ÖØĞÂ¼ÆËãÒÆ¶¯²½Êı
+        War_MovePerson(x,y);    --ÒÆ¶¯µ½ÏàÓ¦µÄÎ»ÖÃ
 		return 1;
-	else   --ä»»ä½•ç§»åŠ¨éƒ½ç›´æ¥æ”»å‡»ä¸åˆ°æ•Œäººï¼Œå¯»æ‰¾ä¸€æ¡å¯ä»¥ç§»åŠ¨åˆ°æ”»å‡»åˆ°æ•Œäººä½ç½®çš„è·¯çº¿
-		x,y=War_GetCanFightEnemyXY(scope);       --è®¡ç®—å¯ä»¥æ”»å‡»åˆ°æ•Œäººçš„æœ€è¿‘ä½ç½®
+	else   --ÈÎºÎÒÆ¶¯¶¼Ö±½Ó¹¥»÷²»µ½µĞÈË£¬Ñ°ÕÒÒ»Ìõ¿ÉÒÔÒÆ¶¯µ½¹¥»÷µ½µĞÈËÎ»ÖÃµÄÂ·Ïß
+		x,y=War_GetCanFightEnemyXY(scope);       --¼ÆËã¿ÉÒÔ¹¥»÷µ½µĞÈËµÄ×î½üÎ»ÖÃ
 
 		local minDest=math.huge;
-        if x==nil then   --æ— æ³•èµ°åˆ°å¯ä»¥æ”»å‡»æ•Œäººçš„åœ°æ–¹ï¼Œå¯èƒ½æ•Œäººè¢«å›´ä½ï¼Œæˆ–è€…è¢«æ•Œäººå›´ä½ã€‚
-             local enemyid=War_AutoSelectEnemy()   --é€‰æ‹©æœ€è¿‘æ•Œäºº
+        if x==nil then   --ÎŞ·¨×ßµ½¿ÉÒÔ¹¥»÷µĞÈËµÄµØ·½£¬¿ÉÄÜµĞÈË±»Î§×¡£¬»òÕß±»µĞÈËÎ§×¡¡£
+             local enemyid=War_AutoSelectEnemy()   --Ñ¡Ôñ×î½üµĞÈË
 
-			 War_CalMoveStep(WAR.CurID,100,0);   --è®¡ç®—ç§»åŠ¨æ­¥æ•° å‡è®¾æœ€å¤§100æ­¥
+			 War_CalMoveStep(WAR.CurID,100,0);   --¼ÆËãÒÆ¶¯²½Êı ¼ÙÉè×î´ó100²½
 
 			 for i=0,CC.WarWidth-1 do
                 for j=0,CC.WarHeight-1 do
 					local dest=GetWarMap(i,j,3);
                     if dest <128 then
-                        local dx=math.abs(i-WAR.Person[enemyid]["åæ ‡X"])
-                        local dy=math.abs(j-WAR.Person[enemyid]["åæ ‡Y"])
-                        if minDest>(dx+dy) then        --æ­¤æ—¶x,yæ˜¯è·ç¦»æ•Œäººçš„æœ€çŸ­è·¯å¾„ï¼Œè™½ç„¶å¯èƒ½è¢«å›´ä½
+                        local dx=math.abs(i-WAR.Person[enemyid]["×ø±êX"])
+                        local dy=math.abs(j-WAR.Person[enemyid]["×ø±êY"])
+                        if minDest>(dx+dy) then        --´ËÊ±x,yÊÇ¾àÀëµĞÈËµÄ×î¶ÌÂ·¾¶£¬ËäÈ»¿ÉÄÜ±»Î§×¡
                             minDest=dx+dy;
                             x=i;
                             y=j;
@@ -8134,13 +8134,13 @@ function War_AutoMove(wugongnum)              --è‡ªåŠ¨å¾€æ•Œäººæ–¹å‘ç§»åŠ¨
                 end
             end
 		else
-            minDest=0;        --å¯ä»¥èµ°åˆ°
+            minDest=0;        --¿ÉÒÔ×ßµ½
 		end
 
-		if minDest<math.huge then   --æœ‰è·¯å¯èµ°
-		    while true do    --ä»ç›®çš„ä½ç½®åç€æ‰¾åˆ°å¯ä»¥ç§»åŠ¨çš„ä½ç½®ï¼Œä½œä¸ºç§»åŠ¨çš„æ¬¡åº
+		if minDest<math.huge then   --ÓĞÂ·¿É×ß
+		    while true do    --´ÓÄ¿µÄÎ»ÖÃ·´×ÅÕÒµ½¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ£¬×÷ÎªÒÆ¶¯µÄ´ÎĞò
 				local i=GetWarMap(x,y,3);
-                if i<=WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"] then
+                if i<=WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"] then
                     break;
                 end
 
@@ -8154,7 +8154,7 @@ function War_AutoMove(wugongnum)              --è‡ªåŠ¨å¾€æ•Œäººæ–¹å‘ç§»åŠ¨
                     y=y+1;
                 end
             end
-            War_MovePerson(x,y);    --ç§»åŠ¨åˆ°ç›¸åº”çš„ä½ç½®
+            War_MovePerson(x,y);    --ÒÆ¶¯µ½ÏàÓ¦µÄÎ»ÖÃ
         end
     end
 
@@ -8162,44 +8162,44 @@ function War_AutoMove(wugongnum)              --è‡ªåŠ¨å¾€æ•Œäººæ–¹å‘ç§»åŠ¨
 end
 
 
-function War_AutoCalMaxEnemyMap(wugongid,level)       --è®¡ç®—åœ°å›¾ä¸Šæ¯ä¸ªä½ç½®å¯ä»¥æ”»å‡»çš„æ•Œäººæ•°ç›®
+function War_AutoCalMaxEnemyMap(wugongid,level)       --¼ÆËãµØÍ¼ÉÏÃ¿¸öÎ»ÖÃ¿ÉÒÔ¹¥»÷µÄµĞÈËÊıÄ¿
 
-    local wugongtype=JY.Wugong[wugongid]["æ”»å‡»èŒƒå›´"];
-    local movescope=JY.Wugong[wugongid]["ç§»åŠ¨èŒƒå›´" ..level];
-	local fightscope=JY.Wugong[wugongid]["æ€ä¼¤èŒƒå›´" ..level];
+    local wugongtype=JY.Wugong[wugongid]["¹¥»÷·¶Î§"];
+    local movescope=JY.Wugong[wugongid]["ÒÆ¶¯·¶Î§" ..level];
+	local fightscope=JY.Wugong[wugongid]["É±ÉË·¶Î§" ..level];
 
-	local x0=WAR.Person[WAR.CurID]["åæ ‡X"];
-	local y0=WAR.Person[WAR.CurID]["åæ ‡Y"];
+	local x0=WAR.Person[WAR.CurID]["×ø±êX"];
+	local y0=WAR.Person[WAR.CurID]["×ø±êY"];
 
- 	CleanWarMap(4,0);    --ç”¨level 4åœ°å›¾è¡¨ç¤ºå“ªäº›ä½ç½®å¯ä»¥æ”»å‡»åˆ°æ•Œäºº
+ 	CleanWarMap(4,0);    --ÓÃlevel 4µØÍ¼±íÊ¾ÄÄĞ©Î»ÖÃ¿ÉÒÔ¹¥»÷µ½µĞÈË
 
-----ç‚¹æ”»å‡»å’Œé¢æ”»å‡», æ¯ä¸ªåæ ‡å¯ä»¥æ”»å‡»çš„æ•Œäººä¸ªæ•°ï¼ˆæ˜¾ç„¶åªèƒ½ä¸º0å’Œ1ï¼‰
----è¿™é‡Œé¢æ”»å‡»å’Œç‚¹æ”»å‡»ä¸€æ ·å¤„ç†ï¼Œä¼šå¯¼è‡´é¢æ”»å‡»å¯èƒ½ä¸èƒ½æ”»å‡»åˆ°æœ€å¤šçš„æ•Œäººï¼Œä½†æ˜¯è¿™æ ·é€Ÿåº¦å¿«
+----µã¹¥»÷ºÍÃæ¹¥»÷, Ã¿¸ö×ø±ê¿ÉÒÔ¹¥»÷µÄµĞÈË¸öÊı£¨ÏÔÈ»Ö»ÄÜÎª0ºÍ1£©
+---ÕâÀïÃæ¹¥»÷ºÍµã¹¥»÷Ò»Ñù´¦Àí£¬»áµ¼ÖÂÃæ¹¥»÷¿ÉÄÜ²»ÄÜ¹¥»÷µ½×î¶àµÄµĞÈË£¬µ«ÊÇÕâÑùËÙ¶È¿ì
 	if wugongtype==0 or wugongtype==3 then
 		for n=0,WAR.PersonNum-1 do
-			if n~=WAR.CurID and WAR.Person[n]["æ­»äº¡"]==false and
-				WAR.Person[n]["æˆ‘æ–¹"] ~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then   --æ•Œäºº
-				local xx=WAR.Person[n]["åæ ‡X"];
-				local yy=WAR.Person[n]["åæ ‡Y"];
-				local movestep=War_CalMoveStep(n,movescope,1);   --è®¡ç®—æ­¦åŠŸç§»åŠ¨æ­¥æ•°
+			if n~=WAR.CurID and WAR.Person[n]["ËÀÍö"]==false and
+				WAR.Person[n]["ÎÒ·½"] ~=WAR.Person[WAR.CurID]["ÎÒ·½"] then   --µĞÈË
+				local xx=WAR.Person[n]["×ø±êX"];
+				local yy=WAR.Person[n]["×ø±êY"];
+				local movestep=War_CalMoveStep(n,movescope,1);   --¼ÆËãÎä¹¦ÒÆ¶¯²½Êı
 				for i=1,movescope do
 					local step_num=movestep[i].num ;
 					if step_num==0 then
 						break;
 					end
 					for j=1,step_num do
-						SetWarMap(movestep[i].x[j],movestep[i].y[j],4,1);  --æ ‡è®°æ­¦åŠŸç§»åŠ¨çš„åœ°æ–¹ï¼Œå³ä¸ºå¯æ”»å‡»åˆ°æ•Œäººä¹‹å¤„
+						SetWarMap(movestep[i].x[j],movestep[i].y[j],4,1);  --±ê¼ÇÎä¹¦ÒÆ¶¯µÄµØ·½£¬¼´Îª¿É¹¥»÷µ½µĞÈËÖ®´¦
 					end
 				end
 		end
 		end
---çº¿æ”»å‡»å’Œåå­— è®°å½•æ¯ä¸ªçš„ç‚¹å¯ä»¥æ”»å‡»åˆ°æ•Œäººçš„ä¸ªæ•°ã€‚å¯¹çº¿æ”»å‡»ï¼Œæ•°ç»„å¹¶ä¸å‡†ç¡®ï¼Œéœ€è¦è¿›ä¸€æ­¥æ ¸å®ã€‚
+--Ïß¹¥»÷ºÍÊ®×Ö ¼ÇÂ¼Ã¿¸öµÄµã¿ÉÒÔ¹¥»÷µ½µĞÈËµÄ¸öÊı¡£¶ÔÏß¹¥»÷£¬Êı×é²¢²»×¼È·£¬ĞèÒª½øÒ»²½ºËÊµ¡£
 	elseif wugongtype==1 or wugongtype==2  then
 		for n=0,WAR.PersonNum-1 do
-			if n~=WAR.CurID and WAR.Person[n]["æ­»äº¡"]==false and
-				WAR.Person[n]["æˆ‘æ–¹"] ~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then   --æ•Œäºº
-				local xx=WAR.Person[n]["åæ ‡X"];
-				local yy=WAR.Person[n]["åæ ‡Y"];
+			if n~=WAR.CurID and WAR.Person[n]["ËÀÍö"]==false and
+				WAR.Person[n]["ÎÒ·½"] ~=WAR.Person[WAR.CurID]["ÎÒ·½"] then   --µĞÈË
+				local xx=WAR.Person[n]["×ø±êX"];
+				local yy=WAR.Person[n]["×ø±êY"];
 				for direct=0,3 do
 					for i=1,movescope do
 						local xnew=xx+CC.DirectX[direct+1]*i;
@@ -8218,18 +8218,18 @@ function War_AutoCalMaxEnemyMap(wugongid,level)       --è®¡ç®—åœ°å›¾ä¸Šæ¯ä¸ªä½
 end
 
 
-function War_AutoCalMaxEnemy(x,y,wugongid,level)       --è®¡ç®—ä»(x,y)å¼€å§‹æ”»å‡»æœ€å¤šèƒ½å¤Ÿå‡»ä¸­å‡ ä¸ªæ•Œäºº
+function War_AutoCalMaxEnemy(x,y,wugongid,level)       --¼ÆËã´Ó(x,y)¿ªÊ¼¹¥»÷×î¶àÄÜ¹»»÷ÖĞ¼¸¸öµĞÈË
 
-    local wugongtype=JY.Wugong[wugongid]["æ”»å‡»èŒƒå›´"];
-    local movescope=JY.Wugong[wugongid]["ç§»åŠ¨èŒƒå›´" ..level];
-	local fightscope=JY.Wugong[wugongid]["æ€ä¼¤èŒƒå›´" ..level];
+    local wugongtype=JY.Wugong[wugongid]["¹¥»÷·¶Î§"];
+    local movescope=JY.Wugong[wugongid]["ÒÆ¶¯·¶Î§" ..level];
+	local fightscope=JY.Wugong[wugongid]["É±ÉË·¶Î§" ..level];
 
 	local maxnum=0;
 	local xmax,ymax;
 
 	if wugongtype==0 or wugongtype==3 then
 
-		local movestep=War_CalMoveStep(WAR.CurID,movescope,1);   --è®¡ç®—æ­¦åŠŸç§»åŠ¨æ­¥æ•°
+		local movestep=War_CalMoveStep(WAR.CurID,movescope,1);   --¼ÆËãÎä¹¦ÒÆ¶¯²½Êı
 		for i=1,movescope do
 			local step_num=movestep[i].num ;
 			if step_num==0 then
@@ -8240,18 +8240,18 @@ function War_AutoCalMaxEnemy(x,y,wugongid,level)       --è®¡ç®—ä»(x,y)å¼€å§‹æ”»
 				local yy=movestep[i].y[j];
 				local enemynum=0;
 
-				for n=0,WAR.PersonNum-1 do   --è®¡ç®—æ­¦åŠŸæ”»å‡»èŒƒå›´å†…çš„æ•Œäººä¸ªæ•°
-					 if n~=WAR.CurID and WAR.Person[n]["æ­»äº¡"]==false and
-					    WAR.Person[n]["æˆ‘æ–¹"] ~=WAR.Person[WAR.CurID]["æˆ‘æ–¹"] then
-						 local x=math.abs(WAR.Person[n]["åæ ‡X"]-xx);
-						 local y=math.abs(WAR.Person[n]["åæ ‡Y"]-yy);
+				for n=0,WAR.PersonNum-1 do   --¼ÆËãÎä¹¦¹¥»÷·¶Î§ÄÚµÄµĞÈË¸öÊı
+					 if n~=WAR.CurID and WAR.Person[n]["ËÀÍö"]==false and
+					    WAR.Person[n]["ÎÒ·½"] ~=WAR.Person[WAR.CurID]["ÎÒ·½"] then
+						 local x=math.abs(WAR.Person[n]["×ø±êX"]-xx);
+						 local y=math.abs(WAR.Person[n]["×ø±êY"]-yy);
 						 if x<=fightscope and y <=fightscope then
 							  enemynum=enemynum+1;
 						 end
 					 end
 				end
 
-				if enemynum>maxnum then        --è®°å½•æœ€å¤šæ•Œäººå’Œä½ç½®
+				if enemynum>maxnum then        --¼ÇÂ¼×î¶àµĞÈËºÍÎ»ÖÃ
 					maxnum=enemynum;
 					xmax=xx;
 					ymax=yy;
@@ -8259,8 +8259,8 @@ function War_AutoCalMaxEnemy(x,y,wugongid,level)       --è®¡ç®—ä»(x,y)å¼€å§‹æ”»
 			end
 		end
 
-	elseif wugongtype==1 then    --çº¿æ”»å‡»
-		for direct=0,3 do           -- å¯¹æ¯ä¸ªæ–¹å‘å¾ªç¯ï¼Œæ‰¾å‡ºæ•Œäººæœ€å¤šçš„
+	elseif wugongtype==1 then    --Ïß¹¥»÷
+		for direct=0,3 do           -- ¶ÔÃ¿¸ö·½ÏòÑ­»·£¬ÕÒ³öµĞÈË×î¶àµÄ
 			local enemynum=0;
 			for i=1,movescope do
 				local xnew=x+CC.DirectX[direct+1]*i;
@@ -8269,30 +8269,30 @@ function War_AutoCalMaxEnemy(x,y,wugongid,level)       --è®¡ç®—ä»(x,y)å¼€å§‹æ”»
 				if xnew>=0 and xnew<CC.WarWidth and ynew>=0 and ynew<CC.WarHeight then
 					local id=GetWarMap(xnew,ynew,2);
 					if id>=0 then
-						if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] ~= WAR.Person[id]["æˆ‘æ–¹"] then
-							enemynum=enemynum+1;                  --æ­¦åŠŸæ”»å‡»èŒƒå›´å†…çš„æ•Œäººä¸ªæ•°
+						if WAR.Person[WAR.CurID]["ÎÒ·½"] ~= WAR.Person[id]["ÎÒ·½"] then
+							enemynum=enemynum+1;                  --Îä¹¦¹¥»÷·¶Î§ÄÚµÄµĞÈË¸öÊı
 						end
 					end
 				end
 			end
-			if enemynum>maxnum then        --è®°å½•æœ€å¤šæ•Œäººå’Œä½ç½®
+			if enemynum>maxnum then        --¼ÇÂ¼×î¶àµĞÈËºÍÎ»ÖÃ
 				maxnum=enemynum;
-				xmax=x+CC.DirectX[direct+1];       --çº¿æ”»å‡»è®°å½•ä¸€ä¸ªä»£è¡¨æ–¹å‘çš„åæ ‡
+				xmax=x+CC.DirectX[direct+1];       --Ïß¹¥»÷¼ÇÂ¼Ò»¸ö´ú±í·½ÏòµÄ×ø±ê
 				ymax=y+CC.DirectY[direct+1];
 			end
 		end
 
-	elseif wugongtype==2 then --åå­—æ”»å‡»
+	elseif wugongtype==2 then --Ê®×Ö¹¥»÷
 		local enemynum=0;
-		for direct=0,3 do           -- å¯¹æ¯ä¸ªæ–¹å‘å¾ªç¯
+		for direct=0,3 do           -- ¶ÔÃ¿¸ö·½ÏòÑ­»·
 			for i=1,movescope do
 				local xnew=x+CC.DirectX[direct+1]*i;
 				local ynew=y+CC.DirectY[direct+1]*i;
 				if xnew>=0 and xnew<CC.WarWidth and ynew>=0 and ynew<CC.WarHeight then
 					local id=GetWarMap(xnew,ynew,2);
 					if id>=0 then
-						if WAR.Person[WAR.CurID]["æˆ‘æ–¹"] ~= WAR.Person[id]["æˆ‘æ–¹"] then
-							enemynum=enemynum+1;                  --æ­¦åŠŸæ”»å‡»èŒƒå›´å†…çš„æ•Œäººä¸ªæ•°
+						if WAR.Person[WAR.CurID]["ÎÒ·½"] ~= WAR.Person[id]["ÎÒ·½"] then
+							enemynum=enemynum+1;                  --Îä¹¦¹¥»÷·¶Î§ÄÚµÄµĞÈË¸öÊı
 						end
 					end
 				end
@@ -8307,33 +8307,33 @@ function War_AutoCalMaxEnemy(x,y,wugongid,level)       --è®¡ç®—ä»(x,y)å¼€å§‹æ”»
 	return maxnum,xmax,ymax;
 end
 
---è‡ªåŠ¨æ‰§è¡Œæˆ˜æ–—ï¼Œæ­¤æ—¶çš„ä½ç½®ä¸€å®šå¯ä»¥æ‰“åˆ°æ•Œäºº
-function War_AutoExecuteFight(wugongnum)            --è‡ªåŠ¨æ‰§è¡Œæˆ˜æ–—ï¼Œæ˜¾ç¤ºæ”»å‡»åŠ¨ç”»
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
-    local x0=WAR.Person[WAR.CurID]["åæ ‡X"];
-    local y0=WAR.Person[WAR.CurID]["åæ ‡Y"];
-    local wugongid=JY.Person[pid]["æ­¦åŠŸ"  ..wugongnum];
-    local level=math.modf(JY.Person[pid]["æ­¦åŠŸç­‰çº§".. wugongnum]/100)+1;
+--×Ô¶¯Ö´ĞĞÕ½¶·£¬´ËÊ±µÄÎ»ÖÃÒ»¶¨¿ÉÒÔ´òµ½µĞÈË
+function War_AutoExecuteFight(wugongnum)            --×Ô¶¯Ö´ĞĞÕ½¶·£¬ÏÔÊ¾¹¥»÷¶¯»­
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
+    local x0=WAR.Person[WAR.CurID]["×ø±êX"];
+    local y0=WAR.Person[WAR.CurID]["×ø±êY"];
+    local wugongid=JY.Person[pid]["Îä¹¦"  ..wugongnum];
+    local level=math.modf(JY.Person[pid]["Îä¹¦µÈ¼¶".. wugongnum]/100)+1;
 
     local maxnum,x,y=War_AutoCalMaxEnemy(x0,y0,wugongid,level);
 
     if x ~= nil then
         War_Fight_Sub(WAR.CurID,wugongnum,x,y);
-		WAR.Person[WAR.CurID]["Action"]={'atk',x-WAR.Person[WAR.CurID]["åæ ‡X"],y-WAR.Person[WAR.CurID]["åæ ‡Y"]}
+		WAR.Person[WAR.CurID]["Action"]={'atk',x-WAR.Person[WAR.CurID]["×ø±êX"],y-WAR.Person[WAR.CurID]["×ø±êY"]}
 	end
 
 end
 
---é€ƒè·‘
-function War_AutoEscape()                --é€ƒè·‘
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
-    if JY.Person[pid]["ä½“åŠ›"]<=5  then
+--ÌÓÅÜ
+function War_AutoEscape()                --ÌÓÅÜ
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
+    if JY.Person[pid]["ÌåÁ¦"]<=5  then
 	    return
 	end
 
     local x,y;
 
-    War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"],0);   --è®¡ç®—ç§»åŠ¨æ­¥æ•°
+    War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"],0);   --¼ÆËãÒÆ¶¯²½Êı
 	WarDrawMap(1)
 	ShowScreen()
 	local starttime=lib.GetTime();
@@ -8344,10 +8344,10 @@ function War_AutoEscape()                --é€ƒè·‘
 			if GetWarMap(i,j,3)<128 then
                 local minDest=math.huge;
                 for k=0,WAR.PersonNum-1 do
-                    if WAR.Person[WAR.CurID]["æˆ‘æ–¹"]~=WAR.Person[k]["æˆ‘æ–¹"] and WAR.Person[k]["æ­»äº¡"]==false then
-                        local dx=math.abs(i-WAR.Person[k]["åæ ‡X"])
-                        local dy=math.abs(j-WAR.Person[k]["åæ ‡Y"])
-                        if minDest>(dx+dy) then        --è®¡ç®—å½“å‰è·ç¦»æ•Œäººæœ€è¿‘çš„ä½ç½®
+                    if WAR.Person[WAR.CurID]["ÎÒ·½"]~=WAR.Person[k]["ÎÒ·½"] and WAR.Person[k]["ËÀÍö"]==false then
+                        local dx=math.abs(i-WAR.Person[k]["×ø±êX"])
+                        local dy=math.abs(j-WAR.Person[k]["×ø±êY"])
+                        if minDest>(dx+dy) then        --¼ÆËãµ±Ç°¾àÀëµĞÈË×î½üµÄÎ»ÖÃ
                             minDest=dx+dy;
                         end
                     end
@@ -8358,7 +8358,7 @@ function War_AutoEscape()                --é€ƒè·‘
 				array[num].y=j
 				array[num].p=minDest
 --[[
-                if minDest>maxDest then           --æ‰¾ä¸€ä¸ªæœ€è¿œçš„ä½ç½®
+                if minDest>maxDest then           --ÕÒÒ»¸ö×îÔ¶µÄÎ»ÖÃ
                     maxDest=minDest;
                     x=i;
                     y=j;
@@ -8396,8 +8396,8 @@ function War_AutoEscape()                --é€ƒè·‘
 	if endtime>0 then
 		lib.Delay(endtime)
 	end
-	War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ç§»åŠ¨æ­¥æ•°"],0); 
-    War_MovePerson(x,y);    --ç§»åŠ¨åˆ°ç›¸åº”çš„ä½ç½®
+	War_CalMoveStep(WAR.CurID,WAR.Person[WAR.CurID]["ÒÆ¶¯²½Êı"],0); 
+    War_MovePerson(x,y);    --ÒÆ¶¯µ½ÏàÓ¦µÄÎ»ÖÃ
 
 end
 
@@ -8418,8 +8418,8 @@ end
 
 
 function WE_xy(x,y,id)			
---è¾“å…¥idæ—¶ï¼Œé€‚ç”¨äºç§»åŠ¨
---ä¸è¾“å…¥æ—¶ï¼Œé€‚ç”¨äºå‡ºç°
+--ÊäÈëidÊ±£¬ÊÊÓÃÓÚÒÆ¶¯
+--²»ÊäÈëÊ±£¬ÊÊÓÃÓÚ³öÏÖ
 	if id~=nil then
 		War_CalMoveStep(id,128,0)
 		--MY_CalMoveStep(x,y,128,0)
@@ -8486,18 +8486,18 @@ end
 		
 function WE_getwarid(pid)
 	for i=0,WAR.PersonNum-1 do
-		if WAR.Person[i]["äººç‰©ç¼–å·"]==pid then return i end
+		if WAR.Person[i]["ÈËÎï±àºÅ"]==pid then return i end
 	end
 	return -1
 end
 
 function WE_move(pid,x,y)
---pid,äººç‰©ç¼–å·
---x,y,ç›®çš„åæ ‡ä¸åæ ‡çš„ç›¸å¯¹å€¼
+--pid,ÈËÎï±àºÅ
+--x,y,Ä¿µÄ×ø±êÓë×ø±êµÄÏà¶ÔÖµ
 	local id=WE_getwarid(pid)
 	if id==-1 then return end
 	WAR.CurID=id
-	local cx,cy=WAR.Person[id]["åæ ‡X"],WAR.Person[id]["åæ ‡Y"]
+	local cx,cy=WAR.Person[id]["×ø±êX"],WAR.Person[id]["×ø±êY"]
 	local nx,ny=WE_xy(cx+x,cy+y,id)
 	--lib.Debug(x..','..y..','..nx..','..ny)
 	War_MovePerson(nx,ny)
@@ -8505,8 +8505,8 @@ function WE_move(pid,x,y)
 end
 
 function WE_moveto(pid,x,y)
---pid,äººç‰©ç¼–å·
---x,y,ç›®çš„åæ ‡
+--pid,ÈËÎï±àºÅ
+--x,y,Ä¿µÄ×ø±ê
 	local id=WE_getwarid(pid)
 	if id==-1 then return end
 	WAR.CurID=id
@@ -8517,14 +8517,14 @@ function WE_moveto(pid,x,y)
 end
 
 function WE_follow(pid,eid)
---pid,äººç‰©ç¼–å·
---id,ç›®æ ‡äººç‰©ï¼Œç§»åŠ¨åˆ°ç¦»ç›®æ ‡äººç‰©æœ€è¿‘çš„ä½ç½®
+--pid,ÈËÎï±àºÅ
+--id,Ä¿±êÈËÎï£¬ÒÆ¶¯µ½ÀëÄ¿±êÈËÎï×î½üµÄÎ»ÖÃ
 	local a=WE_getwarid(pid)
 	local b=WE_getwarid(eid)
 	--lib.Debug(a..','..b)
 	if a==-1 or b==-1 then return end
 	WAR.CurID=a
-	local x,y=WAR.Person[b]["åæ ‡X"],WAR.Person[b]["åæ ‡Y"]
+	local x,y=WAR.Person[b]["×ø±êX"],WAR.Person[b]["×ø±êY"]
 	local nx,ny=WE_xy(x,y,a)
 	--lib.Debug(pid..','..eid..','..a..','..b..','..x..','..y..','..nx..','..ny)
 	War_MovePerson(nx,ny)
@@ -8532,70 +8532,70 @@ function WE_follow(pid,eid)
 end
 
 function WE_addperson(id,x,y,faseto,flag)
---id,æˆ˜åœºä¸Šæ–°åŠ çš„äººç‰©çš„äººç‰©ç¼–å·
---x,y,å‡ºç°ä½ç½®
---flag,æ•Œæˆ‘æ ‡è¯†
---facetoäººç‰©æ–¹å‘ï¼š0å³ä¸Š1å³ä¸‹2å·¦ä¸Š3å·¦ä¸‹
+--id,Õ½³¡ÉÏĞÂ¼ÓµÄÈËÎïµÄÈËÎï±àºÅ
+--x,y,³öÏÖÎ»ÖÃ
+--flag,µĞÎÒ±êÊ¶
+--facetoÈËÎï·½Ïò£º0ÓÒÉÏ1ÓÒÏÂ2×óÉÏ3×óÏÂ
 	faseto=faseto or 0
 	flag=flag or true
 	local cx,cy=WE_xy(x,y)
-	WAR.Person[WAR.PersonNum]["äººç‰©ç¼–å·"]=id;
-	WAR.Person[WAR.PersonNum]["æˆ‘æ–¹"]=true--flag;
-	WAR.Person[WAR.PersonNum]["åæ ‡X"]=cx;
-	WAR.Person[WAR.PersonNum]["åæ ‡Y"]=cy;
-	WAR.Person[WAR.PersonNum]["æ­»äº¡"]=false;
-	WAR.Person[WAR.PersonNum]["äººæ–¹å‘"]=faseto;
-	WAR.Person[WAR.PersonNum]["è´´å›¾"]=WarCalPersonPic(WAR.PersonNum);
-		--WAR.Person[i]["è´´å›¾"]=WarCalPersonPic(i);
+	WAR.Person[WAR.PersonNum]["ÈËÎï±àºÅ"]=id;
+	WAR.Person[WAR.PersonNum]["ÎÒ·½"]=true--flag;
+	WAR.Person[WAR.PersonNum]["×ø±êX"]=cx;
+	WAR.Person[WAR.PersonNum]["×ø±êY"]=cy;
+	WAR.Person[WAR.PersonNum]["ËÀÍö"]=false;
+	WAR.Person[WAR.PersonNum]["ÈË·½Ïò"]=faseto;
+	WAR.Person[WAR.PersonNum]["ÌùÍ¼"]=WarCalPersonPic(WAR.PersonNum);
+		--WAR.Person[i]["ÌùÍ¼"]=WarCalPersonPic(i);
 	--WAR.Person[WAR.PersonNum]["AI"]=2;
 	SetWarMap(cx,cy,2,WAR.PersonNum);
-	SetWarMap(cx,cy,5,WAR.Person[WAR.PersonNum]["è´´å›¾"]);
-	lib.PicLoadFile(string.format(CC.FightPicFile[1],JY.Person[id]["å¤´åƒä»£å·"]),string.format(CC.FightPicFile[2],JY.Person[id]["å¤´åƒä»£å·"]),4+WAR.PersonNum);
-	--WAR.Person[WAR.PersonNum]["è½»åŠŸ"]=GetSpeed(id)
-	WAR.Person[WAR.PersonNum]["ç§»åŠ¨æ­¥æ•°"]=math.modf(WAR.Person[WAR.PersonNum]["è½»åŠŸ"]/20)--JY.Person[id]["å—ä¼¤ç¨‹åº¦"]/40);
+	SetWarMap(cx,cy,5,WAR.Person[WAR.PersonNum]["ÌùÍ¼"]);
+	lib.PicLoadFile(string.format(CC.FightPicFile[1],JY.Person[id]["Í·Ïñ´úºÅ"]),string.format(CC.FightPicFile[2],JY.Person[id]["Í·Ïñ´úºÅ"]),4+WAR.PersonNum);
+	--WAR.Person[WAR.PersonNum]["Çá¹¦"]=GetSpeed(id)
+	WAR.Person[WAR.PersonNum]["ÒÆ¶¯²½Êı"]=math.modf(WAR.Person[WAR.PersonNum]["Çá¹¦"]/20)--JY.Person[id]["ÊÜÉË³Ì¶È"]/40);
 	WAR.PersonNum=WAR.PersonNum+1
 	--WAR.CurID=WAR.PersonNum-1
 end
 
 function WE_sort()
---é›†ä¸­å¤„ç†è®¾ç½®æ–°åŠ äººç‰©
---å¦‚è®¾ç½®è´´å›¾ï¼Œè½»åŠŸæ’åºç­‰
---æœªè€ƒè™‘å‘¨å…¨	
---ç°åœ¨è¿™ä¸ªå‡½æ•°åŸºæœ¬æ²¡ç”¨äº†ï¼Œæš‚ä¸”ä¿ç•™å§
+--¼¯ÖĞ´¦ÀíÉèÖÃĞÂ¼ÓÈËÎï
+--ÈçÉèÖÃÌùÍ¼£¬Çá¹¦ÅÅĞòµÈ
+--Î´¿¼ÂÇÖÜÈ«	
+--ÏÖÔÚÕâ¸öº¯Êı»ù±¾Ã»ÓÃÁË£¬ÔİÇÒ±£Áô°É
 	WarPersonSort(1)
 	for i=0,WAR.PersonNum-1 do
-		local pid=WAR.Person[i]["äººç‰©ç¼–å·"]
-		lib.PicLoadFile(string.format(CC.FightPicFile[1],JY.Person[pid]["å¤´åƒä»£å·"]),string.format(CC.FightPicFile[2],JY.Person[pid]["å¤´åƒä»£å·"]),4+i);
+		local pid=WAR.Person[i]["ÈËÎï±àºÅ"]
+		lib.PicLoadFile(string.format(CC.FightPicFile[1],JY.Person[pid]["Í·Ïñ´úºÅ"]),string.format(CC.FightPicFile[2],JY.Person[pid]["Í·Ïñ´úºÅ"]),4+i);
 		end
 end
 
 function WE_atk(id,cx,cy,kfid,lv,flag)
---æ’­æ”¾æ­¦åŠŸåŠ¨ç”»
---å¦‚æœlvä¸ºç©ºï¼Œåˆ™åªæ’­æ”¾äººç‰©æ”»å‡»åŠ¨ä½œ
+--²¥·ÅÎä¹¦¶¯»­
+--Èç¹ûlvÎª¿Õ£¬ÔòÖ»²¥·ÅÈËÎï¹¥»÷¶¯×÷
 	CleanWarMap(4,0)
 	local cid=WE_getwarid(id)
-	local x0=WAR.Person[cid]["åæ ‡X"];
-	local y0=WAR.Person[cid]["åæ ‡Y"];
-	WAR.Person[cid]["äººæ–¹å‘"]=War_Direct(0,0,cx,cy) or WAR.Person[cid]["äººæ–¹å‘"]
+	local x0=WAR.Person[cid]["×ø±êX"];
+	local y0=WAR.Person[cid]["×ø±êY"];
+	WAR.Person[cid]["ÈË·½Ïò"]=War_Direct(0,0,cx,cy) or WAR.Person[cid]["ÈË·½Ïò"]
 	if lv~=nil then
-		local kind,len1,len2=fenjie(JY.Wugong[kfid]["èŒƒå›´"..math.modf((lv+2)/3)])
+		local kind,len1,len2=fenjie(JY.Wugong[kfid]["·¶Î§"..math.modf((lv+2)/3)])
 		WarDrawAtt(x0+cx,y0+cy,kind,len1,len2,3,x0,y0)
 	end
 	local tmp=WAR.CurID
 	WAR.CurID=cid
-	War_ShowFight(id,kfid,JY.Wugong[kfid]["æ­¦åŠŸç±»å‹"],lv,x0+cx,y0+cy,JY.Wugong[kfid]["æ­¦åŠŸåŠ¨ç”»&éŸ³æ•ˆ"],0,0,0);
+	War_ShowFight(id,kfid,JY.Wugong[kfid]["Îä¹¦ÀàĞÍ"],lv,x0+cx,y0+cy,JY.Wugong[kfid]["Îä¹¦¶¯»­&ÒôĞ§"],0,0,0);
 	WAR.CurID=tmp
 	CleanWarMap(4,0)
 end
 
 function WE_JL(id1,id2,len)
---åˆ¤æ–­ä¸¤ä¸ªidä¹‹é—´çš„è·ç¦»ï¼Œå¦‚æœå°äºç­‰äºlenåˆ™åå›çœŸ
---å¦‚æœlenä¸ºç©ºåˆ™è¿”å›ä¸¤äººçš„è·ç¦»
+--ÅĞ¶ÏÁ½¸öidÖ®¼äµÄ¾àÀë£¬Èç¹ûĞ¡ÓÚµÈÓÚlenÔò·´»ØÕæ
+--Èç¹ûlenÎª¿ÕÔò·µ»ØÁ½ÈËµÄ¾àÀë
 	len=len or 1
 	local cid1=WE_getwarid(id1)
 	local cid2=WE_getwarid(id2)
-	local x1,y1=WAR.Person[cid1]["åæ ‡X"],WAR.Person[cid1]["åæ ‡Y"]
-	local x2,y2=WAR.Person[cid2]["åæ ‡X"],WAR.Person[cid2]["åæ ‡Y"]
+	local x1,y1=WAR.Person[cid1]["×ø±êX"],WAR.Person[cid1]["×ø±êY"]
+	local x2,y2=WAR.Person[cid2]["×ø±êX"],WAR.Person[cid2]["×ø±êY"]
 	local s=math.abs(x1-x2)+math.abs(y1-y2)
 	if len==nil then return s
 	elseif s<=len then return true
@@ -8607,24 +8607,24 @@ function WE_chuxian(id,x,y)
 	local pid=WE_getwarid(id)
 	local cx,cy=WE_xy(x,y)
 	SetWarMap(cx,cy,2,pid);
-	SetWarMap(cx,cy,5,WAR.Person[pid]["è´´å›¾"]);
-	WAR.Person[pid]["åæ ‡X"]=cx
-	WAR.Person[pid]["åæ ‡Y"]=cy
+	SetWarMap(cx,cy,5,WAR.Person[pid]["ÌùÍ¼"]);
+	WAR.Person[pid]["×ø±êX"]=cx
+	WAR.Person[pid]["×ø±êY"]=cy
 end
 
 function WE_xiaoshi(id)
 	local pid=WE_getwarid(id)
-	local cx,cy=WAR.Person[pid]["åæ ‡X"],WAR.Person[pid]["åæ ‡Y"]
+	local cx,cy=WAR.Person[pid]["×ø±êX"],WAR.Person[pid]["×ø±êY"]
 	SetWarMap(cx,cy,2,-1);
 	SetWarMap(cx,cy,5,-1);
 end
 
----åƒè¯
-----flag=2 ç”Ÿå‘½ï¼Œ3å†…åŠ›ï¼›4ä½“åŠ›  6 è§£æ¯’
-function War_AutoEatDrug(flag)          ---åƒè¯åŠ å‚æ•°
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
-    local life=JY.Person[pid]["ç”Ÿå‘½"];
-    local maxlife=JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"];
+---³ÔÒ©
+----flag=2 ÉúÃü£¬3ÄÚÁ¦£»4ÌåÁ¦  6 ½â¶¾
+function War_AutoEatDrug(flag)          ---³ÔÒ©¼Ó²ÎÊı
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
+    local life=JY.Person[pid]["ÉúÃü"];
+    local maxlife=JY.Person[pid]["ÉúÃü×î´óÖµ"];
     local selectid;
     local minvalue=math.huge;
 
@@ -8632,46 +8632,46 @@ function War_AutoEatDrug(flag)          ---åƒè¯åŠ å‚æ•°
     local maxattrib;
     local str;
     if flag==2 then
-        maxattrib=JY.Person[pid]["ç”Ÿå‘½æœ€å¤§å€¼"];
-        shouldadd=maxattrib-JY.Person[pid]["ç”Ÿå‘½"];
-        str="åŠ ç”Ÿå‘½";
+        maxattrib=JY.Person[pid]["ÉúÃü×î´óÖµ"];
+        shouldadd=maxattrib-JY.Person[pid]["ÉúÃü"];
+        str="¼ÓÉúÃü";
     elseif flag==3 then
-        maxattrib=JY.Person[pid]["å†…åŠ›æœ€å¤§å€¼"];
-        shouldadd=maxattrib-JY.Person[pid]["å†…åŠ›"];
-        str="åŠ å†…åŠ›";
+        maxattrib=JY.Person[pid]["ÄÚÁ¦×î´óÖµ"];
+        shouldadd=maxattrib-JY.Person[pid]["ÄÚÁ¦"];
+        str="¼ÓÄÚÁ¦";
     elseif flag==4 then
-        maxattrib=CC.PersonAttribMax["ä½“åŠ›"];
-        shouldadd=maxattrib-JY.Person[pid]["ä½“åŠ›"];
-        str="åŠ ä½“åŠ›";
+        maxattrib=CC.PersonAttribMax["ÌåÁ¦"];
+        shouldadd=maxattrib-JY.Person[pid]["ÌåÁ¦"];
+        str="¼ÓÌåÁ¦";
     elseif flag==6 then
-        maxattrib=CC.PersonAttribMax["ä¸­æ¯’ç¨‹åº¦"];
-        shouldadd=JY.Person[pid]["ä¸­æ¯’ç¨‹åº¦"];
-        str="åŠ ä¸­æ¯’è§£æ¯’";
+        maxattrib=CC.PersonAttribMax["ÖĞ¶¾³Ì¶È"];
+        shouldadd=JY.Person[pid]["ÖĞ¶¾³Ì¶È"];
+        str="¼ÓÖĞ¶¾½â¶¾";
     else
         return ;
     end
 
-    local function Get_Add(thingid)     --å®šä¹‰ç‰©å“å¢åŠ çš„å€¼
+    local function Get_Add(thingid)     --¶¨ÒåÎïÆ·Ôö¼ÓµÄÖµ
 	    if flag==6 then
-		    return -JY.Thing[thingid][str]/2;   --è§£æ¯’ä¸ºè´Ÿå€¼
+		    return -JY.Thing[thingid][str]/2;   --½â¶¾Îª¸ºÖµ
 		else
             return JY.Thing[thingid][str];
 		end
 	end
 
-    if inteam(pid) and WAR.Person[WAR.CurID]["æˆ‘æ–¹"]==true then
+    if inteam(pid) and WAR.Person[WAR.CurID]["ÎÒ·½"]==true then
         local extra=0;
         for i =1, CC.MyThingNum do
-            local thingid=JY.Base["ç‰©å“" ..i];
+            local thingid=JY.Base["ÎïÆ·" ..i];
             if thingid>=0 then
                 local add=Get_Add(thingid);
-                if JY.Thing[thingid]["ç±»å‹"]==3 and add>0 then
+                if JY.Thing[thingid]["ÀàĞÍ"]==3 and add>0 then
                     local v=shouldadd-add;
-                    if v<0 then               --å¯ä»¥åŠ æ»¡, ç”¨å…¶ä»–æ–¹æ³•æ‰¾åˆé€‚è¯å“
+                    if v<0 then               --¿ÉÒÔ¼ÓÂú, ÓÃÆäËû·½·¨ÕÒºÏÊÊÒ©Æ·
                         extra=1;
                         break;
                     else
-                        if v<minvalue then        --å¯»æ‰¾åŠ ç”Ÿå‘½åç”Ÿå‘½æœ€å¤§çš„
+                        if v<minvalue then        --Ñ°ÕÒ¼ÓÉúÃüºóÉúÃü×î´óµÄ
                             minvalue=v;
                             selectid=thingid;
                         end
@@ -8682,12 +8682,12 @@ function War_AutoEatDrug(flag)          ---åƒè¯åŠ å‚æ•°
         if extra==1 then
             minvalue=math.huge;
             for i =1, CC.MyThingNum do
-                local thingid=JY.Base["ç‰©å“" ..i];
+                local thingid=JY.Base["ÎïÆ·" ..i];
                 if thingid>=0 then
                     local add=Get_Add(thingid);
-                    if JY.Thing[thingid]["ç±»å‹"]==3 and add>0 then
+                    if JY.Thing[thingid]["ÀàĞÍ"]==3 and add>0 then
                         local v=add-shouldadd;
-                        if v>=0 then               --å¯ä»¥åŠ æ»¡ç”Ÿå‘½
+                        if v>=0 then               --¿ÉÒÔ¼ÓÂúÉúÃü
                             if v<minvalue then
                                 minvalue=v;
                                 selectid=thingid;
@@ -8697,23 +8697,23 @@ function War_AutoEatDrug(flag)          ---åƒè¯åŠ å‚æ•°
                 end
             end
         end
-        if UseThingEffect(selectid,pid)==1 then       --ä½¿ç”¨æœ‰æ•ˆæœ
-            instruct_32(selectid,-1);            --ç‰©å“æ•°é‡å‡å°‘
+        if UseThingEffect(selectid,pid)==1 then       --Ê¹ÓÃÓĞĞ§¹û
+            instruct_32(selectid,-1);            --ÎïÆ·ÊıÁ¿¼õÉÙ
         end
     else
         local extra=0;
         for i =1, 4 do
-            local thingid=JY.Person[pid]["æºå¸¦ç‰©å“" ..i];
-			local tids=JY.Person[pid]["æºå¸¦ç‰©å“æ•°é‡" ..i];
+            local thingid=JY.Person[pid]["Ğ¯´øÎïÆ·" ..i];
+			local tids=JY.Person[pid]["Ğ¯´øÎïÆ·ÊıÁ¿" ..i];
             if thingid>=0 and tids>0 then
                 local add=Get_Add(thingid);
-                if JY.Thing[thingid]["ç±»å‹"]==3 and add>0 then
+                if JY.Thing[thingid]["ÀàĞÍ"]==3 and add>0 then
                     local v=shouldadd-add;
-                    if v<0 then               --å¯ä»¥åŠ æ»¡ç”Ÿå‘½, ç”¨å…¶ä»–æ–¹æ³•æ‰¾åˆé€‚è¯å“
+                    if v<0 then               --¿ÉÒÔ¼ÓÂúÉúÃü, ÓÃÆäËû·½·¨ÕÒºÏÊÊÒ©Æ·
                         extra=1;
                         break;
                     else
-                        if v<minvalue then        --å¯»æ‰¾åŠ ç”Ÿå‘½åç”Ÿå‘½æœ€å¤§çš„
+                        if v<minvalue then        --Ñ°ÕÒ¼ÓÉúÃüºóÉúÃü×î´óµÄ
                             minvalue=v;
                             selectid=thingid;
                         end
@@ -8724,13 +8724,13 @@ function War_AutoEatDrug(flag)          ---åƒè¯åŠ å‚æ•°
         if extra==1 then
             minvalue=math.huge;
             for i =1, 4 do
-                local thingid=JY.Person[pid]["æºå¸¦ç‰©å“" ..i];
-				local tids=JY.Person[pid]["æºå¸¦ç‰©å“æ•°é‡" ..i];
+                local thingid=JY.Person[pid]["Ğ¯´øÎïÆ·" ..i];
+				local tids=JY.Person[pid]["Ğ¯´øÎïÆ·ÊıÁ¿" ..i];
                 if thingid>=0 and tids>0 then
                     local add=Get_Add(thingid);
-                    if JY.Thing[thingid]["ç±»å‹"]==3 and add>0 then
+                    if JY.Thing[thingid]["ÀàĞÍ"]==3 and add>0 then
                         local v=add-shouldadd;
-                        if v>=0 then               --å¯ä»¥åŠ æ»¡ç”Ÿå‘½
+                        if v>=0 then               --¿ÉÒÔ¼ÓÂúÉúÃü
                             if v<minvalue then
                                 minvalue=v;
                                 selectid=thingid;
@@ -8741,8 +8741,8 @@ function War_AutoEatDrug(flag)          ---åƒè¯åŠ å‚æ•°
             end
         end
 
-        if UseThingEffect(selectid,pid)==1 then       --ä½¿ç”¨æœ‰æ•ˆæœ
-            instruct_41(pid,selectid,-1);            --ç‰©å“æ•°é‡å‡å°‘
+        if UseThingEffect(selectid,pid)==1 then       --Ê¹ÓÃÓĞĞ§¹û
+            instruct_41(pid,selectid,-1);            --ÎïÆ·ÊıÁ¿¼õÉÙ
         end
     end
 
@@ -8750,10 +8750,10 @@ function War_AutoEatDrug(flag)          ---åƒè¯åŠ å‚æ•°
 end
 
 
---è‡ªåŠ¨åŒ»ç–—
-function War_AutoDoctor()            --è‡ªåŠ¨åŒ»ç–—
-    local x1=WAR.Person[WAR.CurID]["åæ ‡X"];
-    local y1=WAR.Person[WAR.CurID]["åæ ‡Y"];
+--×Ô¶¯Ò½ÁÆ
+function War_AutoDoctor()            --×Ô¶¯Ò½ÁÆ
+    local x1=WAR.Person[WAR.CurID]["×ø±êX"];
+    local y1=WAR.Person[WAR.CurID]["×ø±êY"];
 
     War_ExecuteMenu_Sub(x1,y1,3,-1);
 end
@@ -8778,8 +8778,8 @@ end
 function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 	local x0,y0
 	if cx==nil or cy==nil then
-		x0=WAR.Person[WAR.CurID]["åæ ‡X"];
-		y0=WAR.Person[WAR.CurID]["åæ ‡Y"];
+		x0=WAR.Person[WAR.CurID]["×ø±êX"];
+		y0=WAR.Person[WAR.CurID]["×ø±êY"];
 	else
 		x0,y0=cx,cy
 	end
@@ -8795,10 +8795,10 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 	local xy={}
 	local num=0
 	
-	if kind==0 then		--å•ç‚¹
+	if kind==0 then		--µ¥µã
 		num=1
 		xy[1]={x,y}				
-	elseif kind==1 then					--å®šç‚¹ç±³
+	elseif kind==1 then					--¶¨µãÃ×
 		len1=len1 or 0
 		len2=len2 or 0
 		num=num+1
@@ -8817,8 +8817,8 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 			xy[num+4]={x+i,y-i}
 			num=num+4		
 		end			
-	elseif kind==2 then					--å®šç‚¹è±å½¢
-		for tx=x-len1,x+len1 do			--è¿™ä¸ªæ–¹æ³•æ„Ÿè§‰æœ‰ç‚¹æµªè´¹ï¼Œ1/2çš„ç‚¹éƒ½æ˜¯ä¸ç¬¦åˆè¦æ±‚çš„
+	elseif kind==2 then					--¶¨µãÁâĞÎ
+		for tx=x-len1,x+len1 do			--Õâ¸ö·½·¨¸Ğ¾õÓĞµãÀË·Ñ£¬1/2µÄµã¶¼ÊÇ²»·ûºÏÒªÇóµÄ
 			for ty=y-len1,y+len1 do
 				if math.abs(tx-x)+math.abs(ty-y)>len1 then
 				
@@ -8828,7 +8828,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 				end
 			end
 		end			
-	elseif kind==3 then					--å®šç‚¹æ–¹å—
+	elseif kind==3 then					--¶¨µã·½¿é
 		len2=len2 or len1
 		local dx,dy=math.abs(x-x0),math.abs(y-y0)
 		if dx>dy then len1,len2=len2,len1 end
@@ -8838,7 +8838,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 				xy[num]={tx,ty}
 			end
 		end	
-	elseif kind==5 then					--ç²—åå­—
+	elseif kind==5 then					--´ÖÊ®×Ö
 		len1=len1 or 0
 		len2=len2 or 0
 		num=num+1
@@ -8868,7 +8868,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 			xy[num+8]={x+1,y-i}
 			num=num+8		
 		end	
-	elseif kind==6 then					--å®šç‚¹äº•
+	elseif kind==6 then					--¶¨µã¾®
 		len2=len2 or len1
 		xy[1]={x+1,y}
 		xy[2]={x-1,y}
@@ -8896,7 +8896,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 				num=num+4
 			end
 		end
-	elseif kind==7 then					--å®šç‚¹ç”°
+	elseif kind==7 then					--¶¨µãÌï
 		len2=len2 or len1
 		if len1==0 then
 			for i=y-len2,y+len2 do
@@ -8927,7 +8927,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 				num=num+6
 			end
 		end
-	elseif kind==8 then					--å®šç‚¹å
+	elseif kind==8 then					--¶¨µã…d
 		xy[1]={x,y}
 		num=1
 		for i=1,len1 do
@@ -8941,7 +8941,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 			xy[num+8]={x-len1,y+i}
 			num=num+8
 		end
-	elseif kind==9 then					--å®šç‚¹å
+	elseif kind==9 then					--¶¨µã…e
 		xy[1]={x,y}
 		num=1
 		for i=1,len1 do
@@ -8957,7 +8957,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 		end
 	elseif x==x0 and y==y0 then
 		return 0
-	elseif kind==10 then				--æ–¹å‘çº¿
+	elseif kind==10 then				--·½ÏòÏß
 		len2=len2 or 0
 		len3=len3 or 0
 		len4=len4 or 0
@@ -8981,12 +8981,12 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 		if dy2>0 then dy2=1
 		elseif dy2<0 then dy2=-1 end
 		--end
-		--é¦–å…ˆç»˜åˆ¶ä¸­é—´ä¸€æ¡
+		--Ê×ÏÈ»æÖÆÖĞ¼äÒ»Ìõ
 		for i=0,len1-1 do
 			num=num+1
 			xy[num]={x+i*fx,y+i*fy}
 		end
-			--ç„¶åæ˜¯ä¸¤è¾¹
+			--È»ºóÊÇÁ½±ß
 		for i=0,len2-1 do
 			num=num+1
 			xy[num]={x+dx1+i*fx,y+dy1+i*fy}
@@ -9005,7 +9005,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 			num=num+1
 			xy[num]={x+3*dx2+i*fx,y+3*dy2+i*fy}
 		end	
-	elseif kind==11 then				--æ­£ä¸‰è§’
+	elseif kind==11 then				--ÕıÈı½Ç
 		local fx,fy=x-x0,y-y0
 		if fx>1 then fx=1
 		elseif fx<-1 then fx=-1 end
@@ -9040,7 +9040,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 				end
 			end
 		end
-	elseif kind==12 then				--å€’ä¸‰è§’
+	elseif kind==12 then				--µ¹Èı½Ç
 		local fx,fy=x-x0,y-y0
 		if fx>1 then fx=1
 		elseif fx<-1 then fx=-1 end
@@ -9077,7 +9077,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 				end
 			end
 		end
-	elseif kind==13 then			--æ–¹å‘è±å½¢
+	elseif kind==13 then			--·½ÏòÁâĞÎ
 		local fx,fy=x-x0,y-y0;
 		if fx>1 then fx=1
 		elseif fx<-1 then fx=-1 end
@@ -9085,7 +9085,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 		elseif fy<-1 then fy=-1 end
 		local xx=x+fx*len1;
 		local yy=y+fy*len1;
-		for tx=xx-len1,xx+len1 do			--è¿™ä¸ªæ–¹æ³•æ„Ÿè§‰æœ‰ç‚¹æµªè´¹ï¼Œ1/2çš„ç‚¹éƒ½æ˜¯ä¸ç¬¦åˆè¦æ±‚çš„
+		for tx=xx-len1,xx+len1 do			--Õâ¸ö·½·¨¸Ğ¾õÓĞµãÀË·Ñ£¬1/2µÄµã¶¼ÊÇ²»·ûºÏÒªÇóµÄ
 			for ty=yy-len1,yy+len1 do
 				if math.abs(tx-xx)+math.abs(ty-yy)>len1 then
 				
@@ -9101,7 +9101,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 		
 		
 		
-	if flag==1 then									--ç»˜åˆ¶æ”»å‡»èŒƒå›´
+	if flag==1 then									--»æÖÆ¹¥»÷·¶Î§
 
 		local function thexy(nx,ny,x,y)
 			local dx,dy=nx-x,ny-y;
@@ -9116,8 +9116,8 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 			local tx,ty=thexy(xy[i][1],xy[i][2],x0,y0)
 			lib.PicLoadCache(0,0,tx,ty,2,128)		
 		end
-	elseif flag==2 then													--è¿”å›æ”»å‡»æ•°ç›®
-		local diwo=WAR.Person[WAR.CurID]["æˆ‘æ–¹"]
+	elseif flag==2 then													--·µ»Ø¹¥»÷ÊıÄ¿
+		local diwo=WAR.Person[WAR.CurID]["ÎÒ·½"]
 		local atknum=0
 		for i=1,num do
 			if xy[i][1]>=0 and xy[i][1]<CC.WarWidth and xy[i][2]>=0 and xy[i][2]<CC.WarHeight then
@@ -9125,14 +9125,14 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 				if id~=-1 and id~=WAR.CurID then 
 					--lib.Debug(xy[i][1]..','..xy[i][2]..'|'..id)
 					local xa,xb,xc
-					if diwo~=WAR.Person[id]["æˆ‘æ–¹"] then 
+					if diwo~=WAR.Person[id]["ÎÒ·½"] then 
 						xa=2
 					elseif GetS(0,0,0,0)==1 then
 						xa=-0.5
 					else
 						xa=0
 					end
-					local hp=JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]
+					local hp=JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["ÉúÃü"]
 					if hp<atk/6 then
 						xb=2
 					elseif hp<atk/3 then
@@ -9140,14 +9140,14 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 					else
 						xb=0
 					end
-					local danger=JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["å†…åŠ›æœ€å¤§å€¼"]
+					local danger=JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["ÄÚÁ¦×î´óÖµ"]
 					xc=danger/500
 					atknum=atknum+xa*math.modf(xb*xc+5)
 					
---					if id<0 then--==WAR.Person[WAR.CurID]["è‡ªåŠ¨é€‰æ‹©å¯¹æ‰‹"] then
-	--					atknum=atknum+60	--è¿™ä¸ªåœ°æ–¹æš‚æ—¶ä¸ä½¿ç”¨
+--					if id<0 then--==WAR.Person[WAR.CurID]["×Ô¶¯Ñ¡Ôñ¶ÔÊÖ"] then
+	--					atknum=atknum+60	--Õâ¸öµØ·½ÔİÊ±²»Ê¹ÓÃ
 		--			else
-			--			local hp=JY.Person[WAR.Person[id]["äººç‰©ç¼–å·"]]["ç”Ÿå‘½"]
+			--			local hp=JY.Person[WAR.Person[id]["ÈËÎï±àºÅ"]]["ÉúÃü"]
 				--		if hp<atk/6 then
 					--		atknum=atknum+20
 --						elseif hp<atk/3 then
@@ -9160,7 +9160,7 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 			end
 		end
 		return atknum;
-	elseif flag==3 then							--è®¾ç½®æ­¦åŠŸæ•ˆæœä½œç”¨å±‚ï¼Œç¬¬å››å±‚
+	elseif flag==3 then							--ÉèÖÃÎä¹¦Ğ§¹û×÷ÓÃ²ã£¬µÚËÄ²ã
 		--CleanWarMap(4,0)
 		for i=1,num do
 			SetWarMap(xy[i][1],xy[i][2],4,1);
@@ -9172,16 +9172,16 @@ function WarDrawAtt(x,y,fanwei,flag,cx,cy,atk)
 end
 
 function War_FightSelectType(movefanwei,atkfanwei,x,y)		--
-    local x0=WAR.Person[WAR.CurID]["åæ ‡X"];
-    local y0=WAR.Person[WAR.CurID]["åæ ‡Y"];
+    local x0=WAR.Person[WAR.CurID]["×ø±êX"];
+    local y0=WAR.Person[WAR.CurID]["×ø±êY"];
     if x==nil and y==nil then
-        x,y=War_KfMove(movefanwei,atkfanwei);              --æœªæŒ‡å®šæ”»å‡»åœ°ç‚¹ï¼Œé€‰æ‹©æ”»å‡»å¯¹è±¡
+        x,y=War_KfMove(movefanwei,atkfanwei);              --Î´Ö¸¶¨¹¥»÷µØµã£¬Ñ¡Ôñ¹¥»÷¶ÔÏó
 		if x ==nil then
 			lib.GetKey();
 			Cls();
 			return;
 		end
-	else																	--è‡ªåŠ¨æˆ˜æ–—æ—¶ï¼Œä»¥æŒ‡å®šæ”»å‡»åœ°ç‚¹ï¼Œé’ˆå¯¹æ–—è½¬çš„æƒ…å†µå¯¹åæ ‡ä¿®æ­£
+	else																	--×Ô¶¯Õ½¶·Ê±£¬ÒÔÖ¸¶¨¹¥»÷µØµã£¬Õë¶Ô¶·×ªµÄÇé¿ö¶Ô×ø±êĞŞÕı
 		--[[
 		if movefanwei[1]<2 and movefanwei[2]==0 then
 			x=x0
@@ -9206,8 +9206,8 @@ function War_FightSelectType(movefanwei,atkfanwei,x,y)		--
 		    local dx=math.abs(x-x0);
 			local dy=math.abs(y-y0);
 			local dxy=math.abs(dx-dy)
-			if dx+dy~=1 then 			--åæ ‡æ­£ç¡®å°±ä¸ä¿®æ­£äº†
-				if dxy==0 or dxy==1 or dxy==2 then						--è¿™é‡ŒæŒ‰ç†æ¥è¯´åº”è¯¥æ˜¯ ==1ï¼Œå¯ä¸ºå•¥å®é™…1åè€Œæœ‰é—®é¢˜ï¼Ÿå—¯ï¼Œå…¶å®å°±æ˜¯é’ˆå¯¹æ–—è½¬ç½¢äº†ï¼Œå…¶ä»–çš„éƒ½æ˜¯æ­£ç¡®çš„åæ ‡,ä¿®å¥½äº†
+			if dx+dy~=1 then 			--×ø±êÕıÈ·¾Í²»ĞŞÕıÁË
+				if dxy==0 or dxy==1 or dxy==2 then						--ÕâÀï°´ÀíÀ´ËµÓ¦¸ÃÊÇ ==1£¬¿ÉÎªÉ¶Êµ¼Ê1·´¶øÓĞÎÊÌâ£¿àÅ£¬ÆäÊµ¾ÍÊÇÕë¶Ô¶·×ª°ÕÁË£¬ÆäËûµÄ¶¼ÊÇÕıÈ·µÄ×ø±ê,ĞŞºÃÁË
 					if x>x0 then
 						dx=1
 					else
@@ -9245,8 +9245,8 @@ function War_FightSelectType(movefanwei,atkfanwei,x,y)		--
 		    local dx=math.abs(x-x0);
 			local dy=math.abs(y-y0);
 			local dxy=math.abs(dx-dy)
-			if dx+dy~=1 then 			--åæ ‡æ­£ç¡®å°±ä¸ä¿®æ­£äº†
-				if dxy==0 or dxy==1 then						--è¿™é‡ŒæŒ‰ç†æ¥è¯´åº”è¯¥æ˜¯ ==1ï¼Œå¯ä¸ºå•¥å®é™…1åè€Œæœ‰é—®é¢˜ï¼Ÿå—¯ï¼Œå…¶å®å°±æ˜¯é’ˆå¯¹æ–—è½¬ç½¢äº†ï¼Œå…¶ä»–çš„éƒ½æ˜¯æ­£ç¡®çš„åæ ‡,ä¿®å¥½äº†
+			if dx+dy~=1 then 			--×ø±êÕıÈ·¾Í²»ĞŞÕıÁË
+				if dxy==0 or dxy==1 then						--ÕâÀï°´ÀíÀ´ËµÓ¦¸ÃÊÇ ==1£¬¿ÉÎªÉ¶Êµ¼Ê1·´¶øÓĞÎÊÌâ£¿àÅ£¬ÆäÊµ¾ÍÊÇÕë¶Ô¶·×ª°ÕÁË£¬ÆäËûµÄ¶¼ÊÇÕıÈ·µÄ×ø±ê,ĞŞºÃÁË
 					if x>x0 then
 						dx=1
 					else
@@ -9297,12 +9297,12 @@ function War_FightSelectType(movefanwei,atkfanwei,x,y)		--
 		end
 		--]]
 		--WarSetPerson()		
-		WarDrawAtt(x,y,atkfanwei,1)								--æ˜¾ç¤ºæ”»å‡»èŒƒå›´ï¼Œæ–—è½¬æ—¶æ˜¾ç¤ºä¸æ­£ç¡®ï¼Œåº”è¯¥æ˜¯äººç‰©æ²¡æœ‰ç§»åŠ¨åˆ°åœºæ™¯ä¸­å¿ƒ-ä¿®å¤äº†
+		WarDrawAtt(x,y,atkfanwei,1)								--ÏÔÊ¾¹¥»÷·¶Î§£¬¶·×ªÊ±ÏÔÊ¾²»ÕıÈ·£¬Ó¦¸ÃÊÇÈËÎïÃ»ÓĞÒÆ¶¯µ½³¡¾°ÖĞĞÄ-ĞŞ¸´ÁË
 		ShowScreen();
 		lib.Delay(500);
     end
 
-    WAR.Person[WAR.CurID]["äººæ–¹å‘"]=War_Direct(x0,y0,x,y) or WAR.Person[WAR.CurID]["äººæ–¹å‘"]
+    WAR.Person[WAR.CurID]["ÈË·½Ïò"]=War_Direct(x0,y0,x,y) or WAR.Person[WAR.CurID]["ÈË·½Ïò"]
 
 	SetWarMap(x,y,4,1);
 
@@ -9312,12 +9312,12 @@ function War_FightSelectType(movefanwei,atkfanwei,x,y)		--
 
 end
 
-function War_KfMove(movefanwei,atkfanwei)              ---é€‰æ‹©ç§»åŠ¨ä½ç½®
---kind 0è±å½¢1æ–¹å— 2å››å‘ 3å…«å‘
+function War_KfMove(movefanwei,atkfanwei)              ---Ñ¡ÔñÒÆ¶¯Î»ÖÃ
+--kind 0ÁâĞÎ1·½¿é 2ËÄÏò 3°ËÏò
 	local kind=movefanwei[1] or 0
 	local len=movefanwei[2] or 0
-    local x0=WAR.Person[WAR.CurID]["åæ ‡X"];
-    local y0=WAR.Person[WAR.CurID]["åæ ‡Y"];
+    local x0=WAR.Person[WAR.CurID]["×ø±êX"];
+    local y0=WAR.Person[WAR.CurID]["×ø±êY"];
     local x=x0;
     local y=y0;
 	if kind~=nil then
@@ -9458,19 +9458,19 @@ end
 
 function refw(wugong,level)
 	local m1,m2,a1,a2,a3,a4,a5
-    local fightscope=JY.Wugong[wugong]["æ”»å‡»èŒƒå›´"];
-	local kfkind=JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"];
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+    local fightscope=JY.Wugong[wugong]["¹¥»÷·¶Î§"];
+	local kfkind=JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"];
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 	if fightscope==0 then 
 		if level>10 then
 			m1=1
-			m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
+			m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
 			a1=1
 			a2=3
 			a3=3
 		else
 			m1=0
-			m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
+			m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
 			a1=1
 			a2=math.modf(level/5)
 			a3=math.modf(level/8)
@@ -9480,25 +9480,25 @@ function refw(wugong,level)
 			a1=12
 			if level>10 then
 				m1=3
-				m2=1--JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1;
+				m2=1--JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1;
 			else
 				m1=2
-				m2=1--JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level]-1;
+				m2=1--JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level]-1;
 			end		
 		elseif kfkind==2 then
 			a1=10
 			if level>10 then
 				m1=3
-				m2=1--JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
+				m2=1--JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
 				a3=a2-1
 				a4=a3-1
 			else
 				m1=2
-				m2=1--JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
+				m2=1--JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
 				if level>7 then
 					a3=a2-1
 				end
@@ -9508,21 +9508,21 @@ function refw(wugong,level)
 			if level>10 then
 				m1=3
 				m2=1
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1;
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1;
 			else
 				m1=2
 				m2=1
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level]-1;
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level]-1;
 			end
 		elseif kfkind==4 then
 			m1=2
 			if level>10 then
-				m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1;
+				m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1;
 				a1=7
 				a2=1+math.modf(level/3)
 				a3=a2
 			else
-				m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level]-1;
+				m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level]-1;
 				a1=1
 				a2=1+math.modf(level/3)
 			end				
@@ -9533,28 +9533,28 @@ function refw(wugong,level)
 		if kfkind==3 then
 			if level>10 then
 				a1=6
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
 			else
 				a1=8--+math.random(2)
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
 			end
 		else
 			if level>10 then
 				if kfkind==1 then
 					a1=5
-					a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1
+					a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1
 					a3=a2-3;
 				elseif kfkind==2 then
 					a1=1
-					a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1
+					a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1
 					a3=a2
 				else
 					a1=2
-					a2=1+math.modf(JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]/2)
+					a2=1+math.modf(JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]/2)
 				end
 			else
 				a1=1
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
 				a3=0
 			end	
 		end
@@ -9562,12 +9562,12 @@ function refw(wugong,level)
 		m1=0
 		a1=3
 		if level>10 then
-			m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]+1;
-			a2=JY.Wugong[wugong]["æ€ä¼¤èŒƒå›´"..10]
+			m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]+1;
+			a2=JY.Wugong[wugong]["É±ÉË·¶Î§"..10]
 			a3=a2
 		else
-			m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
-			a2=JY.Wugong[wugong]["æ€ä¼¤èŒƒå›´"..level];
+			m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
+			a2=JY.Wugong[wugong]["É±ÉË·¶Î§"..level];
 		end
 	end
 	
@@ -9578,24 +9578,24 @@ end
 
 function refw(wugong,level)
 	local m1,m2,a1,a2,a3,a4,a5
-	if JY.Wugong[wugong]["æ”»å‡»èŒƒå›´"]==-1 then
-		return JY.Wugong[wugong]["åŠ å†…åŠ›1"],JY.Wugong[wugong]["åŠ å†…åŠ›2"],
-			JY.Wugong[wugong]["æœªçŸ¥1"],JY.Wugong[wugong]["æœªçŸ¥2"],
-			JY.Wugong[wugong]["æœªçŸ¥3"],JY.Wugong[wugong]["æœªçŸ¥4"],JY.Wugong[wugong]["æœªçŸ¥5"];
+	if JY.Wugong[wugong]["¹¥»÷·¶Î§"]==-1 then
+		return JY.Wugong[wugong]["¼ÓÄÚÁ¦1"],JY.Wugong[wugong]["¼ÓÄÚÁ¦2"],
+			JY.Wugong[wugong]["Î´Öª1"],JY.Wugong[wugong]["Î´Öª2"],
+			JY.Wugong[wugong]["Î´Öª3"],JY.Wugong[wugong]["Î´Öª4"],JY.Wugong[wugong]["Î´Öª5"];
 	end
-    local fightscope=JY.Wugong[wugong]["æ”»å‡»èŒƒå›´"];
-	local kfkind=JY.Wugong[wugong]["æ­¦åŠŸç±»å‹"];
-    local pid=WAR.Person[WAR.CurID]["äººç‰©ç¼–å·"];
+    local fightscope=JY.Wugong[wugong]["¹¥»÷·¶Î§"];
+	local kfkind=JY.Wugong[wugong]["Îä¹¦ÀàĞÍ"];
+    local pid=WAR.Person[WAR.CurID]["ÈËÎï±àºÅ"];
 	if fightscope==0 then 
 		if level>10 then
 			m1=1
-			m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
+			m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
 			a1=1
 			a2=3
 			a3=3
 		else
 			m1=0
-			m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
+			m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
 			a1=1
 			a2=math.modf(level/5)
 			a3=math.modf(level/8)
@@ -9605,25 +9605,25 @@ function refw(wugong,level)
 			a1=12
 			if level>10 then
 				m1=3
-				m2=1--JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1;
+				m2=1--JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1;
 			else
 				m1=2
-				m2=1--JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level]-1;
+				m2=1--JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level]-1;
 			end		
 		elseif kfkind==2 then
 			a1=10
 			if level>10 then
 				m1=3
-				m2=1--JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
+				m2=1--JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
 				a3=a2-1
 				a4=a3-1
 			else
 				m1=2
-				m2=1--JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
+				m2=1--JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
 				if level>7 then
 					a3=a2-1
 				end
@@ -9633,21 +9633,21 @@ function refw(wugong,level)
 			if level>10 then
 				m1=3
 				m2=1
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1;
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1;
 			else
 				m1=2
 				m2=1
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level]-1;
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level]-1;
 			end
 		elseif kfkind==4 then
 			m1=2
 			if level>10 then
-				m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1;
+				m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1;
 				a1=7
 				a2=1+math.modf(level/3)
 				a3=a2
 			else
-				m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level]-1;
+				m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level]-1;
 				a1=1
 				a2=1+math.modf(level/3)
 			end				
@@ -9658,28 +9658,28 @@ function refw(wugong,level)
 		if kfkind==3 then
 			if level>10 then
 				a1=6
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10];
 			else
 				a1=8--+math.random(2)
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
 			end
 		else
 			if level>10 then
 				if kfkind==1 then
 					a1=5
-					a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1
+					a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1
 					a3=a2-3;
 				elseif kfkind==2 then
 					a1=1
-					a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]-1
+					a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]-1
 					a3=a2
 				else
 					a1=2
-					a2=1+math.modf(JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]/2)
+					a2=1+math.modf(JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]/2)
 				end
 			else
 				a1=1
-				a2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
+				a2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
 				a3=0
 			end	
 		end
@@ -9687,12 +9687,12 @@ function refw(wugong,level)
 		m1=0
 		a1=3
 		if level>10 then
-			m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..10]+1;
-			a2=JY.Wugong[wugong]["æ€ä¼¤èŒƒå›´"..10]
+			m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..10]+1;
+			a2=JY.Wugong[wugong]["É±ÉË·¶Î§"..10]
 			a3=a2
 		else
-			m2=JY.Wugong[wugong]["ç§»åŠ¨èŒƒå›´"..level];
-			a2=JY.Wugong[wugong]["æ€ä¼¤èŒƒå›´"..level];
+			m2=JY.Wugong[wugong]["ÒÆ¶¯·¶Î§"..level];
+			a2=JY.Wugong[wugong]["É±ÉË·¶Î§"..level];
 		end
 	end
 	
