@@ -1,1 +1,2 @@
-16:09:19 JY_Main start.
+20:36:26 JY_Main start.
+20:36:28 Start game cycle

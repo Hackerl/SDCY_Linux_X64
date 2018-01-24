@@ -94,7 +94,7 @@ CONFIG.LoadMMapScope=0;          --部分加载主地图文件时的加载范围
 --设置屏幕显示刷新方式 0 全部刷新显示， 1 只刷新屏幕变化部分。
 --设为1 可以在主角坐标不变时加快显示主地图和场景地图的速度，以及战斗出招和效果速度，从而降低CPU占用率。
 --此时为加快显示速度，场景中旗帜的飘动被禁止，战斗自动出招时也不会显示人物头像。
-CONFIG.FastShowScreen=0;
+CONFIG.FastShowScreen=1;
 
 
 if CONFIG.Zoom==1 then
